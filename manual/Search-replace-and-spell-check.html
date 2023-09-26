@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -30,21 +29,6 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
   -->
   /*]]>*/
   </style>
@@ -52,8 +36,9 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="subsection" id="Search-replace-and-spell-check">
-    <div class="header">
+  <div class="subsection-level-extent" id=
+  "Search-replace-and-spell-check">
+    <div class="nav-panel">
       <p>Previous: <a href=
       "Creating-Well_002dformatted-Documents.html" accesskey="p"
       rel="prev">Creating Well-formatted Documents</a>, Up:
@@ -64,11 +49,11 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id=
-    "Searching_002c-Replacing_002c-And-Spell-Checking"></span>
-    <h4 class="subsection">10.1.2 Searching, Replacing, And Spell
-    Checking</h4><span id="index-Search"></span> <span id=
-    "index-Replace"></span>
+    <h4 class="subsection" id=
+    "Searching_002c-Replacing_002c-And-Spell-Checking">10.1.2
+    Searching, Replacing, And Spell Checking</h4><a class=
+    "index-entry-id" id="index-Search"></a> <a class=
+    "index-entry-id" id="index-Replace"></a>
     <p>Incremental search, a process by which the system prompts
     the user for a search string and moves the selection to the
     next available match while allowing the user to add more
@@ -85,44 +70,49 @@
     speech-enabled by Emacspeak to provide spoken prompts as the
     dialog begins; auditory icons indicate a search hit or search
     miss as the search progresses. Along with auditory icons
-    <em>search-hit</em> and <em>search-miss</em> the user also
-    hears the current line spoken, and in the case of a search hit,
-    the matching text is <em>aurally</em> highlighted by using the
-    standard audio formatting technique of changing voice
-    characteristic. This feedback proves extremely effective when
-    the search pattern appears several times on a single line; the
-    user is unambiguously cued to the current match.</p>
+    <em class="emph">search-hit</em> and <em class=
+    "emph">search-miss</em> the user also hears the current line
+    spoken, and in the case of a search hit, the matching text is
+    <em class="emph">aurally</em> highlighted by using the standard
+    audio formatting technique of changing voice characteristic.
+    This feedback proves extremely effective when the search
+    pattern appears several times on a single line; the user is
+    unambiguously cued to the current match.</p>
     <p>Search and replace actions are an extension to the basic
     conversational gestures of a search dialog. In addition to
     specifying a search string, the user also specifies a
     replacement string. On the Emacspeak desktop, this
-    functionality is provided by command <em>query-replace</em>.
-    The speech-enabled version of this interaction prompts the user
-    for the search and replacement texts. The auditory feedback
-    during the interactive search and replacement process parallels
-    that described in the case of incremental search. Audio
-    formatting to indicate the occurrence that is about to be
-    replaced proves an effective means of avoiding erroneous
-    modifications to the text being edited. As an example, consider
-    using command <em>query-replace</em> to locate and replace the
-    second occurrence of <b>foo</b> with <b>bar</b> in the text</p>
-    <p>‘<samp>Do not change this fool, but change this
+    functionality is provided by command <em class=
+    "emph">query-replace</em>. The speech-enabled version of this
+    interaction prompts the user for the search and replacement
+    texts. The auditory feedback during the interactive search and
+    replacement process parallels that described in the case of
+    incremental search. Audio formatting to indicate the occurrence
+    that is about to be replaced proves an effective means of
+    avoiding erroneous modifications to the text being edited. As
+    an example, consider using command <em class=
+    "emph">query-replace</em> to locate and replace the second
+    occurrence of <b class="b">foo</b> with <b class="b">bar</b> in
+    the text</p>
+    <p>‘<samp class="samp">Do not change this fool, but change this
     food.</samp>’</p>
-    <p>When the search matches the first occurrence of <b>foo</b>
-    in word <em>fool</em>, the aural highlighting helps the user in
-    answering “no” in response to question “should this occurrence
-    be replaced”. In addition to allowing the user to supply a
-    simple “yes or no” answer for each match, command
-    <em>query-replace</em> also allows the user to specify a number
-    of other valid answers as described in the online Emacs
-    documentation.</p>
-    <ul class="section-toc">
-      <li><a href="#Spell-Checking" accesskey="1">Spell
-      Checking</a></li>
+    <p>When the search matches the first occurrence of <b class=
+    "b">foo</b> in word <em class="emph">fool</em>, the aural
+    highlighting helps the user in answering “no” in response to
+    question “should this occurrence be replaced”. In addition to
+    allowing the user to supply a simple “yes or no” answer for
+    each match, command <em class="emph">query-replace</em> also
+    allows the user to specify a number of other valid answers as
+    described in the online Emacs documentation.</p>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Spell-Checking" accesskey="1">Spell Checking</a>
+      </li>
     </ul>
-    <div class="unnumberedsubsubsec" id="Spell-Checking">
-      <h4 class="unnumberedsubsubsec">Spell Checking</h4><span id=
-      "index-Spell-Check"></span>
+    <div class="unnumberedsubsubsec-level-extent" id=
+    "Spell-Checking">
+      <h4 class="unnumberedsubsubsec">Spell Checking</h4><a class=
+      "index-entry-id" id="index-Spell-Check"></a>
       <p>A more complex instance of conversational gesture “search
       and replace” is exhibited by standard spell checking
       dialogues. Spell checking differs from the search and replace
@@ -147,28 +137,29 @@
       <p>The spell checking interface on the Emacspeak desktop is
       speech-enabled to provide fluent auditory feedback. The
       visual interface parallels that described above and is
-      provided by package <code>ispell</code> which is part of the
-      standard Emacs distribution. Emacspeak provides a spoken
-      prompt that is composed of the line containing the possibly
-      erroneous word (which is aurally highlighted to set it apart
-      from the rest of the text on that line) and the available
-      corrections. Each correction is prefixed with a number that
-      the user can use to select it. Once a correction is selected,
-      the interaction continues with the query and replace
-      interaction described earlier. The speech interface to the
-      spell checker is as fluent as the visual interface. Notice
-      that Emacspeak users do not need to concern themselves with
-      the details of the visual display such as “the corrections
-      are displayed in a window at the top of the screen”.</p>
+      provided by package <code class="code">ispell</code> which is
+      part of the standard Emacs distribution. Emacspeak provides a
+      spoken prompt that is composed of the line containing the
+      possibly erroneous word (which is aurally highlighted to set
+      it apart from the rest of the text on that line) and the
+      available corrections. Each correction is prefixed with a
+      number that the user can use to select it. Once a correction
+      is selected, the interaction continues with the query and
+      replace interaction described earlier. The speech interface
+      to the spell checker is as fluent as the visual interface.
+      Notice that Emacspeak users do not need to concern themselves
+      with the details of the visual display such as “the
+      corrections are displayed in a window at the top of the
+      screen”.</p>
       <p>In addition to the standard spell checker described above,
       newer versions of Emacs include an “on-the-fly” spell checker
       that flags erroneous words as they are typed. Emacspeak
-      speech-enables package <code>flyspell</code> so that such
-      erroneous words are aurally highlighted.</p>
+      speech-enables package <code class="code">flyspell</code> so
+      that such erroneous words are aurally highlighted.</p>
     </div>
   </div>
   <hr />
-  <div class="header">
+  <div class="nav-panel">
     <p>Previous: <a href=
     "Creating-Well_002dformatted-Documents.html">Creating
     Well-formatted Documents</a>, Up: <a href=

@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -33,21 +32,6 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
   -->
   /*]]>*/
   </style>
@@ -55,9 +39,9 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id=
+  <div class="section-level-extent" id=
   "Audio-Formatting-_002d_002d_002d-Generalizing-Aural-CSS">
-    <div class="header">
+    <div class="nav-panel">
       <p>Next: <a href=
       "Conversational-Gestures-For-The-Audio-Desktop.html"
       accesskey="n" rel="next">Conversational Gestures For The
@@ -71,52 +55,54 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id=
-    "Audio-Formatting-_002d_002d_002d-Generalizing-Aural-CSS-1"></span>
-    <h3 class="section">16.8 Audio Formatting — Generalizing Aural
-    CSS</h3>
-    <p>A key idea in Audio System For Technical Readings <a href=
+    <h3 class="section" id=
+    "Audio-Formatting-_002d_002d_002d-Generalizing-Aural-CSS-1">
+    16.8 Audio Formatting — Generalizing Aural CSS</h3>
+    <p>A key idea in Audio System For Technical Readings <a class=
+    "url" href=
     "http://www.cs.cornell.edu/home/raman/aster/aster-toplevel.html">
     (AsTeR)</a> was the use of various voice properties in
     combination with non-speech auditory icons to create rich aural
     renderings. When I implemented Emacspeak, I brought over the
     notion of audio formatting to all buffers in Emacs by creating
-    a <strong>voice-lock</strong> module that paralleled Emacs’
-    <strong>font-lock</strong> module. The visual medium is far
-    richer in terms of available fonts and colors as compared to
-    voice parameters available on TTS engines — consequently, it
-    did not make sense to directly map Emacs’ <strong>face</strong>
-    properties to voice parameters. To aid in projecting visual
-    formatting onto auditory space, I created property
-    <strong>personality</strong> analogous to Emacs’
-    <strong>face</strong> property that could be applied to content
-    displayed in Emacs; module <strong>voice-lock</strong> applied
-    that property appropriately, and the Emacspeak core handled the
-    details of mapping personality values to the underlying TTS
-    engine.</p>
-    <p>The values used in property <strong>personality</strong>
-    were abstract, i.e., they were independent of any given speech
-    engine. Later in the fall of 1995, I re-expressed these set of
-    abstract voice properties in terms of Aural CSS; the work was
-    published as a first draft toward the end of 1995, and
-    implemented in Emacs-W3 in early 1996. Aural CSS was an
-    appendix in the CSS-1.0 specification; later, it graduated to
-    being its own module within CSS-2.0.</p>
-    <p>Later in 1996, all of Emacs’ <strong>voice-lock</strong>
-    functionality was re-implemented in terms of Aural CSS; the
-    implementation has stood the test of time in that as I added
-    support for more TTS engines, I was able to implement
-    engine-specific mappings of Aural-CSS values. This meant that
-    the rest of Emacspeak could define various types of voices for
-    use in specific contexts without having to worry about
-    individual TTS engines. Conceptually, property
-    <strong>personality</strong> can be thought of as holding an
-    <strong>aural display list</strong> — various parts of the
-    system can annotate pieces of text with relevant properties
-    that finally get rendered in the aggregate. This model also
-    works well with the notion of Emacs overlays where a moving
-    overlay is used to temporarily highlight text that has other
-    context-specific properties applied to it.</p>
+    a <strong class="strong">voice-lock</strong> module that
+    paralleled Emacs’ <strong class="strong">font-lock</strong>
+    module. The visual medium is far richer in terms of available
+    fonts and colors as compared to voice parameters available on
+    TTS engines — consequently, it did not make sense to directly
+    map Emacs’ <strong class="strong">face</strong> properties to
+    voice parameters. To aid in projecting visual formatting onto
+    auditory space, I created property <strong class=
+    "strong">personality</strong> analogous to Emacs’
+    <strong class="strong">face</strong> property that could be
+    applied to content displayed in Emacs; module <strong class=
+    "strong">voice-lock</strong> applied that property
+    appropriately, and the Emacspeak core handled the details of
+    mapping personality values to the underlying TTS engine.</p>
+    <p>The values used in property <strong class=
+    "strong">personality</strong> were abstract, i.e., they were
+    independent of any given speech engine. Later in the fall of
+    1995, I re-expressed these set of abstract voice properties in
+    terms of Aural CSS; the work was published as a first draft
+    toward the end of 1995, and implemented in Emacs-W3 in early
+    1996. Aural CSS was an appendix in the CSS-1.0 specification;
+    later, it graduated to being its own module within CSS-2.0.</p>
+    <p>Later in 1996, all of Emacs’ <strong class=
+    "strong">voice-lock</strong> functionality was re-implemented
+    in terms of Aural CSS; the implementation has stood the test of
+    time in that as I added support for more TTS engines, I was
+    able to implement engine-specific mappings of Aural-CSS values.
+    This meant that the rest of Emacspeak could define various
+    types of voices for use in specific contexts without having to
+    worry about individual TTS engines. Conceptually, property
+    <strong class="strong">personality</strong> can be thought of
+    as holding an <strong class="strong">aural display
+    list</strong> — various parts of the system can annotate pieces
+    of text with relevant properties that finally get rendered in
+    the aggregate. This model also works well with the notion of
+    Emacs overlays where a moving overlay is used to temporarily
+    highlight text that has other context-specific properties
+    applied to it.</p>
     <p>Audio formatting as implemented in Emacspeak is extremely
     effective when working with all types of content ranging from
     richly structured mark-up documents (LaTeX, org-mode) and
@@ -124,11 +110,12 @@
     switching to audio formatted output feels like switching from a
     black-and-white monitor to a rich color display. Today,
     Emacspeak’s audio formatted output is the only way I can
-    correctly write <strong>else if</strong> vs
-    <strong>elsif</strong> in various programming languages!</p>
+    correctly write <strong class="strong">else if</strong> vs
+    <strong class="strong">elsif</strong> in various programming
+    languages!</p>
   </div>
   <hr />
-  <div class="header">
+  <div class="nav-panel">
     <p>Next: <a href=
     "Conversational-Gestures-For-The-Audio-Desktop.html">Conversational
     Gestures For The Audio Desktop</a>, Previous: <a href=

@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -32,21 +31,10 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+  pre.format-preformatted {font-family: inherit}
+  span:hover a.copiable-link {visibility: visible}
+  strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
   -->
   /*]]>*/
   </style>
@@ -54,8 +42,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002dauctex">
-    <div class="header">
+  <div class="section-level-extent" id="emacspeak_002dauctex">
+    <div class="nav-panel">
       <p>Next: <a href="emacspeak_002dbbc.html" accesskey="n" rel=
       "next">emacspeak-bbc</a>, Previous: <a href=
       "emacspeak_002darc.html" accesskey="p" rel=
@@ -67,73 +55,84 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="emacspeak_002dauctex-1"></span>
-    <h3 class="section">12.15 emacspeak-auctex</h3>
+    <h3 class="section" id="emacspeak_002dauctex-1">12.15
+    emacspeak-auctex</h3>
     <p>Speech-enables the AucTeX package. AucTeX, now available
     from ELPA, has been my authoring environment of choice for
     writing LaTeX since 1991.</p>
-    <ul class="section-toc">
-      <li><a href="#Emacspeak_002dAuctex-Commands" accesskey=
-      "1">Emacspeak-Auctex Commands</a></li>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Emacspeak_002dAuctex-Commands" accesskey=
+        "1">Emacspeak-Auctex Commands</a>
+      </li>
     </ul>
-    <div class="subsection" id="Emacspeak_002dAuctex-Commands">
+    <div class="subsection-level-extent" id=
+    "Emacspeak_002dAuctex-Commands">
       <h4 class="subsection">12.15.1 Emacspeak-Auctex Commands</h4>
-      <ul class="section-toc">
-        <li><a href=
-        "#emacspeak_002dauctex_002dcomma_002dat_002dend_002dof_002dword"
-        accesskey=
-        "1">emacspeak-auctex-comma-at-end-of-word</a></li>
-        <li><a href="#emacspeak_002dauctex_002dend_002dof_002dword"
-        accesskey="2">emacspeak-auctex-end-of-word</a></li>
-        <li><a href=
-        "#emacspeak_002dauctex_002dlacheck_002dbuffer_002dfile"
-        accesskey="3">emacspeak-auctex-lacheck-buffer-file</a></li>
-        <li><a href=
-        "#emacspeak_002dauctex_002dtex_002dtie_002dcurrent_002dword"
-        accesskey=
-        "4">emacspeak-auctex-tex-tie-current-word</a></li>
+      <ul class="mini-toc">
+        <li>
+          <a href=
+          "#emacspeak_002dauctex_002dcomma_002dat_002dend_002dof_002dword"
+          accesskey="1">emacspeak-auctex-comma-at-end-of-word</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dauctex_002dend_002dof_002dword"
+          accesskey="2">emacspeak-auctex-end-of-word</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dauctex_002dlacheck_002dbuffer_002dfile"
+          accesskey="3">emacspeak-auctex-lacheck-buffer-file</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dauctex_002dtex_002dtie_002dcurrent_002dword"
+          accesskey="4">emacspeak-auctex-tex-tie-current-word</a>
+        </li>
       </ul>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dauctex_002dcomma_002dat_002dend_002dof_002dword">
         <h4 class="subsubsection">12.15.1.1
         emacspeak-auctex-comma-at-end-of-word</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dauctex_002dcomma_002dat_002dend_002dof_002dword">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-auctex-comma-at-end-of-word</strong>
-          <a href=
-          '#index-emacspeak_002dauctex_002dcomma_002dat_002dend_002dof_002dword'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-auctex-comma-at-end-of-word</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dauctex_002dcomma_002dat_002dend_002dof_002dword'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dauctex_002dcomma_002dat_002dend_002dof_002dword-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Move to the end of current word and add a comma.
+              "format-preformatted">Move to the end of current word and add a comma.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dauctex_002dend_002dof_002dword">
         <h4 class="subsubsection">12.15.1.2
         emacspeak-auctex-end-of-word</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dauctex_002dend_002dof_002dword">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-auctex-end-of-word</strong>
-          <em>(arg)</em> <a href=
-          '#index-emacspeak_002dauctex_002dend_002dof_002dword'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-auctex-end-of-word</strong>
+          <var class="def-var-arguments">(arg)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dauctex_002dend_002dof_002dword'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dauctex_002dend_002dof_002dword-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dauctex_002dend_002dof_002dword-1"></a>
             <div class="format">
-              <pre class="format">move to end of word
+              <pre class="format-preformatted">move to end of word
 
 (fn ARG)
 </pre>
@@ -141,47 +140,52 @@
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dauctex_002dlacheck_002dbuffer_002dfile">
         <h4 class="subsubsection">12.15.1.3
         emacspeak-auctex-lacheck-buffer-file</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dauctex_002dlacheck_002dbuffer_002dfile">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-auctex-lacheck-buffer-file</strong>
-          <a href=
-          '#index-emacspeak_002dauctex_002dlacheck_002dbuffer_002dfile'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-auctex-lacheck-buffer-file</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dauctex_002dlacheck_002dbuffer_002dfile'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dauctex_002dlacheck_002dbuffer_002dfile-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Run Lacheck on current buffer.
+              <pre class=
+              "format-preformatted">Run Lacheck on current buffer.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dauctex_002dtex_002dtie_002dcurrent_002dword">
         <h4 class="subsubsection">12.15.1.4
         emacspeak-auctex-tex-tie-current-word</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dauctex_002dtex_002dtie_002dcurrent_002dword">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-auctex-tex-tie-current-word</strong>
-          <em>(n)</em> <a href=
-          '#index-emacspeak_002dauctex_002dtex_002dtie_002dcurrent_002dword'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-auctex-tex-tie-current-word</strong>
+          <var class="def-var-arguments">(n)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dauctex_002dtex_002dtie_002dcurrent_002dword'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dauctex_002dtex_002dtie_002dcurrent_002dword-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Tie the next n  words.
+              <pre class=
+              "format-preformatted">Tie the next n  words.
 
 (fn N)
 </pre>

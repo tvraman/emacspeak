@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -32,21 +31,12 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+  kbd.kbd {font-style: oblique}
+  pre.format-preformatted {font-family: inherit}
+  span:hover a.copiable-link {visibility: visible}
+  strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+  ul.mark-bullet {list-style-type: disc}
   -->
   /*]]>*/
   </style>
@@ -54,8 +44,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002deww">
-    <div class="header">
+  <div class="section-level-extent" id="emacspeak_002deww">
+    <div class="nav-panel">
       <p>Next: <a href="emacspeak_002dextras.html" accesskey="n"
       rel="next">emacspeak-extras</a>, Previous: <a href=
       "emacspeak_002devil.html" accesskey="p" rel=
@@ -67,8 +57,8 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="emacspeak_002deww-1"></span>
-    <h3 class="section">12.75 emacspeak-eww</h3>
+    <h3 class="section" id="emacspeak_002deww-1">12.75
+    emacspeak-eww</h3>
     <p>EWW == Emacs Web Browser EWW is a light-weight Web browser
     built into Emacs starting with Emacs-24.4 . This module
     speech-enables EWW.</p>
@@ -77,614 +67,705 @@
     filtering the DOM by various attributes such as id, class and
     role. Finally, this module updates EWW’s built-in key-bindings
     with Emacspeak conveniences.</p>
-    <ul class="section-toc">
-      <li><a href="#Structured-Navigation" accesskey="1">Structured
-      Navigation</a></li>
-      <li><a href="#Filtering-Content-Using-The-DOM" accesskey=
-      "2">Filtering Content Using The DOM</a></li>
-      <li><a href=
-      "#Diving-Into-_0028Focusing_0029-On-Specific-Content"
-      accesskey="3">Diving Into (Focusing) On Specific
-      Content</a></li>
-      <li><a href="#Updated-Commands-For-Following-Links"
-      accesskey="4">Updated Commands For Following Links</a></li>
-      <li><a href="#Table-Browsing" accesskey="5">Table
-      Browsing</a></li>
-      <li><a href="#Miscellaneous-Commands" accesskey=
-      "6">Miscellaneous Commands</a></li>
-      <li><a href="#Filtering-Content-Using-XSLT-And-XPath"
-      accesskey="7">Filtering Content Using XSLT And XPath</a></li>
-      <li><a href="#EWW-And-EBooks-On-The-Emacspeak-Audio-Desktop"
-      accesskey="8">EWW And EBooks On The Emacspeak Audio
-      Desktop</a></li>
-      <li><a href="#Emacspeak_002dEww-Commands" accesskey=
-      "9">Emacspeak-Eww Commands</a></li>
-      <li><a href="#emacspeak_002deww-Options">emacspeak-eww
-      Options</a></li>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Structured-Navigation" accesskey="1">Structured
+        Navigation</a>
+      </li>
+      <li>
+        <a href="#Filtering-Content-Using-The-DOM" accesskey=
+        "2">Filtering Content Using The DOM</a>
+      </li>
+      <li>
+        <a href=
+        "#Diving-Into-_0028Focusing_0029-On-Specific-Content"
+        accesskey="3">Diving Into (Focusing) On Specific
+        Content</a>
+      </li>
+      <li>
+        <a href="#Updated-Commands-For-Following-Links" accesskey=
+        "4">Updated Commands For Following Links</a>
+      </li>
+      <li>
+        <a href="#Table-Browsing" accesskey="5">Table Browsing</a>
+      </li>
+      <li>
+        <a href="#Miscellaneous-Commands" accesskey=
+        "6">Miscellaneous Commands</a>
+      </li>
+      <li>
+        <a href="#Filtering-Content-Using-XSLT-And-XPath"
+        accesskey="7">Filtering Content Using XSLT And XPath</a>
+      </li>
+      <li>
+        <a href="#EWW-And-EBooks-On-The-Emacspeak-Audio-Desktop"
+        accesskey="8">EWW And EBooks On The Emacspeak Audio
+        Desktop</a>
+      </li>
+      <li>
+        <a href="#Emacspeak_002dEww-Commands" accesskey=
+        "9">Emacspeak-Eww Commands</a>
+      </li>
+      <li>
+        <a href="#emacspeak_002deww-Options">emacspeak-eww
+        Options</a>
+      </li>
     </ul>
-    <div class="subsection" id="Structured-Navigation">
+    <div class="subsection-level-extent" id=
+    "Structured-Navigation">
       <h4 class="subsection">12.75.1 Structured Navigation</h4>
       <p>These commands move through section headers as defined in
       HTML.</p>
-      <dl compact="compact">
-        <dt><span><kbd>1</kbd></span></dt>
+      <dl class="table">
+        <dt><kbd class="kbd">1</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-next-h1</code> Move to next
-          <code>H1</code> heading.</p>
+          <p><code class="command">emacspeak-eww-next-h1</code>
+          Move to next <code class="code">H1</code> heading.</p>
         </dd>
-        <dt><span><kbd>2</kbd></span></dt>
+        <dt><kbd class="kbd">2</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-next-h2</code> Move to next
-          <code>H2</code> heading.</p>
+          <p><code class="command">emacspeak-eww-next-h2</code>
+          Move to next <code class="code">H2</code> heading.</p>
         </dd>
-        <dt><span><kbd>3</kbd></span></dt>
+        <dt><kbd class="kbd">3</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-next-h3</code> Move to next
-          <code>H3</code> heading.</p>
+          <p><code class="command">emacspeak-eww-next-h3</code>
+          Move to next <code class="code">H3</code> heading.</p>
         </dd>
-        <dt><span><kbd>4</kbd></span></dt>
+        <dt><kbd class="kbd">4</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-next-h4</code> Move to next
-          <code>H4</code> heading.</p>
+          <p><code class="command">emacspeak-eww-next-h4</code>
+          Move to next <code class="code">H4</code> heading.</p>
         </dd>
-        <dt><span><kbd>.</kbd></span></dt>
+        <dt><kbd class="kbd">.</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-next-h</code> Move to next
-          heading. (<code>H1</code>...<code>H4</code>).</p>
+          <p><code class="command">emacspeak-eww-next-h</code> Move
+          to next heading. (<code class=
+          "code">H1</code>...<code class="code">H4</code>).</p>
         </dd>
-        <dt><span><kbd>M-1</kbd></span></dt>
+        <dt><kbd class="kbd">M-1</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-previous-h1</code> Move to
-          previous <code>H1</code> heading.</p>
+          <p><code class="command">emacspeak-eww-previous-h1</code>
+          Move to previous <code class="code">H1</code>
+          heading.</p>
         </dd>
-        <dt><span><kbd>M-2</kbd></span></dt>
+        <dt><kbd class="kbd">M-2</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-previous-h2</code> Move to
-          previous <code>H2</code> heading.</p>
+          <p><code class="command">emacspeak-eww-previous-h2</code>
+          Move to previous <code class="code">H2</code>
+          heading.</p>
         </dd>
-        <dt><span><kbd>M-3</kbd></span></dt>
+        <dt><kbd class="kbd">M-3</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-previous-h3</code> Move to
-          previous <code>H3</code> heading.</p>
+          <p><code class="command">emacspeak-eww-previous-h3</code>
+          Move to previous <code class="code">H3</code>
+          heading.</p>
         </dd>
-        <dt><span><kbd>M-4</kbd></span></dt>
+        <dt><kbd class="kbd">M-4</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-previous-h4</code> Move to
-          previous <code>H4</code> heading.</p>
+          <p><code class="command">emacspeak-eww-previous-h4</code>
+          Move to previous <code class="code">H4</code>
+          heading.</p>
         </dd>
-        <dt><span><kbd>,</kbd></span></dt>
+        <dt><kbd class="kbd">,</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-previous-h</code> Move to previous
-          heading (<code>H1</code>...<code>H4</code>).</p>
+          <p><code class="command">emacspeak-eww-previous-h</code>
+          Move to previous heading (<code class=
+          "code">H1</code>...<code class="code">H4</code>).</p>
         </dd>
       </dl>
       <p>This next set of DOM commands enable navigating by HTML
       elements.</p>
-      <dl compact="compact">
-        <dt><span><kbd>M-SPC</kbd></span></dt>
+      <dl class="table">
+        <dt><kbd class="kbd">M-SPC</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-speak-this-element</code> Speak
+          <p><code class=
+          "command">emacspeak-eww-speak-this-element</code> Speak
           contents of current element.</p>
         </dd>
-        <dt><span><kbd>J</kbd></span></dt>
+        <dt><kbd class="kbd">J</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-next-element-like-this</code> Jump
-          to next element that is the same as the one under point.
-          If there are multiple HTML elements under point, prompts
-          for element-name using completion.</p>
+          <p><code class=
+          "command">emacspeak-eww-next-element-like-this</code>
+          Jump to next element that is the same as the one under
+          point. If there are multiple HTML elements under point,
+          prompts for element-name using completion.</p>
         </dd>
-        <dt><span><kbd>K</kbd></span></dt>
+        <dt><kbd class="kbd">K</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-previous-element-like-this</code>
+          <p><code class=
+          "command">emacspeak-eww-previous-element-like-this</code>
           Jump to previous element that is the same as the one
           under point. If there are multiple HTML elements under
           point, prompts for element-name using completion.</p>
         </dd>
-        <dt><span><kbd>N</kbd></span></dt>
+        <dt><kbd class="kbd">N</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-next-element-from-history</code>
+          <p><code class=
+          "command">emacspeak-eww-next-element-from-history</code>
           Jump to next element based on previous J/K command
           history.</p>
         </dd>
-        <dt><span><kbd>P</kbd></span></dt>
+        <dt><kbd class="kbd">P</kbd></dt>
         <dd>
-          <p>
-          <code>emacspeak-eww-previous-element-from-history</code>
+          <p><code class=
+          "command">emacspeak-eww-previous-element-from-history</code>
           Jump to previous element based on previous J/K
           history.</p>
         </dd>
-        <dt><span><kbd>O</kbd></span></dt>
+        <dt><kbd class="kbd">O</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-previous-li</code> Jump to
-          previous list item.</p>
+          <p><code class="command">emacspeak-eww-previous-li</code>
+          Jump to previous list item.</p>
         </dd>
-        <dt><span><kbd>o</kbd></span></dt>
+        <dt><kbd class="kbd">o</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-next-li</code> Jump to next list
-          item.</p>
+          <p><code class="command">emacspeak-eww-next-li</code>
+          Jump to next list item.</p>
         </dd>
-        <dt><span><kbd>T</kbd></span></dt>
+        <dt><kbd class="kbd">T</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-previous-table</code> Jump to
+          <p><code class=
+          "command">emacspeak-eww-previous-table</code> Jump to
           previous table in page.</p>
         </dd>
-        <dt><span><kbd>t</kbd></span></dt>
+        <dt><kbd class="kbd">t</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-next-table</code> Jump to next
-          table.</p>
+          <p><code class="command">emacspeak-eww-next-table</code>
+          Jump to next table.</p>
         </dd>
-        <dt><span><kbd>[</kbd></span></dt>
+        <dt><kbd class="kbd">[</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-previous-p</code> Jump to previous
-          paragraph.</p>
+          <p><code class="command">emacspeak-eww-previous-p</code>
+          Jump to previous paragraph.</p>
         </dd>
-        <dt><span><kbd>]</kbd></span></dt>
+        <dt><kbd class="kbd">]</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-next-p</code> Jump to next
-          paragraph.</p>
+          <p><code class="command">emacspeak-eww-next-p</code> Jump
+          to next paragraph.</p>
         </dd>
-        <dt><span><kbd>b</kbd></span></dt>
+        <dt><kbd class="kbd">b</kbd></dt>
         <dd>
-          <p><code>shr-previous-link</code> Jump to previous
-          link.</p>
+          <p><code class="command">shr-previous-link</code> Jump to
+          previous link.</p>
         </dd>
-        <dt><span><kbd>f</kbd></span></dt>
+        <dt><kbd class="kbd">f</kbd></dt>
         <dd>
-          <p><code>shr-next-link</code> Jump to next link.</p>
+          <p><code class="command">shr-next-link</code> Jump to
+          next link.</p>
         </dd>
-        <dt><span><kbd>n</kbd></span></dt>
+        <dt><kbd class="kbd">n</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-next-element</code> Jump to next
+          <p><code class=
+          "command">emacspeak-eww-next-element</code> Jump to next
           element.</p>
         </dd>
-        <dt><span><kbd>p</kbd></span></dt>
+        <dt><kbd class="kbd">p</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-previous-element</code> Jump to
+          <p><code class=
+          "command">emacspeak-eww-previous-element</code> Jump to
           previous element.</p>
         </dd>
-        <dt><span><kbd>s</kbd></span></dt>
+        <dt><kbd class="kbd">s</kbd></dt>
         <dd>
-          <p><code>eww-readable</code> Use EWW’s built-in readable
-          tool.</p>
+          <p><code class="command">eww-readable</code> Use EWW’s
+          built-in readable tool.</p>
         </dd>
-        <dt><span><kbd>:</kbd></span></dt>
+        <dt><kbd class="kbd">:</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-tags-at-point</code> Display
+          <p><code class=
+          "command">emacspeak-eww-tags-at-point</code> Display
           currently active HTML tags at point.</p>
         </dd>
       </dl>
     </div>
-    <div class="subsection" id="Filtering-Content-Using-The-DOM">
+    <div class="subsection-level-extent" id=
+    "Filtering-Content-Using-The-DOM">
       <h4 class="subsection">12.75.2 Filtering Content Using The
       DOM</h4>
       <p>These commands use EWW’s HTML DOM to display different
       filtered views of the Web page. With an interactive prefix
       argument, these commands prompt for a list of filters.
-      Command <code>emacspeak-eww-restore</code> bound to
-      <kbd>DEL</kbd> can be used to restore the previous view.</p>
-      <dl compact="compact">
-        <dt><span><kbd>A</kbd></span></dt>
+      Command <code class="command">emacspeak-eww-restore</code>
+      bound to <kbd class="kbd">DEL</kbd> can be used to restore
+      the previous view.</p>
+      <dl class="table">
+        <dt><kbd class="kbd">A</kbd></dt>
         <dd>
-          <p><code>eww-view-dom-having-attribute</code> Display DOM
-          nodes having specified attribute. Valid attributes are
-          available via completion.</p>
+          <p><code class=
+          "command">eww-view-dom-having-attribute</code> Display
+          DOM nodes having specified attribute. Valid attributes
+          are available via completion.</p>
         </dd>
-        <dt><span><kbd>C</kbd></span></dt>
+        <dt><kbd class="kbd">C</kbd></dt>
         <dd>
-          <p><code>eww-view-dom-having-class</code> Display DOM
-          nodes having specified class. Valid classes are available
-          via completion.</p>
+          <p><code class="command">eww-view-dom-having-class</code>
+          Display DOM nodes having specified class. Valid classes
+          are available via completion.</p>
         </dd>
-        <dt><span><kbd>E</kbd></span></dt>
+        <dt><kbd class="kbd">E</kbd></dt>
         <dd>
-          <p><code>eww-view-dom-having-elements</code> Display
+          <p><code class=
+          "command">eww-view-dom-having-elements</code> Display
           specified elements from the Dom. Valid element names are
           available via completion.</p>
         </dd>
-        <dt><span><kbd>I</kbd></span></dt>
+        <dt><kbd class="kbd">I</kbd></dt>
         <dd>
-          <p><code>eww-view-dom-having-id</code> Display DOM nodes
-          having specified ID. Valid id values are available via
-          completion.</p>
-        </dd>
-        <dt><span><kbd>M</kbd></span></dt>
-        <dd>
-          <p><code>eww-view-dom-element-having-text</code> lines
-          containing pattern. Useful to filter down RSS feeds.</p>
-        </dd>
-        <dt><span><kbd>R</kbd></span></dt>
-        <dd>
-          <p><code>eww-view-dom-having-role</code> Display DOM
-          nodes having specified role. Valid roles are available
-          via completion.</p>
-        </dd>
-        <dt><span><kbd>M-a</kbd></span></dt>
-        <dd>
-          <p><code>eww-view-dom-not-having-attribute</code> Filter
-          out DOM nodes having specified attribute. Valid attribute
-          values are available via completion.</p>
-        </dd>
-        <dt><span><kbd>M-c</kbd></span></dt>
-        <dd>
-          <p><code>eww-view-dom-not-having-class</code> Filter out
-          DOM nodes having specified class. Valid class values are
-          available via completion.</p>
-        </dd>
-        <dt><span><kbd>M-e</kbd></span></dt>
-        <dd>
-          <p><code>eww-view-dom-not-having-elements</code> Filter
-          out specified element DOM nodes. Valid element names are
-          available via completion.</p>
-        </dd>
-        <dt><span><kbd>M-i</kbd></span></dt>
-        <dd>
-          <p><code>eww-view-dom-not-having-id</code> Dfilter out
+          <p><code class="command">eww-view-dom-having-id</code>
           Display DOM nodes having specified ID. Valid id values
           are available via completion.</p>
         </dd>
-        <dt><span><kbd>M-r</kbd></span></dt>
+        <dt><kbd class="kbd">M</kbd></dt>
         <dd>
-          <p><code>eww-view-dom-not-having-role</code> Filter out
+          <p><code class=
+          "command">eww-view-dom-element-having-text</code> lines
+          containing pattern. Useful to filter down RSS feeds.</p>
+        </dd>
+        <dt><kbd class="kbd">R</kbd></dt>
+        <dd>
+          <p><code class="command">eww-view-dom-having-role</code>
+          Display DOM nodes having specified role. Valid roles are
+          available via completion.</p>
+        </dd>
+        <dt><kbd class="kbd">M-a</kbd></dt>
+        <dd>
+          <p><code class=
+          "command">eww-view-dom-not-having-attribute</code> Filter
+          out DOM nodes having specified attribute. Valid attribute
+          values are available via completion.</p>
+        </dd>
+        <dt><kbd class="kbd">M-c</kbd></dt>
+        <dd>
+          <p><code class=
+          "command">eww-view-dom-not-having-class</code> Filter out
+          DOM nodes having specified class. Valid class values are
+          available via completion.</p>
+        </dd>
+        <dt><kbd class="kbd">M-e</kbd></dt>
+        <dd>
+          <p><code class=
+          "command">eww-view-dom-not-having-elements</code> Filter
+          out specified element DOM nodes. Valid element names are
+          available via completion.</p>
+        </dd>
+        <dt><kbd class="kbd">M-i</kbd></dt>
+        <dd>
+          <p><code class=
+          "command">eww-view-dom-not-having-id</code> Dfilter out
+          Display DOM nodes having specified ID. Valid id values
+          are available via completion.</p>
+        </dd>
+        <dt><kbd class="kbd">M-r</kbd></dt>
+        <dd>
+          <p><code class=
+          "command">eww-view-dom-not-having-role</code> Filter out
           DOM nodes having specified role. Valid role values are
           available via completion.</p>
         </dd>
       </dl>
     </div>
-    <div class="subsection" id=
+    <div class="subsection-level-extent" id=
     "Diving-Into-_0028Focusing_0029-On-Specific-Content">
       <h4 class="subsection">12.75.3 Diving Into (Focusing) On
       Specific Content</h4>
       <p>Contrast this with filtering described in the previous
-      section. There, we discussed commands that <em>filter</em>
-      the DOM to render specific types of elements. For HTML as
-      spoken on the Web, there is a separate use-case that is
-      helpful as a dual to filtering, namely, displaying a specific
-      portion of a page, typically the contents of a
-      <code>div</code> element. These elements often appear many
-      times on a page, and can be deeply nested, making it
-      difficult to focus on the relevant content on the page, e.g.
-      news sites. Commands <code>emacspeak-eww-dive-into-div</code>
-      help in such cases, <kbd>C-d</kbd> renders the
-      <code>div</code> containing point in a separate buffer As
-      with the filtering commands, <kbd>l</kbd> returns to the
-      buffer where these commands were executed. Long-term users of
-      Emacspeak who still remember Emacs-W3 will recognize this as
-      the <em>focus</em> command implemented by Emacspeak for
-      W3.</p>
+      section. There, we discussed commands that <em class=
+      "emph">filter</em> the DOM to render specific types of
+      elements. For HTML as spoken on the Web, there is a separate
+      use-case that is helpful as a dual to filtering, namely,
+      displaying a specific portion of a page, typically the
+      contents of a <code class="code">div</code> element. These
+      elements often appear many times on a page, and can be deeply
+      nested, making it difficult to focus on the relevant content
+      on the page, e.g. news sites. Commands <code class=
+      "code">emacspeak-eww-dive-into-div</code> help in such cases,
+      <kbd class="kbd">C-d</kbd> renders the <code class=
+      "code">div</code> containing point in a separate buffer As
+      with the filtering commands, <kbd class="kbd">l</kbd> returns
+      to the buffer where these commands were executed. Long-term
+      users of Emacspeak who still remember Emacs-W3 will recognize
+      this as the <em class="emph">focus</em> command implemented
+      by Emacspeak for W3.</p>
     </div>
-    <div class="subsection" id=
+    <div class="subsection-level-extent" id=
     "Updated-Commands-For-Following-Links">
       <h4 class="subsection">12.75.4 Updated Commands For Following
       Links</h4>
       <p>These key-bindings are available when point is on a link.
       They enable context-specific actions for following links,
       e.g., to play media streams, or to open various feed-types
-      such as <code>ATOM</code>, <code>RSS</code>, or
-      <code>OPML</code>.</p>
-      <dl compact="compact">
-        <dt><span><kbd>k</kbd></span></dt>
+      such as <code class="code">ATOM</code>, <code class=
+      "code">RSS</code>, or <code class="code">OPML</code>.</p>
+      <dl class="table">
+        <dt><kbd class="kbd">k</kbd></dt>
         <dd>
-          <p><code>shr-copy-url</code> Copy URL under point to the
-          kill-ring.</p>
+          <p><code class="command">shr-copy-url</code> Copy URL
+          under point to the kill-ring.</p>
         </dd>
-        <dt><span><kbd>;</kbd></span></dt>
+        <dt><kbd class="kbd">;</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-play-media-at-point</code> Play
-          media URL under point using <code>emacs-m-player</code>.
-          Handles URL fragment as time-stamp where we resume; use
-          <kbd>J</kbd> in M-Player to jump to that offset.</p>
+          <p><code class=
+          "command">emacspeak-eww-play-media-at-point</code> Play
+          media URL under point using <code class=
+          "code">emacs-m-player</code>. Handles URL fragment as
+          time-stamp where we resume; use <kbd class="kbd">J</kbd>
+          in M-Player to jump to that offset.</p>
         </dd>
-        <dt><span><kbd>U</kbd></span></dt>
+        <dt><kbd class="kbd">U</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-curl-play-media-at-point</code>
+          <p><code class=
+          "command">emacspeak-eww-curl-play-media-at-point</code>
           Play media url under point by first downloading the URL
           using CURL. This is useful for sites that do multiple
           redirects before returning the actual media stream
           URL.</p>
         </dd>
-        <dt><span><kbd>u</kbd></span></dt>
+        <dt><kbd class="kbd">u</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-url-to-register</code> Accumulate
-          url under point to register<code>u</code>. Sample
-          use-cases include building up a playlist of links in the
-          right sort order after a YT search.</p>
+          <p><code class=
+          "command">emacspeak-eww-url-to-register</code> Accumulate
+          url under point to register<code class="code">u</code>.
+          Sample use-cases include building up a playlist of links
+          in the right sort order after a YT search.</p>
         </dd>
-        <dt><span><kbd>x</kbd></span></dt>
+        <dt><kbd class="kbd">x</kbd></dt>
         <dd>
-          <p><code>emacspeak-feeds-select-feed</code> Display link
-          under point as an <code>ATOM</code>, <code>OPML</code> or
-          <code>RSS</code> feed.</p>
+          <p><code class=
+          "command">emacspeak-feeds-select-feed</code> Display link
+          under point as an <code class="code">ATOM</code>,
+          <code class="code">OPML</code> or <code class=
+          "code">RSS</code> feed.</p>
         </dd>
-        <dt><span><kbd>y</kbd></span></dt>
+        <dt><kbd class="kbd">y</kbd></dt>
         <dd>
-          <p><code>empv-play</code> Play link -under point as a
-          Youtube stream.</p>
+          <p><code class="command">empv-play</code> Play link
+          -under point as a Youtube stream.</p>
         </dd>
       </dl>
     </div>
-    <div class="subsection" id="Table-Browsing">
+    <div class="subsection-level-extent" id="Table-Browsing">
       <h4 class="subsection">12.75.5 Table Browsing</h4>
       <p>Summary Of Keyboard Commands:</p>
-      <ul>
-        <li><kbd>M-&lt;left&gt;</kbd>
+      <ul class="itemize mark-bullet">
+        <li><kbd class="kbd">M-&lt;left&gt;</kbd>
         emacspeak-eww-table-previous-cell — Speak previous
         cell.</li>
-        <li><kbd>M-&lt;right&gt;</kbd>
+        <li><kbd class="kbd">M-&lt;right&gt;</kbd>
         emacspeak-eww-table-next-cell — Speak previous cell.</li>
-        <li><kbd>M-&lt;up&gt;</kbd>
+        <li><kbd class="kbd">M-&lt;up&gt;</kbd>
         emacspeak-eww-table-previous-row — Speak cell above.</li>
-        <li><kbd>M-&lt;down&gt;</kbd> emacspeak-eww-table-next-row
-        — Speak cell below.</li>
-        <li><kbd>M-.</kbd> emacspeak-eww-table-speak-cell — Speak
-        current cell.</li>
-        <li><kbd>M-,</kbd> emacspeak-eww-table-speak-dimensions —
-        Speak number of rows and columns.</li>
-        <li><kbd>C-t</kbd> emacspeak-eww-table-data — Browse this
-        table in Emacspeak’s Table UI — See <a href=
-        "emacspeak_002dtable_002dui.html">emacspeak-table-ui</a>.</li>
+        <li><kbd class="kbd">M-&lt;down&gt;</kbd>
+        emacspeak-eww-table-next-row — Speak cell below.</li>
+        <li><kbd class="kbd">M-.</kbd>
+        emacspeak-eww-table-speak-cell — Speak current cell.</li>
+        <li><kbd class="kbd">M-,</kbd>
+        emacspeak-eww-table-speak-dimensions — Speak number of rows
+        and columns.</li>
+        <li>
+          <kbd class="kbd">C-t</kbd> emacspeak-eww-table-data —
+          Browse this table in Emacspeak’s Table UI — See <a class=
+          "xref" href=
+          "emacspeak_002dtable_002dui.html">emacspeak-table-ui</a>.
+        </li>
       </ul>
       <p>Emacspeak EWW supports table navigation via keys
-      <kbd>M-.</kbd>, <kbd>M-LEFT</kbd> and <kbd>M-RIGHT</kbd>, to
-      speak the current, previous and next table cell respectively.
-      The latter commands also move to the cell being spoken. You
-      can get a sense of the table’s size via <kbd>M-,</kbd> which
-      speaks the number of rows and cells in the table. This works
-      for plain tables, not nested tables; for nested tables, first
-      have then <em>unnested</em> using one of the XSLT transforms
-      like <code>sort-tables</code>.</p>
+      <kbd class="kbd">M-.</kbd>, <kbd class="kbd">M-LEFT</kbd> and
+      <kbd class="kbd">M-RIGHT</kbd>, to speak the current,
+      previous and next table cell respectively. The latter
+      commands also move to the cell being spoken. You can get a
+      sense of the table’s size via <kbd class="kbd">M-,</kbd>
+      which speaks the number of rows and cells in the table. This
+      works for plain tables, not nested tables; for nested tables,
+      first have then <em class="emph">unnested</em> using one of
+      the XSLT transforms like <code class=
+      "code">sort-tables</code>.</p>
     </div>
-    <div class="subsection" id="Miscellaneous-Commands">
+    <div class="subsection-level-extent" id=
+    "Miscellaneous-Commands">
       <h4 class="subsection">12.75.6 Miscellaneous Commands</h4>
-      <dl compact="compact">
-        <dt><span><kbd>C-RET</kbd></span></dt>
+      <dl class="table">
+        <dt><kbd class="kbd">C-RET</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-fillin-form-field</code> When on
+          <p><code class=
+          "command">emacspeak-eww-fillin-form-field</code> When on
           an input field, insert username/password information
           accessed via auth-source.</p>
         </dd>
-        <dt><span><kbd>'</kbd></span></dt>
+        <dt><kbd class="kbd">'</kbd></dt>
         <dd>
-          <p><code>emacspeak-speak-rest-of-buffer</code> Speak rest
-          of current Web page starting from point.</p>
+          <p><code class=
+          "command">emacspeak-speak-rest-of-buffer</code> Speak
+          rest of current Web page starting from point.</p>
         </dd>
-        <dt><span><kbd>*</kbd></span></dt>
+        <dt><kbd class="kbd">*</kbd></dt>
         <dd>
-          <p><code>eww-add-bookmark</code> Bookmark current Web
-          page.</p>
+          <p><code class="command">eww-add-bookmark</code> Bookmark
+          current Web page.</p>
         </dd>
-        <dt><span><kbd>=
-        <code>dtk-toggle-punctuation-mode</code></kbd></span></dt>
+        <dt><kbd class="kbd">= <code class=
+        "command">dtk-toggle-punctuation-mode</code></kbd></dt>
         <dd>
           <p>Toggle punctuation mode.</p>
         </dd>
-        <dt><span><kbd>?</kbd></span></dt>
+        <dt><kbd class="kbd">?</kbd></dt>
         <dd>
-          <p><code>emacspeak-google-similar-to-this-page</code>
+          <p><code class=
+          "command">emacspeak-google-similar-to-this-page</code>
           Google similarity search.</p>
         </dd>
-        <dt><span><kbd>C-t</kbd></span></dt>
-        <dt><span><kbd>G
-        <code>emacspeak-google-command</code></kbd></span></dt>
+        <dt><kbd class="kbd">C-t</kbd></dt>
+        <dt><kbd class="kbd">G <code class=
+        "command">emacspeak-google-command</code></kbd></dt>
         <dd>
           <p>Prefix key to invoke Google-specific commands.</p>
         </dd>
-        <dt><span><kbd>L</kbd></span></dt>
+        <dt><kbd class="kbd">L</kbd></dt>
         <dd>
-          <p><code>emacspeak-eww-links-rel</code> Display any
-          related links discovered via the document’s
-          <code>meta</code> tag.</p>
+          <p><code class="command">emacspeak-eww-links-rel</code>
+          Display any related links discovered via the document’s
+          <code class="code">meta</code> tag.</p>
         </dd>
-        <dt><span><kbd>Q</kbd></span></dt>
+        <dt><kbd class="kbd">Q</kbd></dt>
         <dd>
-          <p><code>emacspeak-kill-buffer-quietly</code> Delete this
-          buffer.</p>
+          <p><code class=
+          "command">emacspeak-kill-buffer-quietly</code> Delete
+          this buffer.</p>
         </dd>
-        <dt><span><kbd>V</kbd></span></dt>
+        <dt><kbd class="kbd">V</kbd></dt>
         <dd>
-          <p><code>eww-view-source</code> Display Web page
-          source.</p>
+          <p><code class="command">eww-view-source</code> Display
+          Web page source.</p>
         </dd>
-        <dt><span><kbd>e</kbd></span></dt>
+        <dt><kbd class="kbd">e</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-xsl-map</code> Prefix key for
-          invoking XSLT-based filters.</p>
+          <p><code class="command">emacspeak-we-xsl-map</code>
+          Prefix key for invoking XSLT-based filters.</p>
         </dd>
-        <dt><span><kbd>k</kbd></span></dt>
+        <dt><kbd class="kbd">k</kbd></dt>
         <dd>
-          <p><code>eww-copy-page-url</code> Copy page URL to
-          kill-ring.</p>
+          <p><code class="command">eww-copy-page-url</code> Copy
+          page URL to kill-ring.</p>
         </dd>
       </dl>
-      <p>In addition, see commands in See <a href=
+      <p>In addition, see commands in See <a class="xref" href=
       "emacspeak_002dgoogle.html">emacspeak-google</a>, for
       Google-Search specific commands, many of which are available
-      via prefix-key <kbd>G</kbd>.</p>
+      via prefix-key <kbd class="kbd">G</kbd>.</p>
     </div>
-    <div class="subsection" id=
+    <div class="subsection-level-extent" id=
     "Filtering-Content-Using-XSLT-And-XPath">
       <h4 class="subsection">12.75.7 Filtering Content Using XSLT
       And XPath</h4>
-      <dl compact="compact">
-        <dt><span><kbd>C-c</kbd></span></dt>
+      <dl class="table">
+        <dt><kbd class="kbd">C-c</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-junk-by-class-list</code> Prompts
+          <p><code class=
+          "command">emacspeak-we-junk-by-class-list</code> Prompts
           for list of class-names with completion, and filters out
           matching elements.</p>
         </dd>
-        <dt><span><kbd>C-f</kbd></span></dt>
+        <dt><kbd class="kbd">C-f</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-count-matches</code> Prompts for
+          <p><code class=
+          "command">emacspeak-we-count-matches</code> Prompts for
           XPath expression, and returns count of matching
           elements.</p>
         </dd>
-        <dt><span><kbd>C-p</kbd></span></dt>
+        <dt><kbd class="kbd">C-p</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-xpath-junk-and-follow</code>
+          <p><code class=
+          "command">emacspeak-we-xpath-junk-and-follow</code>
           Follows link under point, and displays that page after
           filtering by a specified XPath expression.</p>
         </dd>
-        <dt><span><kbd>C-t</kbd></span></dt>
+        <dt><kbd class="kbd">C-t</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-count-tables</code> Display a count
-          of tables in the page.</p>
+          <p><code class="command">emacspeak-we-count-tables</code>
+          Display a count of tables in the page.</p>
         </dd>
-        <dt><span><kbd>C-x</kbd></span></dt>
+        <dt><kbd class="kbd">C-x</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-count-nested-tables</code> Counts
+          <p><code class=
+          "command">emacspeak-we-count-nested-tables</code> Counts
           nested tables.</p>
         </dd>
-        <dt><span><kbd>C</kbd></span></dt>
+        <dt><kbd class="kbd">C</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-extract-by-class-list</code>
+          <p><code class=
+          "command">emacspeak-we-extract-by-class-list</code>
           Prompts for a list of class-names, and displays matching
           elements.</p>
         </dd>
-        <dt><span><kbd>D</kbd></span></dt>
+        <dt><kbd class="kbd">D</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-junk-by-class-list</code> Filters
+          <p><code class=
+          "command">emacspeak-we-junk-by-class-list</code> Filters
           out elements having specified class attributes.</p>
         </dd>
-        <dt><span><kbd>I</kbd></span></dt>
+        <dt><kbd class="kbd">I</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-extract-by-id-list</code> Extracts
+          <p><code class=
+          "command">emacspeak-we-extract-by-id-list</code> Extracts
           elements by specified list of ID values.</p>
         </dd>
-        <dt><span><kbd>M</kbd></span></dt>
+        <dt><kbd class="kbd">M</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-extract-tables-by-match-list</code>
+          <p><code class=
+          "command">emacspeak-we-extract-tables-by-match-list</code>
           Extracts tables that match specified selection
           pattern.</p>
         </dd>
-        <dt><span><kbd>P</kbd></span></dt>
+        <dt><kbd class="kbd">P</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-follow-and-extract-main</code>
+          <p><code class=
+          "command">emacspeak-we-follow-and-extract-main</code>
           Follows link under point, and extracts readable content,
           by default, this is all paragraphs and headings.</p>
         </dd>
-        <dt><span><kbd>S</kbd></span></dt>
+        <dt><kbd class="kbd">S</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-style-filter</code> Filters content
-          by style attribute.</p>
+          <p><code class="command">emacspeak-we-style-filter</code>
+          Filters content by style attribute.</p>
         </dd>
-        <dt><span><kbd>T</kbd></span></dt>
+        <dt><kbd class="kbd">T</kbd></dt>
         <dd>
-          <p>
-          <code>emacspeak-we-extract-tables-by-position-list</code>
+          <p><code class=
+          "command">emacspeak-we-extract-tables-by-position-list</code>
           Extracts tables by their position on the page.</p>
         </dd>
-        <dt><span><kbd>X</kbd></span></dt>
+        <dt><kbd class="kbd">X</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-extract-nested-table-list</code>
+          <p><code class=
+          "command">emacspeak-we-extract-nested-table-list</code>
           Extracts nested tables.</p>
         </dd>
-        <dt><span><kbd>a</kbd></span></dt>
+        <dt><kbd class="kbd">a</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-xslt-apply</code> Prompt for and
-          apply specified XSLT transform to current page.</p>
+          <p><code class="command">emacspeak-we-xslt-apply</code>
+          Prompt for and apply specified XSLT transform to current
+          page.</p>
         </dd>
-        <dt><span><kbd>b</kbd></span></dt>
+        <dt><kbd class="kbd">b</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-follow-and-filter-by-id</code>
+          <p><code class=
+          "command">emacspeak-we-follow-and-filter-by-id</code>
           Follow link under point, and filter by specified id
           value.</p>
         </dd>
-        <dt><span><kbd>c</kbd></span></dt>
+        <dt><kbd class="kbd">c</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-extract-by-class</code> Extracts
+          <p><code class=
+          "command">emacspeak-we-extract-by-class</code> Extracts
           elements by class.</p>
         </dd>
-        <dt><span><kbd>d</kbd></span></dt>
+        <dt><kbd class="kbd">d</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-junk-by-class</code> Filters out
+          <p><code class=
+          "command">emacspeak-we-junk-by-class</code> Filters out
           elements having specified class value.</p>
         </dd>
-        <dt><span><kbd>e</kbd></span></dt>
+        <dt><kbd class="kbd">e</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-url-expand-and-execute</code>
+          <p><code class=
+          "command">emacspeak-we-url-expand-and-execute</code>
           Follow link under point, but pass the result to a custom
           executor. Availability of special executors for link
-          under point is indicated by auditory icon <em>item</em>
-          instead of <em>button</em> You can then experiment by
-          pressing <code>RET</code> or <code>e e</code>. Special
-          executors are available for Reddit Links, Wikipedia Links
-          etc.</p>
+          under point is indicated by auditory icon <em class=
+          "emph">item</em> instead of <em class="emph">button</em>
+          You can then experiment by pressing <code class=
+          "code">RET</code> or <code class="code">e e</code>.
+          Special executors are available for Reddit Links,
+          Wikipedia Links etc.</p>
         </dd>
-        <dt><span><kbd>f</kbd></span></dt>
+        <dt><kbd class="kbd">f</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-xslt-filter</code> Apply a
-          specified XSLT filter (XPath) to current page.</p>
+          <p><code class="command">emacspeak-we-xslt-filter</code>
+          Apply a specified XSLT filter (XPath) to current
+          page.</p>
         </dd>
-        <dt><span><kbd>i</kbd></span></dt>
+        <dt><kbd class="kbd">i</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-extract-by-id</code> Extract
+          <p><code class=
+          "command">emacspeak-we-extract-by-id</code> Extract
           elements by id value.</p>
         </dd>
-        <dt><span><kbd>j</kbd></span></dt>
+        <dt><kbd class="kbd">j</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-xslt-junk</code> Filter out
-          elements matching specified pattern.</p>
+          <p><code class="command">emacspeak-we-xslt-junk</code>
+          Filter out elements matching specified pattern.</p>
         </dd>
-        <dt><span><kbd>k</kbd></span></dt>
+        <dt><kbd class="kbd">k</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-toggle-xsl-keep-result</code>
+          <p><code class=
+          "command">emacspeak-we-toggle-xsl-keep-result</code>
           Debugging tool — retains the HTML source after XSLT.</p>
         </dd>
-        <dt><span><kbd>m</kbd></span></dt>
+        <dt><kbd class="kbd">m</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-extract-table-by-match</code>
+          <p><code class=
+          "command">emacspeak-we-extract-table-by-match</code>
           Extract matching table.</p>
         </dd>
-        <dt><span><kbd>p</kbd></span></dt>
+        <dt><kbd class="kbd">p</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-xpath-follow-and-filter</code>
+          <p><code class=
+          "command">emacspeak-we-xpath-follow-and-filter</code>
           Follow link under point, and filter results by a
           specified XPath filter.</p>
         </dd>
-        <dt><span><kbd>r</kbd></span></dt>
+        <dt><kbd class="kbd">r</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-extract-by-role</code> Extract
+          <p><code class=
+          "command">emacspeak-we-extract-by-role</code> Extract
           elements by specified role value.</p>
         </dd>
-        <dt><span><kbd>s</kbd></span></dt>
+        <dt><kbd class="kbd">s</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-xslt-select</code> Select default
-          XSLT transform that is applied before rendering the
-          page.</p>
+          <p><code class="command">emacspeak-we-xslt-select</code>
+          Select default XSLT transform that is applied before
+          rendering the page.</p>
         </dd>
-        <dt><span><kbd>t</kbd></span></dt>
+        <dt><kbd class="kbd">t</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-extract-table-by-position</code>
+          <p><code class=
+          "command">emacspeak-we-extract-table-by-position</code>
           Extracts tables by their position on the page.</p>
         </dd>
-        <dt><span><kbd>u</kbd></span></dt>
+        <dt><kbd class="kbd">u</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-extract-matching-urls</code>
+          <p><code class=
+          "command">emacspeak-we-extract-matching-urls</code>
           Display matching links on the page.</p>
         </dd>
-        <dt><span><kbd>v</kbd></span></dt>
+        <dt><kbd class="kbd">v</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-class-follow-and-filter-link</code>
+          <p><code class=
+          "command">emacspeak-we-class-follow-and-filter-link</code>
           Follow link under point, and filter by specified class
           value.</p>
         </dd>
-        <dt><span><kbd>w</kbd></span></dt>
+        <dt><kbd class="kbd">w</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-extract-by-property</code> Extract
+          <p><code class=
+          "command">emacspeak-we-extract-by-property</code> Extract
           element using a combination of DOM attributes.</p>
         </dd>
-        <dt><span><kbd>x</kbd></span></dt>
+        <dt><kbd class="kbd">x</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-extract-nested-table</code> Extract
-          a nested table using a match-list.</p>
+          <p><code class=
+          "command">emacspeak-we-extract-nested-table</code>
+          Extract a nested table using a match-list.</p>
         </dd>
-        <dt><span><kbd>y</kbd></span></dt>
+        <dt><kbd class="kbd">y</kbd></dt>
         <dd>
-          <p><code>emacspeak-we-class-follow-and-filter</code>
+          <p><code class=
+          "command">emacspeak-we-class-follow-and-filter</code>
           Follow link under point and filter by class values.</p>
         </dd>
       </dl>
     </div>
-    <div class="subsection" id=
+    <div class="subsection-level-extent" id=
     "EWW-And-EBooks-On-The-Emacspeak-Audio-Desktop">
       <h4 class="subsection">12.75.8 EWW And EBooks On The
       Emacspeak Audio Desktop</h4>
@@ -693,182 +774,321 @@
       use EWW to render these EBooks. Module emacspeak-eww provides
       a simple bookmarking facility — called eww-marks (to avoid
       confusion with EWW’s Web Bookmarks). When reading an EBook,
-      you can use <code>m</code> to create an EWW-mark at that
-      position. These marks are automatically saved across Emacs
-      sessions. To open a previously created eww-mark, use command
-      <code>emacspeak-eww-open-mark</code> bound to <code>C-x r
-      e</code>. This command reads a eww-mark name with completion.
-      Use this command with an interactive prefix arg to delete a
-      previously created eww-mark.</p>
+      you can use <code class="code">m</code> to create an EWW-mark
+      at that position. These marks are automatically saved across
+      Emacs sessions. To open a previously created eww-mark, use
+      command <code class="code">emacspeak-eww-open-mark</code>
+      bound to <code class="code">C-x r e</code>. This command
+      reads a eww-mark name with completion. Use this command with
+      an interactive prefix arg to delete a previously created
+      eww-mark.</p>
     </div>
-    <div class="subsection" id="Emacspeak_002dEww-Commands">
+    <div class="subsection-level-extent" id=
+    "Emacspeak_002dEww-Commands">
       <h4 class="subsection">12.75.9 Emacspeak-Eww Commands</h4>
-      <ul class="section-toc">
-        <li><a href="#emacspeak_002deww_002dadd_002dmark"
-        accesskey="1">emacspeak-eww-add-mark</a></li>
-        <li><a href="#emacspeak_002deww_002dbrowse_002dchrome"
-        accesskey="2">emacspeak-eww-browse-chrome</a></li>
-        <li><a href="#emacspeak_002deww_002dbrowse_002deaf"
-        accesskey="3">emacspeak-eww-browse-eaf</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dcleanup_002deww_002ddata"
-        accesskey="4">emacspeak-eww-cleanup-eww-data</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dcurl_002dplay_002dmedia_002dat_002dpoint"
-        accesskey=
-        "5">emacspeak-eww-curl-play-media-at-point</a></li>
-        <li><a href="#emacspeak_002deww_002ddelete_002dmark"
-        accesskey="6">emacspeak-eww-delete-mark</a></li>
-        <li><a href="#emacspeak_002deww_002ddive_002dinto_002ddiv"
-        accesskey="7">emacspeak-eww-dive-into-div</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dfillin_002dform_002dfield"
-        accesskey="8">emacspeak-eww-fillin-form-field</a></li>
-        <li><a href="#emacspeak_002deww_002dlinks_002drel"
-        accesskey="9">emacspeak-eww-links-rel</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dmarks_002dbrowse">emacspeak-eww-marks-browse</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dmarks_002dload">emacspeak-eww-marks-load</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dmarks_002dmode">emacspeak-eww-marks-mode</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dmarks_002dsave">emacspeak-eww-marks-save</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dmasquerade">emacspeak-eww-masquerade</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dnext_002ddd">emacspeak-eww-next-dd</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dnext_002ddl">emacspeak-eww-next-dl</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dnext_002ddt">emacspeak-eww-next-dt</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dnext_002delement">emacspeak-eww-next-element</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dnext_002delement_002dfrom_002dhistory">
-        emacspeak-eww-next-element-from-history</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dnext_002delement_002dlike_002dthis">
-        emacspeak-eww-next-element-like-this</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dnext_002dh">emacspeak-eww-next-h</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dnext_002dh1">emacspeak-eww-next-h1</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dnext_002dh2">emacspeak-eww-next-h2</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dnext_002dh3">emacspeak-eww-next-h3</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dnext_002dh4">emacspeak-eww-next-h4</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dnext_002dh5">emacspeak-eww-next-h5</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dnext_002dh6">emacspeak-eww-next-h6</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dnext_002dli">emacspeak-eww-next-li</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dnext_002dol">emacspeak-eww-next-ol</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dnext_002dp">emacspeak-eww-next-p</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dnext_002dtable">emacspeak-eww-next-table</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dnext_002dul">emacspeak-eww-next-ul</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dopen_002dmark">emacspeak-eww-open-mark</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dplay_002dmedia_002dat_002dpoint">emacspeak-eww-play-media-at-point</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dprevious_002ddd">emacspeak-eww-previous-dd</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dprevious_002ddl">emacspeak-eww-previous-dl</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dprevious_002ddt">emacspeak-eww-previous-dt</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dprevious_002delement">emacspeak-eww-previous-element</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dprevious_002delement_002dfrom_002dhistory">
-        emacspeak-eww-previous-element-from-history</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dprevious_002delement_002dlike_002dthis">
-        emacspeak-eww-previous-element-like-this</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dprevious_002dh">emacspeak-eww-previous-h</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dprevious_002dh1">emacspeak-eww-previous-h1</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dprevious_002dh2">emacspeak-eww-previous-h2</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dprevious_002dh3">emacspeak-eww-previous-h3</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dprevious_002dh4">emacspeak-eww-previous-h4</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dprevious_002dh5">emacspeak-eww-previous-h5</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dprevious_002dh6">emacspeak-eww-previous-h6</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dprevious_002dli">emacspeak-eww-previous-li</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dprevious_002dol">emacspeak-eww-previous-ol</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dprevious_002dp">emacspeak-eww-previous-p</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dprevious_002dtable">emacspeak-eww-previous-table</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dprevious_002dul">emacspeak-eww-previous-ul</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dreading_002dsettings">emacspeak-eww-reading-settings</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002drestore">emacspeak-eww-restore</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dshell_002dcmd_002don_002durl_002dat_002dpoint">
-        emacspeak-eww-shell-cmd-on-url-at-point</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dsmart_002dtabs">emacspeak-eww-smart-tabs</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dsmart_002dtabs_002dadd">emacspeak-eww-smart-tabs-add</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dsmart_002dtabs_002dload">emacspeak-eww-smart-tabs-load</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dsmart_002dtabs_002dsave">emacspeak-eww-smart-tabs-save</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dspeak_002dthis_002delement">emacspeak-eww-speak-this-element</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dtable_002ddata">emacspeak-eww-table-data</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dtable_002dnext_002dcell">emacspeak-eww-table-next-cell</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dtable_002dnext_002drow">emacspeak-eww-table-next-row</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dtable_002dprevious_002dcell">emacspeak-eww-table-previous-cell</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dtable_002dprevious_002drow">emacspeak-eww-table-previous-row</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dtable_002dspeak_002dcell">emacspeak-eww-table-speak-cell</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dtable_002dspeak_002ddimensions">emacspeak-eww-table-speak-dimensions</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002dtags_002dat_002dpoint">emacspeak-eww-tags-at-point</a></li>
-        <li><a href=
-        "#emacspeak_002deww_002durl_002dto_002dregister">emacspeak-eww-url-to-register</a></li>
+      <ul class="mini-toc">
+        <li>
+          <a href="#emacspeak_002deww_002dadd_002dmark" accesskey=
+          "1">emacspeak-eww-add-mark</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002deww_002dbrowse_002dchrome"
+          accesskey="2">emacspeak-eww-browse-chrome</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002deww_002dbrowse_002deaf"
+          accesskey="3">emacspeak-eww-browse-eaf</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002deww_002dcleanup_002deww_002ddata"
+          accesskey="4">emacspeak-eww-cleanup-eww-data</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dcurl_002dplay_002dmedia_002dat_002dpoint"
+          accesskey="5">emacspeak-eww-curl-play-media-at-point</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002deww_002ddelete_002dmark"
+          accesskey="6">emacspeak-eww-delete-mark</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002deww_002ddive_002dinto_002ddiv"
+          accesskey="7">emacspeak-eww-dive-into-div</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dfillin_002dform_002dfield"
+          accesskey="8">emacspeak-eww-fillin-form-field</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002deww_002dlinks_002drel" accesskey=
+          "9">emacspeak-eww-links-rel</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dmarks_002dbrowse">emacspeak-eww-marks-browse</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dmarks_002dload">emacspeak-eww-marks-load</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dmarks_002dmode">emacspeak-eww-marks-mode</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dmarks_002dsave">emacspeak-eww-marks-save</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dmasquerade">emacspeak-eww-masquerade</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dnext_002ddd">emacspeak-eww-next-dd</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dnext_002ddl">emacspeak-eww-next-dl</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dnext_002ddt">emacspeak-eww-next-dt</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dnext_002delement">emacspeak-eww-next-element</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dnext_002delement_002dfrom_002dhistory">
+          emacspeak-eww-next-element-from-history</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dnext_002delement_002dlike_002dthis">
+          emacspeak-eww-next-element-like-this</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dnext_002dh">emacspeak-eww-next-h</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dnext_002dh1">emacspeak-eww-next-h1</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dnext_002dh2">emacspeak-eww-next-h2</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dnext_002dh3">emacspeak-eww-next-h3</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dnext_002dh4">emacspeak-eww-next-h4</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dnext_002dh5">emacspeak-eww-next-h5</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dnext_002dh6">emacspeak-eww-next-h6</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dnext_002dli">emacspeak-eww-next-li</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dnext_002dol">emacspeak-eww-next-ol</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dnext_002dp">emacspeak-eww-next-p</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dnext_002dtable">emacspeak-eww-next-table</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dnext_002dul">emacspeak-eww-next-ul</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dopen_002dmark">emacspeak-eww-open-mark</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dplay_002dmedia_002dat_002dpoint">emacspeak-eww-play-media-at-point</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dprevious_002ddd">emacspeak-eww-previous-dd</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dprevious_002ddl">emacspeak-eww-previous-dl</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dprevious_002ddt">emacspeak-eww-previous-dt</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dprevious_002delement">emacspeak-eww-previous-element</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dprevious_002delement_002dfrom_002dhistory">
+          emacspeak-eww-previous-element-from-history</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dprevious_002delement_002dlike_002dthis">
+          emacspeak-eww-previous-element-like-this</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dprevious_002dh">emacspeak-eww-previous-h</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dprevious_002dh1">emacspeak-eww-previous-h1</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dprevious_002dh2">emacspeak-eww-previous-h2</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dprevious_002dh3">emacspeak-eww-previous-h3</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dprevious_002dh4">emacspeak-eww-previous-h4</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dprevious_002dh5">emacspeak-eww-previous-h5</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dprevious_002dh6">emacspeak-eww-previous-h6</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dprevious_002dli">emacspeak-eww-previous-li</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dprevious_002dol">emacspeak-eww-previous-ol</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dprevious_002dp">emacspeak-eww-previous-p</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dprevious_002dtable">emacspeak-eww-previous-table</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dprevious_002dul">emacspeak-eww-previous-ul</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dreading_002dsettings">emacspeak-eww-reading-settings</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002drestore">emacspeak-eww-restore</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dshell_002dcmd_002don_002durl_002dat_002dpoint">
+          emacspeak-eww-shell-cmd-on-url-at-point</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dsmart_002dtabs">emacspeak-eww-smart-tabs</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dsmart_002dtabs_002dadd">emacspeak-eww-smart-tabs-add</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dsmart_002dtabs_002dload">emacspeak-eww-smart-tabs-load</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dsmart_002dtabs_002dsave">emacspeak-eww-smart-tabs-save</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dspeak_002dthis_002delement">emacspeak-eww-speak-this-element</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dtable_002ddata">emacspeak-eww-table-data</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dtable_002dnext_002dcell">emacspeak-eww-table-next-cell</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dtable_002dnext_002drow">emacspeak-eww-table-next-row</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dtable_002dprevious_002dcell">emacspeak-eww-table-previous-cell</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dtable_002dprevious_002drow">emacspeak-eww-table-previous-row</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dtable_002dspeak_002dcell">emacspeak-eww-table-speak-cell</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dtable_002dspeak_002ddimensions">emacspeak-eww-table-speak-dimensions</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002dtags_002dat_002dpoint">emacspeak-eww-tags-at-point</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deww_002durl_002dto_002dregister">emacspeak-eww-url-to-register</a>
+        </li>
       </ul>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dadd_002dmark">
         <h4 class="subsubsection">12.75.9.1
         emacspeak-eww-add-mark</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dadd_002dmark">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-add-mark</strong>
-          <em>(name)</em> <a href=
-          '#index-emacspeak_002deww_002dadd_002dmark' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dadd_002dmark"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-add-mark</strong> <var class=
+          "def-var-arguments">(name)</var> <a class="copiable-link"
+          href=
+          '#index-emacspeak_002deww_002dadd_002dmark'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dadd_002dmark-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dadd_002dmark-1"></a>
             <div class="format">
               <pre class=
-              "format">Interactively add a mark with name title+‘name’ at current
+              "format-preformatted">Interactively add a mark with name title+‘name’ at current
   position.  Also store it as an org link for later insertion
 into ‘notes’.‘m
 
@@ -878,22 +1098,24 @@ into ‘notes’.‘m
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dbrowse_002dchrome">
         <h4 class="subsubsection">12.75.9.2
         emacspeak-eww-browse-chrome</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dbrowse_002dchrome">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-browse-chrome</strong>
-          <em>(url)</em> <a href=
-          '#index-emacspeak_002deww_002dbrowse_002dchrome' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dbrowse_002dchrome">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-browse-chrome</strong>
+          <var class="def-var-arguments">(url)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dbrowse_002dchrome'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dbrowse_002dchrome-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dbrowse_002dchrome-1"></a>
             <div class="format">
-              <pre class="format">Open with Chrome.
+              <pre class="format-preformatted">Open with Chrome.
 
 (fn URL)
 </pre>
@@ -901,22 +1123,24 @@ into ‘notes’.‘m
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dbrowse_002deaf">
         <h4 class="subsubsection">12.75.9.3
         emacspeak-eww-browse-eaf</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dbrowse_002deaf">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-browse-eaf</strong>
-          <em>(url)</em> <a href=
-          '#index-emacspeak_002deww_002dbrowse_002deaf' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dbrowse_002deaf"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-browse-eaf</strong> <var class=
+          "def-var-arguments">(url)</var> <a class="copiable-link"
+          href=
+          '#index-emacspeak_002deww_002dbrowse_002deaf'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dbrowse_002deaf-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dbrowse_002deaf-1"></a>
             <div class="format">
-              <pre class="format">Launch async EAF browser.
+              <pre class=
+              "format-preformatted">Launch async EAF browser.
 
 (fn URL)
 </pre>
@@ -924,49 +1148,51 @@ into ‘notes’.‘m
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dcleanup_002deww_002ddata">
         <h4 class="subsubsection">12.75.9.4
         emacspeak-eww-cleanup-eww-data</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dcleanup_002deww_002ddata">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-cleanup-eww-data</strong>
-          <a href=
-          '#index-emacspeak_002deww_002dcleanup_002deww_002ddata'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-cleanup-eww-data</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002dcleanup_002deww_002ddata'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deww_002dcleanup_002deww_002ddata-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Clean up DOM and Source from eww-data.
+              "format-preformatted">Clean up DOM and Source from eww-data.
 Use for large EBook buffers.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dcurl_002dplay_002dmedia_002dat_002dpoint">
         <h4 class="subsubsection">12.75.9.5
         emacspeak-eww-curl-play-media-at-point</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dcurl_002dplay_002dmedia_002dat_002dpoint">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-curl-play-media-at-point</strong>
-          <a href=
-          '#index-emacspeak_002deww_002dcurl_002dplay_002dmedia_002dat_002dpoint'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-curl-play-media-at-point</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002dcurl_002dplay_002dmedia_002dat_002dpoint'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deww_002dcurl_002dplay_002dmedia_002dat_002dpoint-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Use Curl to pull a URL, then pass
+              <pre class=
+              "format-preformatted">Use Curl to pull a URL, then pass
 the first line to MPlayer as a playlist.
 Useful in handling double-redirect from TuneIn.
 </pre>
@@ -974,23 +1200,25 @@ Useful in handling double-redirect from TuneIn.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002ddelete_002dmark">
         <h4 class="subsubsection">12.75.9.6
         emacspeak-eww-delete-mark</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002ddelete_002dmark">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-delete-mark</strong>
-          <em>(name)</em> <a href=
-          '#index-emacspeak_002deww_002ddelete_002dmark' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002ddelete_002dmark">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-delete-mark</strong> <var class=
+          "def-var-arguments">(name)</var> <a class="copiable-link"
+          href=
+          '#index-emacspeak_002deww_002ddelete_002dmark'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002ddelete_002dmark-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002ddelete_002dmark-1"></a>
             <div class="format">
               <pre class=
-              "format">Interactively delete a mark with name ‘name’ at current position.
+              "format-preformatted">Interactively delete a mark with name ‘name’ at current position.
 
 (fn NAME)
 </pre>
@@ -998,136 +1226,141 @@ Useful in handling double-redirect from TuneIn.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002ddive_002dinto_002ddiv">
         <h4 class="subsubsection">12.75.9.7
         emacspeak-eww-dive-into-div</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002ddive_002dinto_002ddiv">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-dive-into-div</strong>
-          <a href=
-          '#index-emacspeak_002deww_002ddive_002dinto_002ddiv'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-dive-into-div</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002ddive_002dinto_002ddiv'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002ddive_002dinto_002ddiv-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002ddive_002dinto_002ddiv-1"></a>
             <div class="format">
               <pre class=
-              "format">Focus on current div by rendering it in a new buffer.
+              "format-preformatted">Focus on current div by rendering it in a new buffer.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dfillin_002dform_002dfield">
         <h4 class="subsubsection">12.75.9.8
         emacspeak-eww-fillin-form-field</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dfillin_002dform_002dfield">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-fillin-form-field</strong>
-          <a href=
-          '#index-emacspeak_002deww_002dfillin_002dform_002dfield'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-fillin-form-field</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002dfillin_002dform_002dfield'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deww_002dfillin_002dform_002dfield-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Fill in user or passwd field using auth-source backend.
+              "format-preformatted">Fill in user or passwd field using auth-source backend.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dlinks_002drel">
         <h4 class="subsubsection">12.75.9.9
         emacspeak-eww-links-rel</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dlinks_002drel">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-links-rel</strong> <a href=
-          '#index-emacspeak_002deww_002dlinks_002drel' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dlinks_002drel"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-links-rel</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dlinks_002drel'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dlinks_002drel-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dlinks_002drel-1"></a>
             <div class="format">
               <pre class=
-              "format">Display Link tags of type rel.  Web pages for which alternate links
+              "format-preformatted">Display Link tags of type rel.  Web pages for which alternate links
 are available are cued by an auditory icon on the header line.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dmarks_002dbrowse">
         <h4 class="subsubsection">12.75.9.10
         emacspeak-eww-marks-browse</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dmarks_002dbrowse">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-marks-browse</strong>
-          <a href='#index-emacspeak_002deww_002dmarks_002dbrowse'
-          class='copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dmarks_002dbrowse">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-marks-browse</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dmarks_002dbrowse'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002dx-r-C_002de'><span><kbd>C-x r
-              C-e</kbd> <a href='#index-C_002dx-r-C_002de' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002deww_002dmarks_002dbrowse-1"></span>
+            <dl class="table">
+              <dt id='index-C_002dx-r-C_002de'><span><kbd class=
+              "kbd">C-x r C-e</kbd> <a class="copiable-link" href=
+              '#index-C_002dx-r-C_002de'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dmarks_002dbrowse-1"></a>
             <div class="format">
               <pre class=
-              "format">List EWW Marks as actionable buttons.
+              "format-preformatted">List EWW Marks as actionable buttons.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dmarks_002dload">
         <h4 class="subsubsection">12.75.9.11
         emacspeak-eww-marks-load</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dmarks_002dload">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-marks-load</strong> <a href=
-          '#index-emacspeak_002deww_002dmarks_002dload' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dmarks_002dload"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-marks-load</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dmarks_002dload'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dmarks_002dload-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dmarks_002dload-1"></a>
             <div class="format">
-              <pre class="format">Load saved marks.
+              <pre class="format-preformatted">Load saved marks.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dmarks_002dmode">
         <h4 class="subsubsection">12.75.9.12
         emacspeak-eww-marks-mode</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dmarks_002dmode">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-marks-mode</strong> <a href=
-          '#index-emacspeak_002deww_002dmarks_002dmode' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dmarks_002dmode"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-marks-mode</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dmarks_002dmode'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dmarks_002dmode-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dmarks_002dmode-1"></a>
             <div class="format">
               <pre class=
-              "format">A light-weight mode for the ‘*Emacspeak EWW Marks Browser*’.
+              "format-preformatted">A light-weight mode for the ‘*Emacspeak EWW Marks Browser*’.
  1. Enables org integration via command
  ‘org-store-link’ bound to M-x org-store-link.
  2. Stored links can be inserted into org files in the same directory
@@ -1141,62 +1374,67 @@ final or penultimate step during initialization.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dmarks_002dsave">
         <h4 class="subsubsection">12.75.9.13
         emacspeak-eww-marks-save</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dmarks_002dsave">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-marks-save</strong> <a href=
-          '#index-emacspeak_002deww_002dmarks_002dsave' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dmarks_002dsave"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-marks-save</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dmarks_002dsave'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dmarks_002dsave-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dmarks_002dsave-1"></a>
             <div class="format">
-              <pre class="format">Save Emacspeak EWW marks.
+              <pre class=
+              "format-preformatted">Save Emacspeak EWW marks.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dmasquerade">
         <h4 class="subsubsection">12.75.9.14
         emacspeak-eww-masquerade</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dmasquerade">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-masquerade</strong> <a href=
-          '#index-emacspeak_002deww_002dmasquerade' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dmasquerade"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-masquerade</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dmasquerade'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dmasquerade-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dmasquerade-1"></a>
             <div class="format">
-              <pre class="format">Toggle masquerade.
+              <pre class="format-preformatted">Toggle masquerade.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dnext_002ddd">
         <h4 class="subsubsection">12.75.9.15
         emacspeak-eww-next-dd</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dnext_002ddd">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-next-dd</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dnext_002ddd' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dnext_002ddd"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-next-dd</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dnext_002ddd'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dnext_002ddd-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dnext_002ddd-1"></a>
             <div class="format">
-              <pre class="format">Move forward to the next dd.
+              <pre class=
+              "format-preformatted">Move forward to the next dd.
 Optional interactive prefix arg speaks the dd.  Second
 interactive prefix toggles this flag.  See user option
 ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1207,22 +1445,24 @@ The dd is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dnext_002ddl">
         <h4 class="subsubsection">12.75.9.16
         emacspeak-eww-next-dl</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dnext_002ddl">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-next-dl</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dnext_002ddl' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dnext_002ddl"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-next-dl</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dnext_002ddl'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dnext_002ddl-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dnext_002ddl-1"></a>
             <div class="format">
-              <pre class="format">Move forward to the next dl.
+              <pre class=
+              "format-preformatted">Move forward to the next dl.
 Optional interactive prefix arg speaks the dl.  Second
 interactive prefix toggles this flag.  See user option
 ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1233,22 +1473,24 @@ The dl is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dnext_002ddt">
         <h4 class="subsubsection">12.75.9.17
         emacspeak-eww-next-dt</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dnext_002ddt">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-next-dt</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dnext_002ddt' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dnext_002ddt"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-next-dt</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dnext_002ddt'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dnext_002ddt-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dnext_002ddt-1"></a>
             <div class="format">
-              <pre class="format">Move forward to the next dt.
+              <pre class=
+              "format-preformatted">Move forward to the next dt.
 Optional interactive prefix arg speaks the dt.  Second
 interactive prefix toggles this flag.  See user option
 ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1259,23 +1501,25 @@ The dt is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dnext_002delement">
         <h4 class="subsubsection">12.75.9.18
         emacspeak-eww-next-element</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dnext_002delement">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-next-element</strong>
-          <em>(el)</em> <a href=
-          '#index-emacspeak_002deww_002dnext_002delement' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dnext_002delement">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-next-element</strong>
+          <var class="def-var-arguments">(el)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dnext_002delement'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dnext_002delement-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dnext_002delement-1"></a>
             <div class="format">
               <pre class=
-              "format">Move forward to the next specified element.
+              "format-preformatted">Move forward to the next specified element.
 
 (fn EL)
 </pre>
@@ -1283,49 +1527,52 @@ The dt is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dnext_002delement_002dfrom_002dhistory">
         <h4 class="subsubsection">12.75.9.19
         emacspeak-eww-next-element-from-history</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dnext_002delement_002dfrom_002dhistory">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-next-element-from-history</strong>
-          <a href=
-          '#index-emacspeak_002deww_002dnext_002delement_002dfrom_002dhistory'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-next-element-from-history</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002dnext_002delement_002dfrom_002dhistory'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deww_002dnext_002delement_002dfrom_002dhistory-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Uses element navigation history to decide where we jump.
+              "format-preformatted">Uses element navigation history to decide where we jump.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dnext_002delement_002dlike_002dthis">
         <h4 class="subsubsection">12.75.9.20
         emacspeak-eww-next-element-like-this</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dnext_002delement_002dlike_002dthis">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-next-element-like-this</strong>
-          <em>(element)</em> <a href=
-          '#index-emacspeak_002deww_002dnext_002delement_002dlike_002dthis'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-next-element-like-this</strong>
+          <var class="def-var-arguments">(element)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dnext_002delement_002dlike_002dthis'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deww_002dnext_002delement_002dlike_002dthis-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Moves to next element like current.
+              "format-preformatted">Moves to next element like current.
 Prompts if content at point is enclosed by multiple elements.
 
 (fn ELEMENT)
@@ -1334,22 +1581,24 @@ Prompts if content at point is enclosed by multiple elements.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dnext_002dh">
         <h4 class="subsubsection">12.75.9.21
         emacspeak-eww-next-h</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dnext_002dh">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-next-h</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dnext_002dh' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dnext_002dh"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-next-h</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dnext_002dh'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dnext_002dh-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dnext_002dh-1"></a>
             <div class="format">
-              <pre class="format">Move forward to the next h.
+              <pre class=
+              "format-preformatted">Move forward to the next h.
 Optional interactive prefix arg speaks the h.  Second
 interactive prefix toggles this flag.  See user option
 ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1360,22 +1609,24 @@ The h is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dnext_002dh1">
         <h4 class="subsubsection">12.75.9.22
         emacspeak-eww-next-h1</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dnext_002dh1">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-next-h1</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dnext_002dh1' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dnext_002dh1"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-next-h1</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dnext_002dh1'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dnext_002dh1-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dnext_002dh1-1"></a>
             <div class="format">
-              <pre class="format">Move forward to the next h1.
+              <pre class=
+              "format-preformatted">Move forward to the next h1.
 Optional interactive prefix arg speaks the h1.  Second
 interactive prefix toggles this flag.  See user option
 ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1386,22 +1637,24 @@ The h1 is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dnext_002dh2">
         <h4 class="subsubsection">12.75.9.23
         emacspeak-eww-next-h2</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dnext_002dh2">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-next-h2</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dnext_002dh2' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dnext_002dh2"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-next-h2</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dnext_002dh2'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dnext_002dh2-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dnext_002dh2-1"></a>
             <div class="format">
-              <pre class="format">Move forward to the next h2.
+              <pre class=
+              "format-preformatted">Move forward to the next h2.
 Optional interactive prefix arg speaks the h2.  Second
 interactive prefix toggles this flag.  See user option
 ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1412,22 +1665,24 @@ The h2 is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dnext_002dh3">
         <h4 class="subsubsection">12.75.9.24
         emacspeak-eww-next-h3</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dnext_002dh3">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-next-h3</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dnext_002dh3' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dnext_002dh3"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-next-h3</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dnext_002dh3'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dnext_002dh3-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dnext_002dh3-1"></a>
             <div class="format">
-              <pre class="format">Move forward to the next h3.
+              <pre class=
+              "format-preformatted">Move forward to the next h3.
 Optional interactive prefix arg speaks the h3.  Second
 interactive prefix toggles this flag.  See user option
 ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1438,22 +1693,24 @@ The h3 is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dnext_002dh4">
         <h4 class="subsubsection">12.75.9.25
         emacspeak-eww-next-h4</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dnext_002dh4">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-next-h4</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dnext_002dh4' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dnext_002dh4"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-next-h4</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dnext_002dh4'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dnext_002dh4-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dnext_002dh4-1"></a>
             <div class="format">
-              <pre class="format">Move forward to the next h4.
+              <pre class=
+              "format-preformatted">Move forward to the next h4.
 Optional interactive prefix arg speaks the h4.  Second
 interactive prefix toggles this flag.  See user option
 ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1464,22 +1721,24 @@ The h4 is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dnext_002dh5">
         <h4 class="subsubsection">12.75.9.26
         emacspeak-eww-next-h5</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dnext_002dh5">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-next-h5</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dnext_002dh5' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dnext_002dh5"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-next-h5</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dnext_002dh5'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dnext_002dh5-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dnext_002dh5-1"></a>
             <div class="format">
-              <pre class="format">Move forward to the next h5.
+              <pre class=
+              "format-preformatted">Move forward to the next h5.
 Optional interactive prefix arg speaks the h5.  Second
 interactive prefix toggles this flag.  See user option
 ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1490,22 +1749,24 @@ The h5 is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dnext_002dh6">
         <h4 class="subsubsection">12.75.9.27
         emacspeak-eww-next-h6</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dnext_002dh6">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-next-h6</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dnext_002dh6' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dnext_002dh6"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-next-h6</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dnext_002dh6'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dnext_002dh6-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dnext_002dh6-1"></a>
             <div class="format">
-              <pre class="format">Move forward to the next h6.
+              <pre class=
+              "format-preformatted">Move forward to the next h6.
 Optional interactive prefix arg speaks the h6.  Second
 interactive prefix toggles this flag.  See user option
 ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1516,22 +1777,24 @@ The h6 is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dnext_002dli">
         <h4 class="subsubsection">12.75.9.28
         emacspeak-eww-next-li</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dnext_002dli">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-next-li</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dnext_002dli' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dnext_002dli"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-next-li</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dnext_002dli'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dnext_002dli-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dnext_002dli-1"></a>
             <div class="format">
-              <pre class="format">Move forward to the next li.
+              <pre class=
+              "format-preformatted">Move forward to the next li.
 Optional interactive prefix arg speaks the li.  Second
 interactive prefix toggles this flag.  See user option
 ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1542,22 +1805,24 @@ The li is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dnext_002dol">
         <h4 class="subsubsection">12.75.9.29
         emacspeak-eww-next-ol</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dnext_002dol">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-next-ol</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dnext_002dol' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dnext_002dol"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-next-ol</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dnext_002dol'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dnext_002dol-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dnext_002dol-1"></a>
             <div class="format">
-              <pre class="format">Move forward to the next ol.
+              <pre class=
+              "format-preformatted">Move forward to the next ol.
 Optional interactive prefix arg speaks the ol.  Second
 interactive prefix toggles this flag.  See user option
 ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1568,22 +1833,24 @@ The ol is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dnext_002dp">
         <h4 class="subsubsection">12.75.9.30
         emacspeak-eww-next-p</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dnext_002dp">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-next-p</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dnext_002dp' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dnext_002dp"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-next-p</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dnext_002dp'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dnext_002dp-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dnext_002dp-1"></a>
             <div class="format">
-              <pre class="format">Move forward to the next p.
+              <pre class=
+              "format-preformatted">Move forward to the next p.
 Optional interactive prefix arg speaks the p.  Second
 interactive prefix toggles this flag.  See user option
 ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1594,22 +1861,24 @@ The p is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dnext_002dtable">
         <h4 class="subsubsection">12.75.9.31
         emacspeak-eww-next-table</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dnext_002dtable">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-next-table</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dnext_002dtable' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dnext_002dtable"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-next-table</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dnext_002dtable'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dnext_002dtable-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dnext_002dtable-1"></a>
             <div class="format">
-              <pre class="format">Move forward to the next table.
+              <pre class=
+              "format-preformatted">Move forward to the next table.
 Optional interactive prefix arg speaks the table.  Second
 interactive prefix toggles this flag.  See user option
 ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1620,22 +1889,24 @@ The table is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dnext_002dul">
         <h4 class="subsubsection">12.75.9.32
         emacspeak-eww-next-ul</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dnext_002dul">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-next-ul</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dnext_002dul' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dnext_002dul"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-next-ul</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dnext_002dul'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dnext_002dul-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dnext_002dul-1"></a>
             <div class="format">
-              <pre class="format">Move forward to the next ul.
+              <pre class=
+              "format-preformatted">Move forward to the next ul.
 Optional interactive prefix arg speaks the ul.  Second
 interactive prefix toggles this flag.  See user option
 ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1646,27 +1917,28 @@ The ul is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dopen_002dmark">
         <h4 class="subsubsection">12.75.9.33
         emacspeak-eww-open-mark</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dopen_002dmark">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-open-mark</strong> <em>(name
-          &amp;optional delete)</em> <a href=
-          '#index-emacspeak_002deww_002dopen_002dmark' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dopen_002dmark"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-open-mark</strong> <var class=
+          "def-var-arguments">(name &amp;optional delete)</var>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002dopen_002dmark'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002dx-r-e'><span><kbd>C-x r e</kbd>
-              <a href='#index-C_002dx-r-e' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002deww_002dopen_002dmark-1"></span>
+            <dl class="table">
+              <dt id='index-C_002dx-r-e'><span><kbd class="kbd">C-x
+              r e</kbd> <a class="copiable-link" href=
+              '#index-C_002dx-r-e'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dopen_002dmark-1"></a>
             <div class="format">
               <pre class=
-              "format">Open EWW marked location.  With optional interactive prefix
+              "format-preformatted">Open EWW marked location.  With optional interactive prefix
 arg ‘delete’, delete that mark instead.
 
 (fn NAME &amp;optional DELETE)
@@ -1675,31 +1947,34 @@ arg ‘delete’, delete that mark instead.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dplay_002dmedia_002dat_002dpoint">
         <h4 class="subsubsection">12.75.9.34
         emacspeak-eww-play-media-at-point</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dplay_002dmedia_002dat_002dpoint">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-play-media-at-point</strong>
-          <em>(&amp;optional playlist-p)</em> <a href=
-          '#index-emacspeak_002deww_002dplay_002dmedia_002dat_002dpoint'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-play-media-at-point</strong>
+          <var class="def-var-arguments">(&amp;optional
+          playlist-p)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002dplay_002dmedia_002dat_002dpoint'>
+          ¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-M_002d_003b'><span><kbd>C-e
-              M-;</kbd> <a href='#index-C_002de-M_002d_003b' class=
-              'copiable-anchor'>¶</a></span></dt>
+            <dl class="table">
+              <dt id='index-C_002de-M_002d_003b'><span><kbd class=
+              "kbd">C-e M-;</kbd> <a class="copiable-link" href=
+              '#index-C_002de-M_002d_003b'>¶</a></span></dt>
               <dt id='index-_003cfn_003e-M_002d_003b'>
-              <span><kbd>&lt;fn&gt; M-;</kbd> <a href=
-              '#index-_003cfn_003e-M_002d_003b' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002deww_002dplay_002dmedia_002dat_002dpoint-1"></span>
+              <span><kbd class="kbd">&lt;fn&gt; M-;</kbd> <a class=
+              "copiable-link" href=
+              '#index-_003cfn_003e-M_002d_003b'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dplay_002dmedia_002dat_002dpoint-1"></a>
             <div class="format">
-              <pre class="format">Play media url under point.
+              <pre class=
+              "format-preformatted">Play media url under point.
 Interprets url-fragment identifier #nnn as time-offset in
 seconds.   Optional
 interactive prefix arg ‘playlist-p’ treats link as a playlist.  A
@@ -1712,22 +1987,25 @@ second interactive prefix arg adds mplayer option
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dprevious_002ddd">
         <h4 class="subsubsection">12.75.9.35
         emacspeak-eww-previous-dd</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dprevious_002ddd">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-previous-dd</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dprevious_002ddd' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dprevious_002ddd">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-previous-dd</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dprevious_002ddd'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dprevious_002ddd-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dprevious_002ddd-1"></a>
             <div class="format">
-              <pre class="format">Move backward to the next dd.
+              <pre class=
+              "format-preformatted">Move backward to the next dd.
 Optional interactive prefix arg speaks the dd.
 Second interactive prefix toggles this flag.
 See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1737,22 +2015,25 @@ The dd is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dprevious_002ddl">
         <h4 class="subsubsection">12.75.9.36
         emacspeak-eww-previous-dl</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dprevious_002ddl">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-previous-dl</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dprevious_002ddl' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dprevious_002ddl">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-previous-dl</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dprevious_002ddl'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dprevious_002ddl-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dprevious_002ddl-1"></a>
             <div class="format">
-              <pre class="format">Move backward to the next dl.
+              <pre class=
+              "format-preformatted">Move backward to the next dl.
 Optional interactive prefix arg speaks the dl.
 Second interactive prefix toggles this flag.
 See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1762,22 +2043,25 @@ The dl is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dprevious_002ddt">
         <h4 class="subsubsection">12.75.9.37
         emacspeak-eww-previous-dt</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dprevious_002ddt">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-previous-dt</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dprevious_002ddt' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dprevious_002ddt">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-previous-dt</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dprevious_002ddt'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dprevious_002ddt-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dprevious_002ddt-1"></a>
             <div class="format">
-              <pre class="format">Move backward to the next dt.
+              <pre class=
+              "format-preformatted">Move backward to the next dt.
 Optional interactive prefix arg speaks the dt.
 Second interactive prefix toggles this flag.
 See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1787,24 +2071,25 @@ The dt is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dprevious_002delement">
         <h4 class="subsubsection">12.75.9.38
         emacspeak-eww-previous-element</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dprevious_002delement">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-previous-element</strong>
-          <em>(el)</em> <a href=
-          '#index-emacspeak_002deww_002dprevious_002delement'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-previous-element</strong>
+          <var class="def-var-arguments">(el)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dprevious_002delement'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dprevious_002delement-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dprevious_002delement-1"></a>
             <div class="format">
               <pre class=
-              "format">Move backward  to the previous  specified element.
+              "format-preformatted">Move backward  to the previous  specified element.
 
 (fn EL)
 </pre>
@@ -1812,49 +2097,52 @@ The dt is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dprevious_002delement_002dfrom_002dhistory">
         <h4 class="subsubsection">12.75.9.39
         emacspeak-eww-previous-element-from-history</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dprevious_002delement_002dfrom_002dhistory">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-previous-element-from-history</strong>
-          <a href=
-          '#index-emacspeak_002deww_002dprevious_002delement_002dfrom_002dhistory'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-previous-element-from-history</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002dprevious_002delement_002dfrom_002dhistory'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deww_002dprevious_002delement_002dfrom_002dhistory-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Uses element navigation history to decide where we jump.
+              "format-preformatted">Uses element navigation history to decide where we jump.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dprevious_002delement_002dlike_002dthis">
         <h4 class="subsubsection">12.75.9.40
         emacspeak-eww-previous-element-like-this</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dprevious_002delement_002dlike_002dthis">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-previous-element-like-this</strong>
-          <em>(element)</em> <a href=
-          '#index-emacspeak_002deww_002dprevious_002delement_002dlike_002dthis'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-previous-element-like-this</strong>
+          <var class="def-var-arguments">(element)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dprevious_002delement_002dlike_002dthis'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deww_002dprevious_002delement_002dlike_002dthis-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Moves to next element like current.
+              "format-preformatted">Moves to next element like current.
 Prompts if content at point is enclosed by multiple elements.
 
 (fn ELEMENT)
@@ -1863,22 +2151,24 @@ Prompts if content at point is enclosed by multiple elements.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dprevious_002dh">
         <h4 class="subsubsection">12.75.9.41
         emacspeak-eww-previous-h</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dprevious_002dh">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-previous-h</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dprevious_002dh' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dprevious_002dh"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-previous-h</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dprevious_002dh'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dprevious_002dh-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dprevious_002dh-1"></a>
             <div class="format">
-              <pre class="format">Move backward to the next h.
+              <pre class=
+              "format-preformatted">Move backward to the next h.
 Optional interactive prefix arg speaks the h.
 Second interactive prefix toggles this flag.
 See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1888,22 +2178,25 @@ The h is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dprevious_002dh1">
         <h4 class="subsubsection">12.75.9.42
         emacspeak-eww-previous-h1</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dprevious_002dh1">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-previous-h1</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dprevious_002dh1' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dprevious_002dh1">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-previous-h1</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dprevious_002dh1'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dprevious_002dh1-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dprevious_002dh1-1"></a>
             <div class="format">
-              <pre class="format">Move backward to the next h1.
+              <pre class=
+              "format-preformatted">Move backward to the next h1.
 Optional interactive prefix arg speaks the h1.
 Second interactive prefix toggles this flag.
 See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1913,22 +2206,25 @@ The h1 is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dprevious_002dh2">
         <h4 class="subsubsection">12.75.9.43
         emacspeak-eww-previous-h2</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dprevious_002dh2">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-previous-h2</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dprevious_002dh2' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dprevious_002dh2">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-previous-h2</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dprevious_002dh2'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dprevious_002dh2-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dprevious_002dh2-1"></a>
             <div class="format">
-              <pre class="format">Move backward to the next h2.
+              <pre class=
+              "format-preformatted">Move backward to the next h2.
 Optional interactive prefix arg speaks the h2.
 Second interactive prefix toggles this flag.
 See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1938,22 +2234,25 @@ The h2 is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dprevious_002dh3">
         <h4 class="subsubsection">12.75.9.44
         emacspeak-eww-previous-h3</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dprevious_002dh3">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-previous-h3</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dprevious_002dh3' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dprevious_002dh3">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-previous-h3</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dprevious_002dh3'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dprevious_002dh3-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dprevious_002dh3-1"></a>
             <div class="format">
-              <pre class="format">Move backward to the next h3.
+              <pre class=
+              "format-preformatted">Move backward to the next h3.
 Optional interactive prefix arg speaks the h3.
 Second interactive prefix toggles this flag.
 See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1963,22 +2262,25 @@ The h3 is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dprevious_002dh4">
         <h4 class="subsubsection">12.75.9.45
         emacspeak-eww-previous-h4</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dprevious_002dh4">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-previous-h4</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dprevious_002dh4' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dprevious_002dh4">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-previous-h4</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dprevious_002dh4'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dprevious_002dh4-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dprevious_002dh4-1"></a>
             <div class="format">
-              <pre class="format">Move backward to the next h4.
+              <pre class=
+              "format-preformatted">Move backward to the next h4.
 Optional interactive prefix arg speaks the h4.
 Second interactive prefix toggles this flag.
 See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -1988,22 +2290,25 @@ The h4 is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dprevious_002dh5">
         <h4 class="subsubsection">12.75.9.46
         emacspeak-eww-previous-h5</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dprevious_002dh5">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-previous-h5</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dprevious_002dh5' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dprevious_002dh5">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-previous-h5</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dprevious_002dh5'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dprevious_002dh5-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dprevious_002dh5-1"></a>
             <div class="format">
-              <pre class="format">Move backward to the next h5.
+              <pre class=
+              "format-preformatted">Move backward to the next h5.
 Optional interactive prefix arg speaks the h5.
 Second interactive prefix toggles this flag.
 See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -2013,22 +2318,25 @@ The h5 is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dprevious_002dh6">
         <h4 class="subsubsection">12.75.9.47
         emacspeak-eww-previous-h6</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dprevious_002dh6">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-previous-h6</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dprevious_002dh6' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dprevious_002dh6">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-previous-h6</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dprevious_002dh6'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dprevious_002dh6-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dprevious_002dh6-1"></a>
             <div class="format">
-              <pre class="format">Move backward to the next h6.
+              <pre class=
+              "format-preformatted">Move backward to the next h6.
 Optional interactive prefix arg speaks the h6.
 Second interactive prefix toggles this flag.
 See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -2038,22 +2346,25 @@ The h6 is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dprevious_002dli">
         <h4 class="subsubsection">12.75.9.48
         emacspeak-eww-previous-li</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dprevious_002dli">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-previous-li</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dprevious_002dli' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dprevious_002dli">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-previous-li</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dprevious_002dli'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dprevious_002dli-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dprevious_002dli-1"></a>
             <div class="format">
-              <pre class="format">Move backward to the next li.
+              <pre class=
+              "format-preformatted">Move backward to the next li.
 Optional interactive prefix arg speaks the li.
 Second interactive prefix toggles this flag.
 See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -2063,22 +2374,25 @@ The li is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dprevious_002dol">
         <h4 class="subsubsection">12.75.9.49
         emacspeak-eww-previous-ol</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dprevious_002dol">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-previous-ol</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dprevious_002dol' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dprevious_002dol">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-previous-ol</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dprevious_002dol'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dprevious_002dol-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dprevious_002dol-1"></a>
             <div class="format">
-              <pre class="format">Move backward to the next ol.
+              <pre class=
+              "format-preformatted">Move backward to the next ol.
 Optional interactive prefix arg speaks the ol.
 Second interactive prefix toggles this flag.
 See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -2088,22 +2402,24 @@ The ol is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dprevious_002dp">
         <h4 class="subsubsection">12.75.9.50
         emacspeak-eww-previous-p</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dprevious_002dp">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-previous-p</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dprevious_002dp' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dprevious_002dp"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-previous-p</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dprevious_002dp'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dprevious_002dp-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dprevious_002dp-1"></a>
             <div class="format">
-              <pre class="format">Move backward to the next p.
+              <pre class=
+              "format-preformatted">Move backward to the next p.
 Optional interactive prefix arg speaks the p.
 Second interactive prefix toggles this flag.
 See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -2113,22 +2429,25 @@ The p is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dprevious_002dtable">
         <h4 class="subsubsection">12.75.9.51
         emacspeak-eww-previous-table</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dprevious_002dtable">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-previous-table</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dprevious_002dtable' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dprevious_002dtable">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-previous-table</strong>
+          <var class="def-var-arguments">(&amp;optional
+          speak)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002dprevious_002dtable'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dprevious_002dtable-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dprevious_002dtable-1"></a>
             <div class="format">
-              <pre class="format">Move backward to the next table.
+              <pre class=
+              "format-preformatted">Move backward to the next table.
 Optional interactive prefix arg speaks the table.
 Second interactive prefix toggles this flag.
 See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -2138,22 +2457,25 @@ The table is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dprevious_002dul">
         <h4 class="subsubsection">12.75.9.52
         emacspeak-eww-previous-ul</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dprevious_002dul">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-previous-ul</strong>
-          <em>(&amp;optional speak)</em> <a href=
-          '#index-emacspeak_002deww_002dprevious_002dul' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dprevious_002dul">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-previous-ul</strong> <var class=
+          "def-var-arguments">(&amp;optional speak)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dprevious_002dul'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dprevious_002dul-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dprevious_002dul-1"></a>
             <div class="format">
-              <pre class="format">Move backward to the next ul.
+              <pre class=
+              "format-preformatted">Move backward to the next ul.
 Optional interactive prefix arg speaks the ul.
 Second interactive prefix toggles this flag.
 See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
@@ -2163,69 +2485,72 @@ The ul is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dreading_002dsettings">
         <h4 class="subsubsection">12.75.9.53
         emacspeak-eww-reading-settings</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dreading_002dsettings">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-reading-settings</strong>
-          <a href=
-          '#index-emacspeak_002deww_002dreading_002dsettings'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-reading-settings</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002dreading_002dsettings'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dreading_002dsettings-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dreading_002dsettings-1"></a>
             <div class="format">
               <pre class=
-              "format">Setup speech-rate, punctuation and split-caps for reading prose.
+              "format-preformatted">Setup speech-rate, punctuation and split-caps for reading prose.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002drestore">
         <h4 class="subsubsection">12.75.9.54
         emacspeak-eww-restore</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002drestore"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-eww-restore</strong> <a href=
-          '#index-emacspeak_002deww_002drestore' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002drestore"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-restore</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002drestore'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002drestore-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002drestore-1"></a>
             <div class="format">
               <pre class=
-              "format">Restore buffer to pre-filtered canonical state.
+              "format-preformatted">Restore buffer to pre-filtered canonical state.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dshell_002dcmd_002don_002durl_002dat_002dpoint">
         <h4 class="subsubsection">12.75.9.55
         emacspeak-eww-shell-cmd-on-url-at-point</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dshell_002dcmd_002don_002durl_002dat_002dpoint">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-shell-cmd-on-url-at-point</strong>
-          <em>(&amp;optional prompt)</em> <a href=
-          '#index-emacspeak_002deww_002dshell_002dcmd_002don_002durl_002dat_002dpoint'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-shell-cmd-on-url-at-point</strong>
+          <var class="def-var-arguments">(&amp;optional
+          prompt)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002dshell_002dcmd_002don_002durl_002dat_002dpoint'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deww_002dshell_002dcmd_002don_002durl_002dat_002dpoint-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Run specified shell command on URL at point. 
+              "format-preformatted">Run specified shell command on URL at point. 
 
 (fn &amp;optional PROMPT)
 </pre>
@@ -2233,29 +2558,31 @@ The ul is automatically spoken if there is no user activity.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dsmart_002dtabs">
         <h4 class="subsubsection">12.75.9.56
         emacspeak-eww-smart-tabs</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dsmart_002dtabs">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-smart-tabs</strong> <em>(char
-          &amp;optional define)</em> <a href=
-          '#index-emacspeak_002deww_002dsmart_002dtabs' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dsmart_002dtabs"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-smart-tabs</strong> <var class=
+          "def-var-arguments">(char &amp;optional define)</var>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002dsmart_002dtabs'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002d_002c-SPC'><span><kbd>C-,
-              SPC</kbd> <a href='#index-C_002d_002c-SPC' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002dx-_0040-a-SPC'><span><kbd>C-x @ a
-              SPC</kbd> <a href='#index-C_002dx-_0040-a-SPC' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002deww_002dsmart_002dtabs-1"></span>
+            <dl class="table">
+              <dt id='index-C_002d_002c-SPC'><span><kbd class=
+              "kbd">C-, SPC</kbd> <a class="copiable-link" href=
+              '#index-C_002d_002c-SPC'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-a-SPC'><span><kbd class=
+              "kbd">C-x @ a SPC</kbd> <a class="copiable-link"
+              href='#index-C_002dx-_0040-a-SPC'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dsmart_002dtabs-1"></a>
             <div class="format">
-              <pre class="format">Open URL in EWW keyed by  ‘char’.
+              <pre class=
+              "format-preformatted">Open URL in EWW keyed by  ‘char’.
 To associate a URL with a char, use this command
 with an interactive prefix arg. 
 
@@ -2265,24 +2592,25 @@ with an interactive prefix arg.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dsmart_002dtabs_002dadd">
         <h4 class="subsubsection">12.75.9.57
         emacspeak-eww-smart-tabs-add</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dsmart_002dtabs_002dadd">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-smart-tabs-add</strong>
-          <em>(char url)</em> <a href=
-          '#index-emacspeak_002deww_002dsmart_002dtabs_002dadd'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-smart-tabs-add</strong>
+          <var class="def-var-arguments">(char url)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dsmart_002dtabs_002dadd'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dsmart_002dtabs_002dadd-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dsmart_002dtabs_002dadd-1"></a>
             <div class="format">
               <pre class=
-              "format">Add a URL to the specified location in smart tabs.
+              "format-preformatted">Add a URL to the specified location in smart tabs.
 
 (fn CHAR URL)
 </pre>
@@ -2290,116 +2618,120 @@ with an interactive prefix arg.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dsmart_002dtabs_002dload">
         <h4 class="subsubsection">12.75.9.58
         emacspeak-eww-smart-tabs-load</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dsmart_002dtabs_002dload">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-smart-tabs-load</strong>
-          <a href=
-          '#index-emacspeak_002deww_002dsmart_002dtabs_002dload'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-smart-tabs-load</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002dsmart_002dtabs_002dload'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deww_002dsmart_002dtabs_002dload-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Load our smart tabsfrom a file.
+              <pre class=
+              "format-preformatted">Load our smart tabsfrom a file.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dsmart_002dtabs_002dsave">
         <h4 class="subsubsection">12.75.9.59
         emacspeak-eww-smart-tabs-save</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dsmart_002dtabs_002dsave">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-smart-tabs-save</strong>
-          <a href=
-          '#index-emacspeak_002deww_002dsmart_002dtabs_002dsave'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-smart-tabs-save</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002dsmart_002dtabs_002dsave'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deww_002dsmart_002dtabs_002dsave-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Save our smart tabs to a file for reloading.
+              "format-preformatted">Save our smart tabs to a file for reloading.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dspeak_002dthis_002delement">
         <h4 class="subsubsection">12.75.9.60
         emacspeak-eww-speak-this-element</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dspeak_002dthis_002delement">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-speak-this-element</strong>
-          <a href=
-          '#index-emacspeak_002deww_002dspeak_002dthis_002delement'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-speak-this-element</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002dspeak_002dthis_002delement'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deww_002dspeak_002dthis_002delement-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Speak current .
+              <pre class="format-preformatted">Speak current .
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dtable_002ddata">
         <h4 class="subsubsection">12.75.9.61
         emacspeak-eww-table-data</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deww_002dtable_002ddata">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-table-data</strong> <a href=
-          '#index-emacspeak_002deww_002dtable_002ddata' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deww_002dtable_002ddata"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-eww-table-data</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dtable_002ddata'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dtable_002ddata-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dtable_002ddata-1"></a>
             <div class="format">
               <pre class=
-              "format">View  table at point as a data table using Emacspeak Table UI.
+              "format-preformatted">View  table at point as a data table using Emacspeak Table UI.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dtable_002dnext_002dcell">
         <h4 class="subsubsection">12.75.9.62
         emacspeak-eww-table-next-cell</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dtable_002dnext_002dcell">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-table-next-cell</strong>
-          <em>(&amp;optional prefix)</em> <a href=
-          '#index-emacspeak_002deww_002dtable_002dnext_002dcell'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-table-next-cell</strong>
+          <var class="def-var-arguments">(&amp;optional
+          prefix)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002dtable_002dnext_002dcell'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deww_002dtable_002dnext_002dcell-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Speak next cell after making it current.
+              "format-preformatted">Speak next cell after making it current.
 Interactive prefix arg moves to the last cell in the table.
 
 (fn &amp;optional PREFIX)
@@ -2408,24 +2740,25 @@ Interactive prefix arg moves to the last cell in the table.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dtable_002dnext_002drow">
         <h4 class="subsubsection">12.75.9.63
         emacspeak-eww-table-next-row</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dtable_002dnext_002drow">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-table-next-row</strong>
-          <em>(&amp;optional prefix)</em> <a href=
-          '#index-emacspeak_002deww_002dtable_002dnext_002drow'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-table-next-row</strong>
+          <var class="def-var-arguments">(&amp;optional
+          prefix)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002dtable_002dnext_002drow'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dtable_002dnext_002drow-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dtable_002dnext_002drow-1"></a>
             <div class="format">
               <pre class=
-              "format">Speak  cell after moving to next row.
+              "format-preformatted">Speak  cell after moving to next row.
  Optional interactive prefix arg moves to end of table.
 
 (fn &amp;optional PREFIX)
@@ -2434,25 +2767,27 @@ Interactive prefix arg moves to the last cell in the table.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dtable_002dprevious_002dcell">
         <h4 class="subsubsection">12.75.9.64
         emacspeak-eww-table-previous-cell</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dtable_002dprevious_002dcell">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-table-previous-cell</strong>
-          <em>(&amp;optional prefix)</em> <a href=
-          '#index-emacspeak_002deww_002dtable_002dprevious_002dcell'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-table-previous-cell</strong>
+          <var class="def-var-arguments">(&amp;optional
+          prefix)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002dtable_002dprevious_002dcell'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deww_002dtable_002dprevious_002dcell-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Speak previous cell after making it current.
+              "format-preformatted">Speak previous cell after making it current.
 With interactive prefix arg, move to the start of the table.
 
 (fn &amp;optional PREFIX)
@@ -2461,25 +2796,27 @@ With interactive prefix arg, move to the start of the table.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dtable_002dprevious_002drow">
         <h4 class="subsubsection">12.75.9.65
         emacspeak-eww-table-previous-row</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dtable_002dprevious_002drow">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-table-previous-row</strong>
-          <em>(&amp;optional prefix)</em> <a href=
-          '#index-emacspeak_002deww_002dtable_002dprevious_002drow'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-table-previous-row</strong>
+          <var class="def-var-arguments">(&amp;optional
+          prefix)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002dtable_002dprevious_002drow'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deww_002dtable_002dprevious_002drow-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Speak  cell after moving to previous row.
+              "format-preformatted">Speak  cell after moving to previous row.
  Optional interactive prefix arg moves to start of table.
 
 (fn &amp;optional PREFIX)
@@ -2488,106 +2825,113 @@ With interactive prefix arg, move to the start of the table.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dtable_002dspeak_002dcell">
         <h4 class="subsubsection">12.75.9.66
         emacspeak-eww-table-speak-cell</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dtable_002dspeak_002dcell">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-table-speak-cell</strong>
-          <a href=
-          '#index-emacspeak_002deww_002dtable_002dspeak_002dcell'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-table-speak-cell</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002dtable_002dspeak_002dcell'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deww_002dtable_002dspeak_002dcell-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Speak current cell.
+              <pre class="format-preformatted">Speak current cell.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dtable_002dspeak_002ddimensions">
         <h4 class="subsubsection">12.75.9.67
         emacspeak-eww-table-speak-dimensions</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dtable_002dspeak_002ddimensions">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-table-speak-dimensions</strong>
-          <a href=
-          '#index-emacspeak_002deww_002dtable_002dspeak_002ddimensions'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-table-speak-dimensions</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002dtable_002dspeak_002ddimensions'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deww_002dtable_002dspeak_002ddimensions-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Speak number of rows and cells.
+              <pre class=
+              "format-preformatted">Speak number of rows and cells.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002dtags_002dat_002dpoint">
         <h4 class="subsubsection">12.75.9.68
         emacspeak-eww-tags-at-point</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002dtags_002dat_002dpoint">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-tags-at-point</strong>
-          <a href=
-          '#index-emacspeak_002deww_002dtags_002dat_002dpoint'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-tags-at-point</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002deww_002dtags_002dat_002dpoint'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deww_002dtags_002dat_002dpoint-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deww_002dtags_002dat_002dpoint-1"></a>
             <div class="format">
-              <pre class="format">Display tags at point.
+              <pre class=
+              "format-preformatted">Display tags at point.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deww_002durl_002dto_002dregister">
         <h4 class="subsubsection">12.75.9.69
         emacspeak-eww-url-to-register</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deww_002durl_002dto_002dregister">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eww-url-to-register</strong>
-          <a href=
-          '#index-emacspeak_002deww_002durl_002dto_002dregister'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eww-url-to-register</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002deww_002durl_002dto_002dregister'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deww_002durl_002dto_002dregister-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Accumulate  URL in register ‘u’
+              <pre class=
+              "format-preformatted">Accumulate  URL in register ‘u’
 </pre>
             </div>
           </dd>
         </dl>
       </div>
     </div>
-    <div class="subsection" id="emacspeak_002deww-Options">
+    <div class="subsection-level-extent" id=
+    "emacspeak_002deww-Options">
       <h4 class="subsection">12.75.10 emacspeak-eww Options</h4>
-      <dl class="def">
-        <dt id="index-User-Option-31"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-eww-autospeak</em> <a href=
-        '#index-User-Option-31' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-31"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">emacspeak-eww-autospeak</var> <a class=
+        "copiable-link" href=
+        '#index-User-Option-31'>¶</a></span></dt>
         <dd>
           <p>Turn this on to make section navigation autospeak.
           This also reverses the meaning of the prefix-arg to
@@ -2599,12 +2943,14 @@ t
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-32"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-eww-inhibit-images</em>
-        <a href='#index-User-Option-32' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-32"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">emacspeak-eww-inhibit-images</var>
+        <a class="copiable-link" href=
+        '#index-User-Option-32'>¶</a></span></dt>
         <dd>
           <p>Turn this on to avoid rendering images.</p>
           <p>Default Value:</p>
@@ -2617,7 +2963,7 @@ nil
     </div>
   </div>
   <hr />
-  <div class="header">
+  <div class="nav-panel">
     <p>Next: <a href=
     "emacspeak_002dextras.html">emacspeak-extras</a>, Previous:
     <a href="emacspeak_002devil.html">emacspeak-evil</a>, Up:

@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -33,21 +32,6 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
   -->
   /*]]>*/
   </style>
@@ -55,9 +39,9 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id=
+  <div class="section-level-extent" id=
   "Emacspeak-And-The-Early-Days-Of-The-Web">
-    <div class="header">
+    <div class="nav-panel">
       <p>Next: <a href=
       "Audio-Formatting-_002d_002d_002d-Generalizing-Aural-CSS.html"
       accesskey="n" rel="next">Audio Formatting — Generalizing
@@ -71,69 +55,73 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="Emacspeak-And-The-Early-Days-Of-The-Web-1"></span>
-    <h3 class="section">16.7 Emacspeak And The Early Days Of The
-    Web</h3>
+    <h3 class="section" id=
+    "Emacspeak-And-The-Early-Days-Of-The-Web-1">16.7 Emacspeak And
+    The Early Days Of The Web</h3>
     <p>Right around the time that I was writing version 0.01 of
     emacspeak, a far more significant software movement was under
     way — the World Wide Web was moving from the realms of academia
     to the mainstream world with the launch of NCSA Mosaic — and in
     late 1994 by the first commercial Web browser in Netscape
     Navigator. Emacs had always enabled integrated access to FTP
-    archives via package <em>ange-ftp</em>; in late 1993, William
-    Perry released Emacs-W3, a Web browser for Emacs written
-    entirely in Emacs Lisp. W3 was one of the first large packages
-    to be speech-enabled by Emacspeak — later it was the browser on
-    which I implemented the first draft of the <a href=
-    "http://www.w3.org/TR/CSS2/aural.html">Aural CSS
+    archives via package <em class="emph">ange-ftp</em>; in late
+    1993, William Perry released Emacs-W3, a Web browser for Emacs
+    written entirely in Emacs Lisp. W3 was one of the first large
+    packages to be speech-enabled by Emacspeak — later it was the
+    browser on which I implemented the first draft of the <a class=
+    "url" href="http://www.w3.org/TR/CSS2/aural.html">Aural CSS
     specification</a>. Emacs-W3 enabled many early innovations in
     the context of providing non-visual access to Web content,
     including audio formatting and structured content navigation;
     in summer of 1995, Dave Raggett and I outlined a few extensions
-    to HTML Forms, including the <strong>label</strong> element as
-    a means of associating metadata with interactive form controls
-    in HTML, and many of these ideas were prototyped in Emacs-W3 at
-    the time. Over the years, Emacs-W3 fell behind the times —
-    especially as the Web moved away from cleanly structured HTML
-    to a massive soup of unmatched tags. This made parsing and
-    error-correcting badly-formed HTML markup expensive to do in
-    Emacs-Lisp — and performance suffered. To add to this,
-    mainstream users moved away because Emacs’ rendering engine at
-    the time was not rich enough to provide the type of visual
-    renderings that users had come to expect. The advent of DHTML,
-    and JavaScript based Web Applications finally killed off
-    Emacs-W3 as far as most Emacs users were concerned.</p>
+    to HTML Forms, including the <strong class=
+    "strong">label</strong> element as a means of associating
+    metadata with interactive form controls in HTML, and many of
+    these ideas were prototyped in Emacs-W3 at the time. Over the
+    years, Emacs-W3 fell behind the times — especially as the Web
+    moved away from cleanly structured HTML to a massive soup of
+    unmatched tags. This made parsing and error-correcting
+    badly-formed HTML markup expensive to do in Emacs-Lisp — and
+    performance suffered. To add to this, mainstream users moved
+    away because Emacs’ rendering engine at the time was not rich
+    enough to provide the type of visual renderings that users had
+    come to expect. The advent of DHTML, and JavaScript based Web
+    Applications finally killed off Emacs-W3 as far as most Emacs
+    users were concerned.</p>
     <p>But Emacs-W3 went through a revival on the emacspeak audio
     desktop in late 1999 with the arrival of XSLT, and Daniel
-    Veillard’s excellent implementation via the
-    <strong>libxml2</strong> and <strong>libxslt</strong> packages.
-    With these in hand, Emacspeak was able to hand-off the bulk of
-    HTML error correction to the <strong>xsltproc</strong> tool.
-    The lack of visual fidelity didn’t matter much for an eyes-free
-    environment; so Emacs-W3 continued to be a useful tool for
-    consuming large amounts of Web content that did not require
-    JavaScript support.</p>
-    <p>During the last 24 months, <strong>libxml2</strong> has been
-    built into Emacs; this means that you can now parse arbitrary
-    HTML as found in the wild without incurring a performance hit.
-    This functionality was leveraged first by package
-    <strong>shr</strong> (Simple HTML Renderer) within the
-    <strong>gnus</strong> package for rendering HTML email. Later,
-    the author of <strong>gnus</strong> and <strong>shr</strong>
-    created a new light-weight HTML viewer called
-    <strong>eww</strong> that is now part of Emacs 24. With
-    improved support for variable pitch fonts and image embedding,
-    Emacs is once again able to provide visual renderings for a
-    large proportion of text-heavy Web content where it becomes
-    useful for mainstream Emacs users to view at least some Web
-    content within Emacs; during the last year, I have added
-    support within emacspeak to <a href=
+    Veillard’s excellent implementation via the <strong class=
+    "strong">libxml2</strong> and <strong class=
+    "strong">libxslt</strong> packages. With these in hand,
+    Emacspeak was able to hand-off the bulk of HTML error
+    correction to the <strong class="strong">xsltproc</strong>
+    tool. The lack of visual fidelity didn’t matter much for an
+    eyes-free environment; so Emacs-W3 continued to be a useful
+    tool for consuming large amounts of Web content that did not
+    require JavaScript support.</p>
+    <p>During the last 24 months, <strong class=
+    "strong">libxml2</strong> has been built into Emacs; this means
+    that you can now parse arbitrary HTML as found in the wild
+    without incurring a performance hit. This functionality was
+    leveraged first by package <strong class="strong">shr</strong>
+    (Simple HTML Renderer) within the <strong class=
+    "strong">gnus</strong> package for rendering HTML email. Later,
+    the author of <strong class="strong">gnus</strong> and
+    <strong class="strong">shr</strong> created a new light-weight
+    HTML viewer called <strong class="strong">eww</strong> that is
+    now part of Emacs 24. With improved support for variable pitch
+    fonts and image embedding, Emacs is once again able to provide
+    visual renderings for a large proportion of text-heavy Web
+    content where it becomes useful for mainstream Emacs users to
+    view at least some Web content within Emacs; during the last
+    year, I have added support within emacspeak to <a class="url"
+    href=
     "http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html">
-    extend package <strong>eww</strong></a> with support for DOM
-    filtering and quick content navigation.</p>
+    extend package <strong class="strong">eww</strong></a> with
+    support for DOM filtering and quick content navigation.</p>
   </div>
   <hr />
-  <div class="header">
+  <div class="nav-panel">
     <p>Next: <a href=
     "Audio-Formatting-_002d_002d_002d-Generalizing-Aural-CSS.html">Audio
     Formatting — Generalizing Aural CSS</a>, Previous: <a href=

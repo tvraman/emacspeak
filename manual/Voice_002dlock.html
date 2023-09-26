@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -31,21 +30,8 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  kbd.kbd {font-style: oblique}
   -->
   /*]]>*/
   </style>
@@ -53,8 +39,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="Voice_002dlock">
-    <div class="header">
+  <div class="section-level-extent" id="Voice_002dlock">
+    <div class="nav-panel">
       <p>Next: <a href="Status-Information.html" accesskey="n" rel=
       "next">Status Commands</a>, Previous: <a href=
       "Speech-System.html" accesskey="p" rel="prev">Speech System
@@ -65,30 +51,31 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="Voice-Lock-Mode"></span>
-    <h3 class="section">6.5 Voice Lock Mode</h3>
+    <h3 class="section" id="Voice-Lock-Mode">6.5 Voice Lock
+    Mode</h3>
     <p>The status of voice lock mode can be toggled on and off in
-    the current buffer by issuing the command <kbd>C-e d v</kbd>
-    (M-x voice-lock-toggle).</p>
+    the current buffer by issuing the command <kbd class="kbd">C-e
+    d v</kbd> (M-x voice-lock-toggle).</p>
     <p>Voice-lock is turned on automatically in all buffers that
     support it when Emacspeak is started.</p>
     <p>Emacspeak can be set to disable voice lock in all of the
     major modes that support it. To do so, insert the following
     statement into your Emacs initialization file:</p>
     <div class="example lisp">
-      <pre class="lisp">(global-voice-lock-mode -1)
+      <pre class="lisp-preformatted">(global-voice-lock-mode -1)
 </pre>
     </div>
     <p>The characteristics of the different voice personalities
     used by voice lock mode vary according to the capabilities of
     the speech synthesizer. The definitions applicable to the
-    Dectalk family of synthesizers are contained in
-    <samp>dectalk-voices.el</samp>, which is supplied as part of
+    Dectalk family of synthesizers are contained in <samp class=
+    "file">dectalk-voices.el</samp>, which is supplied as part of
     the Emacspeak distribution. The Emacspeak distribution also
     contains voice definitions for many other synthesizers.</p>
     <p>Using voice lock mode, Emacspeak also supports many of the
     aural style properties defined in level 2 of the World Wide Web
-    Consortium’s Cascading Style Sheet specification (see <a href=
+    Consortium’s Cascading Style Sheet specification (see <a class=
+    "url" href=
     "http://www.w3.org/TR/REC-CSS2/">http://www.w3.org/TR/REC-CSS2/</a>.
     Thus, when Emacspeak is running in conjunction with a
     cooperating user agent, such as William Perry’s Emacspeak/W3

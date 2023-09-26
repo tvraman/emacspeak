@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -29,21 +28,12 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+  kbd.kbd {font-style: oblique}
+  pre.format-preformatted {font-family: inherit}
+  span:hover a.copiable-link {visibility: visible}
+  strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+  ul.mark-bullet {list-style-type: disc}
   -->
   /*]]>*/
   </style>
@@ -51,8 +41,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="sox_002dgen">
-    <div class="header">
+  <div class="section-level-extent" id="sox_002dgen">
+    <div class="nav-panel">
       <p>Next: <a href="tetris.html" accesskey="n" rel=
       "next">tetris</a>, Previous: <a href="sox.html" accesskey="p"
       rel="prev">sox</a>, Up: <a href=
@@ -63,19 +53,25 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="sox_002dgen-1"></span>
-    <h3 class="section">12.234 sox-gen</h3>
+    <h3 class="section" id="sox_002dgen-1">12.234 sox-gen</h3>
     <p>Provides binaural audio along with pre-defined themes. This
     module can be used independent of Emacspeak.</p>
-    <ul class="section-toc">
-      <li><a href="#Binaural-Beats-Using-SoX" accesskey=
-      "1">Binaural Beats Using SoX</a></li>
-      <li><a href="#Sox_002dGen-Commands" accesskey="2">Sox-Gen
-      Commands</a></li>
-      <li><a href="#sox_002dgen-Options" accesskey="3">sox-gen
-      Options</a></li>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Binaural-Beats-Using-SoX" accesskey="1">Binaural
+        Beats Using SoX</a>
+      </li>
+      <li>
+        <a href="#Sox_002dGen-Commands" accesskey="2">Sox-Gen
+        Commands</a>
+      </li>
+      <li>
+        <a href="#sox_002dgen-Options" accesskey="3">sox-gen
+        Options</a>
+      </li>
     </ul>
-    <div class="subsection" id="Binaural-Beats-Using-SoX">
+    <div class="subsection-level-extent" id=
+    "Binaural-Beats-Using-SoX">
       <h4 class="subsection">12.234.1 Binaural Beats Using SoX</h4>
       <p>A binaural beat is an auditory illusion perceived when two
       different pure-tone sine waves, both with frequencies lower
@@ -89,7 +85,7 @@
       binaural beat, and in this example would have a perceived
       pitch correlating to a frequency of 10 Hz, that being the
       difference between the 530 Hz and 520 Hz pure tones presented
-      to each ear. For more details, see <a href=
+      to each ear. For more details, see <a class="url" href=
       "https://en.wikipedia.org/wiki/Binaural_beats">https://en.wikipedia.org/wiki/Binaural_beats</a>.</p>
       <p>This module implements a set of user-facing commands for
       generating binaural beats. The commands are organized from
@@ -101,105 +97,140 @@
       and when effective blend fully into the background. You can
       increase the overall volume of all binaural beat sequences by
       customizing</p>
-      <dl class="def">
-        <dt id="index-User-Option-119"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>sox-binaural-gain-offset to a positive
-        value</em> <a href='#index-User-Option-119' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-119"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">sox-binaural-gain-offset to a positive
+        value</var> <a class="copiable-link" href=
+        '#index-User-Option-119'>¶</a></span></dt>
       </dl>
       <p>— default is 0.</p>
-      <ul class="section-toc">
-        <li><a href=
-        "#High_002dLevel-Commands-For-Pre_002dDefined-Binaural-Beats"
-        accesskey="1">High-Level Commands For Pre-Defined Binaural
-        Beats</a></li>
+      <ul class="mini-toc">
+        <li>
+          <a href=
+          "#High_002dLevel-Commands-For-Pre_002dDefined-Binaural-Beats"
+          accesskey="1">High-Level Commands For Pre-Defined
+          Binaural Beats</a>
+        </li>
       </ul>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "High_002dLevel-Commands-For-Pre_002dDefined-Binaural-Beats">
         <h4 class="subsubsection">12.234.1.1 High-Level Commands
         For Pre-Defined Binaural Beats</h4>
         <p>These commands can be called directly to play one of the
         predefined binaural beats.</p>
-        <ul>
-          <li><code>sox-rev-up</code>: A set of binaural beats
-          designed for use at the start of the day. Transitions
-          from <em>Dream</em> -&gt; <em>Think</em>
-          -&gt;<em>Act</em> -&gt; <em>Focus</em>.</li>
-          <li><code>sox-wind-down</code>: A set of binaural beats
-          for winding down at the end of the day. This can be
-          thought of as the reverse of <code>sox-rev-up</code> and
-          the sequence transitions from <em>Act</em> -&gt;
-          <em>Think</em> -&gt; <em>Dream</em>
-          -&gt;<em>Sleep</em>.</li>
-          <li><code>sox-turn-down</code>: Designed for falling
-          asleep. This sequence starts with a short period of
-          <em>Dream</em> before moving to <em>Sleep</em>.</li>
-          <li><code>sox-relax</code>: A variant of the previous
-          sequence, <code>sox-relax</code> spends equal time in
-          <em>Dream</em> and <em>Sleep</em>.</li>
-          <li><code>sox-binaural</code>: Provide a completion-based
-          front-end to playing any one of the predefined binaural
-          effects (<em>Delta</em>, <em>Theta</em>, <em>Alpha</em>,
-          <em>Beta</em>, or <em>Gamma</em>. The previously defined
-          sequences are built up using these effects.</li>
-          <li><code>sox-beats-binaural</code>: Plays a collection
-          of binaural beats, prompting for carrier and beat
-          frequencies for each tone. The predefined sequences
-          listed earlier were created after first generating
-          experimental beat-sequences using this command.</li>
-          <li><code>sox-slide-binaural</code>: Prompts for two
-          binaural effects (see above) and generates a binaural
-          beat that <em>slides</em> from the first effect to the
-          second over a specified duration.</li>
-          <li><code>sox-chakras</code>: Pick amongst one of a
-          predefined set of sequences designed for <em>Chakra</em>
-          meditation.</li>
-          <li><code>sox-tone-binaural</code>: Generate a simple
-          binaural beat with a single carrier frequency.</li>
-          <li><code>sox-tone-slide-binaural</code>: Generate a tone
-          that slides from one binaural beat to another.</li>
+        <ul class="itemize mark-bullet">
+          <li><code class="command">sox-rev-up</code>: A set of
+          binaural beats designed for use at the start of the day.
+          Transitions from <em class="emph">Dream</em> -&gt;
+          <em class="emph">Think</em> -&gt;<em class=
+          "emph">Act</em> -&gt; <em class="emph">Focus</em>.</li>
+          <li><code class="command">sox-wind-down</code>: A set of
+          binaural beats for winding down at the end of the day.
+          This can be thought of as the reverse of <code class=
+          "command">sox-rev-up</code> and the sequence transitions
+          from <em class="emph">Act</em> -&gt; <em class=
+          "emph">Think</em> -&gt; <em class="emph">Dream</em>
+          -&gt;<em class="emph">Sleep</em>.</li>
+          <li><code class="command">sox-turn-down</code>: Designed
+          for falling asleep. This sequence starts with a short
+          period of <em class="emph">Dream</em> before moving to
+          <em class="emph">Sleep</em>.</li>
+          <li><code class="command">sox-relax</code>: A variant of
+          the previous sequence, <code class=
+          "code">sox-relax</code> spends equal time in <em class=
+          "emph">Dream</em> and <em class="emph">Sleep</em>.</li>
+          <li><code class="command">sox-binaural</code>: Provide a
+          completion-based front-end to playing any one of the
+          predefined binaural effects (<em class="emph">Delta</em>,
+          <em class="emph">Theta</em>, <em class="emph">Alpha</em>,
+          <em class="emph">Beta</em>, or <em class=
+          "emph">Gamma</em>. The previously defined sequences are
+          built up using these effects.</li>
+          <li><code class="command">sox-beats-binaural</code>:
+          Plays a collection of binaural beats, prompting for
+          carrier and beat frequencies for each tone. The
+          predefined sequences listed earlier were created after
+          first generating experimental beat-sequences using this
+          command.</li>
+          <li><code class="command">sox-slide-binaural</code>:
+          Prompts for two binaural effects (see above) and
+          generates a binaural beat that <em class=
+          "emph">slides</em> from the first effect to the second
+          over a specified duration.</li>
+          <li><code class="command">sox-chakras</code>: Pick
+          amongst one of a predefined set of sequences designed for
+          <em class="emph">Chakra</em> meditation.</li>
+          <li><code class="command">sox-tone-binaural</code>:
+          Generate a simple binaural beat with a single carrier
+          frequency.</li>
+          <li><code class="command">sox-tone-slide-binaural</code>:
+          Generate a tone that slides from one binaural beat to
+          another.</li>
         </ul>
       </div>
     </div>
-    <div class="subsection" id="Sox_002dGen-Commands">
+    <div class="subsection-level-extent" id="Sox_002dGen-Commands">
       <h4 class="subsection">12.234.2 Sox-Gen Commands</h4>
-      <ul class="section-toc">
-        <li><a href="#sox_002dbeats_002dbinaural" accesskey=
-        "1">sox-beats-binaural</a></li>
-        <li><a href="#sox_002dbinaural" accesskey=
-        "2">sox-binaural</a></li>
-        <li><a href="#sox_002dchakras" accesskey=
-        "3">sox-chakras</a></li>
-        <li><a href="#sox_002drelax" accesskey=
-        "4">sox-relax</a></li>
-        <li><a href="#sox_002drev_002dup" accesskey=
-        "5">sox-rev-up</a></li>
-        <li><a href="#sox_002dslide_002dbinaural" accesskey=
-        "6">sox-slide-binaural</a></li>
-        <li><a href="#sox_002dtone_002dbinaural" accesskey=
-        "7">sox-tone-binaural</a></li>
-        <li><a href="#sox_002dtone_002dslide_002dbinaural"
-        accesskey="8">sox-tone-slide-binaural</a></li>
-        <li><a href="#sox_002dturn_002ddown" accesskey=
-        "9">sox-turn-down</a></li>
-        <li><a href="#sox_002dwind_002ddown">sox-wind-down</a></li>
+      <ul class="mini-toc">
+        <li>
+          <a href="#sox_002dbeats_002dbinaural" accesskey=
+          "1">sox-beats-binaural</a>
+        </li>
+        <li>
+          <a href="#sox_002dbinaural" accesskey=
+          "2">sox-binaural</a>
+        </li>
+        <li>
+          <a href="#sox_002dchakras" accesskey="3">sox-chakras</a>
+        </li>
+        <li>
+          <a href="#sox_002drelax" accesskey="4">sox-relax</a>
+        </li>
+        <li>
+          <a href="#sox_002drev_002dup" accesskey=
+          "5">sox-rev-up</a>
+        </li>
+        <li>
+          <a href="#sox_002dslide_002dbinaural" accesskey=
+          "6">sox-slide-binaural</a>
+        </li>
+        <li>
+          <a href="#sox_002dtone_002dbinaural" accesskey=
+          "7">sox-tone-binaural</a>
+        </li>
+        <li>
+          <a href="#sox_002dtone_002dslide_002dbinaural" accesskey=
+          "8">sox-tone-slide-binaural</a>
+        </li>
+        <li>
+          <a href="#sox_002dturn_002ddown" accesskey=
+          "9">sox-turn-down</a>
+        </li>
+        <li>
+          <a href="#sox_002dwind_002ddown">sox-wind-down</a>
+        </li>
       </ul>
-      <div class="subsubsection" id="sox_002dbeats_002dbinaural">
+      <div class="subsubsection-level-extent" id=
+      "sox_002dbeats_002dbinaural">
         <h4 class="subsubsection">12.234.2.1
         sox-beats-binaural</h4>
-        <dl class="def">
-          <dt id="index-sox_002dbeats_002dbinaural"><span class=
-          "category">Command:</span>
-          <span><strong>sox-beats-binaural</strong> <em>(length
-          beat-spec-list gain)</em> <a href=
-          '#index-sox_002dbeats_002dbinaural' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-sox_002dbeats_002dbinaural">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">sox-beats-binaural</strong> <var class=
+          "def-var-arguments">(length beat-spec-list gain)</var>
+          <a class="copiable-link" href=
+          '#index-sox_002dbeats_002dbinaural'>¶</a></span></dt>
           <dd>
-            <span id="index-sox_002dbeats_002dbinaural-1"></span>
+            <a class="index-entry-id" id=
+            "index-sox_002dbeats_002dbinaural-1"></a>
             <div class="format">
               <pre class=
-              "format">Play binaural audio with beat-spec specifying the various tones.
+              "format-preformatted">Play binaural audio with beat-spec specifying the various tones.
 Param ‘beat-spec-list’ is a list of ‘(carrier beat) tuples.
 
 (fn LENGTH BEAT-SPEC-LIST GAIN)
@@ -208,25 +239,29 @@ Param ‘beat-spec-list’ is a list of ‘(carrier beat) tuples.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="sox_002dbinaural">
+      <div class="subsubsection-level-extent" id=
+      "sox_002dbinaural">
         <h4 class="subsubsection">12.234.2.2 sox-binaural</h4>
-        <dl class="def">
-          <dt id="index-sox_002dbinaural"><span class=
-          "category">Command:</span>
-          <span><strong>sox-binaural</strong> <em>(name
-          duration)</em> <a href='#index-sox_002dbinaural' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-sox_002dbinaural">
+          <span class="category-def">Command:</span>
+          <span><strong class="def-name">sox-binaural</strong>
+          <var class="def-var-arguments">(name duration)</var>
+          <a class="copiable-link" href=
+          '#index-sox_002dbinaural'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002d_002c-b'><span><kbd>C-, b</kbd>
-              <a href='#index-C_002d_002c-b' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002dx-_0040-a-b'><span><kbd>C-x @ a
-              b</kbd> <a href='#index-C_002dx-_0040-a-b' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id="index-sox_002dbinaural-1"></span>
+            <dl class="table">
+              <dt id='index-C_002d_002c-b'><span><kbd class=
+              "kbd">C-, b</kbd> <a class="copiable-link" href=
+              '#index-C_002d_002c-b'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-a-b'><span><kbd class=
+              "kbd">C-x @ a b</kbd> <a class="copiable-link" href=
+              '#index-C_002dx-_0040-a-b'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-sox_002dbinaural-1"></a>
             <div class="format">
-              <pre class="format">Play specified binaural effect.
+              <pre class=
+              "format-preformatted">Play specified binaural effect.
 
 (fn NAME DURATION)
 </pre>
@@ -234,19 +269,21 @@ Param ‘beat-spec-list’ is a list of ‘(carrier beat) tuples.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="sox_002dchakras">
+      <div class="subsubsection-level-extent" id="sox_002dchakras">
         <h4 class="subsubsection">12.234.2.3 sox-chakras</h4>
-        <dl class="def">
-          <dt id="index-sox_002dchakras"><span class=
-          "category">Command:</span>
-          <span><strong>sox-chakras</strong> <em>(theme
-          duration)</em> <a href='#index-sox_002dchakras' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-sox_002dchakras"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">sox-chakras</strong> <var class=
+          "def-var-arguments">(theme duration)</var> <a class=
+          "copiable-link" href=
+          '#index-sox_002dchakras'>¶</a></span></dt>
           <dd>
-            <span id="index-sox_002dchakras-1"></span>
+            <a class="index-entry-id" id=
+            "index-sox_002dchakras-1"></a>
             <div class="format">
               <pre class=
-              "format">Play each chakra for specified duration.
+              "format-preformatted">Play each chakra for specified duration.
 Parameter ‘theme’ specifies variant.
 
 (fn THEME DURATION)
@@ -255,19 +292,21 @@ Parameter ‘theme’ specifies variant.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="sox_002drelax">
+      <div class="subsubsection-level-extent" id="sox_002drelax">
         <h4 class="subsubsection">12.234.2.4 sox-relax</h4>
-        <dl class="def">
-          <dt id="index-sox_002drelax"><span class=
-          "category">Command:</span>
-          <span><strong>sox-relax</strong> <em>(length)</em>
-          <a href='#index-sox_002drelax' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-sox_002drelax"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">sox-relax</strong> <var class=
+          "def-var-arguments">(length)</var> <a class=
+          "copiable-link" href=
+          '#index-sox_002drelax'>¶</a></span></dt>
           <dd>
-            <span id="index-sox_002drelax-1"></span>
+            <a class="index-entry-id" id=
+            "index-sox_002drelax-1"></a>
             <div class="format">
               <pre class=
-              "format">Play relax set of  binaural beats for ‘length’ seconds.
+              "format-preformatted">Play relax set of  binaural beats for ‘length’ seconds.
 
 (fn LENGTH)
 </pre>
@@ -275,19 +314,22 @@ Parameter ‘theme’ specifies variant.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="sox_002drev_002dup">
+      <div class="subsubsection-level-extent" id=
+      "sox_002drev_002dup">
         <h4 class="subsubsection">12.234.2.5 sox-rev-up</h4>
-        <dl class="def">
-          <dt id="index-sox_002drev_002dup"><span class=
-          "category">Command:</span>
-          <span><strong>sox-rev-up</strong> <em>(length)</em>
-          <a href='#index-sox_002drev_002dup' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-sox_002drev_002dup">
+          <span class="category-def">Command:</span>
+          <span><strong class="def-name">sox-rev-up</strong>
+          <var class="def-var-arguments">(length)</var> <a class=
+          "copiable-link" href=
+          '#index-sox_002drev_002dup'>¶</a></span></dt>
           <dd>
-            <span id="index-sox_002drev_002dup-1"></span>
+            <a class="index-entry-id" id=
+            "index-sox_002drev_002dup-1"></a>
             <div class="format">
               <pre class=
-              "format">Play rev-up set of  binaural beats for ‘length’ seconds. 
+              "format-preformatted">Play rev-up set of  binaural beats for ‘length’ seconds. 
 
 (fn LENGTH)
 </pre>
@@ -295,21 +337,24 @@ Parameter ‘theme’ specifies variant.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="sox_002dslide_002dbinaural">
+      <div class="subsubsection-level-extent" id=
+      "sox_002dslide_002dbinaural">
         <h4 class="subsubsection">12.234.2.6
         sox-slide-binaural</h4>
-        <dl class="def">
-          <dt id="index-sox_002dslide_002dbinaural"><span class=
-          "category">Command:</span>
-          <span><strong>sox-slide-binaural</strong> <em>(name-1
-          name-2 duration)</em> <a href=
-          '#index-sox_002dslide_002dbinaural' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-sox_002dslide_002dbinaural">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">sox-slide-binaural</strong> <var class=
+          "def-var-arguments">(name-1 name-2 duration)</var>
+          <a class="copiable-link" href=
+          '#index-sox_002dslide_002dbinaural'>¶</a></span></dt>
           <dd>
-            <span id="index-sox_002dslide_002dbinaural-1"></span>
+            <a class="index-entry-id" id=
+            "index-sox_002dslide_002dbinaural-1"></a>
             <div class="format">
               <pre class=
-              "format">Play specified binaural slide from ‘name-1’ to ‘name-2’.
+              "format-preformatted">Play specified binaural slide from ‘name-1’ to ‘name-2’.
 
 (fn NAME-1 NAME-2 DURATION)
 </pre>
@@ -317,20 +362,22 @@ Parameter ‘theme’ specifies variant.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="sox_002dtone_002dbinaural">
+      <div class="subsubsection-level-extent" id=
+      "sox_002dtone_002dbinaural">
         <h4 class="subsubsection">12.234.2.7 sox-tone-binaural</h4>
-        <dl class="def">
-          <dt id="index-sox_002dtone_002dbinaural"><span class=
-          "category">Command:</span>
-          <span><strong>sox-tone-binaural</strong> <em>(length freq
-          beat gain)</em> <a href=
-          '#index-sox_002dtone_002dbinaural' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-sox_002dtone_002dbinaural">
+          <span class="category-def">Command:</span>
+          <span><strong class="def-name">sox-tone-binaural</strong>
+          <var class="def-var-arguments">(length freq beat
+          gain)</var> <a class="copiable-link" href=
+          '#index-sox_002dtone_002dbinaural'>¶</a></span></dt>
           <dd>
-            <span id="index-sox_002dtone_002dbinaural-1"></span>
+            <a class="index-entry-id" id=
+            "index-sox_002dtone_002dbinaural-1"></a>
             <div class="format">
               <pre class=
-              "format">Play binaural audio with carrier frequency ‘freq’, beat ‘beat’, and
+              "format-preformatted">Play binaural audio with carrier frequency ‘freq’, beat ‘beat’, and
 gain ‘gain’.
 
 (fn LENGTH FREQ BEAT GAIN)
@@ -339,23 +386,24 @@ gain ‘gain’.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "sox_002dtone_002dslide_002dbinaural">
         <h4 class="subsubsection">12.234.2.8
         sox-tone-slide-binaural</h4>
-        <dl class="def">
-          <dt id="index-sox_002dtone_002dslide_002dbinaural">
-          <span class="category">Command:</span>
-          <span><strong>sox-tone-slide-binaural</strong>
-          <em>(length freq beat-start beat-end gain)</em> <a href=
-          '#index-sox_002dtone_002dslide_002dbinaural' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-sox_002dtone_002dslide_002dbinaural"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">sox-tone-slide-binaural</strong> <var class=
+          "def-var-arguments">(length freq beat-start beat-end
+          gain)</var> <a class="copiable-link" href=
+          '#index-sox_002dtone_002dslide_002dbinaural'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-sox_002dtone_002dslide_002dbinaural-1"></span>
+            <a class="index-entry-id" id=
+            "index-sox_002dtone_002dslide_002dbinaural-1"></a>
             <div class="format">
               <pre class=
-              "format">Play binaural audio with carrier frequency ‘freq’, beat
+              "format-preformatted">Play binaural audio with carrier frequency ‘freq’, beat
 ‘beat-start’ -&gt; ‘beat-end’, and gain ‘gain’.
 
 (fn LENGTH FREQ BEAT-START BEAT-END GAIN)
@@ -364,19 +412,22 @@ gain ‘gain’.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="sox_002dturn_002ddown">
+      <div class="subsubsection-level-extent" id=
+      "sox_002dturn_002ddown">
         <h4 class="subsubsection">12.234.2.9 sox-turn-down</h4>
-        <dl class="def">
-          <dt id="index-sox_002dturn_002ddown"><span class=
-          "category">Command:</span>
-          <span><strong>sox-turn-down</strong> <em>(length)</em>
-          <a href='#index-sox_002dturn_002ddown' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-sox_002dturn_002ddown">
+          <span class="category-def">Command:</span>
+          <span><strong class="def-name">sox-turn-down</strong>
+          <var class="def-var-arguments">(length)</var> <a class=
+          "copiable-link" href=
+          '#index-sox_002dturn_002ddown'>¶</a></span></dt>
           <dd>
-            <span id="index-sox_002dturn_002ddown-1"></span>
+            <a class="index-entry-id" id=
+            "index-sox_002dturn_002ddown-1"></a>
             <div class="format">
               <pre class=
-              "format">Play turn-down set of  binaural beats for ‘length’ seconds. 
+              "format-preformatted">Play turn-down set of  binaural beats for ‘length’ seconds. 
 
 (fn LENGTH)
 </pre>
@@ -384,19 +435,22 @@ gain ‘gain’.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="sox_002dwind_002ddown">
+      <div class="subsubsection-level-extent" id=
+      "sox_002dwind_002ddown">
         <h4 class="subsubsection">12.234.2.10 sox-wind-down</h4>
-        <dl class="def">
-          <dt id="index-sox_002dwind_002ddown"><span class=
-          "category">Command:</span>
-          <span><strong>sox-wind-down</strong> <em>(length)</em>
-          <a href='#index-sox_002dwind_002ddown' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-sox_002dwind_002ddown">
+          <span class="category-def">Command:</span>
+          <span><strong class="def-name">sox-wind-down</strong>
+          <var class="def-var-arguments">(length)</var> <a class=
+          "copiable-link" href=
+          '#index-sox_002dwind_002ddown'>¶</a></span></dt>
           <dd>
-            <span id="index-sox_002dwind_002ddown-1"></span>
+            <a class="index-entry-id" id=
+            "index-sox_002dwind_002ddown-1"></a>
             <div class="format">
               <pre class=
-              "format">Play wind-down set of  binaural beats for ‘length’ seconds.
+              "format-preformatted">Play wind-down set of  binaural beats for ‘length’ seconds.
 
 (fn LENGTH)
 </pre>
@@ -405,14 +459,16 @@ gain ‘gain’.
         </dl>
       </div>
     </div>
-    <div class="subsection" id="sox_002dgen-Options">
+    <div class="subsection-level-extent" id="sox_002dgen-Options">
       <h4 class="subsection">12.234.3 sox-gen Options</h4>
-      <dl class="def">
-        <dt id="index-User-Option-120"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>sox-binaural-gain-offset</em> <a href=
-        '#index-User-Option-120' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-120"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">sox-binaural-gain-offset</var>
+        <a class="copiable-link" href=
+        '#index-User-Option-120'>¶</a></span></dt>
         <dd>
           <p>User specified offset that is added to default gain
           when generating tones using SoX, e.g., for binaural
@@ -424,12 +480,14 @@ gain ‘gain’.
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-121"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>sox-binaural-slider-scale</em> <a href=
-        '#index-User-Option-121' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-121"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">sox-binaural-slider-scale</var>
+        <a class="copiable-link" href=
+        '#index-User-Option-121'>¶</a></span></dt>
         <dd>
           <p>Scale factor used to compute slide duration when
           moving from one binaural beat to another.</p>
@@ -443,7 +501,7 @@ gain ‘gain’.
     </div>
   </div>
   <hr />
-  <div class="header">
+  <div class="nav-panel">
     <p>Next: <a href="tetris.html">tetris</a>, Previous: <a href=
     "sox.html">sox</a>, Up: <a href=
     "Emacspeak-Commands-And-Options.html">Emacspeak Commands And

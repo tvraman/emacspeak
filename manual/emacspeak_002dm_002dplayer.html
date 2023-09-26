@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -32,21 +31,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+  kbd.kbd {font-style: oblique}
+  pre.format-preformatted {font-family: inherit}
+  span:hover a.copiable-link {visibility: visible}
+  strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
   -->
   /*]]>*/
   </style>
@@ -54,8 +43,9 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002dm_002dplayer">
-    <div class="header">
+  <div class="section-level-extent" id=
+  "emacspeak_002dm_002dplayer">
+    <div class="nav-panel">
       <p>Next: <a href="emacspeak_002dmagit.html" accesskey="n"
       rel="next">emacspeak-magit</a>, Previous: <a href=
       "emacspeak_002dlua.html" accesskey="p" rel=
@@ -67,242 +57,418 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="emacspeak_002dm_002dplayer-1"></span>
-    <h3 class="section">12.120 emacspeak-m-player</h3>
+    <h3 class="section" id="emacspeak_002dm_002dplayer-1">12.120
+    emacspeak-m-player</h3>
     <p>Defines an Emacspeak front-end for interacting with
-    <code>mplayer</code>. Program <code>mplayer</code> is a
-    versatile media player capable of playing many streaming media
-    formats. This module provides complete access to all
-    <code>mplayer</code> functionality from a convenient Emacs
-    interface.</p>
-    <ul class="section-toc">
-      <li><a href="#Usage-2" accesskey="1">Usage</a></li>
-      <li><a href="#Emacspeak_002dM_002dPlayer-Commands" accesskey=
-      "2">Emacspeak-M-Player Commands</a></li>
-      <li><a href="#emacspeak_002dm_002dplayer-Options" accesskey=
-      "3">emacspeak-m-player Options</a></li>
+    <code class="code">mplayer</code>. Program <code class=
+    "code">mplayer</code> is a versatile media player capable of
+    playing many streaming media formats. This module provides
+    complete access to all <code class="code">mplayer</code>
+    functionality from a convenient Emacs interface.</p>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Usage-2" accesskey="1">Usage</a>
+      </li>
+      <li>
+        <a href="#Emacspeak_002dM_002dPlayer-Commands" accesskey=
+        "2">Emacspeak-M-Player Commands</a>
+      </li>
+      <li>
+        <a href="#emacspeak_002dm_002dplayer-Options" accesskey=
+        "3">emacspeak-m-player Options</a>
+      </li>
     </ul>
-    <div class="subsection" id="Usage-2">
+    <div class="subsection-level-extent" id="Usage-2">
       <h4 class="subsection">12.120.1 Usage</h4>
-      <p>The main entry-point is command
-      <code>emacspeak-multimedia</code> bound to <kbd>C-e ;</kbd>.
-      This prompts for and launches the desired media stream. Once
-      a stream is playing, you can control it with single-letter
-      keystrokes in the <code>*M-Player*</code> buffer.
-      Alternatively, you can switch away from that buffer to do
-      real work, And invoke <code>m-player</code> commands by first
-      pressing prefix-key <kbd>C-e ;</kbd>. If your Emacs supports
-      <code>repeat-mode</code>, — See <a data-manual="emacs" href=
+      <p>The main entry-point is command <code class=
+      "code">emacspeak-multimedia</code> bound to <kbd class=
+      "kbd">C-e ;</kbd>. This prompts for and launches the desired
+      media stream. Once a stream is playing, you can control it
+      with single-letter keystrokes in the <code class=
+      "code">*M-Player*</code> buffer. Alternatively, you can
+      switch away from that buffer to do real work, And invoke
+      <code class="code">m-player</code> commands by first pressing
+      prefix-key <kbd class="kbd">C-e ;</kbd>. If your Emacs
+      supports <code class="code">repeat-mode</code>, — See
+      <a data-manual="emacs" href=
       "https://www.gnu.org/software/emacs/manual/html_node/emacs/repeating.html#repeating">
       (emacs)repeating</a> you can avoid the need to repeatedly
-      press the prefix-key <code>C-e ;</code> each time; with
-      <code>repeat-mode</code> active, you only need to press the
-      prefix <code>C-e ;</code> the first time; subsequent
-      invocations can happen via single-letter presses as long as
-      they are performed in a sequence. As an example, pressing
-      <kbd>v</kbd> in the <code>*M-Player*</code> buffer prompts
-      for and sets the volume; When not in the
-      <code>*M-Player*</code> buffer, you can achieve the same by
-      pressing <kbd>C-e ; v</kbd>. Press <kbd>C-h b</kbd> in the
-      <code>*M-Player*</code> buffer to list <code>m-player</code>
+      press the prefix-key <code class="code">C-e ;</code> each
+      time; with <code class="code">repeat-mode</code> active, you
+      only need to press the prefix <code class="code">C-e ;</code>
+      the first time; subsequent invocations can happen via
+      single-letter presses as long as they are performed in a
+      sequence. As an example, pressing <kbd class="kbd">v</kbd> in
+      the <code class="code">*M-Player*</code> buffer prompts for
+      and sets the volume; When not in the <code class=
+      "code">*M-Player*</code> buffer, you can achieve the same by
+      pressing <kbd class="kbd">C-e ; v</kbd>. Press <kbd class=
+      "kbd">C-h b</kbd> in the <code class="code">*M-Player*</code>
+      buffer to list <code class="code">m-player</code>
       keybindings.</p>
     </div>
-    <div class="subsection" id=
+    <div class="subsection-level-extent" id=
     "Emacspeak_002dM_002dPlayer-Commands">
       <h4 class="subsection">12.120.2 Emacspeak-M-Player
       Commands</h4>
-      <ul class="section-toc">
-        <li><a href="#emacspeak_002dm_002dplayer-2" accesskey=
-        "1">emacspeak-m-player</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dadd_002dautopan"
-        accesskey="2">emacspeak-m-player-add-autopan</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dadd_002dautosat"
-        accesskey="3">emacspeak-m-player-add-autosat</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dadd_002ddynamic"
-        accesskey="4">emacspeak-m-player-add-dynamic</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dadd_002dequalizer"
-        accesskey="5">emacspeak-m-player-add-equalizer</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dadd_002dfilter" accesskey=
-        "6">emacspeak-m-player-add-filter</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dadd_002dladspa" accesskey=
-        "7">emacspeak-m-player-add-ladspa</a></li>
-        <li><a href="#emacspeak_002dm_002dplayer_002dadd_002dloop"
-        accesskey="8">emacspeak-m-player-add-loop</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dalt_002dsrc_002dstep"
-        accesskey="9">emacspeak-m-player-alt-src-step</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002damark_002dadd">emacspeak-m-player-amark-add</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002damark_002djump">emacspeak-m-player-amark-jump</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002damark_002dsave">emacspeak-m-player-amark-save</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dapply_002dreverb">emacspeak-m-player-apply-reverb</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dbackward_002d10min">emacspeak-m-player-backward-10min</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dbackward_002d10s">emacspeak-m-player-backward-10s</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dbackward_002d1min">emacspeak-m-player-backward-1min</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dbalance">emacspeak-m-player-balance</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dbalance_002dchannels">emacspeak-m-player-balance-channels</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dbind_002dhotkey">emacspeak-m-player-bind-hotkey</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dbrowse_002dhistory">emacspeak-m-player-browse-history</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dclear_002dfilters">emacspeak-m-player-clear-filters</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dcommand">emacspeak-m-player-command</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dcustomize">emacspeak-m-player-customize</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002ddelete_002dfilter">emacspeak-m-player-delete-filter</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002ddelete_002dladspa">emacspeak-m-player-delete-ladspa</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002ddisplay_002dpercent">emacspeak-m-player-display-percent</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002ddouble_002dspeed">emacspeak-m-player-double-speed</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dedit_002dreverb">emacspeak-m-player-edit-reverb</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dend_002dtrack">emacspeak-m-player-end-track</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002deq_002dcontrols">emacspeak-m-player-eq-controls</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002deq_002dpreset">emacspeak-m-player-eq-preset</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dfaster">emacspeak-m-player-faster</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dforward_002d10min">emacspeak-m-player-forward-10min</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dforward_002d10s">emacspeak-m-player-forward-10s</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dforward_002d1min">emacspeak-m-player-forward-1min</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dfrom_002dhistory">emacspeak-m-player-from-history</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dget_002dlength">emacspeak-m-player-get-length</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dhalf_002dspeed">emacspeak-m-player-half-speed</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dleft_002dchannel">emacspeak-m-player-left-channel</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dlocate_002dmedia">emacspeak-m-player-locate-media</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dloop">emacspeak-m-player-loop</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dmode">emacspeak-m-player-mode</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dmode_002dline">emacspeak-m-player-mode-line</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dnext_002dtrack">emacspeak-m-player-next-track</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dpan">emacspeak-m-player-pan</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dpause">emacspeak-m-player-pause</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dpersist_002dprocess">emacspeak-m-player-persist-process</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dplay_002drss">emacspeak-m-player-play-rss</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dplay_002dtree_002dup">emacspeak-m-player-play-tree-up</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dpop_002dto_002dplayer">emacspeak-m-player-pop-to-player</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dprevious_002dtrack">emacspeak-m-player-previous-track</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dquit">emacspeak-m-player-quit</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002drem_002dhistory">emacspeak-m-player-rem-history</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dreset_002doptions">emacspeak-m-player-reset-options</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dreset_002dspeed">emacspeak-m-player-reset-speed</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002drestore_002dprocess">emacspeak-m-player-restore-process</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dright_002dchannel">emacspeak-m-player-right-channel</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dscale_002dspeed">emacspeak-m-player-scale-speed</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dseek_002dabsolute">emacspeak-m-player-seek-absolute</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dseek_002dpercentage">emacspeak-m-player-seek-percentage</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dseek_002drelative">emacspeak-m-player-seek-relative</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dset_002dclip_002dend">emacspeak-m-player-set-clip-end</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dset_002dclip_002dstart">emacspeak-m-player-set-clip-start</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dshow_002ddata">emacspeak-m-player-show-data</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dshow_002dpos">emacspeak-m-player-show-pos</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dshuffle">emacspeak-m-player-shuffle</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dskip_002dtracks">emacspeak-m-player-skip-tracks</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dslave_002dcommand">emacspeak-m-player-slave-command</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dslower">emacspeak-m-player-slower</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dstart_002dtrack">emacspeak-m-player-start-track</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dstore_002dlink">emacspeak-m-player-store-link</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dstream_002dinfo">emacspeak-m-player-stream-info</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dtoggle_002dextrastereo">emacspeak-m-player-toggle-extrastereo</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002durl">emacspeak-m-player-url</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dusing_002dhrtf">emacspeak-m-player-using-hrtf</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dusing_002dopenal">emacspeak-m-player-using-openal</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dvolume_002dchange">emacspeak-m-player-volume-change</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dvolume_002ddown">emacspeak-m-player-volume-down</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dvolume_002dset">emacspeak-m-player-volume-set</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dvolume_002dup">emacspeak-m-player-volume-up</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dwrite_002dclip">emacspeak-m-player-write-clip</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dyoutube_002dlive">emacspeak-m-player-youtube-live</a></li>
-        <li><a href=
-        "#emacspeak_002dm_002dplayer_002dyoutube_002dplayer">emacspeak-m-player-youtube-player</a></li>
-        <li><a href=
-        "#emacspeak_002dmultimedia">emacspeak-multimedia</a></li>
+      <ul class="mini-toc">
+        <li>
+          <a href="#emacspeak_002dm_002dplayer-2" accesskey=
+          "1">emacspeak-m-player</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dm_002dplayer_002dadd_002dautopan"
+          accesskey="2">emacspeak-m-player-add-autopan</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dm_002dplayer_002dadd_002dautosat"
+          accesskey="3">emacspeak-m-player-add-autosat</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dm_002dplayer_002dadd_002ddynamic"
+          accesskey="4">emacspeak-m-player-add-dynamic</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dadd_002dequalizer"
+          accesskey="5">emacspeak-m-player-add-equalizer</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dm_002dplayer_002dadd_002dfilter"
+          accesskey="6">emacspeak-m-player-add-filter</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dm_002dplayer_002dadd_002dladspa"
+          accesskey="7">emacspeak-m-player-add-ladspa</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dm_002dplayer_002dadd_002dloop"
+          accesskey="8">emacspeak-m-player-add-loop</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dalt_002dsrc_002dstep"
+          accesskey="9">emacspeak-m-player-alt-src-step</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002damark_002dadd">emacspeak-m-player-amark-add</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002damark_002djump">emacspeak-m-player-amark-jump</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002damark_002dsave">emacspeak-m-player-amark-save</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dapply_002dreverb">emacspeak-m-player-apply-reverb</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dbackward_002d10min">emacspeak-m-player-backward-10min</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dbackward_002d10s">emacspeak-m-player-backward-10s</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dbackward_002d1min">emacspeak-m-player-backward-1min</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dbalance">emacspeak-m-player-balance</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dbalance_002dchannels">emacspeak-m-player-balance-channels</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dbind_002dhotkey">emacspeak-m-player-bind-hotkey</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dbrowse_002dhistory">emacspeak-m-player-browse-history</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dclear_002dfilters">emacspeak-m-player-clear-filters</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dcommand">emacspeak-m-player-command</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dcustomize">emacspeak-m-player-customize</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002ddelete_002dfilter">emacspeak-m-player-delete-filter</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002ddelete_002dladspa">emacspeak-m-player-delete-ladspa</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002ddisplay_002dpercent">emacspeak-m-player-display-percent</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002ddouble_002dspeed">emacspeak-m-player-double-speed</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dedit_002dreverb">emacspeak-m-player-edit-reverb</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dend_002dtrack">emacspeak-m-player-end-track</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002deq_002dcontrols">emacspeak-m-player-eq-controls</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002deq_002dpreset">emacspeak-m-player-eq-preset</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dfaster">emacspeak-m-player-faster</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dforward_002d10min">emacspeak-m-player-forward-10min</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dforward_002d10s">emacspeak-m-player-forward-10s</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dforward_002d1min">emacspeak-m-player-forward-1min</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dfrom_002dhistory">emacspeak-m-player-from-history</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dget_002dlength">emacspeak-m-player-get-length</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dhalf_002dspeed">emacspeak-m-player-half-speed</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dleft_002dchannel">emacspeak-m-player-left-channel</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dlocate_002dmedia">emacspeak-m-player-locate-media</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dloop">emacspeak-m-player-loop</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dmode">emacspeak-m-player-mode</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dmode_002dline">emacspeak-m-player-mode-line</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dnext_002dtrack">emacspeak-m-player-next-track</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dpan">emacspeak-m-player-pan</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dpause">emacspeak-m-player-pause</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dpersist_002dprocess">emacspeak-m-player-persist-process</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dplay_002drss">emacspeak-m-player-play-rss</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dplay_002dtree_002dup">emacspeak-m-player-play-tree-up</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dpop_002dto_002dplayer">emacspeak-m-player-pop-to-player</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dprevious_002dtrack">emacspeak-m-player-previous-track</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dquit">emacspeak-m-player-quit</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002drem_002dhistory">emacspeak-m-player-rem-history</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dreset_002doptions">emacspeak-m-player-reset-options</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dreset_002dspeed">emacspeak-m-player-reset-speed</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002drestore_002dprocess">emacspeak-m-player-restore-process</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dright_002dchannel">emacspeak-m-player-right-channel</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dscale_002dspeed">emacspeak-m-player-scale-speed</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dseek_002dabsolute">emacspeak-m-player-seek-absolute</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dseek_002dpercentage">emacspeak-m-player-seek-percentage</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dseek_002drelative">emacspeak-m-player-seek-relative</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dset_002dclip_002dend">emacspeak-m-player-set-clip-end</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dset_002dclip_002dstart">emacspeak-m-player-set-clip-start</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dshow_002ddata">emacspeak-m-player-show-data</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dshow_002dpos">emacspeak-m-player-show-pos</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dshuffle">emacspeak-m-player-shuffle</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dskip_002dtracks">emacspeak-m-player-skip-tracks</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dslave_002dcommand">emacspeak-m-player-slave-command</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dslower">emacspeak-m-player-slower</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dstart_002dtrack">emacspeak-m-player-start-track</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dstore_002dlink">emacspeak-m-player-store-link</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dstream_002dinfo">emacspeak-m-player-stream-info</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dtoggle_002dextrastereo">emacspeak-m-player-toggle-extrastereo</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002durl">emacspeak-m-player-url</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dusing_002dhrtf">emacspeak-m-player-using-hrtf</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dusing_002dopenal">emacspeak-m-player-using-openal</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dvolume_002dchange">emacspeak-m-player-volume-change</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dvolume_002ddown">emacspeak-m-player-volume-down</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dvolume_002dset">emacspeak-m-player-volume-set</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dvolume_002dup">emacspeak-m-player-volume-up</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dwrite_002dclip">emacspeak-m-player-write-clip</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dyoutube_002dlive">emacspeak-m-player-youtube-live</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dm_002dplayer_002dyoutube_002dplayer">emacspeak-m-player-youtube-player</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dmultimedia">emacspeak-multimedia</a>
+        </li>
       </ul>
-      <div class="subsubsection" id="emacspeak_002dm_002dplayer-2">
+      <div class="subsubsection-level-extent" id=
+      "emacspeak_002dm_002dplayer-2">
         <h4 class="subsubsection">12.120.2.1
         emacspeak-m-player</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dm_002dplayer"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-m-player</strong> <em>(resource
-          &amp;optional play-list)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-emacspeak_002dm_002dplayer">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player</strong> <var class=
+          "def-var-arguments">(resource &amp;optional
+          play-list)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer'>¶</a></span></dt>
           <dd>
-            <span id="index-emacspeak_002dm_002dplayer-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer-1"></a>
             <div class="format">
               <pre class=
-              "format">Play  resource, or play dynamic playlist if set.  Optional prefix argument
+              "format-preformatted">Play  resource, or play dynamic playlist if set.  Optional prefix argument
 play-list interprets resource as a play-list.  Second interactive
 prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
 See command M-x emacspeak-m-player-add-dynamic for adding to the
@@ -314,72 +480,73 @@ dynamic playlist.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dadd_002dautopan">
         <h4 class="subsubsection">12.120.2.2
         emacspeak-m-player-add-autopan</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dadd_002dautopan">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-add-autopan</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dadd_002dautopan'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-add-autopan</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dadd_002dautopan'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dadd_002dautopan-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Add autopan effect.
+              <pre class="format-preformatted">Add autopan effect.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dadd_002dautosat">
         <h4 class="subsubsection">12.120.2.3
         emacspeak-m-player-add-autosat</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dadd_002dautosat">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-add-autosat</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dadd_002dautosat'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-add-autosat</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dadd_002dautosat'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dadd_002dautosat-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Add ZamAutoSat (auto saturation) effect.
+              "format-preformatted">Add ZamAutoSat (auto saturation) effect.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dadd_002ddynamic">
         <h4 class="subsubsection">12.120.2.4
         emacspeak-m-player-add-dynamic</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dadd_002ddynamic">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-add-dynamic</strong>
-          <em>(file)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dadd_002ddynamic'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-add-dynamic</strong>
+          <var class="def-var-arguments">(file)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dadd_002ddynamic'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dadd_002ddynamic-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Add file to the current  dynamic playlist.
+              "format-preformatted">Add file to the current  dynamic playlist.
 
 (fn FILE)
 </pre>
@@ -387,25 +554,27 @@ dynamic playlist.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dadd_002dequalizer">
         <h4 class="subsubsection">12.120.2.5
         emacspeak-m-player-add-equalizer</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dadd_002dequalizer">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-add-equalizer</strong>
-          <em>(&amp;optional reset)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dadd_002dequalizer'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-add-equalizer</strong>
+          <var class="def-var-arguments">(&amp;optional
+          reset)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dadd_002dequalizer'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dadd_002dequalizer-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Add equalizer.  Equalizer is updated as each change
+              "format-preformatted">Add equalizer.  Equalizer is updated as each change
 is made, and the final effect set by pressing RET.  Interactive prefix
 arg ‘reset’ starts with all filters set to 0.
 
@@ -415,24 +584,26 @@ arg ‘reset’ starts with all filters set to 0.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dadd_002dfilter">
         <h4 class="subsubsection">12.120.2.6
         emacspeak-m-player-add-filter</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dadd_002dfilter">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-add-filter</strong>
-          <em>(filter-name &amp;optional edit)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dadd_002dfilter'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-add-filter</strong>
+          <var class="def-var-arguments">(filter-name &amp;optional
+          edit)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dadd_002dfilter'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dadd_002dfilter-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Adds  filter with completion.
+              <pre class=
+              "format-preformatted">Adds  filter with completion.
  Optional interactive prefix arg ‘edit’ edits the.
 
 (fn FILTER-NAME &amp;optional EDIT)
@@ -441,24 +612,25 @@ arg ‘reset’ starts with all filters set to 0.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dadd_002dladspa">
         <h4 class="subsubsection">12.120.2.7
         emacspeak-m-player-add-ladspa</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dadd_002dladspa">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-add-ladspa</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dadd_002dladspa'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-add-ladspa</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dadd_002dladspa'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dadd_002dladspa-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Apply plugin to running MPlayer.
+              <pre class=
+              "format-preformatted">Apply plugin to running MPlayer.
 Copies  invocation string to kill-ring so it can be added easily to
 our pre-defined filters if appropriate.
 </pre>
@@ -466,23 +638,25 @@ our pre-defined filters if appropriate.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dadd_002dloop">
         <h4 class="subsubsection">12.120.2.8
         emacspeak-m-player-add-loop</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dadd_002dloop">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-add-loop</strong>
-          <em>(&amp;optional prompt)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dadd_002dloop'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-add-loop</strong>
+          <var class="def-var-arguments">(&amp;optional
+          prompt)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dadd_002dloop'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dm_002dplayer_002dadd_002dloop-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dadd_002dloop-1"></a>
             <div class="format">
-              <pre class="format">Add loop 10 is default.
+              <pre class=
+              "format-preformatted">Add loop 10 is default.
 
 (fn &amp;optional PROMPT)
 </pre>
@@ -490,24 +664,27 @@ our pre-defined filters if appropriate.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dalt_002dsrc_002dstep">
         <h4 class="subsubsection">12.120.2.9
         emacspeak-m-player-alt-src-step</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dalt_002dsrc_002dstep">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-alt-src-step</strong>
-          <em>(step)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dalt_002dsrc_002dstep'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-alt-src-step</strong>
+          <var class="def-var-arguments">(step)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dalt_002dsrc_002dstep'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dalt_002dsrc_002dstep-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Move within an ASF playlist.
+              <pre class=
+              "format-preformatted">Move within an ASF playlist.
 
 (fn STEP)
 </pre>
@@ -515,24 +692,25 @@ our pre-defined filters if appropriate.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002damark_002dadd">
         <h4 class="subsubsection">12.120.2.10
         emacspeak-m-player-amark-add</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002damark_002dadd">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-amark-add</strong>
-          <em>(name &amp;optional prompt-position)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002damark_002dadd'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-amark-add</strong>
+          <var class="def-var-arguments">(name &amp;optional
+          prompt-position)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002damark_002dadd'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dm_002dplayer_002damark_002dadd-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002damark_002dadd-1"></a>
             <div class="format">
               <pre class=
-              "format">Set AMark ‘name’ at current position.
+              "format-preformatted">Set AMark ‘name’ at current position.
 Interactive prefix arg prompts for position.
 As the default, use current position.
 
@@ -542,71 +720,72 @@ As the default, use current position.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002damark_002djump">
         <h4 class="subsubsection">12.120.2.11
         emacspeak-m-player-amark-jump</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002damark_002djump">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-amark-jump</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002damark_002djump'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-amark-jump</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002damark_002djump'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002damark_002djump-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Jump to AMark.
+              <pre class="format-preformatted">Jump to AMark.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002damark_002dsave">
         <h4 class="subsubsection">12.120.2.12
         emacspeak-m-player-amark-save</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002damark_002dsave">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-amark-save</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002damark_002dsave'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-amark-save</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002damark_002dsave'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002damark_002dsave-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Save amarks.
+              <pre class="format-preformatted">Save amarks.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dapply_002dreverb">
         <h4 class="subsubsection">12.120.2.13
         emacspeak-m-player-apply-reverb</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dapply_002dreverb">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-apply-reverb</strong>
-          <em>(preset)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dapply_002dreverb'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-apply-reverb</strong>
+          <var class="def-var-arguments">(preset)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dapply_002dreverb'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dapply_002dreverb-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Prompt for and apply a reverb preset.
+              "format-preformatted">Prompt for and apply a reverb preset.
   You need to use mplayer built with ladspa support, and have package
   tap-reverb already installed.
 
@@ -616,137 +795,146 @@ As the default, use current position.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dbackward_002d10min">
         <h4 class="subsubsection">12.120.2.14
         emacspeak-m-player-backward-10min</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dbackward_002d10min">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-backward-10min</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dbackward_002d10min'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-backward-10min</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dbackward_002d10min'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dbackward_002d10min-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Move backward ten minutes.
+              <pre class=
+              "format-preformatted">Move backward ten minutes.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dbackward_002d10s">
         <h4 class="subsubsection">12.120.2.15
         emacspeak-m-player-backward-10s</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dbackward_002d10s">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-backward-10s</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dbackward_002d10s'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-backward-10s</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dbackward_002d10s'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dbackward_002d10s-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Move back 10 seconds.
+              <pre class=
+              "format-preformatted">Move back 10 seconds.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dbackward_002d1min">
         <h4 class="subsubsection">12.120.2.16
         emacspeak-m-player-backward-1min</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dbackward_002d1min">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-backward-1min</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dbackward_002d1min'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-backward-1min</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dbackward_002d1min'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dbackward_002d1min-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Move back 1 minute.
+              <pre class="format-preformatted">Move back 1 minute.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dbalance">
         <h4 class="subsubsection">12.120.2.17
         emacspeak-m-player-balance</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dm_002dplayer_002dbalance">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-balance</strong>
-          <a href='#index-emacspeak_002dm_002dplayer_002dbalance'
-          class='copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dm_002dplayer_002dbalance">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-balance</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dbalance'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dm_002dplayer_002dbalance-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dbalance-1"></a>
             <div class="format">
-              <pre class="format">Set left/right balance.
+              <pre class=
+              "format-preformatted">Set left/right balance.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dbalance_002dchannels">
         <h4 class="subsubsection">12.120.2.18
         emacspeak-m-player-balance-channels</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dbalance_002dchannels">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-balance-channels</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dbalance_002dchannels'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-balance-channels</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dbalance_002dchannels'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dbalance_002dchannels-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Mono to stereo.
+              <pre class="format-preformatted">Mono to stereo.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dbind_002dhotkey">
         <h4 class="subsubsection">12.120.2.19
         emacspeak-m-player-bind-hotkey</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dbind_002dhotkey">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-bind-hotkey</strong>
-          <em>(directory key)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dbind_002dhotkey'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-bind-hotkey</strong>
+          <var class="def-var-arguments">(directory key)</var>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dbind_002dhotkey'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dbind_002dhotkey-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Binds key to invoke m-player  on specified directory.
+              "format-preformatted">Binds key to invoke m-player  on specified directory.
 
 (fn DIRECTORY KEY)
 </pre>
@@ -754,69 +942,74 @@ As the default, use current position.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dbrowse_002dhistory">
         <h4 class="subsubsection">12.120.2.20
         emacspeak-m-player-browse-history</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dbrowse_002dhistory">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-browse-history</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dbrowse_002dhistory'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-browse-history</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dbrowse_002dhistory'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dbrowse_002dhistory-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Create a  media history browser from media-history.
+              "format-preformatted">Create a  media history browser from media-history.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dclear_002dfilters">
         <h4 class="subsubsection">12.120.2.21
         emacspeak-m-player-clear-filters</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dclear_002dfilters">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-clear-filters</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dclear_002dfilters'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-clear-filters</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dclear_002dfilters'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dclear_002dfilters-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Clear all filters
+              <pre class="format-preformatted">Clear all filters
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dcommand">
         <h4 class="subsubsection">12.120.2.22
         emacspeak-m-player-command</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dm_002dplayer_002dcommand">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-command</strong>
-          <em>(key)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dcommand' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dm_002dplayer_002dcommand">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-command</strong>
+          <var class="def-var-arguments">(key)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dcommand'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dm_002dplayer_002dcommand-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dcommand-1"></a>
             <div class="format">
-              <pre class="format">Invoke MPlayer commands.
+              <pre class=
+              "format-preformatted">Invoke MPlayer commands.
 
 (fn KEY)
 </pre>
@@ -824,45 +1017,49 @@ As the default, use current position.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dcustomize">
         <h4 class="subsubsection">12.120.2.23
         emacspeak-m-player-customize</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dm_002dplayer_002dcustomize">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-customize</strong>
-          <a href='#index-emacspeak_002dm_002dplayer_002dcustomize'
-          class='copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dm_002dplayer_002dcustomize">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-customize</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dcustomize'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dm_002dplayer_002dcustomize-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dcustomize-1"></a>
             <div class="format">
               <pre class=
-              "format">Use Customize to set MPlayer options.
+              "format-preformatted">Use Customize to set MPlayer options.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002ddelete_002dfilter">
         <h4 class="subsubsection">12.120.2.24
         emacspeak-m-player-delete-filter</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002ddelete_002dfilter">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-delete-filter</strong>
-          <em>(filter)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002ddelete_002dfilter'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-delete-filter</strong>
+          <var class="def-var-arguments">(filter)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002ddelete_002dfilter'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002ddelete_002dfilter-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Delete filter.
+              <pre class="format-preformatted">Delete filter.
 
 (fn FILTER)
 </pre>
@@ -870,94 +1067,98 @@ As the default, use current position.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002ddelete_002dladspa">
         <h4 class="subsubsection">12.120.2.25
         emacspeak-m-player-delete-ladspa</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002ddelete_002dladspa">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-delete-ladspa</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002ddelete_002dladspa'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-delete-ladspa</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002ddelete_002dladspa'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002ddelete_002dladspa-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Delete plugin from  running MPlayer.
+              "format-preformatted">Delete plugin from  running MPlayer.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002ddisplay_002dpercent">
         <h4 class="subsubsection">12.120.2.26
         emacspeak-m-player-display-percent</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002ddisplay_002dpercent">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-display-percent</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002ddisplay_002dpercent'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-display-percent</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002ddisplay_002dpercent'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002ddisplay_002dpercent-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Display current percentage.
+              <pre class=
+              "format-preformatted">Display current percentage.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002ddouble_002dspeed">
         <h4 class="subsubsection">12.120.2.27
         emacspeak-m-player-double-speed</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002ddouble_002dspeed">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-double-speed</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002ddouble_002dspeed'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-double-speed</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002ddouble_002dspeed'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002ddouble_002dspeed-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Scale speed by 2.0
+              <pre class="format-preformatted">Scale speed by 2.0
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dedit_002dreverb">
         <h4 class="subsubsection">12.120.2.28
         emacspeak-m-player-edit-reverb</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dedit_002dreverb">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-edit-reverb</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dedit_002dreverb'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-edit-reverb</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dedit_002dreverb'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dedit_002dreverb-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Edit ladspa reverb filter.
+              <pre class=
+              "format-preformatted">Edit ladspa reverb filter.
   You need to use mplayer built with ladspa support, and have package
   tap-reverb already installed.
 </pre>
@@ -965,47 +1166,48 @@ As the default, use current position.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dend_002dtrack">
         <h4 class="subsubsection">12.120.2.29
         emacspeak-m-player-end-track</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dend_002dtrack">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-end-track</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dend_002dtrack'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-end-track</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dend_002dtrack'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dm_002dplayer_002dend_002dtrack-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dend_002dtrack-1"></a>
             <div class="format">
-              <pre class="format">Move to end.
+              <pre class="format-preformatted">Move to end.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002deq_002dcontrols">
         <h4 class="subsubsection">12.120.2.30
         emacspeak-m-player-eq-controls</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002deq_002dcontrols">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-eq-controls</strong>
-          <em>(v)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002deq_002dcontrols'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-eq-controls</strong>
+          <var class="def-var-arguments">(v)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002deq_002dcontrols'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002deq_002dcontrols-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Manipulate values in  vector using minibuffer.
+              "format-preformatted">Manipulate values in  vector using minibuffer.
 Applies  the resulting value at each step.
 
 (fn V)
@@ -1014,24 +1216,25 @@ Applies  the resulting value at each step.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002deq_002dpreset">
         <h4 class="subsubsection">12.120.2.31
         emacspeak-m-player-eq-preset</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002deq_002dpreset">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-eq-preset</strong>
-          <em>(name)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002deq_002dpreset'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-eq-preset</strong>
+          <var class="def-var-arguments">(name)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002deq_002dpreset'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dm_002dplayer_002deq_002dpreset-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002deq_002dpreset-1"></a>
             <div class="format">
               <pre class=
-              "format">Prompts for  and apply equalizer preset.
+              "format-preformatted">Prompts for  and apply equalizer preset.
 
 The following presets are available:
 
@@ -1045,120 +1248,127 @@ flat classical club dance full-bass full-bass-and-treble
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dfaster">
         <h4 class="subsubsection">12.120.2.32
         emacspeak-m-player-faster</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dm_002dplayer_002dfaster">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-faster</strong> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dfaster' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dm_002dplayer_002dfaster">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-faster</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dfaster'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dm_002dplayer_002dfaster-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dfaster-1"></a>
             <div class="format">
-              <pre class="format">Speed up  playback. 
+              <pre class="format-preformatted">Speed up  playback. 
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dforward_002d10min">
         <h4 class="subsubsection">12.120.2.33
         emacspeak-m-player-forward-10min</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dforward_002d10min">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-forward-10min</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dforward_002d10min'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-forward-10min</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dforward_002d10min'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dforward_002d10min-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Move forward ten minutes.
+              <pre class=
+              "format-preformatted">Move forward ten minutes.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dforward_002d10s">
         <h4 class="subsubsection">12.120.2.34
         emacspeak-m-player-forward-10s</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dforward_002d10s">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-forward-10s</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dforward_002d10s'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-forward-10s</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dforward_002d10s'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dforward_002d10s-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Move forward 10 seconds.
+              <pre class=
+              "format-preformatted">Move forward 10 seconds.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dforward_002d1min">
         <h4 class="subsubsection">12.120.2.35
         emacspeak-m-player-forward-1min</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dforward_002d1min">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-forward-1min</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dforward_002d1min'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-forward-1min</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dforward_002d1min'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dforward_002d1min-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Move forward by 1 minute.
+              <pre class=
+              "format-preformatted">Move forward by 1 minute.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dfrom_002dhistory">
         <h4 class="subsubsection">12.120.2.36
         emacspeak-m-player-from-history</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dfrom_002dhistory">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-from-history</strong>
-          <em>(&amp;optional prefix)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dfrom_002dhistory'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-from-history</strong>
+          <var class="def-var-arguments">(&amp;optional
+          prefix)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dfrom_002dhistory'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002d_003b-h'><span><kbd>C-; h</kbd>
-              <a href='#index-C_002d_003b-h' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002dx-_0040-h-h'><span><kbd>C-x @ h
-              h</kbd> <a href='#index-C_002dx-_0040-h-h' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dm_002dplayer_002dfrom_002dhistory-1"></span>
+            <dl class="table">
+              <dt id='index-C_002d_003b-h'><span><kbd class=
+              "kbd">C-; h</kbd> <a class="copiable-link" href=
+              '#index-C_002d_003b-h'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-h-h'><span><kbd class=
+              "kbd">C-x @ h h</kbd> <a class="copiable-link" href=
+              '#index-C_002dx-_0040-h-h'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dfrom_002dhistory-1"></a>
             <div class="format">
               <pre class=
-              "format">Play media from the front of media-history.
+              "format-preformatted">Play media from the front of media-history.
    Interactive prefix arg invokes media history browser.
 
 (fn &amp;optional PREFIX)
@@ -1167,109 +1377,112 @@ flat classical club dance full-bass full-bass-and-treble
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dget_002dlength">
         <h4 class="subsubsection">12.120.2.37
         emacspeak-m-player-get-length</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dget_002dlength">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-get-length</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dget_002dlength'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-get-length</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dget_002dlength'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dget_002dlength-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Display length of track.
+              <pre class=
+              "format-preformatted">Display length of track.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dhalf_002dspeed">
         <h4 class="subsubsection">12.120.2.38
         emacspeak-m-player-half-speed</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dhalf_002dspeed">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-half-speed</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dhalf_002dspeed'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-half-speed</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dhalf_002dspeed'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dhalf_002dspeed-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Scale speed by 0.5.
+              <pre class="format-preformatted">Scale speed by 0.5.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dleft_002dchannel">
         <h4 class="subsubsection">12.120.2.39
         emacspeak-m-player-left-channel</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dleft_002dchannel">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-left-channel</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dleft_002dchannel'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-left-channel</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dleft_002dchannel'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dleft_002dchannel-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Play both channels on left.
+              <pre class=
+              "format-preformatted">Play both channels on left.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dlocate_002dmedia">
         <h4 class="subsubsection">12.120.2.40
         emacspeak-m-player-locate-media</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dlocate_002dmedia">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-locate-media</strong>
-          <em>(pattern)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dlocate_002dmedia'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-locate-media</strong>
+          <var class="def-var-arguments">(pattern)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dlocate_002dmedia'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002dz-l'><span><kbd>C-z l</kbd>
-              <a href='#index-C_002dz-l' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002d_003b-l'><span><kbd>C-; l</kbd>
-              <a href='#index-C_002d_003b-l' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002de-z-l'><span><kbd>C-e z l</kbd>
-              <a href='#index-C_002de-z-l' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-z-l'><span><kbd>&lt;fn&gt;
-              z l</kbd> <a href='#index-_003cfn_003e-z-l' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002dx-_0040-h-l'><span><kbd>C-x @ h
-              l</kbd> <a href='#index-C_002dx-_0040-h-l' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dm_002dplayer_002dlocate_002dmedia-1"></span>
+            <dl class="table">
+              <dt id='index-C_002dz-l'><span><kbd class="kbd">C-z
+              l</kbd> <a class="copiable-link" href=
+              '#index-C_002dz-l'>¶</a></span></dt>
+              <dt id='index-C_002d_003b-l'><span><kbd class=
+              "kbd">C-; l</kbd> <a class="copiable-link" href=
+              '#index-C_002d_003b-l'>¶</a></span></dt>
+              <dt id='index-C_002de-z-l'><span><kbd class="kbd">C-e
+              z l</kbd> <a class="copiable-link" href=
+              '#index-C_002de-z-l'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-z-l'><span><kbd class=
+              "kbd">&lt;fn&gt; z l</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-z-l'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-h-l'><span><kbd class=
+              "kbd">C-x @ h l</kbd> <a class="copiable-link" href=
+              '#index-C_002dx-_0040-h-l'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dlocate_002dmedia-1"></a>
             <div class="format">
               <pre class=
-              "format">Locate media matching  pattern.  The results can be
+              "format-preformatted">Locate media matching  pattern.  The results can be
 played as a play-list by pressing [RET] on the first line, see
  M-x emacspeak-dired-open-this-file locally bound to C-RET
 to play  tracks.
@@ -1280,31 +1493,31 @@ to play  tracks.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dloop">
         <h4 class="subsubsection">12.120.2.41
         emacspeak-m-player-loop</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dm_002dplayer_002dloop">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-loop</strong>
-          <em>(&amp;optional raw)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dloop' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dm_002dplayer_002dloop"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-m-player-loop</strong> <var class=
+          "def-var-arguments">(&amp;optional raw)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dloop'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-x-_003b'><span><kbd>C-e x
-              ;</kbd> <a href='#index-C_002de-x-_003b' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-x-_003b'>
-              <span><kbd>&lt;fn&gt; x ;</kbd> <a href=
-              '#index-_003cfn_003e-x-_003b' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dm_002dplayer_002dloop-1"></span>
+            <dl class="table">
+              <dt id='index-C_002de-x-_003b'><span><kbd class=
+              "kbd">C-e x ;</kbd> <a class="copiable-link" href=
+              '#index-C_002de-x-_003b'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-x-_003b'><span><kbd class=
+              "kbd">&lt;fn&gt; x ;</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-x-_003b'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dloop-1"></a>
             <div class="format">
               <pre class=
-              "format">M-Player with repeat indefinitely  turned on.
+              "format-preformatted">M-Player with repeat indefinitely  turned on.
 Interactive prefix ‘raw’ reads a raw URL.
 
 (fn &amp;optional RAW)
@@ -1313,22 +1526,23 @@ Interactive prefix ‘raw’ reads a raw URL.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dmode">
         <h4 class="subsubsection">12.120.2.42
         emacspeak-m-player-mode</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dm_002dplayer_002dmode">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-mode</strong> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dmode' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dm_002dplayer_002dmode"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-m-player-mode</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dmode'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dm_002dplayer_002dmode-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dmode-1"></a>
             <div class="format">
               <pre class=
-              "format">Major mode for m-player interaction. 
+              "format-preformatted">Major mode for m-player interaction. 
 
 Key             Binding
 ——————————————————————————-
@@ -1411,111 +1625,116 @@ final or penultimate step during initialization.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dmode_002dline">
         <h4 class="subsubsection">12.120.2.43
         emacspeak-m-player-mode-line</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dmode_002dline">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-mode-line</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dmode_002dline'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-mode-line</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dmode_002dline'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dm_002dplayer_002dmode_002dline-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dmode_002dline-1"></a>
             <div class="format">
-              <pre class="format">Mode-line for M-Player buffers.
+              <pre class=
+              "format-preformatted">Mode-line for M-Player buffers.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dnext_002dtrack">
         <h4 class="subsubsection">12.120.2.44
         emacspeak-m-player-next-track</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dnext_002dtrack">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-next-track</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dnext_002dtrack'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-next-track</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dnext_002dtrack'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dnext_002dtrack-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Next track.
+              <pre class="format-preformatted">Next track.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dpan">
         <h4 class="subsubsection">12.120.2.45
         emacspeak-m-player-pan</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dm_002dplayer_002dpan">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-pan</strong> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dpan' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dm_002dplayer_002dpan"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-m-player-pan</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dpan'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dm_002dplayer_002dpan-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dpan-1"></a>
             <div class="format">
               <pre class=
-              "format">Pan from left to right   and back  one step at a time.
+              "format-preformatted">Pan from left to right   and back  one step at a time.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dpause">
         <h4 class="subsubsection">12.120.2.46
         emacspeak-m-player-pause</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dm_002dplayer_002dpause">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-pause</strong> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dpause' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dm_002dplayer_002dpause"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-m-player-pause</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dpause'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dm_002dplayer_002dpause-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dpause-1"></a>
             <div class="format">
-              <pre class="format">Pause or unpause.
+              <pre class="format-preformatted">Pause or unpause.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dpersist_002dprocess">
         <h4 class="subsubsection">12.120.2.47
         emacspeak-m-player-persist-process</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dpersist_002dprocess">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-persist-process</strong>
-          <em>(&amp;optional name)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dpersist_002dprocess'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-persist-process</strong>
+          <var class="def-var-arguments">(&amp;optional name)</var>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dpersist_002dprocess'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dpersist_002dprocess-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Persists  m-player process instance by renaming its buffer.
+              "format-preformatted">Persists  m-player process instance by renaming its buffer.
 Optional interactive prefix arg prompts for name to use for  player.
 
 (fn &amp;optional NAME)
@@ -1524,23 +1743,24 @@ Optional interactive prefix arg prompts for name to use for  player.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dplay_002drss">
         <h4 class="subsubsection">12.120.2.48
         emacspeak-m-player-play-rss</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dplay_002drss">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-play-rss</strong>
-          <em>(rss-url)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dplay_002drss'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-play-rss</strong>
+          <var class="def-var-arguments">(rss-url)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dplay_002drss'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dm_002dplayer_002dplay_002drss-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dplay_002drss-1"></a>
             <div class="format">
-              <pre class="format">Play an RSS stream.
+              <pre class="format-preformatted">Play an RSS stream.
 
 (fn RSS-URL)
 </pre>
@@ -1548,24 +1768,27 @@ Optional interactive prefix arg prompts for name to use for  player.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dplay_002dtree_002dup">
         <h4 class="subsubsection">12.120.2.49
         emacspeak-m-player-play-tree-up</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dplay_002dtree_002dup">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-play-tree-up</strong>
-          <em>(step)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dplay_002dtree_002dup'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-play-tree-up</strong>
+          <var class="def-var-arguments">(step)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dplay_002dtree_002dup'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dplay_002dtree_002dup-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Move within the play tree.
+              <pre class=
+              "format-preformatted">Move within the play tree.
 
 (fn STEP)
 </pre>
@@ -1573,90 +1796,96 @@ Optional interactive prefix arg prompts for name to use for  player.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dpop_002dto_002dplayer">
         <h4 class="subsubsection">12.120.2.50
         emacspeak-m-player-pop-to-player</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dpop_002dto_002dplayer">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-pop-to-player</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dpop_002dto_002dplayer'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-pop-to-player</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dpop_002dto_002dplayer'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dpop_002dto_002dplayer-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Pop to m-player buffer.
+              <pre class=
+              "format-preformatted">Pop to m-player buffer.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dprevious_002dtrack">
         <h4 class="subsubsection">12.120.2.51
         emacspeak-m-player-previous-track</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dprevious_002dtrack">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-previous-track</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dprevious_002dtrack'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-previous-track</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dprevious_002dtrack'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dprevious_002dtrack-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Previous track.
+              <pre class="format-preformatted">Previous track.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dquit">
         <h4 class="subsubsection">12.120.2.52
         emacspeak-m-player-quit</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dm_002dplayer_002dquit">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-quit</strong> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dquit' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dm_002dplayer_002dquit"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-m-player-quit</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dquit'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dm_002dplayer_002dquit-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dquit-1"></a>
             <div class="format">
-              <pre class="format">Quit.
+              <pre class="format-preformatted">Quit.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002drem_002dhistory">
         <h4 class="subsubsection">12.120.2.53
         emacspeak-m-player-rem-history</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002drem_002dhistory">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-rem-history</strong>
-          <em>(url)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002drem_002dhistory'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-rem-history</strong>
+          <var class="def-var-arguments">(url)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002drem_002dhistory'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002drem_002dhistory-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Remove URL from media history
+              <pre class=
+              "format-preformatted">Remove URL from media history
 
 (fn URL)
 </pre>
@@ -1664,118 +1893,125 @@ Optional interactive prefix arg prompts for name to use for  player.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dreset_002doptions">
         <h4 class="subsubsection">12.120.2.54
         emacspeak-m-player-reset-options</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dreset_002doptions">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-reset-options</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dreset_002doptions'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-reset-options</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dreset_002doptions'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dreset_002doptions-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Reset MPlayer options.
+              <pre class=
+              "format-preformatted">Reset MPlayer options.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dreset_002dspeed">
         <h4 class="subsubsection">12.120.2.55
         emacspeak-m-player-reset-speed</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dreset_002dspeed">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-reset-speed</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dreset_002dspeed'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-reset-speed</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dreset_002dspeed'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dreset_002dspeed-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Reset  speed.
+              <pre class="format-preformatted">Reset  speed.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002drestore_002dprocess">
         <h4 class="subsubsection">12.120.2.56
         emacspeak-m-player-restore-process</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002drestore_002dprocess">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-restore-process</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002drestore_002dprocess'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-restore-process</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002drestore_002dprocess'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002drestore_002dprocess-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Restore emacspeak-m-player-process from current buffer.
+              "format-preformatted">Restore emacspeak-m-player-process from current buffer.
 Check first if current buffer is in emacspeak-m-player-mode.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dright_002dchannel">
         <h4 class="subsubsection">12.120.2.57
         emacspeak-m-player-right-channel</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dright_002dchannel">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-right-channel</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dright_002dchannel'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-right-channel</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dright_002dchannel'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dright_002dchannel-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Play on right channel.
+              <pre class=
+              "format-preformatted">Play on right channel.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dscale_002dspeed">
         <h4 class="subsubsection">12.120.2.58
         emacspeak-m-player-scale-speed</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dscale_002dspeed">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-scale-speed</strong>
-          <em>(factor)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dscale_002dspeed'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-scale-speed</strong>
+          <var class="def-var-arguments">(factor)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dscale_002dspeed'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dscale_002dspeed-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Scale speed by factor.
+              <pre class=
+              "format-preformatted">Scale speed by factor.
 
 (fn FACTOR)
 </pre>
@@ -1783,24 +2019,27 @@ Check first if current buffer is in emacspeak-m-player-mode.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dseek_002dabsolute">
         <h4 class="subsubsection">12.120.2.59
         emacspeak-m-player-seek-absolute</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dseek_002dabsolute">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-seek-absolute</strong>
-          <em>(pos)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dseek_002dabsolute'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-seek-absolute</strong>
+          <var class="def-var-arguments">(pos)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dseek_002dabsolute'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dseek_002dabsolute-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Seek  to absolute pos in seconds.
+              <pre class=
+              "format-preformatted">Seek  to absolute pos in seconds.
 The time position can also be specified as HH:MM:SS.
 
 (fn POS)
@@ -1809,24 +2048,27 @@ The time position can also be specified as HH:MM:SS.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dseek_002dpercentage">
         <h4 class="subsubsection">12.120.2.60
         emacspeak-m-player-seek-percentage</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dseek_002dpercentage">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-seek-percentage</strong>
-          <em>(pos)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dseek_002dpercentage'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-seek-percentage</strong>
+          <var class="def-var-arguments">(pos)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dseek_002dpercentage'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dseek_002dpercentage-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Seek  to absolute pos in percent.
+              <pre class=
+              "format-preformatted">Seek  to absolute pos in percent.
 
 (fn POS)
 </pre>
@@ -1834,25 +2076,27 @@ The time position can also be specified as HH:MM:SS.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dseek_002drelative">
         <h4 class="subsubsection">12.120.2.61
         emacspeak-m-player-seek-relative</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dseek_002drelative">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-seek-relative</strong>
-          <em>(offset)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dseek_002drelative'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-seek-relative</strong>
+          <var class="def-var-arguments">(offset)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dseek_002drelative'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dseek_002drelative-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Seek  by offset from current position.
+              "format-preformatted">Seek  by offset from current position.
 Time offset can be specified as a number of seconds, or as HH:MM:SS.
 
 (fn OFFSET)
@@ -1861,136 +2105,143 @@ Time offset can be specified as a number of seconds, or as HH:MM:SS.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dset_002dclip_002dend">
         <h4 class="subsubsection">12.120.2.62
         emacspeak-m-player-set-clip-end</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dset_002dclip_002dend">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-set-clip-end</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dset_002dclip_002dend'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-set-clip-end</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dset_002dclip_002dend'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dset_002dclip_002dend-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Set end of clip mark.
+              <pre class=
+              "format-preformatted">Set end of clip mark.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dset_002dclip_002dstart">
         <h4 class="subsubsection">12.120.2.63
         emacspeak-m-player-set-clip-start</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dset_002dclip_002dstart">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-set-clip-start</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dset_002dclip_002dstart'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-set-clip-start</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dset_002dclip_002dstart'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dset_002dclip_002dstart-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Set start of clip. 
+              <pre class="format-preformatted">Set start of clip. 
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dshow_002ddata">
         <h4 class="subsubsection">12.120.2.64
         emacspeak-m-player-show-data</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dshow_002ddata">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-show-data</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dshow_002ddata'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-show-data</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dshow_002ddata'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dm_002dplayer_002dshow_002ddata-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dshow_002ddata-1"></a>
             <div class="format">
               <pre class=
-              "format">Display metadata after refreshing it if needed.
+              "format-preformatted">Display metadata after refreshing it if needed.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dshow_002dpos">
         <h4 class="subsubsection">12.120.2.65
         emacspeak-m-player-show-pos</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dshow_002dpos">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-show-pos</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dshow_002dpos'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-show-pos</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dshow_002dpos'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dm_002dplayer_002dshow_002dpos-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dshow_002dpos-1"></a>
             <div class="format">
               <pre class=
-              "format">Display current position in track.
+              "format-preformatted">Display current position in track.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dshuffle">
         <h4 class="subsubsection">12.120.2.66
         emacspeak-m-player-shuffle</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dm_002dplayer_002dshuffle">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-shuffle</strong>
-          <a href='#index-emacspeak_002dm_002dplayer_002dshuffle'
-          class='copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dm_002dplayer_002dshuffle">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-shuffle</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dshuffle'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dm_002dplayer_002dshuffle-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dshuffle-1"></a>
             <div class="format">
-              <pre class="format">M-Player with shuffle turned on.
+              <pre class=
+              "format-preformatted">M-Player with shuffle turned on.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dskip_002dtracks">
         <h4 class="subsubsection">12.120.2.67
         emacspeak-m-player-skip-tracks</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dskip_002dtracks">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-skip-tracks</strong>
-          <em>(step)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dskip_002dtracks'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-skip-tracks</strong>
+          <var class="def-var-arguments">(step)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dskip_002dtracks'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dskip_002dtracks-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Skip tracks.
+              <pre class="format-preformatted">Skip tracks.
 
 (fn STEP)
 </pre>
@@ -1998,24 +2249,27 @@ Time offset can be specified as a number of seconds, or as HH:MM:SS.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dslave_002dcommand">
         <h4 class="subsubsection">12.120.2.68
         emacspeak-m-player-slave-command</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dslave_002dcommand">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-slave-command</strong>
-          <em>(command)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dslave_002dcommand'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-slave-command</strong>
+          <var class="def-var-arguments">(command)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dslave_002dcommand'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dslave_002dcommand-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Dispatch slave command.
+              <pre class=
+              "format-preformatted">Dispatch slave command.
 
 (fn COMMAND)
 </pre>
@@ -2023,91 +2277,95 @@ Time offset can be specified as a number of seconds, or as HH:MM:SS.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dslower">
         <h4 class="subsubsection">12.120.2.69
         emacspeak-m-player-slower</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dm_002dplayer_002dslower">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-slower</strong> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dslower' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dm_002dplayer_002dslower">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-slower</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dslower'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dm_002dplayer_002dslower-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dslower-1"></a>
             <div class="format">
-              <pre class="format">Slow down playback. 
+              <pre class="format-preformatted">Slow down playback. 
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dstart_002dtrack">
         <h4 class="subsubsection">12.120.2.70
         emacspeak-m-player-start-track</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dstart_002dtrack">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-start-track</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dstart_002dtrack'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-start-track</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dstart_002dtrack'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dstart_002dtrack-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Move to beginning.
+              <pre class="format-preformatted">Move to beginning.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dstore_002dlink">
         <h4 class="subsubsection">12.120.2.71
         emacspeak-m-player-store-link</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dstore_002dlink">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-store-link</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dstore_002dlink'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-store-link</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dstore_002dlink'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dstore_002dlink-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Store an org-link to currently playing stream at current position.
+              "format-preformatted">Store an org-link to currently playing stream at current position.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dstream_002dinfo">
         <h4 class="subsubsection">12.120.2.72
         emacspeak-m-player-stream-info</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dstream_002dinfo">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-stream-info</strong>
-          <em>(&amp;optional toggle-cue)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dstream_002dinfo'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-stream-info</strong>
+          <var class="def-var-arguments">(&amp;optional
+          toggle-cue)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dstream_002dinfo'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dstream_002dinfo-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Speak and display metadata.
+              <pre class=
+              "format-preformatted">Speak and display metadata.
 Interactive prefix arg toggles automatic cueing of ICY info updates.
 
 (fn &amp;optional TOGGLE-CUE)
@@ -2116,53 +2374,56 @@ Interactive prefix arg toggles automatic cueing of ICY info updates.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dtoggle_002dextrastereo">
         <h4 class="subsubsection">12.120.2.73
         emacspeak-m-player-toggle-extrastereo</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dtoggle_002dextrastereo">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-toggle-extrastereo</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dtoggle_002dextrastereo'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-toggle-extrastereo</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dtoggle_002dextrastereo'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dtoggle_002dextrastereo-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Toggle application of extrastereo filter to all streams.
+              "format-preformatted">Toggle application of extrastereo filter to all streams.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002durl">
         <h4 class="subsubsection">12.120.2.74
         emacspeak-m-player-url</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dm_002dplayer_002durl">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-url</strong> <em>(url
-          &amp;optional playlist-p)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002durl' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dm_002dplayer_002durl"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-m-player-url</strong> <var class=
+          "def-var-arguments">(url &amp;optional playlist-p)</var>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002durl'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002d_002c-u'><span><kbd>C-, u</kbd>
-              <a href='#index-C_002d_002c-u' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002dx-_0040-a-u'><span><kbd>C-x @ a
-              u</kbd> <a href='#index-C_002dx-_0040-a-u' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dm_002dplayer_002durl-1"></span>
+            <dl class="table">
+              <dt id='index-C_002d_002c-u'><span><kbd class=
+              "kbd">C-, u</kbd> <a class="copiable-link" href=
+              '#index-C_002d_002c-u'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-a-u'><span><kbd class=
+              "kbd">C-x @ a u</kbd> <a class="copiable-link" href=
+              '#index-C_002dx-_0040-a-u'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002durl-1"></a>
             <div class="format">
-              <pre class="format">Call emacspeak-m-player on  URL.
+              <pre class=
+              "format-preformatted">Call emacspeak-m-player on  URL.
 URL fragment specifies optional start position.
 
 (fn URL &amp;optional PLAYLIST-P)
@@ -2171,72 +2432,74 @@ URL fragment specifies optional start position.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dusing_002dhrtf">
         <h4 class="subsubsection">12.120.2.75
         emacspeak-m-player-using-hrtf</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dusing_002dhrtf">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-using-hrtf</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dusing_002dhrtf'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-using-hrtf</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dusing_002dhrtf'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dusing_002dhrtf-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Add af resample=48000,hrtf to startup options.
+              "format-preformatted">Add af resample=48000,hrtf to startup options.
 This will work if the soundcard is set to 48000.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dusing_002dopenal">
         <h4 class="subsubsection">12.120.2.76
         emacspeak-m-player-using-openal</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dusing_002dopenal">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-using-openal</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dusing_002dopenal'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-using-openal</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dusing_002dopenal'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dusing_002dopenal-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Use openal.  
+              <pre class="format-preformatted">Use openal.  
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dvolume_002dchange">
         <h4 class="subsubsection">12.120.2.77
         emacspeak-m-player-volume-change</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dvolume_002dchange">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-volume-change</strong>
-          <em>(value)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dvolume_002dchange'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-volume-change</strong>
+          <var class="def-var-arguments">(value)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dvolume_002dchange'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dvolume_002dchange-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Set volume.
+              <pre class="format-preformatted">Set volume.
 
 (fn VALUE)
 </pre>
@@ -2244,47 +2507,49 @@ This will work if the soundcard is set to 48000.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dvolume_002ddown">
         <h4 class="subsubsection">12.120.2.78
         emacspeak-m-player-volume-down</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dvolume_002ddown">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-volume-down</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dvolume_002ddown'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-volume-down</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dvolume_002ddown'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dvolume_002ddown-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Volume down.
+              <pre class="format-preformatted">Volume down.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dvolume_002dset">
         <h4 class="subsubsection">12.120.2.79
         emacspeak-m-player-volume-set</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dvolume_002dset">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-volume-set</strong>
-          <em>(&amp;optional arg)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dvolume_002dset'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-volume-set</strong>
+          <var class="def-var-arguments">(&amp;optional arg)</var>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dvolume_002dset'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dvolume_002dset-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Set Volume in steps from 1 to 9.
+              <pre class=
+              "format-preformatted">Set Volume in steps from 1 to 9.
 
 (fn &amp;optional ARG)
 </pre>
@@ -2292,76 +2557,78 @@ This will work if the soundcard is set to 48000.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dvolume_002dup">
         <h4 class="subsubsection">12.120.2.80
         emacspeak-m-player-volume-up</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dvolume_002dup">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-volume-up</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dvolume_002dup'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-volume-up</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dvolume_002dup'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dm_002dplayer_002dvolume_002dup-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dvolume_002dup-1"></a>
             <div class="format">
-              <pre class="format">Volume up.
+              <pre class="format-preformatted">Volume up.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dwrite_002dclip">
         <h4 class="subsubsection">12.120.2.81
         emacspeak-m-player-write-clip</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dwrite_002dclip">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-write-clip</strong>
-          <a href=
-          '#index-emacspeak_002dm_002dplayer_002dwrite_002dclip'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-write-clip</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dwrite_002dclip'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dm_002dplayer_002dwrite_002dclip-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Split selected range using SoX
+              <pre class=
+              "format-preformatted">Split selected range using SoX
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dyoutube_002dlive">
         <h4 class="subsubsection">12.120.2.82
         emacspeak-m-player-youtube-live</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dyoutube_002dlive">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-youtube-live</strong>
-          <em>(url)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dyoutube_002dlive'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-youtube-live</strong>
+          <var class="def-var-arguments">(url)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dyoutube_002dlive'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-x-l'><span><kbd>C-e x l</kbd>
-              <a href='#index-C_002de-x-l' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-x-l'><span><kbd>&lt;fn&gt;
-              x l</kbd> <a href='#index-_003cfn_003e-x-l' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dm_002dplayer_002dyoutube_002dlive-1"></span>
+            <dl class="table">
+              <dt id='index-C_002de-x-l'><span><kbd class="kbd">C-e
+              x l</kbd> <a class="copiable-link" href=
+              '#index-C_002de-x-l'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-x-l'><span><kbd class=
+              "kbd">&lt;fn&gt; x l</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-x-l'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dyoutube_002dlive-1"></a>
             <div class="format">
               <pre class=
-              "format">Use youtube-dl and mplayer to live-stream   from Youtube. 
+              "format-preformatted">Use youtube-dl and mplayer to live-stream   from Youtube. 
 
 (fn URL)
 </pre>
@@ -2369,31 +2636,33 @@ This will work if the soundcard is set to 48000.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dm_002dplayer_002dyoutube_002dplayer">
         <h4 class="subsubsection">12.120.2.83
         emacspeak-m-player-youtube-player</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dm_002dplayer_002dyoutube_002dplayer">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-m-player-youtube-player</strong>
-          <em>(url &amp;optional prefix)</em> <a href=
-          '#index-emacspeak_002dm_002dplayer_002dyoutube_002dplayer'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-m-player-youtube-player</strong>
+          <var class="def-var-arguments">(url &amp;optional
+          prefix)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002dm_002dplayer_002dyoutube_002dplayer'>
+          ¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002d_002c-y'><span><kbd>C-, y</kbd>
-              <a href='#index-C_002d_002c-y' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002dx-_0040-a-y'><span><kbd>C-x @ a
-              y</kbd> <a href='#index-C_002dx-_0040-a-y' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dm_002dplayer_002dyoutube_002dplayer-1"></span>
+            <dl class="table">
+              <dt id='index-C_002d_002c-y'><span><kbd class=
+              "kbd">C-, y</kbd> <a class="copiable-link" href=
+              '#index-C_002d_002c-y'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-a-y'><span><kbd class=
+              "kbd">C-x @ a y</kbd> <a class="copiable-link" href=
+              '#index-C_002dx-_0040-a-y'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dm_002dplayer_002dyoutube_002dplayer-1"></a>
             <div class="format">
               <pre class=
-              "format">Use youtube-dl  to stream  using mplayer.
+              "format-preformatted">Use youtube-dl  to stream  using mplayer.
  Optional interactive prefix arg mpv  instead. 
 
 (fn URL &amp;optional PREFIX)
@@ -2402,35 +2671,37 @@ This will work if the soundcard is set to 48000.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="emacspeak_002dmultimedia">
+      <div class="subsubsection-level-extent" id=
+      "emacspeak_002dmultimedia">
         <h4 class="subsubsection">12.120.2.84
         emacspeak-multimedia</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dmultimedia"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-multimedia</strong> <a href=
-          '#index-emacspeak_002dmultimedia' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-emacspeak_002dmultimedia">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-multimedia</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dmultimedia'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-_003b'><span><kbd>C-e ;</kbd>
-              <a href='#index-C_002de-_003b' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002d_003b-_003b'><span><kbd>C-;
-              ;</kbd> <a href='#index-C_002d_003b-_003b' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-_003b'>
-              <span><kbd>&lt;fn&gt; ;</kbd> <a href=
-              '#index-_003cfn_003e-_003b' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002dx-_0040-h-_003b'><span><kbd>C-x @
-              h ;</kbd> <a href='#index-C_002dx-_0040-h-_003b'
-              class='copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dmultimedia-1"></span>
+            <dl class="table">
+              <dt id='index-C_002de-_003b'><span><kbd class=
+              "kbd">C-e ;</kbd> <a class="copiable-link" href=
+              '#index-C_002de-_003b'>¶</a></span></dt>
+              <dt id='index-C_002d_003b-_003b'><span><kbd class=
+              "kbd">C-; ;</kbd> <a class="copiable-link" href=
+              '#index-C_002d_003b-_003b'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-_003b'><span><kbd class=
+              "kbd">&lt;fn&gt; ;</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-_003b'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-h-_003b'>
+              <span><kbd class="kbd">C-x @ h ;</kbd> <a class=
+              "copiable-link" href=
+              '#index-C_002dx-_0040-h-_003b'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dmultimedia-1"></a>
             <div class="format">
               <pre class=
-              "format">Start or control Emacspeak multimedia player.
+              "format-preformatted">Start or control Emacspeak multimedia player.
 Controls media playback when already playing.
 
 Key             Binding
@@ -2512,16 +2783,18 @@ M-.             emacspeak-m-player-set-clip-end
         </dl>
       </div>
     </div>
-    <div class="subsection" id=
+    <div class="subsection-level-extent" id=
     "emacspeak_002dm_002dplayer-Options">
       <h4 class="subsection">12.120.3 emacspeak-m-player
       Options</h4>
-      <dl class="def">
-        <dt id="index-User-Option-56"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-m-player-clips</em> <a href=
-        '#index-User-Option-56' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-56"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">emacspeak-m-player-clips</var>
+        <a class="copiable-link" href=
+        '#index-User-Option-56'>¶</a></span></dt>
         <dd>
           <p>Directory where we store clips.</p>
           <p>Default Value:</p>
@@ -2531,12 +2804,14 @@ M-.             emacspeak-m-player-set-clip-end
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-57"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-m-player-custom-filters</em>
-        <a href='#index-User-Option-57' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-57"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">emacspeak-m-player-custom-filters</var>
+        <a class="copiable-link" href=
+        '#index-User-Option-57'>¶</a></span></dt>
         <dd>
           <p>Additional filters to apply to streams.</p>
           <p>Default Value:</p>
@@ -2546,12 +2821,14 @@ nil
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-58"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-m-player-program</em>
-        <a href='#index-User-Option-58' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-58"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">emacspeak-m-player-program</var>
+        <a class="copiable-link" href=
+        '#index-User-Option-58'>¶</a></span></dt>
         <dd>
           <p>Media player program.</p>
           <p>Default Value:</p>
@@ -2561,12 +2838,14 @@ nil
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-59"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-media-location-bindings</em>
-        <a href='#index-User-Option-59' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-59"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">emacspeak-media-location-bindings</var>
+        <a class="copiable-link" href=
+        '#index-User-Option-59'>¶</a></span></dt>
         <dd>
           <p>Map keys to launch MPlayer on a directory.</p>
           <p>Default Value:</p>
@@ -2579,7 +2858,7 @@ nil
     </div>
   </div>
   <hr />
-  <div class="header">
+  <div class="nav-panel">
     <p>Next: <a href=
     "emacspeak_002dmagit.html">emacspeak-magit</a>, Previous:
     <a href="emacspeak_002dlua.html">emacspeak-lua</a>, Up:

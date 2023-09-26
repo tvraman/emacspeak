@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -31,21 +30,10 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+  pre.format-preformatted {font-family: inherit}
+  span:hover a.copiable-link {visibility: visible}
+  strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
   -->
   /*]]>*/
   </style>
@@ -53,8 +41,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002d2048">
-    <div class="header">
+  <div class="section-level-extent" id="emacspeak_002d2048">
+    <div class="nav-panel">
       <p>Next: <a href="emacspeak_002dabc_002dmode.html" accesskey=
       "n" rel="next">emacspeak-abc-mode</a>, Previous: <a href=
       "emacspeak.html" accesskey="p" rel="prev">emacspeak</a>, Up:
@@ -65,142 +53,180 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="emacspeak_002d2048-1"></span>
-    <h3 class="section">12.6 emacspeak-2048</h3>
+    <h3 class="section" id="emacspeak_002d2048-1">12.6
+    emacspeak-2048</h3>
     <p>Speech-enable 2048 Game</p>
-    <ul class="section-toc">
-      <li><a href="#Emacspeak_002d2048-Commands" accesskey=
-      "1">Emacspeak-2048 Commands</a></li>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Emacspeak_002d2048-Commands" accesskey=
+        "1">Emacspeak-2048 Commands</a>
+      </li>
     </ul>
-    <div class="subsection" id="Emacspeak_002d2048-Commands">
+    <div class="subsection-level-extent" id=
+    "Emacspeak_002d2048-Commands">
       <h4 class="subsection">12.6.1 Emacspeak-2048 Commands</h4>
-      <ul class="section-toc">
-        <li><a href="#emacspeak_002d2048_002dadd_002dcolumn"
-        accesskey="1">emacspeak-2048-add-column</a></li>
-        <li><a href="#emacspeak_002d2048_002dadd_002drow"
-        accesskey="2">emacspeak-2048-add-row</a></li>
-        <li><a href="#emacspeak_002d2048_002ddrop_002dcolumn"
-        accesskey="3">emacspeak-2048-drop-column</a></li>
-        <li><a href="#emacspeak_002d2048_002ddrop_002drow"
-        accesskey="4">emacspeak-2048-drop-row</a></li>
-        <li><a href="#emacspeak_002d2048_002dexport" accesskey=
-        "5">emacspeak-2048-export</a></li>
-        <li><a href="#emacspeak_002d2048_002dimport" accesskey=
-        "6">emacspeak-2048-import</a></li>
-        <li><a href="#emacspeak_002d2048_002dpop_002dstate"
-        accesskey="7">emacspeak-2048-pop-state</a></li>
-        <li><a href="#emacspeak_002d2048_002dprune_002dstack"
-        accesskey="8">emacspeak-2048-prune-stack</a></li>
-        <li><a href="#emacspeak_002d2048_002dpush_002dstate"
-        accesskey="9">emacspeak-2048-push-state</a></li>
-        <li><a href=
-        "#emacspeak_002d2048_002drandomize_002dgame">emacspeak-2048-randomize-game</a></li>
-        <li><a href=
-        "#emacspeak_002d2048_002dscore">emacspeak-2048-score</a></li>
-        <li><a href=
-        "#emacspeak_002d2048_002dspeak_002dboard">emacspeak-2048-speak-board</a></li>
-        <li><a href=
-        "#emacspeak_002d2048_002dspeak_002dtransposed_002dboard">emacspeak-2048-speak-transposed-board</a></li>
+      <ul class="mini-toc">
+        <li>
+          <a href="#emacspeak_002d2048_002dadd_002dcolumn"
+          accesskey="1">emacspeak-2048-add-column</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002d2048_002dadd_002drow" accesskey=
+          "2">emacspeak-2048-add-row</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002d2048_002ddrop_002dcolumn"
+          accesskey="3">emacspeak-2048-drop-column</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002d2048_002ddrop_002drow" accesskey=
+          "4">emacspeak-2048-drop-row</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002d2048_002dexport" accesskey=
+          "5">emacspeak-2048-export</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002d2048_002dimport" accesskey=
+          "6">emacspeak-2048-import</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002d2048_002dpop_002dstate"
+          accesskey="7">emacspeak-2048-pop-state</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002d2048_002dprune_002dstack"
+          accesskey="8">emacspeak-2048-prune-stack</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002d2048_002dpush_002dstate"
+          accesskey="9">emacspeak-2048-push-state</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002d2048_002drandomize_002dgame">emacspeak-2048-randomize-game</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002d2048_002dscore">emacspeak-2048-score</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002d2048_002dspeak_002dboard">emacspeak-2048-speak-board</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002d2048_002dspeak_002dtransposed_002dboard">emacspeak-2048-speak-transposed-board</a>
+        </li>
       </ul>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002d2048_002dadd_002dcolumn">
         <h4 class="subsubsection">12.6.1.1
         emacspeak-2048-add-column</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002d2048_002dadd_002dcolumn">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-2048-add-column</strong> <a href=
-          '#index-emacspeak_002d2048_002dadd_002dcolumn' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002d2048_002dadd_002dcolumn">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-2048-add-column</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002d2048_002dadd_002dcolumn'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002d2048_002dadd_002dcolumn-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002d2048_002dadd_002dcolumn-1"></a>
             <div class="format">
               <pre class=
-              "format">Add a column  to the current board.
+              "format-preformatted">Add a column  to the current board.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002d2048_002dadd_002drow">
         <h4 class="subsubsection">12.6.1.2
         emacspeak-2048-add-row</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002d2048_002dadd_002drow">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-2048-add-row</strong> <a href=
-          '#index-emacspeak_002d2048_002dadd_002drow' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002d2048_002dadd_002drow"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-2048-add-row</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002d2048_002dadd_002drow'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002d2048_002dadd_002drow-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002d2048_002dadd_002drow-1"></a>
             <div class="format">
-              <pre class="format">Add a row  to the current board.
+              <pre class=
+              "format-preformatted">Add a row  to the current board.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002d2048_002ddrop_002dcolumn">
         <h4 class="subsubsection">12.6.1.3
         emacspeak-2048-drop-column</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002d2048_002ddrop_002dcolumn">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-2048-drop-column</strong>
-          <a href='#index-emacspeak_002d2048_002ddrop_002dcolumn'
-          class='copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002d2048_002ddrop_002dcolumn">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-2048-drop-column</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002d2048_002ddrop_002dcolumn'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002d2048_002ddrop_002dcolumn-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002d2048_002ddrop_002dcolumn-1"></a>
             <div class="format">
               <pre class=
-              "format">Drop last  row  from  the current board.
+              "format-preformatted">Drop last  row  from  the current board.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002d2048_002ddrop_002drow">
         <h4 class="subsubsection">12.6.1.4
         emacspeak-2048-drop-row</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002d2048_002ddrop_002drow">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-2048-drop-row</strong> <a href=
-          '#index-emacspeak_002d2048_002ddrop_002drow' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002d2048_002ddrop_002drow"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-2048-drop-row</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002d2048_002ddrop_002drow'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002d2048_002ddrop_002drow-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002d2048_002ddrop_002drow-1"></a>
             <div class="format">
               <pre class=
-              "format">Drop last  row  from  the current board.
+              "format-preformatted">Drop last  row  from  the current board.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002d2048_002dexport">
         <h4 class="subsubsection">12.6.1.5
         emacspeak-2048-export</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002d2048_002dexport"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-2048-export</strong>
-          <em>(&amp;optional prompt)</em> <a href=
-          '#index-emacspeak_002d2048_002dexport' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002d2048_002dexport"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-2048-export</strong> <var class=
+          "def-var-arguments">(&amp;optional prompt)</var>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002d2048_002dexport'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002d2048_002dexport-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002d2048_002dexport-1"></a>
             <div class="format">
-              <pre class="format">Exports game stack to a file.
+              <pre class=
+              "format-preformatted">Exports game stack to a file.
 Optional interactive prefix arg prompts for a file.
 Note that the file is overwritten silently.
 
@@ -210,22 +236,23 @@ Note that the file is overwritten silently.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002d2048_002dimport">
         <h4 class="subsubsection">12.6.1.6
         emacspeak-2048-import</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002d2048_002dimport"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-2048-import</strong>
-          <em>(&amp;optional prompt)</em> <a href=
-          '#index-emacspeak_002d2048_002dimport' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002d2048_002dimport"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-2048-import</strong> <var class=
+          "def-var-arguments">(&amp;optional prompt)</var>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002d2048_002dimport'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002d2048_002dimport-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002d2048_002dimport-1"></a>
             <div class="format">
-              <pre class="format">Import game.
+              <pre class="format-preformatted">Import game.
 Optional interactive prefix arg prompts for a filename.
 
 (fn &amp;optional PROMPT)
@@ -234,43 +261,47 @@ Optional interactive prefix arg prompts for a filename.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002d2048_002dpop_002dstate">
         <h4 class="subsubsection">12.6.1.7
         emacspeak-2048-pop-state</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002d2048_002dpop_002dstate">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-2048-pop-state</strong> <a href=
-          '#index-emacspeak_002d2048_002dpop_002dstate' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002d2048_002dpop_002dstate"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-2048-pop-state</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002d2048_002dpop_002dstate'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002d2048_002dpop_002dstate-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002d2048_002dpop_002dstate-1"></a>
             <div class="format">
-              <pre class="format">Reset state from stack.
+              <pre class=
+              "format-preformatted">Reset state from stack.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002d2048_002dprune_002dstack">
         <h4 class="subsubsection">12.6.1.8
         emacspeak-2048-prune-stack</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002d2048_002dprune_002dstack">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-2048-prune-stack</strong>
-          <em>(drop)</em> <a href=
-          '#index-emacspeak_002d2048_002dprune_002dstack' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002d2048_002dprune_002dstack">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-2048-prune-stack</strong>
+          <var class="def-var-arguments">(drop)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002d2048_002dprune_002dstack'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002d2048_002dprune_002dstack-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002d2048_002dprune_002dstack-1"></a>
             <div class="format">
               <pre class=
-              "format">Prune game stack to specified length.
+              "format-preformatted">Prune game stack to specified length.
 
 (fn DROP)
 </pre>
@@ -278,43 +309,48 @@ Optional interactive prefix arg prompts for a filename.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002d2048_002dpush_002dstate">
         <h4 class="subsubsection">12.6.1.9
         emacspeak-2048-push-state</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002d2048_002dpush_002dstate">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-2048-push-state</strong> <a href=
-          '#index-emacspeak_002d2048_002dpush_002dstate' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002d2048_002dpush_002dstate">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-2048-push-state</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002d2048_002dpush_002dstate'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002d2048_002dpush_002dstate-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002d2048_002dpush_002dstate-1"></a>
             <div class="format">
-              <pre class="format">Push current game state on stack.
+              <pre class=
+              "format-preformatted">Push current game state on stack.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002d2048_002drandomize_002dgame">
         <h4 class="subsubsection">12.6.1.10
         emacspeak-2048-randomize-game</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002d2048_002drandomize_002dgame">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-2048-randomize-game</strong>
-          <em>(&amp;optional count)</em> <a href=
-          '#index-emacspeak_002d2048_002drandomize_002dgame' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002d2048_002drandomize_002dgame">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-2048-randomize-game</strong>
+          <var class="def-var-arguments">(&amp;optional
+          count)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002d2048_002drandomize_002dgame'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002d2048_002drandomize_002dgame-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002d2048_002drandomize_002dgame-1"></a>
             <div class="format">
               <pre class=
-              "format">Puts game in a randomized new state.
+              "format-preformatted">Puts game in a randomized new state.
 
 (fn &amp;optional COUNT)
 </pre>
@@ -322,62 +358,69 @@ Optional interactive prefix arg prompts for a filename.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="emacspeak_002d2048_002dscore">
+      <div class="subsubsection-level-extent" id=
+      "emacspeak_002d2048_002dscore">
         <h4 class="subsubsection">12.6.1.11
         emacspeak-2048-score</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002d2048_002dscore"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-2048-score</strong> <a href=
-          '#index-emacspeak_002d2048_002dscore' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002d2048_002dscore"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-2048-score</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002d2048_002dscore'>¶</a></span></dt>
           <dd>
-            <span id="index-emacspeak_002d2048_002dscore-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002d2048_002dscore-1"></a>
             <div class="format">
-              <pre class="format">Show total on board.
+              <pre class="format-preformatted">Show total on board.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002d2048_002dspeak_002dboard">
         <h4 class="subsubsection">12.6.1.12
         emacspeak-2048-speak-board</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002d2048_002dspeak_002dboard">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-2048-speak-board</strong>
-          <a href='#index-emacspeak_002d2048_002dspeak_002dboard'
-          class='copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002d2048_002dspeak_002dboard">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-2048-speak-board</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002d2048_002dspeak_002dboard'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002d2048_002dspeak_002dboard-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002d2048_002dspeak_002dboard-1"></a>
             <div class="format">
-              <pre class="format">Speak board.
+              <pre class="format-preformatted">Speak board.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002d2048_002dspeak_002dtransposed_002dboard">
         <h4 class="subsubsection">12.6.1.13
         emacspeak-2048-speak-transposed-board</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002d2048_002dspeak_002dtransposed_002dboard">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-2048-speak-transposed-board</strong>
-          <a href=
-          '#index-emacspeak_002d2048_002dspeak_002dtransposed_002dboard'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-2048-speak-transposed-board</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002d2048_002dspeak_002dtransposed_002dboard'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002d2048_002dspeak_002dtransposed_002dboard-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Speak board column-wise.
+              <pre class=
+              "format-preformatted">Speak board column-wise.
 </pre>
             </div>
           </dd>
@@ -386,7 +429,7 @@ Optional interactive prefix arg prompts for a filename.
     </div>
   </div>
   <hr />
-  <div class="header">
+  <div class="nav-panel">
     <p>Next: <a href=
     "emacspeak_002dabc_002dmode.html">emacspeak-abc-mode</a>,
     Previous: <a href="emacspeak.html">emacspeak</a>, Up: <a href=

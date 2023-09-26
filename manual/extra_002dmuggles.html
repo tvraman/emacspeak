@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -31,21 +30,12 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+  kbd.kbd {font-style: oblique}
+  pre.format-preformatted {font-family: inherit}
+  span:hover a.copiable-link {visibility: visible}
+  strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+  ul.mark-bullet {list-style-type: disc}
   -->
   /*]]>*/
   </style>
@@ -53,8 +43,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="extra_002dmuggles">
-    <div class="header">
+  <div class="section-level-extent" id="extra_002dmuggles">
+    <div class="nav-panel">
       <p>Next: <a href="g_002dutils.html" accesskey="n" rel=
       "next">g-utils</a>, Previous: <a href=
       "espeak_002dvoices.html" accesskey="p" rel=
@@ -66,8 +56,8 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="extra_002dmuggles-1"></span>
-    <h3 class="section">12.222 extra-muggles</h3>
+    <h3 class="section" id="extra_002dmuggles-1">12.222
+    extra-muggles</h3>
     <p>MUGGLES == Emacspeak spells for power-users. These are extra
     hydras that I dont use very often, And are being moved here
     from emacspeak-muggles to save time at startup.</p>
@@ -75,129 +65,155 @@
     emacspeak-wizards. Instead, it uses package hydra to provide
     convenience key-bindings that access existing Emacspeak
     functionality. You need to install package Hydra first:
-    ‘<samp>M-x package-install hydra</samp>’.</p>
+    ‘<samp class="samp">M-x package-install hydra</samp>’.</p>
     <p>Note that on newer versions of Emacs, loading this module
     will attempt to automatically install package hydra if it is
     not found.</p>
-    <ul class="section-toc">
-      <li><a href="#Using-Hydras-1" accesskey="1">Using
-      Hydras</a></li>
-      <li><a href="#Extra-Muggles" accesskey="2">Extra
-      Muggles</a></li>
-      <li><a href="#Extra_002dMuggles-Commands" accesskey=
-      "3">Extra-Muggles Commands</a></li>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Using-Hydras-1" accesskey="1">Using Hydras</a>
+      </li>
+      <li>
+        <a href="#Extra-Muggles" accesskey="2">Extra Muggles</a>
+      </li>
+      <li>
+        <a href="#Extra_002dMuggles-Commands" accesskey=
+        "3">Extra-Muggles Commands</a>
+      </li>
     </ul>
-    <div class="subsection" id="Using-Hydras-1">
+    <div class="subsection-level-extent" id="Using-Hydras-1">
       <h4 class="subsection">12.222.1 Using Hydras</h4>
       <p>See the high-level documentation for the Hydra package by
-      executing <kbd>C-h C-j</kbd> hydra <kbd>RET</kbd>. The
-      documentation in this section uses the same terminology as
-      shown in the hydra package documentation.</p>
+      executing <kbd class="kbd">C-h C-j</kbd> hydra <kbd class=
+      "kbd">RET</kbd>. The documentation in this section uses the
+      same terminology as shown in the hydra package
+      documentation.</p>
     </div>
-    <div class="subsection" id="Extra-Muggles">
+    <div class="subsection-level-extent" id="Extra-Muggles">
       <h4 class="subsection">12.222.2 Extra Muggles</h4>
-      <ul>
-        <li>org-mode structure nav: <kbd>C-c C-SPC</kbd> Navigation
-        for org-mode.</li>
-        <li>View-Mode: <kbd>C-. v</kbd> Temporarily behave like
-        view-mode.</li>
-        <li>SmartParens: <kbd>C-c ,</kbd> Smart Parens</li>
-        <li>m-player: <kbd>s-m</kbd> Emacspeak-M-Player
+      <ul class="itemize mark-bullet">
+        <li>org-mode structure nav: <kbd class="kbd">C-c
+        C-SPC</kbd> Navigation for org-mode.</li>
+        <li>View-Mode: <kbd class="kbd">C-. v</kbd> Temporarily
+        behave like view-mode.</li>
+        <li>SmartParens: <kbd class="kbd">C-c ,</kbd> Smart
+        Parens</li>
+        <li>m-player: <kbd class="kbd">s-m</kbd> Emacspeak-M-Player
         Commands</li>
-        <li>m-player: <kbd>s-;</kbd> Emacspeak-M-Player muggle</li>
-        <li>pianobar: <kbd>s-'</kbd> Emacspeak-M-pianobar
-        Commands</li>
+        <li>m-player: <kbd class="kbd">s-;</kbd> Emacspeak-M-Player
+        muggle</li>
+        <li>pianobar: <kbd class="kbd">s-'</kbd>
+        Emacspeak-M-pianobar Commands</li>
         <li>origami: C-, / Origami bindings.</li>
         <li>outliner: &lt;C-c .&gt; Bindings from
         outline-minor-mode.</li>
         <li>Info-Summary: &lt;?&gt; in Info Info Summary
         Muggle</li>
-        <li>Vuiet Explorer: <kbd>C-; v</kbd> Vuiet Music Explorer
-        and Player</li>
+        <li>Vuiet Explorer: <kbd class="kbd">C-; v</kbd> Vuiet
+        Music Explorer and Player</li>
       </ul>
       <p>Emacspeak automatically speaks Hydra hints when displayed.
       To silence all Hydra hints, set hydra-is-helpful to nil. To
       temporarily silence speaking of Hydra hints, Muggles can bind
-      command <code>emacspeak-hydra-toggle-talkative</code>. As an
-      example, Muggle ‘<samp>ViewMode</samp>’ binds <code>s</code>
-      to this command.</p>
+      command <code class=
+      "code">emacspeak-hydra-toggle-talkative</code>. As an
+      example, Muggle ‘<samp class="samp">ViewMode</samp>’ binds
+      <code class="code">s</code> to this command.</p>
     </div>
-    <div class="subsection" id="Extra_002dMuggles-Commands">
+    <div class="subsection-level-extent" id=
+    "Extra_002dMuggles-Commands">
       <h4 class="subsection">12.222.3 Extra-Muggles Commands</h4>
-      <ul class="section-toc">
-        <li><a href=
-        "#emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd"
-        accesskey=
-        "1">emacspeak-muggles-emacspeak-m-player-mode-map-cmd</a></li>
-        <li><a href=
-        "#emacspeak_002dmuggles_002dinfo_002dsummary_002fbody"
-        accesskey="2">emacspeak-muggles-info-summary/body</a></li>
-        <li><a href=
-        "#emacspeak_002dmuggles_002dm_002dplayer_002fbody"
-        accesskey="3">emacspeak-muggles-m-player/body</a></li>
-        <li><a href=
-        "#emacspeak_002dmuggles_002dorg_002dnav_002fbody"
-        accesskey="4">emacspeak-muggles-org-nav/body</a></li>
-        <li><a href="#emacspeak_002dmuggles_002doutliner_002fbody"
-        accesskey="5">emacspeak-muggles-outliner/body</a></li>
-        <li><a href=
-        "#emacspeak_002dmuggles_002dpianobar_002dkey_002dmap_002dcmd"
-        accesskey=
-        "6">emacspeak-muggles-pianobar-key-map-cmd</a></li>
-        <li><a href=
-        "#emacspeak_002dmuggles_002dsmartparens_002fbody"
-        accesskey="7">emacspeak-muggles-smartparens/body</a></li>
-        <li><a href="#emacspeak_002dmuggles_002dview_002fbody"
-        accesskey="8">emacspeak-muggles-view/body</a></li>
-        <li><a href="#emacspeak_002dorigami_002fbody" accesskey=
-        "9">emacspeak-origami/body</a></li>
+      <ul class="mini-toc">
+        <li>
+          <a href=
+          "#emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd"
+          accesskey=
+          "1">emacspeak-muggles-emacspeak-m-player-mode-map-cmd</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dmuggles_002dinfo_002dsummary_002fbody"
+          accesskey="2">emacspeak-muggles-info-summary/body</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dmuggles_002dm_002dplayer_002fbody"
+          accesskey="3">emacspeak-muggles-m-player/body</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dmuggles_002dorg_002dnav_002fbody"
+          accesskey="4">emacspeak-muggles-org-nav/body</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dmuggles_002doutliner_002fbody"
+          accesskey="5">emacspeak-muggles-outliner/body</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dmuggles_002dpianobar_002dkey_002dmap_002dcmd"
+          accesskey="6">emacspeak-muggles-pianobar-key-map-cmd</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dmuggles_002dsmartparens_002fbody"
+          accesskey="7">emacspeak-muggles-smartparens/body</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dmuggles_002dview_002fbody"
+          accesskey="8">emacspeak-muggles-view/body</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dorigami_002fbody" accesskey=
+          "9">emacspeak-origami/body</a>
+        </li>
       </ul>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd">
         <h4 class="subsubsection">12.222.3.1
         emacspeak-muggles-emacspeak-m-player-mode-map-cmd</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-muggles-emacspeak-m-player-mode-map-cmd</strong>
-          <a href=
-          '#index-emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-muggles-emacspeak-m-player-mode-map-cmd</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd'>
+          ¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-s_002dm'><span><kbd>s-m</kbd> <a href=
-              '#index-s_002dm' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd-1"></span>
+            <dl class="table">
+              <dt id='index-s_002dm'><span><kbd class=
+              "kbd">s-m</kbd> <a class="copiable-link" href=
+              '#index-s_002dm'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd-1"></a>
             <div class="format">
               <pre class=
-              "format">Temporarily use keymap emacspeak-m-player-mode-map
+              "format-preformatted">Temporarily use keymap emacspeak-m-player-mode-map
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dmuggles_002dinfo_002dsummary_002fbody">
         <h4 class="subsubsection">12.222.3.2
         emacspeak-muggles-info-summary/body</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dmuggles_002dinfo_002dsummary_002fbody">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-muggles-info-summary/body</strong>
-          <a href=
-          '#index-emacspeak_002dmuggles_002dinfo_002dsummary_002fbody'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-muggles-info-summary/body</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dmuggles_002dinfo_002dsummary_002fbody'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dmuggles_002dinfo_002dsummary_002fbody-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Call the body in the "emacspeak-muggles-info-summary" hydra.
+              "format-preformatted">Call the body in the "emacspeak-muggles-info-summary" hydra.
 
 The heads for the associated hydra are:
 
@@ -248,28 +264,28 @@ The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dmuggles_002dm_002dplayer_002fbody">
         <h4 class="subsubsection">12.222.3.3
         emacspeak-muggles-m-player/body</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dmuggles_002dm_002dplayer_002fbody">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-muggles-m-player/body</strong>
-          <a href=
-          '#index-emacspeak_002dmuggles_002dm_002dplayer_002fbody'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-muggles-m-player/body</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dmuggles_002dm_002dplayer_002fbody'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-s_002d_003b'><span><kbd>s-;</kbd>
-              <a href='#index-s_002d_003b' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dmuggles_002dm_002dplayer_002fbody-1"></span>
+            <dl class="table">
+              <dt id='index-s_002d_003b'><span><kbd class=
+              "kbd">s-;</kbd> <a class="copiable-link" href=
+              '#index-s_002d_003b'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dmuggles_002dm_002dplayer_002fbody-1"></a>
             <div class="format">
               <pre class=
-              "format">Call the body in the "emacspeak-muggles-m-player" hydra.
+              "format-preformatted">Call the body in the "emacspeak-muggles-m-player" hydra.
 
 The heads for the associated hydra are:
 
@@ -331,25 +347,25 @@ The body can be accessed via ‘emacspeak-muggles-m-player/body’.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dmuggles_002dorg_002dnav_002fbody">
         <h4 class="subsubsection">12.222.3.4
         emacspeak-muggles-org-nav/body</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dmuggles_002dorg_002dnav_002fbody">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-muggles-org-nav/body</strong>
-          <a href=
-          '#index-emacspeak_002dmuggles_002dorg_002dnav_002fbody'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-muggles-org-nav/body</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dmuggles_002dorg_002dnav_002fbody'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dmuggles_002dorg_002dnav_002fbody-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Call the body in the "emacspeak-muggles-org-nav" hydra.
+              "format-preformatted">Call the body in the "emacspeak-muggles-org-nav" hydra.
 
 The heads for the associated hydra are:
 
@@ -368,31 +384,31 @@ The body can be accessed via ‘emacspeak-muggles-org-nav/body’.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dmuggles_002doutliner_002fbody">
         <h4 class="subsubsection">12.222.3.5
         emacspeak-muggles-outliner/body</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dmuggles_002doutliner_002fbody">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-muggles-outliner/body</strong>
-          <a href=
-          '#index-emacspeak_002dmuggles_002doutliner_002fbody'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-muggles-outliner/body</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dmuggles_002doutliner_002fbody'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002d_002e-o'><span><kbd>C-. o</kbd>
-              <a href='#index-C_002d_002e-o' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002dx-_0040-s-o'><span><kbd>C-x @ s
-              o</kbd> <a href='#index-C_002dx-_0040-s-o' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dmuggles_002doutliner_002fbody-1"></span>
+            <dl class="table">
+              <dt id='index-C_002d_002e-o'><span><kbd class=
+              "kbd">C-. o</kbd> <a class="copiable-link" href=
+              '#index-C_002d_002e-o'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-s-o'><span><kbd class=
+              "kbd">C-x @ s o</kbd> <a class="copiable-link" href=
+              '#index-C_002dx-_0040-s-o'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dmuggles_002doutliner_002fbody-1"></a>
             <div class="format">
               <pre class=
-              "format">Call the body in the "emacspeak-muggles-outliner" hydra.
+              "format-preformatted">Call the body in the "emacspeak-muggles-outliner" hydra.
 
 The heads for the associated hydra are:
 
@@ -421,55 +437,56 @@ The body can be accessed via ‘emacspeak-muggles-outliner/body’.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dmuggles_002dpianobar_002dkey_002dmap_002dcmd">
         <h4 class="subsubsection">12.222.3.6
         emacspeak-muggles-pianobar-key-map-cmd</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dmuggles_002dpianobar_002dkey_002dmap_002dcmd">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-muggles-pianobar-key-map-cmd</strong>
-          <a href=
-          '#index-emacspeak_002dmuggles_002dpianobar_002dkey_002dmap_002dcmd'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-muggles-pianobar-key-map-cmd</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dmuggles_002dpianobar_002dkey_002dmap_002dcmd'>
+          ¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-s_002d_0027'><span><kbd>s-'</kbd>
-              <a href='#index-s_002d_0027' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dmuggles_002dpianobar_002dkey_002dmap_002dcmd-1"></span>
+            <dl class="table">
+              <dt id='index-s_002d_0027'><span><kbd class=
+              "kbd">s-'</kbd> <a class="copiable-link" href=
+              '#index-s_002d_0027'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dmuggles_002dpianobar_002dkey_002dmap_002dcmd-1"></a>
             <div class="format">
               <pre class=
-              "format">Temporarily use keymap pianobar-key-map
+              "format-preformatted">Temporarily use keymap pianobar-key-map
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dmuggles_002dsmartparens_002fbody">
         <h4 class="subsubsection">12.222.3.7
         emacspeak-muggles-smartparens/body</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dmuggles_002dsmartparens_002fbody">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-muggles-smartparens/body</strong>
-          <a href=
-          '#index-emacspeak_002dmuggles_002dsmartparens_002fbody'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-muggles-smartparens/body</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dmuggles_002dsmartparens_002fbody'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002dc-_002c'><span><kbd>C-c ,</kbd>
-              <a href='#index-C_002dc-_002c' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dmuggles_002dsmartparens_002fbody-1"></span>
+            <dl class="table">
+              <dt id='index-C_002dc-_002c'><span><kbd class=
+              "kbd">C-c ,</kbd> <a class="copiable-link" href=
+              '#index-C_002dc-_002c'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dmuggles_002dsmartparens_002fbody-1"></a>
             <div class="format">
               <pre class=
-              "format">Call the body in the "emacspeak-muggles-smartparens" hydra.
+              "format-preformatted">Call the body in the "emacspeak-muggles-smartparens" hydra.
 
 The heads for the associated hydra are:
 
@@ -508,29 +525,31 @@ The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dmuggles_002dview_002fbody">
         <h4 class="subsubsection">12.222.3.8
         emacspeak-muggles-view/body</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dmuggles_002dview_002fbody">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-muggles-view/body</strong>
-          <a href='#index-emacspeak_002dmuggles_002dview_002fbody'
-          class='copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dmuggles_002dview_002fbody">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-muggles-view/body</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dmuggles_002dview_002fbody'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002d_002e-v'><span><kbd>C-. v</kbd>
-              <a href='#index-C_002d_002e-v' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002dx-_0040-s-v'><span><kbd>C-x @ s
-              v</kbd> <a href='#index-C_002dx-_0040-s-v' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dmuggles_002dview_002fbody-1"></span>
+            <dl class="table">
+              <dt id='index-C_002d_002e-v'><span><kbd class=
+              "kbd">C-. v</kbd> <a class="copiable-link" href=
+              '#index-C_002d_002e-v'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-s-v'><span><kbd class=
+              "kbd">C-x @ s v</kbd> <a class="copiable-link" href=
+              '#index-C_002dx-_0040-s-v'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dmuggles_002dview_002fbody-1"></a>
             <div class="format">
               <pre class=
-              "format">Call the body in the "emacspeak-muggles-view" hydra.
+              "format-preformatted">Call the body in the "emacspeak-muggles-view" hydra.
 
 The heads for the associated hydra are:
 
@@ -587,29 +606,31 @@ The body can be accessed via ‘emacspeak-muggles-view/body’.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dorigami_002fbody">
         <h4 class="subsubsection">12.222.3.9
         emacspeak-origami/body</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dorigami_002fbody">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-origami/body</strong> <a href=
-          '#index-emacspeak_002dorigami_002fbody' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dorigami_002fbody"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-origami/body</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dorigami_002fbody'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002d_002c-_002f'><span><kbd>C-,
-              /</kbd> <a href='#index-C_002d_002c-_002f' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002dx-_0040-a-_002f'><span><kbd>C-x @
-              a /</kbd> <a href='#index-C_002dx-_0040-a-_002f'
-              class='copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dorigami_002fbody-1"></span>
+            <dl class="table">
+              <dt id='index-C_002d_002c-_002f'><span><kbd class=
+              "kbd">C-, /</kbd> <a class="copiable-link" href=
+              '#index-C_002d_002c-_002f'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-a-_002f'>
+              <span><kbd class="kbd">C-x @ a /</kbd> <a class=
+              "copiable-link" href=
+              '#index-C_002dx-_0040-a-_002f'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dorigami_002fbody-1"></a>
             <div class="format">
               <pre class=
-              "format">Call the body in the "emacspeak-origami" hydra.
+              "format-preformatted">Call the body in the "emacspeak-origami" hydra.
 
 The heads for the associated hydra are:
 
@@ -629,7 +650,7 @@ The body can be accessed via ‘emacspeak-origami/body’.
     </div>
   </div>
   <hr />
-  <div class="header">
+  <div class="nav-panel">
     <p>Next: <a href="g_002dutils.html">g-utils</a>, Previous:
     <a href="espeak_002dvoices.html">espeak-voices</a>, Up:
     <a href="Emacspeak-Commands-And-Options.html">Emacspeak

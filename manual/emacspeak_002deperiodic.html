@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -32,21 +31,10 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+  pre.format-preformatted {font-family: inherit}
+  span:hover a.copiable-link {visibility: visible}
+  strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
   -->
   /*]]>*/
   </style>
@@ -54,8 +42,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002deperiodic">
-    <div class="header">
+  <div class="section-level-extent" id="emacspeak_002deperiodic">
+    <div class="nav-panel">
       <p>Next: <a href="emacspeak_002depub.html" accesskey="n" rel=
       "next">emacspeak-epub</a>, Previous: <a href=
       "emacspeak_002depa.html" accesskey="p" rel=
@@ -67,148 +55,165 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="emacspeak_002deperiodic-1"></span>
-    <h3 class="section">12.66 emacspeak-eperiodic</h3>
+    <h3 class="section" id="emacspeak_002deperiodic-1">12.66
+    emacspeak-eperiodic</h3>
     <p>eperiodic produces an interactive periodic table of elements
     and can be found at
     http://vegemite.chem.nottingham.ac.uk/~matt/emacs/eperiodic.el</p>
-    <ul class="section-toc">
-      <li><a href="#Emacspeak_002dEperiodic-Commands" accesskey=
-      "1">Emacspeak-Eperiodic Commands</a></li>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Emacspeak_002dEperiodic-Commands" accesskey=
+        "1">Emacspeak-Eperiodic Commands</a>
+      </li>
     </ul>
-    <div class="subsection" id="Emacspeak_002dEperiodic-Commands">
+    <div class="subsection-level-extent" id=
+    "Emacspeak_002dEperiodic-Commands">
       <h4 class="subsection">12.66.1 Emacspeak-Eperiodic
       Commands</h4>
-      <ul class="section-toc">
-        <li><a href=
-        "#emacspeak_002deperiodic_002dgoto_002dproperty_002dsection"
-        accesskey=
-        "1">emacspeak-eperiodic-goto-property-section</a></li>
-        <li><a href="#emacspeak_002deperiodic_002dnext_002dline"
-        accesskey="2">emacspeak-eperiodic-next-line</a></li>
-        <li><a href=
-        "#emacspeak_002deperiodic_002dplay_002ddescription"
-        accesskey="3">emacspeak-eperiodic-play-description</a></li>
-        <li><a href=
-        "#emacspeak_002deperiodic_002dprevious_002dline" accesskey=
-        "4">emacspeak-eperiodic-previous-line</a></li>
-        <li><a href=
-        "#emacspeak_002deperiodic_002dspeak_002dcurrent_002delement"
-        accesskey=
-        "5">emacspeak-eperiodic-speak-current-element</a></li>
+      <ul class="mini-toc">
+        <li>
+          <a href=
+          "#emacspeak_002deperiodic_002dgoto_002dproperty_002dsection"
+          accesskey=
+          "1">emacspeak-eperiodic-goto-property-section</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002deperiodic_002dnext_002dline"
+          accesskey="2">emacspeak-eperiodic-next-line</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deperiodic_002dplay_002ddescription"
+          accesskey="3">emacspeak-eperiodic-play-description</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002deperiodic_002dprevious_002dline"
+          accesskey="4">emacspeak-eperiodic-previous-line</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002deperiodic_002dspeak_002dcurrent_002delement"
+          accesskey=
+          "5">emacspeak-eperiodic-speak-current-element</a>
+        </li>
       </ul>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deperiodic_002dgoto_002dproperty_002dsection">
         <h4 class="subsubsection">12.66.1.1
         emacspeak-eperiodic-goto-property-section</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deperiodic_002dgoto_002dproperty_002dsection">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eperiodic-goto-property-section</strong>
-          <a href=
-          '#index-emacspeak_002deperiodic_002dgoto_002dproperty_002dsection'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eperiodic-goto-property-section</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002deperiodic_002dgoto_002dproperty_002dsection'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deperiodic_002dgoto_002dproperty_002dsection-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Mark position and jump to properties section.
+              "format-preformatted">Mark position and jump to properties section.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deperiodic_002dnext_002dline">
         <h4 class="subsubsection">12.66.1.2
         emacspeak-eperiodic-next-line</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002deperiodic_002dnext_002dline">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eperiodic-next-line</strong>
-          <a href=
-          '#index-emacspeak_002deperiodic_002dnext_002dline' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002deperiodic_002dnext_002dline">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eperiodic-next-line</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002deperiodic_002dnext_002dline'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002deperiodic_002dnext_002dline-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002deperiodic_002dnext_002dline-1"></a>
             <div class="format">
               <pre class=
-              "format">Move to next row and speak element.
+              "format-preformatted">Move to next row and speak element.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deperiodic_002dplay_002ddescription">
         <h4 class="subsubsection">12.66.1.3
         emacspeak-eperiodic-play-description</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deperiodic_002dplay_002ddescription">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eperiodic-play-description</strong>
-          <a href=
-          '#index-emacspeak_002deperiodic_002dplay_002ddescription'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eperiodic-play-description</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002deperiodic_002dplay_002ddescription'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deperiodic_002dplay_002ddescription-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Play audio description from WebElements.
+              "format-preformatted">Play audio description from WebElements.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deperiodic_002dprevious_002dline">
         <h4 class="subsubsection">12.66.1.4
         emacspeak-eperiodic-previous-line</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deperiodic_002dprevious_002dline">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eperiodic-previous-line</strong>
-          <a href=
-          '#index-emacspeak_002deperiodic_002dprevious_002dline'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eperiodic-previous-line</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002deperiodic_002dprevious_002dline'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deperiodic_002dprevious_002dline-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Move to next row and speak element.
+              "format-preformatted">Move to next row and speak element.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002deperiodic_002dspeak_002dcurrent_002delement">
         <h4 class="subsubsection">12.66.1.5
         emacspeak-eperiodic-speak-current-element</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002deperiodic_002dspeak_002dcurrent_002delement">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-eperiodic-speak-current-element</strong>
-          <a href=
-          '#index-emacspeak_002deperiodic_002dspeak_002dcurrent_002delement'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-eperiodic-speak-current-element</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002deperiodic_002dspeak_002dcurrent_002delement'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002deperiodic_002dspeak_002dcurrent_002delement-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Speak element at point.
+              <pre class=
+              "format-preformatted">Speak element at point.
 </pre>
             </div>
           </dd>

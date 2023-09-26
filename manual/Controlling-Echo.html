@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -29,21 +28,7 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  kbd.kbd {font-style: oblique}
   -->
   /*]]>*/
   </style>
@@ -51,8 +36,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="subsection" id="Controlling-Echo">
-    <div class="header">
+  <div class="subsection-level-extent" id="Controlling-Echo">
+    <div class="nav-panel">
       <p>Next: <a href="Speech-Output-Control.html" accesskey="n"
       rel="next">Setting TTS Characteristics.</a>, Up: <a href=
       "Speech-System.html" accesskey="u" rel="up">Speech System
@@ -61,11 +46,12 @@
       "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="Character_002c-Word-And-Line-Echo_002e"></span>
-    <h4 class="subsection">6.4.1 Character, Word And Line
-    Echo.</h4><span id="index-line-echo"></span> <span id=
-    "index-character-echo"></span> <span id=
-    "index-word-echo"></span>
+    <h4 class="subsection" id=
+    "Character_002c-Word-And-Line-Echo_002e">6.4.1 Character, Word
+    And Line Echo.</h4><a class="index-entry-id" id=
+    "index-line-echo"></a> <a class="index-entry-id" id=
+    "index-character-echo"></a> <a class="index-entry-id" id=
+    "index-word-echo"></a>
     <p>By default, Emacspeak speaks characters as they are typed —
     this is called character echo; Words are spoken as they are
     completed — this is called word echo. Emacspeak can also
@@ -74,35 +60,41 @@
     <p>Character, word and line echo can be toggled — either in the
     current buffer — or for all buffers (globally). To toggle the
     specific echo functionality for all buffers, precede the
-    specific command with <kbd>C-u</kbd>. Note that in the
-    documentation below, this use of <kbd>C-u</kbd> is indicated
-    using the common Emacs terminology of <em>prefix arg</em> or
-    <em>interactive prefix arg</em>.</p>
-    <dl compact="compact">
-      <dd><span id=
-      "index-emacspeak_002dtoggle_002dcharacter_002decho"></span>
-      <span id="index-C_002de-d-k"></span></dd>
-      <dt><span><kbd>C-e d k</kbd></span></dt>
+    specific command with <kbd class="kbd">C-u</kbd>. Note that in
+    the documentation below, this use of <kbd class="kbd">C-u</kbd>
+    is indicated using the common Emacs terminology of <em class=
+    "emph">prefix arg</em> or <em class="emph">interactive prefix
+    arg</em>.</p>
+    <dl class="table">
       <dd>
-        <p><code>emacspeak-toggle-character-echo</code></p>
+        <a class="index-entry-id" id=
+        "index-emacspeak_002dtoggle_002dcharacter_002decho"></a>
+        <a class="index-entry-id" id="index-C_002de-d-k"></a>
+      </dd>
+      <dt><kbd class="kbd">C-e d k</kbd></dt>
+      <dd>
+        <p><code class=
+        "code">emacspeak-toggle-character-echo</code></p>
         <p>Toggle state of Emacspeak character echo. Interactive
         PREFIX arg means toggle the global default value, and then
-        set the current local value to the result.</p><span id=
-        "index-emacspeak_002dtoggle_002dword_002decho"></span>
-        <span id="index-C_002de-d-w"></span>
+        set the current local value to the result.</p><a class=
+        "index-entry-id" id=
+        "index-emacspeak_002dtoggle_002dword_002decho"></a>
+        <a class="index-entry-id" id="index-C_002de-d-w"></a>
       </dd>
-      <dt><span><kbd>C-e d w</kbd></span></dt>
+      <dt><kbd class="kbd">C-e d w</kbd></dt>
       <dd>
-        <p><code>emacspeak-toggle-word-echo</code></p>
+        <p><code class="code">emacspeak-toggle-word-echo</code></p>
         <p>Toggle state of Emacspeak word echo. Interactive PREFIX
         arg means toggle the global default value, and then set the
-        current local value to the result.</p><span id=
-        "index-emacspeak_002dtoggle_002dline_002decho"></span>
-        <span id="index-C_002de-d-l"></span>
+        current local value to the result.</p><a class=
+        "index-entry-id" id=
+        "index-emacspeak_002dtoggle_002dline_002decho"></a>
+        <a class="index-entry-id" id="index-C_002de-d-l"></a>
       </dd>
-      <dt><span><kbd>C-e d l</kbd></span></dt>
+      <dt><kbd class="kbd">C-e d l</kbd></dt>
       <dd>
-        <p><code>emacspeak-toggle-line-echo</code></p>
+        <p><code class="code">emacspeak-toggle-line-echo</code></p>
         <p>Toggle state of Emacspeak line echo. Interactive PREFIX
         arg means toggle the global default value, and then set the
         current local value to the result.</p>

@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -32,21 +31,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+  kbd.kbd {font-style: oblique}
+  pre.format-preformatted {font-family: inherit}
+  span:hover a.copiable-link {visibility: visible}
+  strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
   -->
   /*]]>*/
   </style>
@@ -54,8 +43,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002dempv">
-    <div class="header">
+  <div class="section-level-extent" id="emacspeak_002dempv">
+    <div class="nav-panel">
       <p>Next: <a href="emacspeak_002denriched.html" accesskey="n"
       rel="next">emacspeak-enriched</a>, Previous: <a href=
       "emacspeak_002demms.html" accesskey="p" rel=
@@ -67,56 +56,72 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="emacspeak_002dempv-1"></span>
-    <h3 class="section">12.62 emacspeak-empv</h3>
+    <h3 class="section" id="emacspeak_002dempv-1">12.62
+    emacspeak-empv</h3>
     <p>EMPV == Another Emacs Media Player Provides better Youtube
     integration</p>
-    <ul class="section-toc">
-      <li><a href="#Emacspeak_002dEmpv-Commands" accesskey=
-      "1">Emacspeak-Empv Commands</a></li>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Emacspeak_002dEmpv-Commands" accesskey=
+        "1">Emacspeak-Empv Commands</a>
+      </li>
     </ul>
-    <div class="subsection" id="Emacspeak_002dEmpv-Commands">
+    <div class="subsection-level-extent" id=
+    "Emacspeak_002dEmpv-Commands">
       <h4 class="subsection">12.62.1 Emacspeak-Empv Commands</h4>
-      <ul class="section-toc">
-        <li><a href="#emacspeak_002dempv_002dabsolute_002dseek"
-        accesskey="1">emacspeak-empv-absolute-seek</a></li>
-        <li><a href=
-        "#emacspeak_002dempv_002daccumulate_002dto_002dregister"
-        accesskey=
-        "2">emacspeak-empv-accumulate-to-register</a></li>
-        <li><a href="#emacspeak_002dempv_002dpercentage_002dseek"
-        accesskey="3">emacspeak-empv-percentage-seek</a></li>
-        <li><a href="#emacspeak_002dempv_002dplay_002dfile"
-        accesskey="4">emacspeak-empv-play-file</a></li>
-        <li><a href="#emacspeak_002dempv_002dplay_002durl"
-        accesskey="5">emacspeak-empv-play-url</a></li>
-        <li><a href="#emacspeak_002dempv_002drelative_002dseek"
-        accesskey="6">emacspeak-empv-relative-seek</a></li>
+      <ul class="mini-toc">
+        <li>
+          <a href="#emacspeak_002dempv_002dabsolute_002dseek"
+          accesskey="1">emacspeak-empv-absolute-seek</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dempv_002daccumulate_002dto_002dregister"
+          accesskey="2">emacspeak-empv-accumulate-to-register</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dempv_002dpercentage_002dseek"
+          accesskey="3">emacspeak-empv-percentage-seek</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dempv_002dplay_002dfile"
+          accesskey="4">emacspeak-empv-play-file</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dempv_002dplay_002durl" accesskey=
+          "5">emacspeak-empv-play-url</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dempv_002drelative_002dseek"
+          accesskey="6">emacspeak-empv-relative-seek</a>
+        </li>
       </ul>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dabsolute_002dseek">
         <h4 class="subsubsection">12.62.1.1
         emacspeak-empv-absolute-seek</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dempv_002dabsolute_002dseek">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-empv-absolute-seek</strong>
-          <em>(target)</em> <a href=
-          '#index-emacspeak_002dempv_002dabsolute_002dseek' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dempv_002dabsolute_002dseek">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-empv-absolute-seek</strong>
+          <var class="def-var-arguments">(target)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dempv_002dabsolute_002dseek'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002d_003b-v-s'><span><kbd>C-; v
-              s</kbd> <a href='#index-C_002d_003b-v-s' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002dx-_0040-h-v-s'><span><kbd>C-x @ h
-              v s</kbd> <a href='#index-C_002dx-_0040-h-v-s' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dempv_002dabsolute_002dseek-1"></span>
+            <dl class="table">
+              <dt id='index-C_002d_003b-v-s'><span><kbd class=
+              "kbd">C-; v s</kbd> <a class="copiable-link" href=
+              '#index-C_002d_003b-v-s'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-h-v-s'><span><kbd class=
+              "kbd">C-x @ h v s</kbd> <a class="copiable-link"
+              href='#index-C_002dx-_0040-h-v-s'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dempv_002dabsolute_002dseek-1"></a>
             <div class="format">
               <pre class=
-              "format">Absolute seek in seconds,see ‘empv-seek’
+              "format-preformatted">Absolute seek in seconds,see ‘empv-seek’
 
 (fn TARGET)
 </pre>
@@ -124,62 +129,64 @@
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002daccumulate_002dto_002dregister">
         <h4 class="subsubsection">12.62.1.2
         emacspeak-empv-accumulate-to-register</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dempv_002daccumulate_002dto_002dregister">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-empv-accumulate-to-register</strong>
-          <a href=
-          '#index-emacspeak_002dempv_002daccumulate_002dto_002dregister'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-empv-accumulate-to-register</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dempv_002daccumulate_002dto_002dregister'>
+          ¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002d_003b-v-u'><span><kbd>C-; v
-              u</kbd> <a href='#index-C_002d_003b-v-u' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002dx-_0040-h-v-u'><span><kbd>C-x @ h
-              v u</kbd> <a href='#index-C_002dx-_0040-h-v-u' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dempv_002daccumulate_002dto_002dregister-1"></span>
+            <dl class="table">
+              <dt id='index-C_002d_003b-v-u'><span><kbd class=
+              "kbd">C-; v u</kbd> <a class="copiable-link" href=
+              '#index-C_002d_003b-v-u'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-h-v-u'><span><kbd class=
+              "kbd">C-x @ h v u</kbd> <a class="copiable-link"
+              href='#index-C_002dx-_0040-h-v-u'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dempv_002daccumulate_002dto_002dregister-1"></a>
             <div class="format">
               <pre class=
-              "format">Accumulate media links to register u
+              "format-preformatted">Accumulate media links to register u
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dpercentage_002dseek">
         <h4 class="subsubsection">12.62.1.3
         emacspeak-empv-percentage-seek</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dempv_002dpercentage_002dseek">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-empv-percentage-seek</strong>
-          <em>(target)</em> <a href=
-          '#index-emacspeak_002dempv_002dpercentage_002dseek'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-empv-percentage-seek</strong>
+          <var class="def-var-arguments">(target)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dempv_002dpercentage_002dseek'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002d_003b-v-_0025'><span><kbd>C-; v
-              %</kbd> <a href='#index-C_002d_003b-v-_0025' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002dx-_0040-h-v-_0025'><span><kbd>C-x
-              @ h v %</kbd> <a href=
-              '#index-C_002dx-_0040-h-v-_0025' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dempv_002dpercentage_002dseek-1"></span>
+            <dl class="table">
+              <dt id='index-C_002d_003b-v-_0025'><span><kbd class=
+              "kbd">C-; v %</kbd> <a class="copiable-link" href=
+              '#index-C_002d_003b-v-_0025'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-h-v-_0025'>
+              <span><kbd class="kbd">C-x @ h v %</kbd> <a class=
+              "copiable-link" href=
+              '#index-C_002dx-_0040-h-v-_0025'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dempv_002dpercentage_002dseek-1"></a>
             <div class="format">
               <pre class=
-              "format">Percentage seek in seconds,see ‘empv-seek’
+              "format-preformatted">Percentage seek in seconds,see ‘empv-seek’
 
 (fn TARGET)
 </pre>
@@ -187,31 +194,32 @@
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dplay_002dfile">
         <h4 class="subsubsection">12.62.1.4
         emacspeak-empv-play-file</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dempv_002dplay_002dfile">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-empv-play-file</strong> <em>(file
-          &amp;optional left-channel)</em> <a href=
-          '#index-emacspeak_002dempv_002dplay_002dfile' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dempv_002dplay_002dfile"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-empv-play-file</strong> <var class=
+          "def-var-arguments">(file &amp;optional
+          left-channel)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002dempv_002dplay_002dfile'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-C_002d_003b'><span><kbd>C-e
-              C-;</kbd> <a href='#index-C_002de-C_002d_003b' class=
-              'copiable-anchor'>¶</a></span></dt>
+            <dl class="table">
+              <dt id='index-C_002de-C_002d_003b'><span><kbd class=
+              "kbd">C-e C-;</kbd> <a class="copiable-link" href=
+              '#index-C_002de-C_002d_003b'>¶</a></span></dt>
               <dt id='index-_003cfn_003e-C_002d_003b'>
-              <span><kbd>&lt;fn&gt; C-;</kbd> <a href=
-              '#index-_003cfn_003e-C_002d_003b' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dempv_002dplay_002dfile-1"></span>
+              <span><kbd class="kbd">&lt;fn&gt; C-;</kbd> <a class=
+              "copiable-link" href=
+              '#index-_003cfn_003e-C_002d_003b'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dempv_002dplay_002dfile-1"></a>
             <div class="format">
               <pre class=
-              "format">Play file using mpv;  Prefix arg plays on secondary device.
+              "format-preformatted">Play file using mpv;  Prefix arg plays on secondary device.
 
 (fn FILE &amp;optional LEFT-CHANNEL)
 </pre>
@@ -219,30 +227,31 @@
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dplay_002durl">
         <h4 class="subsubsection">12.62.1.5
         emacspeak-empv-play-url</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dempv_002dplay_002durl">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-empv-play-url</strong> <em>(url
-          &amp;optional left-channel)</em> <a href=
-          '#index-emacspeak_002dempv_002dplay_002durl' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dempv_002dplay_002durl"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-empv-play-url</strong> <var class=
+          "def-var-arguments">(url &amp;optional
+          left-channel)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002dempv_002dplay_002durl'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-y-y'><span><kbd>C-e y y</kbd>
-              <a href='#index-C_002de-y-y' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-y-y'><span><kbd>&lt;fn&gt;
-              y y</kbd> <a href='#index-_003cfn_003e-y-y' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dempv_002dplay_002durl-1"></span>
+            <dl class="table">
+              <dt id='index-C_002de-y-y'><span><kbd class="kbd">C-e
+              y y</kbd> <a class="copiable-link" href=
+              '#index-C_002de-y-y'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-y-y'><span><kbd class=
+              "kbd">&lt;fn&gt; y y</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-y-y'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dempv_002dplay_002durl-1"></a>
             <div class="format">
               <pre class=
-              "format">Play URL using mpv;  Prefix arg plays on secondary device.
+              "format-preformatted">Play URL using mpv;  Prefix arg plays on secondary device.
 
 (fn URL &amp;optional LEFT-CHANNEL)
 </pre>
@@ -250,30 +259,32 @@
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002drelative_002dseek">
         <h4 class="subsubsection">12.62.1.6
         emacspeak-empv-relative-seek</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dempv_002drelative_002dseek">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-empv-relative-seek</strong>
-          <em>(target)</em> <a href=
-          '#index-emacspeak_002dempv_002drelative_002dseek' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dempv_002drelative_002dseek">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-empv-relative-seek</strong>
+          <var class="def-var-arguments">(target)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dempv_002drelative_002dseek'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002d_003b-v-r'><span><kbd>C-; v
-              r</kbd> <a href='#index-C_002d_003b-v-r' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002dx-_0040-h-v-r'><span><kbd>C-x @ h
-              v r</kbd> <a href='#index-C_002dx-_0040-h-v-r' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dempv_002drelative_002dseek-1"></span>
+            <dl class="table">
+              <dt id='index-C_002d_003b-v-r'><span><kbd class=
+              "kbd">C-; v r</kbd> <a class="copiable-link" href=
+              '#index-C_002d_003b-v-r'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-h-v-r'><span><kbd class=
+              "kbd">C-x @ h v r</kbd> <a class="copiable-link"
+              href='#index-C_002dx-_0040-h-v-r'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dempv_002drelative_002dseek-1"></a>
             <div class="format">
               <pre class=
-              "format">Relative seek in seconds,see ‘empv-seek’
+              "format-preformatted">Relative seek in seconds,see ‘empv-seek’
 
 (fn TARGET)
 </pre>
@@ -284,7 +295,7 @@
     </div>
   </div>
   <hr />
-  <div class="header">
+  <div class="nav-panel">
     <p>Next: <a href=
     "emacspeak_002denriched.html">emacspeak-enriched</a>, Previous:
     <a href="emacspeak_002demms.html">emacspeak-emms</a>, Up:

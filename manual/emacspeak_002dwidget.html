@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -32,21 +31,10 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+  pre.format-preformatted {font-family: inherit}
+  span:hover a.copiable-link {visibility: visible}
+  strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
   -->
   /*]]>*/
   </style>
@@ -54,8 +42,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002dwidget">
-    <div class="header">
+  <div class="section-level-extent" id="emacspeak_002dwidget">
+    <div class="nav-panel">
       <p>Next: <a href="emacspeak_002dwindmove.html" accesskey="n"
       rel="next">emacspeak-windmove</a>, Previous: <a href=
       "emacspeak_002dwebspace.html" accesskey="p" rel=
@@ -67,124 +55,140 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="emacspeak_002dwidget-1"></span>
-    <h3 class="section">12.211 emacspeak-widget</h3>
+    <h3 class="section" id="emacspeak_002dwidget-1">12.211
+    emacspeak-widget</h3>
     <p>This module implements the necessary extensions to provide
     talking widgets.</p>
     <p>required modules</p>
-    <ul class="section-toc">
-      <li><a href="#Emacspeak_002dWidget-Commands" accesskey=
-      "1">Emacspeak-Widget Commands</a></li>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Emacspeak_002dWidget-Commands" accesskey=
+        "1">Emacspeak-Widget Commands</a>
+      </li>
     </ul>
-    <div class="subsection" id="Emacspeak_002dWidget-Commands">
+    <div class="subsection-level-extent" id=
+    "Emacspeak_002dWidget-Commands">
       <h4 class="subsection">12.211.1 Emacspeak-Widget
       Commands</h4>
-      <ul class="section-toc">
-        <li><a href=
-        "#emacspeak_002dwidget_002dbrowse_002dwidget_002dinteractively"
-        accesskey=
-        "1">emacspeak-widget-browse-widget-interactively</a></li>
-        <li><a href="#emacspeak_002dwidget_002dhelp" accesskey=
-        "2">emacspeak-widget-help</a></li>
-        <li><a href=
-        "#emacspeak_002dwidget_002dsummarize_002dparent" accesskey=
-        "3">emacspeak-widget-summarize-parent</a></li>
-        <li><a href=
-        "#emacspeak_002dwidget_002dsummarize_002dwidget_002dunder_002dpoint"
-        accesskey=
-        "4">emacspeak-widget-summarize-widget-under-point</a></li>
-        <li><a href=
-        "#emacspeak_002dwidget_002dupdate_002dfrom_002dminibuffer"
-        accesskey=
-        "5">emacspeak-widget-update-from-minibuffer</a></li>
+      <ul class="mini-toc">
+        <li>
+          <a href=
+          "#emacspeak_002dwidget_002dbrowse_002dwidget_002dinteractively"
+          accesskey=
+          "1">emacspeak-widget-browse-widget-interactively</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dwidget_002dhelp" accesskey=
+          "2">emacspeak-widget-help</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dwidget_002dsummarize_002dparent"
+          accesskey="3">emacspeak-widget-summarize-parent</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dwidget_002dsummarize_002dwidget_002dunder_002dpoint"
+          accesskey=
+          "4">emacspeak-widget-summarize-widget-under-point</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dwidget_002dupdate_002dfrom_002dminibuffer"
+          accesskey="5">emacspeak-widget-update-from-minibuffer</a>
+        </li>
       </ul>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dwidget_002dbrowse_002dwidget_002dinteractively">
         <h4 class="subsubsection">12.211.1.1
         emacspeak-widget-browse-widget-interactively</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dwidget_002dbrowse_002dwidget_002dinteractively">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-widget-browse-widget-interactively</strong>
-          <a href=
-          '#index-emacspeak_002dwidget_002dbrowse_002dwidget_002dinteractively'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-widget-browse-widget-interactively</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dwidget_002dbrowse_002dwidget_002dinteractively'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dwidget_002dbrowse_002dwidget_002dinteractively-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Allows you to browse a widget
+              <pre class=
+              "format-preformatted">Allows you to browse a widget
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dwidget_002dhelp">
         <h4 class="subsubsection">12.211.1.2
         emacspeak-widget-help</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dwidget_002dhelp"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-widget-help</strong> <a href=
-          '#index-emacspeak_002dwidget_002dhelp' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dwidget_002dhelp"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-widget-help</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dwidget_002dhelp'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dwidget_002dhelp-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dwidget_002dhelp-1"></a>
             <div class="format">
               <pre class=
-              "format">Speak help for widget under point.
+              "format-preformatted">Speak help for widget under point.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dwidget_002dsummarize_002dparent">
         <h4 class="subsubsection">12.211.1.3
         emacspeak-widget-summarize-parent</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dwidget_002dsummarize_002dparent">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-widget-summarize-parent</strong>
-          <a href=
-          '#index-emacspeak_002dwidget_002dsummarize_002dparent'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-widget-summarize-parent</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dwidget_002dsummarize_002dparent'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dwidget_002dsummarize_002dparent-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Summarize parent of widget at point.
+              "format-preformatted">Summarize parent of widget at point.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dwidget_002dsummarize_002dwidget_002dunder_002dpoint">
         <h4 class="subsubsection">12.211.1.4
         emacspeak-widget-summarize-widget-under-point</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dwidget_002dsummarize_002dwidget_002dunder_002dpoint">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-widget-summarize-widget-under-point</strong>
-          <em>(&amp;optional level)</em> <a href=
-          '#index-emacspeak_002dwidget_002dsummarize_002dwidget_002dunder_002dpoint'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-widget-summarize-widget-under-point</strong>
+          <var class="def-var-arguments">(&amp;optional
+          level)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002dwidget_002dsummarize_002dwidget_002dunder_002dpoint'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dwidget_002dsummarize_002dwidget_002dunder_002dpoint-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Summarize a widget if any under point.
+              "format-preformatted">Summarize a widget if any under point.
 Optional interactive prefix specifies how many levels to go up from current
 widget before summarizing.
 
@@ -194,25 +198,27 @@ widget before summarizing.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dwidget_002dupdate_002dfrom_002dminibuffer">
         <h4 class="subsubsection">12.211.1.5
         emacspeak-widget-update-from-minibuffer</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dwidget_002dupdate_002dfrom_002dminibuffer">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-widget-update-from-minibuffer</strong>
-          <em>(pos)</em> <a href=
-          '#index-emacspeak_002dwidget_002dupdate_002dfrom_002dminibuffer'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-widget-update-from-minibuffer</strong>
+          <var class="def-var-arguments">(pos)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dwidget_002dupdate_002dfrom_002dminibuffer'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dwidget_002dupdate_002dfrom_002dminibuffer-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Sets widget at ‘pos’ by invoking its prompter.
+              "format-preformatted">Sets widget at ‘pos’ by invoking its prompter.
 
 (fn POS)
 </pre>

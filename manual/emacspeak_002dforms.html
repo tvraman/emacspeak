@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -32,21 +31,10 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+  pre.format-preformatted {font-family: inherit}
+  span:hover a.copiable-link {visibility: visible}
+  strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
   -->
   /*]]>*/
   </style>
@@ -54,8 +42,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002dforms">
-    <div class="header">
+  <div class="section-level-extent" id="emacspeak_002dforms">
+    <div class="nav-panel">
       <p>Next: <a href="emacspeak_002dgeiser.html" accesskey="n"
       rel="next">emacspeak-geiser</a>, Previous: <a href=
       "emacspeak_002dforge.html" accesskey="p" rel=
@@ -67,51 +55,67 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="emacspeak_002dforms-1"></span>
-    <h3 class="section">12.87 emacspeak-forms</h3>
+    <h3 class="section" id="emacspeak_002dforms-1">12.87
+    emacspeak-forms</h3>
     <p>Provide additional advice to forms-mode</p>
-    <ul class="section-toc">
-      <li><a href="#Emacspeak_002dForms-Commands" accesskey=
-      "1">Emacspeak-Forms Commands</a></li>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Emacspeak_002dForms-Commands" accesskey=
+        "1">Emacspeak-Forms Commands</a>
+      </li>
     </ul>
-    <div class="subsection" id="Emacspeak_002dForms-Commands">
+    <div class="subsection-level-extent" id=
+    "Emacspeak_002dForms-Commands">
       <h4 class="subsection">12.87.1 Emacspeak-Forms Commands</h4>
-      <ul class="section-toc">
-        <li><a href="#emacspeak_002dforms_002dfind_002dfile"
-        accesskey="1">emacspeak-forms-find-file</a></li>
-        <li><a href=
-        "#emacspeak_002dforms_002dflush_002dunwanted_002drecords"
-        accesskey=
-        "2">emacspeak-forms-flush-unwanted-records</a></li>
-        <li><a href="#emacspeak_002dforms_002drerun_002dfilter"
-        accesskey="3">emacspeak-forms-rerun-filter</a></li>
-        <li><a href="#emacspeak_002dforms_002dspeak_002dfield"
-        accesskey="4">emacspeak-forms-speak-field</a></li>
-        <li><a href=
-        "#emacspeak_002dforms_002dsummarize_002dcurrent_002dposition"
-        accesskey=
-        "5">emacspeak-forms-summarize-current-position</a></li>
-        <li><a href=
-        "#emacspeak_002dforms_002dsummarize_002dcurrent_002drecord"
-        accesskey=
-        "6">emacspeak-forms-summarize-current-record</a></li>
+      <ul class="mini-toc">
+        <li>
+          <a href="#emacspeak_002dforms_002dfind_002dfile"
+          accesskey="1">emacspeak-forms-find-file</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dforms_002dflush_002dunwanted_002drecords"
+          accesskey="2">emacspeak-forms-flush-unwanted-records</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dforms_002drerun_002dfilter"
+          accesskey="3">emacspeak-forms-rerun-filter</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dforms_002dspeak_002dfield"
+          accesskey="4">emacspeak-forms-speak-field</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dforms_002dsummarize_002dcurrent_002dposition"
+          accesskey=
+          "5">emacspeak-forms-summarize-current-position</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dforms_002dsummarize_002dcurrent_002drecord"
+          accesskey=
+          "6">emacspeak-forms-summarize-current-record</a>
+        </li>
       </ul>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dforms_002dfind_002dfile">
         <h4 class="subsubsection">12.87.1.1
         emacspeak-forms-find-file</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dforms_002dfind_002dfile">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-forms-find-file</strong>
-          <em>(filename)</em> <a href=
-          '#index-emacspeak_002dforms_002dfind_002dfile' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dforms_002dfind_002dfile">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-forms-find-file</strong> <var class=
+          "def-var-arguments">(filename)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dforms_002dfind_002dfile'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dforms_002dfind_002dfile-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dforms_002dfind_002dfile-1"></a>
             <div class="format">
-              <pre class="format">Visit a forms file
+              <pre class="format-preformatted">Visit a forms file
 
 (fn FILENAME)
 </pre>
@@ -119,115 +123,123 @@
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dforms_002dflush_002dunwanted_002drecords">
         <h4 class="subsubsection">12.87.1.2
         emacspeak-forms-flush-unwanted-records</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dforms_002dflush_002dunwanted_002drecords">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-forms-flush-unwanted-records</strong>
-          <a href=
-          '#index-emacspeak_002dforms_002dflush_002dunwanted_002drecords'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-forms-flush-unwanted-records</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dforms_002dflush_002dunwanted_002drecords'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dforms_002dflush_002dunwanted_002drecords-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Prompt for pattern and flush matching lines
+              "format-preformatted">Prompt for pattern and flush matching lines
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dforms_002drerun_002dfilter">
         <h4 class="subsubsection">12.87.1.3
         emacspeak-forms-rerun-filter</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dforms_002drerun_002dfilter">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-forms-rerun-filter</strong>
-          <a href='#index-emacspeak_002dforms_002drerun_002dfilter'
-          class='copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dforms_002drerun_002dfilter">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-forms-rerun-filter</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dforms_002drerun_002dfilter'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dforms_002drerun_002dfilter-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dforms_002drerun_002dfilter-1"></a>
             <div class="format">
               <pre class=
-              "format">Rerun filter –allows us to nuke more matching records
+              "format-preformatted">Rerun filter –allows us to nuke more matching records
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dforms_002dspeak_002dfield">
         <h4 class="subsubsection">12.87.1.4
         emacspeak-forms-speak-field</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dforms_002dspeak_002dfield">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-forms-speak-field</strong>
-          <a href='#index-emacspeak_002dforms_002dspeak_002dfield'
-          class='copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dforms_002dspeak_002dfield">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-forms-speak-field</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dforms_002dspeak_002dfield'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dforms_002dspeak_002dfield-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dforms_002dspeak_002dfield-1"></a>
             <div class="format">
               <pre class=
-              "format">Speak current form field name and value.
+              "format-preformatted">Speak current form field name and value.
 Assumes that point is at the front of a field value.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dforms_002dsummarize_002dcurrent_002dposition">
         <h4 class="subsubsection">12.87.1.5
         emacspeak-forms-summarize-current-position</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dforms_002dsummarize_002dcurrent_002dposition">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-forms-summarize-current-position</strong>
-          <a href=
-          '#index-emacspeak_002dforms_002dsummarize_002dcurrent_002dposition'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-forms-summarize-current-position</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dforms_002dsummarize_002dcurrent_002dposition'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dforms_002dsummarize_002dcurrent_002dposition-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Summarize current position in list of records
+              "format-preformatted">Summarize current position in list of records
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dforms_002dsummarize_002dcurrent_002drecord">
         <h4 class="subsubsection">12.87.1.6
         emacspeak-forms-summarize-current-record</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dforms_002dsummarize_002dcurrent_002drecord">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-forms-summarize-current-record</strong>
-          <a href=
-          '#index-emacspeak_002dforms_002dsummarize_002dcurrent_002drecord'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-forms-summarize-current-record</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dforms_002dsummarize_002dcurrent_002drecord'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dforms_002dsummarize_002dcurrent_002drecord-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Summarize current record
+              <pre class=
+              "format-preformatted">Summarize current record
 </pre>
             </div>
           </dd>

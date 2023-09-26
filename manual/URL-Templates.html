@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -29,21 +28,8 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  kbd.kbd {font-style: oblique}
+  ul.mark-bullet {list-style-type: disc}
   -->
   /*]]>*/
   </style>
@@ -51,8 +37,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="URL-Templates">
-    <div class="header">
+  <div class="section-level-extent" id="URL-Templates">
+    <div class="nav-panel">
       <p>Previous: <a href="xbacklight.html" accesskey="p" rel=
       "prev">xbacklight</a>, Up: <a href=
       "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
@@ -62,289 +48,289 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="URL-Templates-1"></span>
-    <h3 class="section">12.240 URL Templates</h3>
+    <h3 class="section" id="URL-Templates-1">12.240 URL
+    Templates</h3>
     <p>This section documents a total of 63 URL Templates.</p>
     <p>All of these URL templates can be invoked via command
-    <kbd>M-x emacspeak-url-template-fetch</kbd> normally bound to
-    <kbd>C-e u &lt;fn&gt; u</kbd>. This command prompts for the
-    name of the template, and completion is available via Emacs’
-    minibuffer completion. Each URL template carries out the
-    following steps:</p>
-    <ul>
+    <kbd class="kbd">M-x emacspeak-url-template-fetch</kbd>
+    normally bound to <kbd class="kbd">C-e u &lt;fn&gt; u</kbd>.
+    This command prompts for the name of the template, and
+    completion is available via Emacs’ minibuffer completion. Each
+    URL template carries out the following steps:</p>
+    <ul class="itemize mark-bullet">
       <li>Prompt for the relevant information.</li>
       <li>Fetch the resulting URL using an appropriate
       fetcher.</li>
       <li>Set up the resulting resource with appropriate
       customizations.</li>
     </ul>
-    <ol>
+    <ol class="enumerate">
       <li>
-        <b>air traffic control</b>
+        <b class="b">air traffic control</b>
         <p>Find live streams for Air Traffic Control.</p>
       </li>
       <li>
-        <b>airport conditions</b>
+        <b class="b">airport conditions</b>
         <p>Display airport conditions from the FAA.</p>
       </li>
       <li>
-        <b>amazon product details by asin</b>
+        <b class="b">amazon product details by asin</b>
         <p>Retrieve product details from Amazon by either ISBN or
         ASIN.</p>
       </li>
       <li>
-        <b>aqi from wunderground</b>
+        <b class="b">aqi from wunderground</b>
         <p>Air quality from Wunderground</p>
       </li>
       <li>
-        <b>archwiki search</b>
+        <b class="b">archwiki search</b>
         <p>Search Linux ArchWiki</p>
       </li>
       <li>
-        <b>bbc podcast directory</b>
+        <b class="b">bbc podcast directory</b>
         <p>BBC PodCast Directory</p>
       </li>
       <li>
-        <b>bbc sounds</b>
+        <b class="b">bbc sounds</b>
         <p>Search BBC Sounds</p>
       </li>
       <li>
-        <b>bing news</b>
+        <b class="b">bing news</b>
         <p>Bing News results as RSS feed.</p>
       </li>
       <li>
-        <b>business headlines from cnn</b>
+        <b class="b">business headlines from cnn</b>
         <p>Money Headlines From CNN</p>
       </li>
       <li>
-        <b>cia world fact book</b>
+        <b class="b">cia world fact book</b>
         <p>Open CIA World Fact Book For Specified Country.</p>
       </li>
       <li>
-        <b>cnbc quotes</b>
+        <b class="b">cnbc quotes</b>
         <p>Stock portfolio via CNBC</p>
       </li>
       <li>
-        <b>cnbc ticker</b>
+        <b class="b">cnbc ticker</b>
         <p>Stock Quote via CNBC</p>
       </li>
       <li>
-        <b>cnn headlines</b>
+        <b class="b">cnn headlines</b>
         <p>News Headlines From CNN</p>
       </li>
       <li>
-        <b>cnn money</b>
+        <b class="b">cnn money</b>
         <p>CNN Money</p>
       </li>
       <li>
-        <b>cnn world</b>
+        <b class="b">cnn world</b>
         <p>CNN World</p>
       </li>
       <li>
-        <b>cricinfo print</b>
+        <b class="b">cricinfo print</b>
         <p>Printer friendly link on Cricinfo</p>
       </li>
       <li>
-        <b>dictionary lookup</b>
+        <b class="b">dictionary lookup</b>
         <p>Dictionary Lookup</p>
       </li>
       <li>
-        <b>finance google</b>
+        <b class="b">finance google</b>
         <p>Lookup ticker on Google Finance.</p>
       </li>
       <li>
-        <b>finance summary from google</b>
+        <b class="b">finance summary from google</b>
         <p>Display top stocks from Google Finance.</p>
       </li>
       <li>
-        <b>freesound</b>
+        <b class="b">freesound</b>
         <p>Search FreeSound.</p>
       </li>
       <li>
-        <b>google news search</b>
+        <b class="b">google news search</b>
         <p>Search Google news.</p>
       </li>
       <li>
-        <b>google quotes</b>
+        <b class="b">google quotes</b>
         <p>Light-weight Google Stock quotes.</p>
       </li>
       <li>
-        <b>google scholar</b>
+        <b class="b">google scholar</b>
         <p>Google Scholar Search</p>
       </li>
       <li>
-        <b>google trends</b>
+        <b class="b">google trends</b>
         <p>Google Trends</p>
       </li>
       <li>
-        <b>google weather</b>
+        <b class="b">google weather</b>
         <p>Light-weight Google weather.</p>
       </li>
       <li>
-        <b>guardian rss feeds directory</b>
+        <b class="b">guardian rss feeds directory</b>
         <p>Guardian Feeds Directory</p>
       </li>
       <li>
-        <b>hacker news frontpage</b>
+        <b class="b">hacker news frontpage</b>
         <p>Display Hacker News Front Page</p>
       </li>
       <li>
-        <b>hacker news search</b>
+        <b class="b">hacker news search</b>
         <p>Display Hacker News Front Page</p>
       </li>
       <li>
-        <b>hoogle haskell api search</b>
+        <b class="b">hoogle haskell api search</b>
         <p>Haskell API Search against a local server.</p>
       </li>
       <li>
-        <b>html google news search</b>
+        <b class="b">html google news search</b>
         <p>Search Google news.</p>
       </li>
       <li>
-        <b>microsoft search</b>
+        <b class="b">microsoft search</b>
         <p>Bing results as RSS feed.</p>
       </li>
       <li>
-        <b>nba standings</b>
+        <b class="b">nba standings</b>
         <p>Display NBA standings.</p>
       </li>
       <li>
-        <b>nls bard bookshelf</b>
+        <b class="b">nls bard bookshelf</b>
         <p>NLS Bard Catalog: Most Popular. Login once before using
         this template.</p>
       </li>
       <li>
-        <b>nls bard popular</b>
+        <b class="b">nls bard popular</b>
         <p>NLS Bard Catalog: Most Popular. Login once before using
         this template.</p>
       </li>
       <li>
-        <b>nls bard recent</b>
+        <b class="b">nls bard recent</b>
         <p>NLS Bard Catalog: Recently Added. Login once before
         using this template.</p>
       </li>
       <li>
-        <b>nls bard search</b>
+        <b class="b">nls bard search</b>
         <p>Search NLS Bard Catalog. Login once before using this
         template.</p>
       </li>
       <li>
-        <b>npr</b>
+        <b class="b">npr</b>
         <p>Open NPR home , then display the alternative links to
         access RSS feeds.</p>
       </li>
       <li>
-        <b>old time radio</b>
+        <b class="b">old time radio</b>
         <p>This months Old Time Radio Programming</p>
       </li>
       <li>
-        <b>openlibrary</b>
+        <b class="b">openlibrary</b>
         <p>Open Library Search</p>
       </li>
       <li>
-        <b>patent search from google</b>
+        <b class="b">patent search from google</b>
         <p>Perform patent search via Google</p>
       </li>
       <li>
-        <b>player fm bbc rss feeds</b>
+        <b class="b">player fm bbc rss feeds</b>
         <p>Player FM BBC RSS Feeds</p>
       </li>
       <li>
-        <b>radiotime browser</b>
+        <b class="b">radiotime browser</b>
         <p>RadioTime Entry point.</p>
       </li>
       <li>
-        <b>radiotime categories</b>
+        <b class="b">radiotime categories</b>
         <p>RadioTime Categories</p>
       </li>
       <li>
-        <b>radiotime search</b>
+        <b class="b">radiotime search</b>
         <p>RadioTime Search</p>
       </li>
       <li>
-        <b>reddit at point</b>
+        <b class="b">reddit at point</b>
         <p>Open RSS Feed for Reddit URL under point.</p>
       </li>
       <li>
-        <b>reddit by topic</b>
+        <b class="b">reddit by topic</b>
         <p>Open RSS Feed for Reddit Topic.</p>
       </li>
       <li>
-        <b>reddit front page</b>
+        <b class="b">reddit front page</b>
         <p>Open Feed for Reddit Front Page.</p>
       </li>
       <li>
-        <b>reddit search</b>
+        <b class="b">reddit search</b>
         <p>Reddit Search Results Feed.</p>
       </li>
       <li>
-        <b>sourceforge browse mirrors</b>
+        <b class="b">sourceforge browse mirrors</b>
         <p>Retrieve download page at Sourceforge for specified
         project.</p>
       </li>
       <li>
-        <b>sourceforge download</b>
+        <b class="b">sourceforge download</b>
         <p>Download specified file.</p>
       </li>
       <li>
-        <b>sourceforge project</b>
+        <b class="b">sourceforge project</b>
         <p>Open specified project page at SourceForge.</p>
       </li>
       <li>
-        <b>streamworld radio</b>
+        <b class="b">streamworld radio</b>
         <p>Play radio stream. Example: kcbsFM. Format is
         stationid+AM/FM.</p>
       </li>
       <li>
-        <b>tech news from cnet</b>
+        <b class="b">tech news from cnet</b>
         <p>Display tech news from CNET</p>
       </li>
       <li>
-        <b>tunein radio</b>
+        <b class="b">tunein radio</b>
         <p>Translate StreamId to playable stream.</p>
       </li>
       <li>
-        <b>us stock market from google</b>
+        <b class="b">us stock market from google</b>
         <p>Light-weight Google US Stock Markets.</p>
       </li>
       <li>
-        <b>w3c irc logs</b>
+        <b class="b">w3c irc logs</b>
         <p>Use this to pull up the archived logs from the W3C IRC.
         You need to know the exact name of the channel.</p>
       </li>
       <li>
-        <b>w3c lists</b>
+        <b class="b">w3c lists</b>
         <p>Use this to pull up the archived mail from the W3C list.
         You need to know the exact name of the list.</p>
       </li>
       <li>
-        <b>washington post</b>
+        <b class="b">washington post</b>
         <p>Washington Post Contents</p>
       </li>
       <li>
-        <b>wiki data search</b>
+        <b class="b">wiki data search</b>
         <p>Search WikiData.</p>
       </li>
       <li>
-        <b>wikipedia at point</b>
+        <b class="b">wikipedia at point</b>
         <p>Extract body content from Wikipedia link at point</p>
       </li>
       <li>
-        <b>wordnet search</b>
+        <b class="b">wordnet search</b>
         <p>Look up term in WordNet.</p>
       </li>
       <li>
-        <b>world cnn content</b>
+        <b class="b">world cnn content</b>
         <p>Filter down to CNN content area.</p>
       </li>
       <li>
-        <b>yahoo rssnews</b>
+        <b class="b">yahoo rssnews</b>
         <p>News From Yahoo As RSS.</p>
       </li>
     </ol>
   </div>
   <hr />
-  <div class="header">
+  <div class="nav-panel">
     <p>Previous: <a href="xbacklight.html">xbacklight</a>, Up:
     <a href="Emacspeak-Commands-And-Options.html">Emacspeak
     Commands And Options</a> &nbsp; [<a href=

@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -32,21 +31,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+  kbd.kbd {font-style: oblique}
+  pre.format-preformatted {font-family: inherit}
+  span:hover a.copiable-link {visibility: visible}
+  strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
   -->
   /*]]>*/
   </style>
@@ -54,8 +43,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002damark">
-    <div class="header">
+  <div class="section-level-extent" id="emacspeak_002damark">
+    <div class="nav-panel">
       <p>Next: <a href="emacspeak_002danalog.html" accesskey="n"
       rel="next">emacspeak-analog</a>, Previous: <a href=
       "emacspeak_002dadvice.html" accesskey="p" rel=
@@ -67,8 +56,8 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="emacspeak_002damark-1"></span>
-    <h3 class="section">12.10 emacspeak-amark</h3>
+    <h3 class="section" id="emacspeak_002damark-1">12.10
+    emacspeak-amark</h3>
     <p>Structure emacspeak-amark holds a bookmark into an mp3 file
     path: filename containing marked name: Bookmark tag Position:
     time offset from start</p>
@@ -76,49 +65,72 @@
     jump to bookmarks. Amarks are stored in a .amarks.am file in
     the working directory. It also provides a simple AMark Browser
     to use from a directory containing mp3 files where Amarks have
-    been created – see <code>emacspeak-amarks-browse</code>.
-    <code>emacspeak-amarks-bookshelf</code> brings up a
-    <em>AmarksBookshelf</em> that can be used to browse available
-    Amark files.</p>
-    <ul class="section-toc">
-      <li><a href="#Emacspeak_002dAmark-Commands" accesskey=
-      "1">Emacspeak-Amark Commands</a></li>
+    been created – see <code class=
+    "command">emacspeak-amarks-browse</code>. <code class=
+    "command">emacspeak-amarks-bookshelf</code> brings up a
+    <em class="emph">AmarksBookshelf</em> that can be used to
+    browse available Amark files.</p>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Emacspeak_002dAmark-Commands" accesskey=
+        "1">Emacspeak-Amark Commands</a>
+      </li>
     </ul>
-    <div class="subsection" id="Emacspeak_002dAmark-Commands">
+    <div class="subsection-level-extent" id=
+    "Emacspeak_002dAmark-Commands">
       <h4 class="subsection">12.10.1 Emacspeak-Amark Commands</h4>
-      <ul class="section-toc">
-        <li><a href="#emacspeak_002damark_002dadd" accesskey=
-        "1">emacspeak-amark-add</a></li>
-        <li><a href="#emacspeak_002damark_002dbookshelf" accesskey=
-        "2">emacspeak-amark-bookshelf</a></li>
-        <li><a href="#emacspeak_002damark_002dbrowse" accesskey=
-        "3">emacspeak-amark-browse</a></li>
-        <li><a href="#emacspeak_002damark_002dfile_002dload"
-        accesskey="4">emacspeak-amark-file-load</a></li>
-        <li><a href="#emacspeak_002damark_002dfind" accesskey=
-        "5">emacspeak-amark-find</a></li>
-        <li><a href="#emacspeak_002damark_002dlist_002dplay"
-        accesskey="6">emacspeak-amark-list-play</a></li>
-        <li><a href="#emacspeak_002damark_002dmode" accesskey=
-        "7">emacspeak-amark-mode</a></li>
-        <li><a href="#emacspeak_002damark_002dsave" accesskey=
-        "8">emacspeak-amark-save</a></li>
+      <ul class="mini-toc">
+        <li>
+          <a href="#emacspeak_002damark_002dadd" accesskey=
+          "1">emacspeak-amark-add</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002damark_002dbookshelf" accesskey=
+          "2">emacspeak-amark-bookshelf</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002damark_002dbrowse" accesskey=
+          "3">emacspeak-amark-browse</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002damark_002dfile_002dload"
+          accesskey="4">emacspeak-amark-file-load</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002damark_002dfind" accesskey=
+          "5">emacspeak-amark-find</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002damark_002dlist_002dplay"
+          accesskey="6">emacspeak-amark-list-play</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002damark_002dmode" accesskey=
+          "7">emacspeak-amark-mode</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002damark_002dsave" accesskey=
+          "8">emacspeak-amark-save</a>
+        </li>
       </ul>
-      <div class="subsubsection" id="emacspeak_002damark_002dadd">
+      <div class="subsubsection-level-extent" id=
+      "emacspeak_002damark_002dadd">
         <h4 class="subsubsection">12.10.1.1
         emacspeak-amark-add</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002damark_002dadd"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-amark-add</strong> <em>(path name
-          position)</em> <a href=
-          '#index-emacspeak_002damark_002dadd' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-emacspeak_002damark_002dadd">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-amark-add</strong> <var class=
+          "def-var-arguments">(path name position)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002damark_002dadd'>¶</a></span></dt>
           <dd>
-            <span id="index-emacspeak_002damark_002dadd-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002damark_002dadd-1"></a>
             <div class="format">
               <pre class=
-              "format">Add an AMark to the buffer local list of AMarks. AMarks are
+              "format-preformatted">Add an AMark to the buffer local list of AMarks. AMarks are
 bookmarks in audio content. If there is an existing amark of the
 given name, it is updated with path and position.
 
@@ -128,31 +140,33 @@ given name, it is updated with path and position.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002damark_002dbookshelf">
         <h4 class="subsubsection">12.10.1.2
         emacspeak-amark-bookshelf</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002damark_002dbookshelf">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-amark-bookshelf</strong>
-          <em>(&amp;optional pattern)</em> <a href=
-          '#index-emacspeak_002damark_002dbookshelf' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002damark_002dbookshelf"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-amark-bookshelf</strong> <var class=
+          "def-var-arguments">(&amp;optional pattern)</var>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002damark_002dbookshelf'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002d_003b-C_002d_003b'><span><kbd>C-;
-              C-;</kbd> <a href='#index-C_002d_003b-C_002d_003b'
-              class='copiable-anchor'>¶</a></span></dt>
+            <dl class="table">
+              <dt id='index-C_002d_003b-C_002d_003b'>
+              <span><kbd class="kbd">C-; C-;</kbd> <a class=
+              "copiable-link" href=
+              '#index-C_002d_003b-C_002d_003b'>¶</a></span></dt>
               <dt id='index-C_002dx-_0040-h-C_002d_003b'>
-              <span><kbd>C-x @ h C-;</kbd> <a href=
-              '#index-C_002dx-_0040-h-C_002d_003b' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002damark_002dbookshelf-1"></span>
+              <span><kbd class="kbd">C-x @ h C-;</kbd> <a class=
+              "copiable-link" href=
+              '#index-C_002dx-_0040-h-C_002d_003b'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002damark_002dbookshelf-1"></a>
             <div class="format">
               <pre class=
-              "format">Open a locate buffer with all .amarks.am files.
+              "format-preformatted">Open a locate buffer with all .amarks.am files.
 Optional interactive prefix arg prompts for a pattern that is
 used to filter the amarks files to show.  Use
 M-x emacspeak-dired-open-this-file to open the AMark Browser on
@@ -164,70 +178,76 @@ current file.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002damark_002dbrowse">
         <h4 class="subsubsection">12.10.1.3
         emacspeak-amark-browse</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002damark_002dbrowse">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-amark-browse</strong> <a href=
-          '#index-emacspeak_002damark_002dbrowse' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002damark_002dbrowse"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-amark-browse</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002damark_002dbrowse'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002d_003b-a'><span><kbd>C-; a</kbd>
-              <a href='#index-C_002d_003b-a' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002dx-_0040-h-a'><span><kbd>C-x @ h
-              a</kbd> <a href='#index-C_002dx-_0040-h-a' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002damark_002dbrowse-1"></span>
+            <dl class="table">
+              <dt id='index-C_002d_003b-a'><span><kbd class=
+              "kbd">C-; a</kbd> <a class="copiable-link" href=
+              '#index-C_002d_003b-a'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-h-a'><span><kbd class=
+              "kbd">C-x @ h a</kbd> <a class="copiable-link" href=
+              '#index-C_002dx-_0040-h-a'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002damark_002dbrowse-1"></a>
             <div class="format">
               <pre class=
-              "format">Browse   amarks  in current directory using ‘emacspeak-amark-mode’.
+              "format-preformatted">Browse   amarks  in current directory using ‘emacspeak-amark-mode’.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002damark_002dfile_002dload">
         <h4 class="subsubsection">12.10.1.4
         emacspeak-amark-file-load</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002damark_002dfile_002dload">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-amark-file-load</strong> <a href=
-          '#index-emacspeak_002damark_002dfile_002dload' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002damark_002dfile_002dload">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-amark-file-load</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002damark_002dfile_002dload'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002damark_002dfile_002dload-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002damark_002dfile_002dload-1"></a>
             <div class="format">
               <pre class=
-              "format">Open .amark.el on current line in AMark Browser
+              "format-preformatted">Open .amark.el on current line in AMark Browser
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="emacspeak_002damark_002dfind">
+      <div class="subsubsection-level-extent" id=
+      "emacspeak_002damark_002dfind">
         <h4 class="subsubsection">12.10.1.5
         emacspeak-amark-find</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002damark_002dfind"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-amark-find</strong>
-          <em>(name)</em> <a href=
-          '#index-emacspeak_002damark_002dfind' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002damark_002dfind"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-amark-find</strong> <var class=
+          "def-var-arguments">(name)</var> <a class="copiable-link"
+          href=
+          '#index-emacspeak_002damark_002dfind'>¶</a></span></dt>
           <dd>
-            <span id="index-emacspeak_002damark_002dfind-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002damark_002dfind-1"></a>
             <div class="format">
               <pre class=
-              "format">Return matching AMark if found in buffer-local AMark list.
+              "format-preformatted">Return matching AMark if found in buffer-local AMark list.
 
 (fn NAME)
 </pre>
@@ -235,21 +255,24 @@ current file.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002damark_002dlist_002dplay">
         <h4 class="subsubsection">12.10.1.6
         emacspeak-amark-list-play</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002damark_002dlist_002dplay">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-amark-list-play</strong> <a href=
-          '#index-emacspeak_002damark_002dlist_002dplay' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002damark_002dlist_002dplay">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-amark-list-play</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002damark_002dlist_002dplay'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002damark_002dlist_002dplay-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002damark_002dlist_002dplay-1"></a>
             <div class="format">
-              <pre class="format">Play amark list as a playlist.
+              <pre class=
+              "format-preformatted">Play amark list as a playlist.
 Maps command M-x emacspeak-m-player across elements of the amarks
   list.  Pressing ‘y’ as the current item is playing skips to the
   next item; this ‘y/n’ prompt is produced by
@@ -261,20 +284,23 @@ Maps command M-x emacspeak-m-player across elements of the amarks
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="emacspeak_002damark_002dmode">
+      <div class="subsubsection-level-extent" id=
+      "emacspeak_002damark_002dmode">
         <h4 class="subsubsection">12.10.1.7
         emacspeak-amark-mode</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002damark_002dmode"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-amark-mode</strong> <a href=
-          '#index-emacspeak_002damark_002dmode' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002damark_002dmode"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-amark-mode</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002damark_002dmode'>¶</a></span></dt>
           <dd>
-            <span id="index-emacspeak_002damark_002dmode-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002damark_002dmode-1"></a>
             <div class="format">
               <pre class=
-              "format">A light-weight mode for the ‘*Emacspeak Amark Browser*’.
+              "format-preformatted">A light-weight mode for the ‘*Emacspeak Amark Browser*’.
  1. Provides buttons for opening and removing AMarks.
  2. Enables org integration via command
  ‘org-store-link’ bound to M-x org-store-link.
@@ -289,20 +315,23 @@ or penultimate step during initialization.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="emacspeak_002damark_002dsave">
+      <div class="subsubsection-level-extent" id=
+      "emacspeak_002damark_002dsave">
         <h4 class="subsubsection">12.10.1.8
         emacspeak-amark-save</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002damark_002dsave"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-amark-save</strong> <a href=
-          '#index-emacspeak_002damark_002dsave' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002damark_002dsave"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-amark-save</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002damark_002dsave'>¶</a></span></dt>
           <dd>
-            <span id="index-emacspeak_002damark_002dsave-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002damark_002dsave-1"></a>
             <div class="format">
               <pre class=
-              "format">Save buffer-local AMarks in  currently playing directory.
+              "format-preformatted">Save buffer-local AMarks in  currently playing directory.
 </pre>
             </div>
           </dd>
@@ -311,7 +340,7 @@ or penultimate step during initialization.
     </div>
   </div>
   <hr />
-  <div class="header">
+  <div class="nav-panel">
     <p>Next: <a href=
     "emacspeak_002danalog.html">emacspeak-analog</a>, Previous:
     <a href="emacspeak_002dadvice.html">emacspeak-advice</a>, Up:

@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -32,21 +31,12 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+  kbd.kbd {font-style: oblique}
+  pre.format-preformatted {font-family: inherit}
+  span:hover a.copiable-link {visibility: visible}
+  strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+  ul.mark-bullet {list-style-type: disc}
   -->
   /*]]>*/
   </style>
@@ -54,8 +44,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002dvdiff">
-    <div class="header">
+  <div class="section-level-extent" id="emacspeak_002dvdiff">
+    <div class="nav-panel">
       <p>Next: <a href="emacspeak_002dvertico.html" accesskey="n"
       rel="next">emacspeak-vertico</a>, Previous: <a href=
       "emacspeak_002durl_002dtemplate.html" accesskey="p" rel=
@@ -67,106 +57,120 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="emacspeak_002dvdiff-1"></span>
-    <h3 class="section">12.201 emacspeak-vdiff</h3>
+    <h3 class="section" id="emacspeak_002dvdiff-1">12.201
+    emacspeak-vdiff</h3>
     <p>VDIFF == vimdiff Installable from melpa, vdiff enables
     synchronized movement through diff buffers without resorting to
     an extra control-panel as is the case with ediff. In addition
     to speech-enabling interactive commands and setting up
     face-&gt;voice mappings, this module provides commands that
-    speak the current hunk. These are bound in
-    <code>vdiff-mode-prefix-map</code>.</p>
-    <ul>
-      <li><code>emacspeak-vdiff-speak-this-hunk</code> bound to
-      <kbd>SPC</kbd>.</li>
-      <li><code>emacspeak-vdiff-speak-other-hunk</code> bound to
-      <kbd>C-SPC</kbd>.</li>
-      <li><code>emacspeak-vdiff-speak-other-line</code> bound to
-      <kbd>l</kbd>.</li>
+    speak the current hunk. These are bound in <code class=
+    "code">vdiff-mode-prefix-map</code>.</p>
+    <ul class="itemize mark-bullet">
+      <li><code class="code">emacspeak-vdiff-speak-this-hunk</code>
+      bound to <kbd class="kbd">SPC</kbd>.</li>
+      <li><code class=
+      "code">emacspeak-vdiff-speak-other-hunk</code> bound to
+      <kbd class="kbd">C-SPC</kbd>.</li>
+      <li><code class=
+      "code">emacspeak-vdiff-speak-other-line</code> bound to
+      <kbd class="kbd">l</kbd>.</li>
     </ul>
-    <ul class="section-toc">
-      <li><a href="#Emacspeak_002dVdiff-Commands" accesskey=
-      "1">Emacspeak-Vdiff Commands</a></li>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Emacspeak_002dVdiff-Commands" accesskey=
+        "1">Emacspeak-Vdiff Commands</a>
+      </li>
     </ul>
-    <div class="subsection" id="Emacspeak_002dVdiff-Commands">
+    <div class="subsection-level-extent" id=
+    "Emacspeak_002dVdiff-Commands">
       <h4 class="subsection">12.201.1 Emacspeak-Vdiff Commands</h4>
-      <ul class="section-toc">
-        <li><a href=
-        "#emacspeak_002dvdiff_002dspeak_002dother_002dhunk"
-        accesskey="1">emacspeak-vdiff-speak-other-hunk</a></li>
-        <li><a href=
-        "#emacspeak_002dvdiff_002dspeak_002dother_002dline"
-        accesskey="2">emacspeak-vdiff-speak-other-line</a></li>
-        <li><a href=
-        "#emacspeak_002dvdiff_002dspeak_002dthis_002dhunk"
-        accesskey="3">emacspeak-vdiff-speak-this-hunk</a></li>
+      <ul class="mini-toc">
+        <li>
+          <a href=
+          "#emacspeak_002dvdiff_002dspeak_002dother_002dhunk"
+          accesskey="1">emacspeak-vdiff-speak-other-hunk</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dvdiff_002dspeak_002dother_002dline"
+          accesskey="2">emacspeak-vdiff-speak-other-line</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dvdiff_002dspeak_002dthis_002dhunk"
+          accesskey="3">emacspeak-vdiff-speak-this-hunk</a>
+        </li>
       </ul>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dvdiff_002dspeak_002dother_002dhunk">
         <h4 class="subsubsection">12.201.1.1
         emacspeak-vdiff-speak-other-hunk</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dvdiff_002dspeak_002dother_002dhunk">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-vdiff-speak-other-hunk</strong>
-          <a href=
-          '#index-emacspeak_002dvdiff_002dspeak_002dother_002dhunk'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-vdiff-speak-other-hunk</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dvdiff_002dspeak_002dother_002dhunk'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dvdiff_002dspeak_002dother_002dhunk-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Speak corresponding hunk from other buffer.
+              "format-preformatted">Speak corresponding hunk from other buffer.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dvdiff_002dspeak_002dother_002dline">
         <h4 class="subsubsection">12.201.1.2
         emacspeak-vdiff-speak-other-line</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dvdiff_002dspeak_002dother_002dline">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-vdiff-speak-other-line</strong>
-          <a href=
-          '#index-emacspeak_002dvdiff_002dspeak_002dother_002dline'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-vdiff-speak-other-line</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dvdiff_002dspeak_002dother_002dline'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dvdiff_002dspeak_002dother_002dline-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Speak corresponding line from other buffer.
+              "format-preformatted">Speak corresponding line from other buffer.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dvdiff_002dspeak_002dthis_002dhunk">
         <h4 class="subsubsection">12.201.1.3
         emacspeak-vdiff-speak-this-hunk</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dvdiff_002dspeak_002dthis_002dhunk">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-vdiff-speak-this-hunk</strong>
-          <a href=
-          '#index-emacspeak_002dvdiff_002dspeak_002dthis_002dhunk'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-vdiff-speak-this-hunk</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dvdiff_002dspeak_002dthis_002dhunk'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dvdiff_002dspeak_002dthis_002dhunk-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Speak VDiff hunk under point.
+              <pre class=
+              "format-preformatted">Speak VDiff hunk under point.
 </pre>
             </div>
           </dd>

@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -29,21 +28,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+  kbd.kbd {font-style: oblique}
+  pre.format-preformatted {font-family: inherit}
+  span:hover a.copiable-link {visibility: visible}
+  strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
   -->
   /*]]>*/
   </style>
@@ -51,8 +40,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="dtk_002dspeak">
-    <div class="header">
+  <div class="section-level-extent" id="dtk_002dspeak">
+    <div class="nav-panel">
       <p>Next: <a href="emacspeak.html" accesskey="n" rel=
       "next">emacspeak</a>, Previous: <a href="dom_002daddons.html"
       accesskey="p" rel="prev">dom-addons</a>, Up: <a href=
@@ -63,103 +52,168 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="dtk_002dspeak-1"></span>
-    <h3 class="section">12.4 dtk-speak</h3>
+    <h3 class="section" id="dtk_002dspeak-1">12.4 dtk-speak</h3>
     <p>Defines the TTS interface. Here, prefix dtk is synonymous
     with tts.</p>
-    <ul class="section-toc">
-      <li><a href="#Dtk_002dSpeak-Commands" accesskey="1">Dtk-Speak
-      Commands</a></li>
-      <li><a href="#dtk_002dspeak-Options" accesskey="2">dtk-speak
-      Options</a></li>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Dtk_002dSpeak-Commands" accesskey="1">Dtk-Speak
+        Commands</a>
+      </li>
+      <li>
+        <a href="#dtk_002dspeak-Options" accesskey="2">dtk-speak
+        Options</a>
+      </li>
     </ul>
-    <div class="subsection" id="Dtk_002dSpeak-Commands">
+    <div class="subsection-level-extent" id=
+    "Dtk_002dSpeak-Commands">
       <h4 class="subsection">12.4.1 Dtk-Speak Commands</h4>
-      <ul class="section-toc">
-        <li><a href="#dtk_002dadd_002dcleanup_002dpattern"
-        accesskey="1">dtk-add-cleanup-pattern</a></li>
-        <li><a href="#dtk_002dcloud" accesskey=
-        "2">dtk-cloud</a></li>
-        <li><a href="#dtk_002dlocal_002dserver" accesskey=
-        "3">dtk-local-server</a></li>
-        <li><a href="#dtk_002dnotify_002dinitialize" accesskey=
-        "4">dtk-notify-initialize</a></li>
-        <li><a href="#dtk_002dnotify_002dstop" accesskey=
-        "5">dtk-notify-stop</a></li>
-        <li><a href="#dtk_002drate_002dadjust" accesskey=
-        "6">dtk-rate-adjust</a></li>
-        <li><a href="#dtk_002dreset_002dstate" accesskey=
-        "7">dtk-reset-state</a></li>
-        <li><a href="#dtk_002dselect_002dserver" accesskey=
-        "8">dtk-select-server</a></li>
-        <li><a href="#dtk_002dset_002dcharacter_002dscale"
-        accesskey="9">dtk-set-character-scale</a></li>
-        <li><a href=
-        "#dtk_002dset_002dchunk_002dseparator_002dsyntax">dtk-set-chunk-separator-syntax</a></li>
-        <li><a href=
-        "#dtk_002dset_002dlanguage">dtk-set-language</a></li>
-        <li><a href=
-        "#dtk_002dset_002dnext_002dlanguage">dtk-set-next-language</a></li>
-        <li><a href=
-        "#dtk_002dset_002dpredefined_002dspeech_002drate">dtk-set-predefined-speech-rate</a></li>
-        <li><a href=
-        "#dtk_002dset_002dpreferred_002dlanguage">dtk-set-preferred-language</a></li>
-        <li><a href=
-        "#dtk_002dset_002dprevious_002dlanguage">dtk-set-previous-language</a></li>
-        <li><a href=
-        "#dtk_002dset_002dpunctuations">dtk-set-punctuations</a></li>
-        <li><a href=
-        "#dtk_002dset_002dpunctuations_002dto_002dall">dtk-set-punctuations-to-all</a></li>
-        <li><a href=
-        "#dtk_002dset_002dpunctuations_002dto_002dsome">dtk-set-punctuations-to-some</a></li>
-        <li><a href="#dtk_002dset_002drate">dtk-set-rate</a></li>
-        <li><a href="#dtk_002dstop">dtk-stop</a></li>
-        <li><a href=
-        "#dtk_002dtoggle_002dcaps">dtk-toggle-caps</a></li>
-        <li><a href=
-        "#dtk_002dtoggle_002dpunctuation_002dmode">dtk-toggle-punctuation-mode</a></li>
-        <li><a href=
-        "#dtk_002dtoggle_002dquiet">dtk-toggle-quiet</a></li>
-        <li><a href=
-        "#dtk_002dtoggle_002dspeak_002dnonprinting_002dchars">dtk-toggle-speak-nonprinting-chars</a></li>
-        <li><a href=
-        "#dtk_002dtoggle_002dsplit_002dcaps">dtk-toggle-split-caps</a></li>
-        <li><a href=
-        "#dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace">dtk-toggle-splitting-on-white-space</a></li>
-        <li><a href=
-        "#dtk_002dtoggle_002dstrip_002doctals">dtk-toggle-strip-octals</a></li>
-        <li><a href=
-        "#dtk_002dunicode_002dcustomize_002dchar">dtk-unicode-customize-char</a></li>
-        <li><a href=
-        "#dtk_002dunicode_002duncustomize_002dchar">dtk-unicode-uncustomize-char</a></li>
-        <li><a href="#tts_002drestart">tts-restart</a></li>
-        <li><a href=
-        "#tts_002dspeak_002dversion">tts-speak-version</a></li>
+      <ul class="mini-toc">
+        <li>
+          <a href="#dtk_002dadd_002dcleanup_002dpattern" accesskey=
+          "1">dtk-add-cleanup-pattern</a>
+        </li>
+        <li>
+          <a href="#dtk_002dcloud" accesskey="2">dtk-cloud</a>
+        </li>
+        <li>
+          <a href="#dtk_002dlocal_002dserver" accesskey=
+          "3">dtk-local-server</a>
+        </li>
+        <li>
+          <a href="#dtk_002dnotify_002dinitialize" accesskey=
+          "4">dtk-notify-initialize</a>
+        </li>
+        <li>
+          <a href="#dtk_002dnotify_002dstop" accesskey=
+          "5">dtk-notify-stop</a>
+        </li>
+        <li>
+          <a href="#dtk_002drate_002dadjust" accesskey=
+          "6">dtk-rate-adjust</a>
+        </li>
+        <li>
+          <a href="#dtk_002dreset_002dstate" accesskey=
+          "7">dtk-reset-state</a>
+        </li>
+        <li>
+          <a href="#dtk_002dselect_002dserver" accesskey=
+          "8">dtk-select-server</a>
+        </li>
+        <li>
+          <a href="#dtk_002dset_002dcharacter_002dscale" accesskey=
+          "9">dtk-set-character-scale</a>
+        </li>
+        <li>
+          <a href=
+          "#dtk_002dset_002dchunk_002dseparator_002dsyntax">dtk-set-chunk-separator-syntax</a>
+        </li>
+        <li>
+          <a href="#dtk_002dset_002dlanguage">dtk-set-language</a>
+        </li>
+        <li>
+          <a href=
+          "#dtk_002dset_002dnext_002dlanguage">dtk-set-next-language</a>
+        </li>
+        <li>
+          <a href=
+          "#dtk_002dset_002dpredefined_002dspeech_002drate">dtk-set-predefined-speech-rate</a>
+        </li>
+        <li>
+          <a href=
+          "#dtk_002dset_002dpreferred_002dlanguage">dtk-set-preferred-language</a>
+        </li>
+        <li>
+          <a href=
+          "#dtk_002dset_002dprevious_002dlanguage">dtk-set-previous-language</a>
+        </li>
+        <li>
+          <a href=
+          "#dtk_002dset_002dpunctuations">dtk-set-punctuations</a>
+        </li>
+        <li>
+          <a href=
+          "#dtk_002dset_002dpunctuations_002dto_002dall">dtk-set-punctuations-to-all</a>
+        </li>
+        <li>
+          <a href=
+          "#dtk_002dset_002dpunctuations_002dto_002dsome">dtk-set-punctuations-to-some</a>
+        </li>
+        <li>
+          <a href="#dtk_002dset_002drate">dtk-set-rate</a>
+        </li>
+        <li>
+          <a href="#dtk_002dstop">dtk-stop</a>
+        </li>
+        <li>
+          <a href="#dtk_002dtoggle_002dcaps">dtk-toggle-caps</a>
+        </li>
+        <li>
+          <a href=
+          "#dtk_002dtoggle_002dpunctuation_002dmode">dtk-toggle-punctuation-mode</a>
+        </li>
+        <li>
+          <a href="#dtk_002dtoggle_002dquiet">dtk-toggle-quiet</a>
+        </li>
+        <li>
+          <a href=
+          "#dtk_002dtoggle_002dspeak_002dnonprinting_002dchars">dtk-toggle-speak-nonprinting-chars</a>
+        </li>
+        <li>
+          <a href=
+          "#dtk_002dtoggle_002dsplit_002dcaps">dtk-toggle-split-caps</a>
+        </li>
+        <li>
+          <a href=
+          "#dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace">
+          dtk-toggle-splitting-on-white-space</a>
+        </li>
+        <li>
+          <a href=
+          "#dtk_002dtoggle_002dstrip_002doctals">dtk-toggle-strip-octals</a>
+        </li>
+        <li>
+          <a href=
+          "#dtk_002dunicode_002dcustomize_002dchar">dtk-unicode-customize-char</a>
+        </li>
+        <li>
+          <a href=
+          "#dtk_002dunicode_002duncustomize_002dchar">dtk-unicode-uncustomize-char</a>
+        </li>
+        <li>
+          <a href="#tts_002drestart">tts-restart</a>
+        </li>
+        <li>
+          <a href=
+          "#tts_002dspeak_002dversion">tts-speak-version</a>
+        </li>
       </ul>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "dtk_002dadd_002dcleanup_002dpattern">
         <h4 class="subsubsection">12.4.1.1
         dtk-add-cleanup-pattern</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dadd_002dcleanup_002dpattern-1">
-          <span class="category">Command:</span>
-          <span><strong>dtk-add-cleanup-pattern</strong>
-          <em>(&amp;optional delete)</em> <a href=
-          '#index-dtk_002dadd_002dcleanup_002dpattern-1' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-dtk_002dadd_002dcleanup_002dpattern-1">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">dtk-add-cleanup-pattern</strong> <var class=
+          "def-var-arguments">(&amp;optional delete)</var>
+          <a class="copiable-link" href=
+          '#index-dtk_002dadd_002dcleanup_002dpattern-1'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-a-1'><span><kbd>C-e d a</kbd>
-              <a href='#index-C_002de-d-a-1' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-a'><span><kbd>&lt;fn&gt;
-              d a</kbd> <a href='#index-_003cfn_003e-d-a' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-dtk_002dadd_002dcleanup_002dpattern-2"></span>
+            <dl class="table">
+              <dt id='index-C_002de-d-a-1'><span><kbd class=
+              "kbd">C-e d a</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-a-1'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-a'><span><kbd class=
+              "kbd">&lt;fn&gt; d a</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-a'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dadd_002dcleanup_002dpattern-2"></a>
             <div class="format">
               <pre class=
-              "format">Add this pattern to the list of repeating patterns.
+              "format-preformatted">Add this pattern to the list of repeating patterns.
   Optional interactive prefix arg deletes
 this pattern if previously added.    
 
@@ -169,53 +223,55 @@ this pattern if previously added.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="dtk_002dcloud">
+      <div class="subsubsection-level-extent" id="dtk_002dcloud">
         <h4 class="subsubsection">12.4.1.2 dtk-cloud</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dcloud"><span class=
-          "category">Command:</span>
-          <span><strong>dtk-cloud</strong> <a href=
-          '#index-dtk_002dcloud' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-dtk_002dcloud"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">dtk-cloud</strong> <a class="copiable-link"
+          href='#index-dtk_002dcloud'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-C_002dc'><span><kbd>C-e d
-              C-c</kbd> <a href='#index-C_002de-d-C_002dc' class=
-              'copiable-anchor'>¶</a></span></dt>
+            <dl class="table">
+              <dt id='index-C_002de-d-C_002dc'><span><kbd class=
+              "kbd">C-e d C-c</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-C_002dc'>¶</a></span></dt>
               <dt id='index-_003cfn_003e-d-C_002dc'>
-              <span><kbd>&lt;fn&gt; d C-c</kbd> <a href=
-              '#index-_003cfn_003e-d-C_002dc' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id="index-dtk_002dcloud-1"></span>
+              <span><kbd class="kbd">&lt;fn&gt; d C-c</kbd>
+              <a class="copiable-link" href=
+              '#index-_003cfn_003e-d-C_002dc'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dcloud-1"></a>
             <div class="format">
-              <pre class="format">Select  Cloud TTS server.
+              <pre class=
+              "format-preformatted">Select  Cloud TTS server.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="dtk_002dlocal_002dserver">
+      <div class="subsubsection-level-extent" id=
+      "dtk_002dlocal_002dserver">
         <h4 class="subsubsection">12.4.1.3 dtk-local-server</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dlocal_002dserver"><span class=
-          "category">Command:</span>
-          <span><strong>dtk-local-server</strong> <em>(program
-          &amp;optional prompt-port)</em> <a href=
-          '#index-dtk_002dlocal_002dserver' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-dtk_002dlocal_002dserver">
+          <span class="category-def">Command:</span>
+          <span><strong class="def-name">dtk-local-server</strong>
+          <var class="def-var-arguments">(program &amp;optional
+          prompt-port)</var> <a class="copiable-link" href=
+          '#index-dtk_002dlocal_002dserver'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-L'><span><kbd>C-e d L</kbd>
-              <a href='#index-C_002de-d-L' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-L'><span><kbd>&lt;fn&gt;
-              d L</kbd> <a href='#index-_003cfn_003e-d-L' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-dtk_002dlocal_002dserver-1"></span>
+            <dl class="table">
+              <dt id='index-C_002de-d-L'><span><kbd class="kbd">C-e
+              d L</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-L'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-L'><span><kbd class=
+              "kbd">&lt;fn&gt; d L</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-L'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dlocal_002dserver-1"></a>
             <div class="format">
               <pre class=
-              "format">Select and start an local speech server interactively. Local server
+              "format-preformatted">Select and start an local speech server interactively. Local server
 lets Emacspeak on a remote host connect back via SSH port forwarding
 for instance. Argument PROGRAM specifies the speech server
 program. Port defaults to dtk-local-server-port
@@ -226,96 +282,97 @@ program. Port defaults to dtk-local-server-port
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "dtk_002dnotify_002dinitialize">
         <h4 class="subsubsection">12.4.1.4
         dtk-notify-initialize</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dnotify_002dinitialize"><span class=
-          "category">Command:</span>
-          <span><strong>dtk-notify-initialize</strong> <a href=
-          '#index-dtk_002dnotify_002dinitialize' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-dtk_002dnotify_002dinitialize"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">dtk-notify-initialize</strong> <a class=
+          "copiable-link" href=
+          '#index-dtk_002dnotify_002dinitialize'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-C_002dn'><span><kbd>C-e d
-              C-n</kbd> <a href='#index-C_002de-d-C_002dn' class=
-              'copiable-anchor'>¶</a></span></dt>
+            <dl class="table">
+              <dt id='index-C_002de-d-C_002dn'><span><kbd class=
+              "kbd">C-e d C-n</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-C_002dn'>¶</a></span></dt>
               <dt id='index-_003cfn_003e-d-C_002dn'>
-              <span><kbd>&lt;fn&gt; d C-n</kbd> <a href=
-              '#index-_003cfn_003e-d-C_002dn' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-dtk_002dnotify_002dinitialize-1"></span>
+              <span><kbd class="kbd">&lt;fn&gt; d C-n</kbd>
+              <a class="copiable-link" href=
+              '#index-_003cfn_003e-d-C_002dn'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dnotify_002dinitialize-1"></a>
             <div class="format">
               <pre class=
-              "format">Initialize notification TTS stream.
+              "format-preformatted">Initialize notification TTS stream.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="dtk_002dnotify_002dstop">
+      <div class="subsubsection-level-extent" id=
+      "dtk_002dnotify_002dstop">
         <h4 class="subsubsection">12.4.1.5 dtk-notify-stop</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dnotify_002dstop"><span class=
-          "category">Command:</span>
-          <span><strong>dtk-notify-stop</strong> <a href=
-          '#index-dtk_002dnotify_002dstop' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-dtk_002dnotify_002dstop">
+          <span class="category-def">Command:</span>
+          <span><strong class="def-name">dtk-notify-stop</strong>
+          <a class="copiable-link" href=
+          '#index-dtk_002dnotify_002dstop'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-_002e'><span><kbd>C-e d
-              .</kbd> <a href='#index-C_002de-d-_002e' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-_002e'>
-              <span><kbd>&lt;fn&gt; d .</kbd> <a href=
-              '#index-_003cfn_003e-d-_002e' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id="index-dtk_002dnotify_002dstop-1"></span>
+            <dl class="table">
+              <dt id='index-C_002de-d-_002e'><span><kbd class=
+              "kbd">C-e d .</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-_002e'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-_002e'><span><kbd class=
+              "kbd">&lt;fn&gt; d .</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-_002e'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dnotify_002dstop-1"></a>
             <div class="format">
               <pre class=
-              "format">Stop  speech on notification stream.
+              "format-preformatted">Stop  speech on notification stream.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="dtk_002drate_002dadjust">
+      <div class="subsubsection-level-extent" id=
+      "dtk_002drate_002dadjust">
         <h4 class="subsubsection">12.4.1.6 dtk-rate-adjust</h4>
-        <dl class="def">
-          <dt id="index-dtk_002drate_002dadjust"><span class=
-          "category">Command:</span>
-          <span><strong>dtk-rate-adjust</strong> <a href=
-          '#index-dtk_002drate_002dadjust' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-dtk_002drate_002dadjust">
+          <span class="category-def">Command:</span>
+          <span><strong class="def-name">dtk-rate-adjust</strong>
+          <a class="copiable-link" href=
+          '#index-dtk_002drate_002dadjust'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-_002d'><span><kbd>C-e d
-              -</kbd> <a href='#index-C_002de-d-_002d' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002de-d-_002b'><span><kbd>C-e d
-              +</kbd> <a href='#index-C_002de-d-_002b' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002de-d-_003d'><span><kbd>C-e d
-              =</kbd> <a href='#index-C_002de-d-_003d' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-_002d'>
-              <span><kbd>&lt;fn&gt; d -</kbd> <a href=
-              '#index-_003cfn_003e-d-_002d' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-_002b'>
-              <span><kbd>&lt;fn&gt; d +</kbd> <a href=
-              '#index-_003cfn_003e-d-_002b' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-_003d'>
-              <span><kbd>&lt;fn&gt; d =</kbd> <a href=
-              '#index-_003cfn_003e-d-_003d' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id="index-dtk_002drate_002dadjust-1"></span>
+            <dl class="table">
+              <dt id='index-C_002de-d-_002d'><span><kbd class=
+              "kbd">C-e d -</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-_002d'>¶</a></span></dt>
+              <dt id='index-C_002de-d-_002b'><span><kbd class=
+              "kbd">C-e d +</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-_002b'>¶</a></span></dt>
+              <dt id='index-C_002de-d-_003d'><span><kbd class=
+              "kbd">C-e d =</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-_003d'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-_002d'><span><kbd class=
+              "kbd">&lt;fn&gt; d -</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-_002d'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-_002b'><span><kbd class=
+              "kbd">&lt;fn&gt; d +</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-_002b'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-_003d'><span><kbd class=
+              "kbd">&lt;fn&gt; d =</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-_003d'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002drate_002dadjust-1"></a>
             <div class="format">
               <pre class=
-              "format">Adjust speech rate in current buffer, inspired by
+              "format-preformatted">Adjust speech rate in current buffer, inspired by
   text-scale-adjust.   Invoke this command via C-e d =/+ or
 C-impel-d -. Pressing =,+, or - immediately continues to adjust
 the speech rate.  Call when on a non-blank line to preview the effectt
@@ -324,51 +381,55 @@ the speech rate.  Call when on a non-blank line to preview the effectt
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="dtk_002dreset_002dstate">
+      <div class="subsubsection-level-extent" id=
+      "dtk_002dreset_002dstate">
         <h4 class="subsubsection">12.4.1.7 dtk-reset-state</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dreset_002dstate"><span class=
-          "category">Command:</span>
-          <span><strong>dtk-reset-state</strong> <a href=
-          '#index-dtk_002dreset_002dstate' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-dtk_002dreset_002dstate">
+          <span class="category-def">Command:</span>
+          <span><strong class="def-name">dtk-reset-state</strong>
+          <a class="copiable-link" href=
+          '#index-dtk_002dreset_002dstate'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-R'><span><kbd>C-e d R</kbd>
-              <a href='#index-C_002de-d-R' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-R'><span><kbd>&lt;fn&gt;
-              d R</kbd> <a href='#index-_003cfn_003e-d-R' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id="index-dtk_002dreset_002dstate-1"></span>
+            <dl class="table">
+              <dt id='index-C_002de-d-R'><span><kbd class="kbd">C-e
+              d R</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-R'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-R'><span><kbd class=
+              "kbd">&lt;fn&gt; d R</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-R'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dreset_002dstate-1"></a>
             <div class="format">
-              <pre class="format">Reset TTS engine.
+              <pre class="format-preformatted">Reset TTS engine.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="dtk_002dselect_002dserver">
+      <div class="subsubsection-level-extent" id=
+      "dtk_002dselect_002dserver">
         <h4 class="subsubsection">12.4.1.8 dtk-select-server</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dselect_002dserver-1"><span class=
-          "category">Command:</span>
-          <span><strong>dtk-select-server</strong> <em>(program
-          &amp;optional device)</em> <a href=
-          '#index-dtk_002dselect_002dserver-1' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-dtk_002dselect_002dserver-1">
+          <span class="category-def">Command:</span>
+          <span><strong class="def-name">dtk-select-server</strong>
+          <var class="def-var-arguments">(program &amp;optional
+          device)</var> <a class="copiable-link" href=
+          '#index-dtk_002dselect_002dserver-1'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-d-1'><span><kbd>C-e d d</kbd>
-              <a href='#index-C_002de-d-d-1' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-d'><span><kbd>&lt;fn&gt;
-              d d</kbd> <a href='#index-_003cfn_003e-d-d' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-dtk_002dselect_002dserver-2"></span>
+            <dl class="table">
+              <dt id='index-C_002de-d-d-1'><span><kbd class=
+              "kbd">C-e d d</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-d-1'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-d'><span><kbd class=
+              "kbd">&lt;fn&gt; d d</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-d'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dselect_002dserver-2"></a>
             <div class="format">
-              <pre class="format">Select  speech server ‘program’.
+              <pre class=
+              "format-preformatted">Select  speech server ‘program’.
  Optional arg device sets  env-var ALSA_DEFAULT.
 
 (fn PROGRAM &amp;optional DEVICE)
@@ -377,30 +438,32 @@ the speech rate.  Call when on a non-blank line to preview the effectt
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "dtk_002dset_002dcharacter_002dscale">
         <h4 class="subsubsection">12.4.1.9
         dtk-set-character-scale</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dset_002dcharacter_002dscale-1">
-          <span class="category">Command:</span>
-          <span><strong>dtk-set-character-scale</strong>
-          <em>(factor &amp;optional prefix)</em> <a href=
-          '#index-dtk_002dset_002dcharacter_002dscale-1' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-dtk_002dset_002dcharacter_002dscale-1">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">dtk-set-character-scale</strong> <var class=
+          "def-var-arguments">(factor &amp;optional prefix)</var>
+          <a class="copiable-link" href=
+          '#index-dtk_002dset_002dcharacter_002dscale-1'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-f-1'><span><kbd>C-e d f</kbd>
-              <a href='#index-C_002de-d-f-1' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-f'><span><kbd>&lt;fn&gt;
-              d f</kbd> <a href='#index-_003cfn_003e-d-f' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-dtk_002dset_002dcharacter_002dscale-2"></span>
+            <dl class="table">
+              <dt id='index-C_002de-d-f-1'><span><kbd class=
+              "kbd">C-e d f</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-f-1'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-f'><span><kbd class=
+              "kbd">&lt;fn&gt; d f</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-f'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dset_002dcharacter_002dscale-2"></a>
             <div class="format">
               <pre class=
-              "format">Set character scale FACTOR for   speech rate.
+              "format-preformatted">Set character scale FACTOR for   speech rate.
 Speech rate is scaled by this factor when speaking characters.
 Interactive PREFIX arg means set the global default value, and
 then set the current local value to the result.
@@ -411,32 +474,34 @@ then set the current local value to the result.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "dtk_002dset_002dchunk_002dseparator_002dsyntax">
         <h4 class="subsubsection">12.4.1.10
         dtk-set-chunk-separator-syntax</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-dtk_002dset_002dchunk_002dseparator_002dsyntax-1">
-          <span class="category">Command:</span>
-          <span><strong>dtk-set-chunk-separator-syntax</strong>
-          <em>(s)</em> <a href=
-          '#index-dtk_002dset_002dchunk_002dseparator_002dsyntax-1'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">dtk-set-chunk-separator-syntax</strong>
+          <var class="def-var-arguments">(s)</var> <a class=
+          "copiable-link" href=
+          '#index-dtk_002dset_002dchunk_002dseparator_002dsyntax-1'>
+          ¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-C_002dj'><span><kbd>C-e d
-              C-j</kbd> <a href='#index-C_002de-d-C_002dj' class=
-              'copiable-anchor'>¶</a></span></dt>
+            <dl class="table">
+              <dt id='index-C_002de-d-C_002dj'><span><kbd class=
+              "kbd">C-e d C-j</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-C_002dj'>¶</a></span></dt>
               <dt id='index-_003cfn_003e-d-C_002dj'>
-              <span><kbd>&lt;fn&gt; d C-j</kbd> <a href=
-              '#index-_003cfn_003e-d-C_002dj' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-dtk_002dset_002dchunk_002dseparator_002dsyntax-2"></span>
+              <span><kbd class="kbd">&lt;fn&gt; d C-j</kbd>
+              <a class="copiable-link" href=
+              '#index-_003cfn_003e-d-C_002dj'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dset_002dchunk_002dseparator_002dsyntax-2"></a>
             <div class="format">
               <pre class=
-              "format">Interactively set how text is split in chunks.
+              "format-preformatted">Interactively set how text is split in chunks.
 Argument S specifies the syntax class.
 
 (fn S)
@@ -445,27 +510,29 @@ Argument S specifies the syntax class.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="dtk_002dset_002dlanguage">
+      <div class="subsubsection-level-extent" id=
+      "dtk_002dset_002dlanguage">
         <h4 class="subsubsection">12.4.1.11 dtk-set-language</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dset_002dlanguage"><span class=
-          "category">Command:</span>
-          <span><strong>dtk-set-language</strong> <em>(lang)</em>
-          <a href='#index-dtk_002dset_002dlanguage' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-dtk_002dset_002dlanguage">
+          <span class="category-def">Command:</span>
+          <span><strong class="def-name">dtk-set-language</strong>
+          <var class="def-var-arguments">(lang)</var> <a class=
+          "copiable-link" href=
+          '#index-dtk_002dset_002dlanguage'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-S'><span><kbd>C-e d S</kbd>
-              <a href='#index-C_002de-d-S' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-S'><span><kbd>&lt;fn&gt;
-              d S</kbd> <a href='#index-_003cfn_003e-d-S' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-dtk_002dset_002dlanguage-1"></span>
+            <dl class="table">
+              <dt id='index-C_002de-d-S'><span><kbd class="kbd">C-e
+              d S</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-S'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-S'><span><kbd class=
+              "kbd">&lt;fn&gt; d S</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-S'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dset_002dlanguage-1"></a>
             <div class="format">
               <pre class=
-              "format">Set language. If your server supports it, also set the synthesis
+              "format-preformatted">Set language. If your server supports it, also set the synthesis
  voice, using the syntax language:voice , where language can be
  omitted.
 
@@ -475,112 +542,116 @@ Argument S specifies the syntax class.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "dtk_002dset_002dnext_002dlanguage">
         <h4 class="subsubsection">12.4.1.12
         dtk-set-next-language</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dset_002dnext_002dlanguage">
-          <span class="category">Command:</span>
-          <span><strong>dtk-set-next-language</strong> <a href=
-          '#index-dtk_002dset_002dnext_002dlanguage' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-dtk_002dset_002dnext_002dlanguage"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">dtk-set-next-language</strong> <a class=
+          "copiable-link" href=
+          '#index-dtk_002dset_002dnext_002dlanguage'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-N'><span><kbd>C-e d N</kbd>
-              <a href='#index-C_002de-d-N' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-N'><span><kbd>&lt;fn&gt;
-              d N</kbd> <a href='#index-_003cfn_003e-d-N' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-dtk_002dset_002dnext_002dlanguage-1"></span>
+            <dl class="table">
+              <dt id='index-C_002de-d-N'><span><kbd class="kbd">C-e
+              d N</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-N'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-N'><span><kbd class=
+              "kbd">&lt;fn&gt; d N</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-N'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dset_002dnext_002dlanguage-1"></a>
             <div class="format">
-              <pre class="format">Switch to  next  language
+              <pre class=
+              "format-preformatted">Switch to  next  language
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "dtk_002dset_002dpredefined_002dspeech_002drate">
         <h4 class="subsubsection">12.4.1.13
         dtk-set-predefined-speech-rate</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-dtk_002dset_002dpredefined_002dspeech_002drate-1">
-          <span class="category">Command:</span>
-          <span><strong>dtk-set-predefined-speech-rate</strong>
-          <em>(&amp;optional prefix)</em> <a href=
-          '#index-dtk_002dset_002dpredefined_002dspeech_002drate-1'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">dtk-set-predefined-speech-rate</strong>
+          <var class="def-var-arguments">(&amp;optional
+          prefix)</var> <a class="copiable-link" href=
+          '#index-dtk_002dset_002dpredefined_002dspeech_002drate-1'>
+          ¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-9'><span><kbd>C-e d 9</kbd>
-              <a href='#index-C_002de-d-9' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002de-d-8'><span><kbd>C-e d 8</kbd>
-              <a href='#index-C_002de-d-8' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002de-d-7'><span><kbd>C-e d 7</kbd>
-              <a href='#index-C_002de-d-7' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002de-d-6'><span><kbd>C-e d 6</kbd>
-              <a href='#index-C_002de-d-6' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002de-d-5'><span><kbd>C-e d 5</kbd>
-              <a href='#index-C_002de-d-5' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002de-d-4'><span><kbd>C-e d 4</kbd>
-              <a href='#index-C_002de-d-4' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002de-d-3'><span><kbd>C-e d 3</kbd>
-              <a href='#index-C_002de-d-3' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002de-d-2'><span><kbd>C-e d 2</kbd>
-              <a href='#index-C_002de-d-2' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002de-d-1'><span><kbd>C-e d 1</kbd>
-              <a href='#index-C_002de-d-1' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002de-d-0'><span><kbd>C-e d 0</kbd>
-              <a href='#index-C_002de-d-0' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-9'><span><kbd>&lt;fn&gt;
-              d 9</kbd> <a href='#index-_003cfn_003e-d-9' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-8'><span><kbd>&lt;fn&gt;
-              d 8</kbd> <a href='#index-_003cfn_003e-d-8' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-7'><span><kbd>&lt;fn&gt;
-              d 7</kbd> <a href='#index-_003cfn_003e-d-7' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-6'><span><kbd>&lt;fn&gt;
-              d 6</kbd> <a href='#index-_003cfn_003e-d-6' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-5'><span><kbd>&lt;fn&gt;
-              d 5</kbd> <a href='#index-_003cfn_003e-d-5' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-4'><span><kbd>&lt;fn&gt;
-              d 4</kbd> <a href='#index-_003cfn_003e-d-4' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-3'><span><kbd>&lt;fn&gt;
-              d 3</kbd> <a href='#index-_003cfn_003e-d-3' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-2'><span><kbd>&lt;fn&gt;
-              d 2</kbd> <a href='#index-_003cfn_003e-d-2' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-1'><span><kbd>&lt;fn&gt;
-              d 1</kbd> <a href='#index-_003cfn_003e-d-1' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-0'><span><kbd>&lt;fn&gt;
-              d 0</kbd> <a href='#index-_003cfn_003e-d-0' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-dtk_002dset_002dpredefined_002dspeech_002drate-2"></span>
+            <dl class="table">
+              <dt id='index-C_002de-d-9'><span><kbd class="kbd">C-e
+              d 9</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-9'>¶</a></span></dt>
+              <dt id='index-C_002de-d-8'><span><kbd class="kbd">C-e
+              d 8</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-8'>¶</a></span></dt>
+              <dt id='index-C_002de-d-7'><span><kbd class="kbd">C-e
+              d 7</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-7'>¶</a></span></dt>
+              <dt id='index-C_002de-d-6'><span><kbd class="kbd">C-e
+              d 6</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-6'>¶</a></span></dt>
+              <dt id='index-C_002de-d-5'><span><kbd class="kbd">C-e
+              d 5</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-5'>¶</a></span></dt>
+              <dt id='index-C_002de-d-4'><span><kbd class="kbd">C-e
+              d 4</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-4'>¶</a></span></dt>
+              <dt id='index-C_002de-d-3'><span><kbd class="kbd">C-e
+              d 3</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-3'>¶</a></span></dt>
+              <dt id='index-C_002de-d-2'><span><kbd class="kbd">C-e
+              d 2</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-2'>¶</a></span></dt>
+              <dt id='index-C_002de-d-1'><span><kbd class="kbd">C-e
+              d 1</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-1'>¶</a></span></dt>
+              <dt id='index-C_002de-d-0'><span><kbd class="kbd">C-e
+              d 0</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-0'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-9'><span><kbd class=
+              "kbd">&lt;fn&gt; d 9</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-9'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-8'><span><kbd class=
+              "kbd">&lt;fn&gt; d 8</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-8'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-7'><span><kbd class=
+              "kbd">&lt;fn&gt; d 7</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-7'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-6'><span><kbd class=
+              "kbd">&lt;fn&gt; d 6</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-6'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-5'><span><kbd class=
+              "kbd">&lt;fn&gt; d 5</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-5'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-4'><span><kbd class=
+              "kbd">&lt;fn&gt; d 4</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-4'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-3'><span><kbd class=
+              "kbd">&lt;fn&gt; d 3</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-3'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-2'><span><kbd class=
+              "kbd">&lt;fn&gt; d 2</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-2'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-1'><span><kbd class=
+              "kbd">&lt;fn&gt; d 1</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-1'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-0'><span><kbd class=
+              "kbd">&lt;fn&gt; d 0</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-0'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dset_002dpredefined_002dspeech_002drate-2"></a>
             <div class="format">
               <pre class=
-              "format">Set speech rate to one of nine predefined levels.
+              "format-preformatted">Set speech rate to one of nine predefined levels.
 Interactive PREFIX arg says to set the rate globally.
 Formula used is:
 rate = dtk-speech-rate-base + dtk-speech-rate-step * level.
@@ -591,22 +662,25 @@ rate = dtk-speech-rate-base + dtk-speech-rate-step * level.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "dtk_002dset_002dpreferred_002dlanguage">
         <h4 class="subsubsection">12.4.1.14
         dtk-set-preferred-language</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dset_002dpreferred_002dlanguage">
-          <span class="category">Command:</span>
-          <span><strong>dtk-set-preferred-language</strong>
-          <em>(alias lang)</em> <a href=
-          '#index-dtk_002dset_002dpreferred_002dlanguage' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-dtk_002dset_002dpreferred_002dlanguage">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">dtk-set-preferred-language</strong>
+          <var class="def-var-arguments">(alias lang)</var>
+          <a class="copiable-link" href=
+          '#index-dtk_002dset_002dpreferred_002dlanguage'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-dtk_002dset_002dpreferred_002dlanguage-1"></span>
+            <a class="index-entry-id" id=
+            "index-dtk_002dset_002dpreferred_002dlanguage-1"></a>
             <div class="format">
-              <pre class="format">Set language by alias.
+              <pre class=
+              "format-preformatted">Set language by alias.
 
 (fn ALIAS LANG)
 </pre>
@@ -614,55 +688,61 @@ rate = dtk-speech-rate-base + dtk-speech-rate-step * level.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "dtk_002dset_002dprevious_002dlanguage">
         <h4 class="subsubsection">12.4.1.15
         dtk-set-previous-language</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dset_002dprevious_002dlanguage">
-          <span class="category">Command:</span>
-          <span><strong>dtk-set-previous-language</strong> <a href=
-          '#index-dtk_002dset_002dprevious_002dlanguage' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-dtk_002dset_002dprevious_002dlanguage">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">dtk-set-previous-language</strong> <a class=
+          "copiable-link" href=
+          '#index-dtk_002dset_002dprevious_002dlanguage'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-P'><span><kbd>C-e d P</kbd>
-              <a href='#index-C_002de-d-P' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-P'><span><kbd>&lt;fn&gt;
-              d P</kbd> <a href='#index-_003cfn_003e-d-P' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-dtk_002dset_002dprevious_002dlanguage-1"></span>
+            <dl class="table">
+              <dt id='index-C_002de-d-P'><span><kbd class="kbd">C-e
+              d P</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-P'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-P'><span><kbd class=
+              "kbd">&lt;fn&gt; d P</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-P'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dset_002dprevious_002dlanguage-1"></a>
             <div class="format">
-              <pre class="format">Switch to  previous  language
+              <pre class=
+              "format-preformatted">Switch to  previous  language
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="dtk_002dset_002dpunctuations">
+      <div class="subsubsection-level-extent" id=
+      "dtk_002dset_002dpunctuations">
         <h4 class="subsubsection">12.4.1.16
         dtk-set-punctuations</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dset_002dpunctuations-1">
-          <span class="category">Command:</span>
-          <span><strong>dtk-set-punctuations</strong> <em>(mode
-          &amp;optional prefix)</em> <a href=
-          '#index-dtk_002dset_002dpunctuations-1' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-dtk_002dset_002dpunctuations-1"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">dtk-set-punctuations</strong> <var class=
+          "def-var-arguments">(mode &amp;optional prefix)</var>
+          <a class="copiable-link" href=
+          '#index-dtk_002dset_002dpunctuations-1'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-p-1'><span><kbd>C-e d p</kbd>
-              <a href='#index-C_002de-d-p-1' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-p'><span><kbd>&lt;fn&gt;
-              d p</kbd> <a href='#index-_003cfn_003e-d-p' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-dtk_002dset_002dpunctuations-2"></span>
+            <dl class="table">
+              <dt id='index-C_002de-d-p-1'><span><kbd class=
+              "kbd">C-e d p</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-p-1'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-p'><span><kbd class=
+              "kbd">&lt;fn&gt; d p</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-p'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dset_002dpunctuations-2"></a>
             <div class="format">
-              <pre class="format">Set punctuation mode to MODE.
+              <pre class=
+              "format-preformatted">Set punctuation mode to MODE.
 Possible values are ‘some’, ‘all’, or ‘none’.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result.
@@ -673,23 +753,25 @@ current local  value to the result.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "dtk_002dset_002dpunctuations_002dto_002dall">
         <h4 class="subsubsection">12.4.1.17
         dtk-set-punctuations-to-all</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-dtk_002dset_002dpunctuations_002dto_002dall">
-          <span class="category">Command:</span>
-          <span><strong>dtk-set-punctuations-to-all</strong>
-          <em>(&amp;optional prefix)</em> <a href=
-          '#index-dtk_002dset_002dpunctuations_002dto_002dall'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">dtk-set-punctuations-to-all</strong>
+          <var class="def-var-arguments">(&amp;optional
+          prefix)</var> <a class="copiable-link" href=
+          '#index-dtk_002dset_002dpunctuations_002dto_002dall'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-dtk_002dset_002dpunctuations_002dto_002dall-1"></span>
+            <a class="index-entry-id" id=
+            "index-dtk_002dset_002dpunctuations_002dto_002dall-1"></a>
             <div class="format">
-              <pre class="format">Set punctuation  mode to all.
+              <pre class=
+              "format-preformatted">Set punctuation  mode to all.
 Interactive PREFIX arg sets punctuation mode globally.
 
 (fn &amp;optional PREFIX)
@@ -698,23 +780,25 @@ Interactive PREFIX arg sets punctuation mode globally.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "dtk_002dset_002dpunctuations_002dto_002dsome">
         <h4 class="subsubsection">12.4.1.18
         dtk-set-punctuations-to-some</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-dtk_002dset_002dpunctuations_002dto_002dsome">
-          <span class="category">Command:</span>
-          <span><strong>dtk-set-punctuations-to-some</strong>
-          <em>(&amp;optional prefix)</em> <a href=
-          '#index-dtk_002dset_002dpunctuations_002dto_002dsome'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">dtk-set-punctuations-to-some</strong>
+          <var class="def-var-arguments">(&amp;optional
+          prefix)</var> <a class="copiable-link" href=
+          '#index-dtk_002dset_002dpunctuations_002dto_002dsome'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-dtk_002dset_002dpunctuations_002dto_002dsome-1"></span>
+            <a class="index-entry-id" id=
+            "index-dtk_002dset_002dpunctuations_002dto_002dsome-1"></a>
             <div class="format">
-              <pre class="format">Set punctuation  mode to some.
+              <pre class=
+              "format-preformatted">Set punctuation  mode to some.
 Interactive PREFIX arg sets punctuation mode globally.
 
 (fn &amp;optional PREFIX)
@@ -723,26 +807,28 @@ Interactive PREFIX arg sets punctuation mode globally.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="dtk_002dset_002drate">
+      <div class="subsubsection-level-extent" id=
+      "dtk_002dset_002drate">
         <h4 class="subsubsection">12.4.1.19 dtk-set-rate</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dset_002drate-1"><span class=
-          "category">Command:</span>
-          <span><strong>dtk-set-rate</strong> <em>(rate
-          &amp;optional prefix)</em> <a href=
-          '#index-dtk_002dset_002drate-1' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-dtk_002dset_002drate-1">
+          <span class="category-def">Command:</span>
+          <span><strong class="def-name">dtk-set-rate</strong>
+          <var class="def-var-arguments">(rate &amp;optional
+          prefix)</var> <a class="copiable-link" href=
+          '#index-dtk_002dset_002drate-1'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-r-1'><span><kbd>C-e d r</kbd>
-              <a href='#index-C_002de-d-r-1' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-r'><span><kbd>&lt;fn&gt;
-              d r</kbd> <a href='#index-_003cfn_003e-d-r' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id="index-dtk_002dset_002drate-2"></span>
+            <dl class="table">
+              <dt id='index-C_002de-d-r-1'><span><kbd class=
+              "kbd">C-e d r</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-r-1'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-r'><span><kbd class=
+              "kbd">&lt;fn&gt; d r</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-r'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dset_002drate-2"></a>
             <div class="format">
-              <pre class="format">Set speaking RATE.
+              <pre class="format-preformatted">Set speaking RATE.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result.
 
@@ -752,26 +838,28 @@ current local  value to the result.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="dtk_002dstop">
+      <div class="subsubsection-level-extent" id="dtk_002dstop">
         <h4 class="subsubsection">12.4.1.20 dtk-stop</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dstop-1"><span class=
-          "category">Command:</span>
-          <span><strong>dtk-stop</strong> <em>(&amp;optional
-          all)</em> <a href='#index-dtk_002dstop-1' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-dtk_002dstop-1"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">dtk-stop</strong> <var class=
+          "def-var-arguments">(&amp;optional all)</var> <a class=
+          "copiable-link" href=
+          '#index-dtk_002dstop-1'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-s-1'><span><kbd>C-e s</kbd>
-              <a href='#index-C_002de-s-1' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-s'><span><kbd>&lt;fn&gt;
-              s</kbd> <a href='#index-_003cfn_003e-s' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id="index-dtk_002dstop-2"></span>
+            <dl class="table">
+              <dt id='index-C_002de-s-1'><span><kbd class="kbd">C-e
+              s</kbd> <a class="copiable-link" href=
+              '#index-C_002de-s-1'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-s'><span><kbd class=
+              "kbd">&lt;fn&gt; s</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-s'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dstop-2"></a>
             <div class="format">
               <pre class=
-              "format">Stop speech.  Optional arg ‘all’ or interactive call silences
+              "format-preformatted">Stop speech.  Optional arg ‘all’ or interactive call silences
 notification stream as well.
 
 (fn &amp;optional ALL)
@@ -780,25 +868,28 @@ notification stream as well.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="dtk_002dtoggle_002dcaps">
+      <div class="subsubsection-level-extent" id=
+      "dtk_002dtoggle_002dcaps">
         <h4 class="subsubsection">12.4.1.21 dtk-toggle-caps</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dtoggle_002dcaps-1"><span class=
-          "category">Command:</span>
-          <span><strong>dtk-toggle-caps</strong> <em>(&amp;optional
-          prefix)</em> <a href='#index-dtk_002dtoggle_002dcaps-1'
-          class='copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-dtk_002dtoggle_002dcaps-1">
+          <span class="category-def">Command:</span>
+          <span><strong class="def-name">dtk-toggle-caps</strong>
+          <var class="def-var-arguments">(&amp;optional
+          prefix)</var> <a class="copiable-link" href=
+          '#index-dtk_002dtoggle_002dcaps-1'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-c-1'><span><kbd>C-e d c</kbd>
-              <a href='#index-C_002de-d-c-1' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-c'><span><kbd>&lt;fn&gt;
-              d c</kbd> <a href='#index-_003cfn_003e-d-c' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id="index-dtk_002dtoggle_002dcaps-2"></span>
+            <dl class="table">
+              <dt id='index-C_002de-d-c-1'><span><kbd class=
+              "kbd">C-e d c</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-c-1'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-c'><span><kbd class=
+              "kbd">&lt;fn&gt; d c</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-c'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dtoggle_002dcaps-2"></a>
             <div class="format">
-              <pre class="format">Toggle dtk-caps.
+              <pre class="format-preformatted">Toggle dtk-caps.
 Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.
 </pre>
@@ -806,47 +897,49 @@ value, and then set the current local value to the result.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "dtk_002dtoggle_002dpunctuation_002dmode">
         <h4 class="subsubsection">12.4.1.22
         dtk-toggle-punctuation-mode</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dtoggle_002dpunctuation_002dmode">
-          <span class="category">Command:</span>
-          <span><strong>dtk-toggle-punctuation-mode</strong>
-          <em>(&amp;optional prefix)</em> <a href=
-          '#index-dtk_002dtoggle_002dpunctuation_002dmode' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-dtk_002dtoggle_002dpunctuation_002dmode">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">dtk-toggle-punctuation-mode</strong>
+          <var class="def-var-arguments">(&amp;optional
+          prefix)</var> <a class="copiable-link" href=
+          '#index-dtk_002dtoggle_002dpunctuation_002dmode'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
+            <dl class="table">
               <dt id='index-C_002de-_003cdeletechar_003e'>
-              <span><kbd>C-e &lt;deletechar&gt;</kbd> <a href=
-              '#index-C_002de-_003cdeletechar_003e' class=
-              'copiable-anchor'>¶</a></span></dt>
+              <span><kbd class="kbd">C-e &lt;deletechar&gt;</kbd>
+              <a class="copiable-link" href=
+              '#index-C_002de-_003cdeletechar_003e'>¶</a></span></dt>
               <dt id='index-C_002de-_003cbackspace_003e'>
-              <span><kbd>C-e &lt;backspace&gt;</kbd> <a href=
-              '#index-C_002de-_003cbackspace_003e' class=
-              'copiable-anchor'>¶</a></span></dt>
+              <span><kbd class="kbd">C-e &lt;backspace&gt;</kbd>
+              <a class="copiable-link" href=
+              '#index-C_002de-_003cbackspace_003e'>¶</a></span></dt>
               <dt id='index-_003cfn_003e-_003cdeletechar_003e'>
-              <span><kbd>&lt;fn&gt; &lt;deletechar&gt;</kbd>
-              <a href='#index-_003cfn_003e-_003cdeletechar_003e'
-              class='copiable-anchor'>¶</a></span></dt>
+              <span><kbd class="kbd">&lt;fn&gt;
+              &lt;deletechar&gt;</kbd> <a class="copiable-link"
+              href=
+              '#index-_003cfn_003e-_003cdeletechar_003e'>¶</a></span></dt>
               <dt id='index-_003cfn_003e-_003cbackspace_003e'>
-              <span><kbd>&lt;fn&gt; &lt;backspace&gt;</kbd>
-              <a href='#index-_003cfn_003e-_003cbackspace_003e'
-              class='copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002de-d-_002c'><span><kbd>C-e d
-              ,</kbd> <a href='#index-C_002de-d-_002c' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-_002c'>
-              <span><kbd>&lt;fn&gt; d ,</kbd> <a href=
-              '#index-_003cfn_003e-d-_002c' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-dtk_002dtoggle_002dpunctuation_002dmode-1"></span>
+              <span><kbd class="kbd">&lt;fn&gt;
+              &lt;backspace&gt;</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-_003cbackspace_003e'>¶</a></span></dt>
+              <dt id='index-C_002de-d-_002c'><span><kbd class=
+              "kbd">C-e d ,</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-_002c'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-_002c'><span><kbd class=
+              "kbd">&lt;fn&gt; d ,</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-_002c'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dtoggle_002dpunctuation_002dmode-1"></a>
             <div class="format">
               <pre class=
-              "format">Toggle punctuation mode between "some" and "all".
+              "format-preformatted">Toggle punctuation mode between "some" and "all".
 Interactive PREFIX arg makes the new setting global.
 
 (fn &amp;optional PREFIX)
@@ -855,27 +948,29 @@ Interactive PREFIX arg makes the new setting global.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="dtk_002dtoggle_002dquiet">
+      <div class="subsubsection-level-extent" id=
+      "dtk_002dtoggle_002dquiet">
         <h4 class="subsubsection">12.4.1.23 dtk-toggle-quiet</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dtoggle_002dquiet-1"><span class=
-          "category">Command:</span>
-          <span><strong>dtk-toggle-quiet</strong>
-          <em>(&amp;optional prefix)</em> <a href=
-          '#index-dtk_002dtoggle_002dquiet-1' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-dtk_002dtoggle_002dquiet-1">
+          <span class="category-def">Command:</span>
+          <span><strong class="def-name">dtk-toggle-quiet</strong>
+          <var class="def-var-arguments">(&amp;optional
+          prefix)</var> <a class="copiable-link" href=
+          '#index-dtk_002dtoggle_002dquiet-1'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-q-1'><span><kbd>C-e d q</kbd>
-              <a href='#index-C_002de-d-q-1' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-q'><span><kbd>&lt;fn&gt;
-              d q</kbd> <a href='#index-_003cfn_003e-d-q' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-dtk_002dtoggle_002dquiet-2"></span>
+            <dl class="table">
+              <dt id='index-C_002de-d-q-1'><span><kbd class=
+              "kbd">C-e d q</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-q-1'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-q'><span><kbd class=
+              "kbd">&lt;fn&gt; d q</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-q'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dtoggle_002dquiet-2"></a>
             <div class="format">
-              <pre class="format">Toggles state of  dtk-quiet.
+              <pre class=
+              "format-preformatted">Toggles state of  dtk-quiet.
 Turning on this switch silences speech.  Optional interactive
 prefix arg causes this setting to become global.
 </pre>
@@ -883,30 +978,33 @@ prefix arg causes this setting to become global.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "dtk_002dtoggle_002dspeak_002dnonprinting_002dchars">
         <h4 class="subsubsection">12.4.1.24
         dtk-toggle-speak-nonprinting-chars</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-dtk_002dtoggle_002dspeak_002dnonprinting_002dchars">
-          <span class="category">Command:</span>
-          <span><strong>dtk-toggle-speak-nonprinting-chars</strong>
-          <em>(&amp;optional prefix)</em> <a href=
-          '#index-dtk_002dtoggle_002dspeak_002dnonprinting_002dchars'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">dtk-toggle-speak-nonprinting-chars</strong>
+          <var class="def-var-arguments">(&amp;optional
+          prefix)</var> <a class="copiable-link" href=
+          '#index-dtk_002dtoggle_002dspeak_002dnonprinting_002dchars'>
+          ¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-n'><span><kbd>C-e d n</kbd>
-              <a href='#index-C_002de-d-n' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-n'><span><kbd>&lt;fn&gt;
-              d n</kbd> <a href='#index-_003cfn_003e-d-n' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-dtk_002dtoggle_002dspeak_002dnonprinting_002dchars-1"></span>
+            <dl class="table">
+              <dt id='index-C_002de-d-n'><span><kbd class="kbd">C-e
+              d n</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-n'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-n'><span><kbd class=
+              "kbd">&lt;fn&gt; d n</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-n'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dtoggle_002dspeak_002dnonprinting_002dchars-1"></a>
             <div class="format">
-              <pre class="format">Toggle speak-nonprinting-chars.
+              <pre class=
+              "format-preformatted">Toggle speak-nonprinting-chars.
 Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.
 </pre>
@@ -914,29 +1012,31 @@ value, and then set the current local value to the result.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "dtk_002dtoggle_002dsplit_002dcaps">
         <h4 class="subsubsection">12.4.1.25
         dtk-toggle-split-caps</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dtoggle_002dsplit_002dcaps-1">
-          <span class="category">Command:</span>
-          <span><strong>dtk-toggle-split-caps</strong>
-          <em>(&amp;optional prefix)</em> <a href=
-          '#index-dtk_002dtoggle_002dsplit_002dcaps-1' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-dtk_002dtoggle_002dsplit_002dcaps-1"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">dtk-toggle-split-caps</strong> <var class=
+          "def-var-arguments">(&amp;optional prefix)</var>
+          <a class="copiable-link" href=
+          '#index-dtk_002dtoggle_002dsplit_002dcaps-1'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-s-1'><span><kbd>C-e d s</kbd>
-              <a href='#index-C_002de-d-s-1' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-s'><span><kbd>&lt;fn&gt;
-              d s</kbd> <a href='#index-_003cfn_003e-d-s' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-dtk_002dtoggle_002dsplit_002dcaps-2"></span>
+            <dl class="table">
+              <dt id='index-C_002de-d-s-1'><span><kbd class=
+              "kbd">C-e d s</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-s-1'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-s'><span><kbd class=
+              "kbd">&lt;fn&gt; d s</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-s'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dtoggle_002dsplit_002dcaps-2"></a>
             <div class="format">
-              <pre class="format">Toggle split caps mode.
+              <pre class=
+              "format-preformatted">Toggle split caps mode.
 Split caps mode is useful when reading Hungarian notation in
 program source code.  Interactive PREFIX arg means toggle the
 global default value, and then set the current local value to the
@@ -946,60 +1046,62 @@ result.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace">
         <h4 class="subsubsection">12.4.1.26
         dtk-toggle-splitting-on-white-space</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace-1">
-          <span class="category">Command:</span>
-          <span><strong>dtk-toggle-splitting-on-white-space</strong>
-          <a href=
-          '#index-dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace-1'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">dtk-toggle-splitting-on-white-space</strong>
+          <a class="copiable-link" href=
+          '#index-dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace-1'>
+          ¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-SPC'><span><kbd>C-e d
-              SPC</kbd> <a href='#index-C_002de-d-SPC' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-SPC'>
-              <span><kbd>&lt;fn&gt; d SPC</kbd> <a href=
-              '#index-_003cfn_003e-d-SPC' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace-2"></span>
+            <dl class="table">
+              <dt id='index-C_002de-d-SPC'><span><kbd class=
+              "kbd">C-e d SPC</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-SPC'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-SPC'><span><kbd class=
+              "kbd">&lt;fn&gt; d SPC</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-SPC'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace-2"></a>
             <div class="format">
               <pre class=
-              "format">Toggle splitting of speech on white space. 
+              "format-preformatted">Toggle splitting of speech on white space. 
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "dtk_002dtoggle_002dstrip_002doctals">
         <h4 class="subsubsection">12.4.1.27
         dtk-toggle-strip-octals</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dtoggle_002dstrip_002doctals">
-          <span class="category">Command:</span>
-          <span><strong>dtk-toggle-strip-octals</strong>
-          <em>(&amp;optional prefix)</em> <a href=
-          '#index-dtk_002dtoggle_002dstrip_002doctals' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-dtk_002dtoggle_002dstrip_002doctals"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">dtk-toggle-strip-octals</strong> <var class=
+          "def-var-arguments">(&amp;optional prefix)</var>
+          <a class="copiable-link" href=
+          '#index-dtk_002dtoggle_002dstrip_002doctals'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-o'><span><kbd>C-e d o</kbd>
-              <a href='#index-C_002de-d-o' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-o'><span><kbd>&lt;fn&gt;
-              d o</kbd> <a href='#index-_003cfn_003e-d-o' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-dtk_002dtoggle_002dstrip_002doctals-1"></span>
+            <dl class="table">
+              <dt id='index-C_002de-d-o'><span><kbd class="kbd">C-e
+              d o</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-o'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-o'><span><kbd class=
+              "kbd">&lt;fn&gt; d o</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-o'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-dtk_002dtoggle_002dstrip_002doctals-1"></a>
             <div class="format">
-              <pre class="format">Toggle stripping of octals.
+              <pre class=
+              "format-preformatted">Toggle stripping of octals.
 Interactive prefix arg means
  toggle the global default value, and then set the current local
 value to the result.
@@ -1008,23 +1110,25 @@ value to the result.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "dtk_002dunicode_002dcustomize_002dchar">
         <h4 class="subsubsection">12.4.1.28
         dtk-unicode-customize-char</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dunicode_002dcustomize_002dchar">
-          <span class="category">Command:</span>
-          <span><strong>dtk-unicode-customize-char</strong>
-          <em>(char replacement)</em> <a href=
-          '#index-dtk_002dunicode_002dcustomize_002dchar' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-dtk_002dunicode_002dcustomize_002dchar">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">dtk-unicode-customize-char</strong>
+          <var class="def-var-arguments">(char replacement)</var>
+          <a class="copiable-link" href=
+          '#index-dtk_002dunicode_002dcustomize_002dchar'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-dtk_002dunicode_002dcustomize_002dchar-1"></span>
+            <a class="index-entry-id" id=
+            "index-dtk_002dunicode_002dcustomize_002dchar-1"></a>
             <div class="format">
               <pre class=
-              "format">Add a custom replacement string for CHAR.
+              "format-preformatted">Add a custom replacement string for CHAR.
 
 When called interactively, CHAR defaults to the character after point.
 
@@ -1034,23 +1138,25 @@ When called interactively, CHAR defaults to the character after point.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "dtk_002dunicode_002duncustomize_002dchar">
         <h4 class="subsubsection">12.4.1.29
         dtk-unicode-uncustomize-char</h4>
-        <dl class="def">
-          <dt id="index-dtk_002dunicode_002duncustomize_002dchar">
-          <span class="category">Command:</span>
-          <span><strong>dtk-unicode-uncustomize-char</strong>
-          <em>(char)</em> <a href=
-          '#index-dtk_002dunicode_002duncustomize_002dchar' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-dtk_002dunicode_002duncustomize_002dchar">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">dtk-unicode-uncustomize-char</strong>
+          <var class="def-var-arguments">(char)</var> <a class=
+          "copiable-link" href=
+          '#index-dtk_002dunicode_002duncustomize_002dchar'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-dtk_002dunicode_002duncustomize_002dchar-1"></span>
+            <a class="index-entry-id" id=
+            "index-dtk_002dunicode_002duncustomize_002dchar-1"></a>
             <div class="format">
               <pre class=
-              "format">Delete custom replacement for CHAR.
+              "format-preformatted">Delete custom replacement for CHAR.
 
 When called interactively, CHAR defaults to the character after point.
 
@@ -1060,65 +1166,68 @@ When called interactively, CHAR defaults to the character after point.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="tts_002drestart">
+      <div class="subsubsection-level-extent" id="tts_002drestart">
         <h4 class="subsubsection">12.4.1.30 tts-restart</h4>
-        <dl class="def">
-          <dt id="index-tts_002drestart"><span class=
-          "category">Command:</span>
-          <span><strong>tts-restart</strong> <a href=
-          '#index-tts_002drestart' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-tts_002drestart"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">tts-restart</strong> <a class="copiable-link"
+          href='#index-tts_002drestart'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-C_002ds-1'><span><kbd>C-e
-              C-s</kbd> <a href='#index-C_002de-C_002ds-1' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-C_002ds'>
-              <span><kbd>&lt;fn&gt; C-s</kbd> <a href=
-              '#index-_003cfn_003e-C_002ds' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id="index-tts_002drestart-1"></span>
+            <dl class="table">
+              <dt id='index-C_002de-C_002ds-1'><span><kbd class=
+              "kbd">C-e C-s</kbd> <a class="copiable-link" href=
+              '#index-C_002de-C_002ds-1'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-C_002ds'><span><kbd class=
+              "kbd">&lt;fn&gt; C-s</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-C_002ds'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-tts_002drestart-1"></a>
             <div class="format">
-              <pre class="format">Restart TTS server.
+              <pre class="format-preformatted">Restart TTS server.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="tts_002dspeak_002dversion">
+      <div class="subsubsection-level-extent" id=
+      "tts_002dspeak_002dversion">
         <h4 class="subsubsection">12.4.1.31 tts-speak-version</h4>
-        <dl class="def">
-          <dt id="index-tts_002dspeak_002dversion-1"><span class=
-          "category">Command:</span>
-          <span><strong>tts-speak-version</strong> <a href=
-          '#index-tts_002dspeak_002dversion-1' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-tts_002dspeak_002dversion-1">
+          <span class="category-def">Command:</span>
+          <span><strong class="def-name">tts-speak-version</strong>
+          <a class="copiable-link" href=
+          '#index-tts_002dspeak_002dversion-1'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-d-V'><span><kbd>C-e d V</kbd>
-              <a href='#index-C_002de-d-V' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-d-V'><span><kbd>&lt;fn&gt;
-              d V</kbd> <a href='#index-_003cfn_003e-d-V' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-tts_002dspeak_002dversion-2"></span>
+            <dl class="table">
+              <dt id='index-C_002de-d-V'><span><kbd class="kbd">C-e
+              d V</kbd> <a class="copiable-link" href=
+              '#index-C_002de-d-V'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-d-V'><span><kbd class=
+              "kbd">&lt;fn&gt; d V</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-d-V'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-tts_002dspeak_002dversion-2"></a>
             <div class="format">
-              <pre class="format">Speak version.
+              <pre class="format-preformatted">Speak version.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
     </div>
-    <div class="subsection" id="dtk_002dspeak-Options">
+    <div class="subsection-level-extent" id=
+    "dtk_002dspeak-Options">
       <h4 class="subsection">12.4.2 dtk-speak Options</h4>
-      <dl class="def">
-        <dt id="index-User-Option-3"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>dtk-allcaps-prefix</em> <a href=
-        '#index-User-Option-3' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-3"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">dtk-allcaps-prefix</var> <a class=
+        "copiable-link" href=
+        '#index-User-Option-3'>¶</a></span></dt>
         <dd>
           <p>Prefix used to indicate AllCaps</p>
           <p>Default Value:</p>
@@ -1128,12 +1237,14 @@ When called interactively, CHAR defaults to the character after point.
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-4"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>dtk-caps-prefix</em> <a href=
-        '#index-User-Option-4' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-4"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">dtk-caps-prefix</var> <a class=
+        "copiable-link" href=
+        '#index-User-Option-4'>¶</a></span></dt>
         <dd>
           <p>Prefix used to indicate capitalization</p>
           <p>Default Value:</p>
@@ -1143,12 +1254,14 @@ When called interactively, CHAR defaults to the character after point.
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-5"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>dtk-cleanup-repeats</em> <a href=
-        '#index-User-Option-5' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-5"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">dtk-cleanup-repeats</var> <a class=
+        "copiable-link" href=
+        '#index-User-Option-5'>¶</a></span></dt>
         <dd>
           <p>List of repeating patterns to clean up. Use
           ‘dtk-add-cleanup-pattern’ bound to C-e d a to add
@@ -1183,12 +1296,14 @@ When called interactively, CHAR defaults to the character after point.
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-6"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>dtk-cloud-server</em> <a href=
-        '#index-User-Option-6' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-6"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">dtk-cloud-server</var> <a class=
+        "copiable-link" href=
+        '#index-User-Option-6'>¶</a></span></dt>
         <dd>
           <p>Set this to your preferred cloud TTS server.</p>
           <p>Default Value:</p>
@@ -1198,12 +1313,14 @@ When called interactively, CHAR defaults to the character after point.
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-7"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>dtk-local-engine</em> <a href=
-        '#index-User-Option-7' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-7"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">dtk-local-engine</var> <a class=
+        "copiable-link" href=
+        '#index-User-Option-7'>¶</a></span></dt>
         <dd>
           <p>Engine we use for our local TTS server.</p>
           <p>Default Value:</p>
@@ -1213,12 +1330,14 @@ When called interactively, CHAR defaults to the character after point.
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-8"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>dtk-speech-rate-base</em> <a href=
-        '#index-User-Option-8' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-8"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">dtk-speech-rate-base</var> <a class=
+        "copiable-link" href=
+        '#index-User-Option-8'>¶</a></span></dt>
         <dd>
           <p>Value of lowest speech rate.</p>
           <p>Default Value:</p>
@@ -1228,12 +1347,14 @@ When called interactively, CHAR defaults to the character after point.
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-9"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>dtk-speech-rate-step</em> <a href=
-        '#index-User-Option-9' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-9"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">dtk-speech-rate-step</var> <a class=
+        "copiable-link" href=
+        '#index-User-Option-9'>¶</a></span></dt>
         <dd>
           <p>Speech rate step used by
           ‘dtk-set-predefined-speech-rate’.</p>
@@ -1244,13 +1365,14 @@ When called interactively, CHAR defaults to the character after point.
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-10"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong>
-        <em>dtk-unicode-character-replacement-alist</em> <a href=
-        '#index-User-Option-10' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-10"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">dtk-unicode-character-replacement-alist</var>
+        <a class="copiable-link" href=
+        '#index-User-Option-10'>¶</a></span></dt>
         <dd>
           <p>Replacements for characters.</p>
           <p>Default Value:</p>
@@ -1290,13 +1412,14 @@ When called interactively, CHAR defaults to the character after point.
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-11"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong>
-        <em>dtk-unicode-name-transformation-rules-alist</em>
-        <a href='#index-User-Option-11' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-11"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">dtk-unicode-name-transformation-rules-alist</var>
+        <a class="copiable-link" href=
+        '#index-User-Option-11'>¶</a></span></dt>
         <dd>
           <p>Alist of character name transformation rules.</p>
           <p>Default Value:</p>
@@ -1318,12 +1441,14 @@ When called interactively, CHAR defaults to the character after point.
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-12"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>dtk-unicode-untouched-charsets</em>
-        <a href='#index-User-Option-12' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-12"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">dtk-unicode-untouched-charsets</var>
+        <a class="copiable-link" href=
+        '#index-User-Option-12'>¶</a></span></dt>
         <dd>
           <p>Characters of these charsets are ignored by
           dtk-unicode-replace-chars.</p>
@@ -1334,12 +1459,14 @@ When called interactively, CHAR defaults to the character after point.
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-13"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>dtk-use-tones</em> <a href=
-        '#index-User-Option-13' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-13"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">dtk-use-tones</var> <a class=
+        "copiable-link" href=
+        '#index-User-Option-13'>¶</a></span></dt>
         <dd>
           <p>Toggle tones.</p>
           <p>Default Value:</p>
@@ -1349,12 +1476,14 @@ t
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-14"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>tts-notification-device</em> <a href=
-        '#index-User-Option-14' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-14"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">tts-notification-device</var> <a class=
+        "copiable-link" href=
+        '#index-User-Option-14'>¶</a></span></dt>
         <dd>
           <p>Virtual sound device to use for notifications stream.
           Set to nil to disable a separate Notification stream.</p>
@@ -1365,12 +1494,14 @@ t
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-15"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>tts-secondary-device</em> <a href=
-        '#index-User-Option-15' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-15"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">tts-secondary-device</var> <a class=
+        "copiable-link" href=
+        '#index-User-Option-15'>¶</a></span></dt>
         <dd>
           <p>Virtual sound device to use as a secondary display
           stream. Set to nil to disable a secondary Notification
@@ -1385,7 +1516,7 @@ t
     </div>
   </div>
   <hr />
-  <div class="header">
+  <div class="nav-panel">
     <p>Next: <a href="emacspeak.html">emacspeak</a>, Previous:
     <a href="dom_002daddons.html">dom-addons</a>, Up: <a href=
     "Emacspeak-Commands-And-Options.html">Emacspeak Commands And

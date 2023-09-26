@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -32,21 +31,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+  kbd.kbd {font-style: oblique}
+  pre.format-preformatted {font-family: inherit}
+  span:hover a.copiable-link {visibility: visible}
+  strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
   -->
   /*]]>*/
   </style>
@@ -54,8 +43,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002dextras">
-    <div class="header">
+  <div class="section-level-extent" id="emacspeak_002dextras">
+    <div class="nav-panel">
       <p>Next: <a href="emacspeak_002dexwm.html" accesskey="n" rel=
       "next">emacspeak-exwm</a>, Previous: <a href=
       "emacspeak_002deww.html" accesskey="p" rel=
@@ -67,82 +56,120 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="emacspeak_002dextras-1"></span>
-    <h3 class="section">12.76 emacspeak-extras</h3>
+    <h3 class="section" id="emacspeak_002dextras-1">12.76
+    emacspeak-extras</h3>
     <p>Infrequently used wizards archived for posterity.</p>
-    <ul class="section-toc">
-      <li><a href="#Emacspeak_002dExtras-Commands" accesskey=
-      "1">Emacspeak-Extras Commands</a></li>
-      <li><a href="#emacspeak_002dextras-Options" accesskey=
-      "2">emacspeak-extras Options</a></li>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Emacspeak_002dExtras-Commands" accesskey=
+        "1">Emacspeak-Extras Commands</a>
+      </li>
+      <li>
+        <a href="#emacspeak_002dextras-Options" accesskey=
+        "2">emacspeak-extras Options</a>
+      </li>
     </ul>
-    <div class="subsection" id="Emacspeak_002dExtras-Commands">
+    <div class="subsection-level-extent" id=
+    "Emacspeak_002dExtras-Commands">
       <h4 class="subsection">12.76.1 Emacspeak-Extras Commands</h4>
-      <ul class="section-toc">
-        <li><a href=
-        "#emacspeak_002dannotate_002dadd_002dannotation" accesskey=
-        "1">emacspeak-annotate-add-annotation</a></li>
-        <li><a href="#emacspeak_002dclipfile_002dcopy" accesskey=
-        "2">emacspeak-clipfile-copy</a></li>
-        <li><a href="#emacspeak_002dclipfile_002dpaste" accesskey=
-        "3">emacspeak-clipfile-paste</a></li>
-        <li><a href="#emacspeak_002dcurl" accesskey=
-        "4">emacspeak-curl</a></li>
-        <li><a href=
-        "#emacspeak_002dwizards_002dadd_002dautoload_002dcookies"
-        accesskey=
-        "5">emacspeak-wizards-add-autoload-cookies</a></li>
-        <li><a href=
-        "#emacspeak_002dwizards_002dbindings_002dfrom_002dorg"
-        accesskey="6">emacspeak-wizards-bindings-from-org</a></li>
-        <li><a href=
-        "#emacspeak_002dwizards_002dbindings_002dto_002dorg"
-        accesskey="7">emacspeak-wizards-bindings-to-org</a></li>
-        <li><a href="#emacspeak_002dwizards_002dbraille" accesskey=
-        "8">emacspeak-wizards-braille</a></li>
-        <li><a href=
-        "#emacspeak_002dwizards_002ddisplay_002dpod_002das_002dmanpage"
-        accesskey=
-        "9">emacspeak-wizards-display-pod-as-manpage</a></li>
-        <li><a href=
-        "#emacspeak_002dwizards_002dfind_002dgrep">emacspeak-wizards-find-grep</a></li>
-        <li><a href=
-        "#emacspeak_002dwizards_002dfix_002dread_002donly_002dtext">
-        emacspeak-wizards-fix-read-only-text</a></li>
-        <li><a href=
-        "#emacspeak_002dwizards_002dgenerate_002dvoice_002dsampler">
-        emacspeak-wizards-generate-voice-sampler</a></li>
-        <li><a href=
-        "#emacspeak_002dwizards_002dlist_002dvoices">emacspeak-wizards-list-voices</a></li>
-        <li><a href=
-        "#emacspeak_002dwizards_002dmidi_002dusing_002dm_002dscore">
-        emacspeak-wizards-midi-using-m-score</a></li>
-        <li><a href=
-        "#emacspeak_002dwizards_002dshow_002dvoices">emacspeak-wizards-show-voices</a></li>
-        <li><a href=
-        "#emacspeak_002dwizards_002dtramp_002dopen_002dlocation">emacspeak-wizards-tramp-open-location</a></li>
-        <li><a href=
-        "#emacspeak_002dwizards_002dvoice_002dsampler">emacspeak-wizards-voice-sampler</a></li>
+      <ul class="mini-toc">
+        <li>
+          <a href="#emacspeak_002dannotate_002dadd_002dannotation"
+          accesskey="1">emacspeak-annotate-add-annotation</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dclipfile_002dcopy" accesskey=
+          "2">emacspeak-clipfile-copy</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dclipfile_002dpaste" accesskey=
+          "3">emacspeak-clipfile-paste</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dcurl" accesskey=
+          "4">emacspeak-curl</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dwizards_002dadd_002dautoload_002dcookies"
+          accesskey="5">emacspeak-wizards-add-autoload-cookies</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dwizards_002dbindings_002dfrom_002dorg"
+          accesskey="6">emacspeak-wizards-bindings-from-org</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dwizards_002dbindings_002dto_002dorg"
+          accesskey="7">emacspeak-wizards-bindings-to-org</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dwizards_002dbraille" accesskey=
+          "8">emacspeak-wizards-braille</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dwizards_002ddisplay_002dpod_002das_002dmanpage"
+          accesskey=
+          "9">emacspeak-wizards-display-pod-as-manpage</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dwizards_002dfind_002dgrep">emacspeak-wizards-find-grep</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dwizards_002dfix_002dread_002donly_002dtext">
+          emacspeak-wizards-fix-read-only-text</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dwizards_002dgenerate_002dvoice_002dsampler">
+          emacspeak-wizards-generate-voice-sampler</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dwizards_002dlist_002dvoices">emacspeak-wizards-list-voices</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dwizards_002dmidi_002dusing_002dm_002dscore">
+          emacspeak-wizards-midi-using-m-score</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dwizards_002dshow_002dvoices">emacspeak-wizards-show-voices</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dwizards_002dtramp_002dopen_002dlocation">emacspeak-wizards-tramp-open-location</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dwizards_002dvoice_002dsampler">emacspeak-wizards-voice-sampler</a>
+        </li>
       </ul>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dannotate_002dadd_002dannotation">
         <h4 class="subsubsection">12.76.1.1
         emacspeak-annotate-add-annotation</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dannotate_002dadd_002dannotation">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-annotate-add-annotation</strong>
-          <em>(&amp;optional reset)</em> <a href=
-          '#index-emacspeak_002dannotate_002dadd_002dannotation'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-annotate-add-annotation</strong>
+          <var class="def-var-arguments">(&amp;optional
+          reset)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002dannotate_002dadd_002dannotation'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dannotate_002dadd_002dannotation-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Add annotation to the annotation working buffer.
+              "format-preformatted">Add annotation to the annotation working buffer.
 Prompt for annotation buffer if not already set.
 Interactive prefix arg ‘reset’ prompts for the annotation
 buffer even if one is already set.
@@ -153,31 +180,33 @@ annotation is inserted into the working buffer when complete.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dclipfile_002dcopy">
         <h4 class="subsubsection">12.76.1.2
         emacspeak-clipfile-copy</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dclipfile_002dcopy">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-clipfile-copy</strong> <em>(start
-          end &amp;optional prompt)</em> <a href=
-          '#index-emacspeak_002dclipfile_002dcopy' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dclipfile_002dcopy"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-clipfile-copy</strong> <var class=
+          "def-var-arguments">(start end &amp;optional
+          prompt)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002dclipfile_002dcopy'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-C_002dM_002dc'><span><kbd>C-e
-              C-M-c</kbd> <a href='#index-C_002de-C_002dM_002dc'
-              class='copiable-anchor'>¶</a></span></dt>
+            <dl class="table">
+              <dt id='index-C_002de-C_002dM_002dc'>
+              <span><kbd class="kbd">C-e C-M-c</kbd> <a class=
+              "copiable-link" href=
+              '#index-C_002de-C_002dM_002dc'>¶</a></span></dt>
               <dt id='index-_003cfn_003e-C_002dM_002dc'>
-              <span><kbd>&lt;fn&gt; C-M-c</kbd> <a href=
-              '#index-_003cfn_003e-C_002dM_002dc' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dclipfile_002dcopy-1"></span>
+              <span><kbd class="kbd">&lt;fn&gt; C-M-c</kbd>
+              <a class="copiable-link" href=
+              '#index-_003cfn_003e-C_002dM_002dc'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dclipfile_002dcopy-1"></a>
             <div class="format">
               <pre class=
-              "format">Use file-based Emacspeak Clipboard —
+              "format-preformatted">Use file-based Emacspeak Clipboard —
 dis a convenient way of sharing information between independent
 Emacspeak sessions running on  different machines. 
 </pre>
@@ -185,262 +214,285 @@ Emacspeak sessions running on  different machines.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dclipfile_002dpaste">
         <h4 class="subsubsection">12.76.1.3
         emacspeak-clipfile-paste</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dclipfile_002dpaste">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-clipfile-paste</strong>
-          <em>(&amp;optional paste-table)</em> <a href=
-          '#index-emacspeak_002dclipfile_002dpaste' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dclipfile_002dpaste"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-clipfile-paste</strong> <var class=
+          "def-var-arguments">(&amp;optional paste-table)</var>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dclipfile_002dpaste'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dclipfile_002dpaste-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dclipfile_002dpaste-1"></a>
             <div class="format">
               <pre class=
-              "format">Yank contents of the Emacspeak clipboard at point. 
+              "format-preformatted">Yank contents of the Emacspeak clipboard at point. 
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id="emacspeak_002dcurl">
+      <div class="subsubsection-level-extent" id=
+      "emacspeak_002dcurl">
         <h4 class="subsubsection">12.76.1.4 emacspeak-curl</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dcurl"><span class=
-          "category">Command:</span>
-          <span><strong>emacspeak-curl</strong> <em>(url)</em>
-          <a href='#index-emacspeak_002dcurl' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-emacspeak_002dcurl">
+          <span class="category-def">Command:</span>
+          <span><strong class="def-name">emacspeak-curl</strong>
+          <var class="def-var-arguments">(url)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dcurl'>¶</a></span></dt>
           <dd>
-            <span id="index-emacspeak_002dcurl-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dcurl-1"></a>
             <div class="format">
               <pre class=
-              "format">Grab URL using Curl, and preview it with a browser .
+              "format-preformatted">Grab URL using Curl, and preview it with a browser .
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dwizards_002dadd_002dautoload_002dcookies">
         <h4 class="subsubsection">12.76.1.5
         emacspeak-wizards-add-autoload-cookies</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dwizards_002dadd_002dautoload_002dcookies">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-wizards-add-autoload-cookies</strong>
-          <em>(&amp;optional f)</em> <a href=
-          '#index-emacspeak_002dwizards_002dadd_002dautoload_002dcookies'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-wizards-add-autoload-cookies</strong>
+          <var class="def-var-arguments">(&amp;optional f)</var>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dwizards_002dadd_002dautoload_002dcookies'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dwizards_002dadd_002dautoload_002dcookies-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Add autoload cookies to file f.
+              <pre class=
+              "format-preformatted">Add autoload cookies to file f.
 Default is to add autoload cookies to current file.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dwizards_002dbindings_002dfrom_002dorg">
         <h4 class="subsubsection">12.76.1.6
         emacspeak-wizards-bindings-from-org</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dwizards_002dbindings_002dfrom_002dorg">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-wizards-bindings-from-org</strong>
-          <em>(variable filename)</em> <a href=
-          '#index-emacspeak_002dwizards_002dbindings_002dfrom_002dorg'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-wizards-bindings-from-org</strong>
+          <var class="def-var-arguments">(variable filename)</var>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dwizards_002dbindings_002dfrom_002dorg'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dwizards_002dbindings_002dfrom_002dorg-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Load bindings from a specified file.
+              "format-preformatted">Load bindings from a specified file.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dwizards_002dbindings_002dto_002dorg">
         <h4 class="subsubsection">12.76.1.7
         emacspeak-wizards-bindings-to-org</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dwizards_002dbindings_002dto_002dorg">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-wizards-bindings-to-org</strong>
-          <em>(variable filename)</em> <a href=
-          '#index-emacspeak_002dwizards_002dbindings_002dto_002dorg'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-wizards-bindings-to-org</strong>
+          <var class="def-var-arguments">(variable filename)</var>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dwizards_002dbindings_002dto_002dorg'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dwizards_002dbindings_002dto_002dorg-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Persists mapping to org file.
+              <pre class=
+              "format-preformatted">Persists mapping to org file.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dwizards_002dbraille">
         <h4 class="subsubsection">12.76.1.8
         emacspeak-wizards-braille</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dwizards_002dbraille">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-wizards-braille</strong>
-          <em>(s)</em> <a href=
-          '#index-emacspeak_002dwizards_002dbraille' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dwizards_002dbraille"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-wizards-braille</strong> <var class=
+          "def-var-arguments">(s)</var> <a class="copiable-link"
+          href=
+          '#index-emacspeak_002dwizards_002dbraille'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dwizards_002dbraille-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dwizards_002dbraille-1"></a>
             <div class="format">
-              <pre class="format">Insert Braille string at point.
+              <pre class=
+              "format-preformatted">Insert Braille string at point.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dwizards_002ddisplay_002dpod_002das_002dmanpage">
         <h4 class="subsubsection">12.76.1.9
         emacspeak-wizards-display-pod-as-manpage</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dwizards_002ddisplay_002dpod_002das_002dmanpage">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-wizards-display-pod-as-manpage</strong>
-          <em>(filename)</em> <a href=
-          '#index-emacspeak_002dwizards_002ddisplay_002dpod_002das_002dmanpage'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-wizards-display-pod-as-manpage</strong>
+          <var class="def-var-arguments">(filename)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dwizards_002ddisplay_002dpod_002das_002dmanpage'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dwizards_002ddisplay_002dpod_002das_002dmanpage-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Create a virtual manpage in Emacs from the Perl Online Documentation.
+              "format-preformatted">Create a virtual manpage in Emacs from the Perl Online Documentation.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dwizards_002dfind_002dgrep">
         <h4 class="subsubsection">12.76.1.10
         emacspeak-wizards-find-grep</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dwizards_002dfind_002dgrep">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-wizards-find-grep</strong>
-          <em>(glob pattern)</em> <a href=
-          '#index-emacspeak_002dwizards_002dfind_002dgrep' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dwizards_002dfind_002dgrep">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-wizards-find-grep</strong>
+          <var class="def-var-arguments">(glob pattern)</var>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dwizards_002dfind_002dgrep'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dwizards_002dfind_002dgrep-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dwizards_002dfind_002dgrep-1"></a>
             <div class="format">
-              <pre class="format">Run compile using find and grep.
+              <pre class=
+              "format-preformatted">Run compile using find and grep.
 Interactive  arguments specify filename pattern and search pattern.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dwizards_002dfix_002dread_002donly_002dtext">
         <h4 class="subsubsection">12.76.1.11
         emacspeak-wizards-fix-read-only-text</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dwizards_002dfix_002dread_002donly_002dtext">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-wizards-fix-read-only-text</strong>
-          <em>(start end)</em> <a href=
-          '#index-emacspeak_002dwizards_002dfix_002dread_002donly_002dtext'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-wizards-fix-read-only-text</strong>
+          <var class="def-var-arguments">(start end)</var>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dwizards_002dfix_002dread_002donly_002dtext'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dwizards_002dfix_002dread_002donly_002dtext-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Nuke read-only property on text range.
+              "format-preformatted">Nuke read-only property on text range.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dwizards_002dgenerate_002dvoice_002dsampler">
         <h4 class="subsubsection">12.76.1.12
         emacspeak-wizards-generate-voice-sampler</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dwizards_002dgenerate_002dvoice_002dsampler">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-wizards-generate-voice-sampler</strong>
-          <em>(step)</em> <a href=
-          '#index-emacspeak_002dwizards_002dgenerate_002dvoice_002dsampler'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-wizards-generate-voice-sampler</strong>
+          <var class="def-var-arguments">(step)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dwizards_002dgenerate_002dvoice_002dsampler'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dwizards_002dgenerate_002dvoice_002dsampler-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Generate a buffer that shows a sample line in all the ACSS settings
+              "format-preformatted">Generate a buffer that shows a sample line in all the ACSS settings
 for the current voice family.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dwizards_002dlist_002dvoices">
         <h4 class="subsubsection">12.76.1.13
         emacspeak-wizards-list-voices</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dwizards_002dlist_002dvoices">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-wizards-list-voices</strong>
-          <em>(pattern)</em> <a href=
-          '#index-emacspeak_002dwizards_002dlist_002dvoices' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dwizards_002dlist_002dvoices">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-wizards-list-voices</strong>
+          <var class="def-var-arguments">(pattern)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dwizards_002dlist_002dvoices'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002dh-_0022'><span><kbd>C-h "</kbd>
-              <a href='#index-C_002dh-_0022' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cf1_003e-_0022'>
-              <span><kbd>&lt;f1&gt; "</kbd> <a href=
-              '#index-_003cf1_003e-_0022' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003chelp_003e-_0022'>
-              <span><kbd>&lt;help&gt; "</kbd> <a href=
-              '#index-_003chelp_003e-_0022' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dwizards_002dlist_002dvoices-1"></span>
+            <dl class="table">
+              <dt id='index-C_002dh-_0022'><span><kbd class=
+              "kbd">C-h "</kbd> <a class="copiable-link" href=
+              '#index-C_002dh-_0022'>¶</a></span></dt>
+              <dt id='index-_003cf1_003e-_0022'><span><kbd class=
+              "kbd">&lt;f1&gt; "</kbd> <a class="copiable-link"
+              href='#index-_003cf1_003e-_0022'>¶</a></span></dt>
+              <dt id='index-_003chelp_003e-_0022'><span><kbd class=
+              "kbd">&lt;help&gt; "</kbd> <a class="copiable-link"
+              href='#index-_003chelp_003e-_0022'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dwizards_002dlist_002dvoices-1"></a>
             <div class="format">
               <pre class=
-              "format">Show all defined voice-face mappings  in a help buffer.
+              "format-preformatted">Show all defined voice-face mappings  in a help buffer.
 Sample text to use comes from variable
   ‘ems–wizards-sampler-text 
 </pre>
@@ -448,115 +500,125 @@ Sample text to use comes from variable
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dwizards_002dmidi_002dusing_002dm_002dscore">
         <h4 class="subsubsection">12.76.1.14
         emacspeak-wizards-midi-using-m-score</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dwizards_002dmidi_002dusing_002dm_002dscore">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-wizards-midi-using-m-score</strong>
-          <em>(midi-file)</em> <a href=
-          '#index-emacspeak_002dwizards_002dmidi_002dusing_002dm_002dscore'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-wizards-midi-using-m-score</strong>
+          <var class="def-var-arguments">(midi-file)</var>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dwizards_002dmidi_002dusing_002dm_002dscore'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dwizards_002dmidi_002dusing_002dm_002dscore-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Play midi file using mscore from musescore package.
+              "format-preformatted">Play midi file using mscore from musescore package.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dwizards_002dshow_002dvoices">
         <h4 class="subsubsection">12.76.1.15
         emacspeak-wizards-show-voices</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dwizards_002dshow_002dvoices">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-wizards-show-voices</strong>
-          <a href=
-          '#index-emacspeak_002dwizards_002dshow_002dvoices' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dwizards_002dshow_002dvoices">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-wizards-show-voices</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dwizards_002dshow_002dvoices'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dwizards_002dshow_002dvoices-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dwizards_002dshow_002dvoices-1"></a>
             <div class="format">
               <pre class=
-              "format">Display a buffer with sample text in the defined voices.
+              "format-preformatted">Display a buffer with sample text in the defined voices.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dwizards_002dtramp_002dopen_002dlocation">
         <h4 class="subsubsection">12.76.1.16
         emacspeak-wizards-tramp-open-location</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dwizards_002dtramp_002dopen_002dlocation">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-wizards-tramp-open-location</strong>
-          <em>(name)</em> <a href=
-          '#index-emacspeak_002dwizards_002dtramp_002dopen_002dlocation'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-wizards-tramp-open-location</strong>
+          <var class="def-var-arguments">(name)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dwizards_002dtramp_002dopen_002dlocation'>
+          ¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002d_003b-C_002dt'><span><kbd>C-;
-              C-t</kbd> <a href='#index-C_002d_003b-C_002dt' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-C_002dx-_0040-h-C_002dt'><span><kbd>C-x
-              @ h C-t</kbd> <a href=
-              '#index-C_002dx-_0040-h-C_002dt' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dwizards_002dtramp_002dopen_002dlocation-1"></span>
+            <dl class="table">
+              <dt id='index-C_002d_003b-C_002dt'><span><kbd class=
+              "kbd">C-; C-t</kbd> <a class="copiable-link" href=
+              '#index-C_002d_003b-C_002dt'>¶</a></span></dt>
+              <dt id='index-C_002dx-_0040-h-C_002dt'>
+              <span><kbd class="kbd">C-x @ h C-t</kbd> <a class=
+              "copiable-link" href=
+              '#index-C_002dx-_0040-h-C_002dt'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dwizards_002dtramp_002dopen_002dlocation-1"></a>
             <div class="format">
-              <pre class="format">Open specified tramp location.
+              <pre class=
+              "format-preformatted">Open specified tramp location.
 Location is specified by name.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dwizards_002dvoice_002dsampler">
         <h4 class="subsubsection">12.76.1.17
         emacspeak-wizards-voice-sampler</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dwizards_002dvoice_002dsampler">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-wizards-voice-sampler</strong>
-          <em>(personality)</em> <a href=
-          '#index-emacspeak_002dwizards_002dvoice_002dsampler'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-wizards-voice-sampler</strong>
+          <var class="def-var-arguments">(personality)</var>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dwizards_002dvoice_002dsampler'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dwizards_002dvoice_002dsampler-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dwizards_002dvoice_002dsampler-1"></a>
             <div class="format">
               <pre class=
-              "format">Read a personality  and apply it to the current line.
+              "format-preformatted">Read a personality  and apply it to the current line.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
     </div>
-    <div class="subsection" id="emacspeak_002dextras-Options">
+    <div class="subsection-level-extent" id=
+    "emacspeak_002dextras-Options">
       <h4 class="subsection">12.76.2 emacspeak-extras Options</h4>
-      <dl class="def">
-        <dt id="index-User-Option-33"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-clipfile-file</em> <a href=
-        '#index-User-Option-33' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-33"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">emacspeak-clipfile-file</var> <a class=
+        "copiable-link" href=
+        '#index-User-Option-33'>¶</a></span></dt>
         <dd>
           <p>File used to save Emacspeak clipboard. The emacspeak
           clipboard provides a convenient mechanism for exchanging
@@ -568,12 +630,14 @@ Location is specified by name.
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-34"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-curl-cookie-store</em>
-        <a href='#index-User-Option-34' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-34"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">emacspeak-curl-cookie-store</var>
+        <a class="copiable-link" href=
+        '#index-User-Option-34'>¶</a></span></dt>
         <dd>
           <p>Cookie store used by Curl.</p>
           <p>Default Value:</p>
@@ -583,12 +647,14 @@ Location is specified by name.
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-35"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-wizards-tramp-locations</em>
-        <a href='#index-User-Option-35' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-35"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">emacspeak-wizards-tramp-locations</var>
+        <a class="copiable-link" href=
+        '#index-User-Option-35'>¶</a></span></dt>
         <dd>
           <p>Tramp locations used by Emacspeak tramp wizard.
           Locations added here via custom can be opened using
@@ -604,7 +670,7 @@ nil
     </div>
   </div>
   <hr />
-  <div class="header">
+  <div class="nav-panel">
     <p>Next: <a href="emacspeak_002dexwm.html">emacspeak-exwm</a>,
     Previous: <a href="emacspeak_002deww.html">emacspeak-eww</a>,
     Up: <a href="Emacspeak-Commands-And-Options.html">Emacspeak

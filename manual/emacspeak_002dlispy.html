@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -32,21 +31,7 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  ul.mark-bullet {list-style-type: disc}
   -->
   /*]]>*/
   </style>
@@ -54,8 +39,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002dlispy">
-    <div class="header">
+  <div class="section-level-extent" id="emacspeak_002dlispy">
+    <div class="nav-panel">
       <p>Next: <a href="emacspeak_002dlua.html" accesskey="n" rel=
       "next">emacspeak-lua</a>, Previous: <a href=
       "emacspeak_002dlibrivox.html" accesskey="p" rel=
@@ -67,29 +52,31 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="emacspeak_002dlispy-1"></span>
-    <h3 class="section">12.118 emacspeak-lispy</h3>
+    <h3 class="section" id="emacspeak_002dlispy-1">12.118
+    emacspeak-lispy</h3>
     <p>LISPY == smart Navigation Of Lisp code This module
     speech-enables lispy.</p>
-    <ul class="section-toc">
-      <li><a href="#Overview-2" accesskey="1">Overview</a></li>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Overview-2" accesskey="1">Overview</a>
+      </li>
     </ul>
-    <div class="subsection" id="Overview-2">
+    <div class="subsection-level-extent" id="Overview-2">
       <h4 class="subsection">12.118.1 Overview</h4>
       <p>Lispy editing keeps delimiters balanced and Lispy
       navigators reliably place point on either the opening or
       closing delimiter of the current s-expression. Emacspeak
       leverages this fact in the type of spoken feedback that is
       produced. All navigation commands produce the following:</p>
-      <ul>
+      <ul class="itemize mark-bullet">
         <li>Speak the current s-expression when at the front of a
         sexp.</li>
-        <li>Speak the current line with option
-        <code>emacspeak-show-point</code> turned on when at the end
-        of an s-expression.</li>
-        <li>Produce auditory icon <code>left</code> or
-        <code>right</code> to indicate point being at the beginning
-        or end of current line.</li>
+        <li>Speak the current line with option <code class=
+        "code">emacspeak-show-point</code> turned on when at the
+        end of an s-expression.</li>
+        <li>Produce auditory icon <code class="code">left</code> or
+        <code class="code">right</code> to indicate point being at
+        the beginning or end of current line.</li>
         <li>Indicate with an auditory icon if point did not
         move.</li>
       </ul>

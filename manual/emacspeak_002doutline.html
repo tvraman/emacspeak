@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -32,21 +31,10 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+  pre.format-preformatted {font-family: inherit}
+  span:hover a.copiable-link {visibility: visible}
+  strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
   -->
   /*]]>*/
   </style>
@@ -54,8 +42,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002doutline">
-    <div class="header">
+  <div class="section-level-extent" id="emacspeak_002doutline">
+    <div class="nav-panel">
       <p>Next: <a href="emacspeak_002dpackage.html" accesskey="n"
       rel="next">emacspeak-package</a>, Previous: <a href=
       "emacspeak_002dorigami.html" accesskey="p" rel=
@@ -67,155 +55,172 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="emacspeak_002doutline-1"></span>
-    <h3 class="section">12.142 emacspeak-outline</h3>
+    <h3 class="section" id="emacspeak_002doutline-1">12.142
+    emacspeak-outline</h3>
     <p>Provide additional advice to outline-mode</p>
-    <ul class="section-toc">
-      <li><a href="#Emacspeak_002dOutline-Commands" accesskey=
-      "1">Emacspeak-Outline Commands</a></li>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Emacspeak_002dOutline-Commands" accesskey=
+        "1">Emacspeak-Outline Commands</a>
+      </li>
     </ul>
-    <div class="subsection" id="Emacspeak_002dOutline-Commands">
+    <div class="subsection-level-extent" id=
+    "Emacspeak_002dOutline-Commands">
       <h4 class="subsection">12.142.1 Emacspeak-Outline
       Commands</h4>
-      <ul class="section-toc">
-        <li><a href=
-        "#emacspeak_002doutline_002dspeak_002dbackward_002dheading"
-        accesskey=
-        "1">emacspeak-outline-speak-backward-heading</a></li>
-        <li><a href=
-        "#emacspeak_002doutline_002dspeak_002dforward_002dheading"
-        accesskey=
-        "2">emacspeak-outline-speak-forward-heading</a></li>
-        <li><a href=
-        "#emacspeak_002doutline_002dspeak_002dnext_002dheading"
-        accesskey="3">emacspeak-outline-speak-next-heading</a></li>
-        <li><a href=
-        "#emacspeak_002doutline_002dspeak_002dprevious_002dheading"
-        accesskey=
-        "4">emacspeak-outline-speak-previous-heading</a></li>
-        <li><a href=
-        "#emacspeak_002doutline_002dspeak_002dthis_002dheading"
-        accesskey="5">emacspeak-outline-speak-this-heading</a></li>
+      <ul class="mini-toc">
+        <li>
+          <a href=
+          "#emacspeak_002doutline_002dspeak_002dbackward_002dheading"
+          accesskey=
+          "1">emacspeak-outline-speak-backward-heading</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002doutline_002dspeak_002dforward_002dheading"
+          accesskey="2">emacspeak-outline-speak-forward-heading</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002doutline_002dspeak_002dnext_002dheading"
+          accesskey="3">emacspeak-outline-speak-next-heading</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002doutline_002dspeak_002dprevious_002dheading"
+          accesskey=
+          "4">emacspeak-outline-speak-previous-heading</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002doutline_002dspeak_002dthis_002dheading"
+          accesskey="5">emacspeak-outline-speak-this-heading</a>
+        </li>
       </ul>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002doutline_002dspeak_002dbackward_002dheading">
         <h4 class="subsubsection">12.142.1.1
         emacspeak-outline-speak-backward-heading</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002doutline_002dspeak_002dbackward_002dheading">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-outline-speak-backward-heading</strong>
-          <a href=
-          '#index-emacspeak_002doutline_002dspeak_002dbackward_002dheading'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-outline-speak-backward-heading</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002doutline_002dspeak_002dbackward_002dheading'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002doutline_002dspeak_002dbackward_002dheading-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Analogous to outline-backward-same-level
+              "format-preformatted">Analogous to outline-backward-same-level
 except that the outline section is  spoken
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002doutline_002dspeak_002dforward_002dheading">
         <h4 class="subsubsection">12.142.1.2
         emacspeak-outline-speak-forward-heading</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002doutline_002dspeak_002dforward_002dheading">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-outline-speak-forward-heading</strong>
-          <a href=
-          '#index-emacspeak_002doutline_002dspeak_002dforward_002dheading'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-outline-speak-forward-heading</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002doutline_002dspeak_002dforward_002dheading'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002doutline_002dspeak_002dforward_002dheading-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Analogous to outline-forward-same-level,
+              "format-preformatted">Analogous to outline-forward-same-level,
 except that the outline section is  spoken
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002doutline_002dspeak_002dnext_002dheading">
         <h4 class="subsubsection">12.142.1.3
         emacspeak-outline-speak-next-heading</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002doutline_002dspeak_002dnext_002dheading">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-outline-speak-next-heading</strong>
-          <a href=
-          '#index-emacspeak_002doutline_002dspeak_002dnext_002dheading'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-outline-speak-next-heading</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002doutline_002dspeak_002dnext_002dheading'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002doutline_002dspeak_002dnext_002dheading-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Analogous to outline-next-visible-heading,
+              "format-preformatted">Analogous to outline-next-visible-heading,
 except that the outline section is  spoken
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002doutline_002dspeak_002dprevious_002dheading">
         <h4 class="subsubsection">12.142.1.4
         emacspeak-outline-speak-previous-heading</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002doutline_002dspeak_002dprevious_002dheading">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-outline-speak-previous-heading</strong>
-          <a href=
-          '#index-emacspeak_002doutline_002dspeak_002dprevious_002dheading'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-outline-speak-previous-heading</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002doutline_002dspeak_002dprevious_002dheading'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002doutline_002dspeak_002dprevious_002dheading-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Analogous to outline-previous-visible-heading,
+              "format-preformatted">Analogous to outline-previous-visible-heading,
 except that the outline section is  spoken
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002doutline_002dspeak_002dthis_002dheading">
         <h4 class="subsubsection">12.142.1.5
         emacspeak-outline-speak-this-heading</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002doutline_002dspeak_002dthis_002dheading">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-outline-speak-this-heading</strong>
-          <a href=
-          '#index-emacspeak_002doutline_002dspeak_002dthis_002dheading'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-outline-speak-this-heading</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002doutline_002dspeak_002dthis_002dheading'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002doutline_002dspeak_002dthis_002dheading-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Speak current outline section starting from point
+              "format-preformatted">Speak current outline section starting from point
 </pre>
             </div>
           </dd>

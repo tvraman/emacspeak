@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -32,21 +31,10 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+  pre.format-preformatted {font-family: inherit}
+  span:hover a.copiable-link {visibility: visible}
+  strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
   -->
   /*]]>*/
   </style>
@@ -54,8 +42,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002dtetris">
-    <div class="header">
+  <div class="section-level-extent" id="emacspeak_002dtetris">
+    <div class="nav-panel">
       <p>Next: <a href="emacspeak_002dtexinfo.html" accesskey="n"
       rel="next">emacspeak-texinfo</a>, Previous: <a href=
       "emacspeak_002dtempo.html" accesskey="p" rel=
@@ -67,111 +55,139 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="emacspeak_002dtetris-1"></span>
-    <h3 class="section">12.192 emacspeak-tetris</h3>
+    <h3 class="section" id="emacspeak_002dtetris-1">12.192
+    emacspeak-tetris</h3>
     <p>Speech-enables tetris.</p>
-    <ul class="section-toc">
-      <li><a href="#Emacspeak_002dTetris-Commands" accesskey=
-      "1">Emacspeak-Tetris Commands</a></li>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Emacspeak_002dTetris-Commands" accesskey=
+        "1">Emacspeak-Tetris Commands</a>
+      </li>
     </ul>
-    <div class="subsection" id="Emacspeak_002dTetris-Commands">
+    <div class="subsection-level-extent" id=
+    "Emacspeak_002dTetris-Commands">
       <h4 class="subsection">12.192.1 Emacspeak-Tetris
       Commands</h4>
-      <ul class="section-toc">
-        <li><a href=
-        "#emacspeak_002dtetris_002dgoto_002dbottom_002drow"
-        accesskey="1">emacspeak-tetris-goto-bottom-row</a></li>
-        <li><a href=
-        "#emacspeak_002dtetris_002dgoto_002dtop_002drow" accesskey=
-        "2">emacspeak-tetris-goto-top-row</a></li>
-        <li><a href="#emacspeak_002dtetris_002dspeak_002dcolumn"
-        accesskey="3">emacspeak-tetris-speak-column</a></li>
-        <li><a href=
-        "#emacspeak_002dtetris_002dspeak_002dcoordinates"
-        accesskey="4">emacspeak-tetris-speak-coordinates</a></li>
-        <li><a href=
-        "#emacspeak_002dtetris_002dspeak_002dcurrent_002dshape"
-        accesskey="5">emacspeak-tetris-speak-current-shape</a></li>
-        <li><a href=
-        "#emacspeak_002dtetris_002dspeak_002dcurrent_002dshape_002dand_002dcoordinates"
-        accesskey=
-        "6">emacspeak-tetris-speak-current-shape-and-coordinates</a></li>
-        <li><a href=
-        "#emacspeak_002dtetris_002dspeak_002dnext_002dshape"
-        accesskey="7">emacspeak-tetris-speak-next-shape</a></li>
-        <li><a href="#emacspeak_002dtetris_002dspeak_002drow"
-        accesskey="8">emacspeak-tetris-speak-row</a></li>
-        <li><a href=
-        "#emacspeak_002dtetris_002dspeak_002drow_002dnumber"
-        accesskey="9">emacspeak-tetris-speak-row-number</a></li>
-        <li><a href=
-        "#emacspeak_002dtetris_002dspeak_002dscore">emacspeak-tetris-speak-score</a></li>
-        <li><a href=
-        "#emacspeak_002dtetris_002dspeak_002dx_002dcoordinate">emacspeak-tetris-speak-x-coordinate</a></li>
+      <ul class="mini-toc">
+        <li>
+          <a href=
+          "#emacspeak_002dtetris_002dgoto_002dbottom_002drow"
+          accesskey="1">emacspeak-tetris-goto-bottom-row</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dtetris_002dgoto_002dtop_002drow"
+          accesskey="2">emacspeak-tetris-goto-top-row</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dtetris_002dspeak_002dcolumn"
+          accesskey="3">emacspeak-tetris-speak-column</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dtetris_002dspeak_002dcoordinates"
+          accesskey="4">emacspeak-tetris-speak-coordinates</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dtetris_002dspeak_002dcurrent_002dshape"
+          accesskey="5">emacspeak-tetris-speak-current-shape</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dtetris_002dspeak_002dcurrent_002dshape_002dand_002dcoordinates"
+          accesskey=
+          "6">emacspeak-tetris-speak-current-shape-and-coordinates</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dtetris_002dspeak_002dnext_002dshape"
+          accesskey="7">emacspeak-tetris-speak-next-shape</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dtetris_002dspeak_002drow"
+          accesskey="8">emacspeak-tetris-speak-row</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dtetris_002dspeak_002drow_002dnumber"
+          accesskey="9">emacspeak-tetris-speak-row-number</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dtetris_002dspeak_002dscore">emacspeak-tetris-speak-score</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dtetris_002dspeak_002dx_002dcoordinate">emacspeak-tetris-speak-x-coordinate</a>
+        </li>
       </ul>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dtetris_002dgoto_002dbottom_002drow">
         <h4 class="subsubsection">12.192.1.1
         emacspeak-tetris-goto-bottom-row</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dtetris_002dgoto_002dbottom_002drow">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-tetris-goto-bottom-row</strong>
-          <a href=
-          '#index-emacspeak_002dtetris_002dgoto_002dbottom_002drow'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-tetris-goto-bottom-row</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dtetris_002dgoto_002dbottom_002drow'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dtetris_002dgoto_002dbottom_002drow-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Move to and speak bottom row
+              <pre class=
+              "format-preformatted">Move to and speak bottom row
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dtetris_002dgoto_002dtop_002drow">
         <h4 class="subsubsection">12.192.1.2
         emacspeak-tetris-goto-top-row</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dtetris_002dgoto_002dtop_002drow">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-tetris-goto-top-row</strong>
-          <a href=
-          '#index-emacspeak_002dtetris_002dgoto_002dtop_002drow'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-tetris-goto-top-row</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dtetris_002dgoto_002dtop_002drow'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dtetris_002dgoto_002dtop_002drow-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Move to and speak the top row
+              <pre class=
+              "format-preformatted">Move to and speak the top row
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dtetris_002dspeak_002dcolumn">
         <h4 class="subsubsection">12.192.1.3
         emacspeak-tetris-speak-column</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dtetris_002dspeak_002dcolumn">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-tetris-speak-column</strong>
-          <em>(&amp;optional x)</em> <a href=
-          '#index-emacspeak_002dtetris_002dspeak_002dcolumn' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dtetris_002dspeak_002dcolumn">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-tetris-speak-column</strong>
+          <var class="def-var-arguments">(&amp;optional x)</var>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dtetris_002dspeak_002dcolumn'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dtetris_002dspeak_002dcolumn-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dtetris_002dspeak_002dcolumn-1"></a>
             <div class="format">
               <pre class=
-              "format">Speak  column –default is to speak current column
+              "format-preformatted">Speak  column –default is to speak current column
 
 (fn &amp;optional X)
 </pre>
@@ -179,181 +195,193 @@
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dtetris_002dspeak_002dcoordinates">
         <h4 class="subsubsection">12.192.1.4
         emacspeak-tetris-speak-coordinates</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dtetris_002dspeak_002dcoordinates">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-tetris-speak-coordinates</strong>
-          <a href=
-          '#index-emacspeak_002dtetris_002dspeak_002dcoordinates'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-tetris-speak-coordinates</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dtetris_002dspeak_002dcoordinates'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dtetris_002dspeak_002dcoordinates-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Speak current position
+              <pre class=
+              "format-preformatted">Speak current position
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dtetris_002dspeak_002dcurrent_002dshape">
         <h4 class="subsubsection">12.192.1.5
         emacspeak-tetris-speak-current-shape</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dtetris_002dspeak_002dcurrent_002dshape">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-tetris-speak-current-shape</strong>
-          <a href=
-          '#index-emacspeak_002dtetris_002dspeak_002dcurrent_002dshape'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-tetris-speak-current-shape</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dtetris_002dspeak_002dcurrent_002dshape'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dtetris_002dspeak_002dcurrent_002dshape-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Speak current shape
+              <pre class="format-preformatted">Speak current shape
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dtetris_002dspeak_002dcurrent_002dshape_002dand_002dcoordinates">
         <h4 class="subsubsection">12.192.1.6
         emacspeak-tetris-speak-current-shape-and-coordinates</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dtetris_002dspeak_002dcurrent_002dshape_002dand_002dcoordinates">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-tetris-speak-current-shape-and-coordinates</strong>
-          <a href=
-          '#index-emacspeak_002dtetris_002dspeak_002dcurrent_002dshape_002dand_002dcoordinates'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-tetris-speak-current-shape-and-coordinates</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dtetris_002dspeak_002dcurrent_002dshape_002dand_002dcoordinates'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dtetris_002dspeak_002dcurrent_002dshape_002dand_002dcoordinates-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Speak shape orientation and coordinates
+              "format-preformatted">Speak shape orientation and coordinates
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dtetris_002dspeak_002dnext_002dshape">
         <h4 class="subsubsection">12.192.1.7
         emacspeak-tetris-speak-next-shape</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dtetris_002dspeak_002dnext_002dshape">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-tetris-speak-next-shape</strong>
-          <a href=
-          '#index-emacspeak_002dtetris_002dspeak_002dnext_002dshape'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-tetris-speak-next-shape</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dtetris_002dspeak_002dnext_002dshape'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dtetris_002dspeak_002dnext_002dshape-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Speak next shape
+              <pre class="format-preformatted">Speak next shape
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dtetris_002dspeak_002drow">
         <h4 class="subsubsection">12.192.1.8
         emacspeak-tetris-speak-row</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dtetris_002dspeak_002drow">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-tetris-speak-row</strong>
-          <a href='#index-emacspeak_002dtetris_002dspeak_002drow'
-          class='copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dtetris_002dspeak_002drow">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-tetris-speak-row</strong> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dtetris_002dspeak_002drow'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dtetris_002dspeak_002drow-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dtetris_002dspeak_002drow-1"></a>
             <div class="format">
-              <pre class="format">Speak current tetris row
+              <pre class=
+              "format-preformatted">Speak current tetris row
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dtetris_002dspeak_002drow_002dnumber">
         <h4 class="subsubsection">12.192.1.9
         emacspeak-tetris-speak-row-number</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dtetris_002dspeak_002drow_002dnumber">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-tetris-speak-row-number</strong>
-          <a href=
-          '#index-emacspeak_002dtetris_002dspeak_002drow_002dnumber'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-tetris-speak-row-number</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dtetris_002dspeak_002drow_002dnumber'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dtetris_002dspeak_002drow_002dnumber-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Speak where on the tetris board we are
+              "format-preformatted">Speak where on the tetris board we are
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dtetris_002dspeak_002dscore">
         <h4 class="subsubsection">12.192.1.10
         emacspeak-tetris-speak-score</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dtetris_002dspeak_002dscore">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-tetris-speak-score</strong>
-          <a href='#index-emacspeak_002dtetris_002dspeak_002dscore'
-          class='copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dtetris_002dspeak_002dscore">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-tetris-speak-score</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dtetris_002dspeak_002dscore'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dtetris_002dspeak_002dscore-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dtetris_002dspeak_002dscore-1"></a>
             <div class="format">
-              <pre class="format">Speak the score
+              <pre class="format-preformatted">Speak the score
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dtetris_002dspeak_002dx_002dcoordinate">
         <h4 class="subsubsection">12.192.1.11
         emacspeak-tetris-speak-x-coordinate</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dtetris_002dspeak_002dx_002dcoordinate">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-tetris-speak-x-coordinate</strong>
-          <a href=
-          '#index-emacspeak_002dtetris_002dspeak_002dx_002dcoordinate'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-tetris-speak-x-coordinate</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dtetris_002dspeak_002dx_002dcoordinate'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dtetris_002dspeak_002dx_002dcoordinate-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Speak current position
+              <pre class=
+              "format-preformatted">Speak current position
 </pre>
             </div>
           </dd>
@@ -362,7 +390,7 @@
     </div>
   </div>
   <hr />
-  <div class="header">
+  <div class="nav-panel">
     <p>Next: <a href=
     "emacspeak_002dtexinfo.html">emacspeak-texinfo</a>, Previous:
     <a href="emacspeak_002dtempo.html">emacspeak-tempo</a>, Up:

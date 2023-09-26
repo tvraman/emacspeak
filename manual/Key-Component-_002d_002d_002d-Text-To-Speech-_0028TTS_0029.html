@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -33,21 +32,6 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
   -->
   /*]]>*/
   </style>
@@ -55,9 +39,9 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id=
+  <div class="section-level-extent" id=
   "Key-Component-_002d_002d_002d-Text-To-Speech-_0028TTS_0029">
-    <div class="header">
+    <div class="nav-panel">
       <p>Next: <a href="Emacspeak-And-Software-Development.html"
       accesskey="n" rel="next">Emacspeak And Software
       Development</a>, Previous: <a href=
@@ -70,10 +54,9 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id=
-    "Key-Component-_002d_002d_002d-Text-To-Speech-_0028TTS_0029-1"></span>
-    <h3 class="section">16.4 Key Component — Text To Speech
-    (TTS)</h3>
+    <h3 class="section" id=
+    "Key-Component-_002d_002d_002d-Text-To-Speech-_0028TTS_0029-1">
+    16.4 Key Component — Text To Speech (TTS)</h3>
     <p>Emacspeak is a speech-subsystem for Emacs; it depends on an
     external Text-To-Speech (TTS) engine to produce speech. In
     1994, Digital Equipment released what would turn out to be the
@@ -87,8 +70,8 @@
     the Emacspeak speech-server architecture.</p>
     <p>I went to IBM Research in 1999; this coincided with IBM
     releasing a version of the Eloquennce TTS engine on Linux under
-    the name <em>ViaVoice Outloud</em>. My colleague Jeffrey
-    Sorenson implemented an early version of the Emacspeak
+    the name <em class="emph">ViaVoice Outloud</em>. My colleague
+    Jeffrey Sorenson implemented an early version of the Emacspeak
     speech-server for this engine using the OSS API; I later
     updated it to use the ALSA library while on a flight back to
     SFO from Boston in 2001. That is still the TTS engine that is
@@ -99,23 +82,24 @@
     for a small price. Looking back across 20 years, the state of
     TTS on Linux in particular and across all platforms in general
     continues to be a disappointment; most of today’s newer TTS
-    engines are geared toward mainstream use-cases where
-    <em>naturalness</em> of the voice tends to supersede
+    engines are geared toward mainstream use-cases where <em class=
+    "emph">naturalness</em> of the voice tends to supersede
     intelligibility at higher speech-rates. Ironically, modern TTS
     engines also give applications far less control over the
-    generated output — as a case in point, I implemented <a href=
+    generated output — as a case in point, I implemented <a class=
+    "url" href=
     "http://www.cs.cornell.edu/home/raman/aster/demo.html">Audio
     System For Technical Readings (AsTeR)</a> in 1994 using the
-    DECTalk; 20 years later, we implemented <a href=
+    DECTalk; 20 years later, we implemented <a class="url" href=
     "http://allthingsd.com/20130604/t-v-ramans-audio-deja-vu-from-google-a-math-reading-system-for-the-web/">
-    MathML support</a> in <a href=
+    MathML support</a> in <a class="url" href=
     "http://www.chromevox.com/">ChromeVox</a> using Google TTS. In
     2013, it turned out to be difficult or impossible to implement
     the type of audio renderings that were possible with the
     admittedly less-natural sounding DECTalk!</p>
   </div>
   <hr />
-  <div class="header">
+  <div class="nav-panel">
     <p>Next: <a href=
     "Emacspeak-And-Software-Development.html">Emacspeak And
     Software Development</a>, Previous: <a href=

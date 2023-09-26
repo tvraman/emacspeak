@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -32,21 +31,10 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+  pre.format-preformatted {font-family: inherit}
+  span:hover a.copiable-link {visibility: visible}
+  strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
   -->
   /*]]>*/
   </style>
@@ -54,8 +42,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002dgomoku">
-    <div class="header">
+  <div class="section-level-extent" id="emacspeak_002dgomoku">
+    <div class="nav-panel">
       <p>Next: <a href="emacspeak_002dgoogle.html" accesskey="n"
       rel="next">emacspeak-google</a>, Previous: <a href=
       "emacspeak_002dgo_002dmode.html" accesskey="p" rel=
@@ -67,90 +55,115 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="emacspeak_002dgomoku-1"></span>
-    <h3 class="section">12.93 emacspeak-gomoku</h3>
+    <h3 class="section" id="emacspeak_002dgomoku-1">12.93
+    emacspeak-gomoku</h3>
     <p>Auditory interface to gomoku</p>
-    <ul class="section-toc">
-      <li><a href="#Emacspeak_002dGomoku-Commands" accesskey=
-      "1">Emacspeak-Gomoku Commands</a></li>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Emacspeak_002dGomoku-Commands" accesskey=
+        "1">Emacspeak-Gomoku Commands</a>
+      </li>
     </ul>
-    <div class="subsection" id="Emacspeak_002dGomoku-Commands">
+    <div class="subsection-level-extent" id=
+    "Emacspeak_002dGomoku-Commands">
       <h4 class="subsection">12.93.1 Emacspeak-Gomoku Commands</h4>
-      <ul class="section-toc">
-        <li><a href=
-        "#emacspeak_002dgomoku_002ddisplay_002dstatistics"
-        accesskey="1">emacspeak-gomoku-display-statistics</a></li>
-        <li><a href="#emacspeak_002dgomoku_002dgoto_002dx_002dy"
-        accesskey="2">emacspeak-gomoku-goto-x-y</a></li>
-        <li><a href=
-        "#emacspeak_002dgomoku_002dshow_002dcurrent_002dcolumn"
-        accesskey="3">emacspeak-gomoku-show-current-column</a></li>
-        <li><a href=
-        "#emacspeak_002dgomoku_002dshow_002dcurrent_002dnegative_002ddiagonal"
-        accesskey=
-        "4">emacspeak-gomoku-show-current-negative-diagonal</a></li>
-        <li><a href=
-        "#emacspeak_002dgomoku_002dshow_002dcurrent_002dpositive_002ddiagonal"
-        accesskey=
-        "5">emacspeak-gomoku-show-current-positive-diagonal</a></li>
-        <li><a href=
-        "#emacspeak_002dgomoku_002dshow_002dcurrent_002drow"
-        accesskey="6">emacspeak-gomoku-show-current-row</a></li>
-        <li><a href=
-        "#emacspeak_002dgomoku_002dspeak_002demacs_002dprevious_002dmove"
-        accesskey=
-        "7">emacspeak-gomoku-speak-emacs-previous-move</a></li>
-        <li><a href=
-        "#emacspeak_002dgomoku_002dspeak_002dhumans_002dprevious_002dmove"
-        accesskey=
-        "8">emacspeak-gomoku-speak-humans-previous-move</a></li>
-        <li><a href=
-        "#emacspeak_002dgomoku_002dspeak_002dnumber_002dof_002dmoves"
-        accesskey=
-        "9">emacspeak-gomoku-speak-number-of-moves</a></li>
-        <li><a href=
-        "#emacspeak_002dgomoku_002dspeak_002dsquare">emacspeak-gomoku-speak-square</a></li>
+      <ul class="mini-toc">
+        <li>
+          <a href=
+          "#emacspeak_002dgomoku_002ddisplay_002dstatistics"
+          accesskey="1">emacspeak-gomoku-display-statistics</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dgomoku_002dgoto_002dx_002dy"
+          accesskey="2">emacspeak-gomoku-goto-x-y</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dgomoku_002dshow_002dcurrent_002dcolumn"
+          accesskey="3">emacspeak-gomoku-show-current-column</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dgomoku_002dshow_002dcurrent_002dnegative_002ddiagonal"
+          accesskey=
+          "4">emacspeak-gomoku-show-current-negative-diagonal</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dgomoku_002dshow_002dcurrent_002dpositive_002ddiagonal"
+          accesskey=
+          "5">emacspeak-gomoku-show-current-positive-diagonal</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dgomoku_002dshow_002dcurrent_002drow"
+          accesskey="6">emacspeak-gomoku-show-current-row</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dgomoku_002dspeak_002demacs_002dprevious_002dmove"
+          accesskey=
+          "7">emacspeak-gomoku-speak-emacs-previous-move</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dgomoku_002dspeak_002dhumans_002dprevious_002dmove"
+          accesskey=
+          "8">emacspeak-gomoku-speak-humans-previous-move</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dgomoku_002dspeak_002dnumber_002dof_002dmoves"
+          accesskey="9">emacspeak-gomoku-speak-number-of-moves</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dgomoku_002dspeak_002dsquare">emacspeak-gomoku-speak-square</a>
+        </li>
       </ul>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dgomoku_002ddisplay_002dstatistics">
         <h4 class="subsubsection">12.93.1.1
         emacspeak-gomoku-display-statistics</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dgomoku_002ddisplay_002dstatistics">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-gomoku-display-statistics</strong>
-          <a href=
-          '#index-emacspeak_002dgomoku_002ddisplay_002dstatistics'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-gomoku-display-statistics</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dgomoku_002ddisplay_002dstatistics'>¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dgomoku_002ddisplay_002dstatistics-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Display statistics from previous games
+              "format-preformatted">Display statistics from previous games
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dgomoku_002dgoto_002dx_002dy">
         <h4 class="subsubsection">12.93.1.2
         emacspeak-gomoku-goto-x-y</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dgomoku_002dgoto_002dx_002dy">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-gomoku-goto-x-y</strong> <em>(x
-          y)</em> <a href=
-          '#index-emacspeak_002dgomoku_002dgoto_002dx_002dy' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dgomoku_002dgoto_002dx_002dy">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-gomoku-goto-x-y</strong> <var class=
+          "def-var-arguments">(x y)</var> <a class="copiable-link"
+          href=
+          '#index-emacspeak_002dgomoku_002dgoto_002dx_002dy'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dgomoku_002dgoto_002dx_002dy-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dgomoku_002dgoto_002dx_002dy-1"></a>
             <div class="format">
-              <pre class="format">Prompt for and go to that square.
+              <pre class=
+              "format-preformatted">Prompt for and go to that square.
 
 (fn X Y)
 </pre>
@@ -158,186 +171,199 @@
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dgomoku_002dshow_002dcurrent_002dcolumn">
         <h4 class="subsubsection">12.93.1.3
         emacspeak-gomoku-show-current-column</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dgomoku_002dshow_002dcurrent_002dcolumn">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-gomoku-show-current-column</strong>
-          <a href=
-          '#index-emacspeak_002dgomoku_002dshow_002dcurrent_002dcolumn'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-gomoku-show-current-column</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dgomoku_002dshow_002dcurrent_002dcolumn'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dgomoku_002dshow_002dcurrent_002dcolumn-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Aurally display current column
+              <pre class=
+              "format-preformatted">Aurally display current column
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dgomoku_002dshow_002dcurrent_002dnegative_002ddiagonal">
         <h4 class="subsubsection">12.93.1.4
         emacspeak-gomoku-show-current-negative-diagonal</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dgomoku_002dshow_002dcurrent_002dnegative_002ddiagonal">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-gomoku-show-current-negative-diagonal</strong>
-          <a href=
-          '#index-emacspeak_002dgomoku_002dshow_002dcurrent_002dnegative_002ddiagonal'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-gomoku-show-current-negative-diagonal</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dgomoku_002dshow_002dcurrent_002dnegative_002ddiagonal'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dgomoku_002dshow_002dcurrent_002dnegative_002ddiagonal-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Aurally display current negative sloped diagonal 
+              "format-preformatted">Aurally display current negative sloped diagonal 
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dgomoku_002dshow_002dcurrent_002dpositive_002ddiagonal">
         <h4 class="subsubsection">12.93.1.5
         emacspeak-gomoku-show-current-positive-diagonal</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dgomoku_002dshow_002dcurrent_002dpositive_002ddiagonal">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-gomoku-show-current-positive-diagonal</strong>
-          <a href=
-          '#index-emacspeak_002dgomoku_002dshow_002dcurrent_002dpositive_002ddiagonal'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-gomoku-show-current-positive-diagonal</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dgomoku_002dshow_002dcurrent_002dpositive_002ddiagonal'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dgomoku_002dshow_002dcurrent_002dpositive_002ddiagonal-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Aurally display current positively sloped diagonal
+              "format-preformatted">Aurally display current positively sloped diagonal
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dgomoku_002dshow_002dcurrent_002drow">
         <h4 class="subsubsection">12.93.1.6
         emacspeak-gomoku-show-current-row</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dgomoku_002dshow_002dcurrent_002drow">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-gomoku-show-current-row</strong>
-          <a href=
-          '#index-emacspeak_002dgomoku_002dshow_002dcurrent_002drow'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-gomoku-show-current-row</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dgomoku_002dshow_002dcurrent_002drow'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dgomoku_002dshow_002dcurrent_002drow-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Aurally display current row
+              <pre class=
+              "format-preformatted">Aurally display current row
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dgomoku_002dspeak_002demacs_002dprevious_002dmove">
         <h4 class="subsubsection">12.93.1.7
         emacspeak-gomoku-speak-emacs-previous-move</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dgomoku_002dspeak_002demacs_002dprevious_002dmove">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-gomoku-speak-emacs-previous-move</strong>
-          <a href=
-          '#index-emacspeak_002dgomoku_002dspeak_002demacs_002dprevious_002dmove'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-gomoku-speak-emacs-previous-move</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dgomoku_002dspeak_002demacs_002dprevious_002dmove'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dgomoku_002dspeak_002demacs_002dprevious_002dmove-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Speak emacs’ previous move
+              <pre class=
+              "format-preformatted">Speak emacs’ previous move
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dgomoku_002dspeak_002dhumans_002dprevious_002dmove">
         <h4 class="subsubsection">12.93.1.8
         emacspeak-gomoku-speak-humans-previous-move</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dgomoku_002dspeak_002dhumans_002dprevious_002dmove">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-gomoku-speak-humans-previous-move</strong>
-          <a href=
-          '#index-emacspeak_002dgomoku_002dspeak_002dhumans_002dprevious_002dmove'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-gomoku-speak-humans-previous-move</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dgomoku_002dspeak_002dhumans_002dprevious_002dmove'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dgomoku_002dspeak_002dhumans_002dprevious_002dmove-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Speak human’ previous move
+              <pre class=
+              "format-preformatted">Speak human’ previous move
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dgomoku_002dspeak_002dnumber_002dof_002dmoves">
         <h4 class="subsubsection">12.93.1.9
         emacspeak-gomoku-speak-number-of-moves</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dgomoku_002dspeak_002dnumber_002dof_002dmoves">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-gomoku-speak-number-of-moves</strong>
-          <a href=
-          '#index-emacspeak_002dgomoku_002dspeak_002dnumber_002dof_002dmoves'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-gomoku-speak-number-of-moves</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dgomoku_002dspeak_002dnumber_002dof_002dmoves'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dgomoku_002dspeak_002dnumber_002dof_002dmoves-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Speak number of moves so far
+              <pre class=
+              "format-preformatted">Speak number of moves so far
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dgomoku_002dspeak_002dsquare">
         <h4 class="subsubsection">12.93.1.10
         emacspeak-gomoku-speak-square</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dgomoku_002dspeak_002dsquare">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-gomoku-speak-square</strong>
-          <a href=
-          '#index-emacspeak_002dgomoku_002dspeak_002dsquare' class=
-          'copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dgomoku_002dspeak_002dsquare">
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-gomoku-speak-square</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dgomoku_002dspeak_002dsquare'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dgomoku_002dspeak_002dsquare-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dgomoku_002dspeak_002dsquare-1"></a>
             <div class="format">
               <pre class=
-              "format">Speak coordinates and state of square at point
+              "format-preformatted">Speak coordinates and state of square at point
 </pre>
             </div>
           </dd>
@@ -346,7 +372,7 @@
     </div>
   </div>
   <hr />
-  <div class="header">
+  <div class="nav-panel">
     <p>Next: <a href=
     "emacspeak_002dgoogle.html">emacspeak-google</a>, Previous:
     <a href="emacspeak_002dgo_002dmode.html">emacspeak-go-mode</a>,

@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -32,21 +31,11 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
-  a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-  a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  kbd {font-style: oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
-  span:hover a.copiable-anchor {visibility: visible}
-  ul.no-bullet {list-style: none}
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+  kbd.kbd {font-style: oblique}
+  pre.format-preformatted {font-family: inherit}
+  span:hover a.copiable-link {visibility: visible}
+  strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
   -->
   /*]]>*/
   </style>
@@ -54,8 +43,8 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <div class="section" id="emacspeak_002dpronounce">
-    <div class="header">
+  <div class="section-level-extent" id="emacspeak_002dpronounce">
+    <div class="nav-panel">
       <p>Next: <a href="emacspeak_002dpy.html" accesskey="n" rel=
       "next">emacspeak-py</a>, Previous: <a href=
       "emacspeak_002dprojectile.html" accesskey="p" rel=
@@ -67,8 +56,8 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <span id="emacspeak_002dpronounce-1"></span>
-    <h3 class="section">12.151 emacspeak-pronounce</h3>
+    <h3 class="section" id="emacspeak_002dpronounce-1">12.151
+    emacspeak-pronounce</h3>
     <p>This module implements user customizable pronunciation
     dictionaries for emacspeak. Custom pronunciations can be
     defined per file, per directory and/or per major mode.
@@ -77,15 +66,20 @@
     implements the user interface to the custom dictionary as well
     as providing the internal API used by the rest of emacspeak in
     using the dictionary.</p>
-    <ul class="section-toc">
-      <li><a href="#Algorithm_003a" accesskey=
-      "1">Algorithm:</a></li>
-      <li><a href="#Emacspeak_002dPronounce-Commands" accesskey=
-      "2">Emacspeak-Pronounce Commands</a></li>
-      <li><a href="#emacspeak_002dpronounce-Options" accesskey=
-      "3">emacspeak-pronounce Options</a></li>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Algorithm_003a" accesskey="1">Algorithm:</a>
+      </li>
+      <li>
+        <a href="#Emacspeak_002dPronounce-Commands" accesskey=
+        "2">Emacspeak-Pronounce Commands</a>
+      </li>
+      <li>
+        <a href="#emacspeak_002dpronounce-Options" accesskey=
+        "3">emacspeak-pronounce Options</a>
+      </li>
     </ul>
-    <div class="subsection" id="Algorithm_003a">
+    <div class="subsection-level-extent" id="Algorithm_003a">
       <h4 class="subsection">12.151.1 Algorithm:</h4>
       <p>The persistent dictionary is a hash table where the hash
       keys are filenames, directory names, or major-mode names. The
@@ -93,95 +87,119 @@
       Users of this module can retrieve a dictionary made up of all
       applicable association lists for a given file.</p>
     </div>
-    <div class="subsection" id="Emacspeak_002dPronounce-Commands">
+    <div class="subsection-level-extent" id=
+    "Emacspeak_002dPronounce-Commands">
       <h4 class="subsection">12.151.2 Emacspeak-Pronounce
       Commands</h4>
-      <ul class="section-toc">
-        <li><a href=
-        "#emacspeak_002dpronounce_002dclear_002ddictionaries"
-        accesskey=
-        "1">emacspeak-pronounce-clear-dictionaries</a></li>
-        <li><a href=
-        "#emacspeak_002dpronounce_002ddefine_002dlocal_002dpronunciation"
-        accesskey=
-        "2">emacspeak-pronounce-define-local-pronunciation</a></li>
-        <li><a href=
-        "#emacspeak_002dpronounce_002ddefine_002dpronunciation"
-        accesskey=
-        "3">emacspeak-pronounce-define-pronunciation</a></li>
-        <li><a href=
-        "#emacspeak_002dpronounce_002ddefine_002dtemplate_002dpronunciation"
-        accesskey=
-        "4">emacspeak-pronounce-define-template-pronunciation</a></li>
-        <li><a href="#emacspeak_002dpronounce_002ddispatch"
-        accesskey="5">emacspeak-pronounce-dispatch</a></li>
-        <li><a href=
-        "#emacspeak_002dpronounce_002dedit_002dpronunciations"
-        accesskey=
-        "6">emacspeak-pronounce-edit-pronunciations</a></li>
-        <li><a href=
-        "#emacspeak_002dpronounce_002dload_002ddictionaries"
-        accesskey=
-        "7">emacspeak-pronounce-load-dictionaries</a></li>
-        <li><a href=
-        "#emacspeak_002dpronounce_002dmerge_002ddictionaries"
-        accesskey=
-        "8">emacspeak-pronounce-merge-dictionaries</a></li>
-        <li><a href=
-        "#emacspeak_002dpronounce_002drefresh_002dpronunciations"
-        accesskey=
-        "9">emacspeak-pronounce-refresh-pronunciations</a></li>
-        <li><a href=
-        "#emacspeak_002dpronounce_002dsave_002ddictionaries">emacspeak-pronounce-save-dictionaries</a></li>
-        <li><a href=
-        "#emacspeak_002dpronounce_002dtoggle_002duse_002dof_002ddictionaries">
-        emacspeak-pronounce-toggle-use-of-dictionaries</a></li>
-        <li><a href=
-        "#emacspeak_002dpronounce_002dtoggle_002dvoice">emacspeak-pronounce-toggle-voice</a></li>
+      <ul class="mini-toc">
+        <li>
+          <a href=
+          "#emacspeak_002dpronounce_002dclear_002ddictionaries"
+          accesskey="1">emacspeak-pronounce-clear-dictionaries</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dpronounce_002ddefine_002dlocal_002dpronunciation"
+          accesskey=
+          "2">emacspeak-pronounce-define-local-pronunciation</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dpronounce_002ddefine_002dpronunciation"
+          accesskey=
+          "3">emacspeak-pronounce-define-pronunciation</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dpronounce_002ddefine_002dtemplate_002dpronunciation"
+          accesskey=
+          "4">emacspeak-pronounce-define-template-pronunciation</a>
+        </li>
+        <li>
+          <a href="#emacspeak_002dpronounce_002ddispatch"
+          accesskey="5">emacspeak-pronounce-dispatch</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dpronounce_002dedit_002dpronunciations"
+          accesskey="6">emacspeak-pronounce-edit-pronunciations</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dpronounce_002dload_002ddictionaries"
+          accesskey="7">emacspeak-pronounce-load-dictionaries</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dpronounce_002dmerge_002ddictionaries"
+          accesskey="8">emacspeak-pronounce-merge-dictionaries</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dpronounce_002drefresh_002dpronunciations"
+          accesskey=
+          "9">emacspeak-pronounce-refresh-pronunciations</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dpronounce_002dsave_002ddictionaries">emacspeak-pronounce-save-dictionaries</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dpronounce_002dtoggle_002duse_002dof_002ddictionaries">
+          emacspeak-pronounce-toggle-use-of-dictionaries</a>
+        </li>
+        <li>
+          <a href=
+          "#emacspeak_002dpronounce_002dtoggle_002dvoice">emacspeak-pronounce-toggle-voice</a>
+        </li>
       </ul>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dpronounce_002dclear_002ddictionaries">
         <h4 class="subsubsection">12.151.2.1
         emacspeak-pronounce-clear-dictionaries</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dpronounce_002dclear_002ddictionaries">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-pronounce-clear-dictionaries</strong>
-          <a href=
-          '#index-emacspeak_002dpronounce_002dclear_002ddictionaries'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-pronounce-clear-dictionaries</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dpronounce_002dclear_002ddictionaries'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dpronounce_002dclear_002ddictionaries-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Clear all current pronunciation dictionaries.
+              "format-preformatted">Clear all current pronunciation dictionaries.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dpronounce_002ddefine_002dlocal_002dpronunciation">
         <h4 class="subsubsection">12.151.2.2
         emacspeak-pronounce-define-local-pronunciation</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dpronounce_002ddefine_002dlocal_002dpronunciation">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-pronounce-define-local-pronunciation</strong>
-          <em>(word pron)</em> <a href=
-          '#index-emacspeak_002dpronounce_002ddefine_002dlocal_002dpronunciation'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-pronounce-define-local-pronunciation</strong>
+          <var class="def-var-arguments">(word pron)</var>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dpronounce_002ddefine_002dlocal_002dpronunciation'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dpronounce_002ddefine_002dlocal_002dpronunciation-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Define buffer local pronunciation.
+              "format-preformatted">Define buffer local pronunciation.
 Argument ‘word’ specified the word to be pronounced.
 Argument ‘pron’ specifies the new pronunciation. 
 
@@ -191,25 +209,26 @@ Argument ‘pron’ specifies the new pronunciation.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dpronounce_002ddefine_002dpronunciation">
         <h4 class="subsubsection">12.151.2.3
         emacspeak-pronounce-define-pronunciation</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dpronounce_002ddefine_002dpronunciation">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-pronounce-define-pronunciation</strong>
-          <a href=
-          '#index-emacspeak_002dpronounce_002ddefine_002dpronunciation'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-pronounce-define-pronunciation</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dpronounce_002ddefine_002dpronunciation'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dpronounce_002ddefine_002dpronunciation-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Interactively define entries in the pronunciation dictionaries.
+              "format-preformatted">Interactively define entries in the pronunciation dictionaries.
 Default term to define is delimited by region.
 First loads any persistent dictionaries if not already loaded.
 </pre>
@@ -217,25 +236,26 @@ First loads any persistent dictionaries if not already loaded.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dpronounce_002ddefine_002dtemplate_002dpronunciation">
         <h4 class="subsubsection">12.151.2.4
         emacspeak-pronounce-define-template-pronunciation</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dpronounce_002ddefine_002dtemplate_002dpronunciation">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-pronounce-define-template-pronunciation</strong>
-          <a href=
-          '#index-emacspeak_002dpronounce_002ddefine_002dtemplate_002dpronunciation'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-pronounce-define-template-pronunciation</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dpronounce_002ddefine_002dtemplate_002dpronunciation'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dpronounce_002ddefine_002dtemplate_002dpronunciation-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Interactively define template entries in the pronunciation dictionaries.
+              "format-preformatted">Interactively define template entries in the pronunciation dictionaries.
 Default term to define is delimited by region.
 First loads any persistent dictionaries if not already loaded.
 </pre>
@@ -243,53 +263,55 @@ First loads any persistent dictionaries if not already loaded.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dpronounce_002ddispatch">
         <h4 class="subsubsection">12.151.2.5
         emacspeak-pronounce-dispatch</h4>
-        <dl class="def">
-          <dt id="index-emacspeak_002dpronounce_002ddispatch">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-pronounce-dispatch</strong>
-          <a href='#index-emacspeak_002dpronounce_002ddispatch'
-          class='copiable-anchor'>¶</a></span></dt>
+        <dl class="first-deffn">
+          <dt class="deffn" id=
+          "index-emacspeak_002dpronounce_002ddispatch"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-pronounce-dispatch</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dpronounce_002ddispatch'>¶</a></span></dt>
           <dd>
-            <dl compact="compact">
-              <dt id='index-C_002de-M_002dd'><span><kbd>C-e
-              M-d</kbd> <a href='#index-C_002de-M_002dd' class=
-              'copiable-anchor'>¶</a></span></dt>
-              <dt id='index-_003cfn_003e-M_002dd'>
-              <span><kbd>&lt;fn&gt; M-d</kbd> <a href=
-              '#index-_003cfn_003e-M_002dd' class=
-              'copiable-anchor'>¶</a></span></dt>
-            </dl><span id=
-            "index-emacspeak_002dpronounce_002ddispatch-1"></span>
+            <dl class="table">
+              <dt id='index-C_002de-M_002dd'><span><kbd class=
+              "kbd">C-e M-d</kbd> <a class="copiable-link" href=
+              '#index-C_002de-M_002dd'>¶</a></span></dt>
+              <dt id='index-_003cfn_003e-M_002dd'><span><kbd class=
+              "kbd">&lt;fn&gt; M-d</kbd> <a class="copiable-link"
+              href='#index-_003cfn_003e-M_002dd'>¶</a></span></dt>
+            </dl><a class="index-entry-id" id=
+            "index-emacspeak_002dpronounce_002ddispatch-1"></a>
             <div class="format">
-              <pre class="format">Pronounce Frontend
+              <pre class="format-preformatted">Pronounce Frontend
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dpronounce_002dedit_002dpronunciations">
         <h4 class="subsubsection">12.151.2.6
         emacspeak-pronounce-edit-pronunciations</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dpronounce_002dedit_002dpronunciations">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-pronounce-edit-pronunciations</strong>
-          <em>(key)</em> <a href=
-          '#index-emacspeak_002dpronounce_002dedit_002dpronunciations'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-pronounce-edit-pronunciations</strong>
+          <var class="def-var-arguments">(key)</var> <a class=
+          "copiable-link" href=
+          '#index-emacspeak_002dpronounce_002dedit_002dpronunciations'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dpronounce_002dedit_002dpronunciations-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Prompt for and launch a pronunciation editor on the
+              "format-preformatted">Prompt for and launch a pronunciation editor on the
 specified pronunciation dictionary key.
 
 (fn KEY)
@@ -298,24 +320,27 @@ specified pronunciation dictionary key.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dpronounce_002dload_002ddictionaries">
         <h4 class="subsubsection">12.151.2.7
         emacspeak-pronounce-load-dictionaries</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dpronounce_002dload_002ddictionaries">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-pronounce-load-dictionaries</strong>
-          <em>(&amp;optional filename)</em> <a href=
-          '#index-emacspeak_002dpronounce_002dload_002ddictionaries'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-pronounce-load-dictionaries</strong>
+          <var class="def-var-arguments">(&amp;optional
+          filename)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002dpronounce_002dload_002ddictionaries'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dpronounce_002dload_002ddictionaries-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Load pronunciation dictionaries.
+              <pre class=
+              "format-preformatted">Load pronunciation dictionaries.
 Optional argument FILENAME specifies the dictionary file,
 Default is emacspeak-pronounce-dictionaries-file.
 
@@ -325,24 +350,27 @@ Default is emacspeak-pronounce-dictionaries-file.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dpronounce_002dmerge_002ddictionaries">
         <h4 class="subsubsection">12.151.2.8
         emacspeak-pronounce-merge-dictionaries</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dpronounce_002dmerge_002ddictionaries">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-pronounce-merge-dictionaries</strong>
-          <em>(from into)</em> <a href=
-          '#index-emacspeak_002dpronounce_002dmerge_002ddictionaries'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-pronounce-merge-dictionaries</strong>
+          <var class="def-var-arguments">(from into)</var>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dpronounce_002dmerge_002ddictionaries'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dpronounce_002dmerge_002ddictionaries-1">
-            </span>
+            </a>
             <div class="format">
-              <pre class="format">Merge dic ‘from’ into dict ‘into’
+              <pre class=
+              "format-preformatted">Merge dic ‘from’ into dict ‘into’
 
 (fn FROM INTO)
 </pre>
@@ -350,73 +378,77 @@ Default is emacspeak-pronounce-dictionaries-file.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dpronounce_002drefresh_002dpronunciations">
         <h4 class="subsubsection">12.151.2.9
         emacspeak-pronounce-refresh-pronunciations</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dpronounce_002drefresh_002dpronunciations">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-pronounce-refresh-pronunciations</strong>
-          <a href=
-          '#index-emacspeak_002dpronounce_002drefresh_002dpronunciations'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-pronounce-refresh-pronunciations</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dpronounce_002drefresh_002dpronunciations'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dpronounce_002drefresh_002dpronunciations-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Refresh pronunciation table for current buffer. 
+              "format-preformatted">Refresh pronunciation table for current buffer. 
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dpronounce_002dsave_002ddictionaries">
         <h4 class="subsubsection">12.151.2.10
         emacspeak-pronounce-save-dictionaries</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dpronounce_002dsave_002ddictionaries">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-pronounce-save-dictionaries</strong>
-          <a href=
-          '#index-emacspeak_002dpronounce_002dsave_002ddictionaries'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-pronounce-save-dictionaries</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dpronounce_002dsave_002ddictionaries'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dpronounce_002dsave_002ddictionaries-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Saves  pronunciation dictionaries.
+              "format-preformatted">Saves  pronunciation dictionaries.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dpronounce_002dtoggle_002duse_002dof_002ddictionaries">
         <h4 class="subsubsection">12.151.2.11
         emacspeak-pronounce-toggle-use-of-dictionaries</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dpronounce_002dtoggle_002duse_002dof_002ddictionaries">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-pronounce-toggle-use-of-dictionaries</strong>
-          <em>(&amp;optional state)</em> <a href=
-          '#index-emacspeak_002dpronounce_002dtoggle_002duse_002dof_002ddictionaries'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-pronounce-toggle-use-of-dictionaries</strong>
+          <var class="def-var-arguments">(&amp;optional
+          state)</var> <a class="copiable-link" href=
+          '#index-emacspeak_002dpronounce_002dtoggle_002duse_002dof_002ddictionaries'>
+          ¶</a></span></dt>
           <dd>
-            <span id=
+            <a class="index-entry-id" id=
             "index-emacspeak_002dpronounce_002dtoggle_002duse_002dof_002ddictionaries-1">
-            </span>
+            </a>
             <div class="format">
               <pre class=
-              "format">Toggle  pronunciation dictionaries. 
+              "format-preformatted">Toggle  pronunciation dictionaries. 
 
 (fn &amp;optional STATE)
 </pre>
@@ -424,40 +456,42 @@ Default is emacspeak-pronounce-dictionaries-file.
           </dd>
         </dl>
       </div>
-      <div class="subsubsection" id=
+      <div class="subsubsection-level-extent" id=
       "emacspeak_002dpronounce_002dtoggle_002dvoice">
         <h4 class="subsubsection">12.151.2.12
         emacspeak-pronounce-toggle-voice</h4>
-        <dl class="def">
-          <dt id=
+        <dl class="first-deffn">
+          <dt class="deffn" id=
           "index-emacspeak_002dpronounce_002dtoggle_002dvoice">
-          <span class="category">Command:</span>
-          <span><strong>emacspeak-pronounce-toggle-voice</strong>
-          <a href=
-          '#index-emacspeak_002dpronounce_002dtoggle_002dvoice'
-          class='copiable-anchor'>¶</a></span></dt>
+          <span class="category-def">Command:</span>
+          <span><strong class=
+          "def-name">emacspeak-pronounce-toggle-voice</strong>
+          <a class="copiable-link" href=
+          '#index-emacspeak_002dpronounce_002dtoggle_002dvoice'>¶</a></span></dt>
           <dd>
-            <span id=
-            "index-emacspeak_002dpronounce_002dtoggle_002dvoice-1"></span>
+            <a class="index-entry-id" id=
+            "index-emacspeak_002dpronounce_002dtoggle_002dvoice-1"></a>
             <div class="format">
               <pre class=
-              "format">Toggle use of pronunciation personality.
+              "format-preformatted">Toggle use of pronunciation personality.
 </pre>
             </div>
           </dd>
         </dl>
       </div>
     </div>
-    <div class="subsection" id="emacspeak_002dpronounce-Options">
+    <div class="subsection-level-extent" id=
+    "emacspeak_002dpronounce-Options">
       <h4 class="subsection">12.151.3 emacspeak-pronounce
       Options</h4>
-      <dl class="def">
-        <dt id="index-User-Option-76"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong>
-        <em>emacspeak-pronounce-dictionaries-file</em> <a href=
-        '#index-User-Option-76' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-76"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">emacspeak-pronounce-dictionaries-file</var>
+        <a class="copiable-link" href=
+        '#index-User-Option-76'>¶</a></span></dt>
         <dd>
           <p>File that holds emacspeak pronunciations.</p>
           <p>Default Value:</p>
@@ -467,13 +501,14 @@ Default is emacspeak-pronounce-dictionaries-file.
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-77"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong>
-        <em>emacspeak-pronounce-internet-smileys-pronunciations</em>
-        <a href='#index-User-Option-77' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-77"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">emacspeak-pronounce-internet-smileys-pronunciations</var>
+        <a class="copiable-link" href=
+        '#index-User-Option-77'>¶</a></span></dt>
         <dd>
           <p>Smileys</p>
           <p>Default Value:</p>
@@ -492,12 +527,14 @@ Default is emacspeak-pronounce-dictionaries-file.
 </pre>
         </dd>
       </dl>
-      <dl class="def">
-        <dt id="index-User-Option-78"><span class=
-        "category">Variable:</span> <span><strong>User
-        Option</strong> <em>emacspeak-pronounce-xml-ns</em>
-        <a href='#index-User-Option-78' class=
-        'copiable-anchor'>¶</a></span></dt>
+      <dl class="first-defvr first-defvar-alias-first-defvr">
+        <dt class="defvr defvar-alias-defvr" id=
+        "index-User-Option-78"><span class=
+        "category-def">Variable:</span> <span><strong class=
+        "def-name">User Option</strong> <var class=
+        "def-var-arguments">emacspeak-pronounce-xml-ns</var>
+        <a class="copiable-link" href=
+        '#index-User-Option-78'>¶</a></span></dt>
         <dd>
           <p>Namespace URIs.</p>
           <p>Default Value:</p>
@@ -522,7 +559,7 @@ Default is emacspeak-pronounce-dictionaries-file.
     </div>
   </div>
   <hr />
-  <div class="header">
+  <div class="nav-panel">
     <p>Next: <a href="emacspeak_002dpy.html">emacspeak-py</a>,
     Previous: <a href=
     "emacspeak_002dprojectile.html">emacspeak-projectile</a>, Up:
