@@ -36,6 +36,177 @@
   <openSearch:itemsPerPage>1000
   </openSearch:itemsPerPage>
   <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-6579863282797038134</id><published>
+      2023-09-26T08:34:00.002-07:00
+    </published>
+    <updated>2023-09-26T08:34:57.115-07:00</updated><title type='text'>
+      Together: The Old And New Work Much Better!
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;
+      class=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Together: The Old And New Are 
+      Much Better!&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-org589c8be&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org589c8be&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1.&lt;/span&gt; Executive
+      Summary&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      Emacs has had long-standing features like
+      &lt;code&gt;outline-mode&lt;/code&gt; and
+      &lt;code&gt;outline-minor-mode&lt;/code&gt; that often get forgotten
+      in the face of newer
+      affordances like &lt;code&gt;org-mode&lt;/code&gt;. At the same
+      time, Emacs continues to
+      acquire new features &amp;#x2014; in this article, I am specifically
+      alluding
+      to &lt;code&gt;repeat-mode&lt;/code&gt;. The combinatorial explosion
+      that is the result of
+      the various ways of bringing these together is mind-boggling
+      &amp;#x2014; and
+      often the result is that one fails to take advantage of what has
+      become possible. The result is that one ends up sticking to
+      one&#39;slong-established habits at the risk of failing to
+      significantly
+      enhance one&#39;s productivity.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgaac66c5&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgaac66c5&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2.&lt;/span&gt;
+      Background&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;Structured navigation is a significant productivity
+      enhancer &amp;#x2014;
+      especially in my case since I rely exclusively on an auditory
+      interface.&lt;/li&gt;
+      &lt;li&gt;The above applies to both textual documents and
+      programming source.&lt;/li&gt;
+      &lt;li&gt;Starting all the way back in 1991, I started using
+      &lt;code&gt;folding-mode&lt;/code&gt;
+      to organize code into hierarchical containers that could be
+      expanded and collapsed; and this is what makes Emacs&#39; eco-system
+      amazing; &lt;code&gt;folding-mode&lt;/code&gt; still works and is
+      available on melpa in 2023.&lt;/li&gt;
+      &lt;li&gt;About a year ago one of the Emacs maintainers (Stefan
+      Mounier)
+      helped me update portions of Emacspeak, and in the process pointed
+      out that I could just use
+      &lt;code&gt;outline-minor-mode&lt;/code&gt; to expand and
+      collapse sections of  code in &lt;code&gt;.el&lt;/code&gt;
+      files.&lt;/li&gt;
+      &lt;li&gt;At the time I filed this away for &lt;i&gt;later
+      use&lt;/i&gt; &amp;#x2014; I was still
+      reluctant to  abandon the 30+ year investment in
+      &lt;code&gt;folding-mode&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;About a year ago, I discovered
+      &lt;code&gt;repeat-mode&lt;/code&gt; in Emacs and started
+      leveraging it for everything &amp;#x2014; including
+      &lt;code&gt;outline-mode&lt;/code&gt; and
+      &lt;code&gt;org-mode&lt;/code&gt; amongst others.&lt;/li&gt;
+      &lt;li&gt;Despite the years of investment in
+      &lt;code&gt;folding-mode&lt;/code&gt;, it had one
+      drawback; keeping the &lt;i&gt;fold-marks&lt;/i&gt; (special
+      comments) in sync was
+      always a bit of a hastle.
+      
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;&lt;p&gt;
+      Bringing The Old And New Together
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      This week I brought all of the above context together to:
+      &lt;/p&gt;&lt;/li&gt;
+      &lt;/ul&gt;&lt;/li&gt;
+      
+      &lt;li&gt;Cut over the Emacspeak codebase to stop using
+      &lt;code&gt;folding-mode&lt;/code&gt;.&lt;/li&gt;
+      
+      &lt;li&gt;Turning the &lt;span
+      class=&quot;underline&quot;&gt;fold-marks&lt;/span&gt; to comments
+      that &lt;code&gt;outline-minor-mode&lt;/code&gt;
+      understood  was a trivial application of my &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/etc/typo.pl#L1&quot;&gt;typo.pl&lt;/a&gt;Perl script.&lt;/li&gt;
+      
+      &lt;li&gt;I had already set up Emacspeak to use
+      &lt;code&gt;repeat-mode&lt;/code&gt; for the
+      various outline modes.&lt;/li&gt;
+      
+      &lt;li&gt;Another annoyance with &lt;code&gt;outline&lt;/code&gt;
+      that I had fixed over 20+ years
+      ago was to pick an easier to press prefix-key for
+      &lt;code&gt;outline&lt;/code&gt;; I use
+      &lt;span class=&quot;underline&quot;&gt;C-o&lt;/span&gt;.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org925e227&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org925e227&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3.&lt;/span&gt; The Resulting
+      Experience&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;I can now skim the Emacspeak sources (as well as the Emacs
+      sources of course) with very few keystrokes.&lt;/li&gt;
+      &lt;li&gt;Example: Pressing &lt;span
+      class=&quot;underline&quot;&gt;C-o C-n&lt;/span&gt; navigates by
+      section headings; when
+      skimming, I only need to press &lt;span
+      class=&quot;underline&quot;&gt;C-o&lt;/span&gt; the first time
+      thanks to
+      &lt;code&gt;repeat-mode&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;I also bound &lt;span
+      class=&quot;underline&quot;&gt;j&lt;/span&gt; and &lt;span
+      class=&quot;underline&quot;&gt;k&lt;/span&gt; in  the outline-mode
+      keymaps to avoid
+      having to chord when skimming &amp;#x2014; &lt;span
+      class=&quot;underline&quot;&gt;j&lt;/span&gt; is easier to press
+      than &lt;span
+      class=&quot;underline&quot;&gt;C-n&lt;/span&gt;.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org44a3e17&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org44a3e17&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;4.&lt;/span&gt; For The
+      Future&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;Would be nice to enhance
+      &lt;code&gt;outline-minor-mode&lt;/code&gt; to understand
+      sectioning comments in other programming languages.
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;The annoyance with the default (and unusable) prefix key
+      for the
+      outline modes needs to fix in Emacs core.&lt;/li&gt;
+      &lt;/ul&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/6579863282797038134'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/6579863282797038134'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2023/09/together-old-and-new-work-much-better.html' title='Together: The Old And New Work Much Better!'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
     <id>tag:blogger.com,1999:blog-20280042.post-7816169749967643501</id><published>
       2023-09-16T10:08:00.000-07:00
     </published>
