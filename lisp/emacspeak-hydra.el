@@ -73,7 +73,7 @@
   "Provide auditory icon"
   (when name (dtk-speak name))
   (emacspeak-auditory-icon 'open-object))
-
+;;;###autoload
 (defun emacspeak-hydra-pre ()
   "Provide auditory icon"
   (emacspeak-auditory-icon 'progress))
@@ -93,7 +93,7 @@
    hydra-head-format "%s "
    hydra-hint-display-type nil
    hydra-hint-display-type #'message))
-
+;;;###autoload
 (defun emacspeak-hydra-self-help (name)
   "Speak hint for specified Hydra."
   (message (eval (symbol-value (intern (format "%s/hint" name))))))
