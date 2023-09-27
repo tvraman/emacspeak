@@ -516,14 +516,15 @@
 
 (defvar emacspeak-eww-url-at-point
   #'(lambda ()
-      (let ((url (shr-url-at-point nil)))
-        (cond
-         ((and url ;;; google  Result
-               (stringp url)
-               (string-prefix-p (emacspeak-google-result-url-prefix) url))
-          (emacspeak-google-canonicalize-result-url url))
-         ((and url (stringp url))url)
-         (t (error "No URL under point.")))))
+      (ems-with-messages-silenced
+        (let ((url (shr-url-at-point nil)))
+          (cond
+           ((and url ;;; google  Result
+                 (stringp url)
+                 (string-prefix-p (emacspeak-google-result-url-prefix) url))
+            (emacspeak-google-canonicalize-result-url url))
+           ((and url (stringp url))url)
+           (t (error "No URL under point."))))))
   "EWW Url At point that also handle google specialities.")
 
 (add-hook
