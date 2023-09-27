@@ -1468,6 +1468,20 @@ Interactive prefix arg speaks buffer info."
                (format-mode-line mode-name)) 'personality voice-animate)
              global-info frame-info recursion-info))))))))))
 
+
+(defun emacspeak-return-mode-line ()
+  "Debug tool: return visually displayed mode-line as a string."
+  (with-temp-buffer
+    (insert (format-mode-line mode-line-format))
+    (buffer-substring-no-properties (point-min) (point-max))))
+
+
+(defun emacspeak-return-minor-mode-line ()
+  "Debug tool: return visually displayed minore-mode-line as a string."
+  (with-temp-buffer
+    (insert (format-mode-line minor-mode-alist))
+    (buffer-substring-no-properties (point-min) (point-max))))
+
 (defun emacspeak-speak-current-buffer-name ()
   "Speak name of current buffer."
   (tts-with-punctuations 'all
