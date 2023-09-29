@@ -57,7 +57,7 @@
 ;;;   Customize groups
 
 (defgroup emacspeak nil
-  "Emacspeak: The Complete Audio Desktop  "
+  "Emacspeak: The Complete Audio Desktop."
   :link '(url-link :tag "Web" "http://emacspeak.sf.net"
                    :help-echo "Emacspeak  Site")
   :link '(url-link :tag "Blog" "http://emacspeak.blogspot.com"
@@ -82,7 +82,7 @@ the Emacspeak desktop.")
 ;; symbol)specifies the emacspeak module that implements the
 ;; speech-enabling extensions for `package' (a string).
 (defsubst emacspeak-do-package-setup (package module)
-  "Setup Emacspeak extension for   PACKAGE. "
+  "Setup Emacspeak extension for   PACKAGE by loading MODULE."
   (with-eval-after-load package (require module)))
 
 ;; DocView
@@ -310,7 +310,7 @@ the Emacspeak desktop.")
 
 ;;;###autoload
 (defsubst emacspeak-setup-programming-mode ()
-  "Setup programming mode. "
+  "Setup programming mode."
   (cl-declare (special dtk-split-caps emacspeak-audio-indentation dtk-caps))
   (ems-with-messages-silenced
    (dtk-set-punctuations 'all)
