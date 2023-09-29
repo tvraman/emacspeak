@@ -87,14 +87,19 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-dired)
+(require 'hydra)
+(require 'org)
+(require 'emacspeak-outline)
+(require 'emacspeak-m-player)
+(require 'view)
+(require 'smartparens "smartparens" 'no-error)
 (eval-when-compile
+  (setq byte-compile-warnings '(not docstrings))
   (require 'emacspeak-hydra)
-  (require 'emacspeak-outline)
+  
   (require 'vuiet nil 'no-error)
-  (require 'smartparens "smartparens" 'no-error)
-  (require 'hydra "hydra" 'no-error)
-  (require 'view)
-  (require 'emacspeak-m-player))
+  (require 'hydra "hydra" 'no-error))
+(require 'eww)
 (with-no-warnings (require 'origami "origami" 'no-error))
 
 ;;;  Generate Muggles From Keymaps:
@@ -514,26 +519,27 @@ Also generates global keybindings if any."
 ;;;  Org Mode Structure Navigation:
 
 (with-eval-after-load "org"
+  (cl-declaim (special org-mode-map))
   (define-key
    org-mode-map
    (kbd "C-c C-SPC")
    (defhydra emacspeak-muggles-org-nav
-             (:body-pre
-              (progn
-                (emacspeak-hydra-toggle-talkative)
-                (emacspeak-hydra-body-pre "OrgNavView"))
-              :hint nil
-              :pre emacspeak-hydra-pre :post emacspeak-hydra-post
-              :color red :columns 3)
-             "Org Mode Navigate "
-             ("?" (emacspeak-hydra-self-help "emacspeak-muggles-org-nav"))
-             ("SPC" emacspeak-outline-speak-this-heading  "Speak this section")
-             ("n" emacspeak-outline-speak-next-heading  "next heading")
-             ("p" emacspeak-outline-speak-previous-heading "prev heading")
-             ("f" org-forward-heading-same-level "next heading at same level")
-             ("b" org-backward-heading-same-level "prev heading at same level")
-             ("u" outline-up-heading "up heading")
-             ("g" org-goto "goto" :exit t))))
+     (:body-pre
+      (progn
+        (emacspeak-hydra-toggle-talkative)
+        (emacspeak-hydra-body-pre "OrgNavView"))
+      :hint nil
+      :pre emacspeak-hydra-pre :post emacspeak-hydra-post
+      :color red :columns 3)
+     "Org Mode Navigate "
+     ("?" (emacspeak-hydra-self-help "emacspeak-muggles-org-nav"))
+     ("SPC" emacspeak-outline-speak-this-heading  "Speak this section")
+     ("n" emacspeak-outline-speak-next-heading  "next heading")
+     ("p" emacspeak-outline-speak-previous-heading "prev heading")
+     ("f" org-forward-heading-same-level "next heading at same level")
+     ("b" org-backward-heading-same-level "prev heading at same level")
+     ("u" outline-up-heading "up heading")
+     ("g" org-goto "goto" :exit t))))
 
 (provide 'extra-muggles)
 ;;;  end of file
