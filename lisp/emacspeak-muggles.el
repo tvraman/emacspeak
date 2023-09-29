@@ -78,7 +78,8 @@
 
 ;;;   Required modules
 
-(eval-when-compile (require 'cl-lib))
+(eval-when-compile (require 'cl-lib)
+                   (setq byte-compile-warnings '(not docstrings)))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'hydra "hydra" 'no-error)
