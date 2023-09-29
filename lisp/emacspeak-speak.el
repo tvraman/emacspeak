@@ -82,7 +82,7 @@
 ;;; Helper: Log Message Quietly
 
 (defun ems--log-message (m)
-  "Log a message without echoing it."
+  "Log  message M without echoing it."
   (let ((inhibit-read-only t))
     (with-current-buffer (messages-buffer)
       (goto-char (point-max))
