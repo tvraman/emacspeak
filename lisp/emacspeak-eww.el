@@ -581,7 +581,7 @@ Safari/537.36"
                        shr-inhibit-images emacspeak-eww-inhibit-images
                        emacspeak-pronounce-xml-ns
                        emacspeak-eww-masquerade))
-  (setq outline-regexp "[0-9]+ ")
+  (setq outline-regexp "[•0-9]+ ")
   (ems--fastload "emacspeak-pronounce")
   (emacspeak-pronounce-augment-pronunciations
    'eww-mode emacspeak-pronounce-xml-ns)
