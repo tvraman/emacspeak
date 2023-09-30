@@ -52,7 +52,7 @@ DEPS= -l $(SRC)/emacspeak-preamble.el -l $(SRC)/emacspeak-loaddefs.el
 COMPILE =  -f batch-byte-compile
 # How to compile
 %.elc:  %.el 
-	$(EMACS) $(BATCH)  $(DEPS)  $(COMPILE) $<
+	@$(EMACS) $(BATCH)  $(DEPS)  $(COMPILE) $<
 
 # }}}
 # {{{  grouping files into dependent modules
@@ -298,7 +298,6 @@ emacspeak-nm.elc  dom-addons.elc light.elc  \
 xbacklight.elc  toy-braille.elc tetris.elc   \
 omaps.elc g-utils.elc gweb.elc gmaps.elc gm-nnir.elc 
 
-
 OBJECTS = $(TTS_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  $(ADDON_OBJECTS)
 
 # }}}
@@ -322,7 +321,7 @@ emacs -batch -q \
 # {{{build time target --loaddefs
 
 emacspeak-loaddefs.el: 
-	$(EMACS) $(BATCH)  -l ./emacspeak-preamble.el  \
+	@$(EMACS) $(BATCH)  -l ./emacspeak-preamble.el  \
 	-l ./emacspeak-autoload.el  \
 	-f emacspeak-auto-generate-autoloads
 
@@ -346,8 +345,7 @@ tags:
 # {{{  user level target-- clean
 
 clean:
-	rm -f *.elc  emacspeak-loaddefs.el 
-
+	@rm -f *.elc  emacspeak-loaddefs.el 
 
 # }}}
 # {{{ end of file
