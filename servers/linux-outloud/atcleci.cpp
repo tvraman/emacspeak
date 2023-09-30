@@ -845,5 +845,6 @@ int SetLanguage(ClientData eciHandle, Tcl_Interp *interp, int objc,
 //<end of file
 // local variables:
 // folded-file: t
+// outline-regexp:  "^//<"
 // end:
 //>
