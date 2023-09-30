@@ -55,8 +55,7 @@
 (require 'gnus)
 (require 'gnus-art)
 (require 'gnus-sum)
-(with-no-warnings
-  (require 'gm-nnir)) ; for smart GMail search
+(with-suppressed-warnings ((obsolete nnir)) (require 'gm-nnir)) 
 
 ;;;   Customizations:
 

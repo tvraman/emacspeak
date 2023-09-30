@@ -59,7 +59,7 @@
 (eval-when-compile (require 'cl-lib))
 (require 'emacspeak-preamble)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-(with-no-warnings (require 'nnir))
+(with-suppressed-warnings ((obsolete nnir)) (require 'nnir))
 (require 'gnus-group)
 
 ;;;  IMap Search Operators:
