@@ -144,8 +144,8 @@ See https://support.google.com/mail/answer/7190?hl=en for syntax.
         (q (format "X-GM-RAW \"%s\"" query)))
     (cond
      ((gnus-group-group-name)           ; Search current group
-      (gnus-group-make-nnir-group
-       nil                              ; no extra params needed
+      (gnus-group-read-ephemeral-search-group
+       nil                              ; no parse
        `(nnir-specs (nnir-query-spec (query ,q))))
       (emacspeak-auditory-icon 'open-object)
       (emacspeak-speak-mode-line))
