@@ -41,7 +41,7 @@ MAKEFLAGS=--no-print-directory
 README = README
 
 # }}}
-# {{{  User level targets emacspeak info  outloud espeak 
+# {{{  User level targets emacspeak   outloud espeak 
 
 emacspeak: config 
 	@cd lisp && $(MAKE)  --no-print-directory
@@ -60,8 +60,9 @@ espeak:
 
 dtk: 
 	@cd servers/software-dtk && $(MAKE) --no-print-directory  || echo "Can't build DTK server!"
+
 # }}}
-# {{{  Maintenance targets   dist
+# {{{  Maintenance targets:   dist
 
 GITVERSION=$(shell git show HEAD | head -1  | cut -b 8- )
 README: 
@@ -83,15 +84,11 @@ config:
 	@cd etc && $(MAKE) config   --no-print-directory
 	@cd lisp && $(MAKE) config --no-print-directory
 
-
 # }}}
 # {{{  complete build
 
 all: emacspeak
 
-help:
-	@make -s
-#clean, config and build (development)
 q:
 	make clean
 	make config 
