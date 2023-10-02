@@ -30,15 +30,15 @@ all-prepare.el:  ${ALL}
 
 # Generic rule to build .elc file from a .el file
 %.elc: %.el
-	$(EMACS) $(BATCH) -f package-initialize  $(COMPILE)  $<
+	@$(EMACS) $(BATCH) -f package-initialize  $(COMPILE)  $< && echo $<
 
 clean:
 	rm -f *.elc all-prepare.el
 
 # Verbose Test: Show all files as they load
 test: all-prepare.el emacs-startup.elc
-	emacs ${TEST} ${COMMON_OPTS}
+	@emacs ${TEST} ${COMMON_OPTS} && echo $<
 
 # Slightly less verbose:
 q: all-prepare.el emacs-startup.elc
-	emacs ${Q_TEST} ${COMMON_OPTS}	
+	@emacs ${Q_TEST} ${COMMON_OPTS}	 &&  echo $<
