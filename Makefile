@@ -1,7 +1,7 @@
 # $Author: tv.raman.tv $
 # Description:  Makefile for Emacspeak
 # Keywords: Emacspeak,  TTS,Makefile
-# {{{ LCD Entry:
+###  LCD Entry:
 
 # LCD Archive Entry:
 # emacspeak| T. V. Raman |raman@cs.cornell.edu
@@ -9,8 +9,7 @@
 # Location undetermined
 #
 
-# }}}
-# {{{ Copyright:
+###  Copyright:
 
 #Copyright (C) 1995 -- 2017, T. V. Raman
 
@@ -33,15 +32,13 @@
 # along with GNU Emacs; see the file COPYING.  If not, write to
 # the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
-# }}}
-# {{{ Configuration
+###  Configuration
 .POSIX:
 MAKE=make
 MAKEFLAGS=--no-print-directory
 README = README
 
-# }}}
-# {{{  User level targets emacspeak   outloud espeak 
+###   User level targets emacspeak   outloud espeak 
 
 emacspeak: config 
 	@cd lisp && $(MAKE)  --no-print-directory
@@ -61,8 +58,7 @@ espeak:
 dtk: 
 	@cd servers/software-dtk && $(MAKE) --no-print-directory  || echo "Can't build DTK server!"
 
-# }}}
-# {{{  Maintenance targets:   dist
+###   Maintenance targets:   dist
 
 GITVERSION=$(shell git show HEAD | head -1  | cut -b 8- )
 README: 
@@ -77,15 +73,13 @@ dist:
 	make ${README}
 	tar cvf  emacspeak.tar $(EXCLUDES) .
 
-# }}}
-# {{{ User level target--  config
+###  User level target--  config
 
 config:
 	@cd etc && $(MAKE) config   --no-print-directory
 	@cd lisp && $(MAKE) config --no-print-directory
 
-# }}}
-# {{{  complete build
+###   complete build
 
 all: emacspeak
 
@@ -102,14 +96,12 @@ i:
 	cd info && make man
 	cd ../gh-pages-emacspeak  && make && git ci docs || true
 
-# }}}
-# {{{  user level target-- clean
+###   user level target-- clean
 
 clean:
 	@cd lisp &&  $(MAKE) --no-print-directory clean
 
-# }}}
-# {{{ labeling releases
+###  labeling releases
 
 #label  releases when ready
 LABEL=#version number
@@ -128,8 +120,7 @@ cd .. ;\
 	echo "Prepared release in emacspeak-${LABEL}.tar.bz2"
 	./utils/emacspeak-ghr ${LABEL} "emacspeak-${LABEL}.tar.bz2"
 
-# }}}
-# {{{Install: 
+### Install: 
 
 install:
 	@echo "This release requires Emacs 29.1 or later."
@@ -138,19 +129,16 @@ install:
 	@echo "    Type make  <engine> [dtk, outloud,  espeak] to build TTS server. "
 	@echo "Package maintainers: see   etc/install.org	 for instructions."
 
-# }}}
-# {{{Worktree:
+### Worktree:
 # Usage make wk TAG=tag
 wk:
 	git worktree add ../${TAG}-emacspeak ${TAG}
 
-# }}}
-# {{{ end of file
+###  end of file
 
 #local variables:
 #mode: makefile
 #fill-column: 90
-#folded-file: t
+#outline-regexp: "^###"
 #end:
 
-# }}}
