@@ -105,9 +105,6 @@ i:
 	cd info && make man
 	cd ../gh-pages-emacspeak  && make && git ci docs || true
 
-qq:
-	make -s q 2>&1 |grep -v Loading  
-
 # }}}
 # {{{  user level target-- clean
 
