@@ -148,7 +148,7 @@
 (defadvice evil-forward-char (after emacspeak pre act comp)
   "Speak char."
   (when (ems-interactive-p)
-    (emacspeak-speak-this-char (preceding-char))))
+    (emacspeak-speak-this-char (following-char))))
 
 ;;;  Deletion:
 
