@@ -50,8 +50,6 @@
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'erc)
-
 ;;;   variables
 
 (cl-declaim (special emacspeak-sounds-directory))
