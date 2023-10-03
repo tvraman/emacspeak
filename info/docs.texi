@@ -56,9 +56,7 @@ This chapter documents a total of 1153 commands and 147 options.
 * emacspeak-dired::Speech enable Dired Mode.
 * emacspeak-dismal::Speech enable Dismal.
 * emacspeak-dumb-jump::DUMB-JUMP.
-* emacspeak-eaf::Speech-enable EAF.
 * emacspeak-ecb::speech-enable ECB.
-* emacspeak-eclim::Speech-enable ECLIM.
 * emacspeak-ediff::Speech enable  ediff.
 * emacspeak-eglot::Speech-enable EGLOT.
 * emacspeak-ein::Speech-enable EIN.
@@ -3694,13 +3692,6 @@ emacspeak-dismal-sheet-summarizer-list
 DUMB-JUMP ==  Jump to imputed cross-references  in source code.
 This module speech-enables dumb-jump
 
-@node emacspeak-eaf
-@section emacspeak-eaf
-
-EAF ==  Emacs Application Framework
-https://github.com/manateelazycat/emacs-application-framework.git
-This module speech-enables the elisp side of EAF.
-
 @node emacspeak-ecb
 @section emacspeak-ecb
 
@@ -3762,17 +3753,6 @@ Back up during incremental search in tree buffers.
 Clear search pattern during incremental search in tree buffers.
 @end format
 @end deffn
-
-@node emacspeak-eclim
-@section emacspeak-eclim
-
-ECLIM ==  Eclipse/Vim integration.
-http://www.eclim.org turns Eclipse into a headless server
-that can be called from other programs.
-Package Emacs-Eclim connects Emacs to Eclim.
-Package emacspeak-eclim speech-enables emacs-eclim.
-
-  Required modules
 
 @node emacspeak-ediff
 @section emacspeak-ediff
@@ -20920,9 +20900,9 @@ This is a minor mode.  If called interactively, toggle the
 ‘Voice-Lock mode’ mode.  If the prefix argument is positive,
 enable the mode, and if it is zero or negative, disable the mode.
 
-If called from Lisp, toggle the mode if ARG is ‘toggle’.  Enable
-the mode if ARG is nil, omitted, or is a positive number.
-Disable the mode if ARG is a negative number.
+If called from Lisp, toggle the mode if ARG is ‘toggle’. Enable
+the mode if ARG is nil, omitted, or is a positive number. Disable
+the mode if ARG is a negative number.
 
 To check whether the minor mode is enabled in the current buffer,
 evaluate ‘voice-lock-mode’.
