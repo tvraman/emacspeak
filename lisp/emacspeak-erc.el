@@ -289,15 +289,15 @@ set the current local value to the result.")
 
 ;;;  define emacspeak keys
 (cl-declaim (special erc-mode-map))
-(define-key erc-mode-map "\C-c "
-            'emacspeak-erc-toggle-speak-all-participants)
-(define-key erc-mode-map "\C-cm"
-            'emacspeak-erc-toggle-my-monitor)
-(define-key erc-mode-map "\C-c\C-m"
-            'emacspeak-erc-toggle-room-monitor)
-(define-key erc-mode-map "\C-c\C-a"
-            'emacspeak-erc-add-name-to-monitor)
-(define-key erc-mode-map "\C-c\C-d" 'emacspeak-erc-delete-name-from-monitor)
+(when (and (boundp 'erc-mode-map)
+           (keymapp erc-mode-map))
+  (define-key erc-mode-map (kbd "C-c ") 'emacspeak-erc-toggle-speak-all-participants)
+  (define-key erc-mode-map (kbd "C-cm")
+              'emacspeak-erc-toggle-my-monitor)
+  (define-key erc-mode-map (kbd "C-c C-m") 'emacspeak-erc-toggle-room-monitor)
+  (define-key erc-mode-map (kbd "C-c C-a")
+              'emacspeak-erc-add-name-to-monitor)
+  (define-key erc-mode-map (kbd "C-c C-d") 'emacspeak-erc-delete-name-from-monitor))
 
 ;;;  cricket rules 
 (defvar emacspeak-erc-cricket-bowling-figures-pattern
