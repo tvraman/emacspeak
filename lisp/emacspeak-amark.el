@@ -186,12 +186,14 @@ given name, it is updated with path and position."
 (defun emacspeak-amark-play (amark)
   "Play amark using m-player."
   (cl-declare (special emacspeak-m-player-options))
-  (let ((emacspeak-m-player-options
+  (let ((f (expand-file-name (emacspeak-amark-path  amark) default-directory))
+        (emacspeak-m-player-options
          (append
           emacspeak-m-player-options
           `("-ss" ,(emacspeak-amark-position amark)))))
-    (emacspeak-m-player
-     (expand-file-name (emacspeak-amark-path  amark) default-directory))))
+    (cl-assert (file-exists-p f) t "File does not exist:" )
+    (emacspeak-m-player f)
+    (message "Playing %s" f)))
 
 ;;; Amark Mode:
 

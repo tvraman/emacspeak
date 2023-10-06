@@ -83,11 +83,9 @@ String: Return it as is.
         (propertize (nth v fields) 'personality voice-smoothen))
        ((and
          (listp v) (symbolp (nth 0 v)) (fboundp (nth 0 v)))
-        (apply
+        (apply  ; apply func to fields
          (nth 0 v)
-         (cl-loop
-          for k in (cdr v)
-          collect (nth k fields))))
+         (cl-loop for k in (cdr v) collect (nth k fields))))
        (t " "))
       values))
     (mapconcat #'identity (nreverse values) " ")))
