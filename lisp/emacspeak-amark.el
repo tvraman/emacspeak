@@ -193,7 +193,7 @@ given name, it is updated with path and position."
           `("-ss" ,(emacspeak-amark-position amark)))))
     (cl-assert (file-exists-p f) t "File does not exist:" )
     (emacspeak-m-player f)
-    (message "Playing %s" f)))
+    (message "Playing %s from %s" f (emacspeak-amark-position amark))))
 
 ;;; Amark Mode:
 
