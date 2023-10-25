@@ -190,9 +190,9 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;;###autoload
 (defcustom emacspeak-stock-tickers
-  (list "goog" "aapl" "meta" "amzn")
+  (list "goog" "aapl" "meta" "amzn" "nflx" "msft" "nvda")
   "Set this to the stock tickers you want to check. Default is
-GAMA. Tickers is a list of stock symbols sorted in lexical order
+the current fab-7!. Tickers is a list of stock symbols sorted in lexical order
 with duplicates removed when saving as a list of string."
   :type
   '(repeat
