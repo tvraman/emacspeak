@@ -1,0 +1,32 @@
+* Background
+
+About a year ago I switched from using raw ALSA to pulseaudio.
+Linux on my laptop just cut over to using pipewire with pipewire-pulse
+providing a compatibility drop-in.
+However that drop-in does not automatically provide all my pulse
+customizations --- see [[../pulse/readme.org][pulse readme]] for details.
+These notes document what broke and how I fix them.
+
+* Out-Of-The-Box Breakages
+
+  - No left or right TTS devices.
+  - Auditory Icons go back to using aplay rather than paplay with
+    samples loaded
+  - X-Windows bell went away ---
+  - ToDo: Implement all customizations from default.pa in native pipewire.
+
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Notes On Migrating To Pipewire From Pulseaudio
+#+date: <2023-10-26 Thu>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 30.0.50 (Org mode 9.6.9)
+#+cite_export:
