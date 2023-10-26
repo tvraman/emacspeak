@@ -1901,9 +1901,8 @@ Otherwise just return  `color'."
        (t
         (concat
          (propertize name 'personality voice-bolden)
-         " shaded"
-         (propertize shade 'personality voice-annotate))
-        ))))
+         " shaded "
+         (propertize shade 'personality voice-annotate))))))
    (t color)))
 
 (defun emacspeak-wizards-frame-colors ()
