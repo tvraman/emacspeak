@@ -1116,7 +1116,7 @@ template."
       #'(lambda nil
           (search-forward "\n\n")
           (dtk-set-punctuations-to-some)
-          (emacspeak-speak-windowful))
+          (emacspeak-speak-rest-of-buffer))
       'at-end)
      (browse-url
       (replace-regexp-in-string
