@@ -13,6 +13,9 @@ These notes document what broke and how I fix them.
   - Auditory Icons go back to using aplay rather than paplay with
     samples loaded
   - X-Windows bell went away ---
+  - Volume manipulation via pactl went away
+  - Volume in emacspeak minor mode line went away
+  - Recording in AsTeR will need to be reimplemented.
   - ToDo: Implement all customizations from default.pa in native pipewire.
 
 

@@ -408,6 +408,8 @@ Press C-, to access keybindings in emacspeak-alt-keymap:
 
 See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."
+  (setq ring-bell-function
+      #'(lambda nil (emacspeak-auditory-icon 'warn-user)))
   (dtk-initialize)
   (mapc #'load
         (directory-files-recursively
