@@ -307,7 +307,7 @@ Interactive prefix arg refreshes cache."
      (amixer-control-setting-current (amixer-control-setting
                                       control)))))
 
-
+;;;###autoload
 (defun amixer-get (name)
   "Return setting for specified control."
   (cl-declare (special amixer-db amixer-alsactl-config-file  ))
@@ -315,9 +315,9 @@ Interactive prefix arg refreshes cache."
   (when  (null amixer-db) (amixer-build-db))
   (let ((control (cdr (assoc name amixer-db))))
     (message
-     "%s is %s"
-     (amixer-control-name control)
+     "%s "
      (amixer-control-setting-current (amixer-control-setting control)))))
+
 ;;;###autoload
 (defun amixer-store()
   "Persist  amixer."
