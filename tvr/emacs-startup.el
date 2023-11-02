@@ -177,7 +177,7 @@ Use Custom to customize where possible. "
   (setq  global-mode-string '("" display-time-string battery-mode-line-string))
   (bash-completion-setup)
   ;(load-theme 'modus-vivendi-tinted t)
-  (load-theme 'ef-maris-dark t))
+  (load-theme 'ef-maris-light t))
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
