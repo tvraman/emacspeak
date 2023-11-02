@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: ems-after
+# key: ea
+# --
+(defadvice ${1:fun} (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+  $0))

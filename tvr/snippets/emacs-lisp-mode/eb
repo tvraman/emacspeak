@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: ems-before
+# key: eb
+# --
+(defadvice ${1:fun} (before emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+  $0))
