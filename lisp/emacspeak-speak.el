@@ -1502,11 +1502,15 @@ Interactive prefix arg speaks buffer info."
 
 (defconst ems--vol-cmd
   (eval-when-compile
-    (concat
-     "pacmd list-sinks | grep -A 8 '  \\* index' | grep volume"
-     "|  cut -d ',' -f 1"
-     "| cut -d ':' -f 3"
-     "| cut -d '/' -f 2"))
+    (cond
+     ((zerop (length (shell-command-to-string "pidof pulseaudio")))
+      "amixer cget numid=3 | tail -1 | grep values | cut -d ',' -f 2")
+     (t 
+      (concat
+       "pacmd list-sinks | grep -A 8 '  \\* index' | grep volume"
+       "|  cut -d ',' -f 1"
+       "| cut -d ':' -f 3"
+       "| cut -d '/' -f 2"))))
   "Shell pipeline for getting volume.")
 
 (defsubst ems--show-current-volume ()
@@ -1519,9 +1523,7 @@ Interactive prefix arg speaks buffer info."
      ((ems--pulse-headphones-p) "🎧")
      ((ems--pulse-speaker-p) "🔈")
      (t "Vol"))
-    (substring
-     (string-trim (shell-command-to-string ems--vol-cmd))
-     0 -1))
+     (string-trim (shell-command-to-string ems--vol-cmd)))
    'personality 'voice-bolden))
 
 (defvar emacspeak-speak-show-volume nil
