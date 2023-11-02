@@ -1504,7 +1504,7 @@ Interactive prefix arg speaks buffer info."
   (eval-when-compile
     (cond
      ((zerop (length (shell-command-to-string "pidof pulseaudio")))
-      "amixer cget numid=3 | tail -1 | grep values | cut -d ',' -f 2")
+      "amixer cget numid=3 | tail -1 | cut -d ',' -f 2")
      (t 
       (concat
        "pacmd list-sinks | grep -A 8 '  \\* index' | grep volume"
