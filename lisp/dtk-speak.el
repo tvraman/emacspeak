@@ -1550,10 +1550,12 @@ program. Port defaults to dtk-local-server-port"
            (split-string
             (shell-command-to-string
              "aplay -L 2>/dev/null | grep mono")))
-          (cl-first
-           (split-string
-            (shell-command-to-string
-             "pacmd list-sinks | grep tts | cut -f 2 -d ':'")))
+          (and
+           (not (zerop (length (shell-command-to-string "pidof pulseaudio"))))
+           (cl-first
+            (split-string
+             (shell-command-to-string
+              "pacmd list-sinks | grep tts | cut -f 2 -d ':'"))))
           "default")))
     (if (string-match "<" device) ; strip <> from pactl result
         (substring device 1 -1)
