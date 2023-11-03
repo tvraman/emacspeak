@@ -232,14 +232,16 @@ Use Custom to customize where possible. "
   "Start up emacs.
 This function loads Emacspeak. Emacs customization and library
 configuration happens via the after-init-hook. "
-  (cl-declare (special emacspeak-directory))
+  (cl-declare (special emacspeak-directory tts-notification-device))
   (setenv "PULSE_SINK" "binaural")
+  (setq tts-notification-device "tts_right") ; hardwire during
+                                        ; pipewire transition
   (unless (featurep 'emacspeak)
     (tvr-time-load                      ; load emacspeak:
-     (load ;; setenv EMACSPEAK_DIR if you want to load a different version
-      (expand-file-name
-       "lisp/emacspeak-setup"
-       (or (getenv  "EMACSPEAK_DIR") "~/emacs/lisp/emacspeak")))))
+        (load ;; setenv EMACSPEAK_DIR if you want to load a different version
+         (expand-file-name
+          "lisp/emacspeak-setup"
+          (or (getenv  "EMACSPEAK_DIR") "~/emacs/lisp/emacspeak")))))
   (push (expand-file-name "tvr/" emacspeak-directory) load-path)
   (push (expand-file-name "aster-math/ui" emacspeak-directory) load-path)
   (add-hook 'after-init-hook #'tvr-after-init)
