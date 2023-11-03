@@ -232,9 +232,8 @@ Use Custom to customize where possible. "
   "Start up emacs.
 This function loads Emacspeak. Emacs customization and library
 configuration happens via the after-init-hook. "
-  (cl-declare (special emacspeak-directory tts-notification-device))
+  (cl-declare (special emacspeak-directory ))
   (setenv "PULSE_SINK" "binaural")
-  (setq tts-notification-device "tts_right") ; hardwire during
                                         ; pipewire transition
   (unless (featurep 'emacspeak)
     (tvr-time-load                      ; load emacspeak:
