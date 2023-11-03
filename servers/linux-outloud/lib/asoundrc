@@ -1,69 +1,36 @@
 # $Id: .asoundrc,v 1.3 2012/03/08 19:19:31 raman Exp raman $
-# {{{ Device media --- a mixer --- is default
-
-
-
-# buffer_size has to be period_size*4 to avoid clicks
-#defaults.pcm.rate_converter "speexrate_best"
-
-pcm.plt  {
-    hint.description "Plantronics BlueTooth"
-    type dmix
-    ipc_key 1024
-    slave {
-        pcm "hw:1,0"
-format S32_LE 
-rate 48000
-        period_size 1024
-        buffer_size 8192
-    }
-}
-
-pcm.media  {
-hint.description "Primary Sound Card"
-    type dmix
-    ipc_key 1024
-    slave {
-        pcm "hw:0,0"
-        period_size 1024
-        buffer_size 8192
-        format S32_LE 
-        rate 48000 
-    }
-}
-
-pcm.!default {
-    type asym
-    playback.pcm "plug:media"
-    capture.pcm "plug:dsnoop"
-}
-
-ctl.!default {
-    type hw
-    card 0
-}
-
-# }}}
 # {{{crossfeed (bs2b):
+## Adding these stanzas to your .asoundrc or /etc/asound.conf will
+## create an ALSA output device called 'crossfeed' which outputs
+## the bs2b crossfeed stream to a device of your choosing.
 
-# See /usr/share/doc/bs2b-ladspa/asound.conf.example for inspiration
+## LADSPA uses a 32-bit floating-point sample format, while most
+## software uses 16-, 24-, or 32-bit integer formats. We input through
+## a plug device to handle the conversion.
 
 pcm.crossfeed {
-hint.description "Crossfeed output using  bs2b ladspa plugin."
-    type plug
-    slave.pcm {
-        type ladspa
-        slave.pcm "default" # Set this line to match your configuration
-        path "/usr/lib/ladspa/"
-        plugins [
-            {
-                label bs2b
-                input {
-                    #Defaults: 725Hz crossover frequency and 4.5dB rolloff
-                    controls [ 725 4.5 ]
-                }
-            }]
+  type plug
+  slave.pcm "bs2b"
+}
+
+## If you use dmix or other processing filters, you should slave the
+## plug:bs2b device to them directly, then have bs2b play to the hardware.
+## This will minimize the impact of sample format conversion.
+
+## This device passes its input through the bs2b LADSPA plugin, then
+## passes it off to another PCM device. In this example, we use
+## plughw:0,0 to pass directly to hardware (with a plug adapter for
+## sample conversion).
+pcm.bs2b {
+  type ladspa
+  slave.pcm "pulse" # Set this line to match your configuration
+  path "/usr/lib/ladspa/"
+  plugins [{
+    label bs2b
+    input {
+#      controls [ 725 4.5 ] # The defaults are 725Hz crossover frequency and 4.5dB rolloff
     }
+  }]
 }
 
 # }}}
@@ -72,7 +39,7 @@ pcm.amp {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default" # Set this line to match your configuration
+        slave.pcm "pulse" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [
             {
@@ -93,7 +60,7 @@ pcm.tap_reverb {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default" # Set this line to match your configuration
+        slave.pcm "pulse" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [{
                     label tap_reverb
@@ -111,7 +78,7 @@ pcm.autopan {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default" # Set this line to match your configuration
+        slave.pcm "pulse" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [{
                     label tap_autopan
@@ -132,7 +99,7 @@ pcm.reverb_crossfeed {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default"
+        slave.pcm "pulse"
         path "/usr/lib/ladspa/"
         plugins [
             {label tap_reverb #ambiance thick (hd)
@@ -152,7 +119,7 @@ pcm.autopan_crossfeed {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default"
+        slave.pcm "pulse"
         path "/usr/lib/ladspa/"
         plugins [
             {label bs2b
@@ -221,7 +188,7 @@ pcm.soft_left {
     type plug
     slave.pcm {
         type route
-        slave.pcm "default"
+        slave.pcm "pulse"
         ttable {
             0.0 =  0.35
             0.1 = 0.03
@@ -234,17 +201,17 @@ pcm.soft_left {
 # }}}
 # {{{TTS Mono:
 
-#  The Route plugin routes audio among channels using a TTable .
+#  The Route plugin routes audio among channles using a TTable .
 #TTable is a transfer table.
 # Matrix of Source->Destination values
 # Unspecified entries default to 0.
 # Format: Source.Destination = Value
 
-pcm.tts_mono_right {
+pcm.tts_right {
     type plug
     slave.pcm {
         type route
-        slave.pcm "media" 
+        slave.pcm "pulse" 
         ttable {
             0.0 =  0.03
             0.1 = 1
@@ -254,11 +221,11 @@ pcm.tts_mono_right {
     }
 }
 
-pcm.tts_mono_left {
+pcm.tts_left {
     type plug
     slave.pcm {
         type route
-        slave.pcm "media"
+        slave.pcm "pulse"
         ttable {
             0.0 =  1
             0.1 = 0.03
@@ -268,11 +235,11 @@ pcm.tts_mono_left {
     }
 }
 
-pcm.tts_mono_mid_left {
+pcm.tts_mid_left {
     type plug
     slave.pcm {
         type route
-        slave.pcm "media"
+        slave.pcm "pulse"
         ttable {
             0.0 =  0.66
             0.1 = 0.33
@@ -283,11 +250,11 @@ pcm.tts_mono_mid_left {
 }
 
 #quarters
-pcm.tts_mono_quarter_left {
+pcm.tts_quarter_left {
     type plug
     slave.pcm {
         type route
-        slave.pcm "media"
+        slave.pcm "pulse"
         ttable {
             0.0 =  0.75
             0.1 = 0.25
@@ -297,11 +264,11 @@ pcm.tts_mono_quarter_left {
     }
 }
 
-pcm.tts_mono_quarter_right {
+pcm.tts_quarter_right {
     type plug
     slave.pcm {
         type route
-        slave.pcm "media"
+        slave.pcm "pulse"
         ttable {
             0.0 =  0.25
             0.1 = 0.75
@@ -323,7 +290,7 @@ pcm.tts_a45_e45 {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default" # Set this line to match your configuration
+        slave.pcm "pulse" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [{
                     label ZamHeadX2
@@ -337,7 +304,7 @@ pcm.tts_a135_e45 {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default" # Set this line to match your configuration
+        slave.pcm "pulse" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [{
                     label ZamHeadX2
@@ -351,7 +318,7 @@ pcm.tts_a225_e45 {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default" # Set this line to match your configuration
+        slave.pcm "pulse" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [{
                     label ZamHeadX2
@@ -365,7 +332,7 @@ pcm.tts_am45_e45 {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default" # Set this line to match your configuration
+        slave.pcm "pulse" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [{
                     label ZamHeadX2
@@ -381,7 +348,7 @@ pcm.tts_a45_em45 {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default" # Set this line to match your configuration
+        slave.pcm "pulse" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [{
                     label ZamHeadX2
@@ -395,7 +362,7 @@ pcm.tts_a135_em45 {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default" # Set this line to match your configuration
+        slave.pcm "pulse" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [{
                     label ZamHeadX2
@@ -409,7 +376,7 @@ pcm.tts_a225_em45 {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default" # Set this line to match your configuration
+        slave.pcm "pulse" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [{
                     label ZamHeadX2
@@ -423,7 +390,7 @@ pcm.tts_am45_em45 {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default" # Set this line to match your configuration
+        slave.pcm "pulse" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [{
                     label ZamHeadX2
@@ -439,7 +406,7 @@ pcm.tts_a0_em45 {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default" # Set this line to match your configuration
+        slave.pcm "pulse" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [{
                     label ZamHeadX2
@@ -453,7 +420,7 @@ pcm.tts_a0_e45 {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default" # Set this line to match your configuration
+        slave.pcm "pulse" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [{
                     label ZamHeadX2
@@ -468,7 +435,7 @@ pcm.tts_a0_e90 {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default" # Set this line to match your configuration
+        slave.pcm "pulse" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [{
                     label ZamHeadX2
@@ -482,7 +449,7 @@ pcm.tts_a0_em30 {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default" # Set this line to match your configuration
+        slave.pcm "pulse" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [{
                     label ZamHeadX2
@@ -496,7 +463,7 @@ pcm.tts_a0_em15 {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default" # Set this line to match your configuration
+        slave.pcm "pulse" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [{
                     label ZamHeadX2
@@ -510,7 +477,7 @@ pcm.tts_a0_e15 {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default" # Set this line to match your configuration
+        slave.pcm "pulse" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [{
                     label ZamHeadX2
@@ -524,7 +491,7 @@ pcm.tts_a0_e30 {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default" # Set this line to match your configuration
+        slave.pcm "pulse" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [{
                     label ZamHeadX2
@@ -538,7 +505,7 @@ pcm.tts_a0_e60 {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "default" # Set this line to match your configuration
+        slave.pcm "pulse" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [{
                     label ZamHeadX2
@@ -557,7 +524,7 @@ pcm.equal{
     type plug;
     slave.pcm{
         type equal
-        slave.pcm "default"
+        slave.pcm "pulse"
     }
 }
 
@@ -567,7 +534,7 @@ pcm.equal{
 # aplay -r 11025 -f s16_le save.wav
 pcm.save2file {
     type file
-    slave.pcm "default"
+    slave.pcm "pulse"
     file "save.wav"
 }
 
