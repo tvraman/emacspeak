@@ -1475,7 +1475,7 @@ Interactive prefix arg speaks buffer info."
     (buffer-substring-no-properties (point-min) (point-max))))
 
 (defun emacspeak-return-minor-mode-line ()
-  "Debug tool: return visually displayed minore-mode-line as a string."
+  "Debug tool: return visually displayed minor-mode-line as a string."
   (with-temp-buffer
     (insert (format-mode-line minor-mode-alist))
     (buffer-substring-no-properties (point-min) (point-max))))
@@ -1518,11 +1518,7 @@ Interactive prefix arg speaks buffer info."
   (cl-declare (special ems--vol-cmd))
   (propertize
    (format
-    " %s %s"
-    (cond
-     ((ems--pulse-headphones-p) "🎧")
-     ((ems--pulse-speaker-p) "🔈")
-     (t "Vol"))
+    " Vol %s"
      (string-trim (shell-command-to-string ems--vol-cmd)))
    'personality 'voice-bolden))
 
@@ -1535,7 +1531,7 @@ Optional interactive prefix arg `log-msg' logs spoken info to
 *Messages*."
   (interactive "P")
   (cl-declare (special minor-mode-alist))
-  (let* ((emacspeak-speak-show-volume (executable-find "pactl"))
+  (let* ((emacspeak-speak-show-volume (executable-find "amixer"))
          (info (format-mode-line minor-mode-alist)))
     (when log-msg (ems--log-message info))
     (tts-with-punctuations 'some
