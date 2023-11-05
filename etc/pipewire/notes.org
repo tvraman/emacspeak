@@ -13,11 +13,40 @@ These notes document what broke and how I fix them.
   - Auditory Icons go back to using aplay rather than paplay with
     samples loaded
   - X-Windows bell went away ---
-  - Volume manipulation via pactl went away
   - Volume in emacspeak minor mode line went away
-  - Recording in AsTeR will need to be reimplemented.
   - ToDo: Implement all customizations from default.pa in native pipewire.
 
+    * Cautionary Notes
+
+  - Make sure you install pipewire-alsa and pipewire-pulse --
+        these enable compatibility.
+  - Do not install any pipewire conf files  unless tested (how?); a
+   broken conf file  can lose *all* audio.
+
+    * What I have Learn
+
+  - CLI tool pactl, pamixer work in pipewire, even when there is no
+    pulseaudio daemon running, as long as you have pipewire-pulse installed.
+
+  - Use wpctl as the Pipewire way of manipulating the audio environment.
+
+  - To get ~tts_left~ and tts_right~ devices for Emacspeak, execute
+    the corresponding pactl commands by hand at the shell for now, ie
+    examine default.pa from the pulseaudio lines, then pass them to
+    pactl.
+
+    
+#+begin_src 
+# A bs2b (binaural for headphones) sink:
+pactl load-module module-ladspa-sink sink_name=binaural  sink_master=@DEFAULT_SINK@ plugin=bs2b label=bs2b control=725,4.5
+# Use binaural as the default sink:
+pactl #set-default-sink  binaural 
+# A tts_right and tts_left device
+# Emacspeak will use the first as the notification device.
+pactl load-module module-remap-sink sink_name=tts_right  master=binaural channels=2 master_channel_map=front-right,front-right, channel_map=front-left,front-right remix=no
+pactl load-module module-remap-sink sink_name=tts_left  master=binaural channels=2 master_channel_map=front-left,front-left, channel_map=front-left,front-right remix=no
+#+end_src
+         
 
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
