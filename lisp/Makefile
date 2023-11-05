@@ -211,6 +211,7 @@ emacspeak-package.elc \
 emacspeak-paradox.elc \
 emacspeak-perl.elc \
 emacspeak-pianobar.elc \
+emacspeak-pipewire.elc \
 emacspeak-popup.elc \
 emacspeak-proced.elc \
 emacspeak-project.elc \
