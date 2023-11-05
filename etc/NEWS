@@ -44,3 +44,7 @@ enables playbac of content from BBC Sounds from within Emacs.
 
 Command ~emacspeak-zoxide~ provides ZOxide integration for rapid
 file-system navigation.
+
+* emacspeak-pipewire
+
+Speech-enable module ~pipewire~ for controlling Pipewire from inside Emacs.
