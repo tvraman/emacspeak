@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 3, 2023.
+last updated on November 4, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3142,6 +3142,7 @@ thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 * emacspeak-paradox::Speech-enable PARADOX.
 * emacspeak-perl::Speech enable Perl Mode.
 * emacspeak-pianobar::Speech-enable Pandora.
+* emacspeak-pipewire::Speech-enable PIPEWIRE.
 * emacspeak-popup::Speech-enable POPUP.
 * emacspeak-proced::Speech-enable PROCED.
 * emacspeak-project::Speech-enable PROJECT.
@@ -3954,7 +3955,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      Default Value:
 
      
-     "tts_right"
+     "default"
      
 
  -- Variable: User Option tts-secondary-device
@@ -3964,7 +3965,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      Default Value:
 
      
-     "tts_left"
+     "PulseAudio"
      
 
 

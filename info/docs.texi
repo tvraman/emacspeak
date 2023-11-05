@@ -151,6 +151,7 @@ This chapter documents a total of 1153 commands and 147 options.
 * emacspeak-paradox::Speech-enable PARADOX.
 * emacspeak-perl::Speech enable Perl Mode.
 * emacspeak-pianobar::Speech-enable Pandora.
+* emacspeak-pipewire::Speech-enable PIPEWIRE.
 * emacspeak-popup::Speech-enable POPUP.
 * emacspeak-proced::Speech-enable PROCED.
 * emacspeak-project::Speech-enable PROJECT.
@@ -1275,7 +1276,7 @@ Default Value:
 
 @verbatim
 
-"tts_right"
+"default"
 
 @end verbatim
 
@@ -1289,7 +1290,7 @@ Default Value:
 
 @verbatim
 
-"tts_left"
+"PulseAudio"
 
 @end verbatim
 
@@ -11399,6 +11400,11 @@ Increase volume
 @end format
 @end deffn
 
+@node emacspeak-pipewire
+@section emacspeak-pipewire
+
+PIPEWIRE ==  Pipewire Interaction from Emacs.
+
 @node emacspeak-popup
 @section emacspeak-popup
 
@@ -15657,14 +15663,14 @@ Save url templates.
 
 @defvar {User Option} emacspeak-stock-tickers
 Set this to the stock tickers you want to check. Default is
-GAMA. Tickers is a list of stock symbols sorted in lexical order
+the current fab-7!. Tickers is a list of stock symbols sorted in lexical order
 with duplicates removed when saving as a list of string.
 
 Default Value: 
 
 @verbatim
 
-("aapl" "amzn" "goog" "meta")
+("aapl" "amzn" "goog" "meta" "msft" "nflx" "nvda")
 
 @end verbatim
 
