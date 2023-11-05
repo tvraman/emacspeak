@@ -59,7 +59,7 @@
  '(
    (pipewire-default-object voice-smoothen)
    (pipewire-label voice-lighten)
-   (pipewire-muted voice-annotate)
+   (pipewire-muted voice-brighten)
    (pipewire-volume voice-bolden)))
 
 ;;; Interactive Commands:
@@ -73,13 +73,16 @@
 
 (cl-loop
  for f in 
- '(pipewire-decrease-volume pipewire-decrease-volume-single
+ '(
+   pipewire-decrease-volume pipewire-decrease-volume-single
+   pipewire-set-volume pipewire-set-profile
    pipewire-increase-volume pipewire-increase-volume-single)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
+       (emacspeak-speak-line)
        (emacspeak-auditory-icon 'button)))))
 
 (provide 'emacspeak-pipewire)
