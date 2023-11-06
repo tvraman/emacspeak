@@ -4,12 +4,11 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1153 commands and 147 options.
+This chapter documents a total of 1143 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
 * dectalk-voices::Dectalk Voice  Codes.
-* dom-addons::dom.el addons.
 * dtk-speak::Interface to speech server.
 * emacspeak::The Complete Audio Desktop.
 * emacspeak-2048::Speech-enable 2048 Game.
@@ -228,23 +227,14 @@ This chapter documents a total of 1153 commands and 147 options.
 * emacspeak-yasnippet::YASNIPPET.
 * espeak-voices::Define  Espeak tags.
 * extra-muggles::Additional Hydras.
-* g-utils::Google Client Utilities.
-* gm-nnir::Searching GMail Using NNIR.
-* gmaps::Google Maps.
 * ladspa::Ladspa Tools For Emacs.
-* light::Control Brightness.
 * mac-voices::Define  Mac tags.
-* omaps::Open street  Maps.
 * outloud-voices::Define  OutLoud tags.
 * plain-voices::No Voice lock voices.
 * soundscape::Soundscapes.
-* sox::An Audio Work-Bench.
 * sox-gen::Binaural Beats And More Using SoX.
-* tetris::Tetris for Emacs.
-* toy-braille::
 * voice-defs::Define voices for voice-lock.
 * voice-setup::Setup voices for voice-lock.
-* xbacklight::Brightness.
 * URL Templates ::
 @end menu
 
@@ -272,10 +262,6 @@ default values, Press @kbd{C-j}.
 @kindex C-e 9
 @item C-e (
 @kindex C-e (
-@item <fn> 9
-@kindex <fn> 9
-@item <fn> (
-@kindex <fn> (
 @end table
 
 @findex amixer
@@ -315,10 +301,6 @@ Persist  amixer.
 @kindex C-e 4
 @item C-e 3
 @kindex C-e 3
-@item <fn> 4
-@kindex <fn> 4
-@item <fn> 3
-@kindex <fn> 3
 @end table
 
 @findex amixer-volume-adjust
@@ -409,8 +391,6 @@ This module is Dectalk specific.
 @table @kbd
 @item C-e d C-d
 @kindex C-e d C-d
-@item <fn> d C-d
-@kindex <fn> d C-d
 @end table
 
 @findex dectalk
@@ -425,8 +405,6 @@ Dectalk TTS.
 @table @kbd
 @item C-e d C-s
 @kindex C-e d C-s
-@item <fn> d C-s
-@kindex <fn> d C-s
 @end table
 
 @findex dectalk-soft
@@ -451,11 +429,6 @@ Default Value:
 
 @end defvar
 
-@node dom-addons
-@section dom-addons
-
-Useful additional functions for dom.el
-
 @node dtk-speak
 @section dtk-speak
 
@@ -469,8 +442,6 @@ Here, prefix dtk is synonymous with tts.
 @table @kbd
 @item C-e d a
 @kindex C-e d a
-@item <fn> d a
-@kindex <fn> d a
 @end table
 
 @findex dtk-add-cleanup-pattern
@@ -489,8 +460,6 @@ this pattern if previously added.
 @table @kbd
 @item C-e d C-c
 @kindex C-e d C-c
-@item <fn> d C-c
-@kindex <fn> d C-c
 @end table
 
 @findex dtk-cloud
@@ -505,8 +474,6 @@ Select  Cloud TTS server.
 @table @kbd
 @item C-e d L
 @kindex C-e d L
-@item <fn> d L
-@kindex <fn> d L
 @end table
 
 @findex dtk-local-server
@@ -526,8 +493,6 @@ program. Port defaults to dtk-local-server-port
 @table @kbd
 @item C-e d C-n
 @kindex C-e d C-n
-@item <fn> d C-n
-@kindex <fn> d C-n
 @end table
 
 @findex dtk-notify-initialize
@@ -542,8 +507,6 @@ Initialize notification TTS stream.
 @table @kbd
 @item C-e d .
 @kindex C-e d .
-@item <fn> d .
-@kindex <fn> d .
 @end table
 
 @findex dtk-notify-stop
@@ -562,12 +525,6 @@ Stop  speech on notification stream.
 @kindex C-e d +
 @item C-e d =
 @kindex C-e d =
-@item <fn> d -
-@kindex <fn> d -
-@item <fn> d +
-@kindex <fn> d +
-@item <fn> d =
-@kindex <fn> d =
 @end table
 
 @findex dtk-rate-adjust
@@ -585,8 +542,6 @@ the speech rate.  Call when on a non-blank line to preview the effectt
 @table @kbd
 @item C-e d R
 @kindex C-e d R
-@item <fn> d R
-@kindex <fn> d R
 @end table
 
 @findex dtk-reset-state
@@ -601,8 +556,6 @@ Reset TTS engine.
 @table @kbd
 @item C-e d d
 @kindex C-e d d
-@item <fn> d d
-@kindex <fn> d d
 @end table
 
 @findex dtk-select-server
@@ -620,8 +573,6 @@ Select  speech server ‘program’.
 @table @kbd
 @item C-e d f
 @kindex C-e d f
-@item <fn> d f
-@kindex <fn> d f
 @end table
 
 @findex dtk-set-character-scale
@@ -641,8 +592,6 @@ then set the current local value to the result.
 @table @kbd
 @item C-e d C-j
 @kindex C-e d C-j
-@item <fn> d C-j
-@kindex <fn> d C-j
 @end table
 
 @findex dtk-set-chunk-separator-syntax
@@ -660,8 +609,6 @@ Argument S specifies the syntax class.
 @table @kbd
 @item C-e d S
 @kindex C-e d S
-@item <fn> d S
-@kindex <fn> d S
 @end table
 
 @findex dtk-set-language
@@ -680,8 +627,6 @@ Set language. If your server supports it, also set the synthesis
 @table @kbd
 @item C-e d N
 @kindex C-e d N
-@item <fn> d N
-@kindex <fn> d N
 @end table
 
 @findex dtk-set-next-language
@@ -714,26 +659,6 @@ Switch to  next  language
 @kindex C-e d 1
 @item C-e d 0
 @kindex C-e d 0
-@item <fn> d 9
-@kindex <fn> d 9
-@item <fn> d 8
-@kindex <fn> d 8
-@item <fn> d 7
-@kindex <fn> d 7
-@item <fn> d 6
-@kindex <fn> d 6
-@item <fn> d 5
-@kindex <fn> d 5
-@item <fn> d 4
-@kindex <fn> d 4
-@item <fn> d 3
-@kindex <fn> d 3
-@item <fn> d 2
-@kindex <fn> d 2
-@item <fn> d 1
-@kindex <fn> d 1
-@item <fn> d 0
-@kindex <fn> d 0
 @end table
 
 @findex dtk-set-predefined-speech-rate
@@ -764,8 +689,6 @@ Set language by alias.
 @table @kbd
 @item C-e d P
 @kindex C-e d P
-@item <fn> d P
-@kindex <fn> d P
 @end table
 
 @findex dtk-set-previous-language
@@ -780,8 +703,6 @@ Switch to  previous  language
 @table @kbd
 @item C-e d p
 @kindex C-e d p
-@item <fn> d p
-@kindex <fn> d p
 @end table
 
 @findex dtk-set-punctuations
@@ -825,8 +746,6 @@ Interactive PREFIX arg sets punctuation mode globally.
 @table @kbd
 @item C-e d r
 @kindex C-e d r
-@item <fn> d r
-@kindex <fn> d r
 @end table
 
 @findex dtk-set-rate
@@ -843,10 +762,10 @@ current local  value to the result.
 @subsubsection dtk-stop
 @deffn {Command} dtk-stop  (&optional all)
 @table @kbd
+@item <fn>
+@kindex <fn>
 @item C-e s
 @kindex C-e s
-@item <fn> s
-@kindex <fn> s
 @end table
 
 @findex dtk-stop
@@ -864,8 +783,6 @@ notification stream as well.
 @table @kbd
 @item C-e d c
 @kindex C-e d c
-@item <fn> d c
-@kindex <fn> d c
 @end table
 
 @findex dtk-toggle-caps
@@ -884,14 +801,8 @@ value, and then set the current local value to the result.
 @kindex C-e <deletechar>
 @item C-e <backspace>
 @kindex C-e <backspace>
-@item <fn> <deletechar>
-@kindex <fn> <deletechar>
-@item <fn> <backspace>
-@kindex <fn> <backspace>
 @item C-e d ,
 @kindex C-e d ,
-@item <fn> d ,
-@kindex <fn> d ,
 @end table
 
 @findex dtk-toggle-punctuation-mode
@@ -909,8 +820,6 @@ Interactive PREFIX arg makes the new setting global.
 @table @kbd
 @item C-e d q
 @kindex C-e d q
-@item <fn> d q
-@kindex <fn> d q
 @end table
 
 @findex dtk-toggle-quiet
@@ -927,8 +836,6 @@ prefix arg causes this setting to become global.
 @table @kbd
 @item C-e d n
 @kindex C-e d n
-@item <fn> d n
-@kindex <fn> d n
 @end table
 
 @findex dtk-toggle-speak-nonprinting-chars
@@ -945,8 +852,6 @@ value, and then set the current local value to the result.
 @table @kbd
 @item C-e d s
 @kindex C-e d s
-@item <fn> d s
-@kindex <fn> d s
 @end table
 
 @findex dtk-toggle-split-caps
@@ -965,8 +870,6 @@ result.
 @table @kbd
 @item C-e d SPC
 @kindex C-e d SPC
-@item <fn> d SPC
-@kindex <fn> d SPC
 @end table
 
 @findex dtk-toggle-splitting-on-white-space
@@ -981,8 +884,6 @@ Toggle splitting of speech on white space.
 @table @kbd
 @item C-e d o
 @kindex C-e d o
-@item <fn> d o
-@kindex <fn> d o
 @end table
 
 @findex dtk-toggle-strip-octals
@@ -1026,8 +927,6 @@ When called interactively, CHAR defaults to the character after point.
 @table @kbd
 @item C-e C-s
 @kindex C-e C-s
-@item <fn> C-s
-@kindex <fn> C-s
 @end table
 
 @findex tts-restart
@@ -1042,8 +941,6 @@ Restart TTS server.
 @table @kbd
 @item C-e d V
 @kindex C-e d V
-@item <fn> d V
-@kindex <fn> d V
 @end table
 
 @findex tts-speak-version
@@ -1305,6 +1202,22 @@ It actually does very little:
 It sets up Emacs to load package-specific
 Emacspeak modules as each package is loaded.
 It implements function emacspeak which loads the rest of the system.
+
+@subsection Emacspeak Commands
+
+@subsubsection emacspeak-orca-toggle
+@deffn {Command} emacspeak-orca-toggle   
+@table @kbd
+@item s-o
+@kindex s-o
+@end table
+
+@findex emacspeak-orca-toggle
+
+@format
+Toggle state of orca.
+@end format
+@end deffn
 
 @subsection emacspeak Options
 
@@ -1924,8 +1837,6 @@ if  a result is already available locally.
 @table @kbd
 @item C-e C-b
 @kindex C-e C-b
-@item <fn> C-b
-@kindex <fn> C-b
 @end table
 
 @findex emacspeak-bookshare
@@ -2576,8 +2487,6 @@ of the advantages of speech-enabled interaction.
 @table @kbd
 @item C-e A
 @kindex C-e A
-@item <fn> A
-@kindex <fn> A
 @end table
 
 @findex emacspeak-appt-repeat-announcement
@@ -3029,8 +2938,6 @@ Interactive PREFIX arg means toggle  global default value.
 @table @kbd
 @item C-e M-o
 @kindex C-e M-o
-@item <fn> M-o
-@kindex <fn> M-o
 @end table
 
 @findex emacspeak-toggle-comint-output-monitor
@@ -3046,8 +2953,6 @@ Interactive PREFIX arg means toggle the global default value.
 @table @kbd
 @item C-e C-q
 @kindex C-e C-q
-@item <fn> C-q
-@kindex <fn> C-q
 @end table
 
 @findex emacspeak-toggle-inaudible-or-comint-autospeak
@@ -3514,8 +3419,6 @@ Speaks the target of the symlink on the current line.
 @table @kbd
 @item C-e C-f
 @kindex C-e C-f
-@item <fn> C-f
-@kindex <fn> C-f
 @end table
 
 @findex emacspeak-find-dired
@@ -3974,8 +3877,6 @@ Percentage seek in seconds,see ‘empv-seek’
 @table @kbd
 @item C-e C-;
 @kindex C-e C-;
-@item <fn> C-;
-@kindex <fn> C-;
 @end table
 
 @findex emacspeak-empv-play-file
@@ -3992,8 +3893,6 @@ Play file using mpv;  Prefix arg plays on secondary device.
 @table @kbd
 @item C-e y y
 @kindex C-e y y
-@item <fn> y y
-@kindex <fn> y y
 @end table
 
 @findex emacspeak-empv-play-url
@@ -4278,8 +4177,6 @@ final or penultimate step during initialization.
 @table @kbd
 @item C-e g
 @kindex C-e g
-@item <fn> g
-@kindex <fn> g
 @end table
 
 @findex emacspeak-epub
@@ -6187,8 +6084,6 @@ arg ‘delete’, delete that mark instead.
 @table @kbd
 @item C-e M-;
 @kindex C-e M-;
-@item <fn> M-;
-@kindex <fn> M-;
 @end table
 
 @findex emacspeak-eww-play-media-at-point
@@ -6668,8 +6563,6 @@ annotation is inserted into the working buffer when complete.
 @table @kbd
 @item C-e C-M-c
 @kindex C-e C-M-c
-@item <fn> C-M-c
-@kindex <fn> C-M-c
 @end table
 
 @findex emacspeak-clipfile-copy
@@ -6893,20 +6786,6 @@ Audio Desktop
 
 @subsection Emacspeak-Exwm Commands
 
-@subsubsection emacspeak-exwm-orca-toggle
-@deffn {Command} emacspeak-exwm-orca-toggle   
-@table @kbd
-@item s-o
-@kindex s-o
-@end table
-
-@findex emacspeak-exwm-orca-toggle
-
-@format
-Toggle state of orca.
-@end format
-@end deffn
-
 @subsubsection emacspeak-exwm-workspace-cycle
 @deffn {Command} emacspeak-exwm-workspace-cycle   
 @findex emacspeak-exwm-workspace-cycle
@@ -6929,8 +6808,6 @@ This module provides Feeds support for Emacspeak
 @table @kbd
 @item C-e M-u
 @kindex C-e M-u
-@item <fn> M-u
-@kindex <fn> M-u
 @end table
 
 @findex emacspeak-feeds-add-feed
@@ -6985,8 +6862,6 @@ See etc/fixup-awesome-rss  for first-time  for instructions.
 @table @kbd
 @item C-e C-u
 @kindex C-e C-u
-@item <fn> C-u
-@kindex <fn> C-u
 @end table
 
 @findex emacspeak-feeds-browse
@@ -7133,8 +7008,6 @@ intermediate filters.
 @table @kbd
 @item C-e ^
 @kindex C-e ^
-@item <fn> ^
-@kindex <fn> ^
 @end table
 
 @findex emacspeak-filtertext
@@ -7784,8 +7657,6 @@ The "grid" is specified as a list of (start end) tuples..
 @table @kbd
 @item C-e # a
 @kindex C-e # a
-@item <fn> # a
-@kindex <fn> # a
 @end table
 
 @findex emacspeak-gridtext-apply
@@ -7802,8 +7673,6 @@ Apply grid to region.
 @table @kbd
 @item C-e # l
 @kindex C-e # l
-@item <fn> # l
-@kindex <fn> # l
 @end table
 
 @findex emacspeak-gridtext-load
@@ -7820,8 +7689,6 @@ Load saved grid settings.
 @table @kbd
 @item C-e # s
 @kindex C-e # s
-@item <fn> # s
-@kindex <fn> # s
 @end table
 
 @findex emacspeak-gridtext-save
@@ -7884,8 +7751,6 @@ Hide or expose all blocks.
 @table @kbd
 @item C-e j
 @kindex C-e j
-@item <fn> j
-@kindex <fn> j
 @end table
 
 @findex emacspeak-hide-or-expose-block
@@ -7904,8 +7769,6 @@ buffer to be hidden or exposed.
 @table @kbd
 @item C-e C-j
 @kindex C-e C-j
-@item <fn> C-j
-@kindex <fn> C-j
 @end table
 
 @findex emacspeak-hide-speak-block-sans-prefix
@@ -9039,8 +8902,6 @@ Play both channels on left.
 @kindex C-; l
 @item C-e z l
 @kindex C-e z l
-@item <fn> z l
-@kindex <fn> z l
 @item C-x @@ h l
 @kindex C-x @@ h l
 @end table
@@ -9062,8 +8923,6 @@ to play  tracks.
 @table @kbd
 @item C-e x ;
 @kindex C-e x ;
-@item <fn> x ;
-@kindex <fn> x ;
 @end table
 
 @findex emacspeak-m-player-loop
@@ -9560,8 +9419,6 @@ Split selected range using SoX
 @table @kbd
 @item C-e x l
 @kindex C-e x l
-@item <fn> x l
-@kindex <fn> x l
 @end table
 
 @findex emacspeak-m-player-youtube-live
@@ -9599,8 +9456,6 @@ Use youtube-dl  to stream  using mplayer.
 @kindex C-e ;
 @item C-; ;
 @kindex C-; ;
-@item <fn> ;
-@kindex <fn> ;
 @item C-x @@ h ;
 @kindex C-x @@ h ;
 @end table
@@ -10513,8 +10368,6 @@ images and produce text.
 @table @kbd
 @item C-e C-o
 @kindex C-e C-o
-@item <fn> C-o
-@kindex <fn> C-o
 @end table
 
 @findex emacspeak-ocr
@@ -11306,14 +11159,8 @@ keys from @code{pianobar-key-map}.
 @kindex C-e C-'
 @item C-' '
 @kindex C-' '
-@item <fn> '
-@kindex <fn> '
-@item <fn> C-'
-@kindex <fn> C-'
 @item C-e y p
 @kindex C-e y p
-@item <fn> y p
-@kindex <fn> y p
 @end table
 
 @findex emacspeak-pianobar
@@ -11588,8 +11435,6 @@ First loads any persistent dictionaries if not already loaded.
 @table @kbd
 @item C-e M-d
 @kindex C-e M-d
-@item <fn> M-d
-@kindex <fn> M-d
 @end table
 
 @findex emacspeak-pronounce-dispatch
@@ -12104,10 +11949,6 @@ custom option @code{emacspeak-play-program}.
 @kindex C-e 0
 @item C-e )
 @kindex C-e )
-@item <fn> 0
-@kindex <fn> 0
-@item <fn> )
-@kindex <fn> )
 @end table
 
 @findex emacspeak-sounds-select-theme
@@ -12124,8 +11965,6 @@ Select theme for auditory icons.
 @table @kbd
 @item C-e C-a
 @kindex C-e C-a
-@item <fn> C-a
-@kindex <fn> C-a
 @end table
 
 @findex emacspeak-toggle-auditory-icons
@@ -12204,14 +12043,6 @@ Move to start or end of buffer.
 @kindex C-e .
 @item C-e ,
 @kindex C-e ,
-@item <fn> p
-@kindex <fn> p
-@item <fn> n
-@kindex <fn> n
-@item <fn> .
-@kindex <fn> .
-@item <fn> ,
-@kindex <fn> ,
 @end table
 
 @findex emacspeak-buffer-select
@@ -12268,8 +12099,6 @@ Cycles to previous buffer having same mode.
 @table @kbd
 @item C-e M-t
 @kindex C-e M-t
-@item <fn> M-t
-@kindex <fn> M-t
 @end table
 
 @findex emacspeak-describe-tapestry
@@ -12299,8 +12128,6 @@ Execute COMMAND repeatedly.
 @table @kbd
 @item C-e M-%
 @kindex C-e M-%
-@item <fn> M-%
-@kindex <fn> M-%
 @end table
 
 @findex emacspeak-goto-percent
@@ -12361,8 +12188,6 @@ Move to previous available minibuffer completion.
 @table @kbd
 @item C-e TAB
 @kindex C-e TAB
-@item <fn> TAB
-@kindex <fn> TAB
 @end table
 
 @findex emacspeak-open-info
@@ -12450,8 +12275,6 @@ Speak the current line in the other window.
 @table @kbd
 @item C-e <down>
 @kindex C-e <down>
-@item <fn> <down>
-@kindex <fn> <down>
 @end table
 
 @findex emacspeak-read-next-line
@@ -12469,8 +12292,6 @@ Default is to read the next line.
 @table @kbd
 @item C-e <up>
 @kindex C-e <up>
-@item <fn> <up>
-@kindex <fn> <up>
 @end table
 
 @findex emacspeak-read-previous-line
@@ -12488,8 +12309,6 @@ Default is to read the previous line.
 @table @kbd
 @item C-e W
 @kindex C-e W
-@item <fn> W
-@kindex <fn> W
 @end table
 
 @findex emacspeak-select-window-by-name
@@ -12538,8 +12357,6 @@ configure which media players get silenced or paused/resumed.
 @table @kbd
 @item C-e <fn>
 @kindex C-e <fn>
-@item <fn> <fn>
-@kindex <fn> <fn>
 @end table
 
 @findex emacspeak-speak-brief-time
@@ -12554,8 +12371,6 @@ Time in brief
 @table @kbd
 @item C-e b
 @kindex C-e b
-@item <fn> b
-@kindex <fn> b
 @end table
 
 @findex emacspeak-speak-buffer
@@ -12574,8 +12389,6 @@ Negative prefix arg speaks from start of buffer to point.
 @table @kbd
 @item C-e f
 @kindex C-e f
-@item <fn> f
-@kindex <fn> f
 @end table
 
 @findex emacspeak-speak-buffer-filename
@@ -12596,8 +12409,6 @@ put in the kill ring for convenience.
 @table @kbd
 @item C-e B
 @kindex C-e B
-@item <fn> B
-@kindex <fn> B
 @end table
 
 @findex emacspeak-speak-buffer-interactively
@@ -12615,8 +12426,6 @@ any other key to speak entire buffer.
 @table @kbd
 @item C-e c
 @kindex C-e c
-@item <fn> c
-@kindex <fn> c
 @end table
 
 @findex emacspeak-speak-char
@@ -12654,8 +12463,6 @@ Speak completions if available.
 @table @kbd
 @item C-e C-<return>
 @kindex C-e C-<return>
-@item <fn> C-<return>
-@kindex <fn> C-<return>
 @end table
 
 @findex emacspeak-speak-continuously
@@ -12675,8 +12482,6 @@ was spoken.  Any other key continues to speak the buffer.
 @table @kbd
 @item C-e =
 @kindex C-e =
-@item <fn> =
-@kindex <fn> =
 @end table
 
 @findex emacspeak-speak-current-column
@@ -12691,8 +12496,6 @@ Speak the current column.
 @table @kbd
 @item C-e k
 @kindex C-e k
-@item <fn> k
-@kindex <fn> k
 @end table
 
 @findex emacspeak-speak-current-kill
@@ -12716,10 +12519,6 @@ arg to give to command yank.
 @kindex C-e C-SPC
 @item C-e C-@@
 @kindex C-e C-@@
-@item <fn> C-SPC
-@kindex <fn> C-SPC
-@item <fn> C-@@
-@kindex <fn> C-@@
 @end table
 
 @findex emacspeak-speak-current-mark
@@ -12744,10 +12543,6 @@ location of the mark is indicated by an aural highlight.
 @kindex C-e 5
 @item C-e %
 @kindex C-e %
-@item <fn> 5
-@kindex <fn> 5
-@item <fn> %
-@kindex <fn> %
 @end table
 
 @findex emacspeak-speak-current-percentage
@@ -12793,8 +12588,6 @@ Property search for face at point see M-x text-property-search-backward
 @table @kbd
 @item C-e C-.
 @kindex C-e C-.
-@item <fn> C-.
-@kindex <fn> C-.
 @end table
 
 @findex emacspeak-speak-face-browse
@@ -12827,8 +12620,6 @@ Speak current field.
 @table @kbd
 @item C-e C-x
 @kindex C-e C-x
-@item <fn> C-x
-@kindex <fn> C-x
 @end table
 
 @findex emacspeak-speak-header-line
@@ -12843,8 +12634,6 @@ Speak header line if set.
 @table @kbd
 @item C-e h
 @kindex C-e h
-@item <fn> h
-@kindex <fn> h
 @end table
 
 @findex emacspeak-speak-help
@@ -12875,8 +12664,6 @@ any other key to speak entire help.
 @table @kbd
 @item C-e l
 @kindex C-e l
-@item <fn> l
-@kindex <fn> l
 @end table
 
 @findex emacspeak-speak-line
@@ -12908,8 +12695,6 @@ spoken using command C-e M-l.
 @table @kbd
 @item C-e L
 @kindex C-e L
-@item <fn> L
-@kindex <fn> L
 @end table
 
 @findex emacspeak-speak-line-interactively
@@ -12927,8 +12712,6 @@ any other key to speak entire line.
 @table @kbd
 @item C-e |
 @kindex C-e |
-@item <fn> |
-@kindex <fn> |
 @end table
 
 @findex emacspeak-speak-line-set-column-filter
@@ -12954,8 +12737,6 @@ the sense of the filter.
 @table @kbd
 @item C-e x d
 @kindex C-e x d
-@item <fn> x d
-@kindex <fn> x d
 @end table
 
 @findex emacspeak-speak-load-directory-settings
@@ -12993,8 +12774,6 @@ Show matched paren with context.
 @table @kbd
 @item C-e a
 @kindex C-e a
-@item <fn> a
-@kindex <fn> a
 @end table
 
 @findex emacspeak-speak-message-again
@@ -13012,8 +12791,6 @@ The message is also placed in the kill ring for convenient yanking
 @table @kbd
 @item C-e @@
 @kindex C-e @@
-@item <fn> @@
-@kindex <fn> @@
 @end table
 
 @findex emacspeak-speak-message-at-time
@@ -13054,8 +12831,6 @@ Speaks time value specified as milliseconds  since epoch..
 @table @kbd
 @item C-e M
 @kindex C-e M
-@item <fn> M
-@kindex <fn> M
 @end table
 
 @findex emacspeak-speak-minor-mode-line
@@ -13074,8 +12849,6 @@ Optional interactive prefix arg ‘log-msg’ logs spoken info to
 @table @kbd
 @item C-e m
 @kindex C-e m
-@item <fn> m
-@kindex <fn> m
 @end table
 
 @findex emacspeak-speak-mode-line
@@ -13103,8 +12876,6 @@ Move to and speak next field.
 @table @kbd
 @item C-e M-b
 @kindex C-e M-b
-@item <fn> M-b
-@kindex <fn> M-b
 @end table
 
 @findex emacspeak-speak-other-buffer
@@ -13122,8 +12893,6 @@ Useful to listen to a buffer without switching  contexts.
 @table @kbd
 @item C-e 2
 @kindex C-e 2
-@item <fn> 2
-@kindex <fn> 2
 @end table
 
 @findex emacspeak-speak-other-window
@@ -13138,8 +12907,6 @@ Speak other window
 @table @kbd
 @item C-e M-l
 @kindex C-e M-l
-@item <fn> M-l
-@kindex <fn> M-l
 @end table
 
 @findex emacspeak-speak-overlay-properties
@@ -13154,8 +12921,6 @@ Speak display, before-string or after-string property if any.
 @table @kbd
 @item C-e ]
 @kindex C-e ]
-@item <fn> ]
-@kindex <fn> ]
 @end table
 
 @findex emacspeak-speak-page
@@ -13186,8 +12951,6 @@ any other key to speak entire page.
 @table @kbd
 @item C-e [
 @kindex C-e [
-@item <fn> [
-@kindex <fn> [
 @end table
 
 @findex emacspeak-speak-paragraph
@@ -13206,8 +12969,6 @@ Negative prefix arg will read from start of current paragraph to point.
 @table @kbd
 @item C-e P
 @kindex C-e P
-@item <fn> P
-@kindex <fn> P
 @end table
 
 @findex emacspeak-speak-paragraph-interactively
@@ -13276,8 +13037,6 @@ Speak and return  range at point
 @table @kbd
 @item C-e R
 @kindex C-e R
-@item <fn> R
-@kindex <fn> R
 @end table
 
 @findex emacspeak-speak-rectangle
@@ -13296,8 +13055,6 @@ program, arguments specify the START and END of the rectangle.
 @table @kbd
 @item C-e r
 @kindex C-e r
-@item <fn> r
-@kindex <fn> r
 @end table
 
 @findex emacspeak-speak-region
@@ -13314,8 +13071,6 @@ Speak region bounded by start and end.
 @table @kbd
 @item C-e i
 @kindex C-e i
-@item <fn> i
-@kindex <fn> i
 @end table
 
 @findex emacspeak-speak-rest-of-buffer
@@ -13330,8 +13085,6 @@ Speak remainder of the buffer starting at point
 @table @kbd
 @item C-e !
 @kindex C-e !
-@item <fn> !
-@kindex <fn> !
 @end table
 
 @findex emacspeak-speak-run-shell-command
@@ -13380,8 +13133,6 @@ Negative prefix arg speaks from start of sentence to point.
 @table @kbd
 @item C-e "
 @kindex C-e "
-@item <fn> "
-@kindex <fn> "
 @end table
 
 @findex emacspeak-speak-sexp
@@ -13423,10 +13174,6 @@ Skim the current buffer  a paragraph at a time.
 @kindex C-e C-M-SPC
 @item C-e C-M-@@
 @kindex C-e C-M-@@
-@item <fn> C-M-SPC
-@kindex <fn> C-M-SPC
-@item <fn> C-M-@@
-@kindex <fn> C-M-@@
 @end table
 
 @findex emacspeak-speak-spaces-at-point
@@ -13450,8 +13197,6 @@ Spell word at  point.
 @table @kbd
 @item C-e 1
 @kindex C-e 1
-@item <fn> 1
-@kindex <fn> 1
 @end table
 
 @findex emacspeak-speak-this-window
@@ -13466,8 +13211,6 @@ Speak current window.
 @table @kbd
 @item C-e t
 @kindex C-e t
-@item <fn> t
-@kindex <fn> t
 @end table
 
 @findex emacspeak-speak-time
@@ -13488,8 +13231,6 @@ Second interactive prefix sets clock to new timezone.
 @table @kbd
 @item C-e V
 @kindex C-e V
-@item <fn> V
-@kindex <fn> V
 @end table
 
 @findex emacspeak-speak-version
@@ -13528,8 +13269,6 @@ Useful to do this before you listen to an entire buffer.
 @table @kbd
 @item C-e M-w
 @kindex C-e M-w
-@item <fn> M-w
-@kindex <fn> M-w
 @end table
 
 @findex emacspeak-speak-which-function
@@ -13545,8 +13284,6 @@ which-func without turning that mode on.
 @table @kbd
 @item C-e C-w
 @kindex C-e C-w
-@item <fn> C-w
-@kindex <fn> C-w
 @end table
 
 @findex emacspeak-speak-window-information
@@ -13561,8 +13298,6 @@ Speaks information about current window.
 @table @kbd
 @item C-e SPC
 @kindex C-e SPC
-@item <fn> SPC
-@kindex <fn> SPC
 @end table
 
 @findex emacspeak-speak-windowful
@@ -13577,8 +13312,6 @@ Delete other windows, Line to top, then Speak window contents.
 @table @kbd
 @item C-e w
 @kindex C-e w
-@item <fn> w
-@kindex <fn> w
 @end table
 
 @findex emacspeak-speak-word
@@ -13632,8 +13365,6 @@ Switch back to buffer that generated completions.
 @table @kbd
 @item C-e d i
 @kindex C-e d i
-@item <fn> d i
-@kindex <fn> d i
 @end table
 
 @findex emacspeak-toggle-audio-indentation
@@ -13654,8 +13385,6 @@ results in the number of initial spaces being spoken.
 @table @kbd
 @item C-e d k
 @kindex C-e d k
-@item <fn> d k
-@kindex <fn> d k
 @end table
 
 @findex emacspeak-toggle-character-echo
@@ -13681,8 +13410,6 @@ Toggle Emacspeak’s default header line.
 @table @kbd
 @item C-e d l
 @kindex C-e d l
-@item <fn> d l
-@kindex <fn> d l
 @end table
 
 @findex emacspeak-toggle-line-echo
@@ -13699,8 +13426,6 @@ current local  value to the result.
 @table @kbd
 @item C-e M-m
 @kindex C-e M-m
-@item <fn> M-m
-@kindex <fn> M-m
 @end table
 
 @findex emacspeak-toggle-mail-alert
@@ -13719,8 +13444,6 @@ indicating the arrival  of new mail when displaying the mode line.
 @table @kbd
 @item C-e C-d
 @kindex C-e C-d
-@item <fn> C-d
-@kindex <fn> C-d
 @end table
 
 @findex emacspeak-toggle-show-point
@@ -13737,8 +13460,6 @@ current local  value to the result.
 @table @kbd
 @item C-e \
 @kindex C-e \
-@item <fn> \
-@kindex <fn> \
 @end table
 
 @findex emacspeak-toggle-speak-line-invert-filter
@@ -13755,8 +13476,6 @@ current local  value to the result.
 @table @kbd
 @item C-e C-M-q
 @kindex C-e C-M-q
-@item <fn> C-M-q
-@kindex <fn> C-M-q
 @end table
 
 @findex emacspeak-toggle-speak-messages
@@ -13771,8 +13490,6 @@ Toggle  state of whether emacspeak echoes messages.
 @table @kbd
 @item C-e d w
 @kindex C-e d w
-@item <fn> d w
-@kindex <fn> d w
 @end table
 
 @findex emacspeak-toggle-word-echo
@@ -13807,8 +13524,6 @@ Display notifications.
 @table @kbd
 @item C-e d z
 @kindex C-e d z
-@item <fn> d z
-@kindex <fn> d z
 @end table
 
 @findex emacspeak-zap-tts
@@ -14326,8 +14041,6 @@ User interface to tables
 @table @kbd
 @item C-e C-t w
 @kindex C-e C-t w
-@item <fn> C-t w
-@kindex <fn> C-t w
 @end table
 
 @findex emacspeak-table-copy-current-element-to-kill-ring
@@ -14342,8 +14055,6 @@ Copy current table element to kill ring.
 @table @kbd
 @item C-e C-t x
 @kindex C-e C-t x
-@item <fn> C-t x
-@kindex <fn> C-t x
 @end table
 
 @findex emacspeak-table-copy-current-element-to-register
@@ -14360,8 +14071,6 @@ Copy current table element to specified register.
 @table @kbd
 @item C-e C-t k
 @kindex C-e C-t k
-@item <fn> C-t k
-@kindex <fn> C-t k
 @end table
 
 @findex emacspeak-table-copy-to-clipboard
@@ -14377,8 +14086,6 @@ Current buffer must be in emacspeak-table mode.
 @table @kbd
 @item C-e M-i
 @kindex C-e M-i
-@item <fn> M-i
-@kindex <fn> M-i
 @end table
 
 @findex emacspeak-table-display-table-in-region
@@ -14403,8 +14110,6 @@ the documentation on the table browser.
 @table @kbd
 @item C-e C-t ,
 @kindex C-e C-t ,
-@item <fn> C-t ,
-@kindex <fn> C-t ,
 @end table
 
 @findex emacspeak-table-find-csv-file
@@ -14440,8 +14145,6 @@ the documentation on the table browser.
 @table @kbd
 @item C-e C-t j
 @kindex C-e C-t j
-@item <fn> C-t j
-@kindex <fn> C-t j
 @end table
 
 @findex emacspeak-table-goto
@@ -14458,12 +14161,8 @@ Prompt for a table cell coordinates and jump to it.
 @table @kbd
 @item C-e C-t B
 @kindex C-e C-t B
-@item <fn> C-t B
-@kindex <fn> C-t B
 @item C-e C-t M->
 @kindex C-e C-t M->
-@item <fn> C-t M->
-@kindex <fn> C-t M->
 @end table
 
 @findex emacspeak-table-goto-bottom
@@ -14480,10 +14179,6 @@ Goes to the bottom of the current column.
 @kindex C-e C-t A
 @item C-e C-t <
 @kindex C-e C-t <
-@item <fn> C-t A
-@kindex <fn> C-t A
-@item <fn> C-t <
-@kindex <fn> C-t <
 @end table
 
 @findex emacspeak-table-goto-left
@@ -14500,10 +14195,6 @@ Goes to the left of the current row.
 @kindex C-e C-t E
 @item C-e C-t >
 @kindex C-e C-t >
-@item <fn> C-t E
-@kindex <fn> C-t E
-@item <fn> C-t >
-@kindex <fn> C-t >
 @end table
 
 @findex emacspeak-table-goto-right
@@ -14518,12 +14209,8 @@ Goes to the right of the current row.
 @table @kbd
 @item C-e C-t T
 @kindex C-e C-t T
-@item <fn> C-t T
-@kindex <fn> C-t T
 @item C-e C-t M-<
 @kindex C-e C-t M-<
-@item <fn> C-t M-<
-@kindex <fn> C-t M-<
 @end table
 
 @findex emacspeak-table-goto-top
@@ -14676,12 +14363,6 @@ or penultimate step during initialization.
 @kindex C-e C-t C-f
 @item C-e C-t <right>
 @kindex C-e C-t <right>
-@item <fn> C-t TAB
-@kindex <fn> C-t TAB
-@item <fn> C-t C-f
-@kindex <fn> C-t C-f
-@item <fn> C-t <right>
-@kindex <fn> C-t <right>
 @end table
 
 @findex emacspeak-table-next-column
@@ -14702,12 +14383,6 @@ Move to the next column if possible
 @kindex C-e C-t C-n
 @item C-e C-t <down>
 @kindex C-e C-t <down>
-@item <fn> C-t n
-@kindex <fn> C-t n
-@item <fn> C-t C-n
-@kindex <fn> C-t C-n
-@item <fn> C-t <down>
-@kindex <fn> C-t <down>
 @end table
 
 @findex emacspeak-table-next-row
@@ -14739,12 +14414,6 @@ markup to use.
 @kindex C-e C-t <left>
 @item C-e C-t S-<tab>
 @kindex C-e C-t S-<tab>
-@item <fn> C-t C-b
-@kindex <fn> C-t C-b
-@item <fn> C-t <left>
-@kindex <fn> C-t <left>
-@item <fn> C-t S-<tab>
-@kindex <fn> C-t S-<tab>
 @end table
 
 @findex emacspeak-table-previous-column
@@ -14765,12 +14434,6 @@ Move to the previous column  if possible
 @kindex C-e C-t C-p
 @item C-e C-t <up>
 @kindex C-e C-t <up>
-@item <fn> C-t p
-@kindex <fn> C-t p
-@item <fn> C-t C-p
-@kindex <fn> C-t C-p
-@item <fn> C-t <up>
-@kindex <fn> C-t <up>
 @end table
 
 @findex emacspeak-table-previous-row
@@ -14787,8 +14450,6 @@ Move to the previous row if possible
 @table @kbd
 @item C-e C-t s
 @kindex C-e C-t s
-@item <fn> C-t s
-@kindex <fn> C-t s
 @end table
 
 @findex emacspeak-table-search
@@ -14808,8 +14469,6 @@ the matching cell current. When called from a program, ‘what’ can
 @table @kbd
 @item C-e C-t C
 @kindex C-e C-t C
-@item <fn> C-t C
-@kindex <fn> C-t C
 @end table
 
 @findex emacspeak-table-search-column
@@ -14824,8 +14483,6 @@ Search in current table column.
 @table @kbd
 @item C-e C-t h
 @kindex C-e C-t h
-@item <fn> C-t h
-@kindex <fn> C-t h
 @end table
 
 @findex emacspeak-table-search-headers
@@ -14842,8 +14499,6 @@ match, makes the matching row or column current.
 @table @kbd
 @item C-e C-t R
 @kindex C-e C-t R
-@item <fn> C-t R
-@kindex <fn> C-t R
 @end table
 
 @findex emacspeak-table-search-row
@@ -14858,8 +14513,6 @@ Search in current table row.
 @table @kbd
 @item C-e C-t a
 @kindex C-e C-t a
-@item <fn> C-t a
-@kindex <fn> C-t a
 @end table
 
 @findex emacspeak-table-select-automatic-speaking-method
@@ -14875,8 +14528,6 @@ browsing table elements
 @table @kbd
 @item C-e C-t #
 @kindex C-e C-t #
-@item <fn> C-t #
-@kindex <fn> C-t #
 @end table
 
 @findex emacspeak-table-sort-on-current-column
@@ -14891,8 +14542,6 @@ Sort table on current column.
 @table @kbd
 @item C-e C-t b
 @kindex C-e C-t b
-@item <fn> C-t b
-@kindex <fn> C-t b
 @end table
 
 @findex emacspeak-table-speak-both-headers-and-element
@@ -14907,8 +14556,6 @@ Speak  both row and column header and table element
 @table @kbd
 @item C-e C-t g
 @kindex C-e C-t g
-@item <fn> C-t g
-@kindex <fn> C-t g
 @end table
 
 @findex emacspeak-table-speak-column-filtered
@@ -14926,8 +14573,6 @@ Optional prefix arg prompts for a new filter.
 @table @kbd
 @item C-e C-t c
 @kindex C-e C-t c
-@item <fn> C-t c
-@kindex <fn> C-t c
 @end table
 
 @findex emacspeak-table-speak-column-header-and-element
@@ -14942,8 +14587,6 @@ Speak  column header and table element
 @table @kbd
 @item C-e C-t .
 @kindex C-e C-t .
-@item <fn> C-t .
-@kindex <fn> C-t .
 @end table
 
 @findex emacspeak-table-speak-coordinates
@@ -14958,8 +14601,6 @@ Speak current table coordinates.
 @table @kbd
 @item C-e C-t SPC
 @kindex C-e C-t SPC
-@item <fn> C-t SPC
-@kindex <fn> C-t SPC
 @end table
 
 @findex emacspeak-table-speak-current-element
@@ -14974,8 +14615,6 @@ Speak current table element
 @table @kbd
 @item C-e C-t =
 @kindex C-e C-t =
-@item <fn> C-t =
-@kindex <fn> C-t =
 @end table
 
 @findex emacspeak-table-speak-dimensions
@@ -14990,8 +14629,6 @@ Speak current table dimensions.
 @table @kbd
 @item C-e C-t f
 @kindex C-e C-t f
-@item <fn> C-t f
-@kindex <fn> C-t f
 @end table
 
 @findex emacspeak-table-speak-row-filtered
@@ -15009,8 +14646,6 @@ Optional prefix arg prompts for a new filter.
 @table @kbd
 @item C-e C-t r
 @kindex C-e C-t r
-@item <fn> C-t r
-@kindex <fn> C-t r
 @end table
 
 @findex emacspeak-table-speak-row-header-and-element
@@ -15025,8 +14660,6 @@ Speak  row header and table element
 @table @kbd
 @item C-e C-t M-l
 @kindex C-e C-t M-l
-@item <fn> C-t M-l
-@kindex <fn> C-t M-l
 @end table
 
 @findex emacspeak-table-ui-filter-load
@@ -15043,8 +14676,6 @@ Load saved filter settings.
 @table @kbd
 @item C-e C-t M-s
 @kindex C-e C-t M-s
-@item <fn> C-t M-s
-@kindex <fn> C-t M-s
 @end table
 
 @findex emacspeak-table-ui-filter-save
@@ -15061,8 +14692,6 @@ Save out filter settings.
 @table @kbd
 @item C-e C-t v
 @kindex C-e C-t v
-@item <fn> C-t v
-@kindex <fn> C-t v
 @end table
 
 @findex emacspeak-table-view-csv-buffer
@@ -15598,8 +15227,6 @@ that are presently defined.
 @table @kbd
 @item C-e u
 @kindex C-e u
-@item <fn> u
-@kindex <fn> u
 @end table
 
 @findex emacspeak-url-template-fetch
@@ -15951,8 +15578,6 @@ to handle Web pages.
 @table @kbd
 @item C-e x e y
 @kindex C-e x e y
-@item <fn> x e y
-@kindex <fn> x e y
 @end table
 
 @findex emacspeak-we-class-follow-and-filter
@@ -15972,8 +15597,6 @@ used as well.
 @table @kbd
 @item C-e x e v
 @kindex C-e x e v
-@item <fn> x e v
-@kindex <fn> x e v
 @end table
 
 @findex emacspeak-we-class-follow-and-filter-link
@@ -15993,8 +15616,6 @@ used as well.
 @table @kbd
 @item C-e x e C-f
 @kindex C-e x e C-f
-@item <fn> x e C-f
-@kindex <fn> x e C-f
 @end table
 
 @findex emacspeak-we-count-matches
@@ -16011,8 +15632,6 @@ Count matches for locator  in Web page.
 @table @kbd
 @item C-e x e C-x
 @kindex C-e x e C-x
-@item <fn> x e C-x
-@kindex <fn> x e C-x
 @end table
 
 @findex emacspeak-we-count-nested-tables
@@ -16029,8 +15648,6 @@ Count nested tables in Web page.
 @table @kbd
 @item C-e x e C-t
 @kindex C-e x e C-t
-@item <fn> x e C-t
-@kindex <fn> x e C-t
 @end table
 
 @findex emacspeak-we-count-tables
@@ -16047,8 +15664,6 @@ Count  tables in Web page.
 @table @kbd
 @item C-e x e c
 @kindex C-e x e c
-@item <fn> x e c
-@kindex <fn> x e c
 @end table
 
 @findex emacspeak-we-extract-by-class
@@ -16067,8 +15682,6 @@ buffer. Interactive use provides list of class values as completion.
 @table @kbd
 @item C-e x e C
 @kindex C-e x e C
-@item <fn> x e C
-@kindex <fn> x e C
 @end table
 
 @findex emacspeak-we-extract-by-class-list
@@ -16088,8 +15701,6 @@ values as completion.
 @table @kbd
 @item C-e x e i
 @kindex C-e x e i
-@item <fn> x e i
-@kindex <fn> x e i
 @end table
 
 @findex emacspeak-we-extract-by-id
@@ -16109,8 +15720,6 @@ completion.
 @table @kbd
 @item C-e x e I
 @kindex C-e x e I
-@item <fn> x e I
-@kindex <fn> x e I
 @end table
 
 @findex emacspeak-we-extract-by-id-list
@@ -16129,8 +15738,6 @@ separate buffer. Interactive use provides list of id values as completion.
 @table @kbd
 @item C-e x e r
 @kindex C-e x e r
-@item <fn> x e r
-@kindex <fn> x e r
 @end table
 
 @findex emacspeak-we-extract-by-role
@@ -16149,8 +15756,6 @@ buffer. Interactive use provides list of role values as completion.
 @table @kbd
 @item C-e x e u
 @kindex C-e x e u
-@item <fn> x e u
-@kindex <fn> x e u
 @end table
 
 @findex emacspeak-we-extract-matching-urls
@@ -16167,8 +15772,6 @@ Extracts links whose URL matches pattern.
 @table @kbd
 @item C-e x e x
 @kindex C-e x e x
-@item <fn> x e x
-@kindex <fn> x e x
 @end table
 
 @findex emacspeak-we-extract-nested-table
@@ -16188,8 +15791,6 @@ spoken automatically.
 @table @kbd
 @item C-e x e X
 @kindex C-e x e X
-@item <fn> x e X
-@kindex <fn> x e X
 @end table
 
 @findex emacspeak-we-extract-nested-table-list
@@ -16206,8 +15807,6 @@ Extract specified list of tables from a Web page.
 @table @kbd
 @item C-e x e z
 @kindex C-e x e z
-@item <fn> x e z
-@kindex <fn> x e z
 @end table
 
 @findex emacspeak-we-extract-speakable
@@ -16224,8 +15823,6 @@ Extract elements having class‘speakable’ from HTML.
 @table @kbd
 @item C-e x e m
 @kindex C-e x e m
-@item <fn> x e m
-@kindex <fn> x e m
 @end table
 
 @findex emacspeak-we-extract-table-by-match
@@ -16243,8 +15840,6 @@ Extract table containing  specified match.
 @table @kbd
 @item C-e x e t
 @kindex C-e x e t
-@item <fn> x e t
-@kindex <fn> x e t
 @end table
 
 @findex emacspeak-we-extract-table-by-position
@@ -16262,8 +15857,6 @@ Default is to extract from current page.
 @table @kbd
 @item C-e x e M
 @kindex C-e x e M
-@item <fn> x e M
-@kindex <fn> x e M
 @end table
 
 @findex emacspeak-we-extract-tables-by-match-list
@@ -16282,8 +15875,6 @@ Tables are specified by containing  match pattern
 @table @kbd
 @item C-e x e T
 @kindex C-e x e T
-@item <fn> x e T
-@kindex <fn> x e T
 @end table
 
 @findex emacspeak-we-extract-tables-by-position-list
@@ -16302,8 +15893,6 @@ Tables are specified by their position in the list
 @table @kbd
 @item C-e x e P
 @kindex C-e x e P
-@item <fn> x e P
-@kindex <fn> x e P
 @end table
 
 @findex emacspeak-we-follow-and-extract-main
@@ -16320,8 +15909,6 @@ Follow URL, then extract role=main.
 @table @kbd
 @item C-e x e b
 @kindex C-e x e b
-@item <fn> x e b
-@kindex <fn> x e b
 @end table
 
 @findex emacspeak-we-follow-and-filter-by-id
@@ -16341,8 +15928,6 @@ used as well.
 @table @kbd
 @item C-e x e d
 @kindex C-e x e d
-@item <fn> x e d
-@kindex <fn> x e d
 @end table
 
 @findex emacspeak-we-junk-by-class
@@ -16363,10 +15948,6 @@ buffer. Interactive use provides list of class values as completion.
 @kindex C-e x e D
 @item C-e x e C-c
 @kindex C-e x e C-c
-@item <fn> x e D
-@kindex <fn> x e D
-@item <fn> x e C-c
-@kindex <fn> x e C-c
 @end table
 
 @findex emacspeak-we-junk-by-class-list
@@ -16386,8 +15967,6 @@ values as completion.
 @table @kbd
 @item C-e x e S
 @kindex C-e x e S
-@item <fn> x e S
-@kindex <fn> x e S
 @end table
 
 @findex emacspeak-we-style-filter
@@ -16407,8 +15986,6 @@ specifies the page to extract contents  from.
 @table @kbd
 @item C-e x e k
 @kindex C-e x e k
-@item <fn> x e k
-@kindex <fn> x e k
 @end table
 
 @findex emacspeak-we-toggle-xsl-keep-result
@@ -16423,8 +16000,6 @@ Toggle xsl keep result flag.
 @table @kbd
 @item C-e x e e
 @kindex C-e x e e
-@item <fn> x e e
-@kindex <fn> x e e
 @end table
 
 @findex emacspeak-we-url-expand-and-execute
@@ -16441,8 +16016,6 @@ Applies buffer-specific URL expander/executor function.
 @table @kbd
 @item C-e x e ]
 @kindex C-e x e ]
-@item <fn> x e ]
-@kindex <fn> x e ]
 @end table
 
 @findex emacspeak-we-url-rewrite-and-follow
@@ -16467,8 +16040,6 @@ a rewrite rule even if one is already defined.
 @table @kbd
 @item C-e x e p
 @kindex C-e x e p
-@item <fn> x e p
-@kindex <fn> x e p
 @end table
 
 @findex emacspeak-we-xpath-follow-and-filter
@@ -16488,8 +16059,6 @@ used as well.
 @table @kbd
 @item C-e x e C-p
 @kindex C-e x e C-p
-@item <fn> x e C-p
-@kindex <fn> x e C-p
 @end table
 
 @findex emacspeak-we-xpath-junk-and-follow
@@ -16510,8 +16079,6 @@ used as well.
 @table @kbd
 @item C-e x e o
 @kindex C-e x e o
-@item <fn> x e o
-@kindex <fn> x e o
 @end table
 
 @findex emacspeak-we-xsl-toggle
@@ -16526,8 +16093,6 @@ Toggle  application of XSL transformations.
 @table @kbd
 @item C-e x e a
 @kindex C-e x e a
-@item <fn> x e a
-@kindex <fn> x e a
 @end table
 
 @findex emacspeak-we-xslt-apply
@@ -16544,8 +16109,6 @@ Apply specified transformation to current Web page.
 @table @kbd
 @item C-e x e f
 @kindex C-e x e f
-@item <fn> x e f
-@kindex <fn> x e f
 @end table
 
 @findex emacspeak-we-xslt-filter
@@ -16563,8 +16126,6 @@ from Web page -- default is the current page being viewed.
 @table @kbd
 @item C-e x e j
 @kindex C-e x e j
-@item <fn> x e j
-@kindex <fn> x e j
 @end table
 
 @findex emacspeak-we-xslt-junk
@@ -16581,8 +16142,6 @@ Junk elements matching specified locator.
 @table @kbd
 @item C-e x e s
 @kindex C-e x e s
-@item <fn> x e s
-@kindex <fn> x e s
 @end table
 
 @findex emacspeak-we-xslt-select
@@ -16666,10 +16225,6 @@ Search Computer Science Bibliographies.
 @kindex C-e ?
 @item C-e /
 @kindex C-e /
-@item <fn> ?
-@kindex <fn> ?
-@item <fn> /
-@kindex <fn> /
 @end table
 
 @findex emacspeak-websearch-dispatch
@@ -16697,8 +16252,6 @@ Perform a FolDoc search.
 @table @kbd
 @item C-e RET
 @kindex C-e RET
-@item <fn> RET
-@kindex <fn> RET
 @end table
 
 @findex emacspeak-websearch-google
@@ -17043,8 +16596,6 @@ Toggle brightness autoblack.
 @table @kbd
 @item C-e M-c
 @kindex C-e M-c
-@item <fn> M-c
-@kindex <fn> M-c
 @end table
 
 @findex emacspeak-copy-current-file
@@ -17065,8 +16616,6 @@ Prompts for the new location and preserves modification time
 @table @kbd
 @item C-e C
 @kindex C-e C
-@item <fn> C
-@kindex <fn> C
 @end table
 
 @findex emacspeak-customize
@@ -17099,8 +16648,6 @@ Give a brief overview of emacspeak.
 @table @kbd
 @item C-e C-t Q
 @kindex C-e C-t Q
-@item <fn> C-t Q
-@kindex <fn> C-t Q
 @end table
 
 @findex emacspeak-kill-buffer-quietly
@@ -17117,8 +16664,6 @@ Kill current buffer without  confirmation.
 @kindex C-e <f1>
 @item C-h C-l
 @kindex C-h C-l
-@item <fn> <f1>
-@kindex <fn> <f1>
 @item <f1> C-l
 @kindex <f1> C-l
 @item <help> C-l
@@ -17186,8 +16731,6 @@ With optional interactive prefix arg ‘frame’, move to previous frame instead
 @table @kbd
 @item C-e C-<right>
 @kindex C-e C-<right>
-@item <fn> C-<right>
-@kindex <fn> C-<right>
 @end table
 
 @findex emacspeak-select-this-buffer-next-display
@@ -17220,8 +16763,6 @@ open at multiple places at once.
 @table @kbd
 @item C-e C-<left>
 @kindex C-e C-<left>
-@item <fn> C-<left>
-@kindex <fn> C-<left>
 @end table
 
 @findex emacspeak-select-this-buffer-previous-display
@@ -17239,8 +16780,6 @@ meaning of ‘previous’.
 @table @kbd
 @item C-e M-p
 @kindex C-e M-p
-@item <fn> M-p
-@kindex <fn> M-p
 @end table
 
 @findex emacspeak-show-property-at-point
@@ -17258,8 +16797,6 @@ If optional arg property is not supplied, read it interactively.
 @table @kbd
 @item C-e M-v
 @kindex C-e M-v
-@item <fn> M-v
-@kindex <fn> M-v
 @end table
 
 @findex emacspeak-show-style-at-point
@@ -17331,8 +16868,6 @@ Skip forward across blanks.
 @table @kbd
 @item C-e M-h
 @kindex C-e M-h
-@item <fn> M-h
-@kindex <fn> M-h
 @end table
 
 @findex emacspeak-speak-hostname
@@ -17365,8 +16900,6 @@ Pop up Messages  and switch to it.
 @table @kbd
 @item C-e I
 @kindex C-e I
-@item <fn> I
-@kindex <fn> I
 @end table
 
 @findex emacspeak-speak-show-active-network-interfaces
@@ -17386,8 +16919,6 @@ also copied to the kill ring for convenient yanking.
 @table @kbd
 @item C-e x t
 @kindex C-e x t
-@item <fn> x t
-@kindex <fn> x t
 @end table
 
 @findex emacspeak-speak-telephone-directory
@@ -17405,8 +16936,6 @@ With prefix arg, opens the phone book for editing.
 @table @kbd
 @item C-e <right>
 @kindex C-e <right>
-@item <fn> <right>
-@kindex <fn> <right>
 @end table
 
 @findex emacspeak-speak-this-buffer-next-display
@@ -17424,8 +16953,6 @@ meaning of ‘next’.
 @table @kbd
 @item C-e C-/
 @kindex C-e C-/
-@item <fn> C-/
-@kindex <fn> C-/
 @end table
 
 @findex emacspeak-speak-this-buffer-other-window-display
@@ -17447,8 +16974,6 @@ listen to the places where you have left the book open.
 @table @kbd
 @item C-e <left>
 @kindex C-e <left>
-@item <fn> <left>
-@kindex <fn> <left>
 @end table
 
 @findex emacspeak-speak-this-buffer-previous-display
@@ -17466,8 +16991,6 @@ meaning of ‘previous’.
 @table @kbd
 @item C-e M-s
 @kindex C-e M-s
-@item <fn> M-s
-@kindex <fn> M-s
 @end table
 
 @findex emacspeak-symlink-current-file
@@ -17487,8 +17010,6 @@ Prompts for the new location and preserves modification time
 @table @kbd
 @item C-e N
 @kindex C-e N
-@item <fn> N
-@kindex <fn> N
 @end table
 
 @findex emacspeak-view-emacspeak-news
@@ -17503,8 +17024,6 @@ Display emacspeak News for a given version.
 @table @kbd
 @item C-e T
 @kindex C-e T
-@item <fn> T
-@kindex <fn> T
 @end table
 
 @findex emacspeak-view-emacspeak-tips
@@ -17589,8 +17108,6 @@ With interactive prefix arg, set foreground and background color first.
 @table @kbd
 @item C-e x C-c
 @kindex C-e x C-c
-@item <fn> x C-c
-@kindex <fn> x C-c
 @end table
 
 @findex emacspeak-wizards-color-wheel
@@ -17619,8 +17136,6 @@ q: Quit color wheel, after copying current hex value to kill-ring.
 @table @kbd
 @item C-e x M-c
 @kindex C-e x M-c
-@item <fn> x M-c
-@kindex <fn> x M-c
 @end table
 
 @findex emacspeak-wizards-colors
@@ -17801,8 +17316,6 @@ interactive prompt.
 @kindex C-z e
 @item C-e z e
 @kindex C-e z e
-@item <fn> z e
-@kindex <fn> z e
 @end table
 
 @findex emacspeak-wizards-eww-buffer-list
@@ -17856,8 +17369,6 @@ tramp/sudo), if the file is not writable by user.
 @table @kbd
 @item C-e x =
 @kindex C-e x =
-@item <fn> x =
-@kindex <fn> x =
 @end table
 
 @findex emacspeak-wizards-find-longest-line-in-region
@@ -17963,8 +17474,6 @@ Clean up news.google.com.
 @table @kbd
 @item C-e x h
 @kindex C-e x h
-@item <fn> x h
-@kindex <fn> x h
 @end table
 
 @findex emacspeak-wizards-how-many-matches
@@ -18084,8 +17593,6 @@ Move point to the next interactive defun
 @kindex C-; w
 @item C-e x w
 @kindex C-e x w
-@item <fn> x w
-@kindex <fn> x w
 @item C-x @@ h w
 @kindex C-x @@ h w
 @end table
@@ -18110,8 +17617,6 @@ Default is to display weather for ‘gmaps-my-address’.
 @table @kbd
 @item C-e x o
 @kindex C-e x o
-@item <fn> x o
-@kindex <fn> x o
 @end table
 
 @findex emacspeak-wizards-occur-header-lines
@@ -18176,8 +17681,6 @@ View stock quotes
 @table @kbd
 @item C-e x f
 @kindex C-e x f
-@item <fn> x f
-@kindex <fn> x f
 @end table
 
 @findex emacspeak-wizards-remote-frame
@@ -18230,18 +17733,6 @@ of the source buffer.
 @kindex C-e x 1
 @item C-e x 0
 @kindex C-e x 0
-@item <fn> x 5
-@kindex <fn> x 5
-@item <fn> x 4
-@kindex <fn> x 4
-@item <fn> x 3
-@kindex <fn> x 3
-@item <fn> x 2
-@kindex <fn> x 2
-@item <fn> x 1
-@kindex <fn> x 1
-@item <fn> x 0
-@kindex <fn> x 0
 @end table
 
 @findex emacspeak-wizards-shell-by-key
@@ -18266,12 +17757,8 @@ Switch to shell buffer by key. This provides a predictable
 @table @kbd
 @item C-e &
 @kindex C-e &
-@item <fn> &
-@kindex <fn> &
 @item C-e x 7
 @kindex C-e x 7
-@item <fn> x 7
-@kindex <fn> x 7
 @end table
 
 @findex emacspeak-wizards-shell-command-on-current-file
@@ -18290,8 +17777,6 @@ Prompts for and runs shell command on current file.
 @kindex C-. .
 @item C-e x .
 @kindex C-e x .
-@item <fn> x .
-@kindex <fn> x .
 @item C-x @@ s .
 @kindex C-x @@ s .
 @end table
@@ -18313,8 +17798,6 @@ the current directory.
 @table @kbd
 @item C-e x ,
 @kindex C-e x ,
-@item <fn> x ,
-@kindex <fn> x ,
 @end table
 
 @findex emacspeak-wizards-shell-directory-set
@@ -18331,8 +17814,6 @@ Define current directory as this shell’s project directory.
 @kindex C-e <f11>
 @item C-; C-j
 @kindex C-; C-j
-@item <fn> <f11>
-@kindex <fn> <f11>
 @item C-x @@ h C-j
 @kindex C-x @@ h C-j
 @end table
@@ -18416,8 +17897,6 @@ Speak ISO date-time.
 @table @kbd
 @item C-e x |
 @kindex C-e x |
-@item <fn> x |
-@kindex <fn> x |
 @end table
 
 @findex emacspeak-wizards-squeeze-blanks
@@ -18525,8 +18004,6 @@ Search Tune-In Radio.
 @table @kbd
 @item C-e x u
 @kindex C-e x u
-@item <fn> x u
-@kindex <fn> x u
 @end table
 
 @findex emacspeak-wizards-units
@@ -18567,8 +18044,6 @@ the final or penultimate step during initialization.
 @table @kbd
 @item C-e x v
 @kindex C-e x v
-@item <fn> x v
-@kindex <fn> x v
 @end table
 
 @findex emacspeak-wizards-vc-viewer
@@ -18607,8 +18082,6 @@ Buffer menu filtered by  m-player mode.
 @kindex C-. m
 @item C-e z b
 @kindex C-e z b
-@item <fn> z b
-@kindex <fn> z b
 @item C-x @@ s m
 @kindex C-x @@ s m
 @end table
@@ -18749,8 +18222,6 @@ Browse URL with specified XSL style.
 @table @kbd
 @item C-e y a
 @kindex C-e y a
-@item <fn> y a
-@kindex <fn> y a
 @end table
 
 @findex emacspeak-xslt-view-atom-file
@@ -18767,8 +18238,6 @@ View Atom file.
 @table @kbd
 @item C-e y x
 @kindex C-e y x
-@item <fn> y x
-@kindex <fn> y x
 @end table
 
 @findex emacspeak-xslt-view-file
@@ -18796,8 +18265,6 @@ Browse XML region with specified XSL style.
 @table @kbd
 @item C-e y r
 @kindex C-e y r
-@item <fn> y r
-@kindex <fn> y r
 @end table
 
 @findex emacspeak-xslt-view-rss-file
@@ -18844,8 +18311,6 @@ the ESpeak TTS engine.
 @table @kbd
 @item C-e d C-e
 @kindex C-e d C-e
-@item <fn> d C-e
-@kindex <fn> d C-e
 @end table
 
 @findex espeak
@@ -19263,362 +18728,6 @@ The body can be accessed via ‘emacspeak-origami/body’.
 @end format
 @end deffn
 
-@node g-utils
-@section g-utils
-
-Common Code  e.g. helper functions.
-Used by modules like gphoto, gblogger etc.
-
-@subsection g-utils Options
-
-@defvar {User Option} g-atom-view-xsl
-XSLT transform to convert Atom feed to HTML.
-
-Default Value: 
-
-@verbatim
-
-"/home/raman/emacs/lisp/emacspeak/xsl/atom-view.xsl"
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} g-cookie-jar
-Cookie jar used for Google services.
-Customize this to live on your local disk.
-
-Default Value: 
-
-@verbatim
-
-nil
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} g-curl-common-options
-Common options to pass to all Curl invocations.
-
-Default Value: 
-
-@verbatim
-
-"--http1.0 --compressed --silent --location --location-trusted --max-time 4 --connect-timeout 1"
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} g-curl-debug
-Set to T to see Curl stderr output.
-
-Default Value: 
-
-@verbatim
-
-nil
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} g-xslt-program
-XSLT Processor.
-
-Default Value: 
-
-@verbatim
-
-"xsltproc"
-
-@end verbatim
-
-@end defvar
-
-@node gm-nnir
-@section gm-nnir
-
-Makes search GMail more convenient.
-IMap search operators, GMail search extensions.
-
-@subsection Gm-Nnir Commands
-
-@subsubsection gm-nnir-group-make-gmail-group
-@deffn {Command} gm-nnir-group-make-gmail-group  (query)
-@findex gm-nnir-group-make-gmail-group
-
-@format
-Use GMail search syntax exclusively.
-See https://support.google.com/mail/answer/7190?hl=en for syntax.
- note: nnimap-address etc are available as local vars if needed
- in these functions.
-
-(fn QUERY)
-@end format
-@end deffn
-
-@node gmaps
-@section gmaps
-
-Implements the Google Maps API
-
-@subsection Gmaps Commands
-
-@subsubsection gmaps
-@deffn {Command} gmaps   
-@table @kbd
-@item C-; e
-@kindex C-; e
-@item C-x @@ h e
-@kindex C-x @@ h e
-@end table
-
-@findex gmaps
-
-@format
-Google Maps Interaction.
-
-This function has :around advice: ‘ad-Advice-gmaps’.
-
-(fn)
-@end format
-@end deffn
-
-@subsubsection gmaps-bicycling-directions
-@deffn {Command} gmaps-bicycling-directions  (origin destination)
-@findex gmaps-bicycling-directions
-
-@format
-Biking directions from Google Maps.
-
-This function has :around advice: ‘ad-Advice-gmaps-bicycling-directions’.
-
-(fn ORIGIN DESTINATION)
-@end format
-@end deffn
-
-@subsubsection gmaps-directions
-@deffn {Command} gmaps-directions  (origin destination mode)
-@findex gmaps-directions
-
-@format
-Display  directions obtained from Google Maps.
-
-(fn ORIGIN DESTINATION MODE)
-@end format
-@end deffn
-
-@subsubsection gmaps-driving-directions
-@deffn {Command} gmaps-driving-directions  (origin destination)
-@findex gmaps-driving-directions
-
-@format
-Driving directions from Google Maps.
-
-This function has :around advice: ‘ad-Advice-gmaps-driving-directions’.
-
-(fn ORIGIN DESTINATION)
-@end format
-@end deffn
-
-@subsubsection gmaps-locations-load
-@deffn {Command} gmaps-locations-load   
-@findex gmaps-locations-load
-
-@format
-Load saved GMaps locations.
-@end format
-@end deffn
-
-@subsubsection gmaps-locations-save
-@deffn {Command} gmaps-locations-save   
-@findex gmaps-locations-save
-
-@format
-Save GMaps Locations.
-@end format
-@end deffn
-
-@subsubsection gmaps-mode
-@deffn {Command} gmaps-mode   
-@findex gmaps-mode
-
-@format
-A Google Maps front-end for the Emacspeak desktop.
-
-In addition to any hooks its parent mode ‘special-mode’ might have
-run, this mode runs the hook ‘gmaps-mode-hook’, as the final or
-penultimate step during initialization.
-
-Key             Binding
--------------------------------------------------------------------------------
-TAB		forward-button
-SPC		gmaps-place-details
-[		backward-page
-]		forward-page
-b		gmaps-bicycling-directions
-c		gmaps-set-current-location
-d		gmaps-driving-directions
-f		gmaps-set-current-filter
-n		gmaps-places-nearby
-r		gmaps-set-current-radius
-s		gmaps-places-search
-t		gmaps-transit-directions
-w		gmaps-walking-directions
-
-M-i		backward-button
-
-@end format
-@end deffn
-
-@subsubsection gmaps-place-details
-@deffn {Command} gmaps-place-details   
-@findex gmaps-place-details
-
-@format
-Display details for place at point.
-Insert reviews if already displaying details.
-
-This function has :around advice: ‘ad-Advice-gmaps-place-details’.
-
-(fn)
-@end format
-@end deffn
-
-@subsubsection gmaps-place-reviews
-@deffn {Command} gmaps-place-reviews   
-@findex gmaps-place-reviews
-
-@format
-Display reviews for place at point.
-Place details need to have been expanded first.
-@end format
-@end deffn
-
-@subsubsection gmaps-places-nearby
-@deffn {Command} gmaps-places-nearby  (&optional clear-filter)
-@findex gmaps-places-nearby
-
-@format
-Find places near current location.
-Uses default radius. optional interactive prefix arg clears any active filters.
-
-This function has :around advice: ‘ad-Advice-gmaps-places-nearby’.
-
-(fn &optional CLEAR-FILTER)
-@end format
-@end deffn
-
-@subsubsection gmaps-places-search
-@deffn {Command} gmaps-places-search  (query &optional clear-filter)
-@findex gmaps-places-search
-
-@format
-Perform a places search.
-Use this only if you dont know the locality  of the place you’re looking for.
-Optional  prefix arg clears any active filters.
-
-This function has :around advice: ‘ad-Advice-gmaps-places-search’.
-
-(fn QUERY &optional CLEAR-FILTER)
-@end format
-@end deffn
-
-@subsubsection gmaps-set-current-filter
-@deffn {Command} gmaps-set-current-filter  (&optional all)
-@findex gmaps-set-current-filter
-
-@format
-Set up filter in current buffer.
-Optional interactive prefix arg prompts for all filter fields.
-
-(fn &optional ALL)
-@end format
-@end deffn
-
-@subsubsection gmaps-set-current-location
-@deffn {Command} gmaps-set-current-location  (address)
-@findex gmaps-set-current-location
-
-@format
- Set current location.
-
-This function has :around advice: ‘ad-Advice-gmaps-set-current-location’.
-
-(fn ADDRESS)
-@end format
-@end deffn
-
-@subsubsection gmaps-set-current-radius
-@deffn {Command} gmaps-set-current-radius  (radius)
-@findex gmaps-set-current-radius
-
-@format
-Set current radius
-
-This function has :around advice: ‘ad-Advice-gmaps-set-current-radius’.
-
-(fn RADIUS)
-@end format
-@end deffn
-
-@subsubsection gmaps-transit-directions
-@deffn {Command} gmaps-transit-directions  (origin destination)
-@findex gmaps-transit-directions
-
-@format
-Transit directions from Google Maps.
-
-This function has :around advice: ‘ad-Advice-gmaps-transit-directions’.
-
-(fn ORIGIN DESTINATION)
-@end format
-@end deffn
-
-@subsubsection gmaps-walking-directions
-@deffn {Command} gmaps-walking-directions  (origin destination)
-@findex gmaps-walking-directions
-
-@format
-Walking directions from Google Maps.
-
-This function has :around advice: ‘ad-Advice-gmaps-walking-directions’.
-
-(fn ORIGIN DESTINATION)
-@end format
-@end deffn
-
-@subsection gmaps Options
-
-@defvar {User Option} gmaps-api-key
-Maps  API  key --- goto  https://code.google.com/apis/console to get one.
-
-Default Value: 
-
-@verbatim
-
-nil
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} gmaps-my-address
-Location address. Setting this updates gmaps-my-location
-coordinates via geocoding.
-
-Default Value: 
-
-@verbatim
-
-nil
-
-@end verbatim
-
-@end defvar
-
 @node ladspa
 @section ladspa
 
@@ -19695,75 +18804,6 @@ p		previous-line
 @end format
 @end deffn
 
-@node light
-@section light
-
-Provide an emacs front-end to light.
-This is a tool that controls the brightness on laptops.
-To install light,
-sudo apt-get install light
-Install light setuid (sudo chmod u+s /usr/bin/light)
-This module  is most   easily used in conjunction with  hydra:
-M-x package-install hydra
-
-@subsection Light Commands
-
-@subsubsection light-black
-@deffn {Command} light-black   
-@findex light-black
-
-@format
-Black screen.
-@end format
-@end deffn
-
-@subsubsection light-decrement
-@deffn {Command} light-decrement   
-@findex light-decrement
-
-@format
-Decrease brightness.
-@end format
-@end deffn
-
-@subsubsection light-get
-@deffn {Command} light-get   
-@findex light-get
-
-@format
-Get  brightness level.
-@end format
-@end deffn
-
-@subsubsection light-increment
-@deffn {Command} light-increment   
-@findex light-increment
-
-@format
-Increase brightness.
-@end format
-@end deffn
-
-@subsubsection light-set
-@deffn {Command} light-set  (brightness)
-@findex light-set
-
-@format
-Set brightness.
-
-(fn BRIGHTNESS)
-@end format
-@end deffn
-
-@subsubsection light-white
-@deffn {Command} light-white   
-@findex light-white
-
-@format
-White screen.
-@end format
-@end deffn
-
 @node mac-voices
 @section mac-voices
 
@@ -19784,12 +18824,6 @@ Default Value:
 
 @end defvar
 
-@node omaps
-@section omaps
-
-Implements geocoding via the Open Street Maps API
-https://nominatim.org/
-
 @node outloud-voices
 @section outloud-voices
 
@@ -19803,8 +18837,6 @@ This module is IBM ViaVoice Outloud specific.
 @table @kbd
 @item C-e d C-o
 @kindex C-e d C-o
-@item <fn> d C-o
-@kindex <fn> d C-o
 @end table
 
 @findex outloud
@@ -20067,148 +19099,6 @@ Default Value:
 
 @end defvar
 
-@node sox
-@section sox
-
-This module defines a convenient speech-enabled
-interface for editing mp3 and wav files using SoX.
-
-Launching M-x sox  creates a special interaction buffer
-that provides single keystroke commands for editing and
-applying effects to a selected sound file. For adding mp3
-support to sox, do
-
-sudo apt-get libsox-fmt-mp3 install
-
-This module provides support for ladspa effects using module ladspa.el.
-To use ladspa effects with SoX, you need a relatively new build of Sox;
-The stock SoX that is package for Debian/Ubuntu  does not always work.
-This module can be used independent of Emacspeak.
-
-@subsection Sox Commands
-
-@subsubsection sox-add-effect
-@deffn {Command} sox-add-effect  (name)
-@findex sox-add-effect
-
-@format
-Adds  effect at the end of the effect list
-
-(fn NAME)
-@end format
-@end deffn
-
-@subsubsection sox-delete-effect-at-point
-@deffn {Command} sox-delete-effect-at-point   
-@findex sox-delete-effect-at-point
-
-@format
-Delete effect at point.
-
-This function has :around advice: ‘ad-Advice-sox-delete-effect-at-point’.
-
-(fn)
-@end format
-@end deffn
-
-@subsubsection sox-edit-effect-at-point
-@deffn {Command} sox-edit-effect-at-point   
-@findex sox-edit-effect-at-point
-
-@format
-Edit effect at point.
-@end format
-@end deffn
-
-@subsubsection sox-mode
-@deffn {Command} sox-mode   
-@findex sox-mode
-
-@format
-An audio workbench for the Emacspeak desktop.
-
-In addition to any hooks its parent mode ‘special-mode’ might have
-run, this mode runs the hook ‘sox-mode-hook’, as the final or
-penultimate step during initialization.
-
-@end format
-@end deffn
-
-@subsubsection sox-open-file
-@deffn {Command} sox-open-file  (snd-file)
-@findex sox-open-file
-
-@format
-Open specified snd-file on the Audio Workbench.
-
-This function has :around advice: ‘ad-Advice-sox-open-file’.
-
-(fn SND-FILE)
-@end format
-@end deffn
-
-@subsubsection sox-play
-@deffn {Command} sox-play   
-@findex sox-play
-
-@format
-Play sound .
-@end format
-@end deffn
-
-@subsubsection sox-refresh
-@deffn {Command} sox-refresh   
-@findex sox-refresh
-
-@format
-Redraw Audio Workbench.
-
-This function has :around advice: ‘ad-Advice-sox-refresh’.
-
-(fn)
-@end format
-@end deffn
-
-@subsubsection sox-save
-@deffn {Command} sox-save  (save-file)
-@findex sox-save
-
-@format
-Save context to  file after prompting.
-
-(fn SAVE-FILE)
-@end format
-@end deffn
-
-@subsubsection sox-set-effect
-@deffn {Command} sox-set-effect  (name)
-@findex sox-set-effect
-
-@format
-Set effect.
-
-(fn NAME)
-@end format
-@end deffn
-
-@subsubsection sox-show-timestamp
-@deffn {Command} sox-show-timestamp   
-@findex sox-show-timestamp
-
-@format
-Show timestamp   in stream.
-@end format
-@end deffn
-
-@subsubsection sox-stop
-@deffn {Command} sox-stop   
-@findex sox-stop
-
-@format
-Stop currently playing  sound from current context.
-@end format
-@end deffn
-
 @node sox-gen
 @section sox-gen
 
@@ -20432,33 +19322,6 @@ Default Value:
 @end verbatim
 
 @end defvar
-
-@node tetris
-@section tetris
-
-@node toy-braille
-@section toy-braille
-
-This is a bit of toy code to write in braille.
-To try this, load this file (`M-x load-file
-path/to/toy-braille.el'), then do:
-
-  M-: (get-toy-braille-string "just a test")
-
-That's just a toy, meant as an excuse and maybe a tool to learn a
-bit of braille, nothing more.
-
-Unicode fonts are needed.
-
-You can try:
-
-  M-: (set-default-font "-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*")
-
-or
-
-  M-: (set-default-font "-*-clearlyu-*-*-*-*-*-*-*-*-*-*-iso10646-*")
-
-(only works if the relative font is installed and properly configured).
 
 @node voice-defs
 @section voice-defs
@@ -20893,8 +19756,6 @@ use from other modules.
 @table @kbd
 @item C-e d v
 @kindex C-e d v
-@item <fn> d v
-@kindex <fn> d v
 @end table
 
 @findex voice-lock-mode
@@ -20906,9 +19767,9 @@ This is a minor mode.  If called interactively, toggle the
 ‘Voice-Lock mode’ mode.  If the prefix argument is positive,
 enable the mode, and if it is zero or negative, disable the mode.
 
-If called from Lisp, toggle the mode if ARG is ‘toggle’. Enable
-the mode if ARG is nil, omitted, or is a positive number. Disable
-the mode if ARG is a negative number.
+If called from Lisp, toggle the mode if ARG is ‘toggle’.  Enable
+the mode if ARG is nil, omitted, or is a positive number.
+Disable the mode if ARG is a negative number.
 
 To check whether the minor mode is enabled in the current buffer,
 evaluate ‘voice-lock-mode’.
@@ -20934,8 +19795,6 @@ Turn on Voice Lock mode .
 @table @kbd
 @item C-e M-q
 @kindex C-e M-q
-@item <fn> M-q
-@kindex <fn> M-q
 @end table
 
 @findex voice-setup-toggle-silence-personality
@@ -20962,75 +19821,6 @@ Default Value:
 
 @end defvar
 
-@node xbacklight
-@section xbacklight
-
-Provide an emacs front-end to xbacklight.
-This is a tool that controls the brightness on laptops.
-To install xbacklight,
-sudo apt-get install xbacklight
-
-This module  is most   easily used in conjunction with  hydra:
-M-x package-install hydra
-
-@subsection Xbacklight Commands
-
-@subsubsection xbacklight-black
-@deffn {Command} xbacklight-black   
-@findex xbacklight-black
-
-@format
-Black screen.
-@end format
-@end deffn
-
-@subsubsection xbacklight-decrement
-@deffn {Command} xbacklight-decrement   
-@findex xbacklight-decrement
-
-@format
-Decrease brightness.
-@end format
-@end deffn
-
-@subsubsection xbacklight-get
-@deffn {Command} xbacklight-get   
-@findex xbacklight-get
-
-@format
-Get  brightness level.
-@end format
-@end deffn
-
-@subsubsection xbacklight-increment
-@deffn {Command} xbacklight-increment   
-@findex xbacklight-increment
-
-@format
-Increase brightness.
-@end format
-@end deffn
-
-@subsubsection xbacklight-set
-@deffn {Command} xbacklight-set  (brightness)
-@findex xbacklight-set
-
-@format
-Set brightness.
-
-(fn BRIGHTNESS)
-@end format
-@end deffn
-
-@subsubsection xbacklight-white
-@deffn {Command} xbacklight-white   
-@findex xbacklight-white
-
-@format
-White screen.
-@end format
-@end deffn
-
 @node URL Templates 
 @section URL Templates
 
@@ -21038,7 +19828,7 @@ This section documents a total of 63 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
- @kbd{C-e u <fn> u}.
+ @kbd{C-e u}.
 This command prompts for the name of the template, and completion
  is available via Emacs' minibuffer completion.
 Each URL template carries out the following steps:
