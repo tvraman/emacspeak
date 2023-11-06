@@ -149,21 +149,7 @@
 
 ;;; Orca Toggle:
 
-;;; Easily start/stop orca for use with Chrome etc.
-
-(defvar emacspeak-exwm-orca-handle nil
-  "Orca process handle")
-
-(defun emacspeak-exwm-orca-toggle ()
-  "Toggle state of orca."
-  (interactive)
-  (cl-declare (special emacspeak-exwm-orca-handle))
-  (cond
-   (emacspeak-exwm-orca-handle (delete-process emacspeak-exwm-orca-handle)
-                               (setq emacspeak-exwm-orca-handle  nil))
-   (t (setq emacspeak-exwm-orca-handle (start-process "Orca"nil "orca")))))
-
-(global-set-key (kbd "s-o") 'emacspeak-exwm-orca-toggle)
+(global-set-key (kbd "s-o") 'emacspeak-orca-toggle)
 
 ;;; Configure Hooks:
 

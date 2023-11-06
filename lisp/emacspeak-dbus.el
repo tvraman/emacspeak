@@ -229,22 +229,23 @@ already disabled."
   "Emacspeak hook for Login1-resume."
   (cl-declare (special amixer-alsactl-config-file
                        tts-notification-device))
-  (emacspeak-prompt "resume")
   (ems-with-messages-silenced
-   (tts-restart)
-   (with-environment-variables
-       (("PULSE_SINK"  tts-notification-device))
-     (emacspeak-prompt "waking-up"))
-   (amixer-restore amixer-alsactl-config-file)
-   (when (featurep 'soundscape) (soundscape-restart))
-   (when (featurep 'light) (light-black))
-   (when
-       (dbus-call-method
-        :session
-        "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
-        "org.gnome.ScreenSaver" "GetActive")
-     (emacspeak-prompt "pwd")
-     (emacspeak-auditory-icon 'help))))
+    (tts-restart)
+    (with-environment-variables
+        (("PULSE_SINK"  tts-notification-device))
+      (emacspeak-prompt "waking-up"))
+    (amixer-restore amixer-alsactl-config-file)
+    (when (executable-find "orca")
+      (emacspeak-orca-toggle))
+    (when (featurep 'soundscape) (soundscape-restart))
+    (when (featurep 'light) (light-black))
+    (when
+        (dbus-call-method
+         :session
+         "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
+         "org.gnome.ScreenSaver" "GetActive")
+      (emacspeak-prompt "pwd")
+      (emacspeak-auditory-icon 'help))))
 
 (add-hook 'emacspeak-dbus-resume-hook #'emacspeak-dbus-resume)
 
@@ -379,6 +380,7 @@ already disabled."
             (with-environment-variables
                 (("PULSE_SINK"  tts-notification-device))
               (emacspeak-prompt "success")
+              (emacspeak-orca-toggle)
               (light-black))
             (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
             (when
