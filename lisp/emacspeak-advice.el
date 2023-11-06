@@ -859,6 +859,16 @@ When on a close delimiter, speak matching delimiter after a small delay. "
       (emacspeak-auditory-icon 'complete))
     ad-return-value))
 
+
+(defadvice minibuffer-choose-completion (around emacspeak pre act comp)
+  "Speak completion."
+  (let ((orig (save-excursion (skip-syntax-backward "^ >_") (point))))
+    ad-do-it
+    (when (ems-interactive-p)
+      (dtk-speak (buffer-substring orig (point)))
+      (emacspeak-auditory-icon 'complete))
+    ad-return-value))
+
 ;;;  advice various input functions to speak:
 
 (defadvice read-passwd (before emacspeak pre act comp)
