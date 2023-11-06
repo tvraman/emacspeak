@@ -1196,19 +1196,21 @@ Negative prefix arg speaks from start of buffer to point."
         (dtk-speak "First ask for help")))))
 
 (defun emacspeak-get-current-completion ()
-  "Return the completion string under point in the *Completions* buffer."
-  (let (beg end)
-    (if (and (not (eobp)) (get-text-property (point) 'mouse-face))
-        (setq end (point) beg (1+ (point))))
-    (if (and (not (bobp)) (get-text-property (1- (point)) 'mouse-face))
-        (setq end (1- (point)) beg (point)))
-    (if (null beg)
-        (error "No current  completion "))
-    (setq beg (or
-               (previous-single-property-change beg 'mouse-face)
-               (point-min)))
-    (setq end (or (next-single-property-change end 'mouse-face) (point-max)))
-    (buffer-substring beg end)))
+  "Return the completion string under point in the *Completions*
+buffer."
+  (with-minibuffer-completions-window
+    (let (beg end)
+      (if (and (not (eobp)) (get-text-property (point) 'mouse-face))
+          (setq end (point) beg (1+ (point))))
+      (if (and (not (bobp)) (get-text-property (1- (point)) 'mouse-face))
+          (setq end (1- (point)) beg (point)))
+      (if (null beg)
+          (error "No current  completion "))
+      (setq beg (or
+                 (previous-single-property-change beg 'mouse-face)
+                 (point-min)))
+      (setq end (or (next-single-property-change end 'mouse-face) (point-max)))
+      (buffer-substring beg end))))
 
 ;;;  mail check
 
