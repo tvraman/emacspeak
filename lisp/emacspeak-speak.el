@@ -2518,24 +2518,6 @@ This function is sensitive to calendar mode when prompting."
 
 ;;;  Navigating completions:
 
-(defun emacspeak-minibuffer-next-completion ()
-  "Move to next available minibuffer completion."
-  (interactive)
-  (or (get-buffer "*Completions*") (minibuffer-completion-help))
-  (when (get-buffer "*Completions*")
-    (with-current-buffer (get-buffer "*Completions*")
-      (let ((voice-lock-mode nil))
-        (funcall-interactively #'next-completion 1)))))
-
-(defun emacspeak-minibuffer-previous-completion ()
-  "Move to previous available minibuffer completion."
-  (interactive)
-  (or (get-buffer "*Completions*") (minibuffer-completion-help))
-  (when (get-buffer "*Completions*")
-    (with-current-buffer (get-buffer "*Completions*")
-      (let ((voice-lock-mode nil))
-        (funcall-interactively #'previous-completion 1)))))
-
 ;; Hacked out of choose-completion
 (defun emacspeak--choose-completion ()
   "Choose the completion at point."
@@ -2571,10 +2553,10 @@ This function is sensitive to calendar mode when prompting."
 
 (define-key
  minibuffer-local-completion-map
- (kbd "C-n") 'emacspeak-minibuffer-next-completion)
+ (kbd "C-n") 'minibuffer-next-completion)
 (define-key
  minibuffer-local-completion-map
- (kbd "C-p") 'emacspeak-minibuffer-previous-completion)
+ (kbd "C-p") 'minibuffer-previous-completion)
 (define-key
  minibuffer-local-completion-map
  (kbd "C-SPC") 'emacspeak-minibuffer-choose-completion)
