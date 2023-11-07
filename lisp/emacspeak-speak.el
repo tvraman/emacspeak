@@ -1203,8 +1203,10 @@ Negative prefix arg speaks from start of buffer to point."
           (setq end (point) beg (1+ (point))))
       (if (and (not (bobp)) (get-text-property (1- (point)) 'completion--string))
           (setq end (1- (point)) beg (point)))
-      (if (null beg)
-          (error "No current  completion "))
+      (if (and  (bobp)
+                (next-completion 1))
+          (setq end (1- (point)) beg (point)))
+      (if (null beg) (error "No current  completion "))
       (setq beg (or
                  (previous-single-property-change beg 'completion--string)
                  (point-min)))
