@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1151 commands and 147 options.
+This chapter documents a total of 1150 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -12307,22 +12307,6 @@ This is useful when using modes like ECB or the new GDB UI where
 but quickly switch to a window by name.
 
 (fn BUFFER-NAME)
-@end format
-@end deffn
-
-@subsubsection emacspeak-selective-display
-@deffn {Command} emacspeak-selective-display  (cols)
-@table @kbd
-@item C-e C-c
-@kindex C-e C-c
-@end table
-
-@findex emacspeak-selective-display
-
-@format
-Like Emacs ’ selective-display but prompts for cols.
-
-(fn COLS)
 @end format
 @end deffn
 
