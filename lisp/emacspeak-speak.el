@@ -1196,8 +1196,7 @@ Negative prefix arg speaks from start of buffer to point."
         (dtk-speak "First ask for help")))))
 
 (defun emacspeak-get-current-completion ()
-  "Return the completion string under point in the *Completions*
-buffer."
+  "Return the completion under point in the *Completions* buffer."
   (with-minibuffer-completions-window
     (let (beg end)
       (if (and (not (eobp)) (get-text-property (point) 'mouse-face))
