@@ -1201,7 +1201,8 @@ Negative prefix arg speaks from start of buffer to point."
     (let (beg end)
       (if (and (not (eobp)) (get-text-property (point) 'completion--string))
           (setq end (point) beg (1+ (point))))
-      (if (and (not (bobp)) (get-text-property (1- (point)) 'completion--string))
+      (if (and (not (bobp))
+               (get-text-property (1- (point)) 'completion--string))
           (setq end (1- (point)) beg (point)))
       (if (and  (bobp)
                 (next-completion 1))
@@ -1210,7 +1211,9 @@ Negative prefix arg speaks from start of buffer to point."
       (setq beg (or
                  (previous-single-property-change beg 'completion--string)
                  (point-min)))
-      (setq end (or (next-single-property-change end 'completion--string) (point-max)))
+      (setq end
+            (or (next-single-property-change end 'completion--string)
+                (point-max)))
       (buffer-substring beg end))))
 
 ;;;  mail check

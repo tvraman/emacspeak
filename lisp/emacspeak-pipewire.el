@@ -1,4 +1,4 @@
-;;; emacspeak-pipewire.el --- Speech-enable PIPEWIRE  -*- lexical-binding: t; -*-
+;;; emacspeak-pipewire.el --- Speech-enable PIPEWIRE -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable PIPEWIRE An Emacs Interface to pipewire
 ;;; Keywords: Emacspeak,  Audio Desktop pipewire

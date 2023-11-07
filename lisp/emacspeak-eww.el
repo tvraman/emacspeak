@@ -575,12 +575,13 @@ Safari/537.36"
 
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
-  (cl-declare (special outline-regexp
-                       shr-external-rendering-functions emacspeak-eww-filter-renderers
-                       eww-mode-map eww-link-keymap eww-text-map
-                       shr-inhibit-images emacspeak-eww-inhibit-images
-                       emacspeak-pronounce-xml-ns
-                       emacspeak-eww-masquerade))
+  (cl-declare (special
+               outline-regexp
+               shr-external-rendering-functions emacspeak-eww-filter-renderers
+               eww-mode-map eww-link-keymap eww-text-map
+               shr-inhibit-images emacspeak-eww-inhibit-images
+               emacspeak-pronounce-xml-ns
+               emacspeak-eww-masquerade))
   (setq outline-regexp "[•0-9]+ ")
   (ems--fastload "emacspeak-pronounce")
   (emacspeak-pronounce-augment-pronunciations
