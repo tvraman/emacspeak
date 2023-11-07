@@ -215,7 +215,7 @@
    ("<deletechar>" dtk-toggle-punctuation-mode)
    ("C-a" emacspeak-toggle-auditory-icons)
    ("C-b" emacspeak-bookshare)
-   ("C-c" emacspeak-selective-display)
+   ("C-c" set-selective-display)
    ("C-M-c" emacspeak-clipfile-copy)
    ("C-d" emacspeak-toggle-show-point)
    ("C-e" move-end-of-line)
