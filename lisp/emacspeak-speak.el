@@ -2812,4 +2812,11 @@ p emacspeak-cycle-to-previous-buffer
      "Repeat with %k")))
 
 (provide 'emacspeak-speak)
+;;; Selective Display:
+;;;###autoload
+(defun emacspeak-selective-display (cols)
+  "Like Emacs ' selective-display but prompts for cols."
+  (interactive "nCols")
+  (set-selective-display cols))
+
 ;;;  end of file

@@ -113,17 +113,6 @@
            (executable-find "mscore")
            emacspeak-wizards-media-pipe midi-file)))
 
-;;;  Braille
-
-;;;###autoload
-(defun emacspeak-wizards-braille (s)
-  "Insert Braille string at point."
-  (interactive "sBraille: ")
-  (require 'toy-braille)
-  (insert (get-toy-braille-string s))
-  (emacspeak-auditory-icon 'yank-object)
-  (message "Brailled %s" s))
-
 ;;;  Add autoload cookies:
 
 (defvar emacspeak-autoload-cookie-pattern
