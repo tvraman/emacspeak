@@ -1199,16 +1199,16 @@ Negative prefix arg speaks from start of buffer to point."
   "Return the completion under point in the *Completions* buffer."
   (with-minibuffer-completions-window
     (let (beg end)
-      (if (and (not (eobp)) (get-text-property (point) 'mouse-face))
+      (if (and (not (eobp)) (get-text-property (point) 'completion--string))
           (setq end (point) beg (1+ (point))))
-      (if (and (not (bobp)) (get-text-property (1- (point)) 'mouse-face))
+      (if (and (not (bobp)) (get-text-property (1- (point)) 'completion--string))
           (setq end (1- (point)) beg (point)))
       (if (null beg)
           (error "No current  completion "))
       (setq beg (or
-                 (previous-single-property-change beg 'mouse-face)
+                 (previous-single-property-change beg 'completion--string)
                  (point-min)))
-      (setq end (or (next-single-property-change end 'mouse-face) (point-max)))
+      (setq end (or (next-single-property-change end 'completion--string) (point-max)))
       (buffer-substring beg end))))
 
 ;;;  mail check
