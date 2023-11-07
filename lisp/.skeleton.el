@@ -2,7 +2,7 @@
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable <SKELETON> An Emacs Interface to <skeleton>
 ;;; Keywords: Emacspeak,  Audio Desktop <skeleton>
-;;{{{  LCD Archive entry:
+;;;   LCD Archive entry:
 
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
@@ -11,8 +11,7 @@
 ;;; Location undetermined
 ;;;
 
-;;}}}
-;;{{{  Copyright:
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -35,25 +34,22 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;;   introduction
 
 ;;; Commentary:
 ;;; <SKELETON> == 
 
 ;;; Code:
 
-;;}}}
-;;{{{  Required modules
+;;;   Required modules
 
 (eval-when-compile  (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;}}}
-;;{{{ Map Faces:
+;;;  Map Faces:
 
 (let ((print-length 0)
       (faces (emacspeak-wizards-enumerate-unmapped-faces "^<skeleton>"))
@@ -68,8 +64,7 @@
   (goto-char (search-forward "("))
   (indent-pp-sexp))
 
-;;}}}
-;;{{{ Interactive Commands:
+;;;  Interactive Commands:
 
 (let ((print-length nil)
       (start (point))
@@ -83,12 +78,10 @@
   (goto-char (search-forward "("))
   (indent-pp-sexp))
 
-;;}}}
 (provide 'emacspeak-<skeleton>)
-;;{{{ end of file
+;;;  end of file
 
 ;;; local variables:
-;;; folded-file: t
+
 ;;; end:
 
-;;}}}
