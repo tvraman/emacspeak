@@ -4,11 +4,12 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1143 commands and 147 options.
+This chapter documents a total of 1151 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
 * dectalk-voices::Dectalk Voice  Codes.
+* dom-addons::dom.el addons.
 * dtk-speak::Interface to speech server.
 * emacspeak::The Complete Audio Desktop.
 * emacspeak-2048::Speech-enable 2048 Game.
@@ -227,14 +228,22 @@ This chapter documents a total of 1143 commands and 147 options.
 * emacspeak-yasnippet::YASNIPPET.
 * espeak-voices::Define  Espeak tags.
 * extra-muggles::Additional Hydras.
+* g-utils::Google Client Utilities.
+* gm-nnir::Searching GMail Using NNIR.
+* gmaps::Google Maps.
 * ladspa::Ladspa Tools For Emacs.
+* light::Control Brightness.
 * mac-voices::Define  Mac tags.
+* omaps::Open street  Maps.
 * outloud-voices::Define  OutLoud tags.
 * plain-voices::No Voice lock voices.
 * soundscape::Soundscapes.
+* sox::An Audio Work-Bench.
 * sox-gen::Binaural Beats And More Using SoX.
+* tetris::Tetris for Emacs.
 * voice-defs::Define voices for voice-lock.
 * voice-setup::Setup voices for voice-lock.
+* xbacklight::Brightness.
 * URL Templates ::
 @end menu
 
@@ -428,6 +437,11 @@ Default Value:
 @end verbatim
 
 @end defvar
+
+@node dom-addons
+@section dom-addons
+
+Useful additional functions for dom.el
 
 @node dtk-speak
 @section dtk-speak
@@ -6620,15 +6634,6 @@ Persists mapping to org file.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-braille
-@deffn {Command} emacspeak-wizards-braille  (s)
-@findex emacspeak-wizards-braille
-
-@format
-Insert Braille string at point.
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-display-pod-as-manpage
 @deffn {Command} emacspeak-wizards-display-pod-as-manpage  (filename)
 @findex emacspeak-wizards-display-pod-as-manpage
@@ -12165,24 +12170,6 @@ Choose current completion.
 @end format
 @end deffn
 
-@subsubsection emacspeak-minibuffer-next-completion
-@deffn {Command} emacspeak-minibuffer-next-completion   
-@findex emacspeak-minibuffer-next-completion
-
-@format
-Move to next available minibuffer completion.
-@end format
-@end deffn
-
-@subsubsection emacspeak-minibuffer-previous-completion
-@deffn {Command} emacspeak-minibuffer-previous-completion   
-@findex emacspeak-minibuffer-previous-completion
-
-@format
-Move to previous available minibuffer completion.
-@end format
-@end deffn
-
 @subsubsection emacspeak-open-info
 @deffn {Command} emacspeak-open-info   
 @table @kbd
@@ -12320,6 +12307,22 @@ This is useful when using modes like ECB or the new GDB UI where
 but quickly switch to a window by name.
 
 (fn BUFFER-NAME)
+@end format
+@end deffn
+
+@subsubsection emacspeak-selective-display
+@deffn {Command} emacspeak-selective-display  (cols)
+@table @kbd
+@item C-e C-c
+@kindex C-e C-c
+@end table
+
+@findex emacspeak-selective-display
+
+@format
+Like Emacs ’ selective-display but prompts for cols.
+
+(fn COLS)
 @end format
 @end deffn
 
@@ -18728,6 +18731,362 @@ The body can be accessed via ‘emacspeak-origami/body’.
 @end format
 @end deffn
 
+@node g-utils
+@section g-utils
+
+Common Code  e.g. helper functions.
+Used by modules like gphoto, gblogger etc.
+
+@subsection g-utils Options
+
+@defvar {User Option} g-atom-view-xsl
+XSLT transform to convert Atom feed to HTML.
+
+Default Value: 
+
+@verbatim
+
+"/home/raman/emacs/lisp/emacspeak/xsl/atom-view.xsl"
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} g-cookie-jar
+Cookie jar used for Google services.
+Customize this to live on your local disk.
+
+Default Value: 
+
+@verbatim
+
+nil
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} g-curl-common-options
+Common options to pass to all Curl invocations.
+
+Default Value: 
+
+@verbatim
+
+"--http1.0 --compressed --silent --location --location-trusted --max-time 4 --connect-timeout 1"
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} g-curl-debug
+Set to T to see Curl stderr output.
+
+Default Value: 
+
+@verbatim
+
+nil
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} g-xslt-program
+XSLT Processor.
+
+Default Value: 
+
+@verbatim
+
+"xsltproc"
+
+@end verbatim
+
+@end defvar
+
+@node gm-nnir
+@section gm-nnir
+
+Makes search GMail more convenient.
+IMap search operators, GMail search extensions.
+
+@subsection Gm-Nnir Commands
+
+@subsubsection gm-nnir-group-make-gmail-group
+@deffn {Command} gm-nnir-group-make-gmail-group  (query)
+@findex gm-nnir-group-make-gmail-group
+
+@format
+Use GMail search syntax exclusively.
+See https://support.google.com/mail/answer/7190?hl=en for syntax.
+ note: nnimap-address etc are available as local vars if needed
+ in these functions.
+
+(fn QUERY)
+@end format
+@end deffn
+
+@node gmaps
+@section gmaps
+
+Implements the Google Maps API
+
+@subsection Gmaps Commands
+
+@subsubsection gmaps
+@deffn {Command} gmaps   
+@table @kbd
+@item C-; e
+@kindex C-; e
+@item C-x @@ h e
+@kindex C-x @@ h e
+@end table
+
+@findex gmaps
+
+@format
+Google Maps Interaction.
+
+This function has :around advice: ‘ad-Advice-gmaps’.
+
+(fn)
+@end format
+@end deffn
+
+@subsubsection gmaps-bicycling-directions
+@deffn {Command} gmaps-bicycling-directions  (origin destination)
+@findex gmaps-bicycling-directions
+
+@format
+Biking directions from Google Maps.
+
+This function has :around advice: ‘ad-Advice-gmaps-bicycling-directions’.
+
+(fn ORIGIN DESTINATION)
+@end format
+@end deffn
+
+@subsubsection gmaps-directions
+@deffn {Command} gmaps-directions  (origin destination mode)
+@findex gmaps-directions
+
+@format
+Display  directions obtained from Google Maps.
+
+(fn ORIGIN DESTINATION MODE)
+@end format
+@end deffn
+
+@subsubsection gmaps-driving-directions
+@deffn {Command} gmaps-driving-directions  (origin destination)
+@findex gmaps-driving-directions
+
+@format
+Driving directions from Google Maps.
+
+This function has :around advice: ‘ad-Advice-gmaps-driving-directions’.
+
+(fn ORIGIN DESTINATION)
+@end format
+@end deffn
+
+@subsubsection gmaps-locations-load
+@deffn {Command} gmaps-locations-load   
+@findex gmaps-locations-load
+
+@format
+Load saved GMaps locations.
+@end format
+@end deffn
+
+@subsubsection gmaps-locations-save
+@deffn {Command} gmaps-locations-save   
+@findex gmaps-locations-save
+
+@format
+Save GMaps Locations.
+@end format
+@end deffn
+
+@subsubsection gmaps-mode
+@deffn {Command} gmaps-mode   
+@findex gmaps-mode
+
+@format
+A Google Maps front-end for the Emacspeak desktop.
+
+In addition to any hooks its parent mode ‘special-mode’ might have
+run, this mode runs the hook ‘gmaps-mode-hook’, as the final or
+penultimate step during initialization.
+
+Key             Binding
+-------------------------------------------------------------------------------
+TAB		forward-button
+SPC		gmaps-place-details
+[		backward-page
+]		forward-page
+b		gmaps-bicycling-directions
+c		gmaps-set-current-location
+d		gmaps-driving-directions
+f		gmaps-set-current-filter
+n		gmaps-places-nearby
+r		gmaps-set-current-radius
+s		gmaps-places-search
+t		gmaps-transit-directions
+w		gmaps-walking-directions
+
+M-i		backward-button
+
+@end format
+@end deffn
+
+@subsubsection gmaps-place-details
+@deffn {Command} gmaps-place-details   
+@findex gmaps-place-details
+
+@format
+Display details for place at point.
+Insert reviews if already displaying details.
+
+This function has :around advice: ‘ad-Advice-gmaps-place-details’.
+
+(fn)
+@end format
+@end deffn
+
+@subsubsection gmaps-place-reviews
+@deffn {Command} gmaps-place-reviews   
+@findex gmaps-place-reviews
+
+@format
+Display reviews for place at point.
+Place details need to have been expanded first.
+@end format
+@end deffn
+
+@subsubsection gmaps-places-nearby
+@deffn {Command} gmaps-places-nearby  (&optional clear-filter)
+@findex gmaps-places-nearby
+
+@format
+Find places near current location.
+Uses default radius. optional interactive prefix arg clears any active filters.
+
+This function has :around advice: ‘ad-Advice-gmaps-places-nearby’.
+
+(fn &optional CLEAR-FILTER)
+@end format
+@end deffn
+
+@subsubsection gmaps-places-search
+@deffn {Command} gmaps-places-search  (query &optional clear-filter)
+@findex gmaps-places-search
+
+@format
+Perform a places search.
+Use this only if you dont know the locality  of the place you’re looking for.
+Optional  prefix arg clears any active filters.
+
+This function has :around advice: ‘ad-Advice-gmaps-places-search’.
+
+(fn QUERY &optional CLEAR-FILTER)
+@end format
+@end deffn
+
+@subsubsection gmaps-set-current-filter
+@deffn {Command} gmaps-set-current-filter  (&optional all)
+@findex gmaps-set-current-filter
+
+@format
+Set up filter in current buffer.
+Optional interactive prefix arg prompts for all filter fields.
+
+(fn &optional ALL)
+@end format
+@end deffn
+
+@subsubsection gmaps-set-current-location
+@deffn {Command} gmaps-set-current-location  (address)
+@findex gmaps-set-current-location
+
+@format
+ Set current location.
+
+This function has :around advice: ‘ad-Advice-gmaps-set-current-location’.
+
+(fn ADDRESS)
+@end format
+@end deffn
+
+@subsubsection gmaps-set-current-radius
+@deffn {Command} gmaps-set-current-radius  (radius)
+@findex gmaps-set-current-radius
+
+@format
+Set current radius
+
+This function has :around advice: ‘ad-Advice-gmaps-set-current-radius’.
+
+(fn RADIUS)
+@end format
+@end deffn
+
+@subsubsection gmaps-transit-directions
+@deffn {Command} gmaps-transit-directions  (origin destination)
+@findex gmaps-transit-directions
+
+@format
+Transit directions from Google Maps.
+
+This function has :around advice: ‘ad-Advice-gmaps-transit-directions’.
+
+(fn ORIGIN DESTINATION)
+@end format
+@end deffn
+
+@subsubsection gmaps-walking-directions
+@deffn {Command} gmaps-walking-directions  (origin destination)
+@findex gmaps-walking-directions
+
+@format
+Walking directions from Google Maps.
+
+This function has :around advice: ‘ad-Advice-gmaps-walking-directions’.
+
+(fn ORIGIN DESTINATION)
+@end format
+@end deffn
+
+@subsection gmaps Options
+
+@defvar {User Option} gmaps-api-key
+Maps  API  key --- goto  https://code.google.com/apis/console to get one.
+
+Default Value: 
+
+@verbatim
+
+nil
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} gmaps-my-address
+Location address. Setting this updates gmaps-my-location
+coordinates via geocoding.
+
+Default Value: 
+
+@verbatim
+
+nil
+
+@end verbatim
+
+@end defvar
+
 @node ladspa
 @section ladspa
 
@@ -18804,6 +19163,75 @@ p		previous-line
 @end format
 @end deffn
 
+@node light
+@section light
+
+Provide an emacs front-end to light.
+This is a tool that controls the brightness on laptops.
+To install light,
+sudo apt-get install light
+Install light setuid (sudo chmod u+s /usr/bin/light)
+This module  is most   easily used in conjunction with  hydra:
+M-x package-install hydra
+
+@subsection Light Commands
+
+@subsubsection light-black
+@deffn {Command} light-black   
+@findex light-black
+
+@format
+Black screen.
+@end format
+@end deffn
+
+@subsubsection light-decrement
+@deffn {Command} light-decrement   
+@findex light-decrement
+
+@format
+Decrease brightness.
+@end format
+@end deffn
+
+@subsubsection light-get
+@deffn {Command} light-get   
+@findex light-get
+
+@format
+Get  brightness level.
+@end format
+@end deffn
+
+@subsubsection light-increment
+@deffn {Command} light-increment   
+@findex light-increment
+
+@format
+Increase brightness.
+@end format
+@end deffn
+
+@subsubsection light-set
+@deffn {Command} light-set  (brightness)
+@findex light-set
+
+@format
+Set brightness.
+
+(fn BRIGHTNESS)
+@end format
+@end deffn
+
+@subsubsection light-white
+@deffn {Command} light-white   
+@findex light-white
+
+@format
+White screen.
+@end format
+@end deffn
+
 @node mac-voices
 @section mac-voices
 
@@ -18823,6 +19251,12 @@ Default Value:
 @end verbatim
 
 @end defvar
+
+@node omaps
+@section omaps
+
+Implements geocoding via the Open Street Maps API
+https://nominatim.org/
 
 @node outloud-voices
 @section outloud-voices
@@ -19099,6 +19533,148 @@ Default Value:
 
 @end defvar
 
+@node sox
+@section sox
+
+This module defines a convenient speech-enabled
+interface for editing mp3 and wav files using SoX.
+
+Launching M-x sox  creates a special interaction buffer
+that provides single keystroke commands for editing and
+applying effects to a selected sound file. For adding mp3
+support to sox, do
+
+sudo apt-get libsox-fmt-mp3 install
+
+This module provides support for ladspa effects using module ladspa.el.
+To use ladspa effects with SoX, you need a relatively new build of Sox;
+The stock SoX that is package for Debian/Ubuntu  does not always work.
+This module can be used independent of Emacspeak.
+
+@subsection Sox Commands
+
+@subsubsection sox-add-effect
+@deffn {Command} sox-add-effect  (name)
+@findex sox-add-effect
+
+@format
+Adds  effect at the end of the effect list
+
+(fn NAME)
+@end format
+@end deffn
+
+@subsubsection sox-delete-effect-at-point
+@deffn {Command} sox-delete-effect-at-point   
+@findex sox-delete-effect-at-point
+
+@format
+Delete effect at point.
+
+This function has :around advice: ‘ad-Advice-sox-delete-effect-at-point’.
+
+(fn)
+@end format
+@end deffn
+
+@subsubsection sox-edit-effect-at-point
+@deffn {Command} sox-edit-effect-at-point   
+@findex sox-edit-effect-at-point
+
+@format
+Edit effect at point.
+@end format
+@end deffn
+
+@subsubsection sox-mode
+@deffn {Command} sox-mode   
+@findex sox-mode
+
+@format
+An audio workbench for the Emacspeak desktop.
+
+In addition to any hooks its parent mode ‘special-mode’ might have
+run, this mode runs the hook ‘sox-mode-hook’, as the final or
+penultimate step during initialization.
+
+@end format
+@end deffn
+
+@subsubsection sox-open-file
+@deffn {Command} sox-open-file  (snd-file)
+@findex sox-open-file
+
+@format
+Open specified snd-file on the Audio Workbench.
+
+This function has :around advice: ‘ad-Advice-sox-open-file’.
+
+(fn SND-FILE)
+@end format
+@end deffn
+
+@subsubsection sox-play
+@deffn {Command} sox-play   
+@findex sox-play
+
+@format
+Play sound .
+@end format
+@end deffn
+
+@subsubsection sox-refresh
+@deffn {Command} sox-refresh   
+@findex sox-refresh
+
+@format
+Redraw Audio Workbench.
+
+This function has :around advice: ‘ad-Advice-sox-refresh’.
+
+(fn)
+@end format
+@end deffn
+
+@subsubsection sox-save
+@deffn {Command} sox-save  (save-file)
+@findex sox-save
+
+@format
+Save context to  file after prompting.
+
+(fn SAVE-FILE)
+@end format
+@end deffn
+
+@subsubsection sox-set-effect
+@deffn {Command} sox-set-effect  (name)
+@findex sox-set-effect
+
+@format
+Set effect.
+
+(fn NAME)
+@end format
+@end deffn
+
+@subsubsection sox-show-timestamp
+@deffn {Command} sox-show-timestamp   
+@findex sox-show-timestamp
+
+@format
+Show timestamp   in stream.
+@end format
+@end deffn
+
+@subsubsection sox-stop
+@deffn {Command} sox-stop   
+@findex sox-stop
+
+@format
+Stop currently playing  sound from current context.
+@end format
+@end deffn
+
 @node sox-gen
 @section sox-gen
 
@@ -19322,6 +19898,9 @@ Default Value:
 @end verbatim
 
 @end defvar
+
+@node tetris
+@section tetris
 
 @node voice-defs
 @section voice-defs
@@ -19820,6 +20399,75 @@ Default Value:
 @end verbatim
 
 @end defvar
+
+@node xbacklight
+@section xbacklight
+
+Provide an emacs front-end to xbacklight.
+This is a tool that controls the brightness on laptops.
+To install xbacklight,
+sudo apt-get install xbacklight
+
+This module  is most   easily used in conjunction with  hydra:
+M-x package-install hydra
+
+@subsection Xbacklight Commands
+
+@subsubsection xbacklight-black
+@deffn {Command} xbacklight-black   
+@findex xbacklight-black
+
+@format
+Black screen.
+@end format
+@end deffn
+
+@subsubsection xbacklight-decrement
+@deffn {Command} xbacklight-decrement   
+@findex xbacklight-decrement
+
+@format
+Decrease brightness.
+@end format
+@end deffn
+
+@subsubsection xbacklight-get
+@deffn {Command} xbacklight-get   
+@findex xbacklight-get
+
+@format
+Get  brightness level.
+@end format
+@end deffn
+
+@subsubsection xbacklight-increment
+@deffn {Command} xbacklight-increment   
+@findex xbacklight-increment
+
+@format
+Increase brightness.
+@end format
+@end deffn
+
+@subsubsection xbacklight-set
+@deffn {Command} xbacklight-set  (brightness)
+@findex xbacklight-set
+
+@format
+Set brightness.
+
+(fn BRIGHTNESS)
+@end format
+@end deffn
+
+@subsubsection xbacklight-white
+@deffn {Command} xbacklight-white   
+@findex xbacklight-white
+
+@format
+White screen.
+@end format
+@end deffn
 
 @node URL Templates 
 @section URL Templates
