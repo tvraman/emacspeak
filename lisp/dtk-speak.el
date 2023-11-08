@@ -1545,21 +1545,22 @@ program. Port defaults to dtk-local-server-port"
 (defsubst tts-notification-from-env ()
   "Compute tts-notification device from env."
   (let ((device
-         (or
-          (and (executable-find "pamixer")
+         (or ; each clause is for a given env:
+          (and ; pipewire-pulse
+           (executable-find "pamixer")
                (substring
                 (cl-second
                  (split-string
                   (shell-command-to-string
                    "pamixer --list-sinks | grep right")))
                 1 -1))
-          (and
+          (and ; pure pipewire  or pure alsa
            (not (zerop (length (shell-command-to-string "pidof pulseaudio"))))
            (cl-first
             (split-string
              (shell-command-to-string
               "pacmd list-sinks | grep tts | cut -f 2 -d ':'"))))
-          (cl-second
+          (cl-second; basic alsa
            (split-string
             (shell-command-to-string
              "aplay -L 2>/dev/null | grep tts")))
