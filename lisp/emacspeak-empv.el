@@ -91,10 +91,10 @@
 
 ;;;###autoload
 (defun emacspeak-empv-play-url (url &optional left-channel)
-  "Play URL using mpv;  Prefix arg plays on secondary device."
+  "Play URL using mpv;  Prefix arg plays on notification  device."
   (interactive (list (emacspeak-eww-read-url 'emacspeak-empv-history)
                      current-prefix-arg ))
-  (cl-declare (special tts-secondary-device
+  (cl-declare (special tts-notification-device
                        emacspeak-empv-history-max emacspeak-empv-history))
   (require 'empv)
   (when
@@ -104,7 +104,7 @@
     (setq url  (emacspeak-google-canonicalize-result-url url)))
   (add-to-history 'emacspeak-empv-history url emacspeak-empv-history-max)
   (if left-channel
-      (with-environment-variables (("PULSE_SINK" tts-secondary-device))
+      (with-environment-variables (("PULSE_SINK" tts-notification-device))
         (empv-play url))
     (empv-play url)))
 
@@ -115,13 +115,13 @@
 
 ;;;###autoload
 (defun emacspeak-empv-play-file (file &optional left-channel)
-  "Play file using mpv;  Prefix arg plays on secondary device."
+  "Play file using mpv;  Prefix arg plays on notification device."
   (interactive
    (list (emacspeak-media-read-resource) current-prefix-arg  ))
-  (cl-declare (special tts-secondary-device))
+  (cl-declare (special tts-notification-device))
   (require 'empv)
   (if left-channel
-      (with-environment-variables (("PULSE_SINK" tts-secondary-device))
+      (with-environment-variables (("PULSE_SINK" tts-notification-device))
         (empv-play file))
     (empv-play file)))
 

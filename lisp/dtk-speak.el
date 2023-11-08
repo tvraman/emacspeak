@@ -1553,30 +1553,16 @@ program. Port defaults to dtk-local-server-port"
                   (shell-command-to-string
                    "pamixer --list-sinks | grep right")))
                 1 -1))
-          
           (and
            (not (zerop (length (shell-command-to-string "pidof pulseaudio"))))
            (cl-first
             (split-string
              (shell-command-to-string
               "pacmd list-sinks | grep tts | cut -f 2 -d ':'"))))
-          "default")))
-    (if (string-match "<" device) ; strip <> from pactl result
-        (substring device 1 -1)
-      device)))
-
-(defsubst tts-secondary-from-env ()
-  "Compute tts-secondary device from env."
-  (let ((device
-         (or
           (cl-second
            (split-string
             (shell-command-to-string
-             "aplay -L 2>/dev/null | grep mono")))
-          (cl-second
-           (split-string
-            (shell-command-to-string
-             "pacmd list-sinks | grep tts | cut -f 2 -d ':'")))
+             "aplay -L 2>/dev/null | grep tts")))
           "default")))
     (if (string-match "<" device) ; strip <> from pactl result
         (substring device 1 -1)
@@ -1591,14 +1577,6 @@ Set to nil to disable a separate Notification stream."
           (string :value ""))
   :group 'tts)
 
-(defcustom tts-secondary-device
-  (eval-when-compile (tts-secondary-from-env))
-  "Virtual sound device to use as a secondary display stream.
-Set to nil to disable a secondary Notification stream."
-  :type '(choice
-          (const :tag "None" nil)
-          (string :value ""))
-  :group 'tts)
 (defvar dtk-speak-server-initialized nil
   "Records if the server is initialized.")
 
