@@ -91,7 +91,9 @@
 
 ;;;###autoload
 (defun emacspeak-empv-play-url (url &optional notification-device)
-  "Play URL using mpv;  Prefix arg plays on notification  device."
+  "Play URL using mpv;  Prefix arg plays on notification  device.
+For the  prefix arg to take effect, make sure to add the line
+`ao=pulse,' to your .config/mpv.conf file."
   (interactive (list (emacspeak-eww-read-url 'emacspeak-empv-history)
                      current-prefix-arg ))
   (cl-declare (special tts-notification-device
