@@ -233,7 +233,7 @@
           "category-def">Command:</span> <span><strong class=
           "def-name">emacspeak-empv-play-url</strong> <var class=
           "def-var-arguments">(url &amp;optional
-          left-channel)</var> <a class="copiable-link" href=
+          notification-device)</var> <a class="copiable-link" href=
           '#index-emacspeak_002dempv_002dplay_002durl'>¶</a></span></dt>
           <dd>
             <dl class="table">
@@ -245,8 +245,10 @@
             <div class="format">
               <pre class=
               "format-preformatted">Play URL using mpv;  Prefix arg plays on notification  device.
+For the  prefix arg to take effect, make sure to add the line
+‘ao=pulse,’ to your .config/mpv.conf file.
 
-(fn URL &amp;optional LEFT-CHANNEL)
+(fn URL &amp;optional NOTIFICATION-DEVICE)
 </pre>
             </div>
           </dd>
