@@ -646,6 +646,10 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 
 (voice-setup-set-voice-for-face 'minibuffer-prompt 'voice-bolden)
 
+(defadvice minibuffer-completion-help (around emacspeak pre act comp)
+  "Silence messages"
+  (ems-with-messages-silenced ad-do-it))
+
 (defadvice quoted-insert (after emacspeak pre act comp)
   "Speak inserted  character."
   (when (ems-interactive-p)
@@ -697,7 +701,9 @@ When on a close delimiter, speak matching delimiter after a small delay. "
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (tts-with-punctuations 'all
-         (dtk-speak (emacspeak-get-current-completion)))))))
+         (dtk-speak
+          (or (minibuffer-contents)
+              (emacspeak-get-current-completion))))))))
 
 (defvar emacspeak-last-message nil
   "Last output from `message'.")
