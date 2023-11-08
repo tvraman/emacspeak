@@ -2522,37 +2522,6 @@ This function is sensitive to calendar mode when prompting."
 ;;;  Navigating completions:
 
 ;; Hacked out of choose-completion
-(defun emacspeak--choose-completion ()
-  "Choose the completion at point."
-  (interactive)
-  (let ((buffer completion-reference-buffer)
-        (base-position completion-base-position)
-        (insert-function completion-list-insert-choice-function)
-        (choice
-         (save-excursion
-           (let (beg end)
-             (cond
-              ((and (not (eobp)) (get-text-property (point) 'mouse-face))
-               (setq end (point) beg (1+ (point))))
-              ((and (not (bobp))
-                    (get-text-property (1- (point)) 'mouse-face))
-               (setq end (1- (point)) beg (point)))
-              (t (error "No completion here")))
-             (setq beg (previous-single-property-change beg 'mouse-face))
-             (setq end (or (next-single-property-change end 'mouse-face)
-                           (point-max)))
-             (buffer-substring-no-properties beg end)))))
-    (unless (buffer-live-p buffer) (error "Destination buffer is dead"))
-    (with-current-buffer buffer
-      (choose-completion-string choice buffer base-position insert-function))))
-
-(defun emacspeak-minibuffer-choose-completion ()
-  "Choose current completion."
-  (interactive)
-  (when (get-buffer "*Completions*")
-    (with-current-buffer (get-buffer "*Completions*")
-      (message "%s" (thing-at-point 'symbol))
-      (emacspeak--choose-completion))))
 
 (define-key
  minibuffer-local-completion-map
@@ -2560,9 +2529,6 @@ This function is sensitive to calendar mode when prompting."
 (define-key
  minibuffer-local-completion-map
  (kbd "C-p") 'minibuffer-previous-completion)
-(define-key
- minibuffer-local-completion-map
- (kbd "C-SPC") 'emacspeak-minibuffer-choose-completion)
 
 ;;;  Open Emacspeak Info Pages:
 
