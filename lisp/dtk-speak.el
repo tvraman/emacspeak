@@ -1546,10 +1546,14 @@ program. Port defaults to dtk-local-server-port"
   "Compute tts-notification device from env."
   (let ((device
          (or
-          (cl-first
-           (split-string
-            (shell-command-to-string
-             "aplay -L 2>/dev/null | grep mono")))
+          (and (executable-find "pamixer")
+               (substring
+                (cl-second
+                 (split-string
+                  (shell-command-to-string
+                   "pamixer --list-sinks | grep right")))
+                1 -1))
+          
           (and
            (not (zerop (length (shell-command-to-string "pidof pulseaudio"))))
            (cl-first
