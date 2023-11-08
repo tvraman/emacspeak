@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1148 commands and 147 options.
+This chapter documents a total of 1148 commands and 146 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -1187,21 +1187,7 @@ Default Value:
 
 @verbatim
 
-"default"
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} tts-secondary-device
-Virtual sound device to use as a secondary display stream.
-Set to nil to disable a secondary Notification stream.
-
-Default Value: 
-
-@verbatim
-
-"PulseAudio"
+"tts_right"
 
 @end verbatim
 
@@ -3896,7 +3882,7 @@ Percentage seek in seconds,see ‘empv-seek’
 @findex emacspeak-empv-play-file
 
 @format
-Play file using mpv;  Prefix arg plays on secondary device.
+Play file using mpv;  Prefix arg plays on notification device.
 
 (fn FILE &optional LEFT-CHANNEL)
 @end format
@@ -3912,7 +3898,7 @@ Play file using mpv;  Prefix arg plays on secondary device.
 @findex emacspeak-empv-play-url
 
 @format
-Play URL using mpv;  Prefix arg plays on secondary device.
+Play URL using mpv;  Prefix arg plays on notification  device.
 
 (fn URL &optional LEFT-CHANNEL)
 @end format
