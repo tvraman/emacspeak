@@ -858,10 +858,9 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 
 (defadvice completion-at-point (around emacspeak pre act comp)
   "Speak completion."
-  (let ((orig (save-excursion (skip-syntax-backward "^ >_") (point))))
+  (let ((orig (save-excursion (skip-syntax-backward "^->_") (point))))
     ad-do-it
-    (when (ems-interactive-p)
-      (dtk-speak (buffer-substring orig (point)))
+    (when (ems-interactive-p) (dtk-speak (buffer-substring orig (point)))
       (emacspeak-auditory-icon 'complete))
     ad-return-value))
 
