@@ -90,7 +90,7 @@
   "Max number of history to preserve.")
 
 ;;;###autoload
-(defun emacspeak-empv-play-url (url &optional left-channel)
+(defun emacspeak-empv-play-url (url &optional notification-device)
   "Play URL using mpv;  Prefix arg plays on notification  device."
   (interactive (list (emacspeak-eww-read-url 'emacspeak-empv-history)
                      current-prefix-arg ))
@@ -103,7 +103,7 @@
            (string-prefix-p (emacspeak-google-result-url-prefix) url))
     (setq url  (emacspeak-google-canonicalize-result-url url)))
   (add-to-history 'emacspeak-empv-history url emacspeak-empv-history-max)
-  (if left-channel
+  (if notification-device
       (with-environment-variables (("PULSE_SINK" tts-notification-device))
         (empv-play url))
     (empv-play url)))
