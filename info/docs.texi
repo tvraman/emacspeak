@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1150 commands and 147 options.
+This chapter documents a total of 1148 commands and 147 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -12007,15 +12007,6 @@ from becoming dependent on the speech server modules
 
 @subsection Emacspeak-Speak Commands
 
-@subsubsection emacspeak--choose-completion
-@deffn {Command} emacspeak--choose-completion   
-@findex emacspeak--choose-completion
-
-@format
-Choose the completion at point.
-@end format
-@end deffn
-
 @subsubsection emacspeak--persist-variable
 @deffn {Command} emacspeak--persist-variable  (var file)
 @findex emacspeak--persist-variable
@@ -12158,15 +12149,6 @@ Also set the mark at the position where point was.
 @format
 Cycle backward through the mark ring.
 To cycle forward, use pop-to-mark-command bound to C-<down> 
-@end format
-@end deffn
-
-@subsubsection emacspeak-minibuffer-choose-completion
-@deffn {Command} emacspeak-minibuffer-choose-completion   
-@findex emacspeak-minibuffer-choose-completion
-
-@format
-Choose current completion.
 @end format
 @end deffn
 
