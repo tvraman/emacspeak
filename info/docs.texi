@@ -3889,7 +3889,7 @@ Play file using mpv;  Prefix arg plays on notification device.
 @end deffn
 
 @subsubsection emacspeak-empv-play-url
-@deffn {Command} emacspeak-empv-play-url  (url &optional left-channel)
+@deffn {Command} emacspeak-empv-play-url  (url &optional notification-device)
 @table @kbd
 @item C-e y y
 @kindex C-e y y
@@ -3899,8 +3899,10 @@ Play file using mpv;  Prefix arg plays on notification device.
 
 @format
 Play URL using mpv;  Prefix arg plays on notification  device.
+For the  prefix arg to take effect, make sure to add the line
+‘ao=pulse,’ to your .config/mpv.conf file.
 
-(fn URL &optional LEFT-CHANNEL)
+(fn URL &optional NOTIFICATION-DEVICE)
 @end format
 @end deffn
 
