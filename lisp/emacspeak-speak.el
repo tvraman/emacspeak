@@ -2520,17 +2520,7 @@ This function is sensitive to calendar mode when prompting."
                                 "%Y-%m-%d"))
 
 ;;;  Navigating completions:
-
-;; Hacked out of choose-completion
-
-(define-key
- minibuffer-local-completion-map
- (kbd "C-n") 'minibuffer-next-completion)
-(define-key
- minibuffer-local-completion-map
- (kbd "C-p") 'minibuffer-previous-completion)
-
-;;;  Open Emacspeak Info Pages:
+;; ;;;  Open Emacspeak Info Pages:
 
 (defun emacspeak-open-info ()
   "Open Emacspeak Info Manual."
