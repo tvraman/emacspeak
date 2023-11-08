@@ -2519,7 +2519,7 @@ This function is sensitive to calendar mode when prompting."
   (emacspeak-speak-collect-date "Date:"
                                 "%Y-%m-%d"))
 
-;;;  Navigating completions:
+
 ;; ;;;  Open Emacspeak Info Pages:
 
 (defun emacspeak-open-info ()
