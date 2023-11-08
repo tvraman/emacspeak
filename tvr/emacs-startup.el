@@ -135,6 +135,7 @@ Use Custom to customize where possible. "
      ("C-x v ." magit-commit-create)
      ("<f3>" bury-buffer)
      ("<f4>" emacspeak-kill-buffer-quietly)
+     ("<f5>" set-selective-display)
      ("M--" undo-only)
      ("M-C-c" calendar)
      ("M-C-j" imenu)
