@@ -3122,6 +3122,7 @@ thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 * emacspeak-man::Speech enable Man.
 * emacspeak-markdown::Speech-enable MARKDOWN.
 * emacspeak-maths::Audio-Formatted Maths.
+* emacspeak-mct::Speech-enable EMACSPEAK-MCT.
 * emacspeak-message::Speech enable Message.
 * emacspeak-metapost::speech-enable metapost.
 * emacspeak-midge::Speech-enable Midge.
