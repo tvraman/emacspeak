@@ -167,6 +167,7 @@
 (cl-loop
  for binding in
  '(
+   ("M-SPC" emacspeak-speak-completions-if-available)
    ("!" emacspeak-speak-run-shell-command)
    ("#" emacspeak-gridtext)
    ("$" flyspell-mode)
@@ -239,9 +240,7 @@
    ("M" emacspeak-speak-minor-mode-line)
    ("M-%" emacspeak-goto-percent)
    ("M-;" emacspeak-eww-play-media-at-point)
-   ("M-C-@" emacspeak-speak-spaces-at-point)
    ("M-C-SPC" emacspeak-speak-spaces-at-point)
-   ("M-C-k" kill-emacs)
    ("M-b" emacspeak-speak-other-buffer)
    ("M-c" emacspeak-copy-current-file)
    ("M-d" emacspeak-pronounce-dispatch)
