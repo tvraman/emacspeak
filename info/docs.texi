@@ -12408,6 +12408,11 @@ tell me what this is
 
 @subsubsection emacspeak-speak-completions-if-available
 @deffn {Command} emacspeak-speak-completions-if-available   
+@table @kbd
+@item C-e M-SPC
+@kindex C-e M-SPC
+@end table
+
 @findex emacspeak-speak-completions-if-available
 
 @format
@@ -13129,8 +13134,6 @@ Skim the current buffer  a paragraph at a time.
 @table @kbd
 @item C-e C-M-SPC
 @kindex C-e C-M-SPC
-@item C-e C-M-@@
-@kindex C-e C-M-@@
 @end table
 
 @findex emacspeak-speak-spaces-at-point

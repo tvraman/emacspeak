@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 8, 2023.
+last updated on November 9, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2687,7 +2687,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘3 amixer-volume-adjust’
 ‘4 amixer-volume-adjust’
 ‘5 emacspeak-speak-current-percentage’
-‘9 amixer’
 ‘; emacspeak-multimedia’
 ‘= emacspeak-speak-current-column’
 ‘? emacspeak-websearch-dispatch’
@@ -2695,6 +2694,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘A emacspeak-appt-repeat-announcement’
 ‘B emacspeak-speak-buffer-interactively’
 ‘C emacspeak-customize’
+‘9 amixer’
 ‘I emacspeak-speak-show-active-network-interfaces’
 ‘L emacspeak-speak-line-interactively’
 ‘M emacspeak-speak-minor-mode-line’

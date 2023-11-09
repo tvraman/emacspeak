@@ -44,7 +44,6 @@
 @item 3  amixer-volume-adjust
 @item 4  amixer-volume-adjust
 @item 5  emacspeak-speak-current-percentage
-@item 9  amixer
 @item ;  emacspeak-multimedia
 @item =  emacspeak-speak-current-column
 @item ?  emacspeak-websearch-dispatch
@@ -52,6 +51,7 @@
 @item A  emacspeak-appt-repeat-announcement
 @item B  emacspeak-speak-buffer-interactively
 @item C  emacspeak-customize
+@item 9  amixer
 @item I  emacspeak-speak-show-active-network-interfaces
 @item L  emacspeak-speak-line-interactively
 @item M  emacspeak-speak-minor-mode-line
