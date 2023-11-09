@@ -292,15 +292,12 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
     (cond
      ((and completions
            (window-live-p (get-buffer-window completions)))
-      (save-window-excursion
-        (save-current-buffer
-          (set-buffer completions)
+      (with-minibuffer-completions-window
           (emacspeak-auditory-icon 'help)
           (dtk-chunk-on-white-space-and-punctuations)
           (next-completion 1)
           (tts-with-punctuations
-              'all
-            (emacspeak-speak-buffer)))))
+              'all (emacspeak-speak-rest-of-buffer))))
      (t (emacspeak-speak-line)))))
 
 ;;;   Macros
