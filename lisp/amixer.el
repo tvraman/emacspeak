@@ -334,7 +334,7 @@ Interactive prefix arg refreshes cache."
              amixer-alsactl-config-file)))
 
 ;;; Raise/Lower Volume Using pactl:
-(defcustom amixer-volume-step 2
+(defcustom amixer-volume-step 1
   "Step-size for volume change."
   :type 'integer
   :group 'emacspeak)
