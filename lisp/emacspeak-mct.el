@@ -1,8 +1,8 @@
-;;; emacspeak-pipewire.el --- Speech-enable PIPEWIRE -*- lexical-binding: t; -*-
+;;; emacspeak-mct.el --- Speech-enable EMACSPEAK-MCT  -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
-;;; Description:  Speech-enable PIPEWIRE An Emacs Interface to pipewire
-;;; Keywords: Emacspeak,  Audio Desktop pipewire
-;;  LCD Archive entry:
+;;; Description:  Speech-enable EMACSPEAK-MCT An Emacs Interface to emacspeak-mct
+;;; Keywords: Emacspeak,  Audio Desktop emacspeak-mct
+;;;   LCD Archive entry:
 
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
@@ -11,7 +11,7 @@
 ;;; Location undetermined
 ;;;
 
-;;  Copyright:
+;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -36,54 +36,58 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;  introduction
-
 ;;; Commentary:
-;; PIPEWIRE ==  Pipewire Interaction from Emacs.
+;;; EMACSPEAK-MCT ==  Speech-Enable mct Integrated Completions
 
 ;;; Code:
 
-;;  Required modules
+;;;   Required modules
 
 (eval-when-compile  (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(eval-when-compile (require 'pipewire "pipewire" 'no-error ))
-
-;;; Map Faces:
-
-
-
+(eval-when-compile (require 'mct "mct" 'no-error))
 
 (voice-setup-add-map 
- '(
-   (pipewire-default-object voice-smoothen)
-   (pipewire-label voice-lighten)
-   (pipewire-muted voice-brighten)
-   (pipewire-volume voice-bolden)))
+'(
+(mct-highlight-candidate voice-bolden)))
 
-;;; Interactive Commands:
+;;;  Interactive Commands:
 
-(defadvice pipewire (after emacspeak pre act comp)
-  "speak."
-  (when (ems-interactive-p)
-    (emacspeak-toggle-audio-indentation)
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-mode-line)))
+'(
+  
+  mct-choose-completion-dwim
+  mct-choose-completion-exit
+  mct-choose-completion-no-exit
+  mct-complete-and-exit
+  mct-edit-completion
+  mct-keyboard-quit-dwim
+  mct-list-completions-toggle
+  mct-minibuffer-mode
+  mct-mode
+  mct-next-completion-group
+  mct-next-completion-or-mini
+  mct-previous-completion-group
+  mct-previous-completion-or-mini
+  mct-switch-to-completions-top
+  )
+
 
 (cl-loop
  for f in 
- '(
-   pipewire-decrease-volume pipewire-decrease-volume-single
-   pipewire-set-volume pipewire-set-profile
-   pipewire-increase-volume pipewire-increase-volume-single)
+ '(mct-switch-to-completions-bottom mct-beginning-of-buffer)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'button)))))
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
 
-(provide 'emacspeak-pipewire)
-;; end of file
+(provide 'emacspeak-emacspeak-mct)
+;;;  end of file
+
+
+
+
+

@@ -142,8 +142,8 @@ emacspeak-eterm.elc \
 emacspeak-eudc.elc \
 emacspeak-evil.elc \
 emacspeak-eww.elc \
-emacspeak-exwm.elc \
 emacspeak-extras.elc \
+emacspeak-exwm.elc \
 emacspeak-feeds.elc \
 emacspeak-ffap.elc \
 emacspeak-ffip.elc \
@@ -191,6 +191,7 @@ emacspeak-make-mode.elc \
 emacspeak-man.elc \
 emacspeak-markdown.elc \
 emacspeak-maths.elc \
+emacspeak-mct.elc \
 emacspeak-message.elc \
 emacspeak-metapost.elc \
 emacspeak-midge.elc \

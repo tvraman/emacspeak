@@ -983,19 +983,20 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   (emacspeak-auditory-icon 'select-object)
   (dtk-speak (emacspeak-get-current-completion)))
 
-(defadvice next-completion (after emacspeak pre act comp)
-  "speak."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
-    (tts-with-punctuations 'all
-                           (dtk-speak (emacspeak-get-current-completion)))))
 
-(defadvice previous-completion (after emacspeak pre act comp)
-  "speak."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
-    (tts-with-punctuations 'all
-                           (dtk-speak (emacspeak-get-current-completion)))))
+(cl-loop
+ for f in 
+ '(
+   next-line-completion previous-line-completion
+   next-completion previous-completion)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'select-object)
+       (tts-with-punctuations 'all
+         (dtk-speak (emacspeak-get-current-completion)))))))
 
 (defadvice choose-completion (before emacspeak pre act comp)
   "speak."
