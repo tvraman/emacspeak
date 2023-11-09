@@ -391,7 +391,11 @@ of 3 and 4 lower or raise volume."
          (define-key map key (lambda () (interactive) (amixer-volume-adjust ))))
        map)
      t (lambda nil (emacspeak-auditory-icon 'repeat-end))
-     "Repeat with %k")))
+     (concat
+      (propertize
+       (string-trim (shell-command-to-string ems--vol-cmd))
+       'personality voice-bolden)
+      " Repeat with %%k"))))
 
 (provide 'amixer)
 ;;;  end of file
