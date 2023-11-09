@@ -323,6 +323,10 @@ emacspeak-loaddefs.el:
 indent:
 	$(EMACS) -batch -q -no-site-file -l ../utils/indent-files.el
 
+#identify long lines:
+ll:
+	wc -L *.el | sort -n
+
 spell:
 	codespell -I .codespell *.el
 elint:
