@@ -689,8 +689,6 @@ When on a close delimiter, speak matching delimiter after a small delay. "
  for f in
  '(
    minibuffer-complete-history
-   minibuffer-next-completion minibuffer-previous-completion
-   minibuffer-next-line-completion minibuffer-previous-line-completion
    next-history-element previous-history-element
    next-line-or-history-element previous-line-or-history-element
    previous-matching-history-element next-matching-history-element)
@@ -704,6 +702,20 @@ When on a close delimiter, speak matching delimiter after a small delay. "
          (dtk-speak
           (or (minibuffer-contents)
               (emacspeak-get-current-completion))))))))
+
+
+(cl-loop
+ for f in 
+ '(   minibuffer-next-completion minibuffer-previous-completion
+   minibuffer-next-line-completion minibuffer-previous-line-completionfunctions)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (tts-with-punctuations 'all
+         (emacspeak-auditory-icon 'item)
+         (dtk-speak (emacspeak-get-current-completion)))))))
 
 (defvar emacspeak-last-message nil
   "Last output from `message'.")
