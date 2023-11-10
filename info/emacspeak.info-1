@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 9, 2023.
+last updated on November 10, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3122,7 +3122,6 @@ thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 * emacspeak-man::Speech enable Man.
 * emacspeak-markdown::Speech-enable MARKDOWN.
 * emacspeak-maths::Audio-Formatted Maths.
-* emacspeak-mct::Speech-enable EMACSPEAK-MCT.
 * emacspeak-message::Speech enable Message.
 * emacspeak-metapost::speech-enable metapost.
 * emacspeak-midge::Speech-enable Midge.
@@ -3340,7 +3339,7 @@ To reset all controls to their default values, Press ‘C-j’.
      Default Value:
 
      
-     2
+     1
      
 
 

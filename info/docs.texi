@@ -130,7 +130,6 @@ This chapter documents a total of 1148 commands and 146 options.
 * emacspeak-man::Speech enable Man.
 * emacspeak-markdown::Speech-enable MARKDOWN.
 * emacspeak-maths::Audio-Formatted Maths.
-* emacspeak-mct::Speech-enable EMACSPEAK-MCT.
 * emacspeak-message::Speech enable Message.
 * emacspeak-metapost::speech-enable metapost.
 * emacspeak-midge::Speech-enable Midge.
@@ -382,7 +381,7 @@ Default Value:
 
 @verbatim
 
-2
+1
 
 @end verbatim
 
@@ -9841,11 +9840,6 @@ Switch to output buffer.
 Move up in current Math expression. (auto-generated)
 @end format
 @end deffn
-
-@node emacspeak-mct
-@section emacspeak-mct
-
-EMACSPEAK-MCT ==  Speech-Enable mct Integrated Completions
 
 @node emacspeak-message
 @section emacspeak-message
