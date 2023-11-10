@@ -2363,7 +2363,6 @@ char, or dont move. "
   "Set things up for emacspeak."
   (with-minibuffer-completions-window 
     (goto-char (point-min))
-    (emacspeak-make-string-inaudible (emacspeak-get-minibuffer-contents))
     (emacspeak-auditory-icon 'help)))
 
 (add-hook 'completion-setup-hook 'emacspeak-completion-setup-hook)

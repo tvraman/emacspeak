@@ -707,7 +707,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 (cl-loop
  for f in 
  '(   minibuffer-next-completion minibuffer-previous-completion
-   minibuffer-next-line-completion minibuffer-previous-line-completionfunctions)
+   minibuffer-next-line-completion minibuffer-previous-line-completion)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
