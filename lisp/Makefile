@@ -191,7 +191,6 @@ emacspeak-make-mode.elc \
 emacspeak-man.elc \
 emacspeak-markdown.elc \
 emacspeak-maths.elc \
-emacspeak-mct.elc \
 emacspeak-message.elc \
 emacspeak-metapost.elc \
 emacspeak-midge.elc \
