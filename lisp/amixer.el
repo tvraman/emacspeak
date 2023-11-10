@@ -380,6 +380,7 @@ Interactive prefix arg `PROMPT' reads percentage as a number"
 Press C-e 3 to lower volume; C-e 4 to increase it. Subsequent presses
 of 3 and 4 lower or raise volume."
   (interactive )
+  (cl-declare (special ems--vol-cmd))
   (let ((key (event-basic-type last-command-event)))
     (emacspeak-auditory-icon 'repeat-start)
     (cl-case key
