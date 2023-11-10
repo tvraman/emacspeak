@@ -396,7 +396,7 @@ of 3 and 4 lower or raise volume."
       (propertize
        (string-trim (shell-command-to-string ems--vol-cmd))
        'personality voice-bolden)
-      " Repeat with %%k"))))
+      " Repeat with %k"))))
 
 (provide 'amixer)
 ;;;  end of file
