@@ -891,7 +891,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'close-object)))
 
 ;;;  advice various input functions to speak:
 
