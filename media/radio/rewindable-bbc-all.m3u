@@ -1,0 +1,130 @@
+#EXTM3U
+#EXTINF:-1,BBC - BBC World Service (no-rewind)
+http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/nonuk/sbr_low/ak/bbc_world_service.m3u8
+#EXTINF:-1,BBC - Radio 1
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_one/bbc_radio_one.isml/bbc_radio_one-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio 1Xtra
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_1xtra/bbc_1xtra.isml/bbc_1xtra-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio 1Dance
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_one_dance/bbc_radio_one_dance.isml/bbc_radio_one_dance-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio 1Relax
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_one_relax/bbc_radio_one_relax.isml/bbc_radio_one_relax-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio 2
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_two/bbc_radio_two.isml/bbc_radio_two-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio 3
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_three/bbc_radio_three.isml/bbc_radio_three-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio 4
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_fourfm/bbc_radio_fourfm.isml/bbc_radio_fourfm-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio 4 LW
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_fourlw/bbc_radio_fourlw.isml/bbc_radio_fourlw-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio 4 Extra
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_four_extra/bbc_radio_four_extra.isml/bbc_radio_four_extra-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio 5 live
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_five_live/bbc_radio_five_live.isml/bbc_radio_five_live-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio 6 Music
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_6music/bbc_6music.isml/bbc_6music-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio 5 Live sports extra (UK Only - no rewind)
+http://as-hls-uk-live.akamaized.net/pool_904/live/uk/bbc_radio_five_live_sports_extra/bbc_radio_five_live_sports_extra.isml/bbc_radio_five_live_sports_extra-audio%3d96000.norewind.m3u8
+#EXTINF:-1,BBC - Radio Asian Network
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_asian_network/bbc_asian_network.isml/bbc_asian_network-audio=320000.m3u8
+#EXTINF:-1,BBC - BBC CWR
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_coventry_warwickshire/bbc_radio_coventry_warwickshire.isml/bbc_radio_coventry_warwickshire-audio=320000.m3u8
+#EXTINF:-1,BBC - BBC Essex
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_essex/bbc_radio_essex.isml/bbc_radio_essex-audio=320000.m3u8
+#EXTINF:-1,BBC - BBC Hereford Worcester
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_hereford_worcester/bbc_radio_hereford_worcester.isml/bbc_radio_hereford_worcester-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Berkshire
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_berkshire/bbc_radio_berkshire.isml/bbc_radio_berkshire-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Bristol
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_bristol/bbc_radio_bristol.isml/bbc_radio_bristol-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Cambridge
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_cambridge/bbc_radio_cambridge.isml/bbc_radio_cambridge-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Cornwall
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_cornwall/bbc_radio_cornwall.isml/bbc_radio_cornwall-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Cumbria
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_cumbria/bbc_radio_cumbria.isml/bbc_radio_cumbria-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Cymru
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_cymru/bbc_radio_cymru.isml/bbc_radio_cymru-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Cymru 2
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_cymru_2/bbc_radio_cymru_2.isml/bbc_radio_cymru_2-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Derby
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_derby/bbc_radio_derby.isml/bbc_radio_derby-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Devon
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_devon/bbc_radio_devon.isml/bbc_radio_devon-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Foyle
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_foyle/bbc_radio_foyle.isml/bbc_radio_foyle-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Gloucestershire
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_gloucestershire/bbc_radio_gloucestershire.isml/bbc_radio_gloucestershire-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Guernsey
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_guernsey/bbc_radio_guernsey.isml/bbc_radio_guernsey-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Humberside
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_humberside/bbc_radio_humberside.isml/bbc_radio_humberside-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Jersey
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_jersey/bbc_radio_jersey.isml/bbc_radio_jersey-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Kent
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_kent/bbc_radio_kent.isml/bbc_radio_kent-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Lancashire
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_lancashire/bbc_radio_lancashire.isml/bbc_radio_lancashire-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Leeds
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_leeds/bbc_radio_leeds.isml/bbc_radio_leeds-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Leicester
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_leicester/bbc_radio_leicester.isml/bbc_radio_leicester-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Lincolnshire
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_lincolnshire/bbc_radio_lincolnshire.isml/bbc_radio_lincolnshire-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio London
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_london/bbc_london.isml/bbc_london-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Manchester
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_manchester/bbc_radio_manchester.isml/bbc_radio_manchester-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Merseyside
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_merseyside/bbc_radio_merseyside.isml/bbc_radio_merseyside-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio nan Gaidheal
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_nan_gaidheal/bbc_radio_nan_gaidheal.isml/bbc_radio_nan_gaidheal-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Newcastle
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_newcastle/bbc_radio_newcastle.isml/bbc_radio_newcastle-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Norfolk
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_norfolk/bbc_radio_norfolk.isml/bbc_radio_norfolk-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Northampton
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_northampton/bbc_radio_northampton.isml/bbc_radio_northampton-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Nottingham
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_nottingham/bbc_radio_nottingham.isml/bbc_radio_nottingham-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Orkney
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_orkney/bbc_radio_orkney.isml/bbc_radio_orkney-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Oxford
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_oxford/bbc_radio_oxford.isml/bbc_radio_oxford-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Scotland FM
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_scotland_fm/bbc_radio_scotland_fm.isml/bbc_radio_scotland_fm-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Scotland MW
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_scotland_mw/bbc_radio_scotland_mw.isml/bbc_radio_scotland_mw-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Sheffield
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_sheffield/bbc_radio_sheffield.isml/bbc_radio_sheffield-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Shropshire
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_shropshire/bbc_radio_shropshire.isml/bbc_radio_shropshire-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Solent
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_solent/bbc_radio_solent.isml/bbc_radio_solent-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Solent West Dorset
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_solent_west_dorset/bbc_radio_solent_west_dorset.isml/bbc_radio_solent_west_dorset-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Somerset Sound
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_somerset_sound/bbc_radio_somerset_sound.isml/bbc_radio_somerset_sound-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Stoke
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_stoke/bbc_radio_stoke.isml/bbc_radio_stoke-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Suffolk
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_suffolk/bbc_radio_suffolk.isml/bbc_radio_suffolk-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Surrey
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_surrey/bbc_radio_surrey.isml/bbc_radio_surrey-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Sussex
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_sussex/bbc_radio_sussex.isml/bbc_radio_sussex-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Tees
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_tees/bbc_tees.isml/bbc_tees-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Ulster
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_ulster/bbc_radio_ulster.isml/bbc_radio_ulster-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Wales
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_wales_fm/bbc_radio_wales_fm.isml/bbc_radio_wales_fm-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio Wiltshire
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_wiltshire/bbc_radio_wiltshire.isml/bbc_radio_wiltshire-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio WM
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_wm/bbc_wm.isml/bbc_wm-audio=320000.m3u8
+#EXTINF:-1,BBC - Radio York
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_york/bbc_radio_york.isml/bbc_radio_york-audio=320000.m3u8
+#EXTINF:-1,BBC - Three Counties Radio
+http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_three_counties_radio/bbc_three_counties_radio.isml/bbc_three_counties_radio-audio=320000.m3u8
+
