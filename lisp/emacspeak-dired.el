@@ -389,7 +389,7 @@ On a directory line, run du -s on the directory to speak its size."
 
 (defun emacspeak-dired-play-this-media ()
   "Plays media on current line."
-  (emacspeak-m-player (dired-get-filename)))
+  (emacspeak-empv-play-file (dired-get-filename)))
 
 (defun emacspeak-dired-play-this-playlist ()
   "Plays playlist on current line."
