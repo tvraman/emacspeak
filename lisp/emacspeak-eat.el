@@ -67,7 +67,7 @@
   (cl-declare (special eat-semi-char-mode-map  ))
   (cl-loop
    for map in
-   '(eat-semi-char-mode-map eat-line-mode-map )
+   '(eat-semi-char-mode-map eat-line-mode-map eat-mode-map)
    do
    (define-key map emacspeak-prefix  'emacspeak-keymap)))
 
