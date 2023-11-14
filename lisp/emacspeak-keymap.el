@@ -200,7 +200,7 @@
    ("<up>"  emacspeak-read-previous-line)
    ("=" emacspeak-speak-current-column)
    ("?" emacspeak-websearch-dispatch)
-   ("'" emacspeak-pianobar)
+   ("'" emacspeak-empv-play-file)
    ("@" emacspeak-speak-message-at-time)
    ("A" emacspeak-appt-repeat-announcement)
    ("B" emacspeak-speak-buffer-interactively)
