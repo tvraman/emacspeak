@@ -118,6 +118,7 @@ emacspeak-diff-mode.elc \
 emacspeak-dired.elc \
 emacspeak-dismal.elc \
 emacspeak-dumb-jump.elc \
+emacspeak-eat.elc \
 emacspeak-ecb.elc \
 emacspeak-ediff.elc \
 emacspeak-eglot.elc \
