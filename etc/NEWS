@@ -48,3 +48,9 @@ file-system navigation.
 * emacspeak-pipewire
 
 Speech-enable module ~pipewire~ for controlling Pipewire from inside Emacs.
+
+* BBC Streams
+
+Thanks to [[ https://garfnet.org.uk/cms/2023/10/29/latest-bbc-hls-radio-streams/][
+https://garfnet.org.uk/cms/2023/10/29/latest-bbc-hls-radio-streams/]]
+for  the BBC  radio-station streams.
