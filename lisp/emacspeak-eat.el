@@ -81,7 +81,6 @@
 
 
 '(
-  
   eat-blink-mode
   eat-char-mode
   eat-compile-terminfo
@@ -131,6 +130,23 @@
   eat-yank
   eat-yank-from-kill-ring
   )
+(cl-loop
+ for f in 
+ '(
+   eat-blink-mode eat-char-mode eat-emacs-mode
+   eat-eshell-char-mode eat-eshell-emacs-mode eat-eshell-mode
+   eat-eshell-semi-char-mode eat-eshell-visual-command-mode
+   eat-line-mode eat-mode eat-semi-char-mode
+   eat-trace-mode eat-trace-replay-mode)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'button)
+       (message "Toggled  %s " ,(symbol-name f))))))
+
+
 
 (defadvice eat (after emacspeak pre act comp)
   "speak."
