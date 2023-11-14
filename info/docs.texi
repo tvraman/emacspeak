@@ -56,6 +56,7 @@ This chapter documents a total of 1148 commands and 146 options.
 * emacspeak-dired::Speech enable Dired Mode.
 * emacspeak-dismal::Speech enable Dismal.
 * emacspeak-dumb-jump::DUMB-JUMP.
+* emacspeak-eat::Speech-enable EAT.
 * emacspeak-ecb::speech-enable ECB.
 * emacspeak-ediff::Speech enable  ediff.
 * emacspeak-eglot::Speech-enable EGLOT.
@@ -3596,6 +3597,11 @@ emacspeak-dismal-sheet-summarizer-list
 DUMB-JUMP ==  Jump to imputed cross-references  in source code.
 This module speech-enables dumb-jump
 
+@node emacspeak-eat
+@section emacspeak-eat
+
+EAT ==  Emacs Terminal Emulator
+
 @node emacspeak-ecb
 @section emacspeak-ecb
 
@@ -3875,6 +3881,8 @@ Percentage seek in seconds,see ‘empv-seek’
 @subsubsection emacspeak-empv-play-file
 @deffn {Command} emacspeak-empv-play-file  (file &optional left-channel)
 @table @kbd
+@item C-e '
+@kindex C-e '
 @item C-e C-;
 @kindex C-e C-;
 @end table
@@ -11146,8 +11154,6 @@ keys from @code{pianobar-key-map}.
 @subsubsection emacspeak-pianobar
 @deffn {Command} emacspeak-pianobar   
 @table @kbd
-@item C-e '
-@kindex C-e '
 @item C-e C-'
 @kindex C-e C-'
 @item C-' '

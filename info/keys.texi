@@ -32,7 +32,7 @@
 @item $  flyspell-mode
 @item %  emacspeak-speak-current-percentage
 @item &  emacspeak-wizards-shell-command-on-current-file
-@item '  emacspeak-pianobar
+@item '  emacspeak-empv-play-file
 @item (  amixer
 @item )  emacspeak-sounds-select-theme
 @item ,  emacspeak-buffer-select
