@@ -144,7 +144,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'button)
-       (message "Toggled  %s " ,(symbol-name f))))))
+       (message "%s " ,(symbol-name f))))))
 
 
 
