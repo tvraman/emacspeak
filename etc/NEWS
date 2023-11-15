@@ -1,18 +1,16 @@
 #    -*- mode: org -*-
-  To express oneself well is impactful, but only when one has
-  something impactful to express!  (TVR on Conversational Interfaces)
+To express oneself well is impactful, but only when one has
+something impactful to express!  (TVR on Conversational Interfaces)
 
 Emacspeak News --History Of User-Visible Changes
 
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
-
 * Emacspeak 59 --- Emacspeak 59 User Visible Changes
 
-This version requires Emacs-29.1.
+This version requires Emacs-29.1 or later.
 
-* Updated Keybindings 
-
+* Updated Keybindings
 
 Key bindings have been updated to be more ergonomic
 
@@ -31,11 +29,11 @@ adjusting audio volume.
 Command ~dtk-rate-adjust~ provides a single transient for adjusting
 speech rate in current buffer.
 
-** Twitter Support Removed
+* Twitter Support Removed
+X marks the spot ---
+Twitter support is obsolete, since the Twittre API is now history.
 
-Twitter support is obsolete, since the Twittre API is now history. 
-
-** BBC Sounds URL Template
+* BBC Sounds URL Template
 
 URL Template BBC Sounds in combination with package ~mpv~ support
 enables playbac of content from BBC Sounds from within Emacs.
