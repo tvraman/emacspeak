@@ -159,5 +159,12 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
+;;; Speech-Enable Terminal Emulation:
+
+(defun emacspeak-eat-update-hook ()
+  (let ((emacspeak-show-point  t))
+    (emacspeak-speak-line)))
+
+(add-hook 'eat-update-hook #'emacspeak-eat-update-hook)
 (provide 'emacspeak-eat)
 ;;;  end of file
