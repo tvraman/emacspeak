@@ -15,19 +15,19 @@
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
-;; 
+;;
 ;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
+;;
 ;; GNU Emacs is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2, or (at your option)
 ;; any later version.
-;; 
+;;
 ;; GNU Emacs is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-;; 
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
@@ -35,7 +35,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
 
 ;;; Commentary:
 ;; EAT ==  Emacs Terminal Emulator
@@ -50,10 +49,7 @@
 (eval-when-compile (require 'eat "eat" 'no-error))
 ;;;  Map Faces:
 
-
-
-
-(voice-setup-add-map 
+(voice-setup-add-map
  '(
    (eat-shell-prompt-annotation-failure voice-lighten)
    (eat-shell-prompt-annotation-running voice-monotone)
@@ -75,13 +71,10 @@
 
 (add-hook 'eat-mode-hook 'emacspeak-eat-mode-setup)
 
-
 ;;;  Interactive Commands:
 
-
-
 '(
-  
+
   eat-input-char
   eat-kill-process
   eat-line-delchar-or-eof
@@ -114,9 +107,24 @@
   eat-trace-replay
   eat-trace-replay-next-frame
   eat-xterm-paste
-  eat-yank
-  eat-yank-from-kill-ring
   )
+
+(cl-loop
+ for f in 
+ '(eat-yank eat-yank-from-kill-ring)
+ do
+ (eval
+  `(defadvice ,f (around emacspeak pre act comp)
+     "speak."
+     (cond
+      ((ems-interactive-p)
+       (let ((start (point)))
+         ad-do-it
+         (message "%s" (buffer-substring-no-properties start (point)))
+         (emacspeak-auditory-icon 'yank-object)))
+      (t ad-do-it))
+     ad-return-value)))
+
 (defadvice eat-reload (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
@@ -129,10 +137,8 @@
     (emacspeak-auditory-icon 'task-done)
     (dtk-speak "Reset Eat")))
 
-
-
 (cl-loop
- for f in 
+ for f in
  '(
    eat-blink-mode eat-char-mode eat-emacs-mode
    eat-eshell-char-mode eat-eshell-emacs-mode eat-eshell-mode
@@ -147,14 +153,11 @@
        (emacspeak-auditory-icon 'button)
        (message "%s " ,(symbol-name f))))))
 
-
-
 (defadvice eat (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
-
 
 (provide 'emacspeak-eat)
 ;;;  end of file
