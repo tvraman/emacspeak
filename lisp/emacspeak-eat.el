@@ -120,7 +120,7 @@
       ((ems-interactive-p)
        (let ((start (point)))
          ad-do-it
-         (message "%s" (buffer-substring-no-properties start (point)))
+         (dtk-speak (buffer-substring-no-properties start (point)))
          (emacspeak-auditory-icon 'yank-object)))
       (t ad-do-it))
      ad-return-value)))
