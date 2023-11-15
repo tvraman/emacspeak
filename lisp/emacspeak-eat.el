@@ -81,15 +81,7 @@
 
 
 '(
-  eat-blink-mode
-  eat-char-mode
-  eat-compile-terminfo
-  eat-emacs-mode
-  eat-eshell-char-mode
-  eat-eshell-emacs-mode
-  eat-eshell-mode
-  eat-eshell-semi-char-mode
-  eat-eshell-visual-command-mode
+  
   eat-input-char
   eat-kill-process
   eat-line-delchar-or-eof
@@ -97,7 +89,6 @@
   eat-line-history-isearch-backward
   eat-line-history-isearch-backward-regexp
   eat-line-load-input-history-from-file
-  eat-line-mode
   eat-line-next-input
   eat-line-next-matching-input
   eat-line-next-matching-input-from-input
@@ -107,7 +98,6 @@
   eat-line-restore-input
   eat-line-send-input
   eat-line-send-interrupt
-  eat-mode
   eat-mouse-yank-primary
   eat-mouse-yank-secondary
   eat-narrow-to-shell-prompt
@@ -120,16 +110,27 @@
   eat-reload
   eat-reset
   eat-self-input
-  eat-semi-char-mode
   eat-send-password
-  eat-trace-mode
   eat-trace-replay
-  eat-trace-replay-mode
   eat-trace-replay-next-frame
   eat-xterm-paste
   eat-yank
   eat-yank-from-kill-ring
   )
+(defadvice eat-reload (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'task-done)
+    (dtk-speak "Reloaded Eat")))
+
+(defadvice eat-reset (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'task-done)
+    (dtk-speak "Reset Eat")))
+
+
+
 (cl-loop
  for f in 
  '(
