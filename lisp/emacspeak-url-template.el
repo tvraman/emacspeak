@@ -719,7 +719,7 @@ Format is stationid+AM/FM."
  "TuneIn Helper.")
 
 (emacspeak-url-template-define
- "RadioTime Browser"
+ "Online RadioTime Browser"
  "http://opml.radiotime.com/"
  nil
  nil
@@ -727,7 +727,7 @@ Format is stationid+AM/FM."
  #'emacspeak-feeds-opml-display)
 
 (emacspeak-url-template-define
- "RadioTime Search"
+ "Online RadioTime Search"
  "http://opml.radiotime.com/Search.ashx?query=%s"
  (list "Search: ")
  nil

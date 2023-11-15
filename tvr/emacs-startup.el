@@ -126,6 +126,7 @@ Use Custom to customize where possible. "
                   downcase-region  narrow-to-region eval-expression ))
   (global-set-key (kbd "C-l") ctl-x-map)
   (global-set-key[remap dabbrev-expand] 'hippie-expand)
+  (global-set-key (kbd "<f12>") empv-map)
   (cl-loop ;; global key-bindings
    for key in
    '(
@@ -177,7 +178,7 @@ Use Custom to customize where possible. "
        abbrev-mode auto-correct-mode)))
   (setq  global-mode-string '("" display-time-string battery-mode-line-string))
   (bash-completion-setup)
-  ;(load-theme 'modus-vivendi-tinted t)
+                                        ;(load-theme 'modus-vivendi-tinted t)
   (load-theme 'ef-maris-dark t))
 
 (defun tvr-after-init ()
