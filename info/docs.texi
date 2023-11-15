@@ -20530,19 +20530,19 @@ Search NLS Bard Catalog. Login once before using this template.@item @b{npr}
 
 Open NPR home , then display the alternative links to access RSS feeds.@item @b{old time radio}
 
-This months Old Time Radio Programming@item @b{openlibrary}
+This months Old Time Radio Programming@item @b{online radiotime browser}
+
+RadioTime Entry point.@item @b{online radiotime search}
+
+RadioTime Search@item @b{openlibrary}
 
 Open Library Search@item @b{patent search from google}
 
 Perform patent search via Google@item @b{player fm bbc rss feeds}
 
-Player FM BBC RSS Feeds@item @b{radiotime browser}
+Player FM BBC RSS Feeds@item @b{radiotime categories}
 
-RadioTime Entry point.@item @b{radiotime categories}
-
-RadioTime Categories @item @b{radiotime search}
-
-RadioTime Search@item @b{reddit at point}
+RadioTime Categories @item @b{reddit at point}
 
 Open RSS Feed for Reddit URL under point.@item @b{reddit by topic}
 
