@@ -3828,13 +3828,6 @@ Provides better Youtube integration
 
 @subsubsection emacspeak-empv-absolute-seek
 @deffn {Command} emacspeak-empv-absolute-seek  (target)
-@table @kbd
-@item C-; v s
-@kindex C-; v s
-@item C-x @@ h v s
-@kindex C-x @@ h v s
-@end table
-
 @findex emacspeak-empv-absolute-seek
 
 @format
@@ -3846,13 +3839,6 @@ Absolute seek in seconds,see ‘empv-seek’
 
 @subsubsection emacspeak-empv-accumulate-to-register
 @deffn {Command} emacspeak-empv-accumulate-to-register   
-@table @kbd
-@item C-; v u
-@kindex C-; v u
-@item C-x @@ h v u
-@kindex C-x @@ h v u
-@end table
-
 @findex emacspeak-empv-accumulate-to-register
 
 @format
@@ -3862,13 +3848,6 @@ Accumulate media links to register u
 
 @subsubsection emacspeak-empv-percentage-seek
 @deffn {Command} emacspeak-empv-percentage-seek  (target)
-@table @kbd
-@item C-; v %
-@kindex C-; v %
-@item C-x @@ h v %
-@kindex C-x @@ h v %
-@end table
-
 @findex emacspeak-empv-percentage-seek
 
 @format
@@ -3916,13 +3895,6 @@ For the  prefix arg to take effect, make sure to add the line
 
 @subsubsection emacspeak-empv-relative-seek
 @deffn {Command} emacspeak-empv-relative-seek  (target)
-@table @kbd
-@item C-; v r
-@kindex C-; v r
-@item C-x @@ h v r
-@kindex C-x @@ h v r
-@end table
-
 @findex emacspeak-empv-relative-seek
 
 @format

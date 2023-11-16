@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 15, 2023.
+last updated on November 16, 2023.
 
 
 File: emacspeak.info,  Node: tetris,  Next: voice-defs,  Prev: sox-gen,  Up: Emacspeak Commands And Options
@@ -2035,10 +2035,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-; j:                                 emacspeak-comint.   (line   45)
 * C-; l:                                 emacspeak-m-player. (line  365)
 * C-; r:                                 emacspeak-wizards.  (line  541)
-* C-; v %:                               emacspeak-empv.     (line   36)
-* C-; v r:                               emacspeak-empv.     (line   70)
-* C-; v s:                               emacspeak-empv.     (line   16)
-* C-; v u:                               emacspeak-empv.     (line   27)
 * C-; w:                                 emacspeak-wizards.  (line  720)
 * C-<f1>:                                amixer.             (line   65)
 * C-<f2>:                                amixer.             (line   77)
@@ -2097,7 +2093,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e %:                                 Status Information. (line   92)
 * C-e % <1>:                             emacspeak-speak.    (line  361)
 * C-e &:                                 emacspeak-wizards.  (line  835)
-* C-e ':                                 emacspeak-empv.     (line   47)
+* C-e ':                                 emacspeak-empv.     (line   41)
 * C-e (:                                 amixer.             (line   26)
 * C-e ):                                 emacspeak-sounds.   (line   44)
 * C-e ,:                                 emacspeak-speak.    (line   38)
@@ -2139,7 +2135,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-':                               emacspeak-pianobar. (line   44)
 * C-e C-.:                               emacspeak-speak.    (line  394)
 * C-e C-/:                               emacspeak-wizards.  (line  258)
-* C-e C-;:                               emacspeak-empv.     (line   48)
+* C-e C-;:                               emacspeak-empv.     (line   42)
 * C-e C-<left>:                          emacspeak-wizards.  (line  141)
 * C-e C-<return>:                        emacspeak-speak.    (line  307)
 * C-e C-<right>:                         emacspeak-wizards.  (line  116)
@@ -2410,7 +2406,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e y p:                               emacspeak-pianobar. (line   46)
 * C-e y r:                               emacspeak-xslt.     (line   57)
 * C-e y x:                               emacspeak-xslt.     (line   37)
-* C-e y y:                               emacspeak-empv.     (line   58)
+* C-e y y:                               emacspeak-empv.     (line   52)
 * C-e z b:                               emacspeak-wizards.  (line 1054)
 * C-e z e:                               emacspeak-wizards.  (line  517)
 * C-e z l:                               emacspeak-m-player. (line  366)
@@ -2459,10 +2455,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ h j:                             emacspeak-comint.   (line   46)
 * C-x @ h l:                             emacspeak-m-player. (line  367)
 * C-x @ h r:                             emacspeak-wizards.  (line  542)
-* C-x @ h v %:                           emacspeak-empv.     (line   37)
-* C-x @ h v r:                           emacspeak-empv.     (line   71)
-* C-x @ h v s:                           emacspeak-empv.     (line   17)
-* C-x @ h v u:                           emacspeak-empv.     (line   28)
 * C-x @ h w:                             emacspeak-wizards.  (line  722)
 * C-x @ s .:                             emacspeak-wizards.  (line  848)
 * C-x @ s C-n:                           emacspeak-wizards.  (line  612)

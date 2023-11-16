@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 15, 2023.
+last updated on November 16, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -6274,8 +6274,6 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 ......................................
 
  -- Command: emacspeak-empv-absolute-seek (target)
-     ‘C-; v s’
-     ‘C-x @ h v s’
 
      Absolute seek in seconds,see ‘empv-seek’
 
@@ -6285,8 +6283,6 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 ...............................................
 
  -- Command: emacspeak-empv-accumulate-to-register
-     ‘C-; v u’
-     ‘C-x @ h v u’
 
      Accumulate media links to register u
 
@@ -6294,8 +6290,6 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 ........................................
 
  -- Command: emacspeak-empv-percentage-seek (target)
-     ‘C-; v %’
-     ‘C-x @ h v %’
 
      Percentage seek in seconds,see ‘empv-seek’
 
@@ -6328,8 +6322,6 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 ......................................
 
  -- Command: emacspeak-empv-relative-seek (target)
-     ‘C-; v r’
-     ‘C-x @ h v r’
 
      Relative seek in seconds,see ‘empv-seek’
 
