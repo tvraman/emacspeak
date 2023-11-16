@@ -8182,6 +8182,7 @@ Default Value:
 
 (("'" emacspeak-pianobar)
  ("d" sdcv-search-input)
+ ("e" eat)
  ("f" ffap)
  ("l" locate)
  ("m" notmuch-search)

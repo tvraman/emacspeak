@@ -2879,6 +2879,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-multi-keymap,  N
 
 ‘' emacspeak-pianobar’
 ‘d sdcv-search-input’
+‘e eat’
 ‘f ffap’
 ‘l locate’
 ‘m notmuch-search’

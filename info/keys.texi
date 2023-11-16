@@ -231,6 +231,7 @@
 @table @kbd
 @item '  emacspeak-pianobar
 @item d  sdcv-search-input
+@item e  eat
 @item f  ffap
 @item l  locate
 @item m  notmuch-search
