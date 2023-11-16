@@ -51,4 +51,4 @@ Speech-enable module ~pipewire~ for controlling Pipewire from inside Emacs.
 
 Thanks to [[ https://garfnet.org.uk/cms/2023/10/29/latest-bbc-hls-radio-streams/][
 https://garfnet.org.uk/cms/2023/10/29/latest-bbc-hls-radio-streams/]]
-for  the BBC  radio-station streams.
+for the HLS BBC station streams.
