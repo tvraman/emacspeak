@@ -115,14 +115,9 @@
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-     "speak."
-     (cond
-      ((ems-interactive-p)
-       (let ((start (point)))
-         ad-do-it
-         (message "%s" (buffer-substring start (point)))
-         (emacspeak-auditory-icon 'yank-object)))
-      (t ad-do-it))
+     "Icon."
+     ad-do-it
+     (when (ems-interactive-p) (emacspeak-auditory-icon 'yank-object))
      ad-return-value)))
 
 (defadvice eat-reload (after emacspeak pre act comp)
