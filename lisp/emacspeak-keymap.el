@@ -600,9 +600,6 @@
                     val
                     #'(lambda (a b) (string-lessp (car a) (car b)))))))
 (global-set-key "\C-x@h" 'emacspeak-hyper-keymap)
-(when (locate-library "empv")
-  (require 'empv)
-  (global-set-key (kbd "C-; v") empv-map))
 
 ;;;  Create a super keymap that users can put personal commands
 
