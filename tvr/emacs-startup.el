@@ -250,8 +250,7 @@ configuration happens via the after-init-hook. "
   (add-hook 'emacs-startup-hook #'tvr-emacs-startup-hook))
 
 (tvr-emacs)
-;;; psession cleanup
-(advice-add 'psession-cleanup-dir :override #'(lambda () t))
+
 ;;;  Forward Function Declarations:
 
 (declare-function yas--load-snippet-dirs "yasnippet" (&optional nojit))
