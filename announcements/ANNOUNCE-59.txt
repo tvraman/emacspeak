@@ -46,6 +46,19 @@ Internet cloud.
 
 * Major Enhancements:
 
+
+
+1. Updated Keybindings  ⌨
+2. Smart Buffer Selection ⛏
+3. Audio Volume Adjust 🔈
+4. Speech-Rate Adjust🚄
+5. Twitter Support Removed X marks the spot.
+6. BBC Sounds URL Template  📻
+7. [[https://garfnet.org.uk/cms/2023/10/29/latest-bbc-hls-radio-streams/][BBC HLS Streams]] 📻
+8. ZOxide Integration ⏠ ⏡
+9. emacspeak-pipewire ǁ
+
+
       — And a lot more than will fit this margin. … 🗞
   
 Note: This version *requires* emacs-29.1 or later. 
