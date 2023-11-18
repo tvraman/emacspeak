@@ -595,6 +595,7 @@ Select  speech server ‘program’.
 @format
 Set character scale FACTOR for   speech rate.
 Speech rate is scaled by this factor when speaking characters.
+Not presently used by either Dectalk or Viavoice TTS.
 Interactive PREFIX arg means set the global default value, and
 then set the current local value to the result.
 
