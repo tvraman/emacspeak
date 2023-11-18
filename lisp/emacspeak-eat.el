@@ -158,8 +158,7 @@
 
 (defun emacspeak-eat-update-hook ()
   (let* ((emacspeak-show-point  t)
-         (term eat-terminal)
-         (cursor (eat-term-display-cursor term))
+         (cursor (eat-term-display-cursor eat-terminal))
          (char (and cursor (char-before cursor))))
     (cond
      ((= char 32) (emacspeak-speak-line))
