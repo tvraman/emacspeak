@@ -986,6 +986,7 @@ the speech rate.  Call when on a non-blank line to preview the effectt"
 (defun dtk-set-character-scale (factor &optional prefix)
   "Set character scale FACTOR for   speech rate.
 Speech rate is scaled by this factor when speaking characters.
+Not presently used by either Dectalk or Viavoice TTS.
 Interactive PREFIX arg means set the global default value, and
 then set the current local value to the result."
   (interactive "nEnter new factor:\nP")
