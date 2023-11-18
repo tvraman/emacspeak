@@ -129,7 +129,7 @@ The latest development snapshot of Emacspeak is always available at
 
 * History:
 
-- Emacspeak 59 delivers better ergonomics by minimizing the need for chording, but sadly, with no real dog to guide its way.
+- Emacspeak 59 delivers better ergonomics by minimizing the need for chording, but sadly, with no  dog to guide its way.
   - Emacspeak 58 delivers better ergonomics by minimizing the need for chording.
   - Emacspeak 57.0 is named in honor of [[https://tvraman.github.io/tilden-face.jpg][Tilden Labrador]].
   - Emacspeak 56.0 (AgileDog) belies its age  to be as agile as Tilden.
