@@ -54,7 +54,8 @@ Internet cloud.
 4. Speech-Rate Adjust🚄
 5. Twitter Support Removed X marks the spot.
 6. BBC Sounds URL Template  📻
-7. [[https://garfnet.org.uk/cms/2023/10/29/latest-bbc-hls-radio-streams/][BBC HLS Streams]] 📻
+7. [[https://garfnet.org.uk/cms/2023/10/29/latest-bbc-hls-radio-streams/][BBC
+   HLS Streams]]  using MPV 📻
 8. ZOxide Integration ⏠ ⏡
 9. emacspeak-pipewire ǁ
 

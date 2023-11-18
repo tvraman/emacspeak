@@ -48,7 +48,7 @@ file-system navigation.
 Speech-enable module ~pipewire~ for controlling Pipewire from inside Emacs.
 
 * BBC Streams
-
+Play BBC Radio using mpv.
 Thanks to [[ https://garfnet.org.uk/cms/2023/10/29/latest-bbc-hls-radio-streams/][
 https://garfnet.org.uk/cms/2023/10/29/latest-bbc-hls-radio-streams/]]
 for the HLS BBC station streams.
