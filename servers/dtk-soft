@@ -79,9 +79,7 @@ proc tts_say {text} {
 
 proc l {text} {
     global tts
-    set r $tts(speech_rate)
-    set f  $tts(say_rate)
-    synth "$text "
+    synth "\[:sa le]$text\[:sa c] "
 	return ""
 }
 
