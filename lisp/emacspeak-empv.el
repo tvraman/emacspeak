@@ -181,6 +181,7 @@ For the  prefix arg to take effect, make sure to add the line
      ("RET" empv-youtube-tabulated)
      ("SPC" empv-toggle)
      ("x" empv-exit)
+     ("k" empv-exit)
      ("r" emacspeak-empv-relative-seek)
      ("s" emacspeak-empv-absolute-seek)
      ("u" emacspeak-empv-accumulate-to-register)
