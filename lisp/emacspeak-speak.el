@@ -175,7 +175,6 @@ emacspeak will not speak messages as they are echoed to the
 message area.  You can use command
 `emacspeak-toggle-speak-messages' bound to
 \\[emacspeak-toggle-speak-messages]."
-
   :group 'emacspeak
   :type 'boolean)
 
