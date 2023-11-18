@@ -920,7 +920,7 @@ spelled out  instead of being spoken."
        (t (setq emacspeak-speak-last-spoken-word-position orig)))
       (funcall speaker (buffer-substring start end)))))
 
-(defun emacspeak-is-alpha-p (c)
+(defsubst emacspeak-is-alpha-p (c)
   "Check if `C' is an alphabetic char."
   (and (= ?w (char-syntax c))
        (dtk-unicode-char-untouched-p c)))
@@ -1011,7 +1011,8 @@ char is assumed to be one of a--z."
     (cond
      ((emacspeak-is-alpha-p char) (dtk-letter (char-to-string char)))
      ((> char 128) (emacspeak-speak-char-name char))
-     (t (dtk-say (dtk-char-to-speech char))))))
+     (t (dtk-dispatch (dtk-char-to-speech char))))))
+
 (defun emacspeak-speak-char (&optional prefix)
   "Speak character under point.
 Pronounces character phonetically unless  called with a PREFIX arg."
