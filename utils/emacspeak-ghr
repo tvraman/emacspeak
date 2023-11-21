@@ -2,7 +2,7 @@
 #Upload a release to github
 #Usage:  $1 tagname $2 filename asset (tar.bz2)
 # run from emacspeak dir after make release:
-#Example: emacspeak-ghr 44.0 emacspeak-44.tar.bz2
+#Example: emacspeak-ghr 44 emacspeak-44.0.tar.bz2
 # Set token, username and repo in environment
 
 . ${HOME}/.github_token
