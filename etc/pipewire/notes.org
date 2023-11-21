@@ -54,8 +54,8 @@ pactl load-module module-ladspa-sink sink_name=upper plugin=ZamHeadX2-ladspa lab
 
 * Present setup
 
-Execute ~./pa2pw.sh~ after reboot to get ~tts_left~,~tts_right~ and a
-~binaural~ device.
+1. Execute ~./pa2pw.sh~ after reboot to get ~tts_left~,~tts_right~ and a ~binaural~ device.
+2. Execute ~./pw-hrtf.sh~ to get 8 virtual HRTF devices.
 
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
