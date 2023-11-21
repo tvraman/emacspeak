@@ -10,26 +10,23 @@ These notes document what broke and how I fix them.
 * Out-Of-The-Box Breakages
 
   - No left or right TTS devices.
-  - Auditory Icons go back to using aplay rather than paplay with
-    samples loaded
+  - Auditory Icons go back to using aplay rather than paplay with samples loaded
   - X-Windows bell went away ---
   - Volume in emacspeak minor mode line went away
   - ToDo: Implement all customizations from default.pa in native pipewire.
 
-    * Cautionary Notes
+* Cautionary Notes
 
   - Make sure you install pipewire-alsa and pipewire-pulse --
         these enable compatibility.
   - Do not install any pipewire conf files  unless tested (how?); a
    broken conf file  can lose *all* audio.
 
-    * What I have Learn
+* What I have Learn
 
   - CLI tool pactl, pamixer work in pipewire, even when there is no
     pulseaudio daemon running, as long as you have pipewire-pulse installed.
-
   - Use wpctl as the Pipewire way of manipulating the audio environment.
-
   - To get ~tts_left~ and tts_right~ devices for Emacspeak, execute
     the corresponding pactl commands by hand at the shell for now, ie
     examine default.pa from the pulseaudio lines, then pass them to
@@ -46,7 +43,19 @@ pactl #set-default-sink  binaural
 pactl load-module module-remap-sink sink_name=tts_right  master=binaural channels=2 master_channel_map=front-right,front-right, channel_map=front-left,front-right remix=no
 pactl load-module module-remap-sink sink_name=tts_left  master=binaural channels=2 master_channel_map=front-left,front-left, channel_map=front-left,front-right remix=no
 #+end_src
-         
+
+#+begin_src 
+#hrtf example:
+
+
+pactl load-module module-ladspa-sink sink_name=upper plugin=ZamHeadX2-ladspa label=ZamHeadX2 control=45,45,2.5 
+#+end_src
+
+
+* Present setup
+
+Execute ~./pa2pw.sh~ after reboot to get ~tts_left~,~tts_right~ and a
+~binaural~ device.
 
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
