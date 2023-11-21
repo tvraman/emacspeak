@@ -5,8 +5,16 @@
 # Depth: max 2.5
 # Set up HRTF Virtual devices:
 
+# Upper 4
 pactl load-module module-ladspa-sink sink_name=FULeft plugin=ZamHeadX2-ladspa label=ZamHeadX2 control=45,45,2.5 
 pactl load-module module-ladspa-sink sink_name=RULeft plugin=ZamHeadX2-ladspa label=ZamHeadX2 control=135,45,2.5 
 pactl load-module module-ladspa-sink sink_name=RURight plugin=ZamHeadX2-ladspa label=ZamHeadX2 control=225,45,2.5 
 pactl load-module module-ladspa-sink sink_name=RURight plugin=ZamHeadX2-ladspa label=ZamHeadX2 control=315,45,2.5
+
+
+# Lower 4
+pactl load-module module-ladspa-sink sink_name=FLLeft plugin=ZamHeadX2-ladspa label=ZamHeadX2 control=45,-45,2.5 
+pactl load-module module-ladspa-sink sink_name=RLLeft plugin=ZamHeadX2-ladspa label=ZamHeadX2 control=135,-45,2.5 
+pactl load-module module-ladspa-sink sink_name=RLRight plugin=ZamHeadX2-ladspa label=ZamHeadX2 control=225,-45,2.5 
+pactl load-module module-ladspa-sink sink_name=RLRight plugin=ZamHeadX2-ladspa label=ZamHeadX2 control=315,-45,2.5
 
