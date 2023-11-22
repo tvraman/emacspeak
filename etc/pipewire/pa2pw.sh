@@ -2,7 +2,7 @@
 # A bs2b (binaural for headphones) sink:
 pactl load-module module-ladspa-sink sink_name=binaural  sink_master=@DEFAULT_SINK@ plugin=bs2b label=bs2b control=725,4.5
 # Use binaural as the default sink:
-pactl #set-default-sink  binaural 
+pactl set-default-sink  binaural 
 # A tts_right and tts_left device
 # See https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Modules/#module-remap-sink
 # Emacspeak will use the first as the notification device.
