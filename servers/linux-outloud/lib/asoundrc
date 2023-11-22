@@ -208,7 +208,7 @@ pcm.soft_left {
 # Unspecified entries default to 0.
 # Format: Source.Destination = Value
 
-pcm.tts_right {
+pcm.tts_mono_right {
     type plug
     slave.pcm {
         type route
@@ -222,7 +222,7 @@ pcm.tts_right {
     }
 }
 
-pcm.tts_left {
+pcm.tts_mono_left {
     type plug
     slave.pcm {
         type route
