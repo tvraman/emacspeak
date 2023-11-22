@@ -1523,7 +1523,7 @@ Interactive prefix arg speaks buffer info."
   (cl-declare (special ems--vol-cmd))
   (propertize
    (format
-    " %s"
+    " %s "
      (string-trim (shell-command-to-string ems--vol-cmd)))
    'personality 'voice-bolden))
 
