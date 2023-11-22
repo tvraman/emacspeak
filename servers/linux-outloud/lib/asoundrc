@@ -1,4 +1,5 @@
 # $Id: .asoundrc,v 1.3 2012/03/08 19:19:31 raman Exp raman $
+# Under pipewire, install pipewire-alsa to use this as before.
 # {{{crossfeed (bs2b):
 ## Adding these stanzas to your .asoundrc or /etc/asound.conf will
 ## create an ALSA output device called 'crossfeed' which outputs
