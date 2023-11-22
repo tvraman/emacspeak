@@ -7,8 +7,8 @@
 
 . ${HOME}/.github_token
 export PATH=$PATH:${HOME}/go/bin
-AText="./announcements/ANNOUNCE-$1.txt"
-AHtml="./announcements/ANNOUNCE-$1.html"
+AText="./announcements/Announce-$1.txt"
+AHtml="./announcements/Announce-$1.html"
 # First,  create a release for this tag.
 github-release release --tag $1 --name "Release $1 " 
 
