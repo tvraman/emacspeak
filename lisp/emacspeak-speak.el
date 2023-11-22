@@ -1506,6 +1506,8 @@ Interactive prefix arg speaks buffer info."
 (defconst ems--vol-cmd
   (eval-when-compile
     (cond
+     ((executable-find "wpctl")
+      "wpctl get-volume @DEFAULT_AUDIO_SINK@")
      ((zerop (length (shell-command-to-string "pidof pulseaudio")))
       "amixer cget numid=3 | tail -1 | cut -d ',' -f 2")
      (t 
@@ -1521,7 +1523,7 @@ Interactive prefix arg speaks buffer info."
   (cl-declare (special ems--vol-cmd))
   (propertize
    (format
-    " Vol %s"
+    " %s"
      (string-trim (shell-command-to-string ems--vol-cmd)))
    'personality 'voice-bolden))
 
