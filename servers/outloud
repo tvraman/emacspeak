@@ -396,6 +396,7 @@ proc clean {element} {
         regsub -all --  {\)} $element { `00 right `00 paren } element
         regsub -all --  {@} $element { `00 at } element
         regsub -all --  {'} $element { apostrophe } element
+        regsub -all -- {\$} $element { dollar } element; # 
         regsub -all {[[:punct:]]} $element { \0 } element
     } else {
         regsub -all  {[*&()\"]} $element  {}   element
