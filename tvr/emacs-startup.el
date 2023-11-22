@@ -24,7 +24,6 @@
 ;;    9. Function tvr-emacs starts up Emacspeak, and sets up two hooks:
 ;;       - after-init-hook to do the bulk of the work.
 ;;       - emacs-startup-hook to set up  initial window configuration.
-;;       - Set env var PULSE_SINK to binaural for using bs2b under pulseaudio
 ;;    10. Function tvr-after-init on after-init-hook:
 ;;        - Loads all-prepare.el described above.
 ;;        - Load the custom settings file.
@@ -236,7 +235,6 @@ Use Custom to customize where possible. "
 This function loads Emacspeak. Emacs customization and library
 configuration happens via the after-init-hook. "
   (cl-declare (special emacspeak-directory ))
-  (setenv "PULSE_SINK" "binaural")
                                         ; pipewire transition
   (unless (featurep 'emacspeak)
     (tvr-time-load                      ; load emacspeak:
