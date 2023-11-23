@@ -107,8 +107,7 @@ For the  prefix arg to take effect, make sure to add the line
   (add-to-history 'emacspeak-empv-history url emacspeak-empv-history-max)
   (if notification-device
       (with-environment-variables
-          (("PULSE_SINK" tts-notification-device)
-           ("ALSA_DEFAULT" tts-notification-device))
+          (("PULSE_SINK" tts-notification-device))
         (empv-play url))
     (empv-play url)))
 
@@ -126,8 +125,7 @@ For the  prefix arg to take effect, make sure to add the line
   (require 'empv)
   (if left-channel
       (with-environment-variables
-          (("PULSE_SINK" tts-notification-device)
-           ("ALSA_DEFAULT" tts-notification-device))
+          (("PULSE_SINK" tts-notification-device))
         (empv-play file))
     (empv-play file)))
 

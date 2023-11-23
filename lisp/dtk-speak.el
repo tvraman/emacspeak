@@ -1965,8 +1965,7 @@ Designed to work with ALSA and Pulseaudio."
         (new-process nil))
     (unless (zerop (length tts-notification-device))
       (with-environment-variables
-          (("PULSE_SINK" tts-notification-device)
-           ("ALSA_DEFAULT" tts-notification-device))
+          (("PULSE_SINK" tts-notification-device))
         (setq  new-process (dtk-make-process "Notify")))
       (when
           (memq (process-status new-process) '(run open))

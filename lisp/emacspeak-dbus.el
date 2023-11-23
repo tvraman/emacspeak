@@ -232,8 +232,7 @@ already disabled."
   (ems-with-messages-silenced
     (tts-restart)
     (with-environment-variables
-        (("PULSE_SINK"  tts-notification-device)
-         ("ALSA_DEFAULT" tts-notification-device))
+        (("PULSE_SINK"  tts-notification-device))
       (emacspeak-prompt "waking-up"))
     (amixer-restore amixer-alsactl-config-file)
     (when (executable-find "orca")
@@ -379,8 +378,7 @@ already disabled."
             (progn (emacspeak-screen-saver))
           (progn
             (with-environment-variables
-                (("PULSE_SINK"  tts-notification-device)
-                 ("ALSA_DEFAULT"  tts-notification-device))
+                (("PULSE_SINK"  tts-notification-device))
               (emacspeak-prompt "success")
               (emacspeak-orca-toggle)
               (light-black))
