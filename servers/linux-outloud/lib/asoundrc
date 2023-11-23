@@ -209,30 +209,26 @@ pcm.soft_left {
 # Format: Source.Destination = Value
 
 pcm.tts_mono_right {
-    type plug
+    type upmix
     slave.pcm {
         type route
-        slave.pcm "default" 
-        ttable {
-            0.0 =  0.03
-            0.1 = 1
-            1.0 =  0.03
-            1.1 = 1
-        }
+        slave.pcm "default"
+        ttable.0.1 = 1
+        ttable.1.1 = 1 
+        ttable.0.0 = 0.1
+        ttable.1.0 = 0.1 
     }
 }
 
 pcm.tts_mono_left {
-    type plug
+    type upmix
     slave.pcm {
         type route
         slave.pcm "default"
-        ttable {
-            0.0 =  1
-            0.1 = 0.03
-            1.0 =  1
-            1.1 = 0.03
-        }
+        ttable.0.0=1
+        ttable.1.0 = 1
+        ttable.0.1=0.1
+        ttable.1.1 = 0.1
     }
 }
 
