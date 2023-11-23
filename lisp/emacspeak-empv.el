@@ -106,7 +106,9 @@ For the  prefix arg to take effect, make sure to add the line
     (setq url  (emacspeak-google-canonicalize-result-url url)))
   (add-to-history 'emacspeak-empv-history url emacspeak-empv-history-max)
   (if notification-device
-      (with-environment-variables (("PULSE_SINK" tts-notification-device))
+      (with-environment-variables
+          (("PULSE_SINK" tts-notification-device)
+           ("ALSA_DEFAULT" tts-notification-device))
         (empv-play url))
     (empv-play url)))
 
@@ -123,7 +125,9 @@ For the  prefix arg to take effect, make sure to add the line
   (cl-declare (special tts-notification-device))
   (require 'empv)
   (if left-channel
-      (with-environment-variables (("PULSE_SINK" tts-notification-device))
+      (with-environment-variables
+          (("PULSE_SINK" tts-notification-device)
+           ("ALSA_DEFAULT" tts-notification-device))
         (empv-play file))
     (empv-play file)))
 
