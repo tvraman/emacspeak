@@ -1548,12 +1548,15 @@ program. Port defaults to dtk-local-server-port"
   (let* ((result nil)
          (device
           (or                        ; each clause is for a given env:
-           (and                      ; pipewire-pulse
+           (and (not (executable-find "pulseaudio")) ;pipewire-alsa
+                (setq result
+                   (shell-command-to-string "aplay -L | grep mono_right")))
+           (and                         ; pipewire-pulse
             (executable-find "pamixer")
             (setq result
-             (split-string
-              (shell-command-to-string
-               "pamixer --list-sinks | grep right")))
+                  (split-string
+                   (shell-command-to-string
+                    "pamixer --list-sinks | grep right")))
             (substring (cl-second result) 1 -1))
            (and                         ; pure pipewire  or pure alsa
             (not (zerop (length (shell-command-to-string "pidof pulseaudio"))))
