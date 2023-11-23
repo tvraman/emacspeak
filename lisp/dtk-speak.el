@@ -1969,7 +1969,7 @@ Designed to work with ALSA and Pulseaudio."
   "Initialize notification TTS stream."
   (interactive)
   (cl-declare (special dtk-notify-process
-                       tts-notification-device))
+                       tts-env-var tts-notification-device))
   (let ((dtk-program
          (if (string-match "cloud" dtk-program) "cloud-notify" dtk-program))
         (new-process nil))
