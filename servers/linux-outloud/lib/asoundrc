@@ -215,8 +215,6 @@ pcm.tts_mono_right {
         slave.pcm "crossfeed"
         ttable.0.1 = 1
         ttable.1.1 = 1 
-        ttable.0.0 = 0.1
-        ttable.1.0 = 0.1 
     }
 }
 
@@ -227,8 +225,6 @@ pcm.tts_mono_left {
         slave.pcm "crossfeed"
         ttable.0.0=1
         ttable.1.0 = 1
-        ttable.0.1=0.1
-        ttable.1.1 = 0.1
     }
 }
 
