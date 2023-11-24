@@ -212,7 +212,7 @@ pcm.tts_mono_right {
     type upmix
     slave.pcm {
         type route
-        slave.pcm "crossfeed"
+        slave.pcm "default"
         ttable.0.1 = 1
         ttable.1.1 = 1 
     }
@@ -222,7 +222,7 @@ pcm.tts_mono_left {
     type upmix
     slave.pcm {
         type route
-        slave.pcm "crossfeed"
+        slave.pcm "default"
         ttable.0.0=1
         ttable.1.0 = 1
     }
@@ -232,7 +232,7 @@ pcm.tts_mid_left {
     type upmix
     slave.pcm {
         type route
-        slave.pcm "crossfeed"
+        slave.pcm "default"
         ttable {
             0.0 =  0.66
             0.1 = 0.33
@@ -247,7 +247,7 @@ pcm.tts_mid_right {
     type upmix
     slave.pcm {
         type route
-        slave.pcm "crossfeed"
+        slave.pcm "default"
         ttable {
             0.1 =  0.66
             0.0 = 0.33
@@ -261,7 +261,7 @@ pcm.tts_quarter_left {
     type upmix
     slave.pcm {
         type route
-        slave.pcm "crossfeed"
+        slave.pcm "default"
         ttable {
             0.0 =  0.75
             0.1 = 0.25
@@ -275,7 +275,7 @@ pcm.tts_quarter_right {
     type upmix
     slave.pcm {
         type route
-        slave.pcm "crossfeed"
+        slave.pcm "default"
         ttable {
             0.0 =  0.25
             0.1 = 0.75
