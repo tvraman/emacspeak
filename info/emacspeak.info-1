@@ -6299,23 +6299,25 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 12.61.1.4 emacspeak-empv-play-file
 ..................................
 
- -- Command: emacspeak-empv-play-file (file)
+ -- Command: emacspeak-empv-play-file (file &optional left)
      ‘C-e '’
      ‘C-e C-;’
 
      Play file using mpv.
+     Interactive prefix arg plays on left channel using alsa.
 
-     (fn FILE)
+     (fn FILE &optional LEFT)
 
 12.61.1.5 emacspeak-empv-play-url
 .................................
 
- -- Command: emacspeak-empv-play-url (url)
+ -- Command: emacspeak-empv-play-url (url &optional left)
      ‘C-e y y’
 
      Play URL using mpv.
+     Interactive prefix arg plays on left ear using Alsa.
 
-     (fn URL)
+     (fn URL &optional LEFT)
 
 12.61.1.6 emacspeak-empv-relative-seek
 ......................................
@@ -8862,12 +8864,4 @@ This module provides Feeds support for Emacspeak required modules
      
      "/home/raman/sourceforge/awesome-rss-feeds/"
      
-
-
-File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
-
-12.78 emacspeak-ffap
-====================
-
-FFAP == Find file at point and friends
 

@@ -2406,7 +2406,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e y p:                               emacspeak-pianobar. (line   46)
 * C-e y r:                               emacspeak-xslt.     (line   57)
 * C-e y x:                               emacspeak-xslt.     (line   37)
-* C-e y y:                               emacspeak-empv.     (line   52)
+* C-e y y:                               emacspeak-empv.     (line   53)
 * C-e z b:                               emacspeak-wizards.  (line 1054)
 * C-e z e:                               emacspeak-wizards.  (line  517)
 * C-e z l:                               emacspeak-m-player. (line  366)
