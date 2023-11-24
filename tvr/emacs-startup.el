@@ -78,6 +78,8 @@ Produce timing information as the last step."
    for b in
    '(
      ("C-c r" comint-redirect-send-command )
+     ("M-<up>" comint-previous-prompt)
+     ("M-<down>" comint-next-prompt)
      ("SPC" comint-magic-space)
      ("C-c k" comint-clear-buffer))
    do
