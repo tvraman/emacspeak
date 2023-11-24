@@ -107,7 +107,7 @@ Interactive prefix arg plays on left ear using Alsa. "
                   emacspeak-empv-history-max)
   (let* ((args (copy-sequence empv-mpv-args))
          (empv-mpv-args args))
-    (when left (push "--audio-device=alsa/tts_mono_left" empv-mpv-args))
+    (when left (push "--audio-device=alsa/tts_quarter_left" empv-mpv-args))
     (empv-play url)))
 
 (declare-function emacspeak-media-local-resource "emacspeak-empv" t)
@@ -124,7 +124,7 @@ Interactive prefix arg plays on left channel using alsa."
   (require 'empv)
   (let* ((args (copy-sequence empv-mpv-args))
          (empv-mpv-args args))
-    (when left (push "--audio-device=alsa/tts_mono_left" empv-mpv-args))
+    (when left (push "--audio-device=alsa/tts_quarter_left" empv-mpv-args))
     (empv-play file)))
 
 (put 'emacspeak-empv-play-file 'repeat-map 'empv-map)
