@@ -1582,15 +1582,14 @@ Set to nil to disable a separate Notification stream."
           (string :value ""))
   :group 'tts)
 
-(defconst tts-env-var
+(defvar tts-env-var
   (cond
    ((executable-find "pulseaudio") "PULSE_SINK")
    (t "ALSA_DEFAULT"))
   "Environment  variable for TTS output; PULSE_SINK if running
   pulseaudio, otherwise ALSA_DEFAULT for both plain ALSA and
-  pipewire-alsa.
-Note that pipewire-pulse is special and also uses PULSE_SINK, but only
-  if pipewire-alsa is not installed.")
+  pipewire-alsa.  Note that pipewire-pulse is special and also
+  uses PULSE_SINK, but only if pipewire-alsa is not installed.")
 
 (defvar dtk-speak-server-initialized nil
   "Records if the server is initialized.")
