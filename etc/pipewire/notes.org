@@ -21,6 +21,7 @@ These notes document what broke and how I fix them.
         these enable compatibility.
   - Do not install any pipewire conf files  unless tested (how?); a
    broken conf file  can lose *all* audio.
+   
 
 * What I have Learn
 
@@ -52,10 +53,24 @@ pactl load-module module-ladspa-sink sink_name=upper plugin=ZamHeadX2-ladspa lab
 #+end_src
 
 
-* Present setup
+*Bridge  setup
+
+Here, /Bridge/ stands for crossing over to the world of Pipewire  from
+the world of Pulseaudio.
+Landing completely on pipewire makes things a lot simpler, see next
+section.
 
 1. Execute ~./pa2pw.sh~ after reboot to get ~tts_left~,~tts_right~ and a ~binaural~ device.
 2. Execute ~./pw-hrtf.sh~ to get 8 virtual HRTF devices.
+
+* Final Landing
+
+  - Install package ~pipewire-alsa~ and ~pipewire-audio~.
+  - This removes pulseaudio from the system.
+  - The original ~.asoundrc~ that I used for nearly 15+ years works again!
+  - I suspect eventually that too will get simplified as ~wireplumber~
+    matures, but that day is not yet come.
+    
 
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
