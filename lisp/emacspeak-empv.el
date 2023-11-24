@@ -117,7 +117,7 @@ Interactive prefix arg plays on left ear using Alsa. "
 ;;;###autoload
 (defun emacspeak-empv-play-file (file &optional left)
   "Play file using mpv.
-Interactive prefix arg plays on left channel using alsa."
+Interactive prefix arg plays on left ear using alsa."
   (interactive(list (emacspeak-media-read-resource)
                     current-prefix-arg))
   (cl-declare (special empvmpv-args))
