@@ -1506,10 +1506,8 @@ Interactive prefix arg speaks buffer info."
 (defconst ems--vol-cmd
   (eval-when-compile
     (cond
-     ((executable-find "wpctl")
+     ((executable-find "wpctl") ; pipewire
       "wpctl get-volume @DEFAULT_AUDIO_SINK@")
-     ((zerop (length (shell-command-to-string "pidof pulseaudio")))
-      "amixer cget numid=3 | tail -1 | cut -d ',' -f 2")
      (t 
       (concat
        "pacmd list-sinks | grep -A 8 '  \\* index' | grep volume"
