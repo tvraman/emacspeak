@@ -1980,7 +1980,6 @@ Designed to work with ALSA and Pulseaudio."
       (with-environment-variables
           ((tts-audio-env-var tts-notification-device))
         (setq  new-process (dtk-make-process "Notify"))
-        (message "%s %s" tts-audio-env-var (getenv tts-audio-env-var))
         (when (memq (process-status new-process) '(run open))
           (setq dtk-notify-process new-process))))))
 
