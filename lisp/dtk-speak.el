@@ -1550,7 +1550,8 @@ program. Port defaults to dtk-local-server-port"
           (or                        ; each clause is for a given env:
            (and (not (executable-find "pulseaudio")) ;pipewire-alsa
                 (setq result
-                   (shell-command-to-string "aplay -L | grep mono_right")))
+                      (string-trim
+                       (shell-command-to-string "aplay -L | grep mono_right"))))
            (and                         ; pipewire-pulse
             (executable-find "pamixer")
             (setq result
@@ -1602,7 +1603,8 @@ Set to nil to disable a separate Notification stream."
         (default-directory (expand-file-name "~/"))
         (program (expand-file-name dtk-program emacspeak-servers-directory))
         (process nil))
-    (setq process (start-process name nil program))
+    (setq process
+          (start-process name nil program))
     (set-process-coding-system process 'utf-8 'utf-8)
     process))
 
