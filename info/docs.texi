@@ -1189,7 +1189,7 @@ Default Value:
 
 @verbatim
 
-"tts_right"
+"tts_mono_right"
 
 @end verbatim
 
@@ -3859,7 +3859,7 @@ Percentage seek in seconds,see ‘empv-seek’
 @end deffn
 
 @subsubsection emacspeak-empv-play-file
-@deffn {Command} emacspeak-empv-play-file  (file &optional left-channel)
+@deffn {Command} emacspeak-empv-play-file  (file)
 @table @kbd
 @item C-e '
 @kindex C-e '
@@ -3870,14 +3870,14 @@ Percentage seek in seconds,see ‘empv-seek’
 @findex emacspeak-empv-play-file
 
 @format
-Play file using mpv;  Prefix arg plays on notification device.
+Play file using mpv.
 
-(fn FILE &optional LEFT-CHANNEL)
+(fn FILE)
 @end format
 @end deffn
 
 @subsubsection emacspeak-empv-play-url
-@deffn {Command} emacspeak-empv-play-url  (url &optional notification-device)
+@deffn {Command} emacspeak-empv-play-url  (url)
 @table @kbd
 @item C-e y y
 @kindex C-e y y
@@ -3886,11 +3886,9 @@ Play file using mpv;  Prefix arg plays on notification device.
 @findex emacspeak-empv-play-url
 
 @format
-Play URL using mpv;  Prefix arg plays on notification  device.
-For the  prefix arg to take effect, make sure to add the line
-‘ao=pulse,’ to your .config/mpv.conf file.
+Play URL using mpv. 
 
-(fn URL &optional NOTIFICATION-DEVICE)
+(fn URL)
 @end format
 @end deffn
 
