@@ -97,7 +97,7 @@ For the  prefix arg to take effect, make sure to add the line
   (interactive (list (emacspeak-eww-read-url 'emacspeak-empv-history)
                      current-prefix-arg ))
   (cl-declare (special tts-notification-device
-                       tts-env-var
+                       tts-audio-env-var
                        emacspeak-empv-history-max emacspeak-empv-history))
   (require 'empv)
   (when
@@ -108,7 +108,7 @@ For the  prefix arg to take effect, make sure to add the line
   (add-to-history 'emacspeak-empv-history url emacspeak-empv-history-max)
   (if notification-device
       (with-environment-variables
-          ((tts-env-var tts-notification-device))
+          ((tts-audio-env-var tts-notification-device))
         (empv-play url))
     (empv-play url)))
 
@@ -123,11 +123,11 @@ For the  prefix arg to take effect, make sure to add the line
   (interactive
    (list (emacspeak-media-read-resource) current-prefix-arg  ))
   (cl-declare (special tts-notification-device
-                       tts-env-var))
+                       tts-audio-env-var))
   (require 'empv)
   (if left-channel
       (with-environment-variables
-          ((tts-env-var tts-notification-device))
+          ((tts-audio-env-var tts-notification-device))
         (empv-play file))
     (empv-play file)))
 

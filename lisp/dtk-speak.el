@@ -1582,7 +1582,7 @@ Set to nil to disable a separate Notification stream."
           (string :value ""))
   :group 'tts)
 
-(defvar tts-env-var
+(defvar tts-audio-env-var
   (cond
    ((executable-find "pulseaudio") "PULSE_SINK")
    (t "ALSA_DEFAULT"))
@@ -1968,15 +1968,15 @@ Designed to work with ALSA and Pulseaudio."
   "Initialize notification TTS stream."
   (interactive)
   (cl-declare (special dtk-notify-process
-                       tts-env-var tts-notification-device))
+                       tts-audio-env-var tts-notification-device))
   (let ((dtk-program
          (if (string-match "cloud" dtk-program) "cloud-notify" dtk-program))
         (new-process nil))
     (unless (zerop (length tts-notification-device))
       (with-environment-variables
-          ((tts-env-var tts-notification-device))
+          ((tts-audio-env-var tts-notification-device))
         (setq  new-process (dtk-make-process "Notify"))
-        (message "%s %s" tts-env-var (getenv tts-env-var)))
+        (message "%s %s" tts-audio-env-var (getenv tts-audio-env-var)))
       (when
           (memq (process-status new-process) '(run open))
         (when (and dtk-notify-process (process-live-p dtk-notify-process))
