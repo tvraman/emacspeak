@@ -107,6 +107,7 @@ startup sound."
    "play" nil "aplay"
    (expand-file-name "highbells.au" emacspeak-sounds-directory))
   (tvr-tabs)
+  (switch-to-buffer "Home")
   (message
    "<Emacs started for %s in %.2f  seconds with %s gcs (%.2f seconds)>"
    user-login-name (read (emacs-init-time)) gcs-done gc-elapsed))
