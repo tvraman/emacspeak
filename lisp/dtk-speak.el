@@ -1976,12 +1976,12 @@ Designed to work with ALSA and Pulseaudio."
       (with-environment-variables
           ((tts-audio-env-var tts-notification-device))
         (setq  new-process (dtk-make-process "Notify"))
-        (message "%s %s" tts-audio-env-var (getenv tts-audio-env-var)))
-      (when
-          (memq (process-status new-process) '(run open))
-        (when (and dtk-notify-process (process-live-p dtk-notify-process))
-          (delete-process dtk-notify-process))
-        (setq dtk-notify-process new-process)))))
+        (message "%s %s" tts-audio-env-var (getenv tts-audio-env-var))
+        (when
+            (memq (process-status new-process) '(run open))
+          (when (and dtk-notify-process (process-live-p dtk-notify-process))
+            (delete-process dtk-notify-process))
+          (setq dtk-notify-process new-process))))))
 
 (defun dtk-notify-using-voice (voice text &optional dont-log)
   "Use voice VOICE to speak text TEXT on notification stream."
