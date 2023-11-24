@@ -1969,18 +1969,17 @@ Designed to work with ALSA and Pulseaudio."
   (interactive)
   (cl-declare (special dtk-notify-process
                        tts-audio-env-var tts-notification-device))
-  (let ((dtk-program
-         (if (string-match "cloud" dtk-program) "cloud-notify" dtk-program))
-        (new-process nil))
+  (let ((new-process nil)
+        (dtk-program
+         (if (string-match "cloud" dtk-program) "cloud-notify" dtk-program)))
+    (when (and dtk-notify-process (process-live-p dtk-notify-process))
+      (delete-process dtk-notify-process))
     (unless (zerop (length tts-notification-device))
       (with-environment-variables
           ((tts-audio-env-var tts-notification-device))
         (setq  new-process (dtk-make-process "Notify"))
         (message "%s %s" tts-audio-env-var (getenv tts-audio-env-var))
-        (when
-            (memq (process-status new-process) '(run open))
-          (when (and dtk-notify-process (process-live-p dtk-notify-process))
-            (delete-process dtk-notify-process))
+        (when (memq (process-status new-process) '(run open))
           (setq dtk-notify-process new-process))))))
 
 (defun dtk-notify-using-voice (voice text &optional dont-log)
