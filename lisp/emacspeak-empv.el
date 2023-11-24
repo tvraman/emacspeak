@@ -90,27 +90,17 @@
   "Max number of history to preserve.")
 
 ;;;###autoload
-(defun emacspeak-empv-play-url (url &optional notification-device)
-  "Play URL using mpv;  Prefix arg plays on notification  device.
-For the  prefix arg to take effect, make sure to add the line
-`ao=pulse,' to your .config/mpv.conf file."
-  (interactive (list (emacspeak-eww-read-url 'emacspeak-empv-history)
-                     current-prefix-arg ))
-  (cl-declare (special tts-notification-device
-                       tts-audio-env-var
-                       emacspeak-empv-history-max emacspeak-empv-history))
+(defun emacspeak-empv-play-url (url)
+  "Play URL using mpv. "
+  (interactive (list (emacspeak-eww-read-url 'emacspeak-empv-history)))
+  (cl-declare (special emacspeak-empv-history-max emacspeak-empv-history))
   (require 'empv)
   (when
-      (and url
-           (stringp url)
+      (and url (stringp url)
            (string-prefix-p (emacspeak-google-result-url-prefix) url))
     (setq url  (emacspeak-google-canonicalize-result-url url)))
   (add-to-history 'emacspeak-empv-history url emacspeak-empv-history-max)
-  (if notification-device
-      (with-environment-variables
-          ((tts-audio-env-var tts-notification-device))
-        (empv-play url))
-    (empv-play url)))
+    (empv-play url))
 
 (declare-function emacspeak-media-local-resource "emacspeak-empv" t)
 
@@ -118,18 +108,11 @@ For the  prefix arg to take effect, make sure to add the line
                   "emacspeak-m-player" (&optional prefix))
 
 ;;;###autoload
-(defun emacspeak-empv-play-file (file &optional left-channel)
-  "Play file using mpv;  Prefix arg plays on notification device."
-  (interactive
-   (list (emacspeak-media-read-resource) current-prefix-arg  ))
-  (cl-declare (special tts-notification-device
-                       tts-audio-env-var))
+(defun emacspeak-empv-play-file (file)
+  "Play file using mpv."
+  (interactive(list (emacspeak-media-read-resource)   ))
   (require 'empv)
-  (if left-channel
-      (with-environment-variables
-          ((tts-audio-env-var tts-notification-device))
-        (empv-play file))
-    (empv-play file)))
+  (empv-play file))
 
 (put 'emacspeak-empv-play-file 'repeat-map 'empv-map)
 (put 'emacspeak-empv-play-url 'repeat-map 'empv-map)
