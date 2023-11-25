@@ -568,7 +568,7 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
 
 (defconst soundscape--filters
   '("crossfeed" "reverb_crossfeed" "default" "tap_reverb"
-    "tts_a0_e45" tts_a0_em45 tts_a0_e90
+    "tts_a0_e45" " tts_a0_em45" "tts_a0_e90"
     "tts_a0_em30" "tts_a0_em15"
     "tts_a0_e60" "tts_a0_e30" "tts_a0_e15"
     "tts_a45_e45" "tts_a135_e45" "tts_a225_e45" "tts_am45_e45"
