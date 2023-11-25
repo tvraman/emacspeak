@@ -28,7 +28,7 @@ These notes document what broke and how I fix them.
   - CLI tool pactl, pamixer work in pipewire, even when there is no
     pulseaudio daemon running, as long as you have pipewire-pulse installed.
   - Use wpctl as the Pipewire way of manipulating the audio environment.
-  - To get ~tts_left~ and tts_right~ devices for Emacspeak, execute
+  - To get ~tts_left~ and ~ tts_right~ devices for Emacspeak, execute
     the corresponding pactl commands by hand at the shell for now, ie
     examine default.pa from the pulseaudio lines, then pass them to
     pactl.
@@ -67,6 +67,7 @@ section.
 
   - Install package ~pipewire-alsa~ and ~pipewire-audio~.
   - This removes pulseaudio from the system.
+  - X11 Bell (auditory icon) is back.
   - The original ~.asoundrc~ that I used for nearly 15+ years works again!
   - I suspect eventually that too will get simplified as ~wireplumber~
     matures, but that day is not yet come.
