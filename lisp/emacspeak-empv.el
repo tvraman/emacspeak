@@ -175,6 +175,7 @@ Interactive prefix arg plays on left ear using alsa."
      ("%" emacspeak-empv-percentage-seek)
      ("'" empv-current-loop-on)
      ("/" empv-seek)
+     (";" emacspeak-empv-toggle-filter)
      ("0" empv-volume-up)
      ("9" empv-volume-down)
      ("C-j" empv-youtube-results-play-current)
@@ -198,6 +199,18 @@ Interactive prefix arg plays on left ear using alsa."
    empv-map))
 
 (emacspeak-empv-setup)
+;;; Experimental: Toggling Filters
+(defun emacspeak-empv-toggle-filter ()
+  "Toggle Filter."
+  (interactive)
+  (let ((filters nil)
+        (arg nil))
+    (push "toggle" filters)
+     (setq arg  (read-from-minibuffer "Arg:"))
+     (while (not (zerop (length arg)))
+       (push arg filters)
+       (setq arg  (read-from-minibuffer "Arg:")))
+    (empv--send-command (reverse filters ))))
 
 (provide 'emacspeak-empv)
 ;;;  end of file
