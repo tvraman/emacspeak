@@ -225,6 +225,8 @@ Fully qualified filename if using Alsa; basename if using pactl. "
         (setq emacspeak-sounds-current-theme
               (expand-file-name "pan-chimes/" emacspeak-sounds-directory)))
        ((string= (executable-find "play") val)
+        (setq emacspeak-sounds-current-theme
+              (expand-file-name "ogg-chimes/" emacspeak-sounds-directory))
         (setq emacspeak-play-args nil))))
   :group 'emacspeak)
 
