@@ -200,17 +200,10 @@ Interactive prefix arg plays on left ear using alsa."
 
 (emacspeak-empv-setup)
 ;;; Experimental: Toggling Filters
-(defun emacspeak-empv-toggle-filter ()
+(defun emacspeak-empv-toggle-filter (filter)
   "Toggle Filter."
-  (interactive)
-  (let ((filters nil)
-        (arg nil))
-    (push "toggle" filters)
-     (setq arg  (read-from-minibuffer "Arg:"))
-     (while (not (zerop (length arg)))
-       (push arg filters)
-       (setq arg  (read-from-minibuffer "Arg:")))
-    (empv--send-command (reverse filters ))))
+  (interactive "sFilter:")
+  (empv--send-command (list "af" "toggle" filter)))
 
 (provide 'emacspeak-empv)
 ;;;  end of file
