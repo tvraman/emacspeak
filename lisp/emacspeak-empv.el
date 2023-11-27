@@ -201,7 +201,8 @@ Interactive prefix arg plays on left ear using alsa."
 (emacspeak-empv-setup)
 ;;; Experimental: Toggling Filters
 (defun emacspeak-empv-toggle-filter (filter)
-  "Toggle Filter."
+  "Toggle Filter.
+Filter is of the  form name=arg-1:arg-2:..."
   (interactive "sFilter:")
   (empv--send-command (list "af" "toggle" filter)))
 
