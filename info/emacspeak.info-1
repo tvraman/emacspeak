@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 24, 2023.
+last updated on November 26, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2996,7 +2996,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1148 commands and 146 options.
+   This chapter documents a total of 1149 commands and 146 options.
 
 * Menu:
 
@@ -6304,7 +6304,7 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
      ‘C-e C-;’
 
      Play file using mpv.
-     Interactive prefix arg plays on left channel using alsa.
+     Interactive prefix arg plays on left ear using alsa.
 
      (fn FILE &optional LEFT)
 
@@ -6327,6 +6327,16 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
      Relative seek in seconds,see ‘empv-seek’
 
      (fn TARGET)
+
+12.61.1.7 emacspeak-empv-toggle-filter
+......................................
+
+ -- Command: emacspeak-empv-toggle-filter (filter)
+
+     Toggle Filter.
+     Filter is of the  form name=arg-1:arg-2:...
+
+     (fn FILTER)
 
 
 File: emacspeak.info,  Node: emacspeak-enriched,  Next: emacspeak-entertain,  Prev: emacspeak-empv,  Up: Emacspeak Commands And Options

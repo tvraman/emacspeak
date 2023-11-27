@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1148 commands and 146 options.
+This chapter documents a total of 1149 commands and 146 options.
 
 @menu
 * amixer::Set Audio Volume from Emacs.
@@ -3871,7 +3871,7 @@ Percentage seek in seconds,see ‘empv-seek’
 
 @format
 Play file using mpv.
-Interactive prefix arg plays on left channel using alsa.
+Interactive prefix arg plays on left ear using alsa.
 
 (fn FILE &optional LEFT)
 @end format
@@ -3902,6 +3902,18 @@ Interactive prefix arg plays on left ear using Alsa.
 Relative seek in seconds,see ‘empv-seek’
 
 (fn TARGET)
+@end format
+@end deffn
+
+@subsubsection emacspeak-empv-toggle-filter
+@deffn {Command} emacspeak-empv-toggle-filter  (filter)
+@findex emacspeak-empv-toggle-filter
+
+@format
+Toggle Filter.
+Filter is of the  form name=arg-1:arg-2:...
+
+(fn FILTER)
 @end format
 @end deffn
 
