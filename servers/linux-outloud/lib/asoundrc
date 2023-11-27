@@ -546,6 +546,23 @@ pcm.save2file {
 }
 
 # }}}
+# {{{ matrixSpatializer
+
+pcm.spatial {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default" # Set this line to match your configuration
+        path "/usr/lib/ladspa/"
+        plugins [{
+                    label matrixSpatialiser
+                    input {controls [256 ]}
+                }
+                ]
+    }
+}
+
+# }}}
 # {{{end of file
 
 # local variables:
