@@ -357,12 +357,8 @@ proc tts_initialize {} {
     set queue(-1) ""
     set backup(-1) ""
     #play program
-    
-    if { [info exists ::env(PULSE_SERVER)] || [file exists /usr/bin/paplay]} {
-    set tts(play) "/usr/bin/paplay"
-} else {
+    # always use aplay
     set tts(play) "/usr/bin/aplay -q"
-}
     #if env variable EMACSPEAK_PLAY is set, use it;
     if {[info exists env(EMACSPEAK_PLAY)] } {
         set tts(play)  $env(EMACSPEAK_PLAY)
