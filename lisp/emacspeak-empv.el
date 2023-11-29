@@ -120,7 +120,7 @@ Interactive prefix arg plays on left ear using Alsa. "
 Interactive prefix arg plays on left ear using alsa."
   (interactive(list (emacspeak-media-read-resource)
                     current-prefix-arg))
-  (cl-declare (special empvmpv-args))
+  (cl-declare (special empv-mpv-args))
   (require 'empv)
   (let* ((args (copy-sequence empv-mpv-args))
          (empv-mpv-args args))
