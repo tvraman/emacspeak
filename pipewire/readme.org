@@ -4,7 +4,7 @@ This is the Pipewire customization on my laptop.
 I have this directory symlinked in ~/.config
 
 1. To have changes made here take effect, run:
-:pipewire -c filter-conf.conf &
+:pipewire -c filter-chain.conf &
 2. If it works, restart the pipewire service:
 :  systemctl --user restart pipewire pipewire-pulse
 1. You'll likely need to restart Emacs
