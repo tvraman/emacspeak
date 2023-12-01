@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 26, 2023.
+last updated on November 30, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-ffap,  Next: emacspeak-ffip,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options
@@ -3613,7 +3613,7 @@ speech-enables Pianobar and enhances it for the Complete Audio Desktop.
 -------------------------
 
 Emacspeak implements command emacspeak-pianobar, a light-weight wrapper
-on top of pianobar.  Emacspeak binds this command to ‘C-e '’.  Command
+on top of pianobar.  Emacspeak binds this command to ‘C-' '’.  Command
 emacspeak-pianobar is designed to let you launch Pandora channels and
 switch tracks/channels without moving away from your primary tasks such
 as editing code or reading/composing email.  Toward this end, launching
