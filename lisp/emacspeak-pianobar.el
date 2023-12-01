@@ -56,7 +56,7 @@
 
 ;; Emacspeak implements command emacspeak-pianobar, a light-weight
 ;; wrapper on top of pianobar. Emacspeak binds this command to
-;; @code{C-e '}. 
+;; @code{C-' '}. 
 ;;  Command emacspeak-pianobar is designed to let you
 ;; launch Pandora channels and switch tracks/channels without moving
 ;; away from your primary tasks such as editing code or
