@@ -18,8 +18,10 @@ provides a complete audio desktop.
 
 This manual is organized as a series of chapters, with each chapter in
 a separate file.  If you feel capable of contributing to a specific
-section, send out a message to the Emacspeak mailing list
-@url{mailto:emacspeak@@cs.vassar.edu}.  You can then start adding
+section, send out a message to the
+@url{mailto:emacspeak@@cs.vassar.edu, Emacspeak mailing list} or a
+@url{https://github.com/tvraman/emacspeak/pulls, pull-request},
+whichever you feel more comfortable with.  You can then start adding
 content to a local copy of the chapter to which you are contributing.
 When you feel you have something to submit, mail out the file to the
 emacspeak mailing list @MDash{} I'll integrate new content as it comes
