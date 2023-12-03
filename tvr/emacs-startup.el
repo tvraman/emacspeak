@@ -267,11 +267,6 @@ configuration happens via the after-init-hook. "
   (interactive)
   (cl-declare (special dtk-speaker-process dtk-notify-process))
   (setq dtk-speaker-process dtk-notify-process))
-;; silent psession warnings:
-(defadvice psession--dump-object-to-file (around emacspeak pre act comp)
-  "Quiet."
-  (ems-with-messages-silenced ad-do-it)
-  ad-return-value)
 
 (provide 'emacs-startup)
 ;;;  end of file
