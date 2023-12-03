@@ -1960,7 +1960,7 @@ location of the mark is indicated by an aural highlight. "
 (defun emacspeak-speak-continuously ()
   "Speak a buffer continuously.
 First prompts using the minibuffer for the kind of action to
-perform after speaking each chunk.  E.G.  speak a line at a time
+perform after speaking each chunk.  E.g.  speak a line at a time
 etc.  Speaking commences at current buffer position.  Pressing
 \\[keyboard-quit] breaks out, leaving point on last chunk that
 was spoken.  Any other key continues to speak the buffer."

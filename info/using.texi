@@ -53,7 +53,7 @@ structural distinctions captured by the HTML markup to be communicated
 efficiently @xref{Web Browsing}.
 
 It is often desirable to exercise control over the pronunciation of a
-word (E.G. a technical term or a reserved word in a programming
+word (e.g. a technical term or a reserved word in a programming
 language) within specific contexts. Emacspeak maintains pronunciation
 dictionaries for this purpose, which may be customized by the
 user. Moreover, individual dictionaries can be activated selectively,

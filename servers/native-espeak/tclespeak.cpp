@@ -449,7 +449,7 @@ static int initLanguage(Tcl_Interp *interp) {
   if (remove != string::npos) {
     aDefaultLang.erase(aDefaultLang.begin() + remove, aDefaultLang.end());
   }
-  // And replace _ with -, E.G. en_US becomes en-US.
+  // And replace _ with -, e.g. en_US becomes en-US.
   for (string::iterator it = aDefaultLang.begin(); it != aDefaultLang.end();
        it++) {
     if (*it == '_') {
