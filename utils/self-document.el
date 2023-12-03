@@ -406,6 +406,7 @@
     (with-current-buffer output
       (erase-buffer)
       (texinfo-mode)
+      (insert "@c Auto-generated, do not hand-edit.\n")
       (insert
        (format
         "@node Emacspeak Commands And Options \n
