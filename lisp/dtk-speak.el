@@ -1626,7 +1626,8 @@ Set to nil to disable a separate Notification stream."
       (setq dtk-speaker-process new-process)
       (when (process-live-p dtk-notify-process)
         (delete-process dtk-notify-process))
-      (when (tts-multistream-p dtk-program) (dtk-notify-initialize))))))
+      (when (tts-multistream-p dtk-program) (dtk-notify-initialize))
+      (process-status dtk-speaker-process)))))
 
 (defun tts-restart ()
   "Restart TTS server."
