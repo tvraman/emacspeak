@@ -416,9 +416,9 @@ commands and options for details."
    (eq 'run (process-status dtk-speaker-process)) t
    "Speech server %s failed, not starting Emacspeak!" dtk-program)
   (setq ring-bell-function #'(lambda nil (emacspeak-auditory-icon 'warn-user)))
-  (mapc #'load
-        (directory-files-recursively
-         emacspeak-sounds-directory "define-theme\\.el"))
+  (mapc
+   #'load
+   (directory-files-recursively emacspeak-sounds-directory "define-theme\\.el"))
   (emacspeak-pronounce-load-dictionaries)
   (make-thread #'(lambda () (ems--fastload "emacspeak-advice")))
   (emacspeak-setup-programming-modes)
