@@ -422,13 +422,13 @@ commands and options for details."
   (emacspeak-pronounce-load-dictionaries)
   (make-thread #'(lambda () (ems--fastload "emacspeak-advice")))
   (emacspeak-setup-programming-modes)
-  (setq line-number-mode nil column-number-mode nil)
   (make-thread #'emacspeak-prepare-emacs)
+  (setq line-number-mode nil column-number-mode nil)
   (global-visual-line-mode -1)
+  (transient-mark-mode -1)
   (add-to-list
    'minor-mode-alist
    '(emacspeak-speak-show-volume (:eval (ems--show-current-volume))))
-  (transient-mark-mode -1)
   (setenv "EMACSPEAK_DIR" emacspeak-directory)
   (message emacspeak-startup-message)
   (emacspeak-play-startup-icon))
