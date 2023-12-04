@@ -412,8 +412,7 @@ See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."
   (cl-assert (eq 'run (dtk-initialize)) t
              "Speech server is not running, not starting Emacspeak.")
-  (setq ring-bell-function
-        #'(lambda nil (emacspeak-auditory-icon 'warn-user)))
+  (setq ring-bell-function #'(lambda nil (emacspeak-auditory-icon 'warn-user)))
   (mapc #'load
         (directory-files-recursively
          emacspeak-sounds-directory "define-theme\\.el"))
