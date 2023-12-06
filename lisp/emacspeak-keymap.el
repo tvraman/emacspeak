@@ -562,7 +562,7 @@
     ("C-b" eww-list-bookmarks)
     ("C-d" dictionary-search)
     ("C-e" eshell)
-    ("C-j" emacspeak-wizards-shell-toggle)
+    ("C-j" journalctl)
     ("TAB" hippie-expand)
     ("C-t" emacspeak-wizards-tramp-open-location)
     ("a" emacspeak-amark-browse)
