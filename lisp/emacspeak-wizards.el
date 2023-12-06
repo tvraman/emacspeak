@@ -1748,7 +1748,7 @@ Optional interactive prefix arg `category' prompts for a category."
   (interactive "P")
   (emacspeak-url-template-open
    (emacspeak-url-template-get
-    (if category "RadioTime Categories" "RadioTime Browser"))))
+    (if category "Online RadioTime Categories" "Online RadioTime Browser"))))
 
 ;;;###autoload
 (defun emacspeak-wizards-tune-in-radio-search ()
