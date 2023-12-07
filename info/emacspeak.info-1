@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 30, 2023.
+last updated on December 7, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -88,10 +88,10 @@ File: emacspeak.info,  Node: Contributing,  Next: Authoring Guidelines,  Up: Ann
 This manual is organized as a series of chapters, with each chapter in a
 separate file.  If you feel capable of contributing to a specific
 section, send out a message to the Emacspeak mailing list
-<mailto:emacspeak@cs.vassar.edu>.  You can then start adding content to
-a local copy of the chapter to which you are contributing.  When you
-feel you have something to submit, mail out the file to the emacspeak
-mailing list — I’ll integrate new content as it comes in.
+<mailto:emacspeak@emacspeak.net>, stating your intention to work on a
+section.  You can then start adding content to a local copy of the
+chapter to which you are contributing.  When you feel you have something
+to submit, send out a Github Pull Request.
 
 
 File: emacspeak.info,  Node: Authoring Guidelines,  Next: Credits,  Prev: Contributing,  Up: Announce
@@ -311,13 +311,13 @@ WWW
 Git Repository
      <https://github.com/tvraman/emacspeak>
 Mail List
-     <emacspeak@cs.vassar.edu>
+     <emacspeak@emacspeak.net>
 List Request
-     <emacspeak-request@cs.vassar.edu>
+     <emacspeak-request@emacspeak.net>
 
    The Emacspeak mailing list is maintained by Greg E. Priest-Dorman.
 If you are using Emacspeak, you should join the list by sending mail to
-the request address, <mailto:emacspeak-request@cs.vassar.edu>.
+the request address, <mailto:emacspeak-request@emacspeak.net>.
 
 
 File: emacspeak.info,  Node: Quick Installation,  Next: Building And Testing The Speech Server,  Prev: Obtaining Emacspeak,  Up: Installation
@@ -2794,7 +2794,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
 ‘C-d dictionary-search’
 ‘C-e eshell’
 ‘TAB hippie-expand’
-‘C-j emacspeak-wizards-shell-toggle’
+‘C-j journalctl’
 ‘C-l emacspeak-librivox’
 ‘C-t emacspeak-wizards-tramp-open-location’
 ‘; emacspeak-multimedia’
@@ -2960,44 +2960,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-z-keymap,  Prev:
 ‘r restart-emacs’
 ‘s magit-status’
 ‘z suspend-frame’
-
-
-File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Running Terminal Based Applications,  Prev: Emacspeak Keymaps,  Up: Top
-
-12 Emacspeak Commands And Options
-*********************************
-
-Overview
-========
-
-This chapter documents the various Emacspeak modules and is
-auto-generated from the Emacspeak source code.  It is meant to be a
-complete reference to the emacspeak implementation while also providing
-high-level usage summaries of some of the larger Emacspeak modules.
-
-   Each section provides a high-level overview of that module, followed
-by detailed description of the commands and options defined in that
-module.
-
-   Emacspeak modules can be classified as follows:
-  1. Modules that interface with various TTS engines, e.g.
-     ‘espeak-voices’ and ‘dectalk-voices’.
-
-  2. Modules that implement core Emacspeak functionality, e.g.,
-     ‘emacspeak-speak’, ‘emacspeak-keymap’, ‘voice-lock’ and
-     ‘emacspeak-advice’.
-
-  3. Emacspeak extensions that speech-enable various emacs packages,
-     these are all named using the convention ‘emacspeak-<PACKAGENAME>’.
-
-   The first two of the above are mostly of interest when extending
-Emacspeak, or to learn how things are implemented.  The third category
-is useful in understanding how emacspeak works with a given package;
-thus, when learning to use the Emacs Web Browser (EWW), read the *Note
-(emacs)EWW:: documentation, then *Note emacspeak-eww::.
-
-   This chapter documents a total of 1149 commands and 146 options.
-
 * Menu:
 
 * amixer::Set Audio Volume from Emacs.
@@ -3239,6 +3201,285 @@ thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 * voice-setup::Setup voices for voice-lock.
 * xbacklight::Brightness.
 * URL Templates ::
+
+
+File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Running Terminal Based Applications,  Prev: Emacspeak Keymaps,  Up: Top
+
+12 Emacspeak Commands And Options
+*********************************
+
+Overview
+========
+
+This chapter documents the various Emacspeak modules and is
+auto-generated from the Emacspeak source code.  It is meant to be a
+complete reference to the emacspeak implementation while also providing
+high-level usage summaries of some of the larger Emacspeak modules.
+
+   Each section provides a high-level overview of that module, followed
+by detailed description of the commands and options defined in that
+module.
+
+   Emacspeak modules can be classified as follows:
+  1. Modules that interface with various TTS engines, e.g.
+     ‘espeak-voices’ and ‘dectalk-voices’.
+
+  2. Modules that implement core Emacspeak functionality, e.g.,
+     ‘emacspeak-speak’, ‘emacspeak-keymap’, ‘voice-lock’ and
+     ‘emacspeak-advice’.
+
+  3. Emacspeak extensions that speech-enable various emacs packages,
+     these are all named using the convention ‘emacspeak-<PACKAGENAME>’.
+
+   The first two of the above are mostly of interest when extending
+Emacspeak, or to learn how things are implemented.  The third category
+is useful in understanding how emacspeak works with a given package;
+thus, when learning to use the Emacs Web Browser (EWW), read the *Note
+(emacs)EWW:: documentation, then *Note emacspeak-eww::.
+
+   This chapter documents a total of 1149 commands and 146 options.
+
+* Menu:
+
+* amixer::
+* dectalk-voices::
+* dom-addons::
+* dtk-speak::
+* emacspeak::
+* emacspeak-2048::
+* emacspeak-abc-mode::
+* emacspeak-add-log::
+* emacspeak-advice::
+* emacspeak-amark::
+* emacspeak-analog::
+* emacspeak-annotate::
+* emacspeak-apt-sources::
+* emacspeak-arc::
+* emacspeak-auctex::
+* emacspeak-bbc::
+* emacspeak-bbdb::
+* emacspeak-bibtex::
+* emacspeak-bookmark::
+* emacspeak-bookshare::
+* emacspeak-browse-kill-ring::
+* emacspeak-bs::
+* emacspeak-buff-menu::
+* emacspeak-c::
+* emacspeak-calc::
+* emacspeak-calculator::
+* emacspeak-calendar::
+* emacspeak-calibredb::
+* emacspeak-chess::
+* emacspeak-cider::
+* emacspeak-ciel::
+* emacspeak-clojure::
+* emacspeak-cmuscheme::
+* emacspeak-combobulate::
+* emacspeak-comint::
+* emacspeak-company::
+* emacspeak-compile::
+* emacspeak-cperl::
+* emacspeak-custom::
+* emacspeak-dbus::
+* emacspeak-deadgrep::
+* emacspeak-debugger::
+* emacspeak-desktop::
+* emacspeak-devdocs::
+* emacspeak-dictionary::
+* emacspeak-diff-mode::
+* emacspeak-dired::
+* emacspeak-dismal::
+* emacspeak-dumb-jump::
+* emacspeak-eat::
+* emacspeak-ecb::
+* emacspeak-ediff::
+* emacspeak-eglot::
+* emacspeak-ein::
+* emacspeak-elfeed::
+* emacspeak-elisp-refs::
+* emacspeak-elpher::
+* emacspeak-elpy::
+* emacspeak-elscreen::
+* emacspeak-emms::
+* emacspeak-empv::
+* emacspeak-enriched::
+* emacspeak-entertain::
+* emacspeak-epa::
+* emacspeak-eperiodic::
+* emacspeak-epub::
+* emacspeak-erc::
+* emacspeak-eshell::
+* emacspeak-ess::
+* emacspeak-etable::
+* emacspeak-eterm::
+* emacspeak-eudc::
+* emacspeak-evil::
+* emacspeak-eww::
+* emacspeak-extras::
+* emacspeak-exwm::
+* emacspeak-feeds::
+* emacspeak-ffap::
+* emacspeak-ffip::
+* emacspeak-filtertext::
+* emacspeak-flycheck::
+* emacspeak-flymake::
+* emacspeak-flyspell::
+* emacspeak-folding::
+* emacspeak-forge::
+* emacspeak-forms::
+* emacspeak-geiser::
+* emacspeak-gh-explorer::
+* emacspeak-gnuplot::
+* emacspeak-gnus::
+* emacspeak-go-mode::
+* emacspeak-gomoku::
+* emacspeak-google::
+* emacspeak-gridtext::
+* emacspeak-gtags::
+* emacspeak-gud::
+* emacspeak-haskell::
+* emacspeak-helm::
+* emacspeak-hide::
+* emacspeak-hide-lines::
+* emacspeak-hideshow::
+* emacspeak-hydra::
+* emacspeak-ibuffer::
+* emacspeak-ido::
+* emacspeak-iedit::
+* emacspeak-indium::
+* emacspeak-info::
+* emacspeak-ispell::
+* emacspeak-ivy::
+* emacspeak-jabber::
+* emacspeak-jdee::
+* emacspeak-journalctl::
+* emacspeak-js2::
+* emacspeak-keymap::
+* emacspeak-kmacro::
+* emacspeak-librivox::
+* emacspeak-lispy::
+* emacspeak-lua::
+* emacspeak-m-player::
+* emacspeak-magit::
+* emacspeak-make-mode::
+* emacspeak-man::
+* emacspeak-markdown::
+* emacspeak-maths::
+* emacspeak-message::
+* emacspeak-metapost::
+* emacspeak-midge::
+* emacspeak-mines::
+* emacspeak-mspools::
+* emacspeak-muggles::
+* emacspeak-muse::
+* emacspeak-net-utils::
+* emacspeak-newsticker::
+* emacspeak-notmuch::
+* emacspeak-nov::
+* emacspeak-nxml::
+* emacspeak-ocr::
+* emacspeak-org::
+* emacspeak-orgalist::
+* emacspeak-origami::
+* emacspeak-outline::
+* emacspeak-package::
+* emacspeak-paradox::
+* emacspeak-perl::
+* emacspeak-pianobar::
+* emacspeak-pipewire::
+* emacspeak-popup::
+* emacspeak-proced::
+* emacspeak-project::
+* emacspeak-projectile::
+* emacspeak-pronounce::
+* emacspeak-py::
+* emacspeak-pydoc::
+* emacspeak-python::
+* emacspeak-racer::
+* emacspeak-racket::
+* emacspeak-re-builder::
+* emacspeak-reftex::
+* emacspeak-related::
+* emacspeak-rg::
+* emacspeak-rmail::
+* emacspeak-rpm-spec::
+* emacspeak-rst::
+* emacspeak-ruby::
+* emacspeak-rust-mode::
+* emacspeak-sage::
+* emacspeak-sdcv::
+* emacspeak-selectrum::
+* emacspeak-ses::
+* emacspeak-setup::
+* emacspeak-sgml-mode::
+* emacspeak-sh-script::
+* emacspeak-shx::
+* emacspeak-slime::
+* emacspeak-smartparens::
+* emacspeak-solitaire::
+* emacspeak-sounds::
+* emacspeak-speak::
+* emacspeak-speedbar::
+* emacspeak-sql::
+* emacspeak-sudoku::
+* emacspeak-supercite::
+* emacspeak-syslog::
+* emacspeak-tab-bar::
+* emacspeak-table::
+* emacspeak-table-ui::
+* emacspeak-tabulate::
+* emacspeak-tabulated-list::
+* emacspeak-tar::
+* emacspeak-tcl::
+* emacspeak-tempo::
+* emacspeak-tetris::
+* emacspeak-texinfo::
+* emacspeak-threes::
+* emacspeak-tide::
+* emacspeak-todo-mode::
+* emacspeak-transient::
+* emacspeak-treesit::
+* emacspeak-typo::
+* emacspeak-url-template::
+* emacspeak-vdiff::
+* emacspeak-vertico::
+* emacspeak-view::
+* emacspeak-vm::
+* emacspeak-vterm::
+* emacspeak-vuiet::
+* emacspeak-wdired::
+* emacspeak-we::
+* emacspeak-websearch::
+* emacspeak-webspace::
+* emacspeak-widget::
+* emacspeak-windmove::
+* emacspeak-winring::
+* emacspeak-wizards::
+* emacspeak-woman::
+* emacspeak-xkcd::
+* emacspeak-xref::
+* emacspeak-xslt::
+* emacspeak-yaml::
+* emacspeak-yasnippet::
+* espeak-voices::
+* extra-muggles::
+* g-utils::
+* gm-nnir::
+* gmaps::
+* ladspa::
+* light::
+* mac-voices::
+* omaps::
+* outloud-voices::
+* plain-voices::
+* soundscape::
+* sox::
+* sox-gen::
+* tetris::
+* voice-defs::
+* voice-setup::
+* xbacklight::
+* URL Templates::
 
 
 File: emacspeak.info,  Node: amixer,  Next: dectalk-voices,  Up: Emacspeak Commands And Options
@@ -8723,155 +8964,5 @@ Infrequently used wizards archived for posterity.
 
      
      nil
-     
-
-
-File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
-
-12.76 emacspeak-exwm
-====================
-
-EXWM == Emacs X Window Manager This module speech-enables and integrates
-EXWM on the Emacspeak Audio Desktop
-
-12.76.1 Emacspeak-Exwm Commands
--------------------------------
-
-12.76.1.1 emacspeak-exwm-workspace-cycle
-........................................
-
- -- Command: emacspeak-exwm-workspace-cycle
-
-     Cycle to next workspace, with wrap-around
-
-
-File: emacspeak.info,  Node: emacspeak-feeds,  Next: emacspeak-ffap,  Prev: emacspeak-exwm,  Up: Emacspeak Commands And Options
-
-12.77 emacspeak-feeds
-=====================
-
-This module provides Feeds support for Emacspeak required modules
-
-12.77.1 Emacspeak-Feeds Commands
---------------------------------
-
-12.77.1.1 emacspeak-feeds-add-feed
-..................................
-
- -- Command: emacspeak-feeds-add-feed (title url type)
-     ‘C-e M-u’
-
-     Add specified feed to our feed store.
-
-     (fn TITLE URL TYPE)
-
-12.77.1.2 emacspeak-feeds-archive-feeds
-.......................................
-
- -- Command: emacspeak-feeds-archive-feeds
-
-     Archive list of subscribed fees to personal resource directory.
-     Archiving is useful when synchronizing feeds across multiple machines.
-
-12.77.1.3 emacspeak-feeds-atom-display
-......................................
-
- -- Command: emacspeak-feeds-atom-display (feed-url)
-     ‘C-, a’
-     ‘C-x @ a a’
-
-     Display ATOM feed.
-
-     (fn FEED-URL)
-
-12.77.1.4 emacspeak-feeds-awesome-rss
-.....................................
-
- -- Command: emacspeak-feeds-awesome-rss
-
-     Display Awesome RSS OPML file read with completion.
-     See etc/fixup-awesome-rss  for first-time  for instructions.
-
-12.77.1.5 emacspeak-feeds-browse
-................................
-
- -- Command: emacspeak-feeds-browse (feed)
-     ‘C-e C-u’
-
-     Browse   feed.
-
-     (fn FEED)
-
-12.77.1.6 emacspeak-feeds-fastload-feeds
-........................................
-
- -- Command: emacspeak-feeds-fastload-feeds
-
-     Fast load list of feeds from archive.
-     This directly updates emacspeak-feeds from the archive, rather
-     than adding those entries to the current set of subscribed
-     feeds.
-
-12.77.1.7 emacspeak-feeds-opml-display
-......................................
-
- -- Command: emacspeak-feeds-opml-display (feed-url)
-     ‘C-, o’
-     ‘C-x @ a o’
-
-     Display OPML feed.
-
-     (fn FEED-URL)
-
-12.77.1.8 emacspeak-feeds-restore-feeds
-.......................................
-
- -- Command: emacspeak-feeds-restore-feeds
-
-     Restore list of subscribed fees from  personal resource directory.
-     Archiving is useful when synchronizing feeds across multiple machines.
-
-12.77.1.9 emacspeak-feeds-rss-display
-.....................................
-
- -- Command: emacspeak-feeds-rss-display (feed-url)
-     ‘C-, r’
-     ‘C-x @ a r’
-
-     Display RSS feed.
-
-     (fn FEED-URL)
-
-12.77.1.10 emacspeak-feeds-select-feed
-......................................
-
- -- Command: emacspeak-feeds-select-feed (feed-type)
-
-     Prompt for feed-type (Atom, RSS, OPML and open it.
-
-     (fn FEED-TYPE)
-
-12.77.2 emacspeak-feeds Options
--------------------------------
-
- -- Variable: User Option emacspeak-feeds
-     Table of RSS/Atom feeds.  The feed list is persisted to file
-     saved-feeds on exit.
-
-     Default Value:
-
-     
-     (("BBC Podcast Directory" "http://www.bbc.co.uk/podcasts.opml" opml)
-      ("CNet Tech News" "http://feeds.feedburner.com/cnet/tcoc" rss)
-      ("Wired News" "http://www.wired.com/news_drop/netcenter/netcenter.rdf" rss))
-     
-
- -- Variable: User Option emacspeak-feeds-awesome-rss
-     Location of Awesome RSS
-
-     Default Value:
-
-     
-     "/home/raman/sourceforge/awesome-rss-feeds/"
      
 

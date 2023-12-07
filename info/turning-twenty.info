@@ -1,4 +1,4 @@
-This is turning-twenty.info, produced by makeinfo version 6.8 from
+This is turning-twenty.info, produced by makeinfo version 7.0.3 from
 turning-twenty.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -795,27 +795,27 @@ File: turning-twenty.info,  Node: References,  Prev: Conclusion,  Up: Top
 
 
 Tag Table:
-Node: Copyright253
-Node: Top566
-Node: Introduction2153
-Node: Using UNIX With Speech Output — 19942830
-Node: Key Enabler — Emacs And Lisp Advice4652
-Node: Key Component — Text To Speech (TTS)5680
-Node: Emacspeak And Software Development8207
-Node: Programming Defensively10805
-Node: Emacspeak And Authoring Documents12063
-Node: Emacspeak And The Early Days Of The Web13621
-Node: Audio Formatting — Generalizing Aural CSS17052
-Node: Conversational Gestures For The Audio Desktop20103
-Node: Speech-Enabling Interactive Games23442
-Node: Accessing Media Streams25223
-Node: EBooks— Ubiquitous Access To Books27312
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks29840
-Node: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols31686
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access35151
-Node: Mashing It Up — Leveraging Evolving Web APIs38678
-Node: Conclusion41147
-Node: References42457
+Node: Copyright255
+Node: Top568
+Node: Introduction2155
+Node: Using UNIX With Speech Output — 19942832
+Node: Key Enabler — Emacs And Lisp Advice4654
+Node: Key Component — Text To Speech (TTS)5682
+Node: Emacspeak And Software Development8209
+Node: Programming Defensively10807
+Node: Emacspeak And Authoring Documents12065
+Node: Emacspeak And The Early Days Of The Web13623
+Node: Audio Formatting — Generalizing Aural CSS17054
+Node: Conversational Gestures For The Audio Desktop20105
+Node: Speech-Enabling Interactive Games23444
+Node: Accessing Media Streams25225
+Node: EBooks— Ubiquitous Access To Books27314
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks29842
+Node: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols31688
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access35153
+Node: Mashing It Up — Leveraging Evolving Web APIs38680
+Node: Conclusion41149
+Node: References42459
 
 End Tag Table
 
