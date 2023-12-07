@@ -283,24 +283,21 @@ Define a voice for it if needed, then return the symbol."
   (cl-declare (special voice-setup-buffer-face-voice-table))
   (let* ((personality  (dtk-get-style))
          (face (get-text-property (point) 'face))
-         (orig (gethash face voice-setup-buffer-face-voice-table)))
+         (f (if (listp face)   (cl-first face)face))
+         (orig (gethash f voice-setup-buffer-face-voice-table)))
     (cond
      ((null personality) (message "No personality here."))
      ((eq personality  'inaudible)
-      (voice-setup-set-voice-for-face face  orig)
-      (message "Made personality %s audible." orig)
+      (voice-setup-set-voice-for-face f  orig)
+      (message "Made face %s audible." orig)
       (emacspeak-auditory-icon 'open-object))
-     (t (voice-setup-set-voice-for-face
-         (if (listp face)   (cl-first face)face)
-         'inaudible)
+     (t (voice-setup-set-voice-for-face f 'inaudible)
         (setf
-         (gethash
-          (if (listp face) (cl-first face) face)
-          voice-setup-buffer-face-voice-table)
+         (gethash f voice-setup-buffer-face-voice-table) ; cache
          personality)
-        (message "Silenced personality %s" personality)
+        (message "Silenced face %s" f)
         (emacspeak-auditory-icon 'close-object)))
-    (when (buffer-file-name) (normal-mode))))
+    (normal-mode)))
 
 (provide 'voice-setup)
 ;;;  end of file
