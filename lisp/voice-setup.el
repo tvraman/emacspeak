@@ -281,23 +281,21 @@ Define a voice for it if needed, then return the symbol."
   "Toggle audibility of personality under point  . "
   (interactive)
   (cl-declare (special voice-setup-buffer-face-voice-table))
-  (let* ((personality  (dtk-get-style))
-         (face (get-text-property (point) 'face))
+  (let* ((face (get-text-property (point) 'face))
          (f (if (listp face)   (cl-first face)face))
+         (personality (dtk-get-voice-for-face f))
          (orig (gethash f voice-setup-buffer-face-voice-table)))
     (cond
      ((null personality) (message "No personality here."))
-     ((eq personality  'inaudible)
+     ((and orig (eq personality  'inaudible))
       (voice-setup-set-voice-for-face f  orig)
+      (remhash f voice-setup-buffer-face-voice-table) ; clean cache
       (message "Made face %s audible." orig)
       (emacspeak-auditory-icon 'open-object))
      (t (voice-setup-set-voice-for-face f 'inaudible)
-        (setf
-         (gethash f voice-setup-buffer-face-voice-table) ; cache
-         personality)
+        (puthash f personality voice-setup-buffer-face-voice-table) ; cache
         (message "Silenced face %s" f)
-        (emacspeak-auditory-icon 'close-object)))
-    (normal-mode)))
+        (emacspeak-auditory-icon 'close-object)))))
 
 (provide 'voice-setup)
 ;;;  end of file
