@@ -709,7 +709,7 @@ from other modules.
  -- Command: voice-setup-toggle-silence-personality
      ‘C-e M-q’
 
-     Toggle audibility of personality under point  .
+     Toggle audibility of personality under point  .
 
 12.237.3 voice-setup Options
 ----------------------------

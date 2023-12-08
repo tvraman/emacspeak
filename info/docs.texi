@@ -20325,7 +20325,7 @@ Turn on Voice Lock mode .
 @findex voice-setup-toggle-silence-personality
 
 @format
-Toggle audibility of personality under point  . 
+Toggle audibility of personality under point  . 
 @end format
 @end deffn
 
