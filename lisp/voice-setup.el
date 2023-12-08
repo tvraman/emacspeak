@@ -266,7 +266,7 @@ Define a voice for it if needed, then return the symbol."
 
 ;;;  interactively silence personalities
 
-(defvar-local  voice-setup-buffer-face-voice-table (make-hash-table :test #'eq)
+(defvar-local  voice-setup-local-map (make-hash-table :test #'eq)
   "Buffer local face->personality.")
 
 ;; If personality at point is currently audible, its
@@ -278,24 +278,25 @@ Define a voice for it if needed, then return the symbol."
 
 ;;;###autoload
 (defun voice-setup-toggle-silence-personality ()
-  "Toggle audibility of personality under point  . "
+  "Toggle audibility of personality under point  . "
   (interactive)
-  (cl-declare (special voice-setup-buffer-face-voice-table))
+  (cl-declare (special voice-setup-local-map))
   (let* ((face (get-text-property (point) 'face))
          (f (if (listp face)   (cl-first face)face))
          (personality (dtk-get-voice-for-face f))
-         (orig (gethash f voice-setup-buffer-face-voice-table)))
+         (orig (gethash f voice-setup-local-map)))
     (cond
      ((null personality) (message "No personality here."))
-     ((and orig (eq personality  'inaudible))
-      (voice-setup-set-voice-for-face f  orig)
-      (remhash f voice-setup-buffer-face-voice-table) ; clean cache
-      (message "Made face %s audible." orig)
-      (emacspeak-auditory-icon 'open-object))
-     (t (voice-setup-set-voice-for-face f 'inaudible)
-        (puthash f personality voice-setup-buffer-face-voice-table) ; cache
-        (message "Silenced face %s" f)
-        (emacspeak-auditory-icon 'close-object)))))
+     ((and orig (eq personality  'inaudible)) ; currently inaudible,
+      (voice-setup-set-voice-for-face f  orig) ; restore orig
+      (remhash f voice-setup-local-map) ; clean cache
+      (message "Made face %s audible." f)
+      (emacspeak-auditory-icon 'item))
+     (t
+      (voice-setup-set-voice-for-face f  'inaudible)   ; update
+      (puthash f personality voice-setup-local-map)   ; cache
+      (message "Silenced face %s" f)
+      (emacspeak-auditory-icon 'close-object)))))
 
 (provide 'voice-setup)
 ;;;  end of file
