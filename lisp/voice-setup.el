@@ -283,7 +283,7 @@ Define a voice for it if needed, then return the symbol."
   (cl-declare (special voice-setup-local-map))
   (let* ((face (get-text-property (point) 'face))
          (f (if (listp face)   (cl-first face)face))
-         (personality (dtk-get-voice-for-face f))
+         (personality (voice-setup-get-voice-for-face f))
          (orig (gethash f voice-setup-local-map)))
     (cond
      ((null personality) (message "No personality here."))
