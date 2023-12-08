@@ -311,10 +311,9 @@ bound to \\[dtk-toggle-caps].")
 
 (defsubst dtk-get-style (&optional pos)
   " Return  style based on personality or face at `POS'.   "
-  (or pos (setq pos (point)))
   (or
-   (get-text-property pos 'personality)
-   (dtk-get-voice-for-face (get-text-property pos 'face))))
+   (get-text-property (or pos (point)) 'personality)
+   (dtk-get-voice-for-face (get-text-property (or pos (point)) 'face))))
 
 ;;;  Tone Helpers:
 
