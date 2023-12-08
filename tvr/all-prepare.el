@@ -144,7 +144,8 @@ Uses the go oauth tool found in the xoauth git repo."
 ;;; Jump to Emacs Git Logs At HEAD:
 (defalias 'tvr-km-emacs-log
   (kmacro
-   "C-c 3 g i t SPC p <return> C-; d l l C-e | <return> <escape> < C-e s"))
+   "C-c 3 g i t SPC p <return> C-; d l l C-a  C-e C-q "))
+
 (define-key emacspeak-y-keymap "3" 'tvr-km-emacs-log)
 (defalias 'tvr-km-morning
   (kmacro "C-<tab> C-e g b h <tab> <return> n n e c"))
