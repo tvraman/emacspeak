@@ -119,6 +119,7 @@ Use Custom to customize where possible. "
                        global-mode-string outline-minor-mode-prefix
                        outline-mode-prefix-map
                        emacspeak-directory))
+  (setenv "PULSE_SINK" "effect_input.spatializer") ; for mplayer
   (load-library "aster")
   ;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
