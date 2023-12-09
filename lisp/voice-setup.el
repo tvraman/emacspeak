@@ -266,7 +266,7 @@ Define a voice for it if needed, then return the symbol."
 
 ;;;  interactively silence personalities
 
-(defvar-local  voice-setup-local-map (make-hash-table :test #'eq)
+(defvar  voice-setup-local-map (make-hash-table :test #'eq)
   "Buffer local face->personality.")
 
 ;; If personality at point is currently audible, its
