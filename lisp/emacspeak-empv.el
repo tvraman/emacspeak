@@ -209,7 +209,10 @@ Interactive prefix arg plays on left ear using alsa."
 (defun emacspeak-empv-toggle-filter (filter)
   "Toggle Filter.
 Filter is of the  form name=arg-1:arg-2:..."
-  (interactive "sFilter:")
+  (interactive
+   (list
+    (read-from-minibuffer  "Filter:" nil nil nil
+                           'emacspeak-empv-filter-history)))
   (cl-declare (special emacspeak-empv-filter-history))
   (cl-pushnew filter emacspeak-empv-filter-history :test #'string=)
   (empv--send-command (list "af" "toggle" filter)))
