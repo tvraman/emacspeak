@@ -269,13 +269,11 @@ Define a voice for it if needed, then return the symbol."
 (defvar  voice-setup-local-map (make-hash-table :test #'eq)
   "Buffer local face->personality.")
 
-;; If personality at point is currently audible, its
-;; face->personality map is cached in a buffer local variable, and
-;; its face->personality map is replaced by face->inaudible.  If
+;; If personality at point is currently audible, its face->personality
+;; map is cached in hash-table voice-setup-local-map, and its
+;; face->personality map is replaced by face->inaudible.  If
 ;; personality at point is inaudible, and there is a cached value,
-;; then the original face->personality mapping is restored.  In
-;; either case, the buffer is refontified to have the new mapping take effect.
-
+;; then the original face->personality mapping is restored.
 ;;;###autoload
 (defun voice-setup-toggle-silence-personality ()
   "Toggle audibility of personality under point  . "
