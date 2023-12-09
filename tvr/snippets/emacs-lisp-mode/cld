@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: cl declare
+# key: cld
+# --
+(cl-declare (special $0))
