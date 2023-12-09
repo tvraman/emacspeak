@@ -430,6 +430,7 @@
     ("=" emacspeak-wizards-find-longest-line-in-region)
     ("M-c" emacspeak-wizards-colors)
     (";" emacspeak-m-player-loop)
+    (":" emacspeak-m-player-shuffle)
     ("b" battery)
     ("C-c" emacspeak-wizards-color-wheel)
     ("d" emacspeak-speak-load-directory-settings)
