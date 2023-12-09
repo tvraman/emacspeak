@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 7, 2023.
+last updated on December 8, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2911,6 +2911,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-x-keymap,  Next:
 ‘5 emacspeak-wizards-shell-by-key’
 ‘7 emacspeak-wizards-shell-command-on-current-file’
 ‘8 calc’
+‘: emacspeak-m-player-shuffle’
 ‘; emacspeak-m-player-loop’
 ‘= emacspeak-wizards-find-longest-line-in-region’
 ‘b battery’

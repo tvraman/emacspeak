@@ -8254,6 +8254,7 @@ Default Value:
  ("5" emacspeak-wizards-shell-by-key)
  ("7" emacspeak-wizards-shell-command-on-current-file)
  ("8" calc)
+ (":" emacspeak-m-player-shuffle)
  (";" emacspeak-m-player-loop)
  ("=" emacspeak-wizards-find-longest-line-in-region)
  ("C-c" emacspeak-wizards-color-wheel)
@@ -9238,6 +9239,11 @@ Display current position in track.
 
 @subsubsection emacspeak-m-player-shuffle
 @deffn {Command} emacspeak-m-player-shuffle   
+@table @kbd
+@item C-e x :
+@kindex C-e x :
+@end table
+
 @findex emacspeak-m-player-shuffle
 
 @format
