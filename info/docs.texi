@@ -8254,8 +8254,8 @@ Default Value:
  ("5" emacspeak-wizards-shell-by-key)
  ("7" emacspeak-wizards-shell-command-on-current-file)
  ("8" calc)
- (":" emacspeak-m-player-shuffle)
- (";" emacspeak-m-player-loop)
+ (":" emacspeak-m-player-loop)
+ (";" emacspeak-m-player-shuffle)
  ("=" emacspeak-wizards-find-longest-line-in-region)
  ("C-c" emacspeak-wizards-color-wheel)
  ("M-c" emacspeak-wizards-colors)
@@ -8910,8 +8910,8 @@ to play  tracks.
 @subsubsection emacspeak-m-player-loop
 @deffn {Command} emacspeak-m-player-loop  (&optional raw)
 @table @kbd
-@item C-e x ;
-@kindex C-e x ;
+@item C-e x :
+@kindex C-e x :
 @end table
 
 @findex emacspeak-m-player-loop
@@ -9240,8 +9240,8 @@ Display current position in track.
 @subsubsection emacspeak-m-player-shuffle
 @deffn {Command} emacspeak-m-player-shuffle   
 @table @kbd
-@item C-e x :
-@kindex C-e x :
+@item C-e x ;
+@kindex C-e x ;
 @end table
 
 @findex emacspeak-m-player-shuffle

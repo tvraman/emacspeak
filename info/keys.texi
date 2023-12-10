@@ -261,8 +261,8 @@
 @item 5  emacspeak-wizards-shell-by-key
 @item 7  emacspeak-wizards-shell-command-on-current-file
 @item 8  calc
-@item :  emacspeak-m-player-shuffle
-@item ;  emacspeak-m-player-loop
+@item :  emacspeak-m-player-loop
+@item ;  emacspeak-m-player-shuffle
 @item =  emacspeak-wizards-find-longest-line-in-region
 @item b  battery
 @item d  emacspeak-speak-load-directory-settings

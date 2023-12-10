@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 8, 2023.
+last updated on December 9, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -1322,8 +1322,8 @@ found on laptops is denoted <fn>
       ("5" emacspeak-wizards-shell-by-key)
       ("7" emacspeak-wizards-shell-command-on-current-file)
       ("8" calc)
-      (":" emacspeak-m-player-shuffle)
-      (";" emacspeak-m-player-loop)
+      (":" emacspeak-m-player-loop)
+      (";" emacspeak-m-player-shuffle)
       ("=" emacspeak-wizards-find-longest-line-in-region)
       ("C-c" emacspeak-wizards-color-wheel)
       ("M-c" emacspeak-wizards-colors)
@@ -1871,7 +1871,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 ...................................
 
  -- Command: emacspeak-m-player-loop (&optional raw)
-     ‘C-e x ;’
+     ‘C-e x :’
 
      M-Player with repeat indefinitely  turned on.
      Interactive prefix ‘raw’ reads a raw URL.
@@ -2147,7 +2147,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 ......................................
 
  -- Command: emacspeak-m-player-shuffle
-     ‘C-e x :’
+     ‘C-e x ;’
 
      M-Player with shuffle turned on.
 
