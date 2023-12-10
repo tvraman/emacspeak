@@ -268,12 +268,14 @@ Define a voice for it if needed, then return the symbol."
 
 (defvar  voice-setup-local-map (make-hash-table :test #'eq)
   "Buffer local face->personality.")
-
-;; If personality at point is currently audible, its face->personality
+;; We toggle audibility at point by:
+;; If face at point is currently audible, its face->personality
 ;; map is cached in hash-table voice-setup-local-map, and its
-;; face->personality map is replaced by face->inaudible.  If
-;; personality at point is inaudible, and there is a cached value,
-;; then the original face->personality mapping is restored.
+;; face->personality map is updated to be inaudible.
+;; If personality at point is inaudible, and there is a cached value,
+;; then the original face->personality mapping is restored from the
+;; cached value.
+
 ;;;###autoload
 (defun voice-setup-toggle-silence-personality ()
   "Toggle audibility of personality under point  . "
@@ -285,14 +287,14 @@ Define a voice for it if needed, then return the symbol."
          (orig (gethash f voice-setup-local-map)))
     (cond
      ((null personality) (message "No personality here."))
-     ((and orig (eq personality  'inaudible)) ; currently inaudible,
+     ((and orig (eq personality  'inaudible))  ; currently inaudible,
       (voice-setup-set-voice-for-face f  orig) ; restore orig
-      (remhash f voice-setup-local-map) ; clean cache
+      (remhash f voice-setup-local-map)        ; clean cache
       (message "Made face %s audible." f)
       (emacspeak-auditory-icon 'item))
      (t
-      (voice-setup-set-voice-for-face f  'inaudible)   ; update
-      (puthash f personality voice-setup-local-map)   ; cache
+      (voice-setup-set-voice-for-face f  'inaudible) ; update
+      (puthash f personality voice-setup-local-map)  ; cache
       (message "Silenced face %s" f)
       (emacspeak-auditory-icon 'close-object)))))
 
