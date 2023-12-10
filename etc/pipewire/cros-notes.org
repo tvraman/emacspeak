@@ -13,17 +13,14 @@
    except for pulseaudio compat provided by pipewire and the
    512 sample size works well on my laptop.
   5. Basic thumb rule: smaller buffer == lower latency.
-  6. I suspect  Bruschetta/ChromeOS is not happy with such a small
+  6. I suspect  ChromeOS is not happy with such a small
      buffer,  (high-latency request) since that likely requests latency that the platform is
-     unable to provide. Likely other reason: the underlying host OS --
-     ChromeOS has started the pipewire server with limits on latency
-     you can request.
+     unable to provide. Likely other reason: the underlying host OS ---
+     ChromeOS --- has started the pipewire server with limits on latency
+     one can request.
   7. I've updated the Outloud server in Git to return to the larger
-   buffer size and it's working without issues on my laptop --
+   buffer size and it's working without issues on my Linux laptop --
    though my laptop didn't need the fix; but it might fix the issue
-   on ChromeOS/Bruschetta.
+   on ChromeOS.
   8. The afore-buffersize is defined in
-   servers/linux-outloud/atcleci.cpp
-
-    
-     
+   [[https://github.com/tvraman/emacspeak/blob/master/servers/linux-outloud/atcleci.cpp#L79][servers/linux-outloud/atcleci.cpp]].
