@@ -829,7 +829,7 @@ Is enabled in the AMark Browser and M-Player Interaction buffers."
 (defun emacspeak-org-amarks-play ()
   "Loop through and play list of Amarks from org buffer.
 Hit C-g to break out of the loop.
-Press `y' to move to next amark."
+Press `y' to play to next amark."
   (interactive)
   (org-element-map
    (org-element-parse-buffer)
