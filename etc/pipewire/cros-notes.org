@@ -1,0 +1,29 @@
+* Summary Of ALSA Buffer Sizes For Outloud
+
+  1. Under pure alsa -- ie until about Jun 2022, Emacspeak used an Alsa
+   Audio buffer size that equated to 2048 audio samples and this
+   worked well. Note that when you run the server at the shell, this
+   is shown along with other audio setup info.
+  2. In May 2022 I got my new laptop and finally bit the bullet and
+   started using pulseaudio -- and the 2048 sample buffer size
+   caused high latency under pulseaudio.
+  3. So I reduced that to 512 samples, and this worked well under
+   both pulse and alsa  --
+  4. I am now running pipewire with no pulse  in the picture
+   except for pulseaudio compat provided by pipewire and the
+   512 sample size works well on my laptop.
+  5. Basic thumb rule: smaller buffer == lower latency.
+  6. I suspect  Bruschetta/ChromeOS is not happy with such a small
+     buffer,  (high-latency request) since that likely requests latency that the platform is
+     unable to provide. Likely other reason: the underlying host OS --
+     ChromeOS has started the pipewire server with limits on latency
+     you can request.
+  7. I've updated the Outloud server in Git to return to the larger
+   buffer size and it's working without issues on my laptop --
+   though my laptop didn't need the fix; but it might fix the issue
+   on ChromeOS/Bruschetta.
+  8. The afore-buffersize is defined in
+   servers/linux-outloud/atcleci.cpp
+
+    
+     
