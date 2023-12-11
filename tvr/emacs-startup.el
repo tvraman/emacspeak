@@ -162,8 +162,6 @@ Use Custom to customize where possible. "
   (define-key ctl-x-map (kbd "C-u") 'undo-redo)
   (define-key ctl-x-map (kbd "C-d") 'dired-jump)
   ;; Shell mode bindings:
-  (with-eval-after-load 'orgalist
-    (define-key orgalist-mode-map (kbd "C-c i")  'orgalist-check-item))
   (with-eval-after-load 'shell  (tvr-shell-bind-keys))
   ;; Outline Setup:
   (with-eval-after-load 'outline
