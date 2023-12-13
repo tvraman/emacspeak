@@ -27,3 +27,10 @@ tidy:
 install: atcleci.so
 	$(INSTALL) -d $(DESTDIR)$(LIBDIR)
 	$(INSTALL) $< $(DESTDIR)$(LIBDIR)
+
+
+alsaparams.o: alsaparams.c
+	g++ ${CFLAGS}${TCL_INCLUDE} -c $@ $<
+
+alsaparams: alsaparams.o
+	gcc -o alsaparams alsaparams.o -lasound
