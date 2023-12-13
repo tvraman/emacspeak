@@ -29,3 +29,4 @@ servers/software-dtk/tcldtk.so
 /emacspeak-autoloads.el
 /emacspeak-pkg.el
 aster-math
+/servers/linux-outloud/alsaparams
