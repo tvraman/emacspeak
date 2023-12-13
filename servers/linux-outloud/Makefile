@@ -29,8 +29,6 @@ install: atcleci.so
 	$(INSTALL) $< $(DESTDIR)$(LIBDIR)
 
 
-alsaparams.o: alsaparams.c
-	g++ ${CFLAGS}${TCL_INCLUDE} -c $@ $<
-
-alsaparams: alsaparams.o
+alsaparams: alsaparams.c
+	g++ ${CFLAGS}${TCL_INCLUDE} -c alsaparams.o  $<
 	gcc -o alsaparams alsaparams.o -lasound
