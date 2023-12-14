@@ -167,7 +167,10 @@ Use Custom to customize where possible. "
   (with-eval-after-load 'outline
     (global-set-key (kbd "C-o") outline-mode-prefix-map) ;;restore
     (define-key outline-mode-prefix-map "o" 'open-line))
-  (unless noninteractive (server-start))
+  (when ;; so we can use --daemon 
+      (and (not noninteractive) server-process
+           (not (eq 'listen (process-status server-process)))) 
+    (server-start))
   (with-eval-after-load 'magit (require 'forge))
   (load "eww")
   (require 'dired-x)
