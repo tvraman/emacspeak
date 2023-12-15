@@ -1614,17 +1614,19 @@ Set to nil to disable a separate Notification stream."
   (unless dtk-program (setq dtk-program "espeak"))
   (let ((new-process (dtk-make-process "Speaker")))
     (setq dtk-speak-server-initialized (process-live-p new-process))
+    (unless dtk-speak-server-initialized
+      (error "Failed to init speech server."))
     (cond
-     (dtk-speak-server-initialized ;; nuke old server
+     (dtk-speak-server-initialized ;; success, so nuke old server
       (when (and dtk-speaker-process (process-live-p dtk-speaker-process))
         (delete-process dtk-speaker-process))
       (setq dtk-speaker-process new-process)
       (when (process-live-p dtk-notify-process)
         (delete-process dtk-notify-process))
       (when (tts-multistream-p dtk-program) (dtk-notify-initialize))
-        ;; `voice-setup' requires us, so we can't require it at top-level.
-  (require 'voice-setup)
-  (voice-setup)))))
+      ;; `voice-setup' requires us, so we can't require it at top-level.
+      (require 'voice-setup)
+      (voice-setup)))))
 
 (defun tts-restart ()
   "Restart TTS server."
