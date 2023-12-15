@@ -30,7 +30,7 @@ into my workflow, leave alone those gems that I am not even aware of.
      aware of for over 30 years but never managed to work into my work-flow.
   7. Undo :: Both basic  and advanced. I myself only use the most
     basic form of undo.
-  8. Dired :: Surprizingly not everyone appears to use /dired/, or at
+  8. Dired :: Surprisingly not everyone appears to use /dired/, or at
      least  as heavily as I expected.
   9. Writeable Dired :: This became part of Emacs more than a decade
      ago --- but often remains undiscovered and under-exploited.
@@ -60,7 +60,7 @@ into my workflow, leave alone those gems that I am not even aware of.
   16. Tramp :: When I first discovered Emacs in Grad School,
       /ange-ftp/ for opening files on a remote site was  an incredible
       As the Web took over and FTP disappeared, the ability to open
-      remote files from within Emacs receeded into the background ---
+      remote files from within Emacs receded into the background ---
       but that functionality quietly turned into something more
       powerful, namely /tramp/. I myself mostly ignored Tramp until I
       discovered about 20 years ago that it was a neat way to edit
