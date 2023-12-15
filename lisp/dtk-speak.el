@@ -1615,9 +1615,8 @@ Set to nil to disable a separate Notification stream."
                                         ; fallback of fallbacks
   (unless dtk-program (setq dtk-program "espeak"))
   (voice-setup)
-  (let* ((new-process (dtk-make-process "Speaker"))
-         (state (process-status new-process)))
-    (setq dtk-speak-server-initialized (memq state '(run open)))
+  (let ((new-process (dtk-make-process "Speaker")))
+    (setq dtk-speak-server-initialized (process-live-p new-process))
     (cond
      (dtk-speak-server-initialized ;; nuke old server
       (when (and dtk-speaker-process (process-live-p dtk-speaker-process))
