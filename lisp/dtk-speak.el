@@ -1610,11 +1610,8 @@ Set to nil to disable a separate Notification stream."
 
 (defun dtk-initialize ()
   "Initialize speech system."
-  ;; `voice-setup' requires us, so we can't require it at top-level.
-  (require 'voice-setup)
-                                        ; fallback of fallbacks
+  ;; fallback of fallbacks
   (unless dtk-program (setq dtk-program "espeak"))
-  (voice-setup)
   (let ((new-process (dtk-make-process "Speaker")))
     (setq dtk-speak-server-initialized (process-live-p new-process))
     (cond
@@ -1625,7 +1622,9 @@ Set to nil to disable a separate Notification stream."
       (when (process-live-p dtk-notify-process)
         (delete-process dtk-notify-process))
       (when (tts-multistream-p dtk-program) (dtk-notify-initialize))
-      (process-status dtk-speaker-process)))))
+        ;; `voice-setup' requires us, so we can't require it at top-level.
+  (require 'voice-setup)
+  (voice-setup)))))
 
 (defun tts-restart ()
   "Restart TTS server."
