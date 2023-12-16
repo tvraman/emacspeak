@@ -1597,6 +1597,7 @@ Set to nil to disable a separate Notification stream."
         (process nil))
     (setq process
           (start-process name nil program))
+    (unless (process-live-p process) (error "Fail: Speech Server"))
     (set-process-coding-system process 'utf-8 'utf-8)
     process))
 
@@ -1607,7 +1608,6 @@ Set to nil to disable a separate Notification stream."
   ;; fallback of fallbacks
   (unless dtk-program (setq dtk-program "espeak"))
   (let ((new (dtk-make-process "Speaker")))
-    (unless (process-live-p new) (error "Fail: Speech server"))
     ;; success, so nuke old server
       (when (processp dtk-speaker-process) (delete-process dtk-speaker-process))
       (setq dtk-speaker-process new)
