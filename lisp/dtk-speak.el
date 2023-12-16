@@ -1587,9 +1587,6 @@ Set to nil to disable a separate Notification stream."
   pipewire-alsa.  Note that pipewire-pulse is special and also
   uses PULSE_SINK, but only if pipewire-alsa is not installed.")
 
-(defvar dtk-speaker-p nil
-  "Records if the server is initialized.")
-
 ;; Helper: dtk-make-process:
 (defun dtk-make-process (name)
   "Make a  TTS process called name."
@@ -1608,15 +1605,13 @@ Set to nil to disable a separate Notification stream."
   "Initialize speech system."
   ;; fallback of fallbacks
   (unless dtk-program (setq dtk-program "espeak"))
-  (let ((new-process (dtk-make-process "Speaker")))
-    (setq dtk-speaker-p (process-live-p new-process))
-    (unless dtk-speaker-p
-      (error "Failed to init speech server."))
+  (let ((new (dtk-make-process "Speaker")))
+    (unless (process-live-p new) (error "Fail: Speech server"))
     (cond
-     (dtk-speaker-p ;; success, so nuke old server
+     ((process-live-p new) ;; success, so nuke old server
       (when (and dtk-speaker-process (process-live-p dtk-speaker-process))
         (delete-process dtk-speaker-process))
-      (setq dtk-speaker-process new-process)
+      (setq dtk-speaker-process new)
       (when (process-live-p dtk-notify-process)
         (delete-process dtk-notify-process))
       (when (tts-multistream-p dtk-program) (dtk-notify-initialize))
