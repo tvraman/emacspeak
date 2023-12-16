@@ -405,9 +405,9 @@ bound to \\[dtk-toggle-caps].")
 (defun dtk-silence (duration &optional force)
   "Produce `duration' ms of silence. "
   (cl-declare (special dtk-quiet dtk-speaker-process
-                       dtk-speak-server-initialized))
+                       dtk-speaker-p))
   (unless dtk-quiet
-    (when dtk-speak-server-initialized
+    (when dtk-speaker-p
       (dtk-interp-silence duration
                           (if force "\nd" "")))))
 
@@ -422,11 +422,11 @@ bound to \\[dtk-toggle-caps].")
  Duration  is  in milliseconds.
 Uses a 5ms fade-in and fade-out. "
   (cl-declare (special dtk-quiet dtk-speaker-process
-                       dtk-use-tones dtk-speak-server-initialized))
+                       dtk-use-tones dtk-speaker-p))
   (unless
       (or dtk-quiet
           (not dtk-use-tones)
-          (not dtk-speak-server-initialized))
+          (not dtk-speaker-p))
     (dtk-interp-tone pitch duration force)))
 
 (defun dtk-set-language (lang)
@@ -434,8 +434,8 @@ Uses a 5ms fade-in and fade-out. "
  voice, using the syntax language:voice , where language can be
  omitted."
   (interactive "sEnter language: \n")
-  (cl-declare (special dtk-speak-server-initialized dtk-speaker-process))
-  (when dtk-speak-server-initialized
+  (cl-declare (special dtk-speaker-p dtk-speaker-process))
+  (when dtk-speaker-p
     (unless (eq dtk-speaker-process (dtk-notify-process))
       (let ((dtk-speaker-process (dtk-notify-process)))
         (dtk-interp-language lang nil)))
@@ -444,8 +444,8 @@ Uses a 5ms fade-in and fade-out. "
 (defun dtk-set-next-language ()
   "Switch to  next  language"
   (interactive)
-  (cl-declare (special dtk-speak-server-initialized dtk-speaker-process))
-  (when dtk-speak-server-initialized
+  (cl-declare (special dtk-speaker-p dtk-speaker-process))
+  (when dtk-speaker-p
     (unless (eq dtk-speaker-process (dtk-notify-process))
       (let ((dtk-speaker-process (dtk-notify-process)))
         (dtk-interp-next-language nil)))
@@ -454,8 +454,8 @@ Uses a 5ms fade-in and fade-out. "
 (defun dtk-set-previous-language ()
   "Switch to  previous  language"
   (interactive)
-  (cl-declare (special dtk-speak-server-initialized dtk-speake-process))
-  (when dtk-speak-server-initialized
+  (cl-declare (special dtk-speaker-p dtk-speake-process))
+  (when dtk-speaker-p
     (unless (eq dtk-speaker-process (dtk-notify-process))
       (let ((dtk-speaker-process (dtk-notify-process)))
         (dtk-interp-previous-language nil)))
@@ -464,8 +464,8 @@ Uses a 5ms fade-in and fade-out. "
 (defun dtk-set-preferred-language (alias lang)
   "Set language by alias."
   (interactive "s")
-  (cl-declare (special dtk-speak-server-initialized dtk-speaker-process))
-  (when dtk-speak-server-initialized
+  (cl-declare (special dtk-speaker-p dtk-speaker-process))
+  (when dtk-speaker-p
     (unless (eq dtk-speaker-process (dtk-notify-process))
       (let ((dtk-speaker-process (dtk-notify-process)))
         (dtk-interp-preferred-language alias lang)))
@@ -839,10 +839,10 @@ Argument COMPLEMENT  is the complement of separator."
 (defun dtk-dispatch (string)
   "Send request  to speech server."
   (cl-declare (special dtk-speaker-process
-                       dtk-speak-server-initialized
+                       dtk-speaker-p
                        dtk-quiet))
   (unless dtk-quiet
-    (when dtk-speak-server-initialized
+    (when dtk-speaker-p
       (dtk-interp-say string))))
 
 (defun dtk-stop (&optional all)
@@ -912,8 +912,8 @@ current local  value to the result."
    (list (read-from-minibuffer "Enter new rate: ")
          current-prefix-arg))
   (cl-declare (special dtk-speech-rate dtk-speaker-process
-                       dtk-program dtk-speak-server-initialized))
-  (when dtk-speak-server-initialized
+                       dtk-program dtk-speaker-p))
+  (when dtk-speaker-p
     (cond
      (prefix
       (unless (eq dtk-speaker-process (dtk-notify-process))
@@ -990,8 +990,8 @@ Interactive PREFIX arg means set the global default value, and
 then set the current local value to the result."
   (interactive "nEnter new factor:\nP")
   (cl-declare (special dtk-character-scale dtk-speaker-process
-                       dtk-speak-server-initialized))
-  (when dtk-speak-server-initialized
+                       dtk-speaker-p))
+  (when dtk-speaker-p
     (cond
      (prefix
       (setq-default dtk-character-scale factor)
@@ -1055,9 +1055,9 @@ current local  value to the result."
                       t))
     current-prefix-arg))
   (cl-declare (special dtk-punctuation-mode dtk-speaker-process
-                       dtk-speak-server-initialized
+                       dtk-speaker-p
                        dtk-punctuation-mode-alist))
-  (when dtk-speak-server-initialized
+  (when dtk-speaker-p
     (cond
      (prefix
       (setq dtk-punctuation-mode mode)
@@ -1102,8 +1102,8 @@ Interactive PREFIX arg makes the new setting global."
   "Reset TTS engine."
   (interactive)
   (cl-declare (special dtk-speaker-process
-                       dtk-speak-server-initialized))
-  (when dtk-speak-server-initialized
+                       dtk-speaker-p))
+  (when dtk-speaker-p
     (dtk-interp-reset-state)))
 
 (defun tts-speak-version ()
@@ -1590,7 +1590,7 @@ Set to nil to disable a separate Notification stream."
   pipewire-alsa.  Note that pipewire-pulse is special and also
   uses PULSE_SINK, but only if pipewire-alsa is not installed.")
 
-(defvar dtk-speak-server-initialized nil
+(defvar dtk-speaker-p nil
   "Records if the server is initialized.")
 
 ;; Helper: dtk-make-process:
@@ -1613,11 +1613,11 @@ Set to nil to disable a separate Notification stream."
   ;; fallback of fallbacks
   (unless dtk-program (setq dtk-program "espeak"))
   (let ((new-process (dtk-make-process "Speaker")))
-    (setq dtk-speak-server-initialized (process-live-p new-process))
-    (unless dtk-speak-server-initialized
+    (setq dtk-speaker-p (process-live-p new-process))
+    (unless dtk-speaker-p
       (error "Failed to init speech server."))
     (cond
-     (dtk-speak-server-initialized ;; success, so nuke old server
+     (dtk-speaker-p ;; success, so nuke old server
       (when (and dtk-speaker-process (process-live-p dtk-speaker-process))
         (delete-process dtk-speaker-process))
       (setq dtk-speaker-process new-process)
@@ -1705,7 +1705,7 @@ unless   `dtk-quiet' is set to t. "
                dtk-yank-excluded-properties
                dtk-speaker-process dtk-stop-immediately
                tts-strip-octals
-               dtk-speak-server-initialized emacspeak-use-auditory-icons
+               dtk-speaker-p emacspeak-use-auditory-icons
                dtk-speech-rate dtk-speak-nonprinting-chars
                dtk-quiet dtk-chunk-separator-syntax
                inhibit-modification-hooks
@@ -1721,7 +1721,7 @@ unless   `dtk-quiet' is set to t. "
   ;; I will remain silent.
   ;; I also do nothing if text is nil or ""
   (unless
-      (or dtk-quiet (not dtk-speak-server-initialized)
+      (or dtk-quiet (not dtk-speaker-p)
           (null text) (zerop (length text)))
     ;; flush previous speech if asked to
     (when dtk-stop-immediately
@@ -1869,16 +1869,16 @@ grouping"
 (defun dtk-letter (letter)
   "Speak a LETTER."
   (cl-declare (special dtk-speaker-process
-                       dtk-speak-server-initialized
+                       dtk-speaker-p
                        dtk-quiet))
   (unless dtk-quiet
-    (when dtk-speak-server-initialized
+    (when dtk-speaker-p
       (dtk-interp-letter letter))))
 
 (defun dtk-say (words)
   "Say these WORDS."
   (cl-declare (special dtk-speaker-process dtk-stop-immediately
-                       dtk-speak-server-initialized dtk-quiet))
+                       dtk-speaker-p dtk-quiet))
                                         ; ensure words is a  string
   (unless (stringp words) (setq words (format "%s" words)))
   ;; I won't talk if you dont want me to
@@ -1887,7 +1887,7 @@ grouping"
     (or (eq 'run (process-status dtk-speaker-process))
         (eq 'open (process-status dtk-speaker-process))
         (dtk-initialize))
-    (when dtk-speak-server-initialized
+    (when dtk-speaker-p
       (when dtk-stop-immediately
         (when (process-live-p dtk-notify-process) (dtk-notify-stop))
         (dtk-stop))

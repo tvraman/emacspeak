@@ -68,7 +68,7 @@
   ;; I will remain silent.
   ;; I also do nothing if text is nil or "".
   (unless
-      (or dtk-quiet (not dtk-speak-server-initialized)
+      (or dtk-quiet (not dtk-speaker-p)
           (null text) (zerop (length text)))
     (when selective-display
       (let ((ctrl-m (string-match "\015" text)))
