@@ -410,11 +410,7 @@ Press C-, to access keybindings in emacspeak-alt-keymap:
 
 See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."
-  (cl-declare (special dtk-speaker-process))
   (dtk-initialize)
-  (cl-assert
-   (eq 'run (process-status dtk-speaker-process)) t
-   "Speech server %s failed, not starting Emacspeak!" dtk-program)
   (setq ring-bell-function #'(lambda nil (emacspeak-auditory-icon 'warn-user)))
   (mapc
    #'load
