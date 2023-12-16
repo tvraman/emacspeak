@@ -1603,6 +1603,7 @@ Set to nil to disable a separate Notification stream."
 (declare-function voice-setup "voice-setup" ())
 (defun dtk-initialize ()
   "Initialize speech system."
+  (cl-declare (special dtk-speaker-process dtk-program))
   ;; fallback of fallbacks
   (unless dtk-program (setq dtk-program "espeak"))
   (let ((new (dtk-make-process "Speaker")))
