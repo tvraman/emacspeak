@@ -100,7 +100,7 @@
    (magit-diffstat-removed voice-monotone-extra)
    (magit-dimmed voice-smoothen)
    (magit-filename voice-bolden)
-   (magit-hash inaudible)
+   (magit-hash 'inaudible)
    (magit-head voice-bolden-medium)
    (magit-header-line voice-bolden)
    (magit-header-line-key voice-bolden-extra)
