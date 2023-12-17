@@ -439,8 +439,6 @@
      ("M-S-<up>" org-shiftmetaup)
      ("M-S-RET" org-insert-todo-heading)
      ("S-RET" org-table-previous-row)
-     ("M-n" org-next-item)
-     ("M-p" org-previous-item)
      ("S-<down>" org-shiftdown)
      ("S-<left>" org-shiftleft)
      ("S-<right>" org-shiftright)
