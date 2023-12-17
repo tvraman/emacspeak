@@ -12126,16 +12126,11 @@ Also set the mark at the position where point was.
 
 @subsubsection emacspeak-mark-backward-mark
 @deffn {Command} emacspeak-mark-backward-mark   
-@table @kbd
-@item C-<up>
-@kindex C-<up>
-@end table
-
 @findex emacspeak-mark-backward-mark
 
 @format
 Cycle backward through the mark ring.
-To cycle forward, use pop-to-mark-command bound to C-<down> 
+To cycle forward, use pop-to-mark-command bound to M-x pop-to-mark-command 
 @end format
 @end deffn
 
@@ -16653,11 +16648,6 @@ Prompts for the new location and preserves modification time
 
 @subsubsection emacspeak-next-frame-or-buffer
 @deffn {Command} emacspeak-next-frame-or-buffer  (&optional frame)
-@table @kbd
-@item C-<right>
-@kindex C-<right>
-@end table
-
 @findex emacspeak-next-frame-or-buffer
 
 @format
@@ -16670,11 +16660,6 @@ With optional interactive prefix arg ‘frame’, move to next frame instead.
 
 @subsubsection emacspeak-previous-frame-or-buffer
 @deffn {Command} emacspeak-previous-frame-or-buffer  (&optional frame)
-@table @kbd
-@item C-<left>
-@kindex C-<left>
-@end table
-
 @findex emacspeak-previous-frame-or-buffer
 
 @format
