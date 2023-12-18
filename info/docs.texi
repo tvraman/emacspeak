@@ -63,6 +63,7 @@
 * emacspeak-empv::Speech-enable EMPV.
 * emacspeak-enriched::Audio FormatRichtext.
 * emacspeak-entertain::Speech enable games.
+* emacspeak-enwc::Speech-enable ENWC.
 * emacspeak-epa::Speech-enable GPG Helper.
 * emacspeak-eperiodic::Periodic Table.
 * emacspeak-epub::epubs for  desktop.
@@ -3961,6 +3962,12 @@ Speak current guessed string.
 Speak statistics.
 @end format
 @end deffn
+
+@node emacspeak-enwc
+@section emacspeak-enwc
+
+ENWC ==  Emacs Network Client
+Work easily with NM and friends.
 
 @node emacspeak-epa
 @section emacspeak-epa
