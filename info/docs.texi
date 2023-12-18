@@ -16840,21 +16840,17 @@ Pop up Messages  and switch to it.
 @end deffn
 
 @subsubsection emacspeak-speak-show-active-network-interfaces
-@deffn {Command} emacspeak-speak-show-active-network-interfaces  (&optional address)
+@deffn {Command} emacspeak-speak-show-active-network-interfaces   
 @table @kbd
-@item C-e I
-@kindex C-e I
+@item C-e `
+@kindex C-e `
 @end table
 
 @findex emacspeak-speak-show-active-network-interfaces
 
 @format
-Shows all active network interfaces in the echo area.
-With interactive prefix argument ADDRESS it prompts for a
-specific interface and shows its address. The address is
-also copied to the kill ring for convenient yanking.
-
-(fn &optional ADDRESS)
+Shows active network interfaces in the echo area.
+ The address is also copied to the kill ring for convenient yanking.
 @end format
 @end deffn
 

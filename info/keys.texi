@@ -52,7 +52,6 @@
 @item B  emacspeak-speak-buffer-interactively
 @item C  emacspeak-customize
 @item 9  amixer
-@item I  emacspeak-speak-show-active-network-interfaces
 @item L  emacspeak-speak-line-interactively
 @item M  emacspeak-speak-minor-mode-line
 @item N  emacspeak-view-emacspeak-news
@@ -65,6 +64,7 @@
 @item \  emacspeak-toggle-speak-line-invert-filter
 @item ]  emacspeak-speak-page
 @item ^  emacspeak-filtertext
+@item `  emacspeak-speak-show-active-network-interfaces
 @item a  emacspeak-speak-message-again
 @item b  emacspeak-speak-buffer
 @item c  emacspeak-speak-char

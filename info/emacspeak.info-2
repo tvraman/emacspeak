@@ -8269,16 +8269,11 @@ Contains various wizards for the Emacspeak desktop.
 12.214.1.22 emacspeak-speak-show-active-network-interfaces
 ..........................................................
 
- -- Command: emacspeak-speak-show-active-network-interfaces (&optional
-          address)
-     ‘C-e I’
+ -- Command: emacspeak-speak-show-active-network-interfaces
+     ‘C-e `’
 
-     Shows all active network interfaces in the echo area.
-     With interactive prefix argument ADDRESS it prompts for a
-     specific interface and shows its address. The address is
-     also copied to the kill ring for convenient yanking.
-
-     (fn &optional ADDRESS)
+     Shows active network interfaces in the echo area.
+      The address is also copied to the kill ring for convenient yanking.
 
 12.214.1.23 emacspeak-speak-telephone-directory
 ...............................................

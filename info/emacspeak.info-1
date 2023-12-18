@@ -2695,7 +2695,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘B emacspeak-speak-buffer-interactively’
 ‘C emacspeak-customize’
 ‘9 amixer’
-‘I emacspeak-speak-show-active-network-interfaces’
 ‘L emacspeak-speak-line-interactively’
 ‘M emacspeak-speak-minor-mode-line’
 ‘N emacspeak-view-emacspeak-news’
@@ -2708,6 +2707,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘\ emacspeak-toggle-speak-line-invert-filter’
 ‘] emacspeak-speak-page’
 ‘^ emacspeak-filtertext’
+‘` emacspeak-speak-show-active-network-interfaces’
 ‘a emacspeak-speak-message-again’
 ‘b emacspeak-speak-buffer’
 ‘c emacspeak-speak-char’
