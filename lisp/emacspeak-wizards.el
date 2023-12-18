@@ -302,19 +302,15 @@ Prompts for the new location and preserves modification time
   (interactive)
   (message (system-name)))
 
-(defun emacspeak-speak-show-active-network-interfaces (&optional address)
-  "Shows all active network interfaces in the echo area.
-With interactive prefix argument ADDRESS it prompts for a
-specific interface and shows its address. The address is
-also copied to the kill ring for convenient yanking."
-  (interactive "P")
+(defun emacspeak-speak-show-active-network-interfaces ()
+  "Shows active network interfaces in the echo area.
+ The address is also copied to the kill ring for convenient yanking."
+  (interactive)
   (kill-new
    (message
-    (if address
-        (ems-get-ip-address nil)
-      (mapconcat #'identity
-                 (ems-get-active-network-interfaces)
-                 " ")))))
+    "%s: %s"
+    (cl-first  (ems-get-active-network-interfaces))
+    (ems-get-ip-address(cl-first  (ems-get-active-network-interfaces))))))
 
 ;;;  Elisp Utils:
 
