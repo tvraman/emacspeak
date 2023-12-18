@@ -85,7 +85,8 @@
   "Return active Wifi ESSId"
   (substring
      (string-trim
-      (shell-command-to-string "iwconfig   2>/dev/null | grep ESSID | cut -d ':' -f 2"))
+      (shell-command-to-string
+       "iwconfig   2>/dev/null | grep ESSID | cut -d ':' -f 2"))
      1 -1))
 
 ;;; Helper: Log Message Quietly
