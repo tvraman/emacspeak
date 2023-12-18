@@ -1,0 +1,136 @@
+* Introduction
+
+This is an Emacspeak-specific follow-on to my article [[https://emacspeak.blogspot.com/2023/12/emacs-hidden-holiday-gems.html][Emacs: Hidden
+Holiday Gems]].  This article extends its predecessor by:
+
+1. Adding Emacspeak-specific details for each gem; the earlier article
+   purposely avoided anything Emacspeak-specific.
+2. Where appropriate, I'll point out the importance of choosing a
+   solution that is appropriate to the user, e.g., low-vision vs
+   complete eyes-free use. Note that for the most part, Emacspeak is
+   optimized for the latter case.
+3. As before, the goal is not to be exhaustive; --- rather the goal is
+   to be thought-provoking with respect to encouraging readers to
+   discover their own optimal solution. The reference section at the
+   end links to some of the follow-up discussion on the 
+   [[https://mail.emacspeak.net/sympa/arc/emacspeak/2023-12/msg00004.html][Emacspeak Mailing List]].
+4. All topics covered here are already well-documented in the  Emacs
+   and Emacspeak manuals, and this article will not attempt to replace those.
+
+* Emacspeak: Hidden Holiday Gems 
+
+  - Selective Display :: This expands and collapses content purely
+    based on indentation. The human eye is very efficient at scanning
+    down the margin and ignore content indented beyond a given level;
+    /selective-display/ provides the same affordance when you cannot
+    see the display.
+  - Registers :: Quickly save text fragments, buffer locations and
+    window configurations and restore them easily. I use registers for
+    saving text fragments, but  have never used it as a means to navigate.
+  - Bookmarks :: Persist various types of locations. Note that
+    registers can be persisted across Emacs sessions as well.
+  - Tabulated Lists :: Build up tabulated UIs that behave consistently.
+  - Forms Mode :: Leverage underlying syntax  e.g., field-delimiters, to enable structured
+    editing via a forms-like interface.
+  - Mark Ring :: Local and Global mark rings. This  is one I've been
+    aware of for over 30 years but never managed to work into my work-flow.
+  - Undo :: Both basic  and advanced. I myself only use the most
+   basic form of undo.
+  - Dired :: Surprisingly not everyone appears to use /dired/, or at
+    least  as heavily as I expected.
+  - Writeable Dired :: This became part of Emacs more than a decade
+    ago --- but often remains undiscovered and
+    under-exploited. Ignorance leads to more complex and error-prone
+    shell hacks.
+  - Org-Mode :: Org is often cited as one of the most powerful Emacs
+    add-ons that makes Emacs attractive to engineers and authors
+    alike. But the breadth and scope of this package means that not
+    all of us use all of it. As an example, I use org-mode for all
+    my writing, but have never used it for todo-list or agenda management.
+  - Magit :: Another magical gem that I use heavily --- but there
+    are more parts of Magit that I dont use than I use --- not due
+    to any shortcoming in Magit, but more because of the nature of
+    my typical work-flow vs the myriad work-flows that Git provides
+    and that Magit makes accessible to the mere mortal.
+  - Forge :: Interact with Git repositories ---  a powerful tool where I myself have only scratched the surface.
+  - EWW :: Hard to believe that /shr/ and /eww/ have now been part
+    of Emacs for nearly a decade. Though not hidden, they still get
+    ignored by most users because  of the addiction to the
+    JS-powered Web; EWW does not implement Javascript. But that
+    shortcoming is  a major win, both for efficiency and for
+     preserving privacy --- EWW remains one of the most effective
+    means of focusing on the real content of Web pages.
+  - Elfeed :: With EWW for surfacing the content in noisy News
+    pages, Elfeed provides the complementary functionality of
+    browsing RSS and Atom Feeds --- which together let you focus on
+    content as opposed to endlessly mnavigating a Web site.
+  - GNUS :: Gnus remains one of the most powerful email tools, but
+    its potential as an email-reader often gets overlooked.
+  - Tramp :: When I first discovered Emacs in Grad School,
+    /ange-ftp/ for opening files on a remote site was  an incredible innovation.
+    As the Web took over and FTP disappeared, the ability to open
+    remote files from within Emacs receded into the background ---
+    but that functionality quietly turned into something more
+    powerful, namely /tramp/. I myself mostly ignored Tramp until I
+    discovered about 20 years ago that it was a neat way to edit
+    files as Root on my laptop; but Tramp really came back into its
+    own when I started working from home during the pandemic.
+  - Eshell :: A Shell that is deeply integrated into Emacs. I
+    believe I would be more productive if I used Eshell all the
+    time, but despite myself, I'm still using Bash in Emacs
+    shell-mode!
+  - Comint :: A Command Interpreter to /bind/ them all! This is a
+    hidden gem that is a true work-horse when it comes to all Emacs
+    functionality for interacting with command interpreters. It is a
+    good example of a mature platform-level affordance, where
+    *Emacs* is the platform.
+  - Zip Archives :: Emacs can open archive files like /zip/,
+  /tar.gz/ and friends and provide an interactive dired-like
+  interface. It also turns out to be a light-weight way of excavating
+  XML content from MSFT word-processor files (DocX).
+  - Calculators :: Yes, there is more than 1;-) The built-in
+    not-so-light-weight /calculator/ and the even more powerful (and
+    also bundled ) /calc/ package. I still remember the time I was
+    buying my first home 25+ years ago, and sitting with my
+    real-estate agent while she educated me on mortgages. She was
+    looking over my shoulder as I typed in Emacs; what to her looked
+    like plain text, and what to me was my /Scratch/ Buffer. After
+    we had considered some options, I typed a few keys to invoke
+    /Calc/ in *embedded-mode* and a second later she was looking at
+    that plain-text display showing the monthly installment for the
+    mortgage we were discussing!
+
+* Conclusion
+
+  1. There are clearly a lot more hidden gems than enumerated here;
+       otherwise they wouldn't be *Hidden*.
+  2. These work best when Emacs provides a cleanly defined platform
+    that enables the creation of these extensions via Emacs Lisp.
+  3. There is an interesting balance between /letting a thousand
+     flowers bloom/ vs /refactoring to create common APIs based on
+     developer needs/. Org is an outstanding example of this, both
+     with respect to enabling the discovery of such APIs, and an
+     example of where a good set of platform-level APIs are rich for
+     plucking; failure to do so means that at present, org-mode is
+     turning into a platform in its own right atop the Emacs platform.
+
+vHappy Holidays --- And Share And Enjoy!
+
+*  References
+
+1. [[https://mail.emacspeak.net/sympa/arc/emacspeak/2023-12/msg00004.html][Mailing List Discussion]].
+2. [[https://emacspeak.blogspot.com/2023/12/emacs-hidden-holiday-gems.html][Emacs: Hidden Holiday Gems]].  
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Emacs HHG: Hidden Holiday Gems 
+#+date: <2023-12-15 Fri>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 30.0.50 (Org mode 9.6.11)
+#+cite_export:
