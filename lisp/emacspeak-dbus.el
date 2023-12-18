@@ -110,14 +110,14 @@ Initialize screen-saver buffer  if needed, and switch to  it."
     (delete-other-windows)))
 
 ;;;  NM Handlers
-(declare-function ems-get-active-network-interfaces "emacspeak-wizards" nil)
+(declare-function ems--get-active-network-interfaces "emacspeak-wizards" nil)
 
 (defun emacspeak-dbus-nm-connected ()
   "Announce  network manager connection.
 Startup  apps that need the network."
   (cl-declare (special emacspeak-speak-network-interfaces-list))
   (setq emacspeak-speak-network-interfaces-list
-        (ems-get-active-network-interfaces))
+        (ems--get-active-network-interfaces))
   (dtk-notify-say
    (message "Network up: %s"
             (ems--get-essid)))
