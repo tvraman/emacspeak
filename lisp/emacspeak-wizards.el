@@ -309,10 +309,7 @@ Prompts for the new location and preserves modification time
   (kill-new
    (message
     "%s: %s"
-    (substring
-     (string-trim
-      (shell-command-to-string "iwconfig   2>/dev/null | grep ESSID | cut -d ':' -f 2"))
-     1 -1)
+    (ems--get-essid)
     (ems-get-ip-address(cl-first  (ems-get-active-network-interfaces))))))
 
 ;;;  Elisp Utils:

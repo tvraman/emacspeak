@@ -79,6 +79,15 @@
   (cl-declare (special dtk-chunk-separator-syntax))
   (setq dtk-chunk-separator-syntax ".)$\""))
 
+;;; Helper: Wifi ESSId:
+
+(defun ems--get-essid ()
+  "Return active Wifi ESSId"
+  (substring
+     (string-trim
+      (shell-command-to-string "iwconfig   2>/dev/null | grep ESSID | cut -d ':' -f 2"))
+     1 -1))
+
 ;;; Helper: Log Message Quietly
 
 (defun ems--log-message (m)
