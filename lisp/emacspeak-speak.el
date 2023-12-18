@@ -81,7 +81,7 @@
 
 ;;; Helper: Wifi ESSId:
 
-(defun ems--get-essid ()
+(defsubst ems--get-essid ()
   "Return active Wifi ESSId"
     (string-trim (shell-command-to-string "iwgetid --raw")))
 
