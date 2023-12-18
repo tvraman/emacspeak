@@ -83,10 +83,7 @@
 
 (defun ems--get-essid ()
   "Return active Wifi ESSId"
-  (cl-second
-   (split-string
-    (string-trim (shell-command-to-string "iwgetid"))
-    ":")))
+    (string-trim (shell-command-to-string "iwgetid --raw")))
 
 ;;; Helper: Log Message Quietly
 
