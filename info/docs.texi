@@ -13121,6 +13121,21 @@ any other key to speak entire sexp.
 @end format
 @end deffn
 
+@subsubsection emacspeak-speak-show-active-network-interfaces
+@deffn {Command} emacspeak-speak-show-active-network-interfaces   
+@table @kbd
+@item C-e `
+@kindex C-e `
+@end table
+
+@findex emacspeak-speak-show-active-network-interfaces
+
+@format
+Shows active network interfaces in the echo area.
+ The address is also copied to the kill ring for convenient yanking.
+@end format
+@end deffn
+
 @subsubsection emacspeak-speak-skim-buffer
 @deffn {Command} emacspeak-speak-skim-buffer   
 @findex emacspeak-speak-skim-buffer
@@ -16843,21 +16858,6 @@ Speak host name.
 
 @format
 Pop up Messages  and switch to it.
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-show-active-network-interfaces
-@deffn {Command} emacspeak-speak-show-active-network-interfaces   
-@table @kbd
-@item C-e `
-@kindex C-e `
-@end table
-
-@findex emacspeak-speak-show-active-network-interfaces
-
-@format
-Shows active network interfaces in the echo area.
- The address is also copied to the kill ring for convenient yanking.
 @end format
 @end deffn
 

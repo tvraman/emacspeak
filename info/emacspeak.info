@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 17, 2023.
+last updated on December 18, 2023.
 
 
 Indirect:
@@ -275,42 +275,42 @@ Node: emacspeak-smartparens430652
 Node: emacspeak-solitaire431159
 Node: emacspeak-sounds432315
 Node: emacspeak-speak434605
-Node: emacspeak-speedbar468236
-Node: emacspeak-sql469233
-Node: emacspeak-sudoku469627
-Node: emacspeak-supercite474868
-Node: emacspeak-syslog475088
-Node: emacspeak-tab-bar475366
-Node: emacspeak-table475797
-Node: emacspeak-table-ui476066
-Node: emacspeak-tabulate491974
-Node: emacspeak-tabulated-list492286
-Node: emacspeak-tar493320
-Node: emacspeak-tcl494124
-Node: emacspeak-tempo494335
-Node: emacspeak-tetris494711
-Node: emacspeak-texinfo496953
-Node: emacspeak-threes497186
-Node: emacspeak-tide500648
-Node: emacspeak-todo-mode500924
-Node: emacspeak-transient501255
-Node: emacspeak-treesit504150
-Node: emacspeak-typo504644
-Node: emacspeak-url-template504985
-Node: emacspeak-vdiff507339
-Node: emacspeak-vertico508703
-Node: emacspeak-view509010
-Node: emacspeak-vm509453
-Node: emacspeak-vterm512385
-Node: emacspeak-vuiet512907
-Node: emacspeak-wdired513411
-Node: emacspeak-we513678
-Node: emacspeak-websearch526562
-Node: emacspeak-webspace530673
-Node: emacspeak-widget533525
-Node: emacspeak-windmove535040
-Node: emacspeak-winring535367
-Node: emacspeak-wizards535797
+Node: emacspeak-speedbar468565
+Node: emacspeak-sql469562
+Node: emacspeak-sudoku469956
+Node: emacspeak-supercite475197
+Node: emacspeak-syslog475417
+Node: emacspeak-tab-bar475695
+Node: emacspeak-table476126
+Node: emacspeak-table-ui476395
+Node: emacspeak-tabulate492303
+Node: emacspeak-tabulated-list492615
+Node: emacspeak-tar493649
+Node: emacspeak-tcl494453
+Node: emacspeak-tempo494664
+Node: emacspeak-tetris495040
+Node: emacspeak-texinfo497282
+Node: emacspeak-threes497515
+Node: emacspeak-tide500977
+Node: emacspeak-todo-mode501253
+Node: emacspeak-transient501584
+Node: emacspeak-treesit504479
+Node: emacspeak-typo504973
+Node: emacspeak-url-template505314
+Node: emacspeak-vdiff507668
+Node: emacspeak-vertico509032
+Node: emacspeak-view509339
+Node: emacspeak-vm509782
+Node: emacspeak-vterm512714
+Node: emacspeak-vuiet513236
+Node: emacspeak-wdired513740
+Node: emacspeak-we514007
+Node: emacspeak-websearch526891
+Node: emacspeak-webspace531002
+Node: emacspeak-widget533854
+Node: emacspeak-windmove535369
+Node: emacspeak-winring535696
+Node: emacspeak-wizards536126
 Node: emacspeak-woman567971
 Node: emacspeak-xkcd568198
 Node: emacspeak-xref568815
