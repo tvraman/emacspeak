@@ -2773,6 +2773,37 @@ p emacspeak-cycle-to-previous-buffer
      "Repeat with %k")))
 
 (provide 'emacspeak-speak)
-;;; Selective Display:
+
+;;; Network Utils:
+
+(defun ems--get-ip-address (dev)
+  "get the IP-address for device DEV "
+  (setq dev
+        (or
+         dev
+         (completing-read "Dev: " (ems--get-active-network-interfaces) nil t)))
+  (format-network-address (car (network-interface-info dev)) 'omit-port))
+
+(defun ems--get-active-network-interfaces ()
+  "Return  names of active network interfaces.
+Filters out loopback for convenience."
+  (when (fboundp 'network-interface-list)
+    (seq-remove #'(lambda (d) ( string= d "lo") ) 
+                (seq-uniq (mapcar #'car (network-interface-list))))))
+
+
+(defun emacspeak-speak-show-active-network-interfaces ()
+  "Shows active network interfaces in the echo area.
+ The address is also copied to the kill ring for convenient yanking."
+  (interactive)
+  (kill-new
+   (message
+    "%s: %s"
+    (ems--get-essid)
+    (ems--get-ip-address(cl-first  (ems--get-active-network-interfaces))))))
+
+
+
+
 
 ;;;  end of file
