@@ -24,12 +24,18 @@ Holiday Gems]].  This article extends its predecessor by:
     down the margin and ignore content indented beyond a given level;
     /selective-display/ provides the same affordance when you cannot
     see the display.
-  - Registers :: Quickly save text fragments, buffer locations and
-    window configurations and restore them easily. I use registers for
-    saving text fragments, but  have never used it as a means to navigate.
-  - Bookmarks :: Persist various types of locations. Note that
-    registers can be persisted across Emacs sessions as well.
-  - Tabulated Lists :: Build up tabulated UIs that behave consistently.
+  - Registers :: Easily becomes part of muscle-memory, especially when
+    moving text around, duplicating content in multiple locations. For
+    more complex use-cases, I use /yasnippets/, which is one of Emacs'
+    many template libraries.
+  - Bookmarks ::  Emacspeak builds heavily on Emacs' built-in
+    bookmarks to:
+    1. Persistent bookmarks when reading EPub and Bookshare books.
+    2. Audio Marks (AMarks) within org-mode buffers for
+      marking locations  in audio streams such as Podcasts.
+    3. An Emacspeak /browser/ for browsing saved  /eww-marks/ and /a-marks/.
+    4. Together, the above make a very useful note-taking extension to org-mode.
+  - Tabulated Lists :: Build up tabulated UIs that behave consistently.d
   - Forms Mode :: Leverage underlying syntax  e.g., field-delimiters, to enable structured
     editing via a forms-like interface.
   - Mark Ring :: Local and Global mark rings. This  is one I've been
