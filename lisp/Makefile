@@ -132,6 +132,7 @@ emacspeak-emms.elc \
 emacspeak-empv.elc \
 emacspeak-enriched.elc \
 emacspeak-entertain.elc \
+emacspeak-enwc.elc \
 emacspeak-epa.elc \
 emacspeak-eperiodic.elc \
 emacspeak-epub.elc \
