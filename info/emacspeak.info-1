@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 18, 2023.
+last updated on December 19, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2707,7 +2707,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘\ emacspeak-toggle-speak-line-invert-filter’
 ‘] emacspeak-speak-page’
 ‘^ emacspeak-filtertext’
-‘` emacspeak-speak-show-active-network-interfaces’
+‘` emacspeak-speak-net-id’
 ‘a emacspeak-speak-message-again’
 ‘b emacspeak-speak-buffer’
 ‘c emacspeak-speak-char’

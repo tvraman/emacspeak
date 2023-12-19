@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 18, 2023.
+last updated on December 19, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -5174,14 +5174,23 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional BUFFER-INFO)
 
-12.179.1.55 emacspeak-speak-next-field
+12.179.1.55 emacspeak-speak-net-id
+..................................
+
+ -- Command: emacspeak-speak-net-id
+     ‘C-e `’
+
+     Shows active network interfaces in the echo area.
+      The address is also copied to the kill ring for convenient yanking.
+
+12.179.1.56 emacspeak-speak-next-field
 ......................................
 
  -- Command: emacspeak-speak-next-field
 
      Move to and speak next field.
 
-12.179.1.56 emacspeak-speak-other-buffer
+12.179.1.57 emacspeak-speak-other-buffer
 ........................................
 
  -- Command: emacspeak-speak-other-buffer (buffer)
@@ -5192,7 +5201,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn BUFFER)
 
-12.179.1.57 emacspeak-speak-other-window
+12.179.1.58 emacspeak-speak-other-window
 ........................................
 
  -- Command: emacspeak-speak-other-window
@@ -5200,7 +5209,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speak other window
 
-12.179.1.58 emacspeak-speak-overlay-properties
+12.179.1.59 emacspeak-speak-overlay-properties
 ..............................................
 
  -- Command: emacspeak-speak-overlay-properties
@@ -5208,7 +5217,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speak display, before-string or after-string property if any.
 
-12.179.1.59 emacspeak-speak-page
+12.179.1.60 emacspeak-speak-page
 ................................
 
  -- Command: emacspeak-speak-page (&optional arg)
@@ -5220,7 +5229,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional ARG)
 
-12.179.1.60 emacspeak-speak-page-interactively
+12.179.1.61 emacspeak-speak-page-interactively
 ..............................................
 
  -- Command: emacspeak-speak-page-interactively
@@ -5230,7 +5239,7 @@ of emacspeak from becoming dependent on the speech server modules
       ‘r’ to speak the rest.
      any other key to speak entire page.
 
-12.179.1.61 emacspeak-speak-paragraph
+12.179.1.62 emacspeak-speak-paragraph
 .....................................
 
  -- Command: emacspeak-speak-paragraph (&optional arg)
@@ -5242,7 +5251,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional ARG)
 
-12.179.1.62 emacspeak-speak-paragraph-interactively
+12.179.1.63 emacspeak-speak-paragraph-interactively
 ...................................................
 
  -- Command: emacspeak-speak-paragraph-interactively
@@ -5253,21 +5262,21 @@ of emacspeak from becoming dependent on the speech server modules
       ‘r’ to speak the rest.
      any other key to speak entire paragraph.
 
-12.179.1.63 emacspeak-speak-persist-filter-settings
+12.179.1.64 emacspeak-speak-persist-filter-settings
 ...................................................
 
  -- Command: emacspeak-speak-persist-filter-settings
 
      Persist emacspeak filter settings for future sessions.
 
-12.179.1.64 emacspeak-speak-preceding-char
+12.179.1.65 emacspeak-speak-preceding-char
 ..........................................
 
  -- Command: emacspeak-speak-preceding-char
 
      Speak character before point.
 
-12.179.1.65 emacspeak-speak-predefined-window
+12.179.1.66 emacspeak-speak-predefined-window
 .............................................
 
  -- Command: emacspeak-speak-predefined-window (&optional arg)
@@ -5278,14 +5287,14 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional ARG)
 
-12.179.1.66 emacspeak-speak-previous-field
+12.179.1.67 emacspeak-speak-previous-field
 ..........................................
 
  -- Command: emacspeak-speak-previous-field
 
      Move to previous field and speak it.
 
-12.179.1.67 emacspeak-speak-range
+12.179.1.68 emacspeak-speak-range
 .................................
 
  -- Command: emacspeak-speak-range (&optional prop)
@@ -5294,7 +5303,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional PROP)
 
-12.179.1.68 emacspeak-speak-rectangle
+12.179.1.69 emacspeak-speak-rectangle
 .....................................
 
  -- Command: emacspeak-speak-rectangle (start end)
@@ -5306,7 +5315,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn START END)
 
-12.179.1.69 emacspeak-speak-region
+12.179.1.70 emacspeak-speak-region
 ..................................
 
  -- Command: emacspeak-speak-region (start end)
@@ -5316,7 +5325,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn START END)
 
-12.179.1.70 emacspeak-speak-rest-of-buffer
+12.179.1.71 emacspeak-speak-rest-of-buffer
 ..........................................
 
  -- Command: emacspeak-speak-rest-of-buffer
@@ -5324,7 +5333,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speak remainder of the buffer starting at point
 
-12.179.1.71 emacspeak-speak-run-shell-command
+12.179.1.72 emacspeak-speak-run-shell-command
 .............................................
 
  -- Command: emacspeak-speak-run-shell-command (command &optional
@@ -5343,7 +5352,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn COMMAND &optional READ-AS-CSV)
 
-12.179.1.72 emacspeak-speak-seconds-since-epoch
+12.179.1.73 emacspeak-speak-seconds-since-epoch
 ...............................................
 
  -- Command: emacspeak-speak-seconds-since-epoch (seconds)
@@ -5352,7 +5361,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn SECONDS)
 
-12.179.1.73 emacspeak-speak-sentence
+12.179.1.74 emacspeak-speak-sentence
 ....................................
 
  -- Command: emacspeak-speak-sentence (&optional arg)
@@ -5363,7 +5372,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional ARG)
 
-12.179.1.74 emacspeak-speak-sexp
+12.179.1.75 emacspeak-speak-sexp
 ................................
 
  -- Command: emacspeak-speak-sexp (&optional arg)
@@ -5375,7 +5384,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional ARG)
 
-12.179.1.75 emacspeak-speak-sexp-interactively
+12.179.1.76 emacspeak-speak-sexp-interactively
 ..............................................
 
  -- Command: emacspeak-speak-sexp-interactively
@@ -5384,15 +5393,6 @@ of emacspeak from becoming dependent on the speech server modules
       ‘s’ to speak the start.
       ‘r’ to speak the rest.
      any other key to speak entire sexp.
-
-12.179.1.76 emacspeak-speak-show-active-network-interfaces
-..........................................................
-
- -- Command: emacspeak-speak-show-active-network-interfaces
-     ‘C-e `’
-
-     Shows active network interfaces in the echo area.
-      The address is also copied to the kill ring for convenient yanking.
 
 12.179.1.77 emacspeak-speak-skim-buffer
 .......................................

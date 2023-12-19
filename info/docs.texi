@@ -12825,6 +12825,21 @@ Interactive prefix arg speaks buffer info.
 @end format
 @end deffn
 
+@subsubsection emacspeak-speak-net-id
+@deffn {Command} emacspeak-speak-net-id   
+@table @kbd
+@item C-e `
+@kindex C-e `
+@end table
+
+@findex emacspeak-speak-net-id
+
+@format
+Shows active network interfaces in the echo area.
+ The address is also copied to the kill ring for convenient yanking.
+@end format
+@end deffn
+
 @subsubsection emacspeak-speak-next-field
 @deffn {Command} emacspeak-speak-next-field   
 @findex emacspeak-speak-next-field
@@ -13118,21 +13133,6 @@ Speak the start of, rest of, or the entire sexp.
  ‘s’ to speak the start.
  ‘r’ to speak the rest.
 any other key to speak entire sexp.
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-show-active-network-interfaces
-@deffn {Command} emacspeak-speak-show-active-network-interfaces   
-@table @kbd
-@item C-e `
-@kindex C-e `
-@end table
-
-@findex emacspeak-speak-show-active-network-interfaces
-
-@format
-Shows active network interfaces in the echo area.
- The address is also copied to the kill ring for convenient yanking.
 @end format
 @end deffn
 

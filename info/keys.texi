@@ -64,7 +64,7 @@
 @item \  emacspeak-toggle-speak-line-invert-filter
 @item ]  emacspeak-speak-page
 @item ^  emacspeak-filtertext
-@item `  emacspeak-speak-show-active-network-interfaces
+@item `  emacspeak-speak-net-id
 @item a  emacspeak-speak-message-again
 @item b  emacspeak-speak-buffer
 @item c  emacspeak-speak-char
