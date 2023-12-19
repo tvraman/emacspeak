@@ -2792,7 +2792,7 @@ Filters out loopback for convenience."
                 (seq-uniq (mapcar #'car (network-interface-list))))))
 
 
-(defun emacspeak-speak-show-active-network-interfaces ()
+(defun emacspeak-speak-net-id ()
   "Shows active network interfaces in the echo area.
  The address is also copied to the kill ring for convenient yanking."
   (interactive)

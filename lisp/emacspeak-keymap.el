@@ -235,7 +235,7 @@
    ("C-w" emacspeak-speak-window-information)
    ("C-x" dtk-toggle-punctuation-mode)
    ("C-M-y" emacspeak-clipboard-paste)
-   ("`"  emacspeak-speak-show-active-network-interfaces)
+   ("`"  emacspeak-speak-net-id)
    ("L" emacspeak-speak-line-interactively)
    ("M" emacspeak-speak-minor-mode-line)
    ("M-%" emacspeak-goto-percent)
