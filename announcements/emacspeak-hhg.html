@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-12-19 Tue 15:29 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Emacs HHG: Hidden Holiday Gems</title>
+<meta name="author" content="T.V Raman" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Emacs HHG: Hidden Holiday Gems</h1>
+<div id="outline-container-orgfc14d83" class="outline-2">
+<h2 id="orgfc14d83"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+This is an Emacspeak-specific follow-on to my article <a href="https://emacspeak.blogspot.com/2023/12/emacs-hidden-holiday-gems.html">Emacs: Hidden
+Holiday Gems</a>.  This article extends its predecessor by:
+</p>
+
+<ol class="org-ol">
+<li>Adding Emacspeak-specific details for each gem; the earlier article
+purposely avoided anything Emacspeak-specific.</li>
+<li>Where appropriate, I'll point out the importance of choosing a
+solution that is appropriate to the user, e.g., low-vision vs
+complete eyes-free use. Note that for the most part, Emacspeak is
+optimized for the latter case.</li>
+<li>As before, the goal is not to be exhaustive; &#x2014; rather the goal is
+to be thought-provoking with respect to encouraging readers to
+discover their own optimal solution. The reference section at the
+end links to some of the follow-up discussion on the 
+<a href="https://mail.emacspeak.net/sympa/arc/emacspeak/2023-12/msg00004.html">Emacspeak Mailing List</a>.</li>
+<li>All topics covered here are already well-documented in the  Emacs
+and Emacspeak manuals, and this article will not attempt to replace those.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org34148f4" class="outline-2">
+<h2 id="org34148f4"><span class="section-number-2">2.</span> Emacspeak: Hidden Holiday Gems</h2>
+<div class="outline-text-2" id="text-2">
+<dl class="org-dl">
+<dt>Selective Display</dt><dd>This expands and collapses content purely
+based on indentation. The human eye is very efficient at scanning
+down the margin and ignore content indented beyond a given level;
+<i>selective-display</i> provides the same affordance when you cannot
+see the display.</dd>
+<dt>Registers</dt><dd>Easily becomes part of muscle-memory, especially when
+moving text around, duplicating content in multiple locations. For
+more complex use-cases, I use <i>yasnippets</i>, which is one of Emacs'
+many template libraries.</dd>
+<dt>Bookmarks</dt><dd>Emacspeak builds heavily on Emacs' built-in
+bookmarks to provide:
+<ol class="org-ol">
+<li>Persistent bookmarks when reading EPub and Bookshare books.</li>
+<li>Audio Marks (AMarks) within org-mode buffers for
+marking locations  in audio streams such as Podcasts.</li>
+<li>An Emacspeak <i>browser</i> for browsing saved  <i>eww-marks</i> and <i>a-marks</i>.</li>
+<li>Together, the above make a very useful note-taking extension to org-mode.</li>
+</ol></dd>
+<dt>Tabulated Lists</dt><dd><p>
+Implements tabulated UIs and is speech-enabled by Emacspeak.
+</p>
+<ul class="org-ul">
+<li>Emacspeak augments it with additional keyboard navigation.</li>
+<li>This is leveraged in Emacs by a variety of</li>
+</ul>
+<p>
+end-user packages including <i>package.el</i> and its asynchronous cousin <i>paradox.el</i>.
+</p>
+<ul class="org-ul">
+<li>It is also used to advantage by <i>empv</i>, a powerful</li>
+</ul>
+<p>
+interface to the GNU MPv media player.
+</p>
+<ul class="org-ul">
+<li>::  AMarks mentioned in
+the previous item, this is my present means of listening to
+tech-talks on Youtube while taking notes using org-mode.</li>
+</ul></dd>
+<dt>Forms Mode</dt><dd>Forms interface used by Emacspeak to browse BBC programs.</dd>
+<dt>(no term)</dt><dd>Mark Ring ::Supported by default in Emacspeak but something I dont
+use much. Some of its affordances really shine in
+<i>transient-mark-mode</i> but that facility is somewhat counter to
+eyes-free use.</dd>
+<dt>Undo</dt><dd>Both basic  and advanced. However a long series of
+undo and redo commands as with  <i>tree-undo</i> can get confusing quickly in
+eyes-free interaction.</dd>
+<dt>Dired</dt><dd>I use <i>dired-mode</i> and its derivatives heavily:
+<ul class="org-ul">
+<li>To browse the file-system as intended.</li>
+<li>With  <a href="https://emacspeak.blogspot.com/2023/09/augment-with-zoxide.html">emacspeak-zoxide</a>  to rapidly move to far-away portions of
+the file system.</li>
+<li>With  <i>locate</i> to search the file system.</li>
+<li>With command  <i>emacspeak-m-player-locate-media</i> to find and play
+local media.</li>
+<li>With <i>flx</i> and <i>fuzzy</i> completion to provide a powerful
+interactive UI for finding and playing media such as Internet streams.</li>
+</ul></dd>
+<dt>- Writeable Dired</dt><dd>Useful to:
+<ul class="org-ul">
+<li>Consistently rename files, especially when confronted with
+filenames with embedded white space.</li>
+</ul></dd>
+<dt>Org-Mode</dt><dd>This margin is too small to do it justice; see
+documentation for module
+<span class="underline">emacspeak-org</span> for all that Emacspeak does with org.</dd>
+<dt>Magit</dt><dd>As with the previous item, see the associated Emacspeak
+documentation for <span class="underline">emacspeak-magit</span>.</dd>
+<dt>Forge</dt><dd>I use  <span class="underline">forge</span> for issue tracking, but often revert to
+old habits and use <span class="underline">gh</span> at the shell inside Emacs.</dd>
+<dt>EWW</dt><dd>See the Emacspeak documentation for
+<span class="underline">emacspeak-eww</span>. Highlights include:
+<ul class="org-ul">
+<li>Dom filtering,</li>
+<li>XPath filtering,</li>
+<li>MPlayer and EMpv integration for playing online media,</li>
+<li>Ebookse-books including EPub and Bookshare,</li>
+<li>And much, much more.</li>
+</ul></dd>
+<dt>Elfeed</dt><dd>My chosen means of following RSS and Atom feeds.</dd>
+<dt>GNUS</dt><dd>For mail, now that Usenet is history.
+<ul class="org-ul">
+<li>I use GNus as an <i>imap</i> mail reader for GMail.</li>
+<li>Emacspeak implements the equivalent of GMail's search operators.</li>
+<li>I complement GNus with package <i>vm</i> for reading email delivered
+locally; I use <span class="underline">fetchmail</span> to fetch mail and <span class="underline">procmail</span> to sort
+mail into folders in the background.</li>
+<li>And finally I use <span class="underline">notmuch</span> to search locally saved email.</li>
+</ul></dd>
+<dt>Tramp</dt><dd>Accessing and working in the Cloud:
+<ul class="org-ul">
+<li>I use <i>tramp</i> to open remote files.</li>
+<li>Emacspeak wizard    <i>emacspeak-wizards-tramp-open-location</i> to
+quickly open files on servers you access often.</li>
+<li>If you work in the Cloud, Emacspeak lets you SSH to your
+CloudTop and have Emacs running on the CloudTop speak on your
+local machine.</li>
+<li>The above can be done using a plain old XTerm with <span class="underline">screen</span>,
+<span class="underline">dtach</span>, or <span class="underline">emacs &#x2013;daemon</span> providing a persistent Emacs
+session at the remote end.</li>
+<li>Alternatively, you can use wizard
+<i>emacspeak-wizards-remote-frame</i> open a graphical frame on the
+remote machine.</li>
+</ul></dd>
+<dt>Eshell</dt><dd>A Shell that is deeply integrated into Emacs. Fully
+speech-enabled by Emacspeak. Well-suited for running compile, grep
+and friends for starters.</dd>
+<dt>Comint</dt><dd>This is the goto solution for software development in
+Emacspeak, be it Common Lisp or Python.</dd>
+<dt>Zip Archives</dt><dd>One more reason you dont need to leave  Emacs for
+a text console.</dd>
+<dt>Calculators</dt><dd>From the simple to complex, we have it all!
+<ul class="org-ul">
+<li>Simple calculations.</li>
+<li>Symbolic Algebra.</li>
+<li>Calc in <i>embedded mode</i> can directly replace a calculation with
+an answer.</li>
+<li>For even smarter work-flows, leverage <i>org-mode</i> with <i>calc</i>.</li>
+<li>you can even audio-format computations in Calc output as LaTeX
+using AsTeR.</li>
+</ul></dd>
+</dl>
+</div>
+</div>
+
+
+<div id="outline-container-org3721050" class="outline-2">
+<h2 id="org3721050"><span class="section-number-2">3.</span> References</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li><a href="https://mail.emacspeak.net/sympa/arc/emacspeak/2023-12/msg00004.html">Mailing List Discussion</a>.</li>
+<li><a href="https://emacspeak.blogspot.com/2023/12/emacs-hidden-holiday-gems.html">Emacs: Hidden Holiday Gems</a>.</li>
+<li><a href="https://tvraman.github.io/emacspeak/manual">Emacspeak Manual</a>.</li>
+<li><p>
+<a href="http://tvraman.github.io/emacspeak/blog/articles.html">Emacspeak Blog Articles</a> as a single page.
+</p>
+
+<p>
+Note that the Emacspeak blog, the online manual etc., are all
+available locally in the Emacspeak  Git checkout.
+</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2023-12-15 Fri 00:00</p>
+<p class="author">Author: T.V Raman</p>
+<p class="date">Created: 2023-12-19 Tue 15:29</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
