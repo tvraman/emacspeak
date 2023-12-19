@@ -16621,8 +16621,8 @@ Kill current buffer without  confirmation.
 @end format
 @end deffn
 
-@subsubsection emacspeak-learn-emacs-mode
-@deffn {Command} emacspeak-learn-emacs-mode   
+@subsubsection emacspeak-learn-emacs
+@deffn {Command} emacspeak-learn-emacs   
 @table @kbd
 @item C-e <f1>
 @kindex C-e <f1>
@@ -16634,7 +16634,7 @@ Kill current buffer without  confirmation.
 @kindex <help> C-l
 @end table
 
-@findex emacspeak-learn-emacs-mode
+@findex emacspeak-learn-emacs
 
 @format
 Helps you learn the keys.  You can press keys and hear what they do.

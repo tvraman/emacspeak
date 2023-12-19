@@ -8123,10 +8123,10 @@ Contains various wizards for the Emacspeak desktop.
 
      Kill current buffer without  confirmation.
 
-12.215.1.7 emacspeak-learn-emacs-mode
-.....................................
+12.215.1.7 emacspeak-learn-emacs
+................................
 
- -- Command: emacspeak-learn-emacs-mode
+ -- Command: emacspeak-learn-emacs
      ‘C-e <f1>’
      ‘C-h C-l’
      ‘<f1> C-l’
