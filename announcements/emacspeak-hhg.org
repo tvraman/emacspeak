@@ -61,43 +61,44 @@ Holiday Gems]].  This article extends its predecessor by:
       local media.
     - With /flx/ and /fuzzy/ completion to provide a powerful
       interactive UI for finding and playing media such as Internet streams.
-  - Writeable Dired :: This became part of Emacs more than a decade
-    ago --- but often remains undiscovered and
-    under-exploited. Ignorance leads to more complex and error-prone
-    shell hacks.
-  - Org-Mode :: Org is often cited as one of the most powerful Emacs
-    add-ons that makes Emacs attractive to engineers and authors
-    alike. But the breadth and scope of this package means that not
-    all of us use all of it. As an example, I use org-mode for all
-    my writing, but have never used it for todo-list or agenda management.
-  - Magit :: Another magical gem that I use heavily --- but there
-    are more parts of Magit that I dont use than I use --- not due
-    to any shortcoming in Magit, but more because of the nature of
-    my typical work-flow vs the myriad work-flows that Git provides
-    and that Magit makes accessible to the mere mortal.
-  - Forge :: Interact with Git repositories ---  a powerful tool where I myself have only scratched the surface.
-  - EWW :: Hard to believe that /shr/ and /eww/ have now been part
-    of Emacs for nearly a decade. Though not hidden, they still get
-    ignored by most users because  of the addiction to the
-    JS-powered Web; EWW does not implement Javascript. But that
-    shortcoming is  a major win, both for efficiency and for
-     preserving privacy --- EWW remains one of the most effective
-    means of focusing on the real content of Web pages.
-  - Elfeed :: With EWW for surfacing the content in noisy News
-    pages, Elfeed provides the complementary functionality of
-    browsing RSS and Atom Feeds --- which together let you focus on
-    content as opposed to endlessly mnavigating a Web site.
-  - GNUS :: Gnus remains one of the most powerful email tools, but
-    its potential as an email-reader often gets overlooked.
-  - Tramp :: When I first discovered Emacs in Grad School,
-    /ange-ftp/ for opening files on a remote site was  an incredible innovation.
-    As the Web took over and FTP disappeared, the ability to open
-    remote files from within Emacs receded into the background ---
-    but that functionality quietly turned into something more
-    powerful, namely /tramp/. I myself mostly ignored Tramp until I
-    discovered about 20 years ago that it was a neat way to edit
-    files as Root on my laptop; but Tramp really came back into its
-    own when I started working from home during the pandemic.
+  - - Writeable Dired ::  Useful to:
+    - Consistently rename files, especially when confronted with
+     filenames with embedded white space.    
+  - Org-Mode ::  This margin is too small to do it justice; see
+    documentation for module
+    _emacspeak-org_ for all that Emacspeak does with org.
+  - Magit ::  As with the previous item, see the associated Emacspeak
+    documentation for _emacspeak-magit_.
+  - Forge :: I use  _forge_ for issue tracking, but often revert to
+    old habits and use _gh_ at the shell inside Emacs.
+  - EWW ::  See the Emacspeak documentation for
+    _emacspeak-eww_. Highlights include:
+    - Dom filtering,
+    - XPath filtering,
+    - MPlayer and EMpv integration for playing online media,
+    - Ebookse-books including EPub and Bookshare,
+    - And much, much more.
+  - Elfeed :: My chosen means of following RSS and Atom feeds.
+  - GNUS ::  For mail, now that Usenet is history.
+    - I use GNus as an /imap/ mail reader for GMail.
+    - Emacspeak implements the equivalent of GMail's search operators.
+    - I complement GNus with package /vm/ for reading email delivered
+      locally; I use _fetchmail_ to fetch mail and _procmail_ to sort
+      mail into folders in the background.
+    - And finally I use _notmuch_ to search locally saved email.
+  - Tramp ::  Accessing and working in the Cloud:
+    - I use /tramp/ to open remote files.
+    - Emacspeak wizard    /emacspeak-wizards-tramp-open-location/ to
+      quickly open files on servers you access often.
+    - If you work in the Cloud, Emacspeak lets you SSH to your
+      CloudTop and have Emacs running on the CloudTop speak on your
+      local machine.
+    - The above can be done using a plain old XTerm with _screen_,
+      _dtach_, or _emacs --daemon_ providing a persistent Emacs
+      session at the remote end.
+    - Alternatively, you can use wizard
+      /emacspeak-wizards-remote-frame/ open a graphical frame on the
+      remote machine.
   - Eshell :: A Shell that is deeply integrated into Emacs. I
     believe I would be more productive if I used Eshell all the
     time, but despite myself, I'm still using Bash in Emacs
