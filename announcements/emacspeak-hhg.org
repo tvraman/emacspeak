@@ -54,6 +54,8 @@ Holiday Gems]].  This article extends its predecessor by:
     eyes-free interaction.
   - Dired ::  I use /dired-mode/ and its derivatives heavily:
     - To browse the file-system as intended.
+    - With  /emacspeak-zoxide/ to rapidly move to far-away portions of
+      the file system.
     - With  /locate/ to search the file system.
     - With command  /emacspeak-m-player-locate-media/ to find and play
       local media.
