@@ -270,8 +270,6 @@ default values, Press @kbd{C-j}.
 @subsubsection amixer
 @deffn {Command} amixer  (&optional refresh)
 @table @kbd
-@item C-e 9
-@kindex C-e 9
 @item C-e (
 @kindex C-e (
 @end table
@@ -815,10 +813,6 @@ value, and then set the current local value to the result.
 @subsubsection dtk-toggle-punctuation-mode
 @deffn {Command} dtk-toggle-punctuation-mode  (&optional prefix)
 @table @kbd
-@item C-e <deletechar>
-@kindex C-e <deletechar>
-@item C-e <backspace>
-@kindex C-e <backspace>
 @item C-e d ,
 @kindex C-e d ,
 @end table
@@ -3865,8 +3859,6 @@ Percentage seek in seconds,see ‘empv-seek’
 @table @kbd
 @item C-e '
 @kindex C-e '
-@item C-e C-;
-@kindex C-e C-;
 @end table
 
 @findex emacspeak-empv-play-file
@@ -11944,8 +11936,6 @@ custom option @code{emacspeak-play-program}.
 @subsubsection emacspeak-sounds-select-theme
 @deffn {Command} emacspeak-sounds-select-theme  (&optional theme)
 @table @kbd
-@item C-e 0
-@kindex C-e 0
 @item C-e )
 @kindex C-e )
 @end table
@@ -12502,8 +12492,6 @@ location of the mark is indicated by an aural highlight.
 @subsubsection emacspeak-speak-current-percentage
 @deffn {Command} emacspeak-speak-current-percentage   
 @table @kbd
-@item C-e 5
-@kindex C-e 5
 @item C-e %
 @kindex C-e %
 @end table
@@ -20311,11 +20299,6 @@ Turn on Voice Lock mode .
 
 @subsubsection voice-setup-toggle-silence-personality
 @deffn {Command} voice-setup-toggle-silence-personality   
-@table @kbd
-@item C-e M-q
-@kindex C-e M-q
-@end table
-
 @findex voice-setup-toggle-silence-personality
 
 @format

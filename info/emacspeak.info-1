@@ -2669,8 +2669,8 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘C-v view-mode’
 ‘C-w emacspeak-speak-window-information’
 ‘C-x emacspeak-speak-header-line’
-‘" emacspeak-speak-sexp’
 ‘SPC emacspeak-speak-windowful’
+‘" emacspeak-speak-sexp’
 ‘! emacspeak-speak-run-shell-command’
 ‘$ flyspell-mode’
 ‘% emacspeak-speak-current-percentage’
@@ -2681,20 +2681,17 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘, emacspeak-buffer-select’
 ‘. emacspeak-buffer-select’
 ‘/ emacspeak-websearch-dispatch’
-‘0 emacspeak-sounds-select-theme’
 ‘1 emacspeak-speak-this-window’
 ‘2 emacspeak-speak-other-window’
 ‘3 amixer-volume-adjust’
-‘4 amixer-volume-adjust’
-‘5 emacspeak-speak-current-percentage’
-‘; emacspeak-multimedia’
 ‘= emacspeak-speak-current-column’
 ‘? emacspeak-websearch-dispatch’
 ‘@ emacspeak-speak-message-at-time’
 ‘A emacspeak-appt-repeat-announcement’
 ‘B emacspeak-speak-buffer-interactively’
 ‘C emacspeak-customize’
-‘9 amixer’
+‘4 amixer-volume-adjust’
+‘; emacspeak-multimedia’
 ‘L emacspeak-speak-line-interactively’
 ‘M emacspeak-speak-minor-mode-line’
 ‘N emacspeak-view-emacspeak-news’
@@ -3508,7 +3505,6 @@ To reset all controls to their default values, Press ‘C-j’.
 ...............
 
  -- Command: amixer (&optional refresh)
-     ‘C-e 9’
      ‘C-e (’
 
      ALSA settings.
@@ -3883,8 +3879,6 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 .....................................
 
  -- Command: dtk-toggle-punctuation-mode (&optional prefix)
-     ‘C-e <deletechar>’
-     ‘C-e <backspace>’
      ‘C-e d ,’
 
      Toggle punctuation mode between "some" and "all".
@@ -6545,7 +6539,6 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 
  -- Command: emacspeak-empv-play-file (file &optional left)
      ‘C-e '’
-     ‘C-e C-;’
 
      Play file using mpv.
      Interactive prefix arg plays on left ear using alsa.

@@ -4556,7 +4556,6 @@ emacspeak.
 ........................................
 
  -- Command: emacspeak-sounds-select-theme (&optional theme)
-     ‘C-e 0’
      ‘C-e )’
 
      Select theme for auditory icons.
@@ -4944,7 +4943,6 @@ of emacspeak from becoming dependent on the speech server modules
 ..............................................
 
  -- Command: emacspeak-speak-current-percentage
-     ‘C-e 5’
      ‘C-e %’
 
      Announce the percentage into the current buffer.
