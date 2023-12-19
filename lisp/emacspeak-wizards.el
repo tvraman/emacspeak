@@ -1722,7 +1722,8 @@ Optional interactive prefix arg `category' prompts for a category."
 (defun emacspeak-wizards-tune-in-radio-search ()
   "Search Tune-In Radio."
   (interactive)
-  (emacspeak-url-template-open (emacspeak-url-template-get "Online RadioTime Search")))
+  (emacspeak-url-template-open
+    (emacspeak-url-template-get "Online RadioTime Search")))
 
 ;;;  Sports API:
 

@@ -86,7 +86,8 @@
 
 (cl-loop
  for f in 
- '(enwc-connect-to-network-at-point enwc-connect-to-network enwc-connect-to-network-essid)
+ '(enwc-connect-to-network-at-point enwc-connect-to-network
+                                    enwc-connect-to-network-essid)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
