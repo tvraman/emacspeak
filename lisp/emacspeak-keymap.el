@@ -542,17 +542,16 @@
 
 (defcustom emacspeak-hyper-keys
   '(
-    ("DEL" emacspeak-wizards-snarf-sexp)
     ("C-;" emacspeak-amark-bookshelf)
-    ("C-l" emacspeak-librivox)
-    (";" emacspeak-multimedia)
     ("C-a" ansi-term)
     ("C-b" eww-list-bookmarks)
     ("C-d" dictionary-search)
     ("C-e" eshell)
     ("C-j" journalctl)
-    ("TAB" hippie-expand)
+    ("C-l" emacspeak-librivox)
     ("C-t" emacspeak-wizards-tramp-open-location)
+    ("DEL" emacspeak-wizards-snarf-sexp)
+    ("TAB" hippie-expand)
     ("a" emacspeak-amark-browse)
     ("b" emacspeak-wizards-bbc-sounds)
     ("c" browse-url-chrome)
