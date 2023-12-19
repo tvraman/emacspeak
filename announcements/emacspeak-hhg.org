@@ -99,36 +99,33 @@ Holiday Gems]].  This article extends its predecessor by:
     - Alternatively, you can use wizard
       /emacspeak-wizards-remote-frame/ open a graphical frame on the
       remote machine.
-  - Eshell :: A Shell that is deeply integrated into Emacs. I
-    believe I would be more productive if I used Eshell all the
-    time, but despite myself, I'm still using Bash in Emacs
-    shell-mode!
-  - Comint :: A Command Interpreter to /bind/ them all! This is a
-    hidden gem that is a true work-horse when it comes to all Emacs
-    functionality for interacting with command interpreters. It is a
-    good example of a mature platform-level affordance, where
-    *Emacs* is the platform.
-  - Zip Archives :: Emacs can open archive files like /zip/,
-  /tar.gz/ and friends and provide an interactive dired-like
-  interface. It also turns out to be a light-weight way of excavating
-  XML content from MSFT word-processor files (DocX).
-  - Calculators :: Yes, there is more than 1;-) The built-in
-    not-so-light-weight /calculator/ and the even more powerful (and
-    also bundled ) /calc/ package. I still remember the time I was
-    buying my first home 25+ years ago, and sitting with my
-    real-estate agent while she educated me on mortgages. She was
-    looking over my shoulder as I typed in Emacs; what to her looked
-    like plain text, and what to me was my /Scratch/ Buffer. After
-    we had considered some options, I typed a few keys to invoke
-    /Calc/ in *embedded-mode* and a second later she was looking at
-    that plain-text display showing the monthly installment for the
-    mortgage we were discussing!
+  - Eshell :: A Shell that is deeply integrated into Emacs. Fully
+    speech-enabled by Emacspeak. Well-suited for running compile, grep
+    and friends for starters.
+  - Comint ::  This is the goto solution for software development in
+    Emacspeak, be it Common Lisp or Python.
+  - Zip Archives :: One more reason you dont need to leave  Emacs for
+    a text console.
+  - Calculators ::  From the simple to complex, we have it all!
+    - Simple calculations.
+    - Symbolic Algebra.
+    - Calc in /embedded mode/ can directly replace a calculation with
+      an answer.
+    - For even smarter work-flows, leverage /org-mode/ with /calc/.
+    - you can even audio-format computations in Calc output as LaTeX
+      using AsTeR.
 
 
 *  References
 
 1. [[https://mail.emacspeak.net/sympa/arc/emacspeak/2023-12/msg00004.html][Mailing List Discussion]].
-2. [[https://emacspeak.blogspot.com/2023/12/emacs-hidden-holiday-gems.html][Emacs: Hidden Holiday Gems]].  
+2. [[https://emacspeak.blogspot.com/2023/12/emacs-hidden-holiday-gems.html][Emacs: Hidden Holiday Gems]].
+3. [[https://tvraman.github.io/emacspeak/manual][Emacspeak Manual]].
+4.  [[http://tvraman.github.io/emacspeak/blog/articles.html][Emacspeak Blog Articles]] as a single page.
+
+   Note that the Emacspeak blog, the online manual etc., are all
+   available locally in the Emacspeak  Git checkout.
+   
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
 #+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
