@@ -49,11 +49,16 @@ Holiday Gems]].  This article extends its predecessor by:
     use much. Some of its affordances really shine in
     /transient-mark-mode/ but that facility is somewhat counter to
     eyes-free use.
-  - Undo :: Both basic  and advanced. However a long change of
-    undos/redos a la /tree-undo/ can get confusing quickly in
+  - Undo :: Both basic  and advanced. However a long series of
+    undo and redo commands as with  /tree-undo/ can get confusing quickly in
     eyes-free interaction.
-  - Dired :: Surprisingly not everyone appears to use /dired/, or at
-    least  as heavily as I expected.
+  - Dired ::  I use /dired-mode/ and its derivatives heavily:
+    - To browse the file-system as intended.
+    - With  /locate/ to search the file system.
+    - With command  /emacspeak-m-player-locate-media/ to find and play
+      local media.
+    - With /flx/ and /fuzzy/ completion to provide a powerful
+      interactive UI for finding and playing media such as Internet streams.
   - Writeable Dired :: This became part of Emacs more than a decade
     ago --- but often remains undiscovered and
     under-exploited. Ignorance leads to more complex and error-prone
