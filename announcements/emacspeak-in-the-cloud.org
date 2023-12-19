@@ -30,7 +30,7 @@ understanding, you are likely to get 2 for the price of 1😀.
 
 1. When you start Emacs with Emacspeak loaded, Emacs starts the
    speech-server as the first step in the emacspeak startup.
-   normally this starts the local server for your  prefered TTS engine.
+   normally this starts the local server for your  preferred TTS engine.
 2. See the emacspeak manual for how this speech-server is determined.
 3. When running Emacspeak on a cloud-top, this /local speech server/ is just a
    simple shell script that connects to a local port  --- by default    *2222*.

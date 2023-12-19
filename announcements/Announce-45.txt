@@ -35,7 +35,7 @@ access to the evolving service-oriented social Internet cloud.
   - Speech-enabled ~tide~ for typescript development.  🌊
   - Speech-enabled ~jade~ for Javascript WebApp development. ⺩
   - Improved ~slime~ support for Lisp programming. Λ
-  - Support for rst-mode for editting ReST files.🖹
+  - Support for rst-mode for editing ReST files.🖹
   - Version control info in modeline.⎔
   - Speech-enabled ~elisp-refs~ to aid in refactoring. ※
   - GPG integration including pinentry support. 🔐

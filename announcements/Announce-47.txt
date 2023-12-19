@@ -44,7 +44,7 @@ This version *requires* emacs-25.1 or later.
 5. Speech-enable Package shx ---Shell Extras For Emacs:  🖁
 6. Updated IDO Support:  ⨼
 7. Implemented NOAA Weather API:  ☔
-8. Speech-Enable Typographic Editting Support:  🖶
+8. Speech-Enable Typographic Editing Support:  🖶
 9. Speech-Enable Package Origami:  🗀
 10. Magit  Enhancements for Magitians:   🎛
 11. Speech-Enable RipGrep Front-End:  ┅

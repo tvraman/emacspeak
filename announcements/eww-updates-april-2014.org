@@ -1,6 +1,6 @@
 * Emacspeak EWW Updates 
 
-Within a few weeks, [[http://emacspeak.blogspot.com/2013/11/reading-web-content-efficiently.html][EWW]] has become my prefered way of consuming
+Within a few weeks, [[http://emacspeak.blogspot.com/2013/11/reading-web-content-efficiently.html][EWW]] has become my preferred way of consuming
 large amounts of Web content --- except for simple fill-out
 forms, it has entirely replaced Emacs/W3 for me. Goes without
 saying that I still use ChromeVox for Js-heavy Web sites.

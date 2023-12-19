@@ -38,7 +38,7 @@ Major Enhancements:
 -------------------
 
  1: XML Authoring Using XAE.
- 2: Form-based Editting Of Audtory Display Settings.
+ 2: Form-based Editing Of Audtory Display Settings.
  3: Semantic Support Within JDE.
  4: Programmable hotlists via url templates.
  5: Utilities to progressively filter text.

@@ -105,7 +105,7 @@ via _imap_. That configuration is setup to access multiple GMail accounts.
      afore-mentioned /to-mobile/ GMail label is a high-priority group.
   3. Module _gm-nnir_ defines a  _GNUS/GMail_ extension that enables
      one to search GMail using GMail's search operators --- that is my
-     prefered means of quickly finding email messages using
+     preferred means of quickly finding email messages using
      search. This is very fast since the search happens server-side,
      and  only email headers are retrieved when displaying the search
      hits.

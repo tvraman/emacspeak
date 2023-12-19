@@ -7,7 +7,7 @@ Emacspeak Audio Desktop.
 
 * Glossary 
 
-  - ALSA :: Advanced Linux Sound Architecture. This is my  prefered
+  - ALSA :: Advanced Linux Sound Architecture. This is my  preferred
        means of controlling audio, and I entirely avoid Pulseaudio on
        all my machines.
   - Ladspa  ::   Linux Audio Developer's Simple Plugin API. Enables
