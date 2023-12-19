@@ -121,21 +121,6 @@ Holiday Gems]].  This article extends its predecessor by:
     that plain-text display showing the monthly installment for the
     mortgage we were discussing!
 
-* Conclusion
-
-  1. There are clearly a lot more hidden gems than enumerated here;
-       otherwise they wouldn't be *Hidden*.
-  2. These work best when Emacs provides a cleanly defined platform
-    that enables the creation of these extensions via Emacs Lisp.
-  3. There is an interesting balance between /letting a thousand
-     flowers bloom/ vs /refactoring to create common APIs based on
-     developer needs/. Org is an outstanding example of this, both
-     with respect to enabling the discovery of such APIs, and an
-     example of where a good set of platform-level APIs are rich for
-     plucking; failure to do so means that at present, org-mode is
-     turning into a platform in its own right atop the Emacs platform.
-
-vHappy Holidays --- And Share And Enjoy!
 
 *  References
 
