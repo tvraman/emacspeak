@@ -17,7 +17,7 @@ and manipulating both wave and mp3 files. Module sox.el
 implements a simple Audio Workbench for the Emacspeak desktop.
 *** Pre-Requisites 
 
-SoX with all available auxillary packages for adding support for
+SoX with all available auxiliary packages for adding support for
 various filetypes such as mp3.
 The various Ladspa related packages for installing additional
 audio effect filters. 
