@@ -11,7 +11,7 @@ ergonomics and minimized chording.
 * Setting The Context
 
 Buffer selection tools in Emacs vary along the following feature axis,
-with many providing enhancements on one ore of  these axis:
+with many providing enhancements on one more of  these axis:
 
   - Match Strategy: Selecting the buffer name from the available choices,
   - UI: Displaying those matches,

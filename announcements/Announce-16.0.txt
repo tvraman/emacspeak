@@ -136,7 +136,7 @@ Emacs.
 Emacspeak-95 (code named Illinois) was released as OpenSource on
 the Internet in May 1995 as the first complete speech interface
 to UNIX workstations. The subsequent release, Emacspeak-96 (code
-named Egypt) made available in May 1996 provided significant
+named Egypt) made available in May 1996 provided significan\'t
 enhancements to the interface. Emacspeak-97 (Tennessee) went
 further in providing a true audio desktop. Emacspeak-98
 integrated Internetworking into all aspects of the audio desktop

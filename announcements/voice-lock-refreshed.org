@@ -1,7 +1,7 @@
 * Executive Summary
 
 Audio formatted output is provided via =voice-lock= in Emacspeak.
-The feature was originally implemented in 1994 and  significantly
+The feature was originally implemented in 1994 and  significan\'tly
 overhauled in 2002 (with no change in functionality). Now, in 2015,
 the implementation has been reworked to be once again simpler --- but
 with the same functionality.

@@ -122,7 +122,7 @@ http://emacspeak.googlecode.com/svn/trunk/
 ** History:
 Emacspeak 41.0 continues to improve upon the desire to provide
 not just equal, but superior access — technology 
-when correctly implemented can significantly enhance the human
+when correctly implemented can significan\'tly enhance the human
 ability. Emacspeak 40.0 goes back to Web basics by enabling
 [[http://emacspeak.blogspot.com/2013/11/reading-web-content-efficiently.html][efficient access]] to large amounts of readable Web
 content. Emacspeak 39.0 continues the Emacspeak tradition of
@@ -141,7 +141,7 @@ StarDog brings unparalleled cloud access to the audio
 desktop. Emacspeak 32.0 AKA LuckyDog continues to innovate via
 open technologies for better access. Emacspeak 31.0 AKA TweetDog
 --- adds tweeting to the Emacspeak desktop. Emacspeak 30.0 AKA
-SocialDog brings the Social Web to the audio desktop—you cant but
+SocialDog brings the Social Web to the audio desktop—you can\'t but
 be social if you speak! Emacspeak 29.0—AKAAbleDog—is a testament
 to the resilliance and innovation embodied by Open Source
 software—it would not exist without the thriving Emacs community
@@ -196,7 +196,7 @@ speech output extension to Emacs.
 Emacspeak-95 (code named Illinois) was released as OpenSource on
 the Internet in May 1995 as the first complete speech interface
 to UNIX workstations. The subsequent release, Emacspeak-96 (code
-named Egypt) made available in May 1996 provided significant
+named Egypt) made available in May 1996 provided significan\'t
 enhancements to the interface. Emacspeak-97 (Tennessee) went
 further in providing a true audio desktop. Emacspeak-98
 integrated Internetworking into all aspects of the audio desktop

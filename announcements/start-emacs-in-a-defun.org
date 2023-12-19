@@ -50,7 +50,7 @@ limited number of places I need to look.
 * Wish-List 
 
   1. Remembering  the name of a custom-setting  you set up a while ago
-     is still  a challenge, You cant find it unless you remember its
+     is still  a challenge, You can\'t find it unless you remember its
      approximate name.
   2. Command ~emacspeak-wizards-customize-saved~ bound to ~C-h C-s~
     helps some in this regard but is a stop-gap solution.

@@ -3,7 +3,7 @@
 Emacs has always provided a wealth of techniques for rapid keyboard
 input (abbrev, dabbrev, hippie-expandand completion come to mind)
 alongside a rich collection of tools for navigating among open
-buffers. And these affordances have significantly increased over the
+buffers. And these affordances have significan\'tly increased over the
 last few years with the arrival of packages like =ido=, =company=,
 =helm= etc., each replete with different strategies for rapid task
 completion such as flex and fuzzy matching. This article investigates

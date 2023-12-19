@@ -31,7 +31,7 @@ advice as follows:
     speaks the character under point before it is deleted.
   3. Get various types of completion spoken --- Add an _around_ advice
      that remembers the current context, calls the original function
-     being adviced, and finally speak the current context that now
+     being advised, and finally speak the current context that now
      reflects the completion.
 
 The /rest of the story/ was written up a few years ago as [[http://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At

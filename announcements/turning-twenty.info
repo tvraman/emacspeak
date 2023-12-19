@@ -203,7 +203,7 @@ able to provide fluent, well-integrated contextual feedback for all of
 these tasks. And that was a game-changer given what I had had before
 Emacspeak. As a case in point, I did not dare program in Python before
 I speech-enabled Emacs' Python-Mode; the fact that white space is
-significant in Python made it difficult to program using a plain
+significan\'t in Python made it difficult to program using a plain
 screen-reader that was unaware of the semantics of the underlying
 content being accessed.
 
@@ -277,7 +277,7 @@ File: turning-twenty.info,  Node: Emacspeak And The Early Days Of The Web,  Next
 *****************************************
 
 Right around the time that I was writing version 0.01 of emacspeak, a
-far more significant software movement was under way — the World Wide
+far more significan\'t software movement was under way — the World Wide
 Web was moving from the realms of academia to the mainstream world with
 the launch of NCSA Mosaic — and in late 1994 by the first commercial
 Web browser in Netscape Navigator. Emacs had always enabled integrated
@@ -409,7 +409,7 @@ interaction. With respect to what had gone before (and is still par for
 the course as far as traditional screen-readers are concerned), these
 types of highly dynamic interfaces present a challenge. For example,
 consider handling a completion interface using a screen-reader that is
-speaking the visual display. There is a significant challenge in
+speaking the visual display. There is a significan\'t challenge in
 deciding _what to speak_ e.g., when presented with a list of
 completions, the currently typed text, and the default completion,
 which of these should you speak, and in what order? The problem gets

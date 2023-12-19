@@ -13,7 +13,7 @@ used and learnt over the last 30 years of Emacs hackery:
      in the /\M-\C-a/ example.
   3. It gets worse, under X, you can bind /\C- / for /Control Space/
      --- notice that the space character here which is easy to miss as
-     white-space is significant.
+     white-space is significan\'t.
   4. The /\<modifier>-char/ notation mostly appears to date back to
      the age of the terminal emulator (tty), so for example, it cannot
      denote /Control+Right/ for example.

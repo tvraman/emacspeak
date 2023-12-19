@@ -20,7 +20,7 @@ dont use it/ debate --- it is here to help you if you do decide to use
 * Where Advice Can Be Useful
 
   1. Temporarily  /trace/  a given function --- ~advice~ can display
-    messages on entry and exit to the adviced function. Emacs' own
+    messages on entry and exit to the advised function. Emacs' own
     built-in debug-on-entry mostly obviates the need to do this.
   2. You want custom  behavior for some command in a package, where
      the package author (hasn't yet) provided an appropriate /before/
@@ -49,7 +49,7 @@ to the API introduced in module ~nadvice~.
    ~around~ advice only when you must.
   2. Name all your ~advice~ fragments consistently.
   3. Do not depend on the argument names used in the function being
-     adviced, instead use _ad-get-arg_ to positionally access the adviced
+     advised, instead use _ad-get-arg_ to positionally access the advised
      function's arguments.
   4. Use lexical scoping in all your functions, and be rigorous in
      declaring any special variables using _(cl-declare (special

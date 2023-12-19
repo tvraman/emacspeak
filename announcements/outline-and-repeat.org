@@ -8,12 +8,12 @@ to ~repeat-mode~. The combinatorial explosion that is the result of
 the various ways of bringing these together is mind-boggling --- and
 often the result is that one fails to take advantage of what has
 become possible. The result is that one ends up sticking to one's
-long-established habits at the risk of failing to significantly
+long-established habits at the risk of failing to significan\'tly
 enhance one's productivity.
 
 * Background
 
-- Structured navigation is a significant productivity enhancer ---
+- Structured navigation is a significan\'t productivity enhancer ---
   especially in my case since I rely exclusively on an auditory interface.
 - The above applies to both textual documents and programming source.
 - Starting all the way back in 1991, I started using ~folding-mode~

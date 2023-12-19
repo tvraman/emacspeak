@@ -33,7 +33,7 @@ advantage of Boodler's limited abilities in the areas of spatial
 positioning. I typically use ~Soundscapes~ with one of several virtual
 ALSA devices that have been configured to apply different Ladspa
 effects such as /reverb/ or /crossfeed/ depending on the ambient
-environment where I am working --- this significantly improves the
+environment where I am working --- this significan\'tly improves the
 spatialization of soundscapes being played --- see file
 [[https://github.com/tvraman/emacspeak/blob/master/scapes/ladspa-asoundrc#L1][ladspa-asoundrc]]. Finally, the mapping of Soundscapes to various Emacs
 modes has also been tuned. --- see table below.

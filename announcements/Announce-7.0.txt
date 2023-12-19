@@ -41,7 +41,7 @@ named Illinois) was released on the Internet in May
 1995 as the first complete speech interface to UNIX
 workstations.  The subsequent release, Emacspeak-96
 (code named Egypt) made available in May 1996 provided
-significant enhancements to the interface. Emacspeak-97
+significan\'t enhancements to the interface. Emacspeak-97
 (Tennessee) went further in providing a true audio
 desktop.  Emacspeak-98 goes further by
 integratingInternetWorking into all aspects of the

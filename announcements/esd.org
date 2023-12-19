@@ -83,7 +83,7 @@ speechd was difficult to resolve on my FC3 64bit machine.
 
   5) Emacs applications are plentiful for most tasks; one
      exception is the Web. Since emacs/w3 development was
-     abandoned sometime around 1998, I have added significant Web
+     abandoned sometime around 1998, I have added significan\'t Web
      interaction functionality to Emacspeak using Emacs/W3 as the
      basis. Today, a lot of this has also been ported to
      Emacs/W3M thanks to other enthusiasts on the Emacspeak

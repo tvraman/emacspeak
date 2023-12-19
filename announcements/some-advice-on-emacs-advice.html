@@ -228,7 +228,7 @@ dont use it</i> debate &#x2014; it is here to help you if you do decide to use
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li>Temporarily  <i>trace</i>  a given function &#x2014; <code>advice</code> can display
-messages on entry and exit to the adviced function. Emacs' own
+messages on entry and exit to the advised function. Emacs' own
 built-in debug-on-entry mostly obviates the need to do this.</li>
 <li>You want custom  behavior for some command in a package, where
 the package author (hasn't yet) provided an appropriate <i>before</i>
@@ -264,7 +264,7 @@ to the API introduced in module <code>nadvice</code>.
 <code>around</code> advice only when you must.</li>
 <li>Name all your <code>advice</code> fragments consistently.</li>
 <li>Do not depend on the argument names used in the function being
-adviced, instead use <span class="underline">ad-get-arg</span> to positionally access the adviced
+advised, instead use <span class="underline">ad-get-arg</span> to positionally access the advised
 function's arguments.</li>
 <li>Use lexical scoping in all your functions, and be rigorous in
 declaring any special variables using <span class="underline">(cl-declare (special
