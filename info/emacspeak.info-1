@@ -2794,7 +2794,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
 ‘C-j journalctl’
 ‘C-l emacspeak-librivox’
 ‘C-t emacspeak-wizards-tramp-open-location’
-‘; emacspeak-multimedia’
 ‘a emacspeak-amark-browse’
 ‘b emacspeak-wizards-bbc-sounds’
 ‘c browse-url-chrome’

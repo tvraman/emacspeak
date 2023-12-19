@@ -1213,8 +1213,7 @@ found on laptops is denoted <fn>
      Default Value:
 
      
-     ((";" emacspeak-multimedia)
-      ("C-;" emacspeak-amark-bookshelf)
+     (("C-;" emacspeak-amark-bookshelf)
       ("C-a" ansi-term)
       ("C-b" eww-list-bookmarks)
       ("C-d" dictionary-search)
@@ -2300,8 +2299,6 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-multimedia
      ‘C-e ;’
-     ‘C-; ;’
-     ‘C-x @ h ;’
 
      Start or control Emacspeak multimedia player.
      Controls media playback when already playing.

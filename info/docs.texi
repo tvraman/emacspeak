@@ -8124,8 +8124,7 @@ Default Value:
 
 @verbatim
 
-((";" emacspeak-multimedia)
- ("C-;" emacspeak-amark-bookshelf)
+(("C-;" emacspeak-amark-bookshelf)
  ("C-a" ansi-term)
  ("C-b" eww-list-bookmarks)
  ("C-d" dictionary-search)
@@ -9447,10 +9446,6 @@ Use youtube-dl  to stream  using mplayer.
 @table @kbd
 @item C-e ;
 @kindex C-e ;
-@item C-; ;
-@kindex C-; ;
-@item C-x @@ h ;
-@kindex C-x @@ h ;
 @end table
 
 @findex emacspeak-multimedia
