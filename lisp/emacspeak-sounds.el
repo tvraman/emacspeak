@@ -318,7 +318,7 @@ Optional interactive PREFIX arg toggles global value."
     (cl-assert (file-exists-p file) t  "File does not exist")
     (when emacspeak-m-player-program
       (call-process
-         emacspeak-m-player-program nil  0 nil file))))
+       emacspeak-m-player-program nil  0 nil file))))
 
 (provide  'emacspeak-sounds)
 ;;;   emacs local variables

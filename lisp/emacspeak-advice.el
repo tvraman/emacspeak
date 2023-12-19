@@ -699,23 +699,23 @@ When on a close delimiter, speak matching delimiter after a small delay. "
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (tts-with-punctuations 'all
-         (dtk-speak
-          (or (minibuffer-contents)
-              (emacspeak-get-current-completion))))))))
-
+                              (dtk-speak
+                               (or (minibuffer-contents)
+                                   (emacspeak-get-current-completion))))))))
 
 (cl-loop
  for f in 
  '(   minibuffer-next-completion minibuffer-previous-completion
-   minibuffer-next-line-completion minibuffer-previous-line-completion)
+      minibuffer-next-line-completion minibuffer-previous-line-completion)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
        (tts-with-punctuations 'all
-         (emacspeak-auditory-icon 'item)
-         (dtk-speak (emacspeak-get-current-completion)))))))
+                              (emacspeak-auditory-icon 'item)
+                              (dtk-speak
+                               (emacspeak-get-current-completion)))))))
 
 (defvar emacspeak-last-message nil
   "Last output from `message'.")
@@ -873,9 +873,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   (let ((orig (save-excursion (skip-syntax-backward "^->_") (point))))
     ad-do-it
     (when (ems-interactive-p) (dtk-speak (buffer-substring orig (point)))
-      (emacspeak-auditory-icon 'complete))
+          (emacspeak-auditory-icon 'complete))
     ad-return-value))
-
 
 (defadvice minibuffer-choose-completion (around emacspeak pre act comp)
   "Speak completion."
@@ -885,7 +884,6 @@ When on a close delimiter, speak matching delimiter after a small delay. "
       (dtk-speak (buffer-substring orig (point)))
       (emacspeak-auditory-icon 'complete))
     ad-return-value))
-
 
 (defadvice minibuffer-choose-completion-or-exit (after emacspeak pre act comp)
   "speak."
@@ -995,7 +993,6 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   (emacspeak-auditory-icon 'select-object)
   (dtk-speak (emacspeak-get-current-completion)))
 
-
 (cl-loop
  for f in 
  '(
@@ -1008,7 +1005,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (tts-with-punctuations 'all
-         (dtk-speak (emacspeak-get-current-completion)))))))
+                              (dtk-speak
+                               (emacspeak-get-current-completion)))))))
 
 (defadvice choose-completion (before emacspeak pre act comp)
   "speak."

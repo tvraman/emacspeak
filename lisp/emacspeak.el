@@ -445,7 +445,7 @@ commands and options for details."
   (cl-declare (special emacspeak-orca-handle))
   (cond
    (emacspeak-orca-handle (delete-process emacspeak-orca-handle)
-                               (setq emacspeak-orca-handle  nil))
+                          (setq emacspeak-orca-handle  nil))
    (t (setq emacspeak-orca-handle (start-process "Orca"nil "orca")))))
 ;;;  end of file
 

@@ -36,7 +36,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-
 ;;; Commentary:
 ;;; ENWC ==  Emacs Network Client
 ;; Work easily with NM and friends.
@@ -49,8 +48,6 @@
 (require 'emacspeak-preamble)
 
 ;;;  Map Faces:
-
-
 
 (voice-setup-add-map 
  '(
@@ -76,13 +73,11 @@
   enwc-toggle-wired
   )
 
-
 (defadvice enwc (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
-
 
 (cl-loop
  for f in 

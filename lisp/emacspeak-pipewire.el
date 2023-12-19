@@ -52,9 +52,6 @@
 
 ;;; Map Faces:
 
-
-
-
 (voice-setup-add-map 
  '(
    (pipewire-default-object voice-smoothen)

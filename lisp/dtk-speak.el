@@ -1609,12 +1609,12 @@ Set to nil to disable a separate Notification stream."
   (unless dtk-program (setq dtk-program "espeak"))
   (let ((new (dtk-make-process "Speaker")))
     ;; success, so nuke old server
-      (when (processp dtk-speaker-process) (delete-process dtk-speaker-process))
-      (setq dtk-speaker-process new)
-      (when (tts-multistream-p dtk-program) (dtk-notify-initialize))
-      ;; `voice-setup' requires us, so we can't require it at top-level.
-      (require 'voice-setup)
-      (voice-setup)))
+    (when (processp dtk-speaker-process) (delete-process dtk-speaker-process))
+    (setq dtk-speaker-process new)
+    (when (tts-multistream-p dtk-program) (dtk-notify-initialize))
+    ;; `voice-setup' requires us, so we can't require it at top-level.
+    (require 'voice-setup)
+    (voice-setup)))
 
 (defun tts-restart ()
   "Restart TTS server."
@@ -1802,8 +1802,8 @@ unless   `dtk-quiet' is set to t. "
 (defun dtk-speak-and-echo (message)
   "Speak message and echo it."
   (ems-with-messages-silenced
-    (dtk-speak (format "%s" message))
-    (message (format "%s" message))))
+   (dtk-speak (format "%s" message))
+   (message (format "%s" message))))
 
 (defun dtk-speak-list (text &optional group)
   "Speak a  list of strings.
