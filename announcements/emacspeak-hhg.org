@@ -41,11 +41,11 @@ Holiday Gems]].  This article extends its predecessor by:
     end-user packages including /package.el/ and its asynchronous cousin /paradox.el/.
     - It is also used to advantage by /empv/, a powerful
     interface to the GNU MPv media player.
-    - ::  AMarks mentioned in
+    - AMarks mentioned in
      the previous item, this is my present means of listening to
      tech-talks on Youtube while taking notes using org-mode.
   - Forms Mode ::  Forms interface used by Emacspeak to browse BBC programs.
-  - Mark Ring ::Supported by default in Emacspeak but something I dont
+  - Mark Ring :: Supported by default in Emacspeak but something I dont
     use much. Some of its affordances really shine in
     /transient-mark-mode/ but that facility is somewhat counter to
     eyes-free use.
@@ -80,16 +80,16 @@ Holiday Gems]].  This article extends its predecessor by:
     - And much, much more.
   - Elfeed :: My chosen means of following RSS and Atom feeds.
   - GNUS ::  For mail, now that Usenet is history.
-    - I use GNus as an /imap/ mail reader for GMail.
+    - I use gnus as an /imap/ mail reader for GMail.
     - Emacspeak implements the equivalent of GMail's search operators.
-    - I complement GNus with package /vm/ for reading email delivered
+    - I complement gnus with package /vm/ for reading email delivered
       locally; I use _fetchmail_ to fetch mail and _procmail_ to sort
       mail into folders in the background.
     - And finally I use _notmuch_ to search locally saved email.
   - Tramp ::  Accessing and working in the Cloud:
     - I use /tramp/ to open remote files.
     - Emacspeak wizard    /emacspeak-wizards-tramp-open-location/ to
-      quickly open files on servers you access often.
+      quickly open files on servers I access often.
     - If you work in the Cloud, Emacspeak lets you SSH to your
       CloudTop and have Emacs running on the CloudTop speak on your
       local machine.
@@ -131,7 +131,7 @@ Holiday Gems]].  This article extends its predecessor by:
 #+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
 #+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
 #+options: timestamp:t title:t toc:nil todo:t |:t
-#+title: Emacs HHG: Hidden Holiday Gems 
+#+title:Emacspeak HHG: Hidden Holiday Gems
 #+date: <2023-12-15 Fri>
 #+author: T.V Raman
 #+email: raman@google.com
