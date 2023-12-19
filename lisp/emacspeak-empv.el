@@ -169,7 +169,7 @@ Interactive prefix arg plays on left ear using alsa."
 (defun emacspeak-empv-setup ()
   "Emacspeak setup for empv."
   (cl-declare (special empv-map))
-  (global-set-key (kbd "C-; ;") empv-map)
+  (global-set-key (kbd "C-e C-;") empv-map)
   (global-set-key (kbd "C-' v") empv-map)
   (cl-loop
    for b in
