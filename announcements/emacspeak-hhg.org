@@ -29,19 +29,29 @@ Holiday Gems]].  This article extends its predecessor by:
     more complex use-cases, I use /yasnippets/, which is one of Emacs'
     many template libraries.
   - Bookmarks ::  Emacspeak builds heavily on Emacs' built-in
-    bookmarks to:
+    bookmarks to provide:
     1. Persistent bookmarks when reading EPub and Bookshare books.
     2. Audio Marks (AMarks) within org-mode buffers for
       marking locations  in audio streams such as Podcasts.
     3. An Emacspeak /browser/ for browsing saved  /eww-marks/ and /a-marks/.
     4. Together, the above make a very useful note-taking extension to org-mode.
-  - Tabulated Lists :: Build up tabulated UIs that behave consistently.d
-  - Forms Mode :: Leverage underlying syntax  e.g., field-delimiters, to enable structured
-    editing via a forms-like interface.
-  - Mark Ring :: Local and Global mark rings. This  is one I've been
-    aware of for over 30 years but never managed to work into my work-flow.
-  - Undo :: Both basic  and advanced. I myself only use the most
-   basic form of undo.
+  - Tabulated Lists :: Implements tabulated UIs and is speech-enabled by Emacspeak.
+    - Emacspeak augments it with additional keyboard navigation.
+    - This is leveraged in Emacs by a variety of
+    end-user packages including /package.el/ and its asynchronous cousin /paradox.el/.
+    - It is also used to advantage by /empv/, a powerful
+    interface to the GNU MPv media player.
+    - ::  AMarks mentioned in
+     the previous item, this is my present means of listening to
+     tech-talks on Youtube while taking notes using org-mode.
+  - Forms Mode ::  Forms interface used by Emacspeak to browse BBC programs.
+  - Mark Ring ::Supported by default in Emacspeak but something I dont
+    use much. Some of its affordances really shine in
+    /transient-mark-mode/ but that facility is somewhat counter to
+    eyes-free use.
+  - Undo :: Both basic  and advanced. However a long change of
+    undos/redos a la /tree-undo/ can get confusing quickly in
+    eyes-free interaction.
   - Dired :: Surprisingly not everyone appears to use /dired/, or at
     least  as heavily as I expected.
   - Writeable Dired :: This became part of Emacs more than a decade
