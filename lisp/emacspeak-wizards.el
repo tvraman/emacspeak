@@ -366,7 +366,7 @@ command."
 ;;;   Learn mode
 
 ;;;###autoload
-(defun emacspeak-learn-emacs-mode ()
+(defun emacspeak-learn-emacs ()
   "Helps you learn the keys.  You can press keys and hear what they do.
 To leave, press \\[keyboard-quit]."
   (interactive)
