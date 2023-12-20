@@ -8,7 +8,7 @@ discussions on the /emacs-devel@gnu.org/ list  which revealed  the
 somewhat obvious --- not everyone uses all available features in Emacs
 --- if that were even possible.
 
-So without further ado, here is a brie list of hidden gems in Emacs as
+So without further ado, here is a brief list of hidden gems in Emacs as
 a teaser --- I use many of these on a regular basis, but as you'll see
 there are gems that I know of that I haven't managed to  integrate
 into my workflow, leave alone those gems that I am not even aware of.
