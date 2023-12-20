@@ -99,7 +99,7 @@ Holiday Gems]].  This article extends its predecessor by:
       _dtach_, or _emacs --daemon_ providing a persistent Emacs
       session at the remote end.
     - Alternatively, you can use wizard
-      /emacspeak-wizards-remote-frame/ open a graphical frame on the
+      /emacspeak-wizards-remote-frame/ to open a graphical frame on the
       remote machine.
   - Eshell :: A Shell that is deeply integrated into Emacs. Fully
     speech-enabled by Emacspeak. Well-suited for running compile, grep
@@ -133,7 +133,7 @@ Holiday Gems]].  This article extends its predecessor by:
 #+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
 #+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
 #+options: timestamp:t title:t toc:nil todo:t |:t
-#+title:Emacspeak HHG: Hidden Holiday Gems
+#+title: Emacspeak HHG: Hidden Holiday Gems
 #+date: <2023-12-15 Fri>
 #+author: T.V Raman
 #+email: raman@google.com
