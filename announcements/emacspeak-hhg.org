@@ -17,7 +17,8 @@ Holiday Gems]].  This article extends its predecessor by:
 4. All topics covered here are already well-documented in the  Emacs
    and Emacspeak manuals, and this article will not attempt to replace those.
 
-* Emacspeak: Hidden Holiday Gems 
+* Emacspeak: Hidden Holiday Gems
+
 
   - Selective Display :: This expands and collapses content purely
     based on indentation. The human eye is very efficient at scanning
@@ -34,7 +35,8 @@ Holiday Gems]].  This article extends its predecessor by:
     2. Audio Marks (AMarks) within org-mode buffers for
       marking locations  in audio streams such as Podcasts.
     3. An Emacspeak /browser/ for browsing saved  /eww-marks/ and /a-marks/.
-    4. Together, the above make a very useful note-taking extension to org-mode.
+    4. Together, the above make a very useful [[https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html][note-taking]] extension to
+       org-mode.
   - Tabulated Lists :: Implements tabulated UIs and is speech-enabled by Emacspeak.
     - Emacspeak augments it with additional keyboard navigation.
     - This is leveraged in Emacs by a variety of
@@ -72,11 +74,11 @@ Holiday Gems]].  This article extends its predecessor by:
   - Forge :: I use  _forge_ for issue tracking, but often revert to
     old habits and use _gh_ at the shell inside Emacs.
   - EWW ::  See the Emacspeak documentation for
-    _emacspeak-eww_. Highlights include:
+    [[https://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html][_emacspeak-eww_]]. Highlights include:
     - Dom filtering,
     - XPath filtering,
     - MPlayer and EMpv integration for playing online media,
-    - Ebookse-books including EPub and Bookshare,
+    - EPub  and Bookshare books,
     - And much, much more.
   - Elfeed :: My chosen means of following RSS and Atom feeds.
   - GNUS ::  For mail, now that Usenet is history.
@@ -90,7 +92,7 @@ Holiday Gems]].  This article extends its predecessor by:
     - I use /tramp/ to open remote files.
     - Emacspeak wizard    /emacspeak-wizards-tramp-open-location/ to
       quickly open files on servers I access often.
-    - If you work in the Cloud, Emacspeak lets you SSH to your
+    - If you [[https://emacspeak.blogspot.com/2021/11/emacspeak-in-age-of-cloud-computing.html][work in the Cloud]], Emacspeak lets you SSH to your
       CloudTop and have Emacs running on the CloudTop speak on your
       local machine.
     - The above can be done using a plain old XTerm with _screen_,
@@ -112,8 +114,8 @@ Holiday Gems]].  This article extends its predecessor by:
     - Calc in /embedded mode/ can directly replace a calculation with
       an answer.
     - For even smarter work-flows, leverage /org-mode/ with /calc/.
-    - you can even audio-format computations in Calc output as LaTeX
-      using AsTeR.
+    - you can even [[https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html][audio-format]]  computations in Calc output as LaTeX
+      using [[https://github.com/tvraman/aster-math][AsTeR]].
 
 
 *  References
