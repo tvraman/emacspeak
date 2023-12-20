@@ -47,7 +47,7 @@ the evolving service-oriented social Web cloud.
   - Feed Browser Consume feeds post Google-Reader.  ␌
   - Freebase Search: Explore freebase knowledge base. 🆓
   - Emacs 24.4: Supports all new features in Emacs 24.4. 🌚
-  - And a lot more than wil fit this margin. …
+  - And a lot more than will fit this margin. …
 
 ** Establishing Liberty, Equality And Freedom:
 

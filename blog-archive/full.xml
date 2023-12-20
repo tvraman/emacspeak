@@ -36,6 +36,296 @@
   <openSearch:itemsPerPage>1000
   </openSearch:itemsPerPage>
   <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-6583907408650234123</id><published>
+      2023-12-19T17:58:00.000-08:00
+    </published>
+    <updated>2023-12-19T17:58:22.407-08:00</updated><title type='text'>
+      Emacspeak: Hidden Holiday Gems 
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;
+      class=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Emacspeak HHG: Hidden Holiday
+      Gems&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-org00cfc27&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org00cfc27&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1.&lt;/span&gt;
+      Introduction&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      This is an Emacspeak-specific follow-on to my article &lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2023/12/emacs-hidden-holiday-gems.html&quot;&gt;Emacs: Hidden
+      Holiday Gems&lt;/a&gt;.  This article extends its predecessor by:
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Adding Emacspeak-specific details for each gem; the
+      earlier article
+      purposely avoided anything Emacspeak-specific.&lt;/li&gt;
+      &lt;li&gt;Where appropriate, I&#39;ll point out the importance of
+      choosing a
+      solution that is appropriate to the user, e.g., low-vision vs
+      complete eyes-free use. Note that for the most part, Emacspeak is
+      optimized for the latter case.&lt;/li&gt;
+      &lt;li&gt;As before, the goal is not to be exhaustive; &amp;#x2014;
+      rather the goal is
+      to be thought-provoking with respect to encouraging readers to
+      discover their own optimal solution. The reference section at the
+      end links to some of the follow-up discussion on the 
+      &lt;a
+      
+      href=&quot;https://mail.emacspeak.net/sympa/arc/emacspeak/2023-12/msg00004.html&quot;&gt;Emacspeak Mailing List&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;All topics covered here are already well-documented in the
+       Emacs
+      and Emacspeak manuals, and this article will not attempt to replace
+      those.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org798900a&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org798900a&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2.&lt;/span&gt; Emacspeak:
+      Hidden Holiday Gems&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;dl class=&quot;org-dl&quot;&gt;
+      &lt;dt&gt;Selective Display&lt;/dt&gt;&lt;dd&gt;This expands and
+      collapses content purely
+      based on indentation. The human eye is very efficient at scanning
+      down the margin and ignore content indented beyond a given level;
+      &lt;i&gt;selective-display&lt;/i&gt; provides the same affordance
+      when you cannot
+      see the display.&lt;/dd&gt;
+      &lt;dt&gt;Registers&lt;/dt&gt;&lt;dd&gt;Easily becomes part of
+      muscle-memory, especially when
+      moving text around, duplicating content in multiple locations. For
+      more complex use-cases, I use &lt;i&gt;yasnippets&lt;/i&gt;, which
+      is one of Emacs&#39;
+      many template libraries.&lt;/dd&gt;
+      &lt;dt&gt;Bookmarks&lt;/dt&gt;&lt;dd&gt;Emacspeak builds heavily on
+      Emacs&#39; built-in
+      bookmarks to provide:
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Persistent bookmarks when reading EPub and Bookshare
+      books.&lt;/li&gt;
+      &lt;li&gt;Audio Marks (AMarks) within org-mode buffers for
+      marking locations  in audio streams such as Podcasts.&lt;/li&gt;
+      &lt;li&gt;An Emacspeak &lt;i&gt;browser&lt;/i&gt; for browsing saved
+       &lt;i&gt;eww-marks&lt;/i&gt; and
+      &lt;i&gt;a-marks&lt;/i&gt;.&lt;/li&gt;
+      &lt;li&gt;Together, the above make a very useful &lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html&quot;&gt;note-taking&lt;/a&gt; extension to
+      org-mode.&lt;/li&gt;
+      &lt;/ol&gt;&lt;/dd&gt;
+      &lt;dt&gt;Tabulated Lists&lt;/dt&gt;&lt;dd&gt;&lt;p&gt;
+      Implements tabulated UIs and is speech-enabled by Emacspeak.
+      &lt;/p&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;Emacspeak augments it with additional keyboard
+      navigation.&lt;/li&gt;
+      &lt;li&gt;This is leveraged in Emacs by a variety of&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;
+      end-user packages including &lt;i&gt;package.el&lt;/i&gt; and its
+      asynchronous cousin &lt;i&gt;paradox.el&lt;/i&gt;.
+      &lt;/p&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;It is also used to advantage by &lt;i&gt;empv&lt;/i&gt;, a
+      powerful&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;
+      interface to the GNU MPv media player.
+      &lt;/p&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;AMarks mentioned in
+      the previous item, this is my present means of listening to
+      tech-talks on Youtube while taking notes using org-mode.&lt;/li&gt;
+      &lt;/ul&gt;&lt;/dd&gt;
+      &lt;dt&gt;Forms Mode&lt;/dt&gt;&lt;dd&gt;Forms interface used by
+      Emacspeak to browse BBC programs.&lt;/dd&gt;
+      &lt;dt&gt;Mark Ring&lt;/dt&gt;&lt;dd&gt;Supported by default in
+      Emacspeak but something I dont
+      use much. Some of its affordances really shine in
+      &lt;i&gt;transient-mark-mode&lt;/i&gt; but that facility is somewhat
+      counter to
+      eyes-free use.&lt;/dd&gt;
+      &lt;dt&gt;Undo&lt;/dt&gt;&lt;dd&gt;Both basic  and advanced. However
+      a long series of
+      undo and redo commands as with  &lt;i&gt;tree-undo&lt;/i&gt; can get
+      confusing quickly in
+      eyes-free interaction.&lt;/dd&gt;
+      &lt;dt&gt;Dired&lt;/dt&gt;&lt;dd&gt;I use
+      &lt;i&gt;dired-mode&lt;/i&gt; and its derivatives heavily:
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;To browse the file-system as intended.&lt;/li&gt;
+      &lt;li&gt;With  &lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2023/09/augment-with-zoxide.html&quot;&gt;emacspeak-zoxide&lt;/a&gt;  to rapidly move to far-away portions of
+      the file system.&lt;/li&gt;
+      &lt;li&gt;With  &lt;i&gt;locate&lt;/i&gt; to search the file
+      system.&lt;/li&gt;
+      &lt;li&gt;With command 
+      &lt;i&gt;emacspeak-m-player-locate-media&lt;/i&gt; to find and play
+      local media.&lt;/li&gt;
+      &lt;li&gt;With &lt;i&gt;flx&lt;/i&gt; and &lt;i&gt;fuzzy&lt;/i&gt;
+      completion to provide a powerful
+      interactive UI for finding and playing media such as Internet
+      streams.&lt;/li&gt;
+      &lt;/ul&gt;&lt;/dd&gt;
+      &lt;dt&gt;- Writeable Dired&lt;/dt&gt;&lt;dd&gt;Useful to:
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;Consistently rename files, especially when confronted with
+      filenames with embedded white space.&lt;/li&gt;
+      &lt;/ul&gt;&lt;/dd&gt;
+      &lt;dt&gt;Org-Mode&lt;/dt&gt;&lt;dd&gt;This margin is too small to
+      do it justice; see
+      documentation for module
+      &lt;span class=&quot;underline&quot;&gt;emacspeak-org&lt;/span&gt;
+      for all that Emacspeak does with org.&lt;/dd&gt;
+      &lt;dt&gt;Magit&lt;/dt&gt;&lt;dd&gt;As with the previous item, see
+      the associated Emacspeak
+      documentation for &lt;span
+      
+      class=&quot;underline&quot;&gt;emacspeak-magit&lt;/span&gt;.&lt;/dd&gt;
+      &lt;dt&gt;Forge&lt;/dt&gt;&lt;dd&gt;I use  &lt;span
+      class=&quot;underline&quot;&gt;forge&lt;/span&gt; for issue
+      tracking, but often revert to
+      old habits and use &lt;span
+      class=&quot;underline&quot;&gt;gh&lt;/span&gt; at the shell inside
+      Emacs.&lt;/dd&gt;
+      &lt;dt&gt;EWW&lt;/dt&gt;&lt;dd&gt;See the Emacspeak documentation
+      for&lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html&quot;&gt;&lt;span class=&quot;underline&quot;&gt;emacspeak-eww&lt;/span&gt;&lt;/a&gt;. Highlights include:
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;Dom filtering,&lt;/li&gt;
+      &lt;li&gt;XPath filtering,&lt;/li&gt;
+      &lt;li&gt;MPlayer and EMpv integration for playing online
+      media,&lt;/li&gt;
+      &lt;li&gt;EPub  and Bookshare books,&lt;/li&gt;
+      &lt;li&gt;And much, much more.&lt;/li&gt;
+      &lt;/ul&gt;&lt;/dd&gt;
+      &lt;dt&gt;Elfeed&lt;/dt&gt;&lt;dd&gt;My chosen means of following
+      RSS and Atom feeds.&lt;/dd&gt;
+      &lt;dt&gt;GNUS&lt;/dt&gt;&lt;dd&gt;For mail, now that Usenet is
+      history.
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;I use gnus as an &lt;i&gt;imap&lt;/i&gt; mail reader for
+      GMail.&lt;/li&gt;
+      &lt;li&gt;Emacspeak implements the equivalent of GMail&#39;s search
+      operators.&lt;/li&gt;
+      &lt;li&gt;I complement gnus with package &lt;i&gt;vm&lt;/i&gt; for
+      reading email delivered
+      locally; I use &lt;span
+      class=&quot;underline&quot;&gt;fetchmail&lt;/span&gt; to fetch mail
+      and &lt;span class=&quot;underline&quot;&gt;procmail&lt;/span&gt; to
+      sort
+      mail into folders in the background.&lt;/li&gt;
+      &lt;li&gt;And finally I use &lt;span
+      class=&quot;underline&quot;&gt;notmuch&lt;/span&gt; to search
+      locally saved email.&lt;/li&gt;
+      &lt;/ul&gt;&lt;/dd&gt;
+      &lt;dt&gt;Tramp&lt;/dt&gt;&lt;dd&gt;Accessing and working in the
+      Cloud:
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;I use &lt;i&gt;tramp&lt;/i&gt; to open remote
+      files.&lt;/li&gt;
+      &lt;li&gt;Emacspeak wizard   
+      &lt;i&gt;emacspeak-wizards-tramp-open-location&lt;/i&gt; to
+      quickly open files on servers I access often.&lt;/li&gt;
+      &lt;li&gt;If you &lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2021/11/emacspeak-in-age-of-cloud-computing.html&quot;&gt;work in the Cloud&lt;/a&gt;, Emacspeak lets you SSH to your
+      CloudTop and have Emacs running on the CloudTop speak on your
+      local machine.&lt;/li&gt;
+      &lt;li&gt;The above can be done using a plain old XTerm with
+      &lt;span class=&quot;underline&quot;&gt;screen&lt;/span&gt;,
+      &lt;span class=&quot;underline&quot;&gt;dtach&lt;/span&gt;, or
+      &lt;span class=&quot;underline&quot;&gt;emacs
+      &amp;#x2013;daemon&lt;/span&gt; providing a persistent Emacs
+      session at the remote end.&lt;/li&gt;
+      &lt;li&gt;Alternatively, you can use wizard
+      &lt;i&gt;emacspeak-wizards-remote-frame&lt;/i&gt; to open a
+      graphical frame on the
+      remote machine.&lt;/li&gt;
+      &lt;/ul&gt;&lt;/dd&gt;
+      &lt;dt&gt;Eshell&lt;/dt&gt;&lt;dd&gt;A Shell that is deeply
+      integrated into Emacs. Fully
+      speech-enabled by Emacspeak. Well-suited for running compile, grep
+      and friends for starters.&lt;/dd&gt;
+      &lt;dt&gt;Comint&lt;/dt&gt;&lt;dd&gt;This is the goto solution for
+      software development in
+      Emacspeak, be it Common Lisp or Python.&lt;/dd&gt;
+      &lt;dt&gt;Zip Archives&lt;/dt&gt;&lt;dd&gt;One more reason you dont
+      need to leave  Emacs for
+      a text console.&lt;/dd&gt;
+      &lt;dt&gt;Calculators&lt;/dt&gt;&lt;dd&gt;From the simple to
+      complex, we have it all!
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;Simple calculations.&lt;/li&gt;
+      &lt;li&gt;Symbolic Algebra.&lt;/li&gt;
+      &lt;li&gt;Calc in &lt;i&gt;embedded mode&lt;/i&gt; can directly
+      replace a calculation with
+      an answer.&lt;/li&gt;
+      &lt;li&gt;For even smarter work-flows, leverage
+      &lt;i&gt;org-mode&lt;/i&gt; with &lt;i&gt;calc&lt;/i&gt;.&lt;/li&gt;
+      &lt;li&gt;you can even &lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html&quot;&gt;audio-format&lt;/a&gt;  computations in Calc output as LaTeX
+      using &lt;a
+      
+      href=&quot;https://github.com/tvraman/aster-math&quot;&gt;AsTeR&lt;/a&gt;.&lt;/li&gt;
+      &lt;/ul&gt;&lt;/dd&gt;
+      &lt;/dl&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      
+      &lt;div id=&quot;outline-container-org6e90c5a&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org6e90c5a&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3.&lt;/span&gt;
+      References&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://mail.emacspeak.net/sympa/arc/emacspeak/2023-12/msg00004.html&quot;&gt;Mailing List Discussion&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2023/12/emacs-hidden-holiday-gems.html&quot;&gt;Emacs: Hidden Holiday Gems&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://tvraman.github.io/emacspeak/manual&quot;&gt;Emacspeak Manual&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;&lt;p&gt;
+      &lt;a
+      
+      href=&quot;http://tvraman.github.io/emacspeak/blog/articles.html&quot;&gt;Emacspeak Blog Articles&lt;/a&gt; as a single page.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      Note that the Emacspeak blog, the online manual etc., are all
+      available locally in the Emacspeak  Git checkout.
+      &lt;/p&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/6583907408650234123'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/6583907408650234123'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2023/12/emacspeak-hidden-holiday-gems.html' title='Emacspeak: Hidden Holiday Gems '/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
     <id>tag:blogger.com,1999:blog-20280042.post-5045172170268110780</id><published>
       2023-12-15T09:12:00.000-08:00
     </published>

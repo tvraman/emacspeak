@@ -48,7 +48,7 @@ access to the evolving service-oriented social Internet cloud.
   - Binaural audio support  including  several predefined binaural themes. ℗
     - Updated multilingual support for ESpeak.   󠀁
   - [[https://gist.github.com/08046e9befd9755dc05282ae5c8d32f5][Script etc/bootstrap.sh]]  for bootstrapping into Emacspeak on a well-configured Linux system. 👢
-  - And a lot more than wil fit this margin. … 🗞
+  - And a lot more than will fit this margin. … 🗞
 
 
 * Establishing Liberty, Equality And Freedom:

@@ -53,7 +53,7 @@ This version *requires* emacs-25.1 or later.
  17. Spoken notifications are cached in a special buffer. ⏰
  18. Flycheck And Interactive Correction. 𐄂
 
-     - And a lot more than wil fit this margin. … 🗞
+     - And a lot more than will fit this margin. … 🗞
 
 
 * Establishing Liberty, Equality And Freedom:

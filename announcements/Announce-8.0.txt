@@ -103,7 +103,7 @@ About Emacspeak:
 Based at Cornell (NY) <http://cs.cornell.edu/home/raman>
 --home to some of the most innovative auditory interfaces on
 the WWW-- Emacspeak is mirrored world-wide by an
-international netwrok of software archives and bundled with
+international network of software archives and bundled with
 all major Linux distributions on CDROM.  The Emacspeak
 mailing list is archived at
 <http://www.cs.vassar.edu/~priestdo/emacspeak/> --thanks to

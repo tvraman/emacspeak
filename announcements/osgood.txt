@@ -18,7 +18,7 @@ Things to note:
 but not on MS Windows or the Mac.
 
 2) The software is distributed as open source and is
-   available free of cost on the Internet --it is developped
+   available free of cost on the Internet --it is developed
    in my spare time.
 
 Please do not email or phone requests for having copies

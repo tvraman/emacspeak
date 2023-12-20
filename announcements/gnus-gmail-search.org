@@ -12,7 +12,7 @@ above.
 * Background 
 
 You can read email with GNUS, and many people read GMail with GNUS,
-however, the details of GMail setup with GNUS wont fit this margin.
+however, the details of GMail setup with GNUS won\'t fit this margin.
 For my own GMail setup using Ceasar's excellent _auth-xoauth2_
 package, see file [[https://github.com/tvraman/emacspeak/blob/master/tvr/gnus-gmail-prepare.el][gnus-gmail-prepare.el]].
 

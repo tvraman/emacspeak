@@ -72,7 +72,7 @@ interface features that eventually show up in commercial
 user environments.  On this theme, when recently challenged
 by a proponent of a crash-prone but well-marketed windowing
 system with the assertion "Emacs is a system from the 70's",
-the creator of Emacspeak expressed surprize at the unusual
+the creator of Emacspeak expressed surprise at the unusual
 candor manifest in the assertion that it would take popular
 idiot-proof interfaces until the year 2070 to catch up to
 where the Emacspeak audio desktop is today. Upon hearing
@@ -145,7 +145,7 @@ About Emacspeak:
         
 Based at Cornell (NY) <http://cs.cornell.edu/home/raman>
 --home to Auditory User Interfaces (AUI) on the WWW--
-Emacspeak is mirrored world-wide by an international netwrok
+Emacspeak is mirrored world-wide by an international network
 of software archives and voluntarily bundled with all major Linux
 distributions on CDROM.  On Monday, April 12, 1999,
 Emacspeak became part of the Permanent Research Collection

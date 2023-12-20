@@ -467,7 +467,7 @@ user interface layer that formed part of the
 Speech-enabling games for effective eyes-free interaction has
 proven highly educational. Interactive games are typically built
 to challenge the user, and if the eyes-free interface is
-inefficient, you just wont play the game — contrast this with a
+inefficient, you just won\'t play the game — contrast this with a
 task that you @strong{must} perform, where you're likely to make do with
 a sub-optimal interface. Over the years, Emacspeak has come to
 include eyes-free interfaces to several games including @uref{http://en.wikipedia.org/wiki/Tetris,Tetris},

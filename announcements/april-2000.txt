@@ -69,7 +69,7 @@ this wide-spread user demand, the present version is being
 made available at the same zero cost as earlier releases.
 
 And with the introduction of the for-sale version of
-Emacspeak, it now becomes possible to mesure Total Cost of
+Emacspeak, it now becomes possible to measure Total Cost of
 Ownership (TCO) --something that was impossible when you
 could not buy the software.  The company promises to
 progressively reduce TCO while increasing the price of the
@@ -137,7 +137,7 @@ About Emacspeak:
         
 Based at Cornell (NY) <http://cs.cornell.edu/home/raman>
 --home to Auditory User Interfaces (AUI) on the WWW--
-Emacspeak is mirrored world-wide by an international netwrok
+Emacspeak is mirrored world-wide by an international network
 of software archives and voluntarily bundled with all major Linux
 distributions on CDROM.  On Monday, April 12, 1999,
 Emacspeak became part of the Permanent Research Collection

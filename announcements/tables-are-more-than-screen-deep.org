@@ -68,7 +68,7 @@ over the region  containing the rendering.
 ** Generate A Tabular Structure From The Dom <<data>>
 
 Function ~emacspeak-eww-table-table~ generates a two-dimensional
-vector that encaspulates the tabular data.
+vector that encapsulates the tabular data.
 
 #+begin_src  emacs-lisp
 (defun emacspeak-eww-table-table ()

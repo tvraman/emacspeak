@@ -48,7 +48,7 @@ the evolving service-oriented social Internet cloud.
   - Calibre integration for searching and viewing epub 📚 📔
   - Complete anything via company integration  ∁
   - Emacs 24.4: Supports all new features in Emacs 24.4. 🌚
-  - And a lot more than wil fit this margin. …
+  - And a lot more than will fit this margin. …
 
 ** Establishing Liberty, Equality And Freedom:
 

@@ -39,7 +39,7 @@ the evolving service-oriented social Web cloud.
   - Updated search wizards for rapid Web access. ♄
   - Updated URL  templates for instant Web access. ♅
   - Improved Emacs 24.3 support. 🌑
-  - And a lot more than wil fit this margin. …
+  - And a lot more than will fit this margin. …
 
 ** Establishing Liberty, Equality And Freedom:
 

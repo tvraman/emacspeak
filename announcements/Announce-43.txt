@@ -53,7 +53,7 @@ the evolving service-oriented social Internet cloud.
   - Speech-enabled Elfeed, an Emacs Feed Reader 🗞
   - emacspeak-url-templates: Smart Web access.  ♅
   - emacspeak-websearch.el Find things fast. ♁
-  - And a lot more than wil fit this margin. …
+  - And a lot more than will fit this margin. …
 
 * Establishing Liberty, Equality And Freedom:
 
