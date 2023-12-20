@@ -1,18 +1,105 @@
 (setq
  package-selected-packages
- '(pass cdlatex fussy tldr noaa
-        yasnippet-snippets forge browse-at-remote devdocs
-        find-file-in-project company-fuzzy bash-completion org-translate
-        google-translate xelb exwm ido-completing-read+ pydoc
-        common-lisp-snippets calibredb haskell-mode diminish
-        slime-company csound-mode websearch arxiv-citation arxiv-mode
-        free-keys vdiff xkcd request-deferred exec-path-from-shell mines
-        js2-mode flx-ido clhs company-wordfreq elpy auth-source-xoauth2
-        company-statistics html2org sdcv orgalist clang-format eglot ein
-        chess list-unicode-display relint lispy 2048-game auto-correct
-        bbdb browse-kill-ring company-auctex auctex company-bibtex
-        company-c-headers company-flx company-prescient company-reftex
-        disable-mouse elfeed flyspell-correct-popup flyspell-correct
-        flyspell-popup folding go-complete go-eldoc go-mode html5-schema
-        company name-this-color nvm paradox rg sicp smartparens
-        ssh-config-mode stumpwm-mode threes twittering-mode yasnippet))
+ '(2048-game
+   ace-window
+   anaphora
+   apiwrap
+   apiwrap-20180602
+   .2231
+   arxiv-citation
+   arxiv-mode
+   auctex
+   auth-source-xoauth2
+   auto-correct
+   bash-completion
+   browse-at-remote
+   browse-kill-ring
+   calibredb
+   chess
+   clang-format
+   clhs
+   common-lisp-snippets
+   company
+   company-auctex
+   company-bibtex
+   company-c-headers
+   company-flx
+   company-fuzzy
+   company-prescient
+   company-reftex
+   company-statistics
+   company-wordfreq
+   csound-mode
+   daemons
+   dape
+   diminish
+   disable-mouse
+   eat
+   ebuku
+   ef-themes
+   eglot
+   ein
+   elfeed
+   elpy
+   enwc
+   exec-path-from-shell
+   exwm
+   find-file-in-project
+   flx-ido
+   flyspell-correct
+   flyspell-correct-popup
+   flyspell-popup
+   folding
+   forge
+   free-keys
+   fussy
+   ghub
+   git-modes
+   go-complete
+   go-eldoc
+   go-mode
+   haskell-mode
+   hotfuzz
+   html2org
+   html5-schema
+   htmlize
+   ibrowse
+   ido-completing-read+
+   iedit
+   journalctl-mode
+   js2-mode
+   lispy
+   list-unicode-display
+   logito
+   mines
+   name-this-color
+   notmuch
+   nvm
+   org-mpv-notes
+   orgalist
+   paradox
+   pass
+   pipewire
+   pydoc
+   relint
+   request-deferred
+   rg
+   sdcv
+   shell-command-x
+   sicp
+   slime-company
+   smartparens
+   sqlite3
+   ssh-config-mode
+   stumpwm-mode
+   threes
+   tldr
+   transient
+   vdiff
+   vterm
+   websearch
+   xelb
+   xkcd
+   yasnippet
+   yasnippet-snippets)
+ )
