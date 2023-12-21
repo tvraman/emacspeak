@@ -56,6 +56,7 @@
 * emacspeak-ein::Speech-enable EIN.
 * emacspeak-elfeed::Speech-enable ELFEED.
 * emacspeak-elisp-refs::ELISP-REFS.
+* emacspeak-ellama::Speech-enable ELLAMA.
 * emacspeak-elpher::Speech-enable ELPHER.
 * emacspeak-elpy::Speech-enable ELPY.
 * emacspeak-elscreen::ELSCREEN.
@@ -3775,6 +3776,12 @@ Speak entry at point.
 
 Speech-enable package elisp-refs.
 ELISP-REFS ==
+
+@node emacspeak-ellama
+@section emacspeak-ellama
+
+ELLAMA ==  Emacs LLM Interaction.
+ellama uses package llm, and this module speech-enables ellama.
 
 @node emacspeak-elpher
 @section emacspeak-elpher
@@ -10057,7 +10064,6 @@ The heads for the associated hydra are:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-brightness")’,
 "b":    ‘emacspeak-brightness-alert-toggle’,
-"B":    ‘emacspeak-brightness-autoblack-toggle’,
 "s":    ‘light-set’,
 "g":    ‘light-get’,
 "t":    ‘emacspeak-hydra-toggle-talkative’,
