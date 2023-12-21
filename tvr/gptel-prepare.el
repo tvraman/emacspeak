@@ -5,4 +5,4 @@
        :models '("zephyr" "llama2")
        :stream t))
 
-(setq gptel-model "zephyr")
+(setq-default gptel-model "zephyr")
