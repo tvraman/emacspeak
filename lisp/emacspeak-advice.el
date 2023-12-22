@@ -404,6 +404,19 @@ When on a close delimiter, speak matching delimiter after a small delay. "
        (emacspeak-speak-page)))))
 
 (cl-loop
+ for f in 
+ '(scroll-other-window scroll-other-window-up scroll-other-window-down)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (save-window-excursion
+         (with-selected-window (other-window-for-scrolling)
+           (emacspeak-speak-windowful)))))))
+
+
+(cl-loop
  for f in
  '(
    scroll-up scroll-down
