@@ -353,16 +353,16 @@ the Emacspeak desktop.")
 
 ;;;  Emacspeak:
 
-(defcustom emacspeak-play-emacspeak-startup-icon t
-  "If set to T, emacspeak plays its icon as it launches."
-  :type 'boolean
-  :group 'emacspeak)
+(defvar emacspeak-play-startup-icon t
+  "If set to T, emacspeak plays its icon as it launches.
+This cannot be set via custom; set this in your startup file before
+  you load anything else.")
 
 (defsubst emacspeak-play-startup-icon ()
   "Play startup icon."
-  (cl-declare (special emacspeak-play-emacspeak-startup-icon
+  (cl-declare (special emacspeak-play-startup-icon
                        emacspeak-m-player-program))
-  (when (and  emacspeak-play-emacspeak-startup-icon emacspeak-m-player-program)
+  (when (and  emacspeak-play-startup-icon emacspeak-m-player-program)
     (start-process
      "mp3" nil
      emacspeak-m-player-program
