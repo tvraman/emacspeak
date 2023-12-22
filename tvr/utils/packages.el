@@ -40,6 +40,7 @@
    eglot
    ein
    elfeed
+   ellama
    elpy
    enwc
    exec-path-from-shell
