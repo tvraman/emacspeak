@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1149 commands and 146 options.
+This chapter documents a total of 1149 commands and 145 options.
 
 @node amixer
 @section amixer
@@ -1219,19 +1219,6 @@ Toggle state of orca.
 @end deffn
 
 @subsection emacspeak Options
-
-@defvar {User Option} emacspeak-play-emacspeak-startup-icon
-If set to T, emacspeak plays its icon as it launches.
-
-Default Value: 
-
-@verbatim
-
-nil
-
-@end verbatim
-
-@end defvar
 
 @defvar {User Option} emacspeak-soundscapes
 Whether we should turn on soundscapes on startup.

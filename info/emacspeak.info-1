@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 21, 2023.
+last updated on December 22, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3236,7 +3236,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1149 commands and 146 options.
+   This chapter documents a total of 1149 commands and 145 options.
 
 * Menu:
 
@@ -4181,15 +4181,6 @@ system.
 
 12.5.2 emacspeak Options
 ------------------------
-
- -- Variable: User Option emacspeak-play-emacspeak-startup-icon
-     If set to T, emacspeak plays its icon as it launches.
-
-     Default Value:
-
-     
-     nil
-     
 
  -- Variable: User Option emacspeak-soundscapes
      Whether we should turn on soundscapes on startup.
