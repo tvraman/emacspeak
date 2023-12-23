@@ -2800,4 +2800,18 @@ Filters out loopback for convenience."
     (ems--get-essid)
     (ems--get-ip-address(cl-first  (ems--get-active-network-interfaces))))))
 
+;;; Cue window buffer change:
+
+;; Help set up a buffer local window change hook:
+
+(defun ems--add-window-buffer-change-hook (&optional buffer)
+  "Setup buffer-local window-buffer-change-functions  in buffer
+`BUFFER'."
+  (with-current-buffer
+      (or buffer (current-buffer))
+    (add-hook
+     'window-buffer-change-functions
+     #'(lambda (_) (sox-multiwindow 'swap 1.25))
+     0 'local)))
+
 ;;;  end of file
