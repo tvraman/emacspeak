@@ -8159,6 +8159,7 @@ Default Value:
 @verbatim
 
 (("'" emacspeak-pianobar)
+ ("C-'" empv-exit)
  ("d" sdcv-search-input)
  ("e" eat)
  ("f" ffap)

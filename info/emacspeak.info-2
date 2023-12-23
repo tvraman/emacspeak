@@ -1250,6 +1250,7 @@ found on laptops is denoted <fn>
 
      
      (("'" emacspeak-pianobar)
+      ("C-'" empv-exit)
       ("d" sdcv-search-input)
       ("e" eat)
       ("f" ffap)
