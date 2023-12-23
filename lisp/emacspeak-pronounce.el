@@ -750,12 +750,14 @@ specified pronunciation dictionary key."
 
 (defun emacspeak-pronounce-yyyymmdd-date (string)
   "Return pronunciation for yyyymmdd dates."
-  (calendar-date-string
-   (list
-    (read (substring string 4 6))
-    (read (substring string 6))
-    (read (substring string 0 4)))
-   nil 'nodayname))
+  (condition-case nil
+      (calendar-date-string
+       (list
+        (read (substring string 4 6))
+        (read (substring string 6))
+        (read (substring string 0 4)))
+       nil 'nodayname)
+    (error string)))
 
 ;;;  phone numbers
 
