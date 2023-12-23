@@ -688,6 +688,7 @@
 
 (defcustom emacspeak-multi-keys
   '(
+    ("C-'" empv-exit)
     ("'" emacspeak-pianobar)
     ("d" sdcv-search-input)
     ("e" eat)
