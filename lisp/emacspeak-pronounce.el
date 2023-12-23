@@ -705,25 +705,29 @@ specified pronunciation dictionary key."
 (defvar emacspeak-pronounce-number-pattern
   "[0-9]+\\.?[0-9]+%?"
   "Pattern that matches  nnnn.nnnn")
+
 ;; Date: mm-dd-yyyy
 (defvar emacspeak-pronounce-date-mm-dd-yyyy-pattern
   "[0-9]\\{2\\}-[0-9]\\{2\\}-[0-9]\\{2\\}\\([0-9]\\{2\\}\\)?"
   "Pattern that matches dates of the form mm-dd-[cc]yy.")
+
 (declare-function calendar-date-string
                   "calendar" (date &optional abbreviate nodayname))
 
 (defun emacspeak-pronounce-mm-dd-yyyy-date (string)
   "Return pronunciation for mm-dd-yyyy dates."
-  (let ((fields (mapcar #'read (split-string string "-"))))
-    (calendar-date-string
-     (list (cl-second fields)
-           (cl-first fields)
-           (cond
-            ((< (cl-third fields) 50)
-             (+ 2000 (cl-third fields)))
-            ((< (cl-third fields) 100)
-             (+ 1900 (cl-third fields)))
-            (t (cl-third fields)))))))
+  (condition-case nil
+      (let ((fields (mapcar #'read (split-string string "-"))))
+        (calendar-date-string
+         (list (cl-second fields)
+               (cl-first fields)
+               (cond
+                ((< (cl-third fields) 50)
+                 (+ 2000 (cl-third fields)))
+                ((< (cl-third fields) 100)
+                 (+ 1900 (cl-third fields)))
+                (t (cl-third fields))))))
+    (error string)))
 
 ;; Date: yyyy-mm-dd:
 
@@ -733,16 +737,18 @@ specified pronunciation dictionary key."
 
 (defun emacspeak-pronounce-yyyy-mm-dd-date (string)
   "Return pronunciation for yyyy-mm-dd  dates."
-  (let ((fields (mapcar #'read (split-string string "-"))))
-    (calendar-date-string
-     (list (cl-second fields)
-           (cl-third fields)
-           (cond
-            ((< (cl-first fields) 50)
-             (+ 2000 (cl-first fields)))
-            ((< (cl-first fields) 100)
-             (+ 1900 (cl-first fields)))
-            (t (cl-first fields)))))))
+  (condition-case nil
+      (let ((fields (mapcar #'read (split-string string "-"))))
+        (calendar-date-string
+         (list (cl-second fields)
+               (cl-third fields)
+               (cond
+                ((< (cl-first fields) 50)
+                 (+ 2000 (cl-first fields)))
+                ((< (cl-first fields) 100)
+                 (+ 1900 (cl-first fields)))
+                (t (cl-first fields))))))
+    (error string)))
 
 (defvar emacspeak-pronounce-date-yyyymmdd-pattern
   "[0-9]\\{8\\}"

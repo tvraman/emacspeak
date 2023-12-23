@@ -51,9 +51,19 @@
 ;;;  Map faces to voices:
 (voice-setup-add-map
  '(
-   (markdown-italic-face  voice-animate)
+
+   
+   
+   
+   
+   
+   
+   (markdown-blockquote-face voice-lighten)
    (markdown-bold-face voice-bolden)
-   (markdown-header-rule-face voice-bolden-medium)
+   (markdown-code-face voice-monotone)
+   (markdown-comment-face voice-monotone-extra)
+   (markdown-footnote-marker-face voice-smoothen)
+   (markdown-footnote-text-face voice-smoothen)
    (markdown-header-delimiter-face voice-lighten)
    (markdown-header-face voice-bolden)
    (markdown-header-face-1 voice-brighten)
@@ -62,21 +72,29 @@
    (markdown-header-face-4 voice-smoothen)
    (markdown-header-face-5 voice-monotone)
    (markdown-header-face-6 voice-monotone-extra)
+   (markdown-header-rule-face voice-bolden-medium)
+   (markdown-highlight-face voice-animate)
+   (markdown-highlighting-face voice-animate)
+   (markdown-html-attr-name-face voice-lighten)
+   (markdown-html-attr-value-face voice-brighten)
+   (markdown-html-entity-face voice-smoothen)
+   (markdown-html-tag-name-face voice-bolden)
    (markdown-inline-code-face voice-monotone-extra)
-   (markdown-list-face voice-animate)
-   (markdown-blockquote-face voice-lighten)
-   (markdown-pre-face voice-monotone-extra)
+   (markdown-italic-face  voice-animate)
    (markdown-language-keyword-face voice-smoothen)
-   (markdown-link-face voice-bolden)
-   (markdown-missing-link-face voice-animate)
-   (markdown-reference-face voice-lighten)
-   (markdown-url-face voice-bolden-and-animate)
-   (markdown-link-title-face voice-lighten)
    (markdown-line-break-face voice-monotone-extra)
-   (markdown-comment-face voice-monotone-extra)
+   (markdown-link-face voice-bolden)
+   (markdown-link-title-face voice-lighten)
+   (markdown-list-face voice-animate)
    (markdown-math-face voice-animate)
    (markdown-metadata-key-face voice-smoothen)
    (markdown-metadata-value-face voice-smoothen-medium)
+   (markdown-missing-link-face voice-animate)
+   (markdown-plain-url-face voice-lighten)
+   (markdown-pre-face voice-monotone-extra)
+   (markdown-reference-face voice-lighten)
+   (markdown-table-face voice-monotone)
+   (markdown-url-face voice-bolden-and-animate)
    ))
 
 ;;;  Advice Interactive Commands:
