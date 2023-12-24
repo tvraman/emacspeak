@@ -12,11 +12,19 @@
        "Episode: " 4 "\t"
        "Description: "  12 "\n"))
 
+(defun ems--get-iplayer-play ()
+  "Play using mpv"
+  (interactive)
+  (emacspeak-empv-play-url (nth  13 forms-fields)))
+
 (defun ems--get-iplayer-download ()
   (interactive)
   (let ((default-directory (expand-file-name "~/Downloads")))
     (shell-command
-     (format "get_iplayer %s --get --type=radio&" (nth  1
-                                                              forms-fields)))))
+     (format
+      "get_iplayer %s --get --type=radio&"
+      (nth  1 forms-fields)))))
+
 (when (and forms-mode-map (keymapp forms-mode-map))
-  (define-key forms-mode-map "d" 'ems--get-iplayer-download))
+  (define-key forms-mode-map "d" 'ems--get-iplayer-download)
+  (define-key forms-mode-map "p" 'ems--get-iplayer-play))
