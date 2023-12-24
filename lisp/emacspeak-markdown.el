@@ -116,6 +116,7 @@
 (cl-loop
  for f in
  '(
+   markdown-back-to-heading
    markdown-backward-block markdown-backward-page
    markdown-beginning-of-list markdown-beginning-of-text-block
    markdown-edit-code-block markdown-end-of-list
