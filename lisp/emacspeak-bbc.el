@@ -40,9 +40,7 @@
 
 
 ;;; Commentary:
-;; BBC developer API (backstage) is now history.
-;; that implementation is in obsolete/emacspeak-bbc-backstage.el
-;; This module contains a light-weight client.
+;; Use get_iplayer script to get  BBC Schedules, download and play.
 
 ;;;   Required modules
 
@@ -77,21 +75,6 @@
     (sit-for 1)
     (emacspeak-m-player emacspeak-bbc-iplayer-handle)))
 
-(defun emacspeak-bbc-get-iplayer-stream-pid (pid)
-  "Stream using get_iplayer."
-  (interactive "sPid ")
-  (cl-declare (special emacspeak-bbc-get-iplayer emacspeak-bbc-iplayer-handle))
-  (let
-      ((command
-        (format
-         "%s --stream --pid='%s' --type=radio > %s &"
-         emacspeak-bbc-get-iplayer pid emacspeak-bbc-iplayer-handle)))
-    (unless (file-exists-p emacspeak-bbc-iplayer-handle)
-      (shell-command (format "mknod %s p" emacspeak-bbc-iplayer-handle)))
-    (dtk-speak-and-echo "Initialized stream, please wait.")
-    (shell-command  command " *get-iplayer*")
-    (sit-for 1)
-    (emacspeak-m-player emacspeak-bbc-iplayer-handle)))
 
 ;;; get_iplayer catalog 
 
