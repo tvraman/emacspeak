@@ -47,7 +47,7 @@
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-
+(require 'markdown-mode  "markdown-mode" 'no-error)
 ;;;  Map faces to voices:
 (voice-setup-add-map
  '(
@@ -196,7 +196,7 @@
        (emacspeak-auditory-icon 'complete)
        (emacspeak-speak-line)))))
 ;;; Eepeat-mode:
-(cl-declaim (special markdown-mode-map))
+
 (map-keymap
  (lambda (_key cmd)
    (when
