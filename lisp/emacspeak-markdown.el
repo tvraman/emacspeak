@@ -195,6 +195,16 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'complete)
        (emacspeak-speak-line)))))
+;;; Eepeat-mode:
+(cl-declaim (special markdown-mode-map))
+(map-keymap
+ (lambda (_key cmd)
+   (when
+       (and
+        (symbolp cmd)
+        (not (eq cmd 'digit-argument)))
+     (put cmd 'repeat-map 'markdown-mode-map)))
+ markdown-mode-map)
 
 (provide 'emacspeak-markdown)
 ;;;  end of file
