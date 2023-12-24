@@ -2811,7 +2811,9 @@ Filters out loopback for convenience."
       (or buffer (current-buffer))
     (add-hook
      'window-buffer-change-functions
-     #'(lambda (_) (sox-multiwindow 'swap 1.25))
-     0 'local)))
+     #'(lambda (w)
+         (with-current-buffer (window-buffer w)
+           (emacspeak-speak-windowful))
+         (sox-multiwindow 'swap 1.25)) 0 'local)))
 
 ;;;  end of file
