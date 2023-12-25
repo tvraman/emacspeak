@@ -23,8 +23,7 @@
   (let ((default-directory (expand-file-name "~/Downloads")))
     (shell-command
      (format
-      "get_iplayer %s --get --type=radio&"
-      (nth  1 forms-fields)))))
+      "youtube-dl  %s " (nth  1 forms-fields)))))
 
 (when (and forms-mode-map (keymapp forms-mode-map))
   (define-key forms-mode-map "d" 'ems--get-iplayer-download)
