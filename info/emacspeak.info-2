@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 22, 2023.
+last updated on December 24, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -6559,7 +6559,6 @@ provide commands for intelligent spoken output
  -- Command: emacspeak-tabulated-list-speak-cell
 
      Speak current cell.
-     Optional interactive prefix arg speaks column header as well.
 
 
 File: emacspeak.info,  Node: emacspeak-tar,  Next: emacspeak-tcl,  Prev: emacspeak-tabulated-list,  Up: Emacspeak Commands And Options

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 22, 2023.
+last updated on December 24, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3236,7 +3236,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1149 commands and 145 options.
+   This chapter documents a total of 1148 commands and 145 options.
 
 * Menu:
 
@@ -4624,25 +4624,13 @@ File: emacspeak.info,  Node: emacspeak-bbc,  Next: emacspeak-bbdb,  Prev: emacsp
 12.16 emacspeak-bbc
 ===================
 
-BBC developer API (backstage) is now history.  that implementation is in
-obsolete/emacspeak-bbc-backstage.el This module contains a light-weight
-client.
-
-   Required modules
+Use get_iplayer script to get BBC Schedules, download and play.
+Required modules
 
 12.16.1 Emacspeak-Bbc Commands
 ------------------------------
 
-12.16.1.1 emacspeak-bbc-get-iplayer-stream-pid
-..............................................
-
- -- Command: emacspeak-bbc-get-iplayer-stream-pid (pid)
-
-     Stream using get_iplayer.
-
-     (fn PID)
-
-12.16.1.2 emacspeak-bbc-get-iplayer-stream-url
+12.16.1.1 emacspeak-bbc-get-iplayer-stream-url
 ..............................................
 
  -- Command: emacspeak-bbc-get-iplayer-stream-url (url)
@@ -4651,7 +4639,7 @@ client.
 
      (fn URL)
 
-12.16.1.3 emacspeak-bbc-schedule
+12.16.1.2 emacspeak-bbc-schedule
 ................................
 
  -- Command: emacspeak-bbc-schedule

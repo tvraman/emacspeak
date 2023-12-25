@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1149 commands and 145 options.
+This chapter documents a total of 1148 commands and 145 options.
 
 @node amixer
 @section amixer
@@ -1719,24 +1719,10 @@ Tie the next n  words.
 @node emacspeak-bbc
 @section emacspeak-bbc
 
-BBC developer API (backstage) is now history.
-that implementation is in obsolete/emacspeak-bbc-backstage.el
-This module contains a light-weight client.
-
+Use get_iplayer script to get  BBC Schedules, download and play.
   Required modules
 
 @subsection Emacspeak-Bbc Commands
-
-@subsubsection emacspeak-bbc-get-iplayer-stream-pid
-@deffn {Command} emacspeak-bbc-get-iplayer-stream-pid  (pid)
-@findex emacspeak-bbc-get-iplayer-stream-pid
-
-@format
-Stream using get_iplayer.
-
-(fn PID)
-@end format
-@end deffn
 
 @subsubsection emacspeak-bbc-get-iplayer-stream-url
 @deffn {Command} emacspeak-bbc-get-iplayer-stream-url  (url)
@@ -14707,8 +14693,7 @@ Move to previous row and speak that cell.
 @findex emacspeak-tabulated-list-speak-cell
 
 @format
-Speak current cell.
-Optional interactive prefix arg speaks column header as well.
+Speak current cell. 
 @end format
 @end deffn
 
