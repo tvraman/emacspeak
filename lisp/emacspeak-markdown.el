@@ -47,7 +47,6 @@
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'markdown-mode  "markdown-mode" 'no-error)
 ;;;  Map faces to voices:
 (voice-setup-add-map
  '(
@@ -196,15 +195,16 @@
        (emacspeak-auditory-icon 'complete)
        (emacspeak-speak-line)))))
 ;;; Eepeat-mode:
-
-(map-keymap
- (lambda (_key cmd)
-   (when
-       (and
-        (symbolp cmd)
-        (not (eq cmd 'digit-argument)))
-     (put cmd 'repeat-map 'markdown-mode-map)))
- markdown-mode-map)
+(cl-declaim (special markdown-mode-map))
+(when (and (bound-and-true-p markdown-mode-map) (keymapp  markdown-mode-map))
+  (map-keymap
+   (lambda (_key cmd)
+     (when
+         (and
+          (symbolp cmd)
+          (not (eq cmd 'digit-argument)))
+       (put cmd 'repeat-map 'markdown-mode-map)))
+   markdown-mode-map))
 
 (provide 'emacspeak-markdown)
 ;;;  end of file
