@@ -63,14 +63,18 @@
   (interactive)
   (cl-declare (tabulated-list-format))
   (unless (get-text-property (point) 'tabulated-list-column-name)
+    (unless (next-single-property-change (point) 'tabulated-list-column-name)
+      (error "On last row"))
     (goto-char
      (next-single-property-change (point) 'tabulated-list-column-name)))
   (let* ((name (get-text-property (point) 'tabulated-list-column-name))
          (col (cl-position name tabulated-list-format
                            :test #'string= :key #'car))
          (value (elt (tabulated-list-get-entry)  col)))
+    (when (= 0 col) (emacspeak-auditory-icon 'left))
+    (when (= (1- (length tabulated-list-format)) col) (emacspeak-auditory-icon 'right))
     (when (zerop (length (string-trim value)))
-      (dtk-tone 261.6 150 'force)) ;blank
+      (dtk-tone 261.6 150 'force))      ;blank
     (if (called-interactively-p 'interactive) 
         (dtk-speak (concat name " " value))
       (dtk-speak  value))))
