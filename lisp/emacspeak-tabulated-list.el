@@ -59,9 +59,8 @@
 ;;;  Interactive Commands:
 ;;;###autoload
 (defun emacspeak-tabulated-list-speak-cell ()
-  "Speak current cell.
-Optional interactive prefix arg speaks column header as well."
-  (interactive )
+  "Speak current cell. "
+  (interactive)
   (cl-declare (tabulated-list-format))
   (unless (get-text-property (point) 'tabulated-list-column-name)
     (goto-char
@@ -70,7 +69,8 @@ Optional interactive prefix arg speaks column header as well."
          (col (cl-position name tabulated-list-format
                            :test #'string= :key #'car))
          (value (elt (tabulated-list-get-entry)  col)))
-    (when (zerop (length (string-trim value))) (dtk-tone 261.6 150 'force))
+    (when (zerop (length (string-trim value)))
+      (dtk-tone 261.6 150 'force)) ;blank
     (if (called-interactively-p 'interactive) 
         (dtk-speak (concat name " " value))
       (dtk-speak  value))))
