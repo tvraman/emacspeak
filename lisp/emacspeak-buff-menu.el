@@ -131,10 +131,8 @@ and set up additional Emacspeak bindings."
   (cl-declare (special Buffer-menu-mode-map))
   (when (ems-interactive-p)
     (select-window  ad-return-value)
-    (goto-char (point-min))
-    (forward-line 2)
-    (define-key
-     Buffer-menu-mode-map "," 'emacspeak-list-buffers-speak-buffer-name)
+    (tabulated-list-next-column 3)
+    (define-key Buffer-menu-mode-map "," 'emacspeak-list-buffers-speak-buffer-name)
     (define-key Buffer-menu-mode-map "l"
                 'emacspeak-list-buffers-speak-buffer-line)
     (define-key Buffer-menu-mode-map "n" 'emacspeak-list-buffers-next-line)
