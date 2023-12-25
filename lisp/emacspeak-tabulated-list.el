@@ -70,6 +70,7 @@ Optional interactive prefix arg speaks column header as well."
          (col (cl-position name tabulated-list-format
                            :test #'string= :key #'car))
          (value (elt (tabulated-list-get-entry)  col)))
+    (when (zerop (length (string-trim value))) (dtk-tone 261.6 150 'force))
     (if (called-interactively-p 'interactive) 
         (dtk-speak (concat name " " value))
       (dtk-speak  value))))
