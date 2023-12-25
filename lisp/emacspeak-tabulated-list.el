@@ -93,9 +93,13 @@
 (defun emacspeak-tabulated-list-next-row ()
   "Move to next row and speak that cell"
   (interactive)
-  (let ((col (current-column)))
+  (let ((col
+          (cl-position
+           (get-text-property (point) 'tabulated-list-column-name)
+           tabulated-list-format
+           :test #'string= :key #'car)))
     (forward-line 1)
-    (forward-char col)
+    (tabulated-list-next-column  col)
     (when-let ((goal (next-single-property-change (point)
                                                   'tabulated-list-column-name)))
       (goto-char goal))
@@ -104,9 +108,13 @@
 (defun emacspeak-tabulated-list-previous-row ()
   "Move to previous row and speak that cell."
   (interactive)
-  (let ((col (current-column)))
+  (let ((col
+          (cl-position
+           (get-text-property (point) 'tabulated-list-column-name)
+           tabulated-list-format
+           :test #'string= :key #'car)))
     (forward-line -1)
-    (forward-char col)
+    (tabulated-list-next-column  col)
     (when-let ((goal (next-single-property-change (point) 'tabulated-list-column-name)))
       (goto-char goal))
     (emacspeak-tabulated-list-speak-cell)))
