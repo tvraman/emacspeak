@@ -54,33 +54,24 @@
 (defun emacspeak-bs-speak-buffer-line ()
   "Speak information about this buffer"
   (interactive)
-  (cl-declare (special dtk-stop-immediately
-                       list-buffers-directory))
+  (cl-declare (special list-buffers-directory))
   (unless (eq major-mode 'bs-mode)
     (error "This command can only be used in buffer menus"))
   (let((buffer (bs--current-buffer)))
     (cond
      ((get-buffer buffer)
-      (when dtk-stop-immediately (dtk-stop))
-      (let ((document
-             (propertize " document " 'personality voice-smoothen))
-            (with
-             (propertize "with size " 'personality voice-smoothen))
+      (let (
+            (with (propertize "with size " 'personality voice-smoothen))
             (name (buffer-name buffer))
             (file (buffer-file-name buffer))
-            this-buffer-read-only
-            this-buffer-modified-p
-            this-buffer-size
-            this-buffer-mode-name
-            mode-name
-            this-buffer-directory
-            (dtk-stop-immediately nil))
+            this-buffer-read-only this-buffer-modified-p
+            this-buffer-size 
+            this-buffer-directory)
         (save-current-buffer
           (set-buffer buffer)
           (setq this-buffer-read-only buffer-read-only)
           (setq this-buffer-modified-p (buffer-modified-p))
           (setq this-buffer-size (buffer-size))
-          (setq this-buffer-mode-name (copy-sequence mode-name))
           (or file
               ;; No visited file.  Check local value of
               ;; list-buffers-directory.
@@ -90,15 +81,10 @@
                                         ;format and speak the line
         (when this-buffer-modified-p (dtk-tone 700 100))
         (when this-buffer-read-only (dtk-tone 250 100))
-        (put-text-property 0 (length this-buffer-mode-name)
-                           'personality voice-smoothen
-                           this-buffer-mode-name)
         (dtk-speak
          (concat 
-          name
-          " "
-          this-buffer-mode-name
-          document 
+          name " "
+          (format-mode-line mode-name)
           (if (or file this-buffer-directory)
               (format " visiting %s "
                       (or file this-buffer-directory))
