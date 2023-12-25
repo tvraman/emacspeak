@@ -64,19 +64,20 @@
   (cl-declare (tabulated-list-format))
   (when (bobp) (error "Beginning  of buffer"))
   (when (eobp) (error "End of buffer"))
-  (when-let
-      ((name (get-text-property (point) 'tabulated-list-column-name))
-       (col
-        (cl-position name tabulated-list-format
-                     :test #'string= :key #'car))
-       (value (elt (tabulated-list-get-entry)  col)))
-    (when (= 0 col) (emacspeak-auditory-icon 'left))
-    (when (= (1- (length tabulated-list-format)) col) (emacspeak-auditory-icon 'right))
-    (when (zerop (length (string-trim value)))
-      (dtk-tone 261.6 150 'force))      ;blank
-    (if (called-interactively-p 'interactive) 
-        (dtk-speak (concat name " " value))
-      (dtk-speak  value))))
+  (save-excursion
+    (when-let
+        ((name (get-text-property (point) 'tabulated-list-column-name))
+         (col
+          (cl-position name tabulated-list-format
+                       :test #'string= :key #'car))
+         (value (elt (tabulated-list-get-entry)  col)))
+      (when (= 0 col) (emacspeak-auditory-icon 'left))
+      (when (= (1- (length tabulated-list-format)) col) (emacspeak-auditory-icon 'right))
+      (when (zerop (length (string-trim value)))
+        (dtk-tone 261.6 150 'force))    ;blank
+      (if (called-interactively-p 'interactive) 
+          (dtk-speak (concat name " " value))
+        (dtk-speak  value)))))
 
 (cl-loop
  for f in 
@@ -95,6 +96,9 @@
   (let ((col (current-column)))
     (forward-line 1)
     (forward-char col)
+    (when-let ((goal (next-single-property-change (point)
+                                                  'tabulated-list-column-name)))
+      (goto-char goal))
     (emacspeak-tabulated-list-speak-cell)))
 
 (defun emacspeak-tabulated-list-previous-row ()
@@ -103,6 +107,8 @@
   (let ((col (current-column)))
     (forward-line -1)
     (forward-char col)
+    (when-let ((goal (next-single-property-change (point) 'tabulated-list-column-name)))
+      (goto-char goal))
     (emacspeak-tabulated-list-speak-cell)))
 
 (defun emacspeak-tabulated-list-setup ()
