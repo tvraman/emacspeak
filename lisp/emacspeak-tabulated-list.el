@@ -65,7 +65,7 @@
   (when (bobp) (error "Beginning  of buffer"))
   (when (eobp) (error "End of buffer"))
   (save-excursion
-    (when-let
+    (when-let*
         ((name (get-text-property (point) 'tabulated-list-column-name))
          (col
           (cl-position name tabulated-list-format
