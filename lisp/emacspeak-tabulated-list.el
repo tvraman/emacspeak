@@ -62,15 +62,14 @@
   "Speak current cell. "
   (interactive)
   (cl-declare (tabulated-list-format))
+  (when (bobp) (error "Beginning  of buffer"))
+  (when (eobp) (error "End of buffer"))
   (when-let
-      ((goal (next-single-property-change (point) 'tabulated-list-column-name))
-       (this (get-text-property (point) 'tabulated-list-column-name))
-       (name (get-text-property (point) 'tabulated-list-column-name))
+      ((name (get-text-property (point) 'tabulated-list-column-name))
        (col
         (cl-position name tabulated-list-format
                      :test #'string= :key #'car))
        (value (elt (tabulated-list-get-entry)  col)))
-    (when (and (null this) goal) (goto-char goal))
     (when (= 0 col) (emacspeak-auditory-icon 'left))
     (when (= (1- (length tabulated-list-format)) col) (emacspeak-auditory-icon 'right))
     (when (zerop (length (string-trim value)))
