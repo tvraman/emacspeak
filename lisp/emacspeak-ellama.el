@@ -51,44 +51,50 @@
 ;;;  Map Faces:
 
 ;;;  Interactive Commands:
+;;; Speech-enable output handlers:
+
+(defadvice ellama-chat-done (after emacspeak pre act comp)
+  "speak."
+  (emacspeak-auditory-icon 'item)
+  (with-current-buffer (get-buffer ellama-buffer) (emacspeak-speak-buffer)))
 
 
 '(
   ellama-add-code
-ellama-ask
-ellama-ask-about
-ellama-ask-interactive
-ellama-ask-line
-ellama-ask-selection
-ellama-change
-ellama-change-code
-ellama-chat
-ellama-code-add
-ellama-code-complete
-ellama-code-edit
-ellama-code-improve
-ellama-code-review
-ellama-complete
-ellama-complete-code
-ellama-define-word
-ellama-enhance-code
-ellama-enhance-grammar-spelling
-ellama-enhance-wording
-ellama-get-ollama-local-model
-ellama-improve-conciseness
-ellama-improve-grammar
-ellama-improve-wording
-ellama-make-concise
-ellama-make-format
-ellama-make-list
-ellama-make-table
-ellama-provider-select
-ellama-render
-ellama-setup-keymap
-ellama-summarize
-ellama-summarize-webpage
-ellama-translate
-)
+  ellama-ask
+  ellama-ask-about
+  ellama-ask-interactive
+  ellama-ask-line
+  ellama-ask-selection
+  ellama-change
+  ellama-change-code
+  ellama-chat
+  ellama-code-add
+  ellama-code-complete
+  ellama-code-edit
+  ellama-code-improve
+  ellama-code-review
+  ellama-complete
+  ellama-complete-code
+  ellama-define-word
+  ellama-enhance-code
+  ellama-enhance-grammar-spelling
+  ellama-enhance-wording
+  ellama-get-ollama-local-model
+  ellama-improve-conciseness
+  ellama-improve-grammar
+  ellama-improve-wording
+  ellama-make-concise
+  ellama-make-format
+  ellama-make-list
+  ellama-make-table
+  ellama-provider-select
+  ellama-render
+  ellama-setup-keymap
+  ellama-summarize
+  ellama-summarize-webpage
+  ellama-translate
+  )
 
 (provide 'emacspeak-ellama)
 ;;;  end of file
