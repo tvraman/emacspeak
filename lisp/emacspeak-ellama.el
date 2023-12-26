@@ -53,10 +53,17 @@
 ;;;  Interactive Commands:
 ;;; Speech-enable output handlers:
 
-(defadvice ellama-chat-done (after emacspeak pre act comp)
+(defadvice ellama-chat-done (around emacspeak pre act comp)
   "speak."
-  (emacspeak-auditory-icon 'item)
-  (with-current-buffer (get-buffer ellama-buffer) (emacspeak-speak-buffer)))
+  (let ((dtk-caps nil))
+    (dtk-interp-sync)
+    (emacspeak-auditory-icon 'item)
+    ad-do-it
+    (with-current-buffer (get-buffer ellama-buffer)
+      (goto-char (point-max))
+      (search-backward
+       (format "## %s" ellama-assistant-nick))
+      (emacspeak-speak-region (point) (point-max)))))
 
 
 '(
