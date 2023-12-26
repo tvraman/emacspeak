@@ -58,11 +58,7 @@
   (let ((dtk-caps nil))
     (dtk-interp-sync)
     (emacspeak-auditory-icon 'item)
-    (with-current-buffer (get-buffer ellama-buffer)
-      (save-excursion
-        (goto-char (point-max))
-        (search-backward (format "## %s" ellama-assistant-nick))
-        (emacspeak-speak-region (point) (point-max))))))
+    (dtk-speak (ad-get-arg 0))))
 
 
 '(
