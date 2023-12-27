@@ -10,7 +10,7 @@
 ;;; A speech interface to Emacs |
 ;;; $Date: 2011-06-29 15:07:46 -0700 (Wed, 29 Jun 2011) $ |
 ;;;  $Revision: 7078 $ |
-;;; Location undetermined
+;;; Location https://github.com/tvraman/emacspeak
 ;;;
 
 ;;}}} 

@@ -6,7 +6,7 @@
 # LCD Archive Entry:
 # emacspeak| T. V. Raman |raman@cs.cornell.edu
 # A speech interface to Emacs |
-# Location undetermined
+# Location https://github.com/tvraman/emacspeak
 #
 
 ###  Copyright:

@@ -8,7 +8,7 @@
 # A speech interface to Emacs |
 # $Date: 2007-06-24 15:56:04 -0700 (Sun, 24 Jun 2007) $ |
 #  $Revision: 4673 $ |
-# Location undetermined
+# Location https://github.com/tvraman/emacspeak
 #
 
 ###  Copyright:
