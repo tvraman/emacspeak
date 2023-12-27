@@ -1422,7 +1422,7 @@ Interactive prefix arg speaks buffer info."
     (when emacspeak-mail-alert (emacspeak-mail-alert-user))
     (when (and mode-line-process
                (> (length (format-mode-line mode-line-process)) 0))
-      (emacspeak-auditory-icon 'repeat-active))
+      (emacspeak-auditory-icon 'process-active))
     (cond
      ((and header-line-format (not (called-interactively-p 'interactive)))
       (emacspeak-speak-header-line))
