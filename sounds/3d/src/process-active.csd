@@ -19,7 +19,7 @@ instr 1		;a plucked string
 endin
 
 instr 10	;uses output from instr1 as source
- kaz	linseg 0, p3, 360		;2 full rotation
+ kaz	linseg 0, p3, 180		;1 full rotation
  aleft,aright hrtfmove2 gasrc, kaz,0, "hrtf-44100-left.dat","hrtf-44100-right.dat"
  outs	aleft, aright
 endin
@@ -27,7 +27,7 @@ endin
 <CsScore>
 
 i1 + 1 15000 8.11
-i1 + 1 15000 8.07
+i1 + 1 15000 8.09
 
 ; Play Instrument 10 
 i10 0 0.3
