@@ -1408,7 +1408,8 @@ Interactive prefix arg speaks buffer info."
   (cl-declare (special mode-name major-mode vc-mode
                        emacspeak-comint-autospeak
                        global-visual-line-mode visual-line-mode
-                       header-line-format global-mode-string outline-minor-mode
+                       mode-line-process header-line-format
+                       global-mode-string outline-minor-mode
                        folding-mode column-number-mode line-number-mode
                        emacspeak-mail-alert mode-line-format))
   (with-current-buffer (window-buffer (selected-window))
@@ -1419,6 +1420,7 @@ Interactive prefix arg speaks buffer info."
       (emacspeak-auditory-icon 'ellipses))
     (when (and visual-line-mode (not global-visual-line-mode)) (sox-chime 2 2))
     (when emacspeak-mail-alert (emacspeak-mail-alert-user))
+(when mode-line-process (emacspeak-auditory-icon 'repeat-active))
     (cond
      ((and header-line-format (not (called-interactively-p 'interactive)))
       (emacspeak-speak-header-line))
@@ -1448,34 +1450,34 @@ Interactive prefix arg speaks buffer info."
             (put-text-property
              0 (length global-info) 'personality voice-bolden-medium
              global-info))
-          ;;; avoid pathological case
+;;; avoid pathological case
           (unless (and buffer-read-only (buffer-modified-p))
             (when (and buffer-file-name (buffer-modified-p))
               (emacspeak-auditory-icon 'modified-object))
             (when buffer-read-only
               (emacspeak-auditory-icon 'unmodified-object)))
           (tts-with-punctuations
-           'all
-           (dtk-speak
-            (concat
-             autospeak
-             dir-info
-             (propertize (buffer-name) 'personality
-                         voice-lighten-medium)
-             (emacspeak-get-current-percentage-verbously)
-             (when window-count
-               (propertize window-count 'personality voice-smoothen))
-             (when vc-mode
-               (propertize (downcase vc-mode) 'personality voice-smoothen))
-             (when vc-state (format " %s " vc-state))
-             (when line-number-mode
-               (format "line %d" (emacspeak-get-current-line-number)))
-             (when column-number-mode
-               (format "column %d" (current-column)))
-             (propertize
-              (downcase
-               (format-mode-line mode-name)) 'personality voice-animate)
-             global-info frame-info recursion-info))))))))))
+              'all
+            (dtk-speak
+             (concat
+              autospeak
+              dir-info
+              (propertize (buffer-name) 'personality
+                          voice-lighten-medium)
+              (emacspeak-get-current-percentage-verbously)
+              (when window-count
+                (propertize window-count 'personality voice-smoothen))
+              (when vc-mode
+                (propertize (downcase vc-mode) 'personality voice-smoothen))
+              (when vc-state (format " %s " vc-state))
+              (when line-number-mode
+                (format "line %d" (emacspeak-get-current-line-number)))
+              (when column-number-mode
+                (format "column %d" (current-column)))
+              (propertize
+               (downcase
+                (format-mode-line mode-name)) 'personality voice-animate)
+              global-info frame-info recursion-info))))))))))
 
 (defun emacspeak-return-mode-line ()
   "Debug tool: return visually displayed mode-line as a string."
