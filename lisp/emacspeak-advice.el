@@ -2759,5 +2759,15 @@ Produce an auditory icon if possible."
                       (mouse-1 . elisp-enable-lexical-binding)))))))))
 
 (provide 'emacspeak-advice)
+;;; Spinner:
+
+(defadvice spinner-start (after emacspeak pre act comp)
+  "Icon."
+  (emacspeak-auditory-icon 'repeat-start))
+
+(defadvice spinner-stop (after emacspeak pre act comp)
+  "Icon."
+  (emacspeak-auditory-icon 'repeat-stop))
+
 ;;;  end of file
 
