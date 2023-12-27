@@ -1,15 +1,11 @@
 ;;; emacspeak-<skeleton>.el --- Speech-enable <SKELETON>  -*- lexical-binding: t; -*-
-;;; $Author: tv.raman.tv $
-;;; Keywords: Emacspeak,  Audio Desktop <skeleton>
-;;;   LCD Archive entry:
-
+;; $Author: tv.raman.tv $
+;; Keywords: Emacspeak,  Audio Desktop <skeleton>
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
-;;; A speech interface to Emacs |
-;;;  $Revision: 4532 $ |
-;;; Location undetermined
-;;;
-
+;; emacspeak| T. V. Raman |raman@cs.cornell.edu
+;; A speech interface to Emacs |
+;;  $Revision: 4532 $ |
+;; Location https://github.com/tvraman/emacspeak
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman
@@ -37,7 +33,7 @@
 
 
 ;;; Commentary:
-;;; <SKELETON> == 
+;; <SKELETON> == 
 
 ;;; Code:
 
