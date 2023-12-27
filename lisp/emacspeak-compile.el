@@ -9,7 +9,7 @@
 ;; A speech interface to Emacs |
 ;; 
 ;;  $Revision: 4532 $ | 
-;; Location undetermined
+;; Location https://github.com/tvraman/emacspeak
 ;; 
 
 ;;;   Copyright:

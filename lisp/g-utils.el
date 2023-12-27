@@ -10,7 +10,7 @@
 ;; An emacs interface to Google Services|
 ;; 
 ;;  $Revision: 1.14 $ |
-;; Location undetermined
+;; Location https://github.com/tvraman/emacspeak
 ;; License: GPL
 ;; 
 
