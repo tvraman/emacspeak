@@ -6575,12 +6575,13 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 ------------------------------
 
  -- Variable: User Option emacspeak-empv-custom-filters
-     List of custom filters to turn on/off at one shot.
+     List of custom filters to turn on/off at one shot The default value
+     is suitable for classical instrumental music.
 
      Default Value:
 
      
-     nil
+     ("extrastereo" "stereowiden=4.25:.1:735:.8")
      
 
 
