@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1148 commands and 145 options.
+This chapter documents a total of 1149 commands and 146 options.
 
 @node amixer
 @section amixer
@@ -3879,6 +3879,15 @@ Relative seek in seconds,see ‘empv-seek’
 @end format
 @end deffn
 
+@subsubsection emacspeak-empv-toggle-custom
+@deffn {Command} emacspeak-empv-toggle-custom   
+@findex emacspeak-empv-toggle-custom
+
+@format
+Toggle our custom filters.
+@end format
+@end deffn
+
 @subsubsection emacspeak-empv-toggle-filter
 @deffn {Command} emacspeak-empv-toggle-filter  (filter)
 @findex emacspeak-empv-toggle-filter
@@ -3890,6 +3899,21 @@ Filter is of the  form name=arg-1:arg-2:...
 (fn FILTER)
 @end format
 @end deffn
+
+@subsection emacspeak-empv Options
+
+@defvar {User Option} emacspeak-empv-custom-filters
+List of custom filters to turn on/off at one shot.
+
+Default Value: 
+
+@verbatim
+
+nil
+
+@end verbatim
+
+@end defvar
 
 @node emacspeak-enriched
 @section emacspeak-enriched

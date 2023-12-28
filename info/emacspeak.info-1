@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 24, 2023.
+last updated on December 28, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3236,7 +3236,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1148 commands and 145 options.
+   This chapter documents a total of 1149 commands and 146 options.
 
 * Menu:
 
@@ -6554,7 +6554,14 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 
      (fn TARGET)
 
-12.62.1.7 emacspeak-empv-toggle-filter
+12.62.1.7 emacspeak-empv-toggle-custom
+......................................
+
+ -- Command: emacspeak-empv-toggle-custom
+
+     Toggle our custom filters.
+
+12.62.1.8 emacspeak-empv-toggle-filter
 ......................................
 
  -- Command: emacspeak-empv-toggle-filter (filter)
@@ -6563,6 +6570,18 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
      Filter is of the  form name=arg-1:arg-2:...
 
      (fn FILTER)
+
+12.62.2 emacspeak-empv Options
+------------------------------
+
+ -- Variable: User Option emacspeak-empv-custom-filters
+     List of custom filters to turn on/off at one shot.
+
+     Default Value:
+
+     
+     nil
+     
 
 
 File: emacspeak.info,  Node: emacspeak-enriched,  Next: emacspeak-entertain,  Prev: emacspeak-empv,  Up: Emacspeak Commands And Options
