@@ -2552,6 +2552,19 @@ Use for large EBook buffers."
     (emacspeak-auditory-icon 'task-done)))
 
 ;;; Command: url-to-register
+;;; youtube-dl downloader:
+(defun emacspeak-eww-yt-dl ()
+  "Download link at point   using youtube-dl --- works with BBC Sounds. "
+  (interactive nil eww-mode)
+  (cl-declare (special emacspeak-m-player-youtube-dl ))
+  (let ((dir (funcall eww-download-directory)))
+    (access-file dir "Cannot download here")
+    (let ((url  (get-text-property (point) 'shr-url)))
+      (unless url (error "No URL under point"))
+      (async-shell-command
+       (format "cd %s; %s %s"
+               dir emacspeak-m-player-youtube-dl url)))))
+
 
 (defun emacspeak-eww-url-to-register ()
   "Accumulate  URL in register `u'"
