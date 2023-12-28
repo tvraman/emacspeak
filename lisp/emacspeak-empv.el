@@ -218,8 +218,10 @@ Filter is of the  form name=arg-1:arg-2:..."
   (cl-pushnew filter emacspeak-empv-filter-history :test #'string=)
   (empv--send-command (list "af" "toggle" filter)))
 
-(defcustom emacspeak-empv-custom-filters nil
-  "List of custom filters to turn on/off at one shot."
+(defcustom emacspeak-empv-custom-filters
+  '("extrastereo" "stereowiden=4.25:.1:735:.8")
+  "List of custom filters to turn on/off at one shot
+The default value is suitable for classical instrumental music."
   :type '(repeat  :tag "Filters" (string :tag "Filter"))
   :group 'emacspeak-empv)
 
