@@ -72,7 +72,8 @@
                        :test #'string= :key #'car))
          (value (elt (tabulated-list-get-entry)  col)))
       (when (= 0 col) (emacspeak-auditory-icon 'left))
-      (when (= (1- (length tabulated-list-format)) col) (emacspeak-auditory-icon 'right))
+      (when (= (1- (length tabulated-list-format)) col)
+        (emacspeak-auditory-icon 'right))
       (when (zerop (length (string-trim value)))
         (dtk-tone 261.6 150 'force))    ;blank
       (if (called-interactively-p 'interactive) 
@@ -115,7 +116,8 @@
            :test #'string= :key #'car)))
     (forward-line -1)
     (tabulated-list-next-column  col)
-    (when-let ((goal (next-single-property-change (point) 'tabulated-list-column-name)))
+    (when-let ((goal (next-single-property-change
+                      (point) 'tabulated-list-column-name)))
       (goto-char goal))
     (emacspeak-tabulated-list-speak-cell)))
 
