@@ -8782,9 +8782,11 @@ prefix arg to delete a previously created eww-mark.
 12.76.9.70 emacspeak-eww-yt-dl
 ..............................
 
- -- Command: emacspeak-eww-yt-dl
+ -- Command: emacspeak-eww-yt-dl (url)
 
      Download link at point   using youtube-dl — works with BBC Sounds.
+
+     (fn URL)
 
 12.76.10 emacspeak-eww Options
 ------------------------------

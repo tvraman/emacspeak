@@ -6508,11 +6508,13 @@ Accumulate  URL in register ‘u’
 @end deffn
 
 @subsubsection emacspeak-eww-yt-dl
-@deffn {Command} emacspeak-eww-yt-dl   
+@deffn {Command} emacspeak-eww-yt-dl  (url)
 @findex emacspeak-eww-yt-dl
 
 @format
 Download link at point   using youtube-dl --- works with BBC Sounds. 
+
+(fn URL)
 @end format
 @end deffn
 
