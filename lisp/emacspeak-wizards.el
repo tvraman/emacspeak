@@ -2607,7 +2607,7 @@ before brightness is checked.")
     (emacspeak-speak-mode-line)))
 
 ;;; BC Sounds:
-
+;;;###autoload
 (defun emacspeak-wizards-bbc-sounds ()
   "Search BBC Sounds.
 Result page is filtered down to two sections, Shows and Episodes.
@@ -2618,6 +2618,14 @@ The page for that show contains playable links for Episodes.
 Press `y' on Episode links to play them with MPV."
   (interactive)
   (emacspeak-url-template-open (emacspeak-url-template-get "BBC Sounds")))
+
+(defun emacspeak-wizards-bbc-schedule ()
+  "Browse BBC Schedule from get_iplayer radio cache"
+  (interactive)
+  (funcall-interactively
+   #'emacspeak-forms-find-file
+   (expand-file-name "forms/get-iplayer.el" emacspeak-etc-directory)))
+
 
 ;;; Portfolio:
 
