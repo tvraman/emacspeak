@@ -126,7 +126,7 @@ Interactive prefix arg plays on left ear using alsa."
   (require 'empv)
   (let* ((args (copy-sequence empv-mpv-args))
          (empv-mpv-args args))
-    (when left (push "--audio-channels=fl" empv-mpv-args))
+    (when left (push "--audio-channels=fl,fr" empv-mpv-args))
     (empv-play file)))
 
 (put 'emacspeak-empv-play-file 'repeat-map 'empv-map)
