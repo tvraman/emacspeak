@@ -47,6 +47,8 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (eval-when-compile (require 'eat "eat" 'no-error))
+(declare-function eat-term-display-cursor "eat" (terminal))
+
 ;;;  Map Faces:
 
 (voice-setup-add-map
