@@ -2768,6 +2768,37 @@ Produce an auditory icon if possible."
 (defadvice spinner-stop (after emacspeak pre act comp)
   "Icon."
   (emacspeak-auditory-icon 'repeat-stop))
+;;; Rectangle Motion
+
+(cl-loop
+ for f in 
+ '(rectangle-next-line rectangle-previous-line)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)))))
+
+(defadvice rectangle-mark-mode (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (dtk-notify-say
+     (format "Turned %s rectangle mark mode"
+             (if rectangle-mark-mode "on" "off")))
+    (emacspeak-auditory-icon (if rectangle-mark-mode 'on 'off))))
+
+(cl-loop
+ for f in 
+ '(
+   rectangle-backward-char rectangle-forward-char
+   rectangle-right-char rectangle-left-char)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-speak-char t )))))
 
 ;;;  end of file
 
