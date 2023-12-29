@@ -2558,18 +2558,16 @@ Use for large EBook buffers."
 (defvar ems--eww-yt-dl (executable-find "youtube-dl")
   "YouTube download tool")
 
-(defun emacspeak-eww-yt-dl ()
+(defun emacspeak-eww-yt-dl (url)
   "Download link at point   using youtube-dl --- works with BBC Sounds. "
-  (interactive nil eww-mode)
+  (interactive
+   (list (car (browse-url-interactive-arg "Media URL: ")))
+   eww-mode)
   (cl-declare (special ems--eww-yt-dl ))
   (cl-assert ems--eww-yt-dl t "Install youtube-dl first.")
   (let ((dir (funcall eww-download-directory)))
     (access-file dir "Cannot download here")
-    (let ((url  (get-text-property (point) 'shr-url)))
-      (unless url (error "No URL under point"))
-      (async-shell-command
-       (format "cd %s; %s %s"
-               dir ems--eww-yt-dl url)))))
+    (async-shell-command (format "cd %s; %s %s" dir ems--eww-yt-dl url))))
 
 
 (defun emacspeak-eww-url-to-register ()
