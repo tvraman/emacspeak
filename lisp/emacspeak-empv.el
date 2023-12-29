@@ -206,10 +206,11 @@ Interactive prefix arg plays on left ear using alsa."
 (defvar emacspeak-empv-filter-history nil
   "History of filters used.")
 (defconst emacspeak-empv-filters 
-  '( "extrastereo" "extrastereo=1.5"  "surround=7.1"
-     "stereowiden=4.25:.1:735:.8"
-     "asubboost" "virtualbass" "bs2b" "haas"  "headphone"
-     "bs2b=cmoy" "bs2b=jmeier" )
+  '(
+    "asubboost" "bs2b" "bs2b=cmoy" "bs2b=jmeier"
+    "extrastereo" "extrastereo=1.5" "haas" "headphone"
+    "stereowiden=4.25:.1:735:.8" "surround=7.1" "virtualbass"
+    )
   "Table of MPV filters.")
 
 ;;; Experimental: Toggling Filters
