@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1149 commands and 146 options.
+This chapter documents a total of 1148 commands and 146 options.
 
 @node amixer
 @section amixer
@@ -6507,6 +6507,15 @@ Accumulate  URL in register ‘u’
 @end format
 @end deffn
 
+@subsubsection emacspeak-eww-yt-dl
+@deffn {Command} emacspeak-eww-yt-dl   
+@findex emacspeak-eww-yt-dl
+
+@format
+Download link at point   using youtube-dl --- works with BBC Sounds. 
+@end format
+@end deffn
+
 @subsection emacspeak-eww Options
 
 @defvar {User Option} emacspeak-eww-autospeak
@@ -8091,8 +8100,7 @@ Default Value:
  ("t" emacspeak-wizards-tune-in-radio-browse)
  ("u" emacspeak-m-player-url)
  ("v" visual-line-mode)
- ("w" define-word)
- ("y" emacspeak-m-player-youtube-player))
+ ("w" define-word))
 
 @end verbatim
 
@@ -8269,7 +8277,6 @@ Default Value:
  ("f" emacspeak-wizards-remote-frame)
  ("h" emacspeak-wizards-how-many-matches)
  ("i" ibuffer)
- ("l" emacspeak-m-player-youtube-live)
  ("m" mspools-show)
  ("o" emacspeak-wizards-occur-header-lines)
  ("p" paradox-list-packages)
@@ -9409,41 +9416,6 @@ Volume up.
 
 @format
 Split selected range using SoX
-@end format
-@end deffn
-
-@subsubsection emacspeak-m-player-youtube-live
-@deffn {Command} emacspeak-m-player-youtube-live  (url)
-@table @kbd
-@item C-e x l
-@kindex C-e x l
-@end table
-
-@findex emacspeak-m-player-youtube-live
-
-@format
-Use youtube-dl and mplayer to live-stream   from Youtube. 
-
-(fn URL)
-@end format
-@end deffn
-
-@subsubsection emacspeak-m-player-youtube-player
-@deffn {Command} emacspeak-m-player-youtube-player  (url &optional prefix)
-@table @kbd
-@item C-, y
-@kindex C-, y
-@item C-x @@ a y
-@kindex C-x @@ a y
-@end table
-
-@findex emacspeak-m-player-youtube-player
-
-@format
-Use youtube-dl  to stream  using mplayer.
- Optional interactive prefix arg mpv  instead. 
-
-(fn URL &optional PREFIX)
 @end format
 @end deffn
 

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 28, 2023.
+last updated on December 29, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -1183,8 +1183,7 @@ found on laptops is denoted <fn>
       ("t" emacspeak-wizards-tune-in-radio-browse)
       ("u" emacspeak-m-player-url)
       ("v" visual-line-mode)
-      ("w" define-word)
-      ("y" emacspeak-m-player-youtube-player))
+      ("w" define-word))
      
 
  -- Variable: User Option emacspeak-ctl-z-keys
@@ -1333,7 +1332,6 @@ found on laptops is denoted <fn>
       ("f" emacspeak-wizards-remote-frame)
       ("h" emacspeak-wizards-how-many-matches)
       ("i" ibuffer)
-      ("l" emacspeak-m-player-youtube-live)
       ("m" mspools-show)
       ("o" emacspeak-wizards-occur-header-lines)
       ("p" paradox-list-packages)
@@ -2273,29 +2271,7 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      Split selected range using SoX
 
-12.121.2.82 emacspeak-m-player-youtube-live
-...........................................
-
- -- Command: emacspeak-m-player-youtube-live (url)
-     ‘C-e x l’
-
-     Use youtube-dl and mplayer to live-stream   from Youtube.
-
-     (fn URL)
-
-12.121.2.83 emacspeak-m-player-youtube-player
-.............................................
-
- -- Command: emacspeak-m-player-youtube-player (url &optional prefix)
-     ‘C-, y’
-     ‘C-x @ a y’
-
-     Use youtube-dl  to stream  using mplayer.
-      Optional interactive prefix arg mpv  instead.
-
-     (fn URL &optional PREFIX)
-
-12.121.2.84 emacspeak-multimedia
+12.121.2.82 emacspeak-multimedia
 ................................
 
  -- Command: emacspeak-multimedia

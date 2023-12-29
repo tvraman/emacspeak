@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 28, 2023.
+last updated on December 29, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2865,7 +2865,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Nex
 ‘u emacspeak-m-player-url’
 ‘v visual-line-mode’
 ‘w define-word’
-‘y emacspeak-m-player-youtube-player’
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-multi-keymap,  Next: Emacspeak Keybindings On emacspeak-v-keymap,  Prev: Emacspeak Keybindings On emacspeak-alt-keymap,  Up: Emacspeak Keymaps
@@ -2915,7 +2914,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-x-keymap,  Next:
 ‘f emacspeak-wizards-remote-frame’
 ‘h emacspeak-wizards-how-many-matches’
 ‘i ibuffer’
-‘l emacspeak-m-player-youtube-live’
 ‘m mspools-show’
 ‘o emacspeak-wizards-occur-header-lines’
 ‘p paradox-list-packages’
@@ -3236,7 +3234,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1149 commands and 146 options.
+   This chapter documents a total of 1148 commands and 146 options.
 
 * Menu:
 
@@ -8780,6 +8778,13 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-url-to-register
 
      Accumulate  URL in register ‘u’
+
+12.76.9.70 emacspeak-eww-yt-dl
+..............................
+
+ -- Command: emacspeak-eww-yt-dl
+
+     Download link at point   using youtube-dl — works with BBC Sounds.
 
 12.76.10 emacspeak-eww Options
 ------------------------------
