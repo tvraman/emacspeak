@@ -1485,9 +1485,6 @@ flat classical club dance full-bass full-bass-and-treble
 
 (put 'emacspeak-m-player-shuffle 'repeat-map 'emacspeak-m-player-mode-map)
 (put 'emacspeak-m-player-loop 'repeat-map 'emacspeak-m-player-mode-map)
-(put 'emacspeak-m-player-youtube-live
-     'repeat-map
-     'emacspeak-m-player-mode-map)
 (put 'emacspeak-multimedia 'repeat-map  'emacspeak-m-player-mode-map)
 (put 'emacspeak-m-player-using-openal
      'repeat-map
@@ -1530,7 +1527,7 @@ flat classical club dance full-bass full-bass-and-treble
 
 ;;;  YouTube Player
 
-(defvar emacspeak-m-player-youtube-dl
+(defvar ems--mp-yt-dl
   (executable-find "youtube-dl")
   "YouTube download tool")
 
@@ -1540,7 +1537,7 @@ flat classical club dance full-bass full-bass-and-treble
    (shell-command-to-string
     (format
      "%s -F '%s' | grep '^[0-9]'   |grep audio |  head -1 | cut -f 1 -d ' '"
-     emacspeak-m-player-youtube-dl url))
+     ems--mp-yt-dl url))
    0 -1))
 
 (defsubst ems--m-p-get-yt-audio-last-fmt (url)
@@ -1549,7 +1546,7 @@ flat classical club dance full-bass full-bass-and-treble
    (shell-command-to-string
     (format
      "%s -F '%s' | grep '^[0-9]'   | grep audio |tail -1 | cut -f 1 -d ' '"
-     emacspeak-m-player-youtube-dl url))
+     ems--mp-yt-dl url))
    0 -1))
 
 (declare-function emacspeak-google-result-url-prefix "emacspeak-google" nil)
@@ -1559,58 +1556,6 @@ flat classical club dance full-bass full-bass-and-treble
 (declare-function mpv-start "mpv" (&rest args))
 (declare-function
  emacspeak-empv-play-url "emacspeak-empv" (url &optional left-channel))
-
-;;;###autoload
-(defun emacspeak-m-player-youtube-player (url &optional prefix)
-  "Use youtube-dl  to stream  using mplayer.
- Optional interactive prefix arg mpv  instead. "
-  (interactive
-   (list
-    (emacspeak-eww-read-url)
-    current-prefix-arg))
-  (cl-declare (special emacspeak-m-player-youtube-dl))
-  (unless (file-executable-p emacspeak-m-player-youtube-dl)
-    (error "Please install youtube-dl first."))
-  (when (string-prefix-p (emacspeak-google-result-url-prefix) url)
-    (setq url (emacspeak-google-canonicalize-result-url url)))
-  (cond
-   ((not prefix)
-    (require 'empv)
-    (emacspeak-empv-play-url url))
-   (t
-    (let ((u
-           (string-trim
-            (shell-command-to-string
-             (format
-              "%s --youtube-skip-dash-manifest    -g '%s' 2> /dev/null"
-              emacspeak-m-player-youtube-dl
-              url)))))
-      (when (= 0 (length  u)) (error "Error retrieving Media URL "))
-      (kill-new u)
-      (emacspeak-m-player u)))))
-
-;;;###autoload
-(defun emacspeak-m-player-youtube-live (url)
-  "Use youtube-dl and mplayer to live-stream   from Youtube. "
-  (interactive
-   (list
-    (emacspeak-eww-read-url)))
-  (cl-declare (special emacspeak-m-player-youtube-dl
-                       emacspeak-m-player-options))
-  (unless (file-executable-p emacspeak-m-player-youtube-dl)
-    (error "Please install youtube-dl first."))
-  (when (string-prefix-p (emacspeak-google-result-url-prefix) url)
-    (setq url (emacspeak-google-canonicalize-result-url url)))
-  (let ((emacspeak-m-player-options
-         (append emacspeak-m-player-options (list "-loop" "0")))
-        (u
-         (string-trim
-          (shell-command-to-string
-           (format "%s -g '%s' 2> /dev/null"
-                   emacspeak-m-player-youtube-dl url)))))
-    (when (= 0 (length  u)) (error "Error retrieving Media URL "))
-    (kill-new u)
-    (emacspeak-m-player u)))
 
 ;;;  pause/resume
 

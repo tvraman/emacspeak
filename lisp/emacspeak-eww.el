@@ -605,6 +605,7 @@ Safari/537.36"
   (define-key eww-link-keymap  "!" 'emacspeak-eww-shell-cmd-on-url-at-point)
   (define-key eww-link-keymap  "k" 'shr-copy-url)
   (define-key eww-link-keymap ";" 'emacspeak-empv-play-url)
+  (define-key eww-link-keymap "Y" 'emacspeak-eww-yt-dl)
   (define-key eww-link-keymap "U" 'emacspeak-eww-curl-play-media-at-point)
   (define-key eww-link-keymap "x" 'emacspeak-feeds-select-feed)
   (define-key eww-link-keymap  "y" 'emacspeak-empv-play-url)
@@ -2553,17 +2554,22 @@ Use for large EBook buffers."
 
 ;;; Command: url-to-register
 ;;; youtube-dl downloader:
+
+(defvar ems--eww-yt-dl (executable-find "youtube-dl")
+  "YouTube download tool")
+
 (defun emacspeak-eww-yt-dl ()
   "Download link at point   using youtube-dl --- works with BBC Sounds. "
   (interactive nil eww-mode)
-  (cl-declare (special emacspeak-m-player-youtube-dl ))
+  (cl-declare (special ems--eww-yt-dl ))
+  (cl-assert ems--eww-yt-dl t "Install youtube-dl first.")
   (let ((dir (funcall eww-download-directory)))
     (access-file dir "Cannot download here")
     (let ((url  (get-text-property (point) 'shr-url)))
       (unless url (error "No URL under point"))
       (async-shell-command
        (format "cd %s; %s %s"
-               dir emacspeak-m-player-youtube-dl url)))))
+               dir ems--eww-yt-dl url)))))
 
 
 (defun emacspeak-eww-url-to-register ()

@@ -425,7 +425,6 @@
     ("f" emacspeak-wizards-remote-frame)
     ("h" emacspeak-wizards-how-many-matches)
     ("i" ibuffer)
-    ("l" emacspeak-m-player-youtube-live)
     ("m" mspools-show)
     ("o" emacspeak-wizards-occur-header-lines)
     ("p" paradox-list-packages)
@@ -660,7 +659,6 @@
     ("u" emacspeak-m-player-url)
     ("v" visual-line-mode)
     ("w" define-word)
-    ("y" emacspeak-m-player-youtube-player)
     ("SPC" emacspeak-eww-smart-tabs)
     )
   "Alt key bindings. "
