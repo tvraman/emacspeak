@@ -1525,7 +1525,7 @@ flat classical club dance full-bass full-bass-and-treble
  (define-key emacspeak-m-player-mode-map
              (kbd (format "%s" i)) 'emacspeak-m-player-volume-set))
 
-;;;  YouTube Player
+;;;  YouTube:
 
 (defvar ems--mp-yt-dl
   (executable-find "youtube-dl")
