@@ -2783,6 +2783,7 @@ Produce an auditory icon if possible."
 
 (defadvice rectangle-mark-mode (after emacspeak pre act comp)
   "speak."
+  (cl-declare (special rectangle-mark-mode))
   (when (ems-interactive-p)
     (dtk-notify-say
      (format "Turned %s rectangle mark mode"
