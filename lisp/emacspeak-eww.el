@@ -469,6 +469,10 @@
 (declare-function
  emacspeak-m-player "emacspeak-m-player" (resource &optional play-list))
 
+;;; Appease Emacs-30:
+
+(declare-function iimage-recenter "iimage" (&optional arg))
+
 ;;;  Helpers:
 
 ;;;###autoload

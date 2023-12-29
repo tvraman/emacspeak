@@ -96,6 +96,9 @@
                   "emacspeak-org" nil)
 (declare-function emacspeak-org-table-speak-column-header-and-element
                   "emacspeak-org" nil)
+;;; Appease Emacs-30:
+
+(declare-function iimage-recenter "iimage" (&optional arg))
 
 ;;; defgroup:
 (defgroup emacspeak-wizards nil

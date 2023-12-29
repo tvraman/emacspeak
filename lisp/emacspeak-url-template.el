@@ -65,17 +65,21 @@
 (require 'g-utils)
 (require 'emacspeak-we)
 (require 'emacspeak-xslt)
+;;; Appease Emacs-30:
+
+(declare-function iimage-recenter "iimage" (&optional arg))
+
 
 ;;;  structures
 
 (cl-defstruct (emacspeak-url-template
                (:constructor emacspeak-url-template-constructor))
-  name ;Human-readable name
-  template ;template URL string
-  generators ; list of param generator
-  post-action ;action to perform after opening
-  documentation ;resource documentation
-  fetcher ; custom fetcher
+  name                                ;Human-readable name
+  template                            ;template URL string
+  generators                          ; list of param generator
+  post-action                         ;action to perform after opening
+  documentation                       ;resource documentation
+  fetcher                             ; custom fetcher
   dont-url-encode)
 
 ;;;  Helpers
