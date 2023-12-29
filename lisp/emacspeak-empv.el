@@ -205,6 +205,12 @@ Interactive prefix arg plays on left ear using alsa."
 
 (defvar emacspeak-empv-filter-history nil
   "History of filters used.")
+(defconst emacspeak-empv-filters 
+  '( "extrastereo" "extrastereo=1.5"  "surround=7.1"
+     "channelmap=fl""channelmap=fr"
+     "bs2b" "haas"  "headphone"
+     "bs2b=cmoy" "bs2b=jmeier" )
+  "Table of MPV filters.")
 
 ;;; Experimental: Toggling Filters
 (defun emacspeak-empv-toggle-filter (filter)
@@ -212,8 +218,9 @@ Interactive prefix arg plays on left ear using alsa."
 Filter is of the  form name=arg-1:arg-2:..."
   (interactive
    (list
-    (read-from-minibuffer  "Filter:" nil nil nil
-                           'emacspeak-empv-filter-history)))
+    (completing-read   "Filter:"
+                       emacspeak-empv-filters nil nil nil
+                       'emacspeak-empv-filter-history)))
   (cl-declare (special emacspeak-empv-filter-history))
   (cl-pushnew filter emacspeak-empv-filter-history :test #'string=)
   (empv--send-command (list "af" "toggle" filter)))
