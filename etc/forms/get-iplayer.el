@@ -21,9 +21,10 @@
 (defun ems--get-iplayer-download ()
   (interactive)
   (let ((default-directory (expand-file-name "~/Downloads")))
-    (shell-command
-     (format "youtube-dl  %s " (nth  1 forms-fields)))))
+    (async-shell-command
+     (format "youtube-dl %s " (nth  13 forms-fields)))))
 
+(require 'forms)
 (when (and forms-mode-map (keymapp forms-mode-map))
   (define-key forms-mode-map "d" 'ems--get-iplayer-download)
   (define-key forms-mode-map "p" 'ems--get-iplayer-play))
