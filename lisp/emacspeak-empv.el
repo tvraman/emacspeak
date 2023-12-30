@@ -231,7 +231,7 @@ Filter is of the  form name=arg-1:arg-2:..."
 (defun emacspeak-empv-clear-filter ()
   "Clear all filters. "
   (interactive)
-  (empv--send-command (list "af" "clr" )))
+  (empv--send-command (list "af" "clr" "" )))
 
 (defcustom emacspeak-empv-custom-filters
   '("extrastereo" "stereowiden=4.25:.1:735:.8")
