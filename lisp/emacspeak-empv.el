@@ -171,6 +171,8 @@ Interactive prefix arg plays on left ear using alsa."
   (cl-declare (special empv-map))
   (global-set-key (kbd "C-e C-;") empv-map)
   (global-set-key (kbd "C-' v") empv-map)
+  (global-set-key (kbd "C-' ;") empv-map)
+  
   (cl-loop
    for b in
    '(
@@ -190,9 +192,7 @@ Interactive prefix arg plays on left ear using alsa."
      ("r" emacspeak-empv-relative-seek)
      ("s" emacspeak-empv-absolute-seek)
      ("u" emacspeak-empv-accumulate-to-register)
-     ("v" empv-set-volume)
-     )
-
+     ("v" empv-set-volume))
    do
    (emacspeak-keymap-update empv-map b)
    (emacspeak-keymap-update empv-youtube-results-mode-map b))
@@ -231,7 +231,9 @@ Filter is of the  form name=arg-1:arg-2:..."
 (defun emacspeak-empv-clear-filter ()
   "Clear all filters. "
   (interactive)
-  (empv--send-command (list "af" "clr" "" )))
+  (empv--send-command (list "af" "clr" "" ))
+  (message "Cleared filters")
+  (emacspeak-auditory-icon 'delete-object))
 
 (defcustom emacspeak-empv-custom-filters
   '("extrastereo" "stereowiden=4.25:.1:735:.8")
