@@ -178,6 +178,7 @@ Interactive prefix arg plays on left ear using alsa."
      ("'" empv-current-loop-on)
      ("/" empv-seek)
      (";" emacspeak-empv-toggle-filter)
+     ("DEL" emacspeak-empv-clear-filter)
      ("." emacspeak-empv-toggle-custom)
      ("0" empv-volume-up)
      ("9" empv-volume-down)
@@ -225,6 +226,12 @@ Filter is of the  form name=arg-1:arg-2:..."
   (cl-declare (special emacspeak-empv-filter-history))
   (cl-pushnew filter emacspeak-empv-filter-history :test #'string=)
   (empv--send-command (list "af" "toggle" filter)))
+
+
+(defun emacspeak-empv-clear-filter ()
+  "Clear all filters. "
+  (interactive)
+  (empv--send-command (list "af" "clr" )))
 
 (defcustom emacspeak-empv-custom-filters
   '("extrastereo" "stereowiden=4.25:.1:735:.8")
