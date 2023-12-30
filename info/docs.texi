@@ -15,7 +15,6 @@
 * emacspeak-apt-sources::speech-enable apt.
 * emacspeak-arc::Speech enable archive-mode.
 * emacspeak-auctex::Speech enable AucTeX --.
-* emacspeak-bbc::Light-Weight BBC Client.
 * emacspeak-bbdb::Speech enable BBDB.
 * emacspeak-bibtex::Speech enable bibtex.
 * emacspeak-bookmark::Speech enable bookmark.
@@ -1716,34 +1715,6 @@ Tie the next n  words.
 @end format
 @end deffn
 
-@node emacspeak-bbc
-@section emacspeak-bbc
-
-Use get_iplayer script to get  BBC Schedules, download and play.
-  Required modules
-
-@subsection Emacspeak-Bbc Commands
-
-@subsubsection emacspeak-bbc-get-iplayer-stream-url
-@deffn {Command} emacspeak-bbc-get-iplayer-stream-url  (url)
-@findex emacspeak-bbc-get-iplayer-stream-url
-
-@format
-Stream using get_iplayer.
-
-(fn URL)
-@end format
-@end deffn
-
-@subsubsection emacspeak-bbc-schedule
-@deffn {Command} emacspeak-bbc-schedule   
-@findex emacspeak-bbc-schedule
-
-@format
-Browse BBC Schedule from get_iplayer radio cache
-@end format
-@end deffn
-
 @node emacspeak-bbdb
 @section emacspeak-bbdb
 
@@ -2404,9 +2375,9 @@ Speak information about this buffer
 @end format
 @end deffn
 
-@subsubsection emacspeak-list-buffers-speak-buffer-name
-@deffn {Command} emacspeak-list-buffers-speak-buffer-name   
-@findex emacspeak-list-buffers-speak-buffer-name
+@subsubsection emacspeak-list-buffers-speak-name
+@deffn {Command} emacspeak-list-buffers-speak-name   
+@findex emacspeak-list-buffers-speak-name
 
 @format
 Speak the name of the buffer on this line
@@ -3820,6 +3791,15 @@ Absolute seek in seconds,see ‘empv-seek’
 
 @format
 Accumulate media links to register u
+@end format
+@end deffn
+
+@subsubsection emacspeak-empv-clear-filter
+@deffn {Command} emacspeak-empv-clear-filter   
+@findex emacspeak-empv-clear-filter
+
+@format
+Clear all filters. 
 @end format
 @end deffn
 
@@ -16938,6 +16918,15 @@ Display emacspeak News for a given version.
 
 @format
 Browse  Emacspeak productivity tips.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-bbc-schedule
+@deffn {Command} emacspeak-wizards-bbc-schedule   
+@findex emacspeak-wizards-bbc-schedule
+
+@format
+Browse BBC Schedule from get_iplayer radio cache
 @end format
 @end deffn
 
