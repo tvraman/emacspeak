@@ -1,0 +1,4 @@
+#!/bin/sh
+
+LOG=/tmp/swiftmac-$$.log
+tee -a $LOG | `dirname $0`/swiftmac
