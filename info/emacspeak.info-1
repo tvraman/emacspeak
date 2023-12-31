@@ -6514,7 +6514,7 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
  -- Command: emacspeak-empv-play-local (file)
      ‘C-e "’
 
-     Play a local resource  using mpv..
+     Play a local resource  using mpv.
 
      (fn FILE)
 

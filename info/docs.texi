@@ -3841,7 +3841,7 @@ Interactive prefix arg plays on left ear using alsa.
 @findex emacspeak-empv-play-local
 
 @format
-Play a local resource  using mpv..
+Play a local resource  using mpv.
 
 (fn FILE)
 @end format
