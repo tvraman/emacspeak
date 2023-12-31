@@ -555,7 +555,6 @@
     ("b" emacspeak-wizards-bbc-sounds)
     ("c" browse-url-chrome)
     ("d" magit-dispatch)
-    ("e" gmaps)
     ("f" magit-file-dispatch)
     ("g" gnus)
     ("h" emacspeak-m-player-from-history)
