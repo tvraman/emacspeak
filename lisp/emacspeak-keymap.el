@@ -256,7 +256,7 @@
    ("V" emacspeak-speak-version)
    ("W" emacspeak-select-window-by-name)
    ("[" emacspeak-speak-paragraph)
-   ("\"" emacspeak-speak-sexp)
+   ("\"" emacspeak-empv-play-local)
    ("\\" emacspeak-toggle-speak-line-invert-filter)
    ("]" emacspeak-speak-page)
    ("^" emacspeak-filtertext)
