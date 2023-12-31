@@ -248,7 +248,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1148 commands and 146 options.
+This chapter documents a total of 1149 commands and 146 options.
 
 @node amixer
 @section amixer
@@ -3828,6 +3828,22 @@ Play file using mpv.
 Interactive prefix arg plays on left ear using alsa.
 
 (fn FILE &optional LEFT)
+@end format
+@end deffn
+
+@subsubsection emacspeak-empv-play-local
+@deffn {Command} emacspeak-empv-play-local  (file)
+@table @kbd
+@item C-e "
+@kindex C-e "
+@end table
+
+@findex emacspeak-empv-play-local
+
+@format
+Play a local resource  using mpv..
+
+(fn FILE)
 @end format
 @end deffn
 
@@ -8133,7 +8149,6 @@ Default Value:
  ("b" emacspeak-wizards-bbc-sounds)
  ("c" browse-url-chrome)
  ("d" magit-dispatch)
- ("e" gmaps)
  ("f" magit-file-dispatch)
  ("g" gnus)
  ("h" emacspeak-m-player-from-history)
@@ -13050,11 +13065,6 @@ Negative prefix arg speaks from start of sentence to point.
 
 @subsubsection emacspeak-speak-sexp
 @deffn {Command} emacspeak-speak-sexp  (&optional arg)
-@table @kbd
-@item C-e "
-@kindex C-e "
-@end table
-
 @findex emacspeak-speak-sexp
 
 @format
@@ -16921,9 +16931,9 @@ Browse  Emacspeak productivity tips.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-bbc-schedule
-@deffn {Command} emacspeak-wizards-bbc-schedule   
-@findex emacspeak-wizards-bbc-schedule
+@subsubsection emacspeak-wizards-bbc-iplayer
+@deffn {Command} emacspeak-wizards-bbc-iplayer   
+@findex emacspeak-wizards-bbc-iplayer
 
 @format
 Browse BBC Schedule from get_iplayer radio cache
@@ -18726,13 +18736,6 @@ Implements the Google Maps API
 
 @subsubsection gmaps
 @deffn {Command} gmaps   
-@table @kbd
-@item C-; e
-@kindex C-; e
-@item C-x @@ h e
-@kindex C-x @@ h e
-@end table
-
 @findex gmaps
 
 @format

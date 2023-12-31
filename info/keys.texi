@@ -27,7 +27,7 @@
 @item C-w  emacspeak-speak-window-information
 @item C-x  emacspeak-speak-header-line
 @item SPC  emacspeak-speak-windowful
-@item "  emacspeak-speak-sexp
+@item "  emacspeak-empv-play-local
 @item !  emacspeak-speak-run-shell-command
 @item $  flyspell-mode
 @item %  emacspeak-speak-current-percentage
@@ -153,7 +153,6 @@
 @item b  emacspeak-wizards-bbc-sounds
 @item c  browse-url-chrome
 @item d  magit-dispatch
-@item e  gmaps
 @item f  magit-file-dispatch
 @item g  gnus
 @item h  emacspeak-m-player-from-history

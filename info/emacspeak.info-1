@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 30, 2023.
+last updated on December 31, 2023.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2670,7 +2670,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘C-w emacspeak-speak-window-information’
 ‘C-x emacspeak-speak-header-line’
 ‘SPC emacspeak-speak-windowful’
-‘" emacspeak-speak-sexp’
+‘" emacspeak-empv-play-local’
 ‘! emacspeak-speak-run-shell-command’
 ‘$ flyspell-mode’
 ‘% emacspeak-speak-current-percentage’
@@ -2798,7 +2798,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
 ‘b emacspeak-wizards-bbc-sounds’
 ‘c browse-url-chrome’
 ‘d magit-dispatch’
-‘e gmaps’
 ‘f magit-file-dispatch’
 ‘g gnus’
 ‘h emacspeak-m-player-from-history’
@@ -3233,7 +3232,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1148 commands and 146 options.
+   This chapter documents a total of 1149 commands and 146 options.
 
 * Menu:
 
@@ -6509,7 +6508,17 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 
      (fn FILE &optional LEFT)
 
-12.61.1.6 emacspeak-empv-play-url
+12.61.1.6 emacspeak-empv-play-local
+...................................
+
+ -- Command: emacspeak-empv-play-local (file)
+     ‘C-e "’
+
+     Play a local resource  using mpv..
+
+     (fn FILE)
+
+12.61.1.7 emacspeak-empv-play-url
 .................................
 
  -- Command: emacspeak-empv-play-url (url &optional left)
@@ -6520,7 +6529,7 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 
      (fn URL &optional LEFT)
 
-12.61.1.7 emacspeak-empv-relative-seek
+12.61.1.8 emacspeak-empv-relative-seek
 ......................................
 
  -- Command: emacspeak-empv-relative-seek (target)
@@ -6529,15 +6538,15 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 
      (fn TARGET)
 
-12.61.1.8 emacspeak-empv-toggle-custom
+12.61.1.9 emacspeak-empv-toggle-custom
 ......................................
 
  -- Command: emacspeak-empv-toggle-custom
 
      Toggle our custom filters.
 
-12.61.1.9 emacspeak-empv-toggle-filter
-......................................
+12.61.1.10 emacspeak-empv-toggle-filter
+.......................................
 
  -- Command: emacspeak-empv-toggle-filter (filter)
 

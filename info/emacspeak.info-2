@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 30, 2023.
+last updated on December 31, 2023.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -1226,7 +1226,6 @@ found on laptops is denoted <fn>
       ("b" emacspeak-wizards-bbc-sounds)
       ("c" browse-url-chrome)
       ("d" magit-dispatch)
-      ("e" gmaps)
       ("f" magit-file-dispatch)
       ("g" gnus)
       ("h" emacspeak-m-player-from-history)
@@ -5347,7 +5346,6 @@ of emacspeak from becoming dependent on the speech server modules
 ................................
 
  -- Command: emacspeak-speak-sexp (&optional arg)
-     ‘C-e "’
 
      Speak current sexp.
      With prefix ARG, speaks the rest of the sexp  from point.
@@ -8322,10 +8320,10 @@ Contains various wizards for the Emacspeak desktop.
 
      Browse  Emacspeak productivity tips.
 
-12.215.1.29 emacspeak-wizards-bbc-schedule
-..........................................
+12.215.1.29 emacspeak-wizards-bbc-iplayer
+.........................................
 
- -- Command: emacspeak-wizards-bbc-schedule
+ -- Command: emacspeak-wizards-bbc-iplayer
 
      Browse BBC Schedule from get_iplayer radio cache
 
@@ -9730,8 +9728,6 @@ Implements the Google Maps API
 ................
 
  -- Command: gmaps
-     ‘C-; e’
-     ‘C-x @ h e’
 
      Google Maps Interaction.
 
