@@ -139,9 +139,8 @@ Interactive prefix arg plays on left ear using alsa."
 
 
 (defun emacspeak-empv-play-local (file )
-  "Play a local resource  using mpv.."
-  (interactive
-   (list (emacspeak-empv-local-file)))
+  "Play a local resource  using mpv."
+  (interactive (list (emacspeak-empv-local-file)))
   (empv-play file))
 
 (put 'emacspeak-empv-play-local 'repeat-map 'empv-map)
