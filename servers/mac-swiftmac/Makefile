@@ -1,5 +1,4 @@
 #$Id$
-# Now setup to use Voxin 1.6 with direct 64-bit support.
 # Type make, run ./servers/swiftmac for running the server.
 
 INSTALL = install
