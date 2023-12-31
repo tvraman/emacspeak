@@ -2619,7 +2619,7 @@ Press `y' on Episode links to play them with MPV."
   (interactive)
   (emacspeak-url-template-open (emacspeak-url-template-get "BBC Sounds")))
 
-(defun emacspeak-wizards-bbc-schedule ()
+(defun emacspeak-wizards-bbc-iplayer ()
   "Browse BBC Schedule from get_iplayer radio cache"
   (interactive)
   (funcall-interactively
