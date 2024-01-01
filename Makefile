@@ -41,7 +41,7 @@ README = README
 ###   User level targets emacspeak   outloud espeak 
 
 emacspeak: config 
-	@cd lisp && $(MAKE)  $(MAKEFLAGS)
+	@cd lisp && $(MAKE)  --no-print-directory
 	@make   $(README)
 	@chmod 644 $(README)
 	@echo "See the NEWS file for a  summary of new features — Control e cap n in Emacs"
@@ -53,13 +53,13 @@ swiftmac:
 	@cd servers/mac-swiftmac && $(MAKE) $(MAKEFLAGS) || echo "Can't build swiftmac server!"
 
 outloud: 
-	@cd servers/linux-outloud && $(MAKE) $(MAKEFLAGS) || echo "Can't build Outloud server!"
+	@cd servers/linux-outloud && $(MAKE) --no-print-directory || echo "Can't build Outloud server!"
 
 espeak: 
-	@cd servers/native-espeak && $(MAKE) $(MAKEFLAGS)  || echo "Can't build espeak server!"
+	@cd servers/native-espeak && $(MAKE) --no-print-directory  || echo "Can't build espeak server!"
 
 dtk: 
-	@cd servers/software-dtk && $(MAKE) $(MAKEFLAGS)  || echo "Can't build DTK server!"
+	@cd servers/software-dtk && $(MAKE) --no-print-directory  || echo "Can't build DTK server!"
 
 ###   Maintenance targets:   dist
 
@@ -79,8 +79,8 @@ dist:
 ###  User level target--  config
 
 config:
-	@cd etc && $(MAKE) config   $(MAKEFLAGS)
-	@cd lisp && $(MAKE) config $(MAKEFLAGS)
+	@cd etc && $(MAKE) config   --no-print-directory
+	@cd lisp && $(MAKE) config --no-print-directory
 
 ###   complete build
 
@@ -90,9 +90,9 @@ q:
 	make clean
 	make config 
 	make
-	@cd lisp && make muggles $(MAKEFLAGS)
-	@cd lisp && make extra-muggles $(MAKEFLAGS)
-	@test -d tvr && cd	 tvr && make  $(MAKEFLAGS)
+	@cd lisp && make muggles --no-print-directory
+	@cd lisp && make extra-muggles --no-print-directory
+	@test -d tvr && cd	 tvr && make  --no-print-directory
 
 i:
 	cd info && make && git ci docs || true
@@ -102,7 +102,7 @@ i:
 ###   user level target-- clean
 
 clean:
-	@cd lisp &&  $(MAKE) $(MAKEFLAGS) clean
+	@cd lisp &&  $(MAKE) --no-print-directory clean
 
 ###  labeling releases
 
@@ -129,8 +129,7 @@ install:
 	@echo "This release requires Emacs 29.1 or later."
 	@echo "To run  this Emacspeak build, add this  line to the top of your .emacs:"
 	@echo "(load-file \"`pwd`/lisp/emacspeak-setup.el\")"
-	@echo "    Type make  <engine> [dtk, swiftmac, outloud,  espeak] to build TTS server. "
-
+	@echo "    Type make  <engine> [dtk, outloud,  espeak] to build TTS server. "
 	@echo "Package maintainers: see   etc/install.org	 for instructions."
 
 ### Worktree:
