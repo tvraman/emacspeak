@@ -307,7 +307,7 @@ Reset immediately after being used.")
       (set-default sym val)))
 
 (defvar emacspeak-media-directory-regexp
-  (regexp-opt '("mp3" "audio" "music"))
+  (regexp-opt '("mp3" "audio" ))
   "Pattern matching locations where we store media.")
 
 ;;;###autoload
