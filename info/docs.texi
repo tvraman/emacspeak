@@ -20360,7 +20360,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 65 URL Templates.
+This section documents a total of 58 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -20398,9 +20398,7 @@ Search BBC Sounds@item @b{bing news}
 
 Bing News results as RSS feed.@item @b{business headlines from cnn}
 
-Money Headlines From CNN@item @b{cia world fact book}
-
-Open CIA World Fact Book For Specified Country.@item @b{cnbc quotes}
+Money Headlines From CNN@item @b{cnbc quotes}
 
 Stock portfolio via CNBC@item @b{cnbc ticker}
 
@@ -20408,9 +20406,7 @@ Stock Quote via CNBC@item @b{cnn headlines}
 
 News Headlines From CNN@item @b{cnn money}
 
-CNN Money@item @b{cnn world}
-
-CNN World@item @b{cricinfo print}
+CNN Money@item @b{cricinfo print}
 
 Printer friendly   link on Cricinfo@item @b{dictionary lookup}
 
@@ -20422,9 +20418,7 @@ Display top stocks  from Google Finance.@item @b{freesound}
 
 Search FreeSound.@item @b{google news search}
 
-Search Google news.@item @b{google quotes}
-
-Light-weight Google Stock quotes.@item @b{google scholar}
+Search Google news.@item @b{google scholar}
 
 Google Scholar Search@item @b{google trends}
 
@@ -20457,17 +20451,13 @@ template.@item @b{nls bard search}
 
 Search NLS Bard Catalog. Login once before using this template.@item @b{npr}
 
-Open NPR home , then display the alternative links to access RSS feeds.@item @b{old time radio}
-
-This months Old Time Radio Programming@item @b{online radiotime browser}
+Open NPR home , then display the alternative links to access RSS feeds.@item @b{online radiotime browser}
 
 RadioTime Entry point.@item @b{online radiotime search}
 
 RadioTime Search@item @b{openlibrary}
 
-Open Library Search@item @b{patent search from google}
-
-Perform patent search via Google@item @b{player fm bbc rss feeds}
+Open Library Search@item @b{player fm bbc rss feeds}
 
 Player FM BBC RSS Feeds@item @b{radiotime categories}
 
@@ -20493,9 +20483,7 @@ Format is stationid+AM/FM.@item @b{tech news from cnet}
 
 Display tech news from CNET@item @b{tunein radio}
 
-Translate StreamId to playable stream.@item @b{us stock market from google }
-
-Light-weight Google US Stock Markets.@item @b{w3c irc logs}
+Translate StreamId to playable stream.@item @b{w3c irc logs}
 
 Use this to pull up the
 archived logs from the W3C IRC. You need to know the exact
@@ -20511,9 +20499,7 @@ Search WikiData.@item @b{wikipedia at point}
 
 Extract body content from Wikipedia link at point@item @b{wordnet search}
 
-Look up term in WordNet.@item @b{world cnn content}
-
-Filter down to CNN content area.@item @b{yahoo rssnews}
+Look up term in WordNet.@item @b{yahoo rssnews}
 
 News  From Yahoo As RSS.
 
