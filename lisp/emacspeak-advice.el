@@ -941,6 +941,12 @@ When on a close delimiter, speak matching delimiter after a small delay. "
     (ems--log-message m)
     (tts-with-punctuations 'all (dtk-speak m))))
 
+;; read-password--hide-password
+(defadvice read-password--hide-password (after emacspeak pre act comp)
+  "speak."
+  (dtk-say " dot " ))
+
+
 ;;;  advice completion functions to speak:
 
 (cl-loop
