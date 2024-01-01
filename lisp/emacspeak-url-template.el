@@ -245,6 +245,10 @@ with duplicates removed when saving as a list of string."
  #'emacspeak-feeds-opml-display)
 
 ;;;  bbc
+(emacspeak-url-template-define
+ "BBC r4 Schedule "
+ "https://www.bbc.co.uk/sounds/schedules/bbc_radio_fourfm ")
+
 
 (emacspeak-url-template-define
  "BBC Sounds"
