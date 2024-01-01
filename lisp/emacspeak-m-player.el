@@ -189,7 +189,7 @@ This is set to nil when playing Internet  streams.")
 ;; Dynamic playlists are one-shot, and managed directly by emacspeak,
 ;; i.e. no playlist file.
 
-(defvar emacspeak-m-player-dynamic-playlist  nil
+(defvar emacspeak-media-dynamic-playlist  nil
   "Dynamic --- lists files in the playlist.
 Reset immediately after being used.")
 
@@ -201,17 +201,17 @@ Reset immediately after being used.")
     (or
      (dired-get-filename  nil t)
      (read-file-name "MP3 File:"))))
-  (cl-declare (special emacspeak-m-player-dynamic-playlist))
+  (cl-declare (special emacspeak-media-dynamic-playlist))
   (cond
    ((file-directory-p file)
     (cl-loop
      for f in
      (directory-files-recursively file  "\\.mp3\\'") do
-     (cl-pushnew f emacspeak-m-player-dynamic-playlist))
+     (cl-pushnew f emacspeak-media-dynamic-playlist))
     (dtk-speak-and-echo
      (format "Added files from directory %s" (file-name-base file))))
    ((string-match "\\.mp3$" file)
-    (cl-pushnew file emacspeak-m-player-dynamic-playlist)
+    (cl-pushnew file emacspeak-media-dynamic-playlist)
     (dtk-speak-and-echo
      (format
       "Added %s with duration %s to dynamic playlist."
@@ -223,8 +223,8 @@ Reset immediately after being used.")
 
 (defun ems--dynamic-playlist-duration ()
   "Return duration of dynamic playlist."
-  (cl-declare (special emacspeak-m-player-dynamic-playlist))
-  (cl-assert emacspeak-m-player-dynamic-playlist t "No dynamic playlist")
+  (cl-declare (special emacspeak-media-dynamic-playlist))
+  (cl-assert emacspeak-media-dynamic-playlist t "No dynamic playlist")
   (ems-with-messages-silenced
    (let* ((result nil)
           (buff  " *soxi*")
@@ -233,7 +233,7 @@ Reset immediately after being used.")
             #'start-process
             "soxi" buff
             "soxi" "-Td"
-            emacspeak-m-player-dynamic-playlist)))
+            emacspeak-media-dynamic-playlist)))
      (accept-process-output proc 0 100)
      (with-current-buffer buff
        (goto-char (point-min))
@@ -458,9 +458,9 @@ rather than completing over all subfiles."
 (defun emacspeak-media-read-resource (&optional prefix)
   "Read resource from minibuffer.
 If a dynamic playlist exists, just use it."
-  (cl-declare (special emacspeak-m-player-dynamic-playlist
+  (cl-declare (special emacspeak-media-dynamic-playlist
                        emacspeak-m-player-hotkey-p))
-  (unless emacspeak-m-player-dynamic-playlist
+  (unless emacspeak-media-dynamic-playlist
     (cond
      (emacspeak-m-player-hotkey-p (emacspeak-media-local-resource prefix))
      (t
@@ -545,7 +545,7 @@ dynamic playlist. "
     current-prefix-arg))
   (cl-declare (special
                emacspeak-m-player-paused emacspeak-m-player-resource
-               emacspeak-m-player-dynamic-playlist
+               emacspeak-media-dynamic-playlist
                emacspeak-m-player-hotkey-p
                emacspeak-m-player-directory
                emacspeak-media-directory-regexp
@@ -565,9 +565,9 @@ dynamic playlist. "
          (and resource
               (or play-list (emacspeak-m-player-playlist-p resource))))
         (options (copy-sequence emacspeak-m-player-options))
-        (file-list  (reverse emacspeak-m-player-dynamic-playlist))
+        (file-list  (reverse emacspeak-media-dynamic-playlist))
         (duration
-         (when emacspeak-m-player-dynamic-playlist
+         (when emacspeak-media-dynamic-playlist
            (ems--dynamic-playlist-duration))))
     (when emacspeak-m-player-custom-filters
       (cl-pushnew
@@ -585,11 +585,11 @@ dynamic playlist. "
           (setq resource (expand-file-name resource))
           (emacspeak-speak-load-directory-settings)
           (setq emacspeak-m-player-directory (file-name-directory resource)))
-        (unless emacspeak-m-player-dynamic-playlist
+        (unless emacspeak-media-dynamic-playlist
           (if   (file-directory-p resource)
               (setq file-list (emacspeak-m-player-directory-files resource))
             (setq file-list (list resource)))))
-      (setq emacspeak-m-player-dynamic-playlist nil) ; consume it
+      (setq emacspeak-media-dynamic-playlist nil) ; consume it
       (setq options
             (cond
              ((and play-list  (listp play-list)(< 4   (car play-list)))
