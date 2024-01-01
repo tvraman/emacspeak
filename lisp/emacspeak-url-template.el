@@ -902,9 +902,14 @@ Each URL template carries out the following steps:
        for key in keys do
        (insert
         (format "@item @b{%s}\n\n" key))
-       (insert
-        (emacspeak-url-template-documentation
-         (emacspeak-url-template-get key))))
+       (condition-case nil
+           (insert
+            (emacspeak-url-template-documentation
+             (emacspeak-url-template-get key)))
+         (error
+          (message "Error: URL Template  %s"
+                   (emacspeak-url-template-name
+             (emacspeak-url-template-get key))))))
       (insert "\n\n@end enumerate\n\n"))))
 
 ;;;  wikiData:

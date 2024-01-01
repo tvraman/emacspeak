@@ -20392,7 +20392,7 @@ BBC PodCast Directory@item @b{bbc r4 extra schedule }
 
 BBC Radio 4 Extra Schedule@item @b{bbc r4 schedule }
 
-BBC R4 Schedule@item @b{bbc sounds}
+@item @b{bbc sounds}
 
 Search BBC Sounds@item @b{bing news}
 
