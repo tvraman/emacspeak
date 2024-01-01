@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 31, 2023.
+last updated on January 1, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -790,7 +790,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.240 URL Templates
 ====================
 
-This section documents a total of 63 URL Templates.
+This section documents a total of 65 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u’.  This command
@@ -819,181 +819,187 @@ following steps:
   6. bbc podcast directory
 
      BBC PodCast Directory
-  7. bbc sounds
+  7. bbc r4 extra schedule
+
+     BBC Radio 4 Extra Schedule
+  8. bbc r4 schedule
+
+     BBC R4 Schedule
+  9. bbc sounds
 
      Search BBC Sounds
-  8. bing news
+  10. bing news
 
      Bing News results as RSS feed.
-  9. business headlines from cnn
+  11. business headlines from cnn
 
      Money Headlines From CNN
-  10. cia world fact book
+  12. cia world fact book
 
      Open CIA World Fact Book For Specified Country.
-  11. cnbc quotes
+  13. cnbc quotes
 
      Stock portfolio via CNBC
-  12. cnbc ticker
+  14. cnbc ticker
 
      Stock Quote via CNBC
-  13. cnn headlines
+  15. cnn headlines
 
      News Headlines From CNN
-  14. cnn money
+  16. cnn money
 
      CNN Money
-  15. cnn world
+  17. cnn world
 
      CNN World
-  16. cricinfo print
+  18. cricinfo print
 
      Printer friendly link on Cricinfo
-  17. dictionary lookup
+  19. dictionary lookup
 
      Dictionary Lookup
-  18. finance google
+  20. finance google
 
      Lookup ticker on Google Finance.
-  19. finance summary from google
+  21. finance summary from google
 
      Display top stocks from Google Finance.
-  20. freesound
+  22. freesound
 
      Search FreeSound.
-  21. google news search
+  23. google news search
 
      Search Google news.
-  22. google quotes
+  24. google quotes
 
      Light-weight Google Stock quotes.
-  23. google scholar
+  25. google scholar
 
      Google Scholar Search
-  24. google trends
+  26. google trends
 
      Google Trends
-  25. google weather
+  27. google weather
 
      Light-weight Google weather.
-  26. guardian rss feeds directory
+  28. guardian rss feeds directory
 
      Guardian Feeds Directory
-  27. hacker news frontpage
+  29. hacker news frontpage
 
      Display Hacker News Front Page
-  28. hacker news search
+  30. hacker news search
 
      Display Hacker News Front Page
-  29. hoogle haskell api search
+  31. hoogle haskell api search
 
      Haskell API Search against a local server.
-  30. html google news search
+  32. html google news search
 
      Search Google news.
-  31. microsoft search
+  33. microsoft search
 
      Bing results as RSS feed.
-  32. nba standings
+  34. nba standings
 
      Display NBA standings.
-  33. nls bard bookshelf
+  35. nls bard bookshelf
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  34. nls bard popular
+  36. nls bard popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  35. nls bard recent
+  37. nls bard recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  36. nls bard search
+  38. nls bard search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  37. npr
+  39. npr
 
      Open NPR home , then display the alternative links to access RSS
      feeds.
-  38. old time radio
+  40. old time radio
 
      This months Old Time Radio Programming
-  39. online radiotime browser
+  41. online radiotime browser
 
      RadioTime Entry point.
-  40. online radiotime search
+  42. online radiotime search
 
      RadioTime Search
-  41. openlibrary
+  43. openlibrary
 
      Open Library Search
-  42. patent search from google
+  44. patent search from google
 
      Perform patent search via Google
-  43. player fm bbc rss feeds
+  45. player fm bbc rss feeds
 
      Player FM BBC RSS Feeds
-  44. radiotime categories
+  46. radiotime categories
 
      RadioTime Categories
-  45. reddit at point
+  47. reddit at point
 
      Open RSS Feed for Reddit URL under point.
-  46. reddit by topic
+  48. reddit by topic
 
      Open RSS Feed for Reddit Topic.
-  47. reddit front page
+  49. reddit front page
 
      Open Feed for Reddit Front Page.
-  48. reddit search
+  50. reddit search
 
      Reddit Search Results Feed.
-  49. sourceforge browse mirrors
+  51. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  50. sourceforge download
+  52. sourceforge download
 
      Download specified file.
-  51. sourceforge project
+  53. sourceforge project
 
      Open specified project page at SourceForge.
-  52. streamworld radio
+  54. streamworld radio
 
      Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  53. tech news from cnet
+  55. tech news from cnet
 
      Display tech news from CNET
-  54. tunein radio
+  56. tunein radio
 
      Translate StreamId to playable stream.
-  55. us stock market from google
+  57. us stock market from google
 
      Light-weight Google US Stock Markets.
-  56. w3c irc logs
+  58. w3c irc logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  57. w3c lists
+  59. w3c lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  58. washington post
+  60. washington post
 
      Washington Post Contents
-  59. wiki data search
+  61. wiki data search
 
      Search WikiData.
-  60. wikipedia at point
+  62. wikipedia at point
 
      Extract body content from Wikipedia link at point
-  61. wordnet search
+  63. wordnet search
 
      Look up term in WordNet.
-  62. world cnn content
+  64. world cnn content
 
      Filter down to CNN content area.
-  63. yahoo rssnews
+  65. yahoo rssnews
 
      News From Yahoo As RSS.
 
