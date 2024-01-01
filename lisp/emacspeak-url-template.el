@@ -8,28 +8,28 @@
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
 ;; A speech interface to Emacs |
-;; 
+;;
 ;; $Revision: 4626 $ |
 ;; Location https://github.com/tvraman/emacspeak
-;; 
+;;
 
 ;;;  Copyright:
 
 ;; Copyright (C) 1995 -- 2022, T. V. Raman<tv.raman.tv@gmail.com>
 ;; All Rights Reserved.
-;; 
+;;
 ;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
+;;
 ;; GNU Emacs is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2, or (at your option)
 ;; any later version.
-;; 
+;;
 ;; GNU Emacs is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 ;; GNU General Public License for more details.
-;; 
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs; see the file COPYING. If not, write to
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
@@ -223,19 +223,6 @@ with duplicates removed when saving as a list of string."
  nil
  "Retrieve product details from Amazon by either ISBN or ASIN.")
 
-;;;  old time radio
-
-(emacspeak-url-template-define
- "Old Time Radio"
- "http://www.oldtimeradioprograms.com"
- nil
- nil
- "This months Old Time Radio Programming"
- #'(lambda (url)
-     (emacspeak-we-extract-nested-table-list
-      (list 2 3)
-      url)))
-
 ;;;  Guardian Feed Directory:
 (emacspeak-url-template-define
  "Guardian RSS Feeds Directory"
@@ -322,44 +309,8 @@ with duplicates removed when saving as a list of string."
      (emacspeak-auditory-icon 'open-object)
      (emacspeak-speak-windowful))
  "Light-weight Google weather.")
-(emacspeak-url-template-define
- "Google Quotes"
- "https://www.google.com/search?num=25&gbv=1&q=stock+%s"
- (list "Ticker:")
- #'(lambda nil
-     (search-forward "Stock Price")
-     (forward-line 1)
-     (emacspeak-auditory-icon 'open-object)
-
-     (emacspeak-speak-windowful))
- "Light-weight Google Stock quotes.")
-
-(emacspeak-url-template-define
- "US Stock Market From Google "
- "https://www.google.com/search?num=25&lite=90586&q=US+Stock+Market+Summary"
- nil
- #'(lambda nil
-     (search-forward "Search Tools")
-     (forward-line 1)
-     (emacspeak-auditory-icon 'open-object)
-     (emacspeak-speak-windowful))
- "Light-weight Google US Stock Markets.")
 
 ;;;  Calendar Mobile:
-
-;;;  google patent search:
-
-(emacspeak-url-template-define
- "Patent Search From Google"
- "https://www.google.com/patents?ie=ISO-8859-1&q=%s"
- (list "Google For Patents: ")
- #'(lambda nil
-     (search-forward " Patent Search" nil t)
-     (beginning-of-line)
-     (emacspeak-speak-rest-of-buffer))
- "Perform patent search via Google"
- #'(lambda (url)
-     (emacspeak-we-extract-by-id "center_col" url 'speak)))
 
 ;;;  google finance
 
@@ -416,7 +367,7 @@ with duplicates removed when saving as a list of string."
  "Dictionary Lookup"
  #'(lambda (url)
      (emacspeak-xslt-without-xsl
-      (browse-url url))))
+         (browse-url url))))
 
 ;;;  google OverviewOfNews
 
@@ -565,13 +516,6 @@ name of the list.")
  "News Headlines From CNN"
  #'emacspeak-feeds-rss-display)
 
-(emacspeak-url-template-define
- "CNN World"
- "http://rss.cnn.com/rss/cnn_world.rss"
- nil nil
- "CNN World"
- #'emacspeak-feeds-rss-display)
-
 (declare-function eww-display-dom-by-element "emacspeak-eww" (tag))
 
 (emacspeak-url-template-define
@@ -584,19 +528,6 @@ name of the list.")
      (setq
       emacspeak-we-url-executor 'emacspeak-url-template-cnn-content))
  "Money Headlines From CNN")
-
-(emacspeak-url-template-define
- "world CNN Content"
- "http://www.cnn.com/world"
- nil
- #'(lambda nil
-     (cl-declare (special emacspeak-we-url-executor))
-     (eww-display-dom-by-element 'h3)
-     (setq
-      emacspeak-we-url-executor 'emacspeak-url-template-cnn-content))
- "Filter down to CNN content area."
- #'(lambda (url)
-     (emacspeak-we-extract-by-class "column" url 'speak)))
 
 ;;;  sourceforge
 
@@ -684,7 +615,7 @@ name of the list.")
 Example: kcbsFM.
 Format is stationid+AM/FM."
  #'(lambda (url)
-     (emacspeak-m-player url 'playlist)))
+     (emacspeak-empv-play-file url )))
 
 ;;; Hoogle
 (declare-function emacspeak-eww-next-h1 "emacspeak-eww" (&optional speak))
@@ -909,7 +840,7 @@ Each URL template carries out the following steps:
          (error
           (message "Error: URL Template  %s"
                    (emacspeak-url-template-name
-             (emacspeak-url-template-get key))))))
+                    (emacspeak-url-template-get key))))))
       (insert "\n\n@end enumerate\n\n"))))
 
 ;;;  wikiData:
@@ -1082,7 +1013,7 @@ template."
  nil
  nil
  "Open  Feed for Reddit  Front Page."
- #'emacspeak-feeds-atom-display) 
+ #'emacspeak-feeds-atom-display)
 
 ;;; Hacker News:
 
@@ -1103,12 +1034,7 @@ template."
 
 ;;; CIA World Fact Book:
 
-(emacspeak-url-template-define
- "CIA World Fact Book"
- "https://www.cia.gov/the-world-factbook/countries/%s"
- (list "Country:")
- #'emacspeak-speak-buffer
- "Open CIA World Fact Book For Specified Country.")
+;; needs updating.
 
 ;;; Air Quality From Wunderground
 
@@ -1130,7 +1056,7 @@ template."
 (emacspeak-url-template-define
  "Cricinfo Print"
  "_" ; place holder
- nil nil 
+ nil nil
  "Printer friendly   link on Cricinfo"
  #'(lambda (_u)
      (add-hook
@@ -1159,4 +1085,3 @@ template."
 
 (provide 'emacspeak-url-template)
 ;;;  end of file
-
