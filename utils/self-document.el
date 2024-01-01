@@ -107,9 +107,9 @@
     (cl-loop
      for f in  self-document-files do
      (unless (string-match "emacspeak-setup" f) ; avoid loading setup twice :
-                                        ;(condition-case nil
+                                        (condition-case nil
        (load-library f)
-                                        ;(error (message  "check %s" f)))
+                                        (error (message  "check %s" f)))
        ))))
 
 (defconst self-document-patterns
@@ -306,14 +306,15 @@
 
 (defun self-document-module (self)
   "Generate documentation for commands and options in a module."
+  (message "Doc: %s" self)
   (let ((file-name-handler-alist nil))
-;; Only generate in non-degenerate case
-  (when (or (self-document-commentary self)
-            (not  (zerop (length (self-document-commands self))))
-            (not  (zerop (length (self-document-options self)))))
-    (self-document-module-preamble self)
-    (when (self-document-commands self) (self-document-module-commands self))
-    (when (self-document-options self)(self-document-module-options self)))))
+    ;; Only generate in non-degenerate case
+    (when (or (self-document-commentary self)
+              (not  (zerop (length (self-document-commands self))))
+              (not  (zerop (length (self-document-options self)))))
+      (self-document-module-preamble self)
+      (when (self-document-commands self) (self-document-module-commands self))
+      (when (self-document-options self)(self-document-module-options self)))))
 
  
 ;;; Document Keybindings For Various Prefix Maps:
