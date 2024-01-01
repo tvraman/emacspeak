@@ -20360,7 +20360,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 63 URL Templates.
+This section documents a total of 65 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -20388,7 +20388,11 @@ Air quality from Wunderground@item @b{archwiki search}
 
 Search Linux ArchWiki@item @b{bbc podcast directory}
 
-BBC PodCast Directory@item @b{bbc sounds}
+BBC PodCast Directory@item @b{bbc r4 extra schedule }
+
+BBC Radio 4 Extra Schedule@item @b{bbc r4 schedule }
+
+BBC R4 Schedule@item @b{bbc sounds}
 
 Search BBC Sounds@item @b{bing news}
 

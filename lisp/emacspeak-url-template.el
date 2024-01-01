@@ -249,14 +249,15 @@ with duplicates removed when saving as a list of string."
  "BBC r4 Schedule "
  "https://www.bbc.co.uk/sounds/schedules/bbc_radio_fourfm "
  nil
- #'emacspeak-eww-next-h3)
-
+ #'emacspeak-eww-next-h3
+ "BBC R4 Schedule")
 
 (emacspeak-url-template-define
  "BBC r4 Extra Schedule "
  "https://www.bbc.co.uk/schedules/p00fzl7l"
  nil
- #'emacspeak-eww-next-h3)
+ #'emacspeak-eww-next-h3
+ "BBC Radio 4 Extra Schedule")
 
 (emacspeak-url-template-define
  "BBC Sounds"
