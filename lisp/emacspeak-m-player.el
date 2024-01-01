@@ -577,7 +577,7 @@ dynamic playlist. "
     (with-current-buffer buffer
       (emacspeak-m-player-mode)
       (setq emacspeak-m-player-resource resource
-            emacspeak-m-player-url-p (string-match "^http" resource))
+            emacspeak-m-player-url-p (and resource (string-match "^http" resource)))
       (when emacspeak-m-player-url-p
         (setq emacspeak-m-player-url resource))
       (unless emacspeak-m-player-url-p
@@ -928,9 +928,10 @@ The time position can also be specified as HH:MM:SS."
           (unless
               (or
                emacspeak-m-player-url-p
-               (string-match
-                emacspeak-media-shortcuts-directory
-                emacspeak-m-player-resource)
+               (and emacspeak-m-player-resource
+                (string-match
+                 emacspeak-media-shortcuts-directory
+                 emacspeak-m-player-resource))
                (cl-minusp (emacspeak-m-player-get-length)))
             (emacspeak-m-player-amark-add ems--m-player-mark)
             (emacspeak-m-player-amark-save))
