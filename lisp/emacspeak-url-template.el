@@ -247,8 +247,16 @@ with duplicates removed when saving as a list of string."
 ;;;  bbc
 (emacspeak-url-template-define
  "BBC r4 Schedule "
- "https://www.bbc.co.uk/sounds/schedules/bbc_radio_fourfm ")
+ "https://www.bbc.co.uk/sounds/schedules/bbc_radio_fourfm "
+ nil
+ #'emacspeak-eww-next-h3)
 
+
+(emacspeak-url-template-define
+ "BBC r4 Extra Schedule "
+ "https://www.bbc.co.uk/schedules/p00fzl7l"
+ nil
+ #'emacspeak-eww-next-h3)
 
 (emacspeak-url-template-define
  "BBC Sounds"
