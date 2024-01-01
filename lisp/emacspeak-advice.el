@@ -944,6 +944,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 ;; read-password--hide-password
 (defadvice read-password--hide-password (after emacspeak pre act comp)
   "speak."
+  (emacspeak-auditory-icon 'repeat-active)
   (dtk-say " dot " ))
 
 
