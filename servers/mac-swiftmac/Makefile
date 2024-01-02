@@ -7,13 +7,16 @@ LIBPARENTDIR = ${PREFIX}/share/emacs/site-lisp
 LIBDIR =$(LIBPARENTDIR)/emacspeak/servers/mac-swiftmac
 
 SWIFT=swift
-TTS=./.build/release/swiftmac
+TTS=../swiftmac
+RELEASE=./.build/release/swiftmac
 
 all:   $(TTS)
 
-$(TTS): 
+$(TTS): $(RELEASE)
+	cp $(RELEASE) $(TTS)
+
+$(RELEASE):
 	$(SWIFT) build -c release
-	cp $(TTS) ../swiftmac
 
 clean:
 	rm -rf .build
