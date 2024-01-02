@@ -4,7 +4,7 @@
 ;;;   LCD Archive entry:
 
 ;;;   Copyright:
-;; Copyright (C) 1995 -- 2022, T. V. Raman 
+;; Copyright (C) 1995 -- 2024, T. V. Raman 
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
 ;; 
