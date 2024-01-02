@@ -129,7 +129,7 @@ install:
 	@echo "This release requires Emacs 29.1 or later."
 	@echo "To run  this Emacspeak build, add this  line to the top of your .emacs:"
 	@echo "(load-file \"`pwd`/lisp/emacspeak-setup.el\")"
-	@echo "    Type make  <engine> [dtk, outloud,  espeak] to build TTS server. "
+	@echo "    Type make  <engine> [dtk, outloud,  espeak, swiftmac] to build TTS server. "
 	@echo "Package maintainers: see   etc/install.org	 for instructions."
 
 ### Worktree:
