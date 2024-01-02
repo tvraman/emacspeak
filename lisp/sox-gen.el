@@ -387,8 +387,7 @@ binaural beat to another."
                (cl-incf  result (/ i  sox-binaural-slider-scale))))
     result))
 
-(defun
-    sox--theme-duration-scale (theme duration)
+(defun sox--theme-duration-scale (theme duration)
   "Given a theme and a desired overall duration, compute duration scale."
   (cl-declare (special sox-binaural-slider-scale))
   (let ((steps (mapcar #'cl-second theme)))
