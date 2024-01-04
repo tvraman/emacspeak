@@ -20398,7 +20398,11 @@ Search BBC Sounds@item @b{bing news}
 
 Bing News results as RSS feed.@item @b{business headlines from cnn}
 
-Money Headlines From CNN@item @b{cnbc quotes}
+Money Headlines From CNN@item @b{cbs radio streams from streamtheworld}
+
+Play radio stream.
+Example: kcbsFM.
+Format is stationid+AM/FM.@item @b{cnbc quotes}
 
 Stock portfolio via CNBC@item @b{cnbc ticker}
 
@@ -20475,11 +20479,7 @@ Retrieve download page at Sourceforge for specified project.@item @b{sourceforge
 
 Download specified file.@item @b{sourceforge project}
 
-Open specified project page at SourceForge.@item @b{streamworld radio}
-
-Play radio stream.
-Example: kcbsFM.
-Format is stationid+AM/FM.@item @b{tech news from cnet}
+Open specified project page at SourceForge.@item @b{tech news from cnet}
 
 Display tech news from CNET@item @b{tunein radio}
 

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 1, 2024.
+last updated on January 4, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -834,124 +834,124 @@ following steps:
   11. business headlines from cnn
 
      Money Headlines From CNN
-  12. cnbc quotes
+  12. cbs radio streams from streamtheworld
+
+     Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
+  13. cnbc quotes
 
      Stock portfolio via CNBC
-  13. cnbc ticker
+  14. cnbc ticker
 
      Stock Quote via CNBC
-  14. cnn headlines
+  15. cnn headlines
 
      News Headlines From CNN
-  15. cnn money
+  16. cnn money
 
      CNN Money
-  16. cricinfo print
+  17. cricinfo print
 
      Printer friendly link on Cricinfo
-  17. dictionary lookup
+  18. dictionary lookup
 
      Dictionary Lookup
-  18. finance google
+  19. finance google
 
      Lookup ticker on Google Finance.
-  19. finance summary from google
+  20. finance summary from google
 
      Display top stocks from Google Finance.
-  20. freesound
+  21. freesound
 
      Search FreeSound.
-  21. google news search
+  22. google news search
 
      Search Google news.
-  22. google scholar
+  23. google scholar
 
      Google Scholar Search
-  23. google trends
+  24. google trends
 
      Google Trends
-  24. google weather
+  25. google weather
 
      Light-weight Google weather.
-  25. guardian rss feeds directory
+  26. guardian rss feeds directory
 
      Guardian Feeds Directory
-  26. hacker news frontpage
+  27. hacker news frontpage
 
      Display Hacker News Front Page
-  27. hacker news search
+  28. hacker news search
 
      Display Hacker News Front Page
-  28. hoogle haskell api search
+  29. hoogle haskell api search
 
      Haskell API Search against a local server.
-  29. html google news search
+  30. html google news search
 
      Search Google news.
-  30. microsoft search
+  31. microsoft search
 
      Bing results as RSS feed.
-  31. nba standings
+  32. nba standings
 
      Display NBA standings.
-  32. nls bard bookshelf
+  33. nls bard bookshelf
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  33. nls bard popular
+  34. nls bard popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  34. nls bard recent
+  35. nls bard recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  35. nls bard search
+  36. nls bard search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  36. npr
+  37. npr
 
      Open NPR home , then display the alternative links to access RSS
      feeds.
-  37. online radiotime browser
+  38. online radiotime browser
 
      RadioTime Entry point.
-  38. online radiotime search
+  39. online radiotime search
 
      RadioTime Search
-  39. openlibrary
+  40. openlibrary
 
      Open Library Search
-  40. player fm bbc rss feeds
+  41. player fm bbc rss feeds
 
      Player FM BBC RSS Feeds
-  41. radiotime categories
+  42. radiotime categories
 
      RadioTime Categories
-  42. reddit at point
+  43. reddit at point
 
      Open RSS Feed for Reddit URL under point.
-  43. reddit by topic
+  44. reddit by topic
 
      Open RSS Feed for Reddit Topic.
-  44. reddit front page
+  45. reddit front page
 
      Open Feed for Reddit Front Page.
-  45. reddit search
+  46. reddit search
 
      Reddit Search Results Feed.
-  46. sourceforge browse mirrors
+  47. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  47. sourceforge download
+  48. sourceforge download
 
      Download specified file.
-  48. sourceforge project
+  49. sourceforge project
 
      Open specified project page at SourceForge.
-  49. streamworld radio
-
-     Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
   50. tech news from cnet
 
      Display tech news from CNET
