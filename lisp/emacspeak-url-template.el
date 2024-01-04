@@ -606,7 +606,7 @@ name of the list.")
 ;;;  Radio station streams
 
 (emacspeak-url-template-define
- "StreamWorld Radio"
+ "CBS Radio streams from streamtheworld"
  "http://provisioning.streamtheworld.com/pls/%s.pls"
  (list
   #'(lambda () (upcase (read-from-minibuffer "Station ID: "))))
