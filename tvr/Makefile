@@ -14,12 +14,12 @@ gnus-gmail-prepare.el \
 kbd-macros.el \
 laptop-local.el \
 lispy-prepare.el \
-llm-prepare.el \
 org-prepare.el \
 slime-prepare.el \
 sp-prepare.el \
 sdcv-prepare.el \
-vm-prepare.el   
+vm-prepare.el    
+
 
 # We create all-prepare.el and compile our startup file.
 

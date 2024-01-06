@@ -202,29 +202,6 @@ Uses the go oauth tool found in the xoauth git repo."
   (diminish 'lispy-mode "")
   (diminish 'lispy-other-mode "")
   (diminish 'lispy-goto-mode ""))
-;;; Prepare various  LLM front-ends 
-;;; Keys are stored in passwd-store
-
-(require 'markdown-mode)
-(require 'ellama)
-(require 'llm-gemini)
-(require 'gptel "gptel" 'no-error)
-
-;;; Ellama:
-(setopt
- ellama-provider
- (make-llm-gemini :key (auth-source-pass-get 'secret "ai.google" )))
-
-(setq ellama-assistant-nick "Gemini")
-(global-set-key (kbd "C-; ," ) 'ellama-chat)
-
-;;; gptel:
-
-(when (featurep 'gptel)
-  (setopt
-   gptel-backend
-   (gptel-make-gemini
-    "Gemini" :key(auth-source-pass-get 'secret "ai.google" ) :stream t)))
 
 (with-eval-after-load "org"
 
