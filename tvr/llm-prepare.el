@@ -1,3 +1,4 @@
+;;; llm-prepare.el --- LLM   -*- lexical-binding: t -*-
 ;;; Prepare various  LLM front-ends 
 ;;; Keys are stored in passwd-store
 

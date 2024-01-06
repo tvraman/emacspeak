@@ -182,7 +182,8 @@ Use Custom to customize where possible. "
        abbrev-mode auto-correct-mode)))
   (setq  global-mode-string '("" display-time-string battery-mode-line-string))
   (bash-completion-setup)
-  (load-theme 'ef-maris-dark t))
+  (load-theme 'ef-maris-dark t)
+  (load-library "llm-prepare"))
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
