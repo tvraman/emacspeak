@@ -14,6 +14,7 @@ gnus-gmail-prepare.el \
 kbd-macros.el \
 laptop-local.el \
 lispy-prepare.el \
+llm-prepare.el \
 org-prepare.el \
 slime-prepare.el \
 sp-prepare.el \
