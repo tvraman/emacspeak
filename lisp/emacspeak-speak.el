@@ -638,6 +638,25 @@ the sense of the filter. "
         (emacspeak-speak-voice-annotate-paragraphs)))
     (dtk-speak (buffer-substring start end))))
 
+(defun emacspeak-speak-extent (beg end &optional no-case)
+  "Speak extent delimited by beg and end.
+Match patterns beg and end define the extent; optional arg no-case
+  determines if the match is case sensitive.
+Point is left at the start of beg."
+  (let ((case-fold-search no-case)
+        (start nil))
+    (goto-char (point-min))
+    (re-search-forward beg)
+    (forward-line 0)
+    (setq start (point))
+    (save-excursion
+      (goto-char (line-end-position))
+      (re-search-forward end)
+      (emacspeak-speak-region start (line-beginning-position)))))
+
+;; emacspeak-speak-extent
+(defun
+
 (defconst emacspeak-horizontal-rule "^\\([=_-]\\)\\1+$"
   "Regular expression to match horizontal rules in ascii text.")
 
