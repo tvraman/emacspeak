@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 4, 2024.
+last updated on January 6, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -8240,11 +8240,11 @@ prefix arg to delete a previously created eww-mark.
 12.75.9.18 emacspeak-eww-next-element
 .....................................
 
- -- Command: emacspeak-eww-next-element (el)
+ -- Command: emacspeak-eww-next-element (el &optional speak)
 
      Move forward to the next specified element.
 
-     (fn EL)
+     (fn EL &optional SPEAK)
 
 12.75.9.19 emacspeak-eww-next-element-from-history
 ..................................................
@@ -8469,11 +8469,11 @@ prefix arg to delete a previously created eww-mark.
 12.75.9.38 emacspeak-eww-previous-element
 .........................................
 
- -- Command: emacspeak-eww-previous-element (el)
+ -- Command: emacspeak-eww-previous-element (el &optional speak)
 
      Move backward  to the previous  specified element.
 
-     (fn EL)
+     (fn EL &optional SPEAK)
 
 12.75.9.39 emacspeak-eww-previous-element-from-history
 ......................................................

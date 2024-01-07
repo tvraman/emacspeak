@@ -5859,13 +5859,13 @@ The dt is automatically spoken if there is no user activity.
 @end deffn
 
 @subsubsection emacspeak-eww-next-element
-@deffn {Command} emacspeak-eww-next-element  (el)
+@deffn {Command} emacspeak-eww-next-element  (el &optional speak)
 @findex emacspeak-eww-next-element
 
 @format
 Move forward to the next specified element.
 
-(fn EL)
+(fn EL &optional SPEAK)
 @end format
 @end deffn
 
@@ -6136,13 +6136,13 @@ The dt is automatically spoken if there is no user activity.
 @end deffn
 
 @subsubsection emacspeak-eww-previous-element
-@deffn {Command} emacspeak-eww-previous-element  (el)
+@deffn {Command} emacspeak-eww-previous-element  (el &optional speak)
 @findex emacspeak-eww-previous-element
 
 @format
 Move backward  to the previous  specified element.
 
-(fn EL)
+(fn EL &optional SPEAK)
 @end format
 @end deffn
 
