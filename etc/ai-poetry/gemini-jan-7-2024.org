@@ -1,0 +1,41 @@
+Sun Jan  7 11:48:44 AM PST 2024
+
+
+## Ellama: write a poem on emacspeak, the speech-enabled extension to Emacs
+
+## Gemini:
+In the realm of code, where silence reigns, Emacspeak emerges,
+breaking the chains, A voice of guidance, a beacon of light, For those
+who seek knowledge, day and night.
+
+With synthesized tones, it whispers sweet, Guiding fingers, making
+tasks complete, Commands and text, it reads aloud, Dispelling shadows,
+casting off the shroud.
+
+For those who cannot see the screen's embrace, Emacspeak opens wide
+the gates of grace, A symphony of words, a guiding hand, Empowering
+minds, across the land.
+
+Its voice, like a gentle breeze, caresses, As it weaves its magic,
+like silken tresses, Keystrokes dance, like raindrops in the air,
+Emacspeak listens, with a tender care.
+
+It reads and writes, with eloquence and ease, A tireless companion,
+bringing thoughts to please, A bridge between the mind and the
+machine, Unleashing creativity, thoughts unseen.
+
+With Emacspeak's guidance, worlds unfold, As lines of code transform
+into tales untold, It speaks of errors, warnings, and success, A
+faithful comrade, never to digress.
+
+For those who navigate the digital sphere, With vision impaired,
+Emacspeak is near, A beacon of hope, a guiding light, Illuminating the
+path, through the darkest night.
+
+In the vast tapestry of software's art, Emacspeak stands tall, a
+masterpiece apart, A testament to ingenuity and grace, Empowering
+minds, in every time and space.
+
+So let us raise our voices, in chorus we sing, To Emacspeak, the voice
+that makes Emacs sing, For in its embrace, all can create, A world of
+words, where dreams take flight, elate.
