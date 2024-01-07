@@ -1726,12 +1726,13 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
         emacspeak-eww-el-cache nil 'must-match
         nil 'emacspeak-eww-el-cache)))
     current-prefix-arg))
-  (cl-declare (special eww- element-cache emacspeak-eww-el-nav-history))
+  (cl-declare (special eww- element-cache emacspeak-eww-el-nav-history
+                       emacspeak-eww-autospeak))
   (when (eq el 'li) ;; if element is li, use shr-indentation
     (setq el 'shr-continuation-indentation))
   (let* ((start (next-single-property-change (point) el))
          (next (next-single-property-change start el)))
-    (when speak
+    (when (or emacspeak-eww-autospeak speak)
       (setq next (next-single-property-change next el)))
     (cond
      ((and start next)
@@ -1751,12 +1752,14 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
         "Element: " emacspeak-eww-el-cache nil 'must-match
         nil 'emacspeak-eww-ell-cache)))
     current-prefix-arg))
-  (cl-declare (special emacspeak-eww-el-cache emacspeak-eww-el-nav-history))
+  (cl-declare (special emacspeak-eww-el-cache
+                       emacspeak-eww-el-nav-history
+                       emacspeak-eww-autospeak))
   (when (eq el 'li) ;; if element is li, use shr-indentation
     (setq el 'shr-continuation-indentation))
   (let* ((start (previous-single-property-change (point) el))
          (previous (previous-single-property-change  start  el)))
-    (when speak
+    (when (or emacspeak-eww-autospeak speak)
       (setq previous  (previous-single-property-change  start  el)))
     (cond
      ((and start previous)
