@@ -642,7 +642,7 @@ the sense of the filter. "
   "Speak extent delimited by beg and end.
 Match patterns beg and end define the extent; optional arg
   no-case determines if the match is case sensitive.  Point is
-  left at the start of beg."
+  left at the start of beg on success."
   (let ((case-fold-search no-case)
         (start nil))
     (goto-char (point-min))
