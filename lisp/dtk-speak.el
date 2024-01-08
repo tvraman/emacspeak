@@ -1963,7 +1963,7 @@ Designed to work with ALSA and Pulseaudio."
          (if (string-match "cloud" dtk-program) "cloud-notify" dtk-program)))
     (when (and dtk-notify-process (process-live-p dtk-notify-process))
       (delete-process dtk-notify-process))
-    (unless (zerop (length tts-notification-device))
+    (unless (and (not (string-match "cloud" dtk-program)) (zerop (length tts-notification-device)))
       (with-environment-variables
           ((tts-audio-env-var tts-notification-device))
         (setq  new (dtk-make-process "Notify"))
