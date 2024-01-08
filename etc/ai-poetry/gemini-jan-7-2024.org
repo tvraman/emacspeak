@@ -39,3 +39,24 @@ minds, in every time and space.
 So let us raise our voices, in chorus we sing, To Emacspeak, the voice
 that makes Emacs sing, For in its embrace, all can create, A world of
 words, where dreams take flight, elate.
+
+## User:
+Write a sonnet on Emacspeak, the speech-enabling extension to Emacs, in the style of Shakespeare
+
+## Gemini:
+In realms where keys and voices intertwine, A bard doth sing of
+Emacspeak's design, A symphony of code, where thoughts take flight, On
+wings of speech, they soar beyond the night.
+
+With nimble fingers, words begin to flow, As Emacspeak's magic makes
+them gently grow, Each keystroke weaves a tapestry of sound, A
+symphony of language, profound.
+
+The screen, a canvas painted with commands, A symphony of logic, close
+at hand, The user's voice, a conductor's wand, Directing Emacspeak's
+celestial bond.
+
+Oh, Emacspeak, thy powers do astound, A bridge between the mind and
+keyboard's sound, A window to a world where words ignite, A beacon in
+the darkness of the night.
+
