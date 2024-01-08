@@ -1,0 +1,2 @@
+#!/bin/sh
+paplay -d "effect_input.spatializer" "$@" 2>&1 > /dev/null &
