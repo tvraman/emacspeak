@@ -643,6 +643,8 @@ the sense of the filter. "
 Match patterns beg and end define the extent; optional arg
   no-case determines if the match is case sensitive.  Point is
   left at the start of beg on success."
+  (interactive
+   (list (read-string "Beg:") (read-string "End: :") current-prefix-arg))
   (let ((case-fold-search no-case)
         (start nil))
     (goto-char (point-min))

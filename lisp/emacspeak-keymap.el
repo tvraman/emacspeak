@@ -237,6 +237,7 @@
    ("M-b" emacspeak-speak-other-buffer)
    ("M-c" emacspeak-copy-current-file)
    ("M-d" emacspeak-pronounce-dispatch)
+   ("M-e" emacspeak-speak-extent)
    ("M-h" emacspeak-speak-hostname)
    ("M-i" emacspeak-table-display-table-in-region)
    ("M-l" emacspeak-speak-overlay-properties)
