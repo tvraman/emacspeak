@@ -248,7 +248,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1149 commands and 146 options.
+This chapter documents a total of 1150 commands and 146 options.
 
 @node amixer
 @section amixer
@@ -12491,6 +12491,25 @@ Read time value as a human-readable string, return seconds.
 Seconds value is also placed in the kill-ring.
 
 (fn TIME)
+@end format
+@end deffn
+
+@subsubsection emacspeak-speak-extent
+@deffn {Command} emacspeak-speak-extent  (beg end &optional no-case)
+@table @kbd
+@item C-e M-e
+@kindex C-e M-e
+@end table
+
+@findex emacspeak-speak-extent
+
+@format
+Speak extent delimited by beg and end.
+Match patterns beg and end define the extent; optional arg
+  no-case determines if the match is case sensitive.  Point is
+  left at the start of beg on success.
+
+(fn BEG END &optional NO-CASE)
 @end format
 @end deffn
 
