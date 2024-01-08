@@ -375,10 +375,11 @@ This cannot be set via custom; set this in your startup file before
   (cl-declare (special emacspeak-m-player-program))
   (let ((f (expand-file-name "ai-poetry/gemini-jan-7-2024.mp3"
                              emacspeak-etc-directory)))
-    (when (and  emacspeak-play-startup-icon emacspeak-m-player-program
-                (file-exists-p f)
-                (string=  ; anniversary
-                 (format-time-string "%F") (format-time-string "%Y-25-04")))
+    (when
+        (and  emacspeak-play-startup-icon emacspeak-m-player-program
+              (file-exists-p f)
+              (string=                  ; anniversary
+               (format-time-string "%m-%d") (format-time-string "25-04")))
       (start-process "mp3" nil emacspeak-m-player-program f))))
 
 (defvar emacspeak-startup-message
