@@ -373,15 +373,13 @@ This cannot be set via custom; set this in your startup file before
 (defsubst emacspeak-easter-egg ()
   "Easter Egg"
   (cl-declare (special emacspeak-m-player-program))
-  (when (and  emacspeak-play-startup-icon
-              emacspeak-m-player-program
-              (string= (format-time-string "%F") ; anniversary
-                       (format-time-string "%Y-25-04")))
-    (start-process
-     "mp3" nil
-     emacspeak-m-player-program
-     (expand-file-name "ai-poetry/gemini-jan-7-2024.mp3"
-                       emacspeak-etc-directory))))
+  (let ((f (expand-file-name "ai-poetry/gemini-jan-7-2024.mp3"
+                             emacspeak-etc-directory)))
+    (when (and  emacspeak-play-startup-icon emacspeak-m-player-program
+                (file-exists-p f)
+                (string=  ; anniversary
+                 (format-time-string "%F") (format-time-string "%Y-25-04")))
+      (start-process "mp3" nil emacspeak-m-player-program f))))
 
 (defvar emacspeak-startup-message
   (eval-when-compile
@@ -443,7 +441,8 @@ commands and options for details."
    '(emacspeak-speak-show-volume (:eval (ems--show-current-volume))))
   (setenv "EMACSPEAK_DIR" emacspeak-directory)
   (message emacspeak-startup-message)
-  (emacspeak-play-startup-icon))
+  (emacspeak-play-startup-icon)
+  (emacspeak-easter-egg))
 
 (provide 'emacspeak)
 ;;; Orca For Lock Screen:
