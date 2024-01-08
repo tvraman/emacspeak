@@ -369,6 +369,20 @@ This cannot be set via custom; set this in your startup file before
      (expand-file-name "emacspeak.mp3"
                        emacspeak-sounds-directory))))
 
+
+(defsubst emacspeak-easter-egg ()
+  "Easter Egg"
+  (cl-declare (special emacspeak-m-player-program))
+  (when (and  emacspeak-play-startup-icon
+              emacspeak-m-player-program
+              (string= (format-time-string "%F") ; anniversary
+                       (format-time-string "%Y-25-04")))
+    (start-process
+     "mp3" nil
+     emacspeak-m-player-program
+     (expand-file-name "ai-poetry/gemini-jan-7-2024.mp3"
+                       emacspeak-etc-directory))))
+
 (defvar emacspeak-startup-message
   (eval-when-compile
     (format
