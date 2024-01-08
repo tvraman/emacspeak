@@ -1,0 +1,88 @@
+            From: r...@arctic.crl.dec.com (TV Raman)
+Date: 1995/04/25                                                            
+Subject: Emacspeak --A Speech Output Subsystem For Emacs                    
+Reply to author | Forward | Print | Individual message | Show original |    
+Report this message | Find messages by this author                          
+EMACSPEAK --A SPEECH OUTPUT SUBSYSTEM FOR EMACS                             
+X-URL:
+http://groups.google.com/group/comp.emacs/browse_thread/thread/552b2dea2783f7bd/8f35edccc3bedfc7?lnk=gst&q=emacspeak&rnum=19#8f35edccc3bedfc7
+
+* Announcing Emacspeak, a full-fledged speech output interface to Emacs. *  
+--------------------------------------------------------------------------- 
+
+
+Emacspeak is the first full-fledged speech output system that
+will allow someone who cannot see to work directly on a UNIX
+system. (Until now, the only option available to visually
+impaired users has been to use a talking PC as a terminal.)
+
+Emacspeak is built on top of Emacs. Once you start emacs with
+emacspeak loaded, you get spoken feedback for everything you
+do. Your mileage will vary depending on how well you can use
+Emacs.There is nothing that you cannot do inside Emacs:-) I
+currently use Emacspeak at work on my DECALPHA workstation
+running Digital UNIX. I also use Emacspeak as the only speech
+output system on my laptop running Linux. Emacspeak currently
+supports the new Dectalk Express speech synthesizer, as well as
+older versions of the Dectalk e.g. the MultiVoice. On the
+DECALPHA, you can use it with the software Dectalk. (If you have
+a DECALPHA and also have software Dectalk installed at your site,
+please get in touch with me and I'll give you some additional
+code that emacspeak needs to work with the software Dectalk.)
+You need GNU FSF Emacs 19 (version 19.23 or later) and TCLX 7.3B
+(Extended TCL) to run Emacspeak. See the Emacspeak distribution
+for additional details. 
+
+Available from the following sites: FTP:
+ftp://crl.dec.com/pub/digital/emacspeak/emacspeak.tar.gz WWW:
+http://www.research.digital.com/CRL/personal/raman/emacspeak/emacspea...
+Emacspeak comes with full source level documentation. There is an
+online info manual as well, but this is still incomplete.  EMACS
+SUBSYSTEMS Emacspeak currently has extensions for many popular
+Emacs subsystems including: o W3: A full-fledged W3 browser
+[available by FTP]. Emacspeak implements a voice-lock mode
+analogous to Emacs' font-locking that allows it to speak WWW
+hotlinks using different ~voice personalities~.  o GNUS: The
+Emacs news reader. Emacspeak provides a fluent extension to gnus
+that allows you to listen to Usenet news without taking your
+fingers off the four arrow keys.  o VM: The Emacs VM mail
+reader. Emacspeak works with VM to present email messages using
+different voices; Parts of a message that are cited from a
+previous message are ~voicified~to produce effective aural
+presentations.  o Eterm: The Emacs 19 terminal emulator. (This
+will be part of Emacs 19.29). You can obtain a beta copy of eterm
+[via anonymous FTP]. I have used Emacspeak and Eterm to
+successfully login to work from my laptop and interface with
+running applications on my office workstation (including running
+Emacs sessions!).  Emacspeak also works well with Emacs addons
+like AUCTEX for editing TeX documents, the Emacs Calculator (CALC
+--a symbolic algebra system) etc.  Emacspeak works fluently with
+all Emacs addons; writing an extension makes its use even more
+pleasurable. If you would like to write an Emacspeak addon for
+your favorite package please get in touch with me so we do not
+end up duplicating work.  SUPPORT FOR EMACSPEAK Emacspeak comes
+as is, please see the accompanying [Copyright] notice. See the
+[README]file for details about this release and how to install
+Emacspeak on your system.  I work on Emacspeak in my spare time,
+and may not be able to answer questions on Emacspeak
+immediately. If you do download and use Emacspeak, please
+subscribe to the mailing list ~emacsp...@crl.dec.com~by sending a
+message to ~ emacspeak-requ...@crl.dec.com~.
+---------------------------------------------------------------------------
+--- *[T. V. Raman] r...@crl.dec.com* Last modified: Tue Apr 25
+18:07:01 1995 -- Best Regards,
+___________________________________________________________________________
+_ --raman Digital Equipment Corporation CRL: 617/692-7637 DTN:
+259-7637 Cambridge Research Lab FAX: 617/692-7650 DTN: 259-7650
+One Kendall Square, Bldg 700 INET: r...@crl.dec.com Cambridge, MA
+02139 PROJS: AUDIO-WWW, Multimedia Research
+http://www.crl.dec.com/crl/people/biographies/raman.html (Digital
+Internal)
+http://www.research.digital.com/CRL/personal/raman/raman.html
+(Digital External)
+http://www.cs.cornell.edu/Info/People/raman/raman.html (Cornell)
+Disclaimer: The opinions expressed are my own and in no way
+should be taken as representative of my employer Digital
+Equipment Corporation.
+___________________________________________________________________________
+_
