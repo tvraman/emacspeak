@@ -4,7 +4,7 @@ import Darwin
 import Foundation
 
 /* Global Constants */
-let version = "0.3"
+let version = "1.0.4"
 let name = "swiftmac"
 let speaker = NSSpeechSynthesizer()
 let defaultRate: Float = 200
@@ -91,9 +91,9 @@ func main() async {
     debugLogger.log("Enter: main")
   #endif
   #if DEBUG
-    await say("Debugging swift mac server for e mac speak", interupt: true)
+    await say("Debugging swift mac server for e mac speak \(version)", interupt: true)
   #else
-    await say("welcome to e mac speak with swift mac", interupt: true)
+    await say("welcome to e mac speak with swift mac \(version)", interupt: true)
   #endif
   while let l = readLine() {
     #if DEBUG
@@ -233,10 +233,15 @@ func sayVersion() async {
     debugLogger.log("Enter: sayLetter")
   #endif
   let letter = await isolateParams(line)
+  let trimmedLetter = letter.trimmingCharacters(in: .whitespacesAndNewlines)
+
   let charRate = speaker.rate * ss.getCharScale()
   var pitchShift = 0
-  if let singleChar = letter.first, singleChar.isUppercase {
+  if let singleChar = trimmedLetter.first, singleChar.isUppercase {
     pitchShift = 15
+    #if DEBUG
+      debugLogger.log("PitchShift ON")
+    #endif
   }
 
   await say(
@@ -377,7 +382,7 @@ func dispatchSpeaker() async {
   #if DEBUG
     debugLogger.log("Enter: dispatchSpeaker")
   #endif
-  let s = ss.popBacklog()
+  let s = " "+ss.popBacklog()+" "
   #if DEBUG
     debugLogger.log("speaking: \(s)")
   #endif
@@ -527,8 +532,10 @@ func isolateParams(_ line: String) async -> String {
   #if DEBUG
     debugLogger.log("Enter: isolateParams")
   #endif
-  let cmd = await isolateCommand(line) + " "
-  var params = line.replacingOccurrences(of: cmd, with: "")
+  let justCmd = await isolateCommand(line)
+  let cmd = justCmd + " "
+
+  var params = line.replacingOccurrences(of: "^" + cmd, with: "", options: .regularExpression)
   params = params.trimmingCharacters(in: .whitespacesAndNewlines)
   if params.hasPrefix("{") && params.hasSuffix("}") {
     if let lastIndex = params.lastIndex(of: "}") {
@@ -538,6 +545,9 @@ func isolateParams(_ line: String) async -> String {
       params.replaceSubrange(firstIndex...firstIndex, with: "")
     }
   }
+  #if DEBUG
+    debugLogger.log("Exit: isolateParams: \(params)")
+  #endif
   return params
 }
 
