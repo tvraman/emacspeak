@@ -141,7 +141,6 @@ Use Custom to customize where possible. "
      ("<f3>" bury-buffer)
      ("<f4>" emacspeak-kill-buffer-quietly)
      ("<f5>" set-selective-display)
-     ("<f9>" eat)
      ("M--" undo-only)
      ("M-C-c" calendar)
      ("M-C-j" imenu)
