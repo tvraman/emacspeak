@@ -1805,7 +1805,7 @@ As the default, use current position."
 
 (defvar emacspeak-locate-media-map
   (let ((map (make-sparse-keymap)))
-    (define-key map "               ;" 'emacspeak-dired-play-duration)
+    (define-key map ";" 'emacspeak-dired-play-duration)
     (define-key  map (kbd "M-;") 'emacspeak-m-player-add-dynamic)
     (define-key map "\C-m" 'emacspeak-locate-play-results-as-playlist)
     map)
