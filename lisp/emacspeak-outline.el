@@ -240,6 +240,7 @@ except that the outline section is  spoken"
 (defun emacspeak-outline-speak-this-heading ()
   "Speak current outline section starting from point"
   (interactive)
+  (emacspeak-auditory-icon 'select-object)
   (let ((start (point))
         (end nil))
     (save-excursion
