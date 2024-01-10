@@ -248,7 +248,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1150 commands and 146 options.
+This chapter documents a total of 1151 commands and 146 options.
 
 @node amixer
 @section amixer
@@ -6349,6 +6349,15 @@ Restore buffer to pre-filtered canonical state.
 Run specified shell command on URL at point. 
 
 (fn &optional PROMPT)
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-shr-outline-toggle
+@deffn {Command} emacspeak-eww-shr-outline-toggle   
+@findex emacspeak-eww-shr-outline-toggle
+
+@format
+Toggle between shr and native outliner.
 @end format
 @end deffn
 
