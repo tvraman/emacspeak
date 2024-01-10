@@ -535,11 +535,9 @@
 (add-hook
  'eww-mode-hook
  #'(lambda ()
-     (cl-declare (special outline-regexp outline-level outline-search-function))
+     (cl-declare (special outline- outline-search-function))
      (outline-minor-mode)
-     (setq outline-regexp "^ *[•0-9]+\\.? "
-           outline-level 'outline-level
-           outline-search-function nil)
+     (setq outline-regexp "^ *[•0-9]+\\.? ")
      (emacspeak-pronounce-toggle-use-of-dictionaries t)))
 
 
@@ -701,7 +699,8 @@ Safari/537.36"
      ("s" eww-readable)
      ("t" emacspeak-eww-next-table)
      ("m" emacspeak-eww-add-mark)
-     ("/" dtk-toggle-punctuation-mode))
+     ("/" dtk-toggle-punctuation-mode)
+     ( "0" emacspeak-eww-shr-outline-toggle))
    do
    (emacspeak-keymap-update eww-mode-map binding))
   (setq shr-external-rendering-functions emacspeak-eww-filter-renderers))
