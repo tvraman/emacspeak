@@ -621,16 +621,23 @@ Format is stationid+AM/FM."
 (emacspeak-url-template-define
  "TinyURL"
  "http://tinyurl.com/api-create.php?url=%s"
- (list #'(lambda nil (or (thing-at-point 'url) (read-string "URL: "))))
+ (list
+  #'(lambda nil
+      (or (thing-at-point 'url)
+          (shr-url-at-point nil)
+          (read-string "URL: "))))
  nil nil
  #'(lambda (u)
      (let ((b (bounds-of-thing-at-point 'url))
            (r (shell-command-to-string (format "curl -s '%s'" u))))
-       (when (thing-at-point 'url)
-         (kill-new r)
-         (kill-region (car b) (cdr b) ))
-       (insert r)
-       (emacspeak-speak-line)))
+       (cond
+        ((not buffer-read-only)
+         (when (thing-at-point 'url)
+           (kill-new r)
+           (when b (kill-region (car b) (cdr b) )))
+         (insert r)
+         (emacspeak-speak-line))
+        (t (dtk-speak "Saved shortened url to kill ring")))))
  "URL Shortener via tinyurl.
 If on a URL, replace it with the shortened version.
 Otherwise prompt for a URL to shorten and insert the result at point.")
