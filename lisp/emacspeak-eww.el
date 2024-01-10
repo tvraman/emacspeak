@@ -542,6 +542,25 @@
            outline-search-function nil)
      (emacspeak-pronounce-toggle-use-of-dictionaries t)))
 
+
+(defun emacspeak-eww-shr-outline-toggle ()
+  "Toggle between shr and native outliner."
+  (interactive)
+  (cl-declare (special outline-regexp outline-level outline-search-function))
+  (cond
+   (outline-search-function             ;turn off emacs 30 version:
+    (setq outline-regexp "^ *[•0-9]+\\.? "
+          outline-level 'outline-level
+          outline-search-function nil)
+    (emacspeak-auditory-icon 'off)
+    (message "Turned off SHR specific outliner"))
+   (t                                   ; Turn on emacs 30 version:
+    (setq outline-regexp nil
+          outline-level 'shr-outline-level
+          outline-search-function 'shr-outline-search)
+    (emacspeak-auditory-icon 'on)
+    (message "Turned on SHR specific outliner"))))
+
 (defvar emacspeak-eww-masquerade t
   "Masquerade flag")
 
