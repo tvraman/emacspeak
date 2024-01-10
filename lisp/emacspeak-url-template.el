@@ -634,13 +634,14 @@ Format is stationid+AM/FM."
         ((not buffer-read-only)
          (when (thing-at-point 'url)
            (kill-new r)
-           (when b (kill-region (car b) (cdr b) )))
+           (when b (kill-region (car b) (cdr b))))
          (insert r)
          (emacspeak-speak-line))
         (t (dtk-speak "Saved shortened url to kill ring")))))
  "URL Shortener via tinyurl.
-If on a URL, replace it with the shortened version.
-Otherwise prompt for a URL to shorten and insert the result at point.")
+If on a URL, replace it with the shortened version. If on a link
+in EWW, use it. Otherwise prompt for a URL to shorten and insert
+the result at point.")
 
 
 ;;; Hoogle
