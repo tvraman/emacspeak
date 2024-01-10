@@ -20379,7 +20379,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 58 URL Templates.
+This section documents a total of 59 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -20500,7 +20500,9 @@ Download specified file.@item @b{sourceforge project}
 
 Open specified project page at SourceForge.@item @b{tech news from cnet}
 
-Display tech news from CNET@item @b{tunein radio}
+Display tech news from CNET@item @b{tinyurl}
+
+@item @b{tunein radio}
 
 Translate StreamId to playable stream.@item @b{w3c irc logs}
 

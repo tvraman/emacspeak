@@ -616,6 +616,25 @@ Example: kcbsFM.
 Format is stationid+AM/FM."
  #'(lambda (url)
      (emacspeak-empv-play-file url )))
+;;; Url Shortener:
+
+(emacspeak-url-template-define
+ "TinyURL"
+ "http://tinyurl.com/api-create.php?url=%s"
+ (list #'(lambda nil (or (thing-at-point 'url) (read-string "URL: "))))
+ nil nil
+ #'(lambda (u)
+     (let ((b (bounds-of-thing-at-point 'url))
+           (r (shell-command-to-string (format "curl -s '%s'" u))))
+       (when (thing-at-point 'url)
+         (kill-new r)
+         (kill-region (car b) (cdr b) ))
+       (insert r)
+       (emacspeak-speak-line)))
+ "URL Shortener via tinyurl.
+If on a URL, replace it with the shortened version.
+Otherwise prompt for a URL to shorten and insert the result at point.")
+
 
 ;;; Hoogle
 (declare-function emacspeak-eww-next-h1 "emacspeak-eww" (&optional speak))

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 7, 2024.
+last updated on January 9, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -790,7 +790,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.240 URL Templates
 ====================
 
-This section documents a total of 58 URL Templates.
+This section documents a total of 59 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u’.  This command
@@ -955,30 +955,32 @@ following steps:
   50. tech news from cnet
 
      Display tech news from CNET
-  51. tunein radio
+  51. tinyurl
+
+  52. tunein radio
 
      Translate StreamId to playable stream.
-  52. w3c irc logs
+  53. w3c irc logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  53. w3c lists
+  54. w3c lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  54. washington post
+  55. washington post
 
      Washington Post Contents
-  55. wiki data search
+  56. wiki data search
 
      Search WikiData.
-  56. wikipedia at point
+  57. wikipedia at point
 
      Extract body content from Wikipedia link at point
-  57. wordnet search
+  58. wordnet search
 
      Look up term in WordNet.
-  58. yahoo rssnews
+  59. yahoo rssnews
 
      News From Yahoo As RSS.
 
