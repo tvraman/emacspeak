@@ -1,4 +1,4 @@
-This is emacspeak.info, produced by makeinfo version 7.0.3 from
+This is emacspeak.info, produced by makeinfo version 7.1 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 10, 2024.
+last updated on January 11, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -153,8 +153,8 @@ A binaural beat is an auditory illusion perceived when two different
 pure-tone sine waves, both with frequencies lower than 1500 Hz, with
 less than a 40 Hz difference between them, are presented to a listener
 dichotically (one through each ear).  For example, if a 530 Hz pure tone
-is presented to a subject’s right ear, while a 520 Hz pure tone is
-presented to the subject’s left ear, the listener will perceive the
+is presented to a subject's right ear, while a 520 Hz pure tone is
+presented to the subject's left ear, the listener will perceive the
 auditory illusion of a third tone, in addition to the two pure-tones
 presented to each ear.  The third sound is called a binaural beat, and
 in this example would have a perceived pitch correlating to a frequency
@@ -167,12 +167,12 @@ binaural beats.  The commands are organized from high-level commands
 that play predefined binaural beats to lower-level commands that can be
 used to create new effect sequences.
 
-   All binaural beat sequences are played with a relatively low gain —
+   All binaural beat sequences are played with a relatively low gain --
 they are designed to be heard in the background and when effective blend
 fully into the background.  You can increase the overall volume of all
 binaural beat sequences by customizing
  -- Variable: User Option sox-binaural-gain-offset to a positive value
-   — default is 0.
+   -- default is 0.
 
 12.235.1.1 High-Level Commands For Pre-Defined Binaural Beats
 .............................................................
@@ -381,7 +381,8 @@ unique voices defined in this module.
 
    • These voices are designed to be distinctive when used in a given
      utterance.
-   • Non-goal — to be able to identify each distinct voice in isolation.
+   • Non-goal -- to be able to identify each distinct voice in
+     isolation.
    • Audio-formatting is designed to set apart different types of
      content so that when used in context, one can easily pick-out
      distinct parts of the utterance.
@@ -627,10 +628,10 @@ to audio as a face is to a visual display.
 spoken in one personality, strings in another, reserved words in
 another, documentation strings in another, and so on.
 
-   Comments will be spoken in ‘voice-comment-personality’.  Strings will
-be spoken in ‘voice-string-personality’.  Function (in their defining
-forms) will be spoken in ‘voice-function-name-personality’.  Reserved
-words will be spoken in ‘voice-keyword-personality’.
+   Comments will be spoken in 'voice-comment-personality'.  Strings will
+be spoken in 'voice-string-personality'.  Function (in their defining
+forms) will be spoken in 'voice-function-name-personality'.  Reserved
+words will be spoken in 'voice-keyword-personality'.
 
    To audio-format text , use M-x voice-lock-mode.  When this minor mode
 is on, the voices of the current line are updated with every insertion
@@ -646,20 +647,20 @@ speech specification can be represented in elisp as a structure.
    We will refer to this structure as a "speech style".  This structure
 needs to be mapped to device dependent codes to produce the desired
 effect.  This module forms a bridge between emacs packages that wish to
-implement audio formatting and Emacspeak’s TTS module.  Emacspeak
+implement audio formatting and Emacspeak's TTS module.  Emacspeak
 produces voice change effects by examining the value of text-property
-’personality’, as well as the face/font at point.
+'personality', as well as the face/font at point.
 
    Think of a buffer of formatted text along with the text-property
-’personality appropriately set as a "aural display list".  Module
+'personality appropriately set as a "aural display list".  Module
 voice-setup.el help applications like EWW produce audio-formatted output
 by calling function voice-acss-from-speech-style with a "speech-style"
-–a structure as defined in this module and get back a symbol that they
-assign to the value of property ’personality.  Emacspeak’s rendering
+-a structure as defined in this module and get back a symbol that they
+assign to the value of property 'personality.  Emacspeak's rendering
 engine then does the needful at the time speech is produced.  Function
 voice-acss-from-speech-style does the following: Takes as input a
 "speech style" (1) Computes a symbol that will be used to refer to this
-specific speech style.  (2) Examines emacspeak’s internal voice table to
+specific speech style.  (2) Examines emacspeak's internal voice table to
 see if this speech style has a voice already defined.  If so it returns
 immediately.  Otherwise, it does the additional work of defining a
 -voice for future use.  See its use in this module to see how voices are
@@ -696,7 +697,7 @@ from other modules.
 
      (fn &optional ARG)
 
-12.238.2.2 voice-lock-mode–turn-on
+12.238.2.2 voice-lock-mode-turn-on
 ..................................
 
  -- Command: voice-lock-mode--turn-on
@@ -795,7 +796,7 @@ This section documents a total of 59 URL Templates.
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u’.  This command
 prompts for the name of the template, and completion is available via
-Emacs’ minibuffer completion.  Each URL template carries out the
+Emacs' minibuffer completion.  Each URL template carries out the
 following steps:
    • Prompt for the relevant information.
    • Fetch the resulting URL using an appropriate fetcher.
@@ -993,7 +994,7 @@ File: emacspeak.info,  Node: Running Terminal Based Applications,  Next: Emacspe
 You can use the terminal emulator mode to run arbitrary terminal-based
 programs from within Emacs.  You open a terminal emulator buffer using
 ‘M-x term’, with an extra carriage return to accept the default shell
-(such as ‘bash’).  (Incidentally, don’t confuse this command with ‘M-x
+(such as ‘bash’).  (Incidentally, don't confuse this command with ‘M-x
 terminal-emulator’, which starts an older terminal emulator mode not
 supported by Emacspeak.)
 
@@ -1004,8 +1005,8 @@ command.
 
    There are two sub-modes of term mode: char sub-mode and line
 sub-mode.  In char sub-mode, emacspeak will only speak the final chunk
-of output — typically the last line displayed.  Each character typed
-(except ‘term-escape-char‘) is sent immediately.  Use char sub-mode for
+of output -- typically the last line displayed.  Each character typed
+(except 'term-escape-char') is sent immediately.  Use char sub-mode for
 screen oriented programs like ‘vi’ or ‘pine’.
 
    In line sub-mode, program output is spoken if user option
@@ -1065,7 +1066,7 @@ commands are different ways of leaving this mode.
 
 ‘C-c C-d’
 ‘M-x list-directory’
-     Display a list of files in or matching DIRNAME, a la ‘ls’.  DIRNAME
+     Display a list of files in or matching DIRNAME, a la 'ls'.  DIRNAME
      is globbed by the shell if necessary.  Prefix arg (‘C-u’) means
      supply -l switch to ‘ls’.  The list appears in a second window.
 
@@ -1151,12 +1152,12 @@ f’ to find a file, and so forth).
 ‘C-c C-a’
 ‘M-x term-bol’
      Goes to the beginning of line, then skips past the prompt, if any.
-     If a prefix argument is given (‘C-u’), then no prompt skip — go
+     If a prefix argument is given (‘C-u’), then no prompt skip -- go
      straight to column 0.
 
 ‘C-c C-d’
 ‘M-x term-send-eof’
-     Send an end of file character (EOF) to the current buffer’s
+     Send an end of file character (EOF) to the current buffer's
      process.
 
    You can get a list of all the key sequences with a ‘C-c’ prefix by
@@ -1168,10 +1169,10 @@ available.
 ========================
 
 The eterm mode maintains a pointer, which is not necessarily the same as
-the terminal’s cursor.  It is intended to be used in eterm’s char
-submode.  In char submode, ‘C-t ,’ (that’s control-t followed by comma)
+the terminal's cursor.  It is intended to be used in eterm's char
+submode.  In char submode, ‘C-t ,’ (that's control-t followed by comma)
 will tell you where the eterm pointer is.  ‘C-t C-i’ will tell you where
-the terminal’s cursor is.  The top left corner of the window is "row 0
+the terminal's cursor is.  The top left corner of the window is "row 0
 column 0".
 
    The eterm pointer can be moved with ‘C-t <’ (to the top of the
@@ -1225,7 +1226,7 @@ specific prefix key.
 
    Primary Emacspeak commands start with ‘C-e’.  Following ‘C-e’ with
 ‘d’ invokes commands that control the text-to-speech engine.  Note that
-silencing speech is an exception to this rule — Speech silence commands
+silencing speech is an exception to this rule -- Speech silence commands
 are placed directly on the primary emacspeak-keymap (‘C-e s’ and ‘C-e
 .’).
 
@@ -1240,10 +1241,10 @@ repository from <https://github.com/tvraman/emacspeak>.
 
    Emacspeak defines personal keymaps accessible via ‘C-e x’ and ‘C-e
 C-x’.  For now, emacspeak does not bind any commands in keymap ‘C-e C-x’
-— this keymap is left for end-user personalization.
+-- this keymap is left for end-user personalization.
 
    Note that the information presented in the following subsections can
-also be viewed via Emacs’ built-in Help system; e.g., Press ‘C-; C-h’ to
+also be viewed via Emacs' built-in Help system; e.g., Press ‘C-; C-h’ to
 get a ‘*Help*’ buffer that displays all keys bound in
 ‘emacspeak-hyper-keymap’.
 
@@ -1337,7 +1338,7 @@ would result in that phrase being synthesized as two separate words.
      l c
 
    Speak _c_ a single character, as a letter.  The character is spoken
-immediately.  This command uses the TTS engine’s capability to speak a
+immediately.  This command uses the TTS engine's capability to speak a
 single character with the ability to flush speech _immediately_.  Client
 applications wishing to produce character-at-a-time output, e.g., when
 providing character echo during keyboard input should use this command.
@@ -1431,20 +1432,20 @@ emacspeak distribution.
 * Menu:
 
 * Turning Twenty::
-* Using UNIX With Speech Output  —   1994: Using UNIX With Speech Output  ---  1994.
+* Using UNIX With Speech Output  --   1994: Using UNIX With Speech Output  ---  1994.
 * Key Enabler  ---  Emacs And Lisp Advice::
-* Key Component  —   Text To Speech (TTS): Key Component  ---  Text To Speech (TTS).
+* Key Component  --   Text To Speech (TTS): Key Component  ---  Text To Speech (TTS).
 * Emacspeak And Software Development::
 * Emacspeak And Authoring Documents::
 * Emacspeak And The Early Days Of The Web::
-* Audio Formatting  —   Generalizing Aural CSS: Audio Formatting  ---  Generalizing Aural CSS.
+* Audio Formatting  --   Generalizing Aural CSS: Audio Formatting  ---  Generalizing Aural CSS.
 * Conversational Gestures For The Audio Desktop::
 * Accessing Media Streams::
-* EBooks —    Ubiquitous Access To Books: EBooks ---  Ubiquitous Access To Books.
-* Leveraging Computational Tools  —   From SQL And R To IPython Notebooks: Leveraging Computational Tools  ---  From SQL And R To IPython Notebooks.
-* Social Web   —  EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols: Social Web  ---  EMail Instant Messaging Blogging And Tweeting Using Open Protocols.
-* The RESTful Web  —   Web Wizards And URL Templates For Faster Access: The RESTful Web  ---  Web Wizards And URL Templates For Faster Access.
-* Mashing It Up  —   Leveraging Evolving Web APIs: Mashing It Up  --- Leveraging Evolving Web APIs.
+* EBooks --    Ubiquitous Access To Books: EBooks ---  Ubiquitous Access To Books.
+* Leveraging Computational Tools  --   From SQL And R To IPython Notebooks: Leveraging Computational Tools  ---  From SQL And R To IPython Notebooks.
+* Social Web   --  EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols: Social Web  ---  EMail Instant Messaging Blogging And Tweeting Using Open Protocols.
+* The RESTful Web  --   Web Wizards And URL Templates For Faster Access: The RESTful Web  ---  Web Wizards And URL Templates For Faster Access.
+* Mashing It Up  --   Leveraging Evolving Web APIs: Mashing It Up  --- Leveraging Evolving Web APIs.
 * Conclusion --- Turning Twenty::
 * References::
 
@@ -1466,15 +1467,15 @@ Peter Norvig for some of its inspiration.
 
 File: emacspeak.info,  Node: Using UNIX With Speech Output --- 1994,  Next: Key Enabler --- Emacs And Lisp Advice,  Prev: Turning Twenty,  Up: Emacspeak At Twenty
 
-16.2 Using UNIX With Speech Output — 1994
-=========================================
+16.2 Using UNIX With Speech Output -- 1994
+==========================================
 
 As a graduate student at Cornell
 (http://www.cs.cornell.edu/info/people/raman/raman.html), I accessed my
 Unix workstation (SunOS) from an Intel 486 PC running IBM Screen-Reader.
 There was no means of directly using a UNIX box at the time; after
 graduating, I continued doing the same for about six months at Digital
-Research in Cambridge — the only difference being that my desktop
+Research in Cambridge -- the only difference being that my desktop
 workstation was now a DEC-Alpha.  Throughout this time, Emacs was my
 environment of choice for everything from software development and
 Internet access to writing documents.
@@ -1482,53 +1483,54 @@ Internet access to writing documents.
    In fall of 1994, I wanted to start using a laptop running Linux; a
 colleague (Dave Wecker) was retiring his 386mhz laptop that already had
 Linux on it and I decided to inherit it.  But there was only one problem
-— until then I had always accessed a UNIX machine from a secondary PC
-running a screen-reader — something that would clearly make no sense
+-- until then I had always accessed a UNIX machine from a secondary PC
+running a screen-reader -- something that would clearly make no sense
 with a laptop!
 
    Another colleague, Win Treese, had pointed out the interesting
-possibilities presented by package *advice* in Emacs 19.23 — a few weeks
-earlier, he had sent around a small snippet of code that magically
-modified Emacs’ version-control primitive to first create an _RCS_
+possibilities presented by package *advice* in Emacs 19.23 -- a few
+weeks earlier, he had sent around a small snippet of code that magically
+modified Emacs' version-control primitive to first create an _RCS_
 directory if none existed before adding a file to version control.  When
-I speculated about using the Linux laptop, Dave remarked — you live in
-Emacs anyway — why dont you just make it talk!
+I speculated about using the Linux laptop, Dave remarked -- you live in
+Emacs anyway -- why dont you just make it talk!
 
    Connecting the dots, I decided to write myself a tool that augmented
-Emacs’ default behavior to _speak_ — within about 4 hours, version 0.01
+Emacs' default behavior to _speak_ -- within about 4 hours, version 0.01
 of Emacspeak was up and running.
 
 
 File: emacspeak.info,  Node: Key Enabler --- Emacs And Lisp Advice,  Next: Key Component --- Text To Speech (TTS),  Prev: Using UNIX With Speech Output --- 1994,  Up: Emacspeak At Twenty
 
-16.3 Key Enabler — Emacs And Lisp Advice
-========================================
+16.3 Key Enabler -- Emacs And Lisp Advice
+=========================================
 
 It took me a couple of weeks to fully recognize the potential of what I
 had built with Emacs Lisp Advice.  Until then, I had used screen-readers
-to listen to the contents of the visual display — but Lisp Advice let me
-do a lot more — it enabled Emacspeak to generate highly context-specific
-spoken feedback, augmented by a set of auditory icons.  I later
-formalized this design under the name speech-enabled applications
-(http://en.wikipedia.org/wiki/Self-voicing).  For a detailed overview of
-the architecture of Emacspeak, see the chapter on Emacspeak
+to listen to the contents of the visual display -- but Lisp Advice let
+me do a lot more -- it enabled Emacspeak to generate highly
+context-specific spoken feedback, augmented by a set of auditory icons.
+I later formalized this design under the name speech-enabled
+applications (http://en.wikipedia.org/wiki/Self-voicing).  For a
+detailed overview of the architecture of Emacspeak, see the chapter on
+Emacspeak
 (http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html)
 in the book Beautiful Code
 (http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html)
-from O’Reilly.
+from O'Reilly.
 
 
 File: emacspeak.info,  Node: Key Component --- Text To Speech (TTS),  Next: Emacspeak And Software Development,  Prev: Key Enabler --- Emacs And Lisp Advice,  Up: Emacspeak At Twenty
 
-16.4 Key Component — Text To Speech (TTS)
-=========================================
+16.4 Key Component -- Text To Speech (TTS)
+==========================================
 
 Emacspeak is a speech-subsystem for Emacs; it depends on an external
 Text-To-Speech (TTS) engine to produce speech.  In 1994, Digital
 Equipment released what would turn out to be the last in the line of
 hardware DECTalk synthesizers, the DECTalk Express.  This was
 essentially an Intel 386with 1mb of flash memory that ran a version of
-the DECTalk TTS software — to date, it still remains my favorite
+the DECTalk TTS software -- to date, it still remains my favorite
 Text-To-Speech engine.  At the time, I also had a software version of
 the same engine running on my DEC-Alpha workstation; the desire to use
 either a software or hardware solution to produce speech output defined
@@ -1547,10 +1549,10 @@ available solution in terms of quality continues to be the Linux port of
 Eloquence TTS available from Voxin in Europe for a small price.  Looking
 back across 20 years, the state of TTS on Linux in particular and across
 all platforms in general continues to be a disappointment; most of
-today’s newer TTS engines are geared toward mainstream use-cases where
+today's newer TTS engines are geared toward mainstream use-cases where
 _naturalness_ of the voice tends to supersede intelligibility at higher
 speech-rates.  Ironically, modern TTS engines also give applications far
-less control over the generated output — as a case in point, I
+less control over the generated output -- as a case in point, I
 implemented Audio System For Technical Readings (AsTeR)
 (http://www.cs.cornell.edu/home/raman/aster/demo.html) in 1994 using the
 DECTalk; 20 years later, we implemented MathML support
@@ -1577,15 +1579,15 @@ scratching the surface.
    • Audio formatting using voice-lock to provide aural syntax
      highlighting.
    • Succinct auditory icons to provide efficient feedback.
-   • Emacs’ ability to navigate code structurally —
+   • Emacs' ability to navigate code structurally --
    as opposed to moving around by plain-text units such as characters,
 lines and words.  S-Expressions are a major win!
-   • Emacs’ ability to specialize behavior based on major and minor
+   • Emacs' ability to specialize behavior based on major and minor
      modes.
    • Ability to browse program code using tags, and getting fluent
      spoken feedback.
    • Completion *everywhere*.
-   • Everything is searchable — this is a huge win when you cannot see
+   • Everything is searchable -- this is a huge win when you cannot see
      the screen.
    • Interactive spell-checking using ISpell with continuous spoken
      feedback augmented by aural highlights.
@@ -1595,16 +1597,16 @@ lines and words.  S-Expressions are a major win!
      and source control systems; refined diffs as provided by the
      *ediff* package when speech-enabled is a major productivity win.
    • Ability to easily move between email, document authoring and
-     programming — though this may appear trivial, it continues to be
-     one of Emacs’ biggest wins.
+     programming -- though this may appear trivial, it continues to be
+     one of Emacs' biggest wins.
 
    Long-term Emacs users will recognize all of the above as being among
-the reasons why they do most things inside Emacs — there is little that
-is Emacspeak specific in the above list — except that Emacspeak was able
-to provide fluent, well-integrated contextual feedback for all of these
-tasks.  And that was a game-changer given what I had had before
+the reasons why they do most things inside Emacs -- there is little that
+is Emacspeak specific in the above list -- except that Emacspeak was
+able to provide fluent, well-integrated contextual feedback for all of
+these tasks.  And that was a game-changer given what I had had before
 Emacspeak.  As a case in point, I did not dare program in Python before
-I speech-enabled Emacs’ Python-Mode; the fact that white space is
+I speech-enabled Emacs' Python-Mode; the fact that white space is
 significant in Python made it difficult to program using a plain
 screen-reader that was unaware of the semantics of the underlying
 content being accessed.
@@ -1626,14 +1628,14 @@ being a strong education in *programming defensively*.  Here are some
 other key features of the Emacspeak code-base:
 
   1. The code-base is extremely *bushy* rather than deeply hierarchical
-     — this means that when a module breaks, it does not affect the rest
-     of the system.
+     -- this means that when a module breaks, it does not affect the
+     rest of the system.
   2. Separation of concerns with respect to the various layers, a
      tightly knit core speech library interfaces with any one of many
      speech servers running as an external process.
   3. Audio formatting is abstracted by using the formalism defined in
      Aural CSS.
-  4. Emacspeak integrates with Emacs’ user interface conventions by
+  4. Emacspeak integrates with Emacs' user interface conventions by
      taking over a single prefix key *C-e* with _all_ Emacspeak commands
      accessed through that single keymap.  This helps embedding
      Emacspeak functionality into a large variety of third party modules
@@ -1649,18 +1651,18 @@ In 1994, my preferred environment for authoring *all* documents was
 *LaTeX* using the Auctex package.  Later I started writing either LaTeX
 or HTML using the appropriate support modes; today I use *org-mode* to
 do most of my content authoring.  Personally, I have never been a fan of
-What You See Is What You Get (WYSIWYG) authoring tools — in my
+What You See Is What You Get (WYSIWYG) authoring tools -- in my
 experience that places an undue burden on the author by drawing
 attention away from the content to focus on the final appearance.  An
 added benefit of creating content in Emacs in the form of light-weight
-markup is that the content is long-lived — I can still usefully process
+markup is that the content is long-lived -- I can still usefully process
 and re-use things I have written 25 years ago.
 
    Emacs, with Emacspeak providing audio formatting and context-specific
 feedback remains my environment of choice for writing all forms of
 content ranging from simple email messages to polished documents for
 print publishing.  And it is worth repeating that I *never* need to
-focus on what the content is going to look like — that job is best left
+focus on what the content is going to look like -- that job is best left
 to the computer.
 
    As an example of producing high-fidelity visual content, see this
@@ -1676,15 +1678,15 @@ File: emacspeak.info,  Node: Emacspeak And The Early Days Of The Web,  Next: Aud
 ============================================
 
 Right around the time that I was writing version 0.01 of emacspeak, a
-far more significant software movement was under way — the World Wide
+far more significant software movement was under way -- the World Wide
 Web was moving from the realms of academia to the mainstream world with
-the launch of NCSA Mosaic — and in late 1994 by the first commercial Web
-browser in Netscape Navigator.  Emacs had always enabled integrated
+the launch of NCSA Mosaic -- and in late 1994 by the first commercial
+Web browser in Netscape Navigator.  Emacs had always enabled integrated
 access to FTP archives via package _ange-ftp_; in late 1993, William
 Perry released Emacs-W3, a Web browser for Emacs written entirely in
 Emacs Lisp.  W3 was one of the first large packages to be speech-enabled
-by Emacspeak — later it was the browser on which I implemented the first
-draft of the Aural CSS specification
+by Emacspeak -- later it was the browser on which I implemented the
+first draft of the Aural CSS specification
 (http://www.w3.org/TR/CSS2/aural.html).  Emacs-W3 enabled many early
 innovations in the context of providing non-visual access to Web
 content, including audio formatting and structured content navigation;
@@ -1692,20 +1694,20 @@ in summer of 1995, Dave Raggett and I outlined a few extensions to HTML
 Forms, including the *label* element as a means of associating metadata
 with interactive form controls in HTML, and many of these ideas were
 prototyped in Emacs-W3 at the time.  Over the years, Emacs-W3 fell
-behind the times — especially as the Web moved away from cleanly
+behind the times -- especially as the Web moved away from cleanly
 structured HTML to a massive soup of unmatched tags.  This made parsing
 and error-correcting badly-formed HTML markup expensive to do in
-Emacs-Lisp — and performance suffered.  To add to this, mainstream users
-moved away because Emacs’ rendering engine at the time was not rich
-enough to provide the type of visual renderings that users had come to
-expect.  The advent of DHTML, and JavaScript based Web Applications
+Emacs-Lisp -- and performance suffered.  To add to this, mainstream
+users moved away because Emacs' rendering engine at the time was not
+rich enough to provide the type of visual renderings that users had come
+to expect.  The advent of DHTML, and JavaScript based Web Applications
 finally killed off Emacs-W3 as far as most Emacs users were concerned.
 
    But Emacs-W3 went through a revival on the emacspeak audio desktop in
-late 1999 with the arrival of XSLT, and Daniel Veillard’s excellent
+late 1999 with the arrival of XSLT, and Daniel Veillard's excellent
 implementation via the *libxml2* and *libxslt* packages.  With these in
 hand, Emacspeak was able to hand-off the bulk of HTML error correction
-to the *xsltproc* tool.  The lack of visual fidelity didn’t matter much
+to the *xsltproc* tool.  The lack of visual fidelity didn't matter much
 for an eyes-free environment; so Emacs-W3 continued to be a useful tool
 for consuming large amounts of Web content that did not require
 JavaScript support.
@@ -1728,21 +1730,21 @@ with support for DOM filtering and quick content navigation.
 
 File: emacspeak.info,  Node: Audio Formatting --- Generalizing Aural CSS,  Next: Conversational Gestures For The Audio Desktop,  Prev: Emacspeak And The Early Days Of The Web,  Up: Emacspeak At Twenty
 
-16.8 Audio Formatting — Generalizing Aural CSS
-==============================================
+16.8 Audio Formatting -- Generalizing Aural CSS
+===============================================
 
 A key idea in Audio System For Technical Readings (AsTeR)
 (http://www.cs.cornell.edu/home/raman/aster/aster-toplevel.html) was the
 use of various voice properties in combination with non-speech auditory
 icons to create rich aural renderings.  When I implemented Emacspeak, I
 brought over the notion of audio formatting to all buffers in Emacs by
-creating a *voice-lock* module that paralleled Emacs’ *font-lock*
+creating a *voice-lock* module that paralleled Emacs' *font-lock*
 module.  The visual medium is far richer in terms of available fonts and
-colors as compared to voice parameters available on TTS engines —
-consequently, it did not make sense to directly map Emacs’ *face*
+colors as compared to voice parameters available on TTS engines --
+consequently, it did not make sense to directly map Emacs' *face*
 properties to voice parameters.  To aid in projecting visual formatting
 onto auditory space, I created property *personality* analogous to
-Emacs’ *face* property that could be applied to content displayed in
+Emacs' *face* property that could be applied to content displayed in
 Emacs; module *voice-lock* applied that property appropriately, and the
 Emacspeak core handled the details of mapping personality values to the
 underlying TTS engine.
@@ -1755,14 +1757,14 @@ implemented in Emacs-W3 in early 1996.  Aural CSS was an appendix in the
 CSS-1.0 specification; later, it graduated to being its own module
 within CSS-2.0.
 
-   Later in 1996, all of Emacs’ *voice-lock* functionality was
+   Later in 1996, all of Emacs' *voice-lock* functionality was
 re-implemented in terms of Aural CSS; the implementation has stood the
 test of time in that as I added support for more TTS engines, I was able
 to implement engine-specific mappings of Aural-CSS values.  This meant
 that the rest of Emacspeak could define various types of voices for use
 in specific contexts without having to worry about individual TTS
 engines.  Conceptually, property *personality* can be thought of as
-holding an *aural display list* — various parts of the system can
+holding an *aural display list* -- various parts of the system can
 annotate pieces of text with relevant properties that finally get
 rendered in the aggregate.  This model also works well with the notion
 of Emacs overlays where a moving overlay is used to temporarily
@@ -1773,7 +1775,7 @@ when working with all types of content ranging from richly structured
 mark-up documents (LaTeX, org-mode) and formatted Web pages to program
 source code.  Perceptually, switching to audio formatted output feels
 like switching from a black-and-white monitor to a rich color display.
-Today, Emacspeak’s audio formatted output is the only way I can
+Today, Emacspeak's audio formatted output is the only way I can
 correctly write *else if* vs *elsif* in various programming languages!
 
 
@@ -1786,21 +1788,21 @@ By 1996, Emacspeak was the only piece of adaptive technology I used; in
 fall of 1995, I had moved to Adobe Systems from DEC Research to focus on
 enhancing the Portable Document Format (PDF) to make PDF content
 repurposable.  Between 1996 and 1998, I was primarily focused on
-electronic document formats — I took this opportunity to step back and
+electronic document formats -- I took this opportunity to step back and
 evaluate what I had built as an auditory interface within Emacspeak.
 This retrospect proved extremely useful in gaining a sense of
 perspective and led to formalizing the high-level concept of
 _Conversational Gestures_ and structured browsing/searching as a means
 of thinking about user interfaces.
 
-   By now, Emacspeak was a complete environment — I formalized what it
+   By now, Emacspeak was a complete environment -- I formalized what it
 provided under the moniker _Complete Audio Desktop_.  The fully
 integrated user experience allowed me to move forward with respect to
 defining interaction models that were highly optimized to eyes-free
-interaction — as an example, see how Emacspeak interfaces with modes
+interaction -- as an example, see how Emacspeak interfaces with modes
 like *dired* (Directory Editor) for browsing and manipulating the
 filesystem, or *proced* (Process Editor) for browsing and manipulating
-running processes.  Emacs’ integration with *ispell* for spell checking,
+running processes.  Emacs' integration with *ispell* for spell checking,
 as well as its various completion facilities ranging from minibuffer
 completion to other forms of dynamic completion while typing text
 provided more opportunities for creating innovative forms of eyes-free
@@ -1816,19 +1818,19 @@ when you consider that the underlying semantics of these items is
 generally not available from examining the visual presentation in a
 consistent manner.  By having direct access to the underlying
 information being presented, Emacspeak had a leg up with respect to
-addressing the higher-level question — when you do have access to this
+addressing the higher-level question -- when you do have access to this
 information, how do you present it effectively in an eyes-free
 environment?  For this and many other cases of dynamic interaction, a
 combination of audio formatting, auditory icons, and the ability to
-synthesize succinct messages from a combination of information items —
+synthesize succinct messages from a combination of information items --
 rather than having to forcibly speak each item as it is rendered
 visually provided for highly efficient eyes-free interaction.
 
-   This was also when I stepped back to build out Emacspeak’s table
-browsing facilities — see the online Emacspeak documentation for details
-on Emacspeak’s table browsing functionality which continues to remain
-one of the richest collection of end-user affordances for working with
-two-dimensional data.
+   This was also when I stepped back to build out Emacspeak's table
+browsing facilities -- see the online Emacspeak documentation for
+details on Emacspeak's table browsing functionality which continues to
+remain one of the richest collection of end-user affordances for working
+with two-dimensional data.
 
 * Menu:
 
@@ -1840,7 +1842,7 @@ File: emacspeak.info,  Node: Speech-Enabling Interactive Games,  Up: Conversatio
 16.9.1 Speech-Enabling Interactive Games
 ----------------------------------------
 
-So in 1997, I went the next step in asking — given access to the
+So in 1997, I went the next step in asking -- given access to the
 underlying information, is it possible to build effective eyes-free
 interaction to highly interactive tasks?  I picked *Tetris* as a means
 of exploring this space, the result was an Emacspeak extension to
@@ -1855,11 +1857,11 @@ interface layer that formed part of the XForms
 
    Speech-enabling games for effective eyes-free interaction has proven
 highly educational.  Interactive games are typically built to challenge
-the user, and if the eyes-free interface is inefficient, you just won’t
-play the game — contrast this with a task that you *must* perform, where
-you’re likely to make do with a sub-optimal interface.  Over the years,
-Emacspeak has come to include eyes-free interfaces to several games
-including Tetris (http://en.wikipedia.org/wiki/Tetris), Sudoku
+the user, and if the eyes-free interface is inefficient, you just won't
+play the game -- contrast this with a task that you *must* perform,
+where you're likely to make do with a sub-optimal interface.  Over the
+years, Emacspeak has come to include eyes-free interfaces to several
+games including Tetris (http://en.wikipedia.org/wiki/Tetris), Sudoku
 (http://en.wikipedia.org/wiki/2048_(video_game)), and of late the
 popular 2048 game (http://en.wikipedia.org/wiki/2048_(video_game)).
 Each of these have in turn contributed to enhancing the interaction
@@ -1875,63 +1877,63 @@ File: emacspeak.info,  Node: Accessing Media Streams,  Next: EBooks --- Ubiquito
 Streaming real-time audio on the Internet became a reality with the
 advent of RealAudio in 1995; soon there were a large number of media
 streams available on the Internet ranging from music streams to live
-radio stations.  But there was an interesting twist — for the most part,
-all of these media streams expected one to look at the screen, even
-though the primary content was purely audio (streaming video hadn’t
+radio stations.  But there was an interesting twist -- for the most
+part, all of these media streams expected one to look at the screen,
+even though the primary content was purely audio (streaming video hadn't
 arrived yet!).  Starting in 1996, Emacspeak started including a variety
 of eyes-free front-ends for accessing media streams.  Initially, this
-was achieved by building a wrapper around *trplayer* — a headless
+was achieved by building a wrapper around *trplayer* -- a headless
 version of RealPlayer; later I built Emacspeak module
 *emacspeak-m-player* for interfacing with package *mplayer*.  A key
 aspect of streaming media integration in emacspeak is that one can
-launch and control streams without ever switching away from one’s
+launch and control streams without ever switching away from one's
 primary task; thus, you can continue to type email or edit code while
 seamlessly launching and controlling media streams.  Over the years,
 Emacspeak has come to integrate with Emacs packages like *emms* as well
-as providing wrappers for *mplayer* and *alsaplayer* — collectively,
+as providing wrappers for *mplayer* and *alsaplayer* -- collectively,
 these let you efficiently launch all types of media streams, including
 streaming video, without having to explicitly switch context.
 
-   In the mid-90’s, Emacspeak started including a directory of media
-links to some of the more popular radio stations — primarily as a means
-of helping users getting started — Emacs’ ability to rapidly complete
+   In the mid-90's, Emacspeak started including a directory of media
+links to some of the more popular radio stations -- primarily as a means
+of helping users getting started -- Emacs' ability to rapidly complete
 directory and file-names turned out to be the most effective means of
 quickly launching everything from streaming radio stations to audio
-books.  And even better — as the Emacs community develops better and
+books.  And even better -- as the Emacs community develops better and
 smarter ways of navigating the filesystem using completions, e.g.,
 package *ido*, these types of actions become even more efficient!
 
 
 File: emacspeak.info,  Node: EBooks --- Ubiquitous Access To Books,  Next: Leveraging Computational Tools --- From SQL And R To IPython Notebooks,  Prev: Accessing Media Streams,  Up: Emacspeak At Twenty
 
-16.11 EBooks — Ubiquitous Access To Books
-=========================================
+16.11 EBooks -- Ubiquitous Access To Books
+==========================================
 
-AsTeR — was motivated by the increasing availability of technical
+AsTeR -- was motivated by the increasing availability of technical
 material as online electronic documents.  While AsTeR processed the TeX
 family of markup languages, more general ebooks came in a wide range of
 formats, ranging from plain text generated from various underlying file
 formats to structured EBooks, with Project Gutenberg
-(http://www.gutenberg.org/) leading the way.  During the mid-90’s, I had
+(http://www.gutenberg.org/) leading the way.  During the mid-90's, I had
 access to a wide range of electronic materials from sources such as
-O’Reilly Publishing and various electronic journals — The Perl Journal
+O'Reilly Publishing and various electronic journals -- The Perl Journal
 (TPJ) is one that I still remember fondly.
 
    Emacspeak provided fairly light-weight but efficient access to all of
-the electronic books I had on my local disk — Emacs’ strengths with
+the electronic books I had on my local disk -- Emacs' strengths with
 respect to browsing textual documents meant that I needed to build
-little that was specific to Emacspeak.  The late 90’s saw the arrival of
+little that was specific to Emacspeak.  The late 90's saw the arrival of
 Daisy as an XML-based format for accessible electronic books.  The last
 decade has seen the rapid convergence to *epub* as a distribution format
 of choice for electronic books.  Emacspeak provides interaction modes
 that make organizing, searching and reading these materials on the
 Emacspeak Audio Desktop a pleasant experience.  Emacspeak also provides
-an OCR-Mode — this enables one to call out to an external OCR program
+an OCR-Mode -- this enables one to call out to an external OCR program
 and read the content efficiently.
 
-   The somewhat informal process used by publishers like O’Reilly to
+   The somewhat informal process used by publishers like O'Reilly to
 make technical material available to users with print impairments was
-later formalized by BookShare (https://www.bookshare.org/) — today,
+later formalized by BookShare (https://www.bookshare.org/) -- today,
 qualified users can obtain a large number of books and periodicals
 initially as Daisy-3 and increasingly as *EPub*.  BookShare provides a
 RESTful API for searching and downloading books; Emacspeak module
@@ -1949,14 +1951,14 @@ books.
 
 File: emacspeak.info,  Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks,  Next: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Prev: EBooks --- Ubiquitous Access To Books,  Up: Emacspeak At Twenty
 
-16.12 Leveraging Computational Tools — From SQL And R To IPython Notebooks
-==========================================================================
+16.12 Leveraging Computational Tools -- From SQL And R To IPython Notebooks
+===========================================================================
 
 The ability to invoke external processes and interface with them via a
-simple read-eval-loop (REPL) is perhaps one of Emacs’ strongest
+simple read-eval-loop (REPL) is perhaps one of Emacs' strongest
 extension points.  This means that a wide variety of computational tools
 become immediately available for embedding within the Emacs environment
-— a facility that has been widely exploited by the Emacs community.
+-- a facility that has been widely exploited by the Emacs community.
 Over the years, Emacspeak has leveraged many of these facilities to
 provide a well-integrated auditory interface.
 
@@ -1967,12 +1969,12 @@ database interaction, the Emacspeak Audio Desktop has come to encompass
 a collection of rich computational tools that provide an efficient
 eyes-free experience.
 
-   In this context, module *ein* — Emacs IPython Notebooks — provides
+   In this context, module *ein* -- Emacs IPython Notebooks -- provides
 another excellent example of an Emacs tool that helps interface
 seamlessly with others in the technical domain.  IPython Notebooks
 provide an easy means of reaching a large audience when publishing
 technical material with interactive computational content; module *ein*
-brings the power and convenience of Emacs ’ editing facilities when
+brings the power and convenience of Emacs ' editing facilities when
 developing the content.  Speech-enabling package *ein* is a major win
 since editing program source code in an eyes-free environment is far
 smoother in Emacs than in a browser-based editor.
@@ -1980,8 +1982,8 @@ smoother in Emacs than in a browser-based editor.
 
 File: emacspeak.info,  Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Next: The RESTful Web --- Web Wizards And URL Templates For Faster Access,  Prev: Leveraging Computational Tools --- From SQL And R To IPython Notebooks,  Up: Emacspeak At Twenty
 
-16.13 Social Web — EMail, Instant Messaging, Blogging And Tweeting Using Open Protocols
-=======================================================================================
+16.13 Social Web -- EMail, Instant Messaging, Blogging And Tweeting Using Open Protocols
+========================================================================================
 
 The ability to process large amounts of email and electronic news has
 always been a feature of Emacs.  I started using package *vm* for email
@@ -1989,26 +1991,26 @@ in 1990, along with *gnus* for Usenet access many years before
 developing Emacspeak.  So these were the first major packages that
 Emacspeak speech-enabled.  Being able to access the underlying data
 structures used to visually render email messages and Usenet articles
-enabled Emacspeak to produce rich, succinct auditory output — this
+enabled Emacspeak to produce rich, succinct auditory output -- this
 vastly increased my ability to consume and organize large amounts of
 information.  Toward the turn of the century, instant messaging arrived
-in the mainstream — package *tnt* provided an Emacs implementation of a
+in the mainstream -- package *tnt* provided an Emacs implementation of a
 chat client that could communicate with users on the then popular AOL
 Instant Messenger platform.  At the time, I worked at IBM Research, and
 inspired by package *tnt*, I created an Emacs client called *ChatterBox*
-using the Lotus Sametime API — this enabled me to communicate with
+using the Lotus Sametime API -- this enabled me to communicate with
 colleagues at work from the comfort of Emacs.  Packages like *vm*,
 *gnus*, *tnt* and *ChatterBox* provide an interesting example of how
 availability of a clean underlying API to a specific service or content
 stream can encourage the creation of efficient (and different) user
 interfaces.  The touchstone of such successful implementations is a
-simple test — can the user of a specific interface tell if the person
+simple test -- can the user of a specific interface tell if the person
 whom he is communicating with is also using the same interface?  In each
 of the examples enumerated above, a user at one end of the communication
-chain cannot tell, and in fact shouldn’t be able to tell what client the
+chain cannot tell, and in fact shouldn't be able to tell what client the
 user at the other end is using.  Contrast this with closed services that
 have an inherent _lock-in_ model e.g., proprietary word processors that
-use undocumented serialization formats — for a fun read, see this
+use undocumented serialization formats -- for a fun read, see this
 write-up on Universe Of Fancy Colored Paper
 (http://emacspeak.sourceforge.net/publications/colored-paper.html).
 
@@ -2020,25 +2022,26 @@ around the world.
 
    As the Web evolved to encompass ever-increasing swathes of
 communication functionality that had already been available on the
-Internet, we saw the world move from Usenet groups to *Blogs* — I
+Internet, we saw the world move from Usenet groups to *Blogs* -- I
 remember initially dismissing the blogging phenomenon as just a
 re-invention of Usenet in the early days.  However, mainstream users
 flocked to Blogging, and I later realized that blogging as a publishing
 platform brought along interesting features that made communicating and
 publishing information *much* easier.  In 2005, I joined Google; during
 the winter holidays that year, I implemented a light-weight client for
-Blogger that became the start of Emacs package *g-client* — this package
-provides Emacs wrappers for Google services that provide a RESTful API.
+Blogger that became the start of Emacs package *g-client* -- this
+package provides Emacs wrappers for Google services that provide a
+RESTful API.
 
 
 File: emacspeak.info,  Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access,  Next: Mashing It Up --- Leveraging Evolving Web APIs,  Prev: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Up: Emacspeak At Twenty
 
-16.14 The RESTful Web — Web Wizards And URL Templates For Faster Access
-=======================================================================
+16.14 The RESTful Web -- Web Wizards And URL Templates For Faster Access
+========================================================================
 
 Today, the Web, based on URLs and HTTP-style protocols is widely
 recognized as a platform in its own right.  This platform emerged over
-time — to me, Web APIs arrived in the late 90’s when I observed the
+time -- to me, Web APIs arrived in the late 90's when I observed the
 following with respect to my own behavior on many popular sites:
 
   1. I opened a Web page that took a while to load (remember, I was
@@ -2068,25 +2071,25 @@ module *emacspeak-websearch*.  REST as a design pattern had not yet been
 recognized, leave alone formalized, and module *emacspeak-websearch* was
 initially criticized as being fragile.
 
-   However, over time, the CGI parameter names remained fixed — the only
-things that have required updating in the Emacspeak code-base are the
-content filtering rules that extract the response — for popular
+   However, over time, the CGI parameter names remained fixed -- the
+only things that have required updating in the Emacspeak code-base are
+the content filtering rules that extract the response -- for popular
 services, this has averaged about one to two times a year.
 
    I later codified these filtering rules in terms of XPath, and also
 integrated XSLT-based pre-processing of incoming HTML content before it
-got handed off to Emacs-W3 — and yes, Emacs/Advice once again came in
+got handed off to Emacs-W3 -- and yes, Emacs/Advice once again came in
 handy with respect to injecting XSLT pre-processing into Emacs-W3!
 
    Later, in early 2000, I created companion module
-*emacspeak-url-templates* — partially inspired by Emacs’ *webjump*
+*emacspeak-url-templates* -- partially inspired by Emacs' *webjump*
 module.  URL templates in Emacspeak leveraged the recognized REST
 interaction pattern to provide a large collection of Web widgets that
 could be quickly invoked to provide rapid access to the right pieces of
 information on the Web.
 
    The final icing on the cake was the arrival of RSS and Atom feeds and
-the consequent deep-linking into content-rich sites — this meant that
+the consequent deep-linking into content-rich sites -- this meant that
 Emacspeak could provide audio renderings of useful content without
 having to deal with complex visual navigation!  While Google Reader
 existed, Emacspeak provided a light-weight *greader* client for managing
@@ -2094,16 +2097,16 @@ ones feed subscriptions; with the demise of Google Reader, I implemented
 module *emacspeak-feeds* for organizing feeds on the Emacspeak desktop.
 A companion package *emacspeak-webspace* implements additional goodies
 including a continuously updating ticker of headlines taken from the
-user’s collection of subscribed feeds.
+user's collection of subscribed feeds.
 
 
 File: emacspeak.info,  Node: Mashing It Up --- Leveraging Evolving Web APIs,  Next: Conclusion --- Turning Twenty,  Prev: The RESTful Web --- Web Wizards And URL Templates For Faster Access,  Up: Emacspeak At Twenty
 
-16.15 Mashing It Up — Leveraging Evolving Web APIs
-==================================================
+16.15 Mashing It Up -- Leveraging Evolving Web APIs
+===================================================
 
 The next step in this evolution came with the arrival of richer Web APIs
-— especially ones that defined a clean client/server separation.  In
+-- especially ones that defined a clean client/server separation.  In
 this respect, the world of Web APIs is a somewhat mixed bag in that many
 Web sites equate a Web API with a JS-based API that can be exclusively
 invoked from within a Web-Browser run-time.  The issue with that type of
@@ -2127,43 +2130,43 @@ many useful services, here are a few:
 generalizing the concept of a mashup as seen on the Web with respect to
 creating hybrid applications by bringing together a collection of
 different Web APIs.  Another way to think of such separation is to view
-an application as a *head* and a *body* — where the *head* is a specific
-user interface, with the *body* implementing the application logic.  A
-cleanly defined separation between the *head* and *body* allows one to
-attach _different_ user interfaces i.e., *heads* to the given *body*
-without any loss of functionality, or the need to re-implement the
-entire application.  Modern platforms like Android enable such
-separation via an Intent
+an application as a *head* and a *body* -- where the *head* is a
+specific user interface, with the *body* implementing the application
+logic.  A cleanly defined separation between the *head* and *body*
+allows one to attach _different_ user interfaces i.e., *heads* to the
+given *body* without any loss of functionality, or the need to
+re-implement the entire application.  Modern platforms like Android
+enable such separation via an Intent
 (http://developer.android.com/reference/android/content/Intent.html)
 mechanism.  The Web platform as originally defined around URLs is
-actually well-suited to this type of separation — though the full
+actually well-suited to this type of separation -- though the full
 potential of this design pattern remains to be fully realized given
-today’s tight association of the Web to the Web Browser.
+today's tight association of the Web to the Web Browser.
 
 
 File: emacspeak.info,  Node: Conclusion --- Turning Twenty,  Next: References,  Prev: Mashing It Up --- Leveraging Evolving Web APIs,  Up: Emacspeak At Twenty
 
-16.16 Conclusion — Turning Twenty
-=================================
+16.16 Conclusion -- Turning Twenty
+==================================
 
-In 1996, I wrote an article entitled User Interface — A Means To An End
+In 1996, I wrote an article entitled User Interface -- A Means To An End
 (http://www.drdobbs.com/user-interface-a-means-to-an-end/184410453)
 pointing out that the size and shape of computers were determined by the
-keyboard and display.  This is even more true in today’s world of
-tablets, phablets and large-sized phones — with the only difference that
-the keyboard has been replaced by a touch screen.  The next generation
-in the evolution of *personal* devices is that they will become truly
-personal by being wearables — this once again forces a separation of the
-user interface peripherals from the underlying compute engine.  Imagine
-a variety of wearables that collectively connect to ones cell phone,
-which itself connects to the cloud for all its computational and
-information needs.  Such an environment is rich in possibilities for
-creating a wide variety of user experiences to a single underlying body
-of information; Eyes-Free interfaces as pioneered by systems like
-Emacspeak will come to play an increasingly vital role alongside visual
-interaction when this comes to pass.
+keyboard and display.  This is even more true in today's world of
+tablets, phablets and large-sized phones -- with the only difference
+that the keyboard has been replaced by a touch screen.  The next
+generation in the evolution of *personal* devices is that they will
+become truly personal by being wearables -- this once again forces a
+separation of the user interface peripherals from the underlying compute
+engine.  Imagine a variety of wearables that collectively connect to
+ones cell phone, which itself connects to the cloud for all its
+computational and information needs.  Such an environment is rich in
+possibilities for creating a wide variety of user experiences to a
+single underlying body of information; Eyes-Free interfaces as pioneered
+by systems like Emacspeak will come to play an increasingly vital role
+alongside visual interaction when this comes to pass.
 
-   –T.V. Raman, San Jose, CA, September 12, 2014
+   -T.V. Raman, San Jose, CA, September 12, 2014
 
 
 File: emacspeak.info,  Node: References,  Prev: Conclusion --- Turning Twenty,  Up: Emacspeak At Twenty
@@ -2263,8 +2266,9 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
  [index ]
 * Menu:
 
-* <f1> ":                                emacspeak-extras.   (line  105)
 * <f1> ,:                                emacspeak-wizards.  (line  327)
+* <f1> ":                                emacspeak-extras.   (line  105)
+* <f1> \:                                emacspeak-wizards.  (line  337)
 * <f1> =:                                emacspeak-wizards.  (line  927)
 * <f1> C-e:                              emacspeak-wizards.  (line   53)
 * <f1> C-l:                              emacspeak-wizards.  (line   72)
@@ -2273,10 +2277,10 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <f1> M:                                emacspeak-wizards.  (line  211)
 * <f1> N:                                emacspeak-speak.    (line 1055)
 * <f1> TAB:                              emacspeak-info.     (line   38)
-* <f1> \:                                emacspeak-wizards.  (line  337)
 * <fn>:                                  dtk-speak.          (line  226)
-* <help> ":                              emacspeak-extras.   (line  106)
 * <help> ,:                              emacspeak-wizards.  (line  328)
+* <help> ":                              emacspeak-extras.   (line  106)
+* <help> \:                              emacspeak-wizards.  (line  338)
 * <help> =:                              emacspeak-wizards.  (line  928)
 * <help> C-e:                            emacspeak-wizards.  (line   54)
 * <help> C-l:                            emacspeak-wizards.  (line   73)
@@ -2285,14 +2289,11 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <help> M:                              emacspeak-wizards.  (line  212)
 * <help> N:                              emacspeak-speak.    (line 1056)
 * <help> TAB:                            emacspeak-info.     (line   39)
-* <help> \:                              emacspeak-wizards.  (line  338)
 * <print>:                               emacspeak-muggles.  (line   49)
 * <silence>:                             emacspeak-speak.    (line  222)
 * <XF86AudioLowerVolume>:                amixer.             (line   63)
 * <XF86AudioPlay>:                       emacspeak-speak.    (line  223)
 * <XF86AudioRaiseVolume>:                amixer.             (line   75)
-* C-' ':                                 emacspeak-pianobar. (line   45)
-* C-' y:                                 emacspeak-google.   (line  161)
 * C-, /:                                 extra-muggles.      (line  331)
 * C-, a:                                 emacspeak-feeds.    (line   34)
 * C-, b:                                 sox-gen.            (line   90)
@@ -2302,9 +2303,20 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-, q:                                 emacspeak-wizards.  (line  762)
 * C-, r:                                 emacspeak-feeds.    (line   92)
 * C-, s:                                 emacspeak-wizards.  (line  978)
-* C-, SPC:                               emacspeak-eww.      (line  923)
+* C-, SPC:                               emacspeak-eww.      (line  924)
 * C-, t:                                 emacspeak-wizards.  (line  966)
 * C-, u:                                 emacspeak-m-player. (line  720)
+* C-; a:                                 emacspeak-amark.    (line   51)
+* C-; b:                                 emacspeak-wizards.  (line  304)
+* C-; C-;:                               emacspeak-amark.    (line   36)
+* C-; C-l:                               emacspeak-librivox. (line   32)
+* C-; C-t:                               emacspeak-extras.   (line  130)
+* C-; DEL:                               emacspeak-wizards.  (line  895)
+* C-; h:                                 emacspeak-m-player. (line  331)
+* C-; j:                                 emacspeak-comint.   (line   45)
+* C-; l:                                 emacspeak-m-player. (line  365)
+* C-; r:                                 emacspeak-wizards.  (line  532)
+* C-; w:                                 emacspeak-wizards.  (line  711)
 * C-. .:                                 emacspeak-wizards.  (line  837)
 * C-. C-n:                               emacspeak-wizards.  (line  602)
 * C-. d:                                 emacspeak-dired.    (line   25)
@@ -2324,29 +2336,22 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. t:                                 soundscape.         (line  122)
 * C-. u:                                 soundscape.         (line  132)
 * C-. v:                                 extra-muggles.      (line  271)
+* C-' ':                                 emacspeak-pianobar. (line   45)
+* C-' y:                                 emacspeak-google.   (line  161)
 * C-/:                                   emacspeak-muggles.  (line  206)
-* C-; a:                                 emacspeak-amark.    (line   51)
-* C-; b:                                 emacspeak-wizards.  (line  304)
-* C-; C-;:                               emacspeak-amark.    (line   36)
-* C-; C-l:                               emacspeak-librivox. (line   32)
-* C-; C-t:                               emacspeak-extras.   (line  130)
-* C-; DEL:                               emacspeak-wizards.  (line  895)
-* C-; h:                                 emacspeak-m-player. (line  331)
-* C-; j:                                 emacspeak-comint.   (line   45)
-* C-; l:                                 emacspeak-m-player. (line  365)
-* C-; r:                                 emacspeak-wizards.  (line  532)
-* C-; w:                                 emacspeak-wizards.  (line  711)
 * C-<f1>:                                amixer.             (line   64)
 * C-<f2>:                                amixer.             (line   76)
+* C-c ,:                                 extra-muggles.      (line  230)
 * C-c (:                                 Running Terminal Based Applications.
                                                              (line   96)
 * C-c ):                                 Running Terminal Based Applications.
                                                              (line  105)
-* C-c ,:                                 extra-muggles.      (line  230)
 * C-c 0:                                 Running Terminal Based Applications.
                                                              (line   68)
 * C-c 1:                                 Running Terminal Based Applications.
                                                              (line   86)
+* C-c C-\:                               Running Terminal Based Applications.
+                                                             (line  149)
 * C-c C-a:                               Running Terminal Based Applications.
                                                              (line  165)
 * C-c C-c:                               Running Terminal Based Applications.
@@ -2371,8 +2376,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line   76)
 * C-c C-z:                               Running Terminal Based Applications.
                                                              (line  139)
-* C-c C-\:                               Running Terminal Based Applications.
-                                                             (line  149)
 * C-c e:                                 Running Terminal Based Applications.
                                                              (line  112)
 * C-c k:                                 Running Terminal Based Applications.
@@ -2382,39 +2385,47 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line   56)
 * C-e cap M:                             Status Information. (line   18)
 * C-e cap R:                             Reading.            (line   69)
+* C-e ,:                                 emacspeak-speak.    (line   38)
+* C-e ;:                                 emacspeak-m-player. (line  786)
 * C-e !:                                 emacspeak-speak.    (line  765)
+* C-e ?:                                 emacspeak-websearch.
+                                                             (line   52)
+* C-e .:                                 emacspeak-speak.    (line   37)
+* C-e ':                                 emacspeak-empv.     (line   48)
 * C-e ":                                 emacspeak-empv.     (line   59)
+* C-e (:                                 amixer.             (line   25)
+* C-e ):                                 emacspeak-sounds.   (line   43)
+* C-e [:                                 Reading.            (line  121)
+* C-e [ <1>:                             emacspeak-speak.    (line  670)
+* C-e ]:                                 emacspeak-speak.    (line  648)
+* C-e @:                                 emacspeak-speak.    (line  551)
+* C-e /:                                 Reading.            (line   91)
+* C-e / <1>:                             emacspeak-websearch.
+                                                             (line   53)
+* C-e \:                                 emacspeak-speak.    (line 1026)
+* C-e &:                                 emacspeak-wizards.  (line  826)
 * C-e # a:                               emacspeak-gridtext. (line   27)
 * C-e # l:                               emacspeak-gridtext. (line   37)
 * C-e # s:                               emacspeak-gridtext. (line   47)
 * C-e %:                                 Status Information. (line   92)
 * C-e % <1>:                             emacspeak-speak.    (line  359)
-* C-e &:                                 emacspeak-wizards.  (line  826)
-* C-e ':                                 emacspeak-empv.     (line   48)
-* C-e (:                                 amixer.             (line   25)
-* C-e ):                                 emacspeak-sounds.   (line   43)
-* C-e ,:                                 emacspeak-speak.    (line   38)
-* C-e .:                                 emacspeak-speak.    (line   37)
-* C-e /:                                 Reading.            (line   91)
-* C-e / <1>:                             emacspeak-websearch.
-                                                             (line   53)
-* C-e 1:                                 emacspeak-speak.    (line  846)
-* C-e 2:                                 emacspeak-speak.    (line  632)
-* C-e 3:                                 amixer.             (line   53)
-* C-e 4:                                 amixer.             (line   52)
-* C-e ;:                                 emacspeak-m-player. (line  786)
+* C-e `:                                 emacspeak-speak.    (line  605)
+* C-e ^:                                 emacspeak-filtertext.
+                                                             (line   24)
 * C-e <down>:                            emacspeak-speak.    (line  178)
-* C-e <f11>:                             emacspeak-wizards.  (line  860)
 * C-e <f1>:                              emacspeak-wizards.  (line   70)
+* C-e <f11>:                             emacspeak-wizards.  (line  860)
 * C-e <fn>:                              emacspeak-speak.    (line  233)
 * C-e <left>:                            emacspeak-wizards.  (line  257)
 * C-e <right>:                           emacspeak-wizards.  (line  231)
 * C-e <up>:                              emacspeak-speak.    (line  189)
 * C-e =:                                 Status Information. (line   87)
 * C-e = <1>:                             emacspeak-speak.    (line  319)
-* C-e ?:                                 emacspeak-websearch.
-                                                             (line   52)
-* C-e @:                                 emacspeak-speak.    (line  551)
+* C-e |:                                 emacspeak-speak.    (line  493)
+* C-e 1:                                 emacspeak-speak.    (line  846)
+* C-e 2:                                 emacspeak-speak.    (line  632)
+* C-e 3:                                 amixer.             (line   53)
+* C-e 4:                                 amixer.             (line   52)
 * C-e a:                                 Status Information. (line    8)
 * C-e A:                                 emacspeak-calendar. (line   18)
 * C-e a <1>:                             emacspeak-speak.    (line  540)
@@ -2424,14 +2435,14 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e c:                                 Reading.            (line   15)
 * C-e c <1>:                             emacspeak-speak.    (line  278)
 * C-e C:                                 emacspeak-wizards.  (line   44)
-* C-e C-':                               emacspeak-pianobar. (line   44)
 * C-e C-.:                               emacspeak-speak.    (line  405)
+* C-e C-':                               emacspeak-pianobar. (line   44)
+* C-e C-@:                               Status Information. (line   71)
+* C-e C-@ <1>:                           emacspeak-speak.    (line  343)
 * C-e C-/:                               emacspeak-wizards.  (line  242)
 * C-e C-<left>:                          emacspeak-wizards.  (line  139)
 * C-e C-<return>:                        emacspeak-speak.    (line  306)
 * C-e C-<right>:                         emacspeak-wizards.  (line  114)
-* C-e C-@:                               Status Information. (line   71)
-* C-e C-@ <1>:                           emacspeak-speak.    (line  343)
 * C-e C-a:                               emacspeak-sounds.   (line   53)
 * C-e C-b:                               emacspeak-bookshare.
                                                              (line   53)
@@ -2449,9 +2460,9 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-s:                               Miscellaneous.      (line   26)
 * C-e C-s <1>:                           dtk-speak.          (line  332)
 * C-e C-SPC:                             emacspeak-speak.    (line  342)
-* C-e C-t #:                             emacspeak-table-ui. (line  371)
 * C-e C-t ,:                             emacspeak-table-ui. (line   61)
 * C-e C-t .:                             emacspeak-table-ui. (line  406)
+* C-e C-t #:                             emacspeak-table-ui. (line  371)
 * C-e C-t <:                             emacspeak-table-ui. (line  108)
 * C-e C-t <down>:                        emacspeak-table-ui. (line  280)
 * C-e C-t <left>:                        emacspeak-table-ui. (line  300)
@@ -2498,10 +2509,11 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-x:                               emacspeak-speak.    (line  427)
 * C-e cap V:                             Status Information. (line   38)
 * C-e d cap V:                           Miscellaneous.      (line   84)
-* C-e d +:                               dtk-speak.          (line   66)
-* C-e d ,:                               dtk-speak.          (line  248)
 * C-e d -:                               dtk-speak.          (line   65)
+* C-e d ,:                               dtk-speak.          (line  248)
 * C-e d .:                               dtk-speak.          (line   57)
+* C-e d +:                               dtk-speak.          (line   66)
+* C-e d =:                               dtk-speak.          (line   67)
 * C-e d 0:                               dtk-speak.          (line  151)
 * C-e d 1:                               dtk-speak.          (line  150)
 * C-e d 2:                               dtk-speak.          (line  149)
@@ -2512,7 +2524,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e d 7:                               dtk-speak.          (line  144)
 * C-e d 8:                               dtk-speak.          (line  143)
 * C-e d 9:                               dtk-speak.          (line  142)
-* C-e d =:                               dtk-speak.          (line   67)
 * C-e d a:                               Miscellaneous.      (line   36)
 * C-e d a <1>:                           dtk-speak.          (line   16)
 * C-e d c:                               Speech Output Control.
@@ -2587,8 +2598,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e m:                                 Status Information. (line   13)
 * C-e M:                                 emacspeak-speak.    (line  581)
 * C-e m <1>:                             emacspeak-speak.    (line  593)
+* C-e M-;:                               emacspeak-eww.      (line  688)
 * C-e M-%:                               emacspeak-speak.    (line  103)
-* C-e M-;:                               emacspeak-eww.      (line  687)
 * C-e M-b:                               emacspeak-speak.    (line  621)
 * C-e M-c:                               emacspeak-wizards.  (line   30)
 * C-e M-d:                               emacspeak-pronounce.
@@ -2636,7 +2647,11 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e W:                                 emacspeak-speak.    (line  200)
 * C-e w <1>:                             emacspeak-speak.    (line  921)
 * C-e x ,:                               emacspeak-wizards.  (line  852)
+* C-e x ;:                               emacspeak-m-player. (line  656)
+* C-e x ::                               emacspeak-m-player. (line  380)
 * C-e x .:                               emacspeak-wizards.  (line  838)
+* C-e x =:                               emacspeak-wizards.  (line  544)
+* C-e x |:                               emacspeak-wizards.  (line  916)
 * C-e x 0:                               emacspeak-wizards.  (line  808)
 * C-e x 1:                               emacspeak-wizards.  (line  807)
 * C-e x 2:                               emacspeak-wizards.  (line  806)
@@ -2644,11 +2659,9 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e x 4:                               emacspeak-wizards.  (line  804)
 * C-e x 5:                               emacspeak-wizards.  (line  803)
 * C-e x 7:                               emacspeak-wizards.  (line  827)
-* C-e x ::                               emacspeak-m-player. (line  380)
-* C-e x ;:                               emacspeak-m-player. (line  656)
-* C-e x =:                               emacspeak-wizards.  (line  544)
 * C-e x C-c:                             emacspeak-wizards.  (line  349)
 * C-e x d:                               emacspeak-speak.    (line  512)
+* C-e x e ]:                             emacspeak-we.       (line  317)
 * C-e x e a:                             emacspeak-we.       (line  370)
 * C-e x e b:                             emacspeak-we.       (line  246)
 * C-e x e c:                             emacspeak-we.       (line   77)
@@ -2682,7 +2695,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e x e X:                             emacspeak-we.       (line  166)
 * C-e x e y:                             emacspeak-we.       (line   20)
 * C-e x e z:                             emacspeak-we.       (line  176)
-* C-e x e ]:                             emacspeak-we.       (line  317)
 * C-e x f:                               emacspeak-wizards.  (line  771)
 * C-e x h:                               emacspeak-wizards.  (line  621)
 * C-e x M-c:                             emacspeak-wizards.  (line  371)
@@ -2691,7 +2703,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e x u:                               emacspeak-wizards.  (line  987)
 * C-e x v:                               emacspeak-wizards.  (line 1017)
 * C-e x w:                               emacspeak-wizards.  (line  712)
-* C-e x |:                               emacspeak-wizards.  (line  916)
 * C-e y a:                               emacspeak-xslt.     (line   27)
 * C-e y p:                               emacspeak-pianobar. (line   46)
 * C-e y r:                               emacspeak-xslt.     (line   57)
@@ -2700,16 +2711,9 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e z b:                               emacspeak-wizards.  (line 1043)
 * C-e z e:                               emacspeak-wizards.  (line  508)
 * C-e z l:                               emacspeak-m-player. (line  366)
-* C-e [:                                 Reading.            (line  121)
-* C-e [ <1>:                             emacspeak-speak.    (line  670)
-* C-e \:                                 emacspeak-speak.    (line 1026)
-* C-e ]:                                 emacspeak-speak.    (line  648)
-* C-e ^:                                 emacspeak-filtertext.
-                                                             (line   24)
-* C-e `:                                 emacspeak-speak.    (line  605)
-* C-e |:                                 emacspeak-speak.    (line  493)
-* C-h ":                                 emacspeak-extras.   (line  104)
 * C-h ,:                                 emacspeak-wizards.  (line  326)
+* C-h ":                                 emacspeak-extras.   (line  104)
+* C-h \:                                 emacspeak-wizards.  (line  336)
 * C-h =:                                 emacspeak-wizards.  (line  926)
 * C-h C-e:                               emacspeak-wizards.  (line   52)
 * C-h C-l:                               emacspeak-wizards.  (line   71)
@@ -2718,7 +2722,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-h M:                                 emacspeak-wizards.  (line  210)
 * C-h N:                                 emacspeak-speak.    (line 1054)
 * C-h TAB:                               emacspeak-info.     (line   37)
-* C-h \:                                 emacspeak-wizards.  (line  336)
 * C-M-y:                                 emacspeak-muggles.  (line   97)
 * C-x @ a /:                             extra-muggles.      (line  332)
 * C-x @ a a:                             emacspeak-feeds.    (line   35)
@@ -2729,7 +2732,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ a q:                             emacspeak-wizards.  (line  763)
 * C-x @ a r:                             emacspeak-feeds.    (line   93)
 * C-x @ a s:                             emacspeak-wizards.  (line  979)
-* C-x @ a SPC:                           emacspeak-eww.      (line  924)
+* C-x @ a SPC:                           emacspeak-eww.      (line  925)
 * C-x @ a t:                             emacspeak-wizards.  (line  967)
 * C-x @ a u:                             emacspeak-m-player. (line  721)
 * C-x @ h a:                             emacspeak-amark.    (line   52)
@@ -2762,8 +2765,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ s t:                             soundscape.         (line  123)
 * C-x @ s u:                             soundscape.         (line  133)
 * C-x @ s v:                             extra-muggles.      (line  272)
-* C-x r C-e:                             emacspeak-eww.      (line  426)
-* C-x r e:                               emacspeak-eww.      (line  676)
+* C-x r C-e:                             emacspeak-eww.      (line  427)
+* C-x r e:                               emacspeak-eww.      (line  677)
 * C-z b:                                 emacspeak-wizards.  (line 1041)
 * C-z e:                                 emacspeak-wizards.  (line  507)
 * C-z l:                                 emacspeak-m-player. (line  364)
@@ -2776,9 +2779,9 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <ESCAPE> prior:                        Reading.            (line  172)
 * <ESCAPE> <UP>:                         Reading.            (line  154)
 * M-ESC ::                               emacspeak-wizards.  (line  869)
-* s-':                                   extra-muggles.      (line  222)
-* s-.:                                   emacspeak-muggles.  (line   48)
 * s-;:                                   extra-muggles.      (line  113)
+* s-.:                                   emacspeak-muggles.  (line   48)
+* s-':                                   extra-muggles.      (line  222)
 * S-<down>:                              emacspeak-wizards.  (line  177)
 * S-<left>:                              emacspeak-wizards.  (line  186)
 * S-<right>:                             emacspeak-wizards.  (line  194)

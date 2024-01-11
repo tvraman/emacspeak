@@ -1,4 +1,4 @@
-This is emacspeak.info, produced by makeinfo version 7.0.3 from
+This is emacspeak.info, produced by makeinfo version 7.1 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 10, 2024.
+last updated on January 11, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -217,7 +217,7 @@ intermediate filters.
      Major mode for FilterText interaction.
 
      Key             Binding
-     ——————————————————————————-
+     -----------------------------------------------------
      =		keep-lines
      ^		flush-lines
      r		emacspeak-filtertext-revert
@@ -331,7 +331,7 @@ Provide additional advice to forms-mode
 
  -- Command: emacspeak-forms-rerun-filter
 
-     Rerun filter –allows us to nuke more matching records
+     Rerun filter -allows us to nuke more matching records
 
 12.87.1.4 emacspeak-forms-speak-field
 .....................................
@@ -361,7 +361,7 @@ File: emacspeak.info,  Node: emacspeak-geiser,  Next: emacspeak-gh-explorer,  Pr
 12.88 emacspeak-geiser
 ======================
 
-geiser.el — GNU Emacs and Scheme talk to each other This module
+geiser.el -- GNU Emacs and Scheme talk to each other This module
 speech-enables all interactive aspects of geiser, including the
 geiser->scheme REPL. This is used by racket-mode for racket interaction,
 And also for interacting with Guile.
@@ -560,7 +560,7 @@ File: emacspeak.info,  Node: emacspeak-google,  Next: emacspeak-gridtext,  Prev:
 ======================
 
 There are a number of search tools that can be implemented on the Google
-search page — in a JS-powered browser, these show up as the Google
+search page -- in a JS-powered browser, these show up as the Google
 tool-belt.  This module implements a minor mode for use in Google result
 pages that enables these tools via single keyboard commands.  Originally
 all options were available as tbs=p:v Now, some specialized searches,
@@ -737,16 +737,16 @@ File: emacspeak.info,  Node: emacspeak-gridtext,  Next: emacspeak-gtags,  Prev: 
 12.95 emacspeak-gridtext
 ========================
 
-Emacspeak’s table browsing mode allows one to efficiently access content
+Emacspeak's table browsing mode allows one to efficiently access content
 that is tabular in nature.  That module also provides functions for
 inferring table structure where possible.  Often, such structure is hard
-to infer automatically –but might be known to the user e.g.  treat
+to infer automatically -but might be known to the user e.g.  treat
 columns 1 through 30 as one column of a table and so on.  This module
 allows the user to specify a conceptual grid that is "overlaid" on the
 region of text to turn it into a table for tabular browsing.  For now,
-elements of the grid are "one line" high –but that may change in the
+elements of the grid are "one line" high -but that may change in the
 future if necessary.  This module is useful for browsing structured text
-files and the output from programs that tabulate their output.  It’s
+files and the output from programs that tabulate their output.  It's
 also useful for handling multicolumn text.  The "grid" is specified as a
 list of (start end) tuples..
 
@@ -1007,7 +1007,7 @@ This module speech-enables the Emacs Info Reader.
 
  -- Variable: User Option emacspeak-info-select-node-speak-chunk
      Specifies how much of the selected node gets spoken.  Possible
-     values are: screenfull – speak the displayed screen node – speak
+     values are: screenfull - speak the displayed screen node - speak
      the entire node.
 
      Default Value:
@@ -1125,7 +1125,7 @@ File: emacspeak.info,  Node: emacspeak-jdee,  Next: emacspeak-journalctl,  Prev:
 12.112 emacspeak-jdee
 =====================
 
-Speech enable Java IDE. The Java IDE –JDEE– can be found at
+Speech enable Java IDE. The Java IDE -JDEE- can be found at
 http://sunsite.auc.dk/jdee/
 
 
@@ -1362,7 +1362,7 @@ File: emacspeak.info,  Node: emacspeak-kmacro,  Next: emacspeak-librivox,  Prev:
 12.116 emacspeak-kmacro
 =======================
 
-Introduction speech-enables kmacro — a kbd macro interface
+Introduction speech-enables kmacro -- a kbd macro interface
 
    required modules
 
@@ -1372,7 +1372,7 @@ File: emacspeak.info,  Node: emacspeak-librivox,  Next: emacspeak-lispy,  Prev: 
 12.117 emacspeak-librivox
 =========================
 
-LIBRIVOX == <http://www.librivox.org> — Free Audio Books.  API Info:
+LIBRIVOX == <http://www.librivox.org> -- Free Audio Books.  API Info:
 <https://librivox.org/api/info> It provides a simple Web API This module
 implements an Emacspeak Librivox client.
 
@@ -1381,11 +1381,11 @@ implements an Emacspeak Librivox client.
 
 main entry point is command ‘emacspeak-librivox’ bound to ‘C-; l’.  This
 prompts with the following choices:
-   • ‘a’ Author — Search by Author.
-   • ‘t’ Title — Search by Title.
-   • ‘g’ Genre — Search by Genre — with minibuffer completion.
-   • ‘p’ Play — Play a book.
-   • ‘d’ Directory — Browse local cache.
+   • ‘a’ Author -- Search by Author.
+   • ‘t’ Title -- Search by Title.
+   • ‘g’ Genre -- Search by Genre -- with minibuffer completion.
+   • ‘p’ Play -- Play a book.
+   • ‘d’ Directory -- Browse local cache.
 
    Search results are displayed in a Web page that provides controls for
 accessing the book.
@@ -1421,7 +1421,7 @@ accessing the book.
 
      Search by author. Both exact and partial matches for
      ‘author’. Optional interactive prefix arg ‘offset’ prompts for offset
-     — use this for retrieving next set of results.
+     -- use this for retrieving next set of results.
 
      (fn AUTHOR &optional OFFSET)
 
@@ -1441,7 +1441,7 @@ accessing the book.
  -- Command: emacspeak-librivox-search-by-title (title &optional offset)
 
      Search by title. Both exact and partial matches for ‘title’. Optional
-     prefix arg ‘offset’ prompts for offset — use this for retrieving
+     prefix arg ‘offset’ prompts for offset -- use this for retrieving
      more results.
 
      (fn TITLE &optional OFFSET)
@@ -1508,7 +1508,7 @@ This prompts for and launches the desired media stream.  Once a stream
 is playing, you can control it with single-letter keystrokes in the
 ‘*M-Player*’ buffer.  Alternatively, you can switch away from that
 buffer to do real work, And invoke ‘m-player’ commands by first pressing
-prefix-key ‘C-e ;’.  If your Emacs supports ‘repeat-mode’, — *Note
+prefix-key ‘C-e ;’.  If your Emacs supports ‘repeat-mode’, -- *Note
 (emacs)repeating:: you can avoid the need to repeatedly press the
 prefix-key ‘C-e ;’ each time; with ‘repeat-mode’ active, you only need
 to press the prefix ‘C-e ;’ the first time; subsequent invocations can
@@ -1883,12 +1883,12 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      Major mode for m-player interaction.
 
      Key             Binding
-     ——————————————————————————-
+     -----------------------------------------------------
      C-a		emacspeak-amark-browse
      C-l		ladspa
      SPC		emacspeak-m-player-pause
      %		emacspeak-m-player-display-percent
-     ’		emacspeak-m-player-add-loop
+     '		emacspeak-m-player-add-loop
      (		emacspeak-m-player-left-channel
      )		emacspeak-m-player-right-channel
      +		emacspeak-m-player-volume-up
@@ -2280,12 +2280,12 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      Controls media playback when already playing.
 
      Key             Binding
-     ——————————————————————————-
+     -----------------------------------------------------
      C-a		emacspeak-amark-browse
      C-l		ladspa
      SPC		emacspeak-m-player-pause
      %		emacspeak-m-player-display-percent
-     ’		emacspeak-m-player-add-loop
+     '		emacspeak-m-player-add-loop
      (		emacspeak-m-player-left-channel
      )		emacspeak-m-player-right-channel
      +		emacspeak-m-player-volume-up
@@ -2427,7 +2427,7 @@ Provide additional advice to man-mode
 
  -- Command: emacspeak-man-browse-man-page
 
-     Browse the man page –read it a paragraph at a time
+     Browse the man page -read it a paragraph at a time
 
 12.123.1.2 emacspeak-man-speak-this-section
 ...........................................
@@ -2464,7 +2464,7 @@ successfully set up nvm (Node Version Manager) as described there.
 Spoken mathematics on the emacspeak audio desktop.  Use a NodeJS based
 speech-rule-engine for Mathematics as the backend for processing
 mathematical markup.  The result of this processing is an annotated
-S-expression that is rendered via Emacspeak’s speech facilities.
+S-expression that is rendered via Emacspeak's speech facilities.
 Annotations follow Aural CSS as implemented in Emacspeak, This allows us
 to map these expressions to aural properties supported by specific TTS
 engines.
@@ -2476,7 +2476,7 @@ emacspeak-maths:: as described below.
 
    Note: In general, once everything is configured correctly, using the
 maths navigator automatically starts the server and client.  Invoke the
-Navigator using ‘s-spc’ — this is the <windows> key on Linux laptops.
+Navigator using ‘s-spc’ -- this is the <windows> key on Linux laptops.
 Linux.  Now you can use these keys:
    • Show Output <o> Switch to output buffer and quit Maths Navigator
    • Enter: <SPC> Enter a LaTeX expression.
@@ -2590,7 +2590,7 @@ and backward-page can be used to move through each chunk of output.
      Emacs online help facility to look up help on these commands.
 
      Key             Binding
-     ——————————————————————————-
+     -----------------------------------------------------
      [		backward-page
      ]		forward-page
      h		emacspeak-maths-left
@@ -2665,7 +2665,7 @@ From the package README file: Midge, for midi generator, is a text to
 midi translator.  It creates type 1 (ie multitrack) midi files from text
 descriptions of music.  It is a single perl script, which does not
 require any additional modules.  The package also provides a convenient
-emacs mode for editing and playing midge files.  Midge’s homepage is at:
+emacs mode for editing and playing midge files.  Midge's homepage is at:
 http://www.dmriley.demon.co.uk/code/midge/
 
 
@@ -2688,9 +2688,9 @@ additional interactive commands:
    • ‘'’ Speaks entire board.
 
    Speaking cell neighbors uses appropriate clause boundaries to group
-related cells — neighbors are read left-to-right, top-to-bottom.  Moving
-to the left/right edge of the board produces an appropriate auditory
-icon.
+related cells -- neighbors are read left-to-right, top-to-bottom.
+Moving to the left/right edge of the board produces an appropriate
+auditory icon.
 
 12.129.1 Emacspeak-Mines Commands
 ---------------------------------
@@ -2769,7 +2769,7 @@ File: emacspeak.info,  Node: emacspeak-mspools,  Next: emacspeak-muggles,  Prev:
 12.130 emacspeak-mspools
 ========================
 
-Speech-enable mspools –a package that lets you monitor multiple
+Speech-enable mspools -a package that lets you monitor multiple
 maildrops
 
 
@@ -2779,7 +2779,7 @@ File: emacspeak.info,  Node: emacspeak-muggles,  Next: emacspeak-muse,  Prev: em
 ========================
 
 MUGGLES == Emacspeak spells for power-users.  This module implements no
-new functionality — contrast with emacspeak-wizards.  Instead, it uses
+new functionality -- contrast with emacspeak-wizards.  Instead, it uses
 package hydra to provide convenience key-bindings that access existing
 Emacspeak functionality.  You need to install package Hydra first: ‘M-x
 package-install hydra’.
@@ -3032,7 +3032,7 @@ File: emacspeak.info,  Node: emacspeak-newsticker,  Next: emacspeak-notmuch,  Pr
 ===========================
 
 Newsticker provides a continuously updating newsticker using RSS
-Provides functionality similar to amphetadesk –but in pure elisp
+Provides functionality similar to amphetadesk -but in pure elisp
 
    required modules
 
@@ -3051,9 +3051,9 @@ File: emacspeak.info,  Node: emacspeak-nov,  Next: emacspeak-nxml,  Prev: emacsp
 ====================
 
 NOV == Yet Another EPub Reader Package nov.el is an alternative to
-Emacspeak’s built-in EPub reader.  This module speech-enables nov.el In
+Emacspeak's built-in EPub reader.  This module speech-enables nov.el In
 addition, opening an epub using nov results in directory-specific
-settings being loaded from file EMACSPEAK-SPEAK-DIRECTORY-SETTINGS —
+settings being loaded from file EMACSPEAK-SPEAK-DIRECTORY-SETTINGS --
 That file can set book-specific settings such as speech-rate and
 punctuation-mode among others.
 
@@ -3130,7 +3130,7 @@ an OCR engine that can take acquired images and produce text.
      Run OCR engine on current image after flip-flopping it.
      Useful if you’ve scanned a page upside down and are using an
      engine that does not automatically flip the image for you.  You
-     need the imagemagik family of tools — we use mogrify to
+     need the imagemagik family of tools -- we use mogrify to
      transform the image.  Prompts for image file if file
      corresponding to the expected ‘current page’ is not found.
 
@@ -3182,7 +3182,7 @@ an OCR engine that can take acquired images and produce text.
      emacspeak-ocr bound to C-e C-o.
 
      This command switches to a special buffer that has OCR
-     commands bounds to single keystrokes– see the key-binding
+     commands bounds to single keystrokes- see the key-binding
      list at the end of this description.  Use Emacs online help
      facility to look up help on these commands.
 
@@ -3203,7 +3203,7 @@ an OCR engine that can take acquired images and produce text.
 
      See
      Key             Binding
-     ——————————————————————————-
+     -----------------------------------------------------
      RET		emacspeak-ocr-scan-and-recognize
      SPC		emacspeak-ocr-read-current-page
      1 .. 9		emacspeak-ocr-page
@@ -3459,7 +3459,7 @@ File: emacspeak.info,  Node: emacspeak-org,  Next: emacspeak-orgalist,  Prev: em
 12.139 emacspeak-org
 ====================
 
-Speech-enable org — Org allows you to keep organized notes and todo
+Speech-enable org -- Org allows you to keep organized notes and todo
 lists.  Homepage: http://www.astro.uva.nl/~dominik/Tools/org/ or
 http://orgmode.org/
 
@@ -3589,7 +3589,7 @@ File: emacspeak.info,  Node: emacspeak-orgalist,  Next: emacspeak-origami,  Prev
 12.140 emacspeak-orgalist
 =========================
 
-Speech-enable orgalist — create org-like lists everywhere.
+Speech-enable orgalist -- create org-like lists everywhere.
 
 
 File: emacspeak.info,  Node: emacspeak-origami,  Next: emacspeak-outline,  Prev: emacspeak-orgalist,  Up: Emacspeak Commands And Options
@@ -3744,12 +3744,12 @@ as editing code or reading/composing email.  Toward this end, launching
 command emacspeak-pianobar the first time initializes the ‘*pianobar*’
 buffer and launches command ‘pianobar’; but focus remains in your
 current buffer.  Pianobar can be controlled with single keystrokes while
-in the pianobar buffer — switch to using ‘C-e ''’.  The most useful keys
-are ‘right’ for skipping tracks, ‘up’ and ‘down’ for switching channels
-etc.; see the keys bound in ‘pianobar-key-map’ for a complete list.
-Pressing ‘C-e '’ in the ‘*pianobar*’ buffer buries the ‘*pianobar*’.
-From here on, Pianobar can be controlled by pressing the Pianobar prefix
-key (‘C-e '’) followed by keys from ‘pianobar-key-map’.
+in the pianobar buffer -- switch to using ‘C-e ''’.  The most useful
+keys are ‘right’ for skipping tracks, ‘up’ and ‘down’ for switching
+channels etc.; see the keys bound in ‘pianobar-key-map’ for a complete
+list.  Pressing ‘C-e '’ in the ‘*pianobar*’ buffer buries the
+‘*pianobar*’.  From here on, Pianobar can be controlled by pressing the
+Pianobar prefix key (‘C-e '’) followed by keys from ‘pianobar-key-map’.
 
 12.146.3 Emacspeak-Pianobar Commands
 ------------------------------------
@@ -3920,7 +3920,7 @@ of emacs 23.
 
  -- Command: emacspeak-proced-speak-this-field (&optional position)
 
-     Speak field at specified column — defaults to current column.
+     Speak field at specified column -- defaults to current column.
 
      (fn &optional POSITION)
 
@@ -4181,7 +4181,7 @@ File: emacspeak.info,  Node: emacspeak-reftex,  Next: emacspeak-related,  Prev: 
 12.159 emacspeak-reftex
 =======================
 
-This module speech-enables refteex – reftex is a minor mode that makes
+This module speech-enables refteex - reftex is a minor mode that makes
 navigation of TeX documents possible via a table of contents buffer.
 
 
@@ -4232,7 +4232,7 @@ File: emacspeak.info,  Node: emacspeak-rpm-spec,  Next: emacspeak-rst,  Prev: em
 12.163 emacspeak-rpm-spec
 =========================
 
-speech-enable rpm-spec-mode –part of Emacs 21 on RH 7.3
+speech-enable rpm-spec-mode -part of Emacs 21 on RH 7.3
 
 
 File: emacspeak.info,  Node: emacspeak-rst,  Next: emacspeak-ruby,  Prev: emacspeak-rpm-spec,  Up: Emacspeak Commands And Options
@@ -4424,7 +4424,7 @@ File: emacspeak.info,  Node: emacspeak-slime,  Next: emacspeak-smartparens,  Pre
 ======================
 
 SLIME == Superior Lisp Interaction Mode For Emacs Slime is a powerful
-IDE for developing in Common Lisp and Clojure.  It’s similar but more
+IDE for developing in Common Lisp and Clojure.  It's similar but more
 modern than package ILisp that I used as a graduate student when
 developing AsTeR.
 
@@ -4570,7 +4570,7 @@ of emacspeak from becoming dependent on the speech server modules
 12.179.1 Emacspeak-Speak Commands
 ---------------------------------
 
-12.179.1.1 emacspeak–persist-variable
+12.179.1.1 emacspeak-persist-variable
 .....................................
 
  -- Command: emacspeak--persist-variable (var file)
@@ -4902,7 +4902,7 @@ of emacspeak from becoming dependent on the speech server modules
      ‘C-e C-@’
 
      Speak the line containing the mark.
-     With no argument, speaks the line containing the mark–this is
+     With no argument, speaks the line containing the mark-this is
      where C-x C-x would
      jump.  Numeric prefix arg  ‘COUNT’ speaks line containing mark  ‘n’
      where  ‘n’ is one less than the number of times one has to jump
@@ -4970,7 +4970,7 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-face-forward
 
-     Property search for face — see M-x text-property-search-forward
+     Property search for face -- see M-x text-property-search-forward
 
 12.179.1.40 emacspeak-speak-field
 .................................
@@ -5021,7 +5021,7 @@ of emacspeak from becoming dependent on the speech server modules
      audio indentation is on see ‘emacspeak-toggle-audio-indentation’
      bound to C-e d i.  Indicates
      position of point with an aural highlight if option
-     ‘emacspeak-show-point’ is on –see command
+     ‘emacspeak-show-point’ is on -see command
      ‘emacspeak-toggle-show-point’ bound to
      C-e C-d.  Lines that start hidden blocks
      of text, e.g.  outline header lines, or header lines of blocks
@@ -5053,7 +5053,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Set up filter for selectively speaking or ignoring portions of lines.
      The filter is specified as a list of pairs.
-     For example, to filter  columns 1 – 10 and 20 – 25,
+     For example, to filter  columns 1 - 10 and 20 - 25,
      specify filter as
      ((0 9) (20 25)). Filter settings are persisted across sessions.  A
      persisted filter is used as the default when prompting for a filter.
@@ -5766,7 +5766,7 @@ can be obtained from ftp://ftp.ultranet.com/pub/zappo/ This module
 ensures that speedbar works smoothly outside a windowing system in
 addition to speech enabling all interactive commands.  Emacspeak also
 adds an Emacspeak environment specific entry point to speedbar
-–emacspeak-speedbar-goto-speedbar– and binds this
+-emacspeak-speedbar-goto-speedbar- and binds this
 
 12.180.1 Emacspeak-Speedbar Commands
 ------------------------------------
@@ -5791,7 +5791,7 @@ File: emacspeak.info,  Node: emacspeak-sql,  Next: emacspeak-sudoku,  Prev: emac
 12.181 emacspeak-sql
 ====================
 
-This module speech enables sql-mode– available from the Emacs package
+This module speech enables sql-mode- available from the Emacs package
 archive.  sql-mode.el implemented by the above package sets up an Emacs
 to SQL interface where you can interactively evaluate SQL expressions.
 
@@ -5814,7 +5814,7 @@ feedback one needs for this task.
 
  -- Command: emacspeak-sudoku-board-columns-summarize
 
-     Summarize columns — speaks number of remaining cells.
+     Summarize columns -- speaks number of remaining cells.
 
 12.182.1.2 emacspeak-sudoku-board-distribution-summarize
 ........................................................
@@ -5828,14 +5828,14 @@ feedback one needs for this task.
 
  -- Command: emacspeak-sudoku-board-rows-summarize
 
-     Summarize rows — speaks number of remaining cells.
+     Summarize rows -- speaks number of remaining cells.
 
 12.182.1.4 emacspeak-sudoku-board-sub-squares-summarize
 .......................................................
 
  -- Command: emacspeak-sudoku-board-sub-squares-summarize
 
-     Summarize sub-squares — speaks number of remaining cells.
+     Summarize sub-squares -- speaks number of remaining cells.
 
 12.182.1.5 emacspeak-sudoku-board-summarizer
 ............................................
@@ -6069,7 +6069,7 @@ User interface to tables
      emacspeak table mode is designed to let you browse tabular data using
      all the power of the two-dimensional spatial layout while giving you
      sufficient contextual information.  The tables subdirectory of the
-     emacspeak distribution contains some sample tables –these are the
+     emacspeak distribution contains some sample tables -these are the
      CalTrain schedules.  Execute command ‘describe-mode’ bound to
      C-h m in a buffer that is in emacspeak table mode to read
      the documentation on the table browser.
@@ -6096,7 +6096,7 @@ User interface to tables
      emacspeak table mode is designed to let you browse tabular data using
      all the power of the two-dimensional spatial layout while giving you
      sufficient contextual information.  The etc/tables subdirectory of the
-     emacspeak distribution contains some sample tables –these are the
+     emacspeak distribution contains some sample tables -these are the
      CalTrain schedules.  Execute command ‘describe-mode’ bound to
      C-h m in a buffer that is in emacspeak table mode to read
      the documentation on the table browser.
@@ -6168,7 +6168,7 @@ User interface to tables
      You can interactively specify that emacspeak should speak either the row or
      column header (or both) while speaking each cell.  You can also specify a row
      or column filter that should be applied when speaking entire rows or columns
-     –this lets you view slices of a table.  You can move to a specific row or
+     -this lets you view slices of a table.  You can move to a specific row or
      column by searching the cell contents or by searching the row or column
      headers to locate items of interest.
 
@@ -6191,7 +6191,7 @@ User interface to tables
 
      The next command lets you specify how cell contents should be spoken.  Specify
      one of: ‘b’ for both, ‘c’ for column, ‘r’ for row, ‘f’ for row filtering and
-     ‘g’ for column filtering. –table cells with then be spoken with both (or
+     ‘g’ for column filtering. -table cells with then be spoken with both (or
      either)row and column headers, or with the filter applied.
 
      a               emacspeak-table-select-automatic-speaking-method
@@ -6230,7 +6230,7 @@ User interface to tables
      Full List Of Keybindings:
 
      Key             Binding
-     ——————————————————————————-
+     -----------------------------------------------------
      C-b		emacspeak-table-previous-column
      C-f		emacspeak-table-next-column
      TAB		emacspeak-table-next-column
@@ -6627,7 +6627,7 @@ Speech-enables tetris.
 
  -- Command: emacspeak-tetris-speak-column (&optional x)
 
-     Speak  column –default is to speak current column
+     Speak  column -default is to speak current column
 
      (fn &optional X)
 
@@ -6868,7 +6868,7 @@ File: emacspeak.info,  Node: emacspeak-transient,  Next: emacspeak-treesit,  Pre
 12.198 emacspeak-transient
 ==========================
 
-TRANSIENT == Transient commands — used by magit and friends.  This
+TRANSIENT == Transient commands -- used by magit and friends.  This
 module speech-enables transient.
 
 12.198.1 Introduction
@@ -6880,7 +6880,7 @@ invoked via a sequence of keys.  It is used by Magit for dispatching to
 the various Git commands.  Speech-enabling package Transient results in
 the various interactive commands producing auditory feedback.  Transient
 shows an ephemeral window with the currently available commands,
-Emacspeak speech-enables transient–show to cache that content so it can
+Emacspeak speech-enables transient-show to cache that content so it can
 be browsed if desired.
 
    Finally, this module defines a new minor mode called
@@ -6901,10 +6901,10 @@ these only after reading the transient info documentations.
    this pops up the transient buffer after a short delay and lets you
 move through the buttons with the up/down arrows.
 
-12.198.3 Browsing Contents Of transient–show
+12.198.3 Browsing Contents Of transient-show
 --------------------------------------------
 
-When executing a command defined via Transient — e.g.  command
+When executing a command defined via Transient -- e.g.  command
 Magit-dispatch and friends, press ‘C-z’ (transient-suspend) to
 temporarily suspend the currently active transient.  Emacspeak now
 displays a *transient-emacspeak* buffer that displays the contents of
@@ -6965,7 +6965,7 @@ File: emacspeak.info,  Node: emacspeak-typo,  Next: emacspeak-url-template,  Pre
 =====================
 
 TYPO == Typographical Editing This module speech-enables typo-mode.
-Typo-mode’s magic insertion commands are speech-enabled to speak the
+Typo-mode's magic insertion commands are speech-enabled to speak the
 inserted char.
 
 
@@ -6974,8 +6974,8 @@ File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-vdiff,  Pr
 12.201 emacspeak-url-template
 =============================
 
-It is often useful to have “parametrized hot list entries” i.e., hotlist
-entries that are “templates” for the actual URL. The user provides
+It is often useful to have "parametrized hot list entries" i.e., hotlist
+entries that are "templates" for the actual URL. The user provides
 values for the parametrized portions of the URL e.g.  the date.  See
 *Note URL Templates::, for details on the URL templates that are
 presently defined.
@@ -7094,8 +7094,8 @@ File: emacspeak.info,  Node: emacspeak-vertico,  Next: emacspeak-view,  Prev: em
 12.203 emacspeak-vertico
 ========================
 
-Vertico is a modern completion UI that uses Emacs’s native completion
-engine This module speech-enables Vertico’s UI
+Vertico is a modern completion UI that uses Emacs's native completion
+engine This module speech-enables Vertico's UI
 
 
 File: emacspeak.info,  Node: emacspeak-view,  Next: emacspeak-vm,  Prev: emacspeak-vertico,  Up: Emacspeak Commands And Options
@@ -7132,7 +7132,7 @@ headers and cited messages
 
  -- Command: emacspeak-vm-browse-message
 
-     Browse an email message –read it paragraph at a time.
+     Browse an email message -read it paragraph at a time.
 
 12.205.1.2 emacspeak-vm-catch-up-all-messages
 .............................................
@@ -7251,8 +7251,8 @@ VTERM == vterm using native vterm library
    • Turn on ‘emacspeak-comint-autospeak’ for using the shell.
    • Turn off ‘emacspeak-comint-autospeak’ when using full-screen
      ncurses apps like ‘vi’.
-   • Use ‘vterm-copy-mode’ to review the contents of the terminal — ‘C-c
-     C-t’.
+   • Use ‘vterm-copy-mode’ to review the contents of the terminal --
+     ‘C-c C-t’.
 
 
 File: emacspeak.info,  Node: emacspeak-vuiet,  Next: emacspeak-wdired,  Prev: emacspeak-vterm,  Up: Emacspeak Commands And Options
@@ -7289,7 +7289,7 @@ File: emacspeak.info,  Node: emacspeak-we,  Next: emacspeak-websearch,  Prev: em
 ===================
 
 we is for webedit Invoke XSLT to edit/transform Web pages before they
-get rendered.  we makes emacspeak’s webedit layer independent of a given
+get rendered.  we makes emacspeak's webedit layer independent of a given
 Emacs web browser EWW This module will use the abstraction provided by
 browse-url to handle Web pages.
 
@@ -7664,7 +7664,7 @@ browse-url to handle Web pages.
      ‘C-e x e f’
 
      Extract elements matching specified XPath path locator
-     from Web page – default is the current page being viewed.
+     from Web page - default is the current page being viewed.
 
      (fn PATH URL &optional SPEAK)
 
@@ -7915,9 +7915,9 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
      Major mode for Webspace interaction.
 
      Key             Binding
-     ——————————————————————————-
+     -----------------------------------------------------
      TAB		forward-button
-     ’		emacspeak-speak-rest-of-buffer
+     '		emacspeak-speak-rest-of-buffer
      .		emacspeak-webspace-filter
      /		search-forward
      <		beginning-of-buffer
@@ -8453,7 +8453,7 @@ Contains various wizards for the Emacspeak desktop.
      ‘<f1> C-v’
      ‘<help> C-v’
 
-     Describe  voice — analogous to C-h /.
+     Describe  voice -- analogous to C-h /.
      When called interactively, ‘personality’ defaults to first
      personality at point.
 
@@ -8856,7 +8856,7 @@ Contains various wizards for the Emacspeak desktop.
        visiting a file, invokes ‘cd ’ in the shell to change to the.
        value of ‘default-directory’ When already in a shell buffer,
        interactive prefix arg ‘prefix’ causes this shell to be
-       re-keyed if appropriate — see
+       re-keyed if appropriate -- see
        M-x emacspeak-wizards-shell-re-key for an explanation of how
        re-keying works.
 
@@ -9046,7 +9046,7 @@ Contains various wizards for the Emacspeak desktop.
      Major mode for interactively viewing virtual console contents.
 
      Key             Binding
-     ——————————————————————————-
+     -----------------------------------------------------
      C-l		emacspeak-wizards-vc-viewer-refresh
 
      In addition to any hooks its parent mode ‘special-mode’ might have
@@ -9308,7 +9308,7 @@ MUGGLES == Emacspeak spells for power-users.  These are extra hydras
 that I dont use very often, And are being moved here from
 emacspeak-muggles to save time at startup.
 
-   This module implements no new functionality — contrast with
+   This module implements no new functionality -- contrast with
 emacspeak-wizards.  Instead, it uses package hydra to provide
 convenience key-bindings that access existing Emacspeak functionality.
 You need to install package Hydra first: ‘M-x package-install hydra’.
@@ -9805,7 +9805,7 @@ Implements the Google Maps API
      penultimate step during initialization.
 
      Key             Binding
-     ——————————————————————————-
+     -----------------------------------------------------
      TAB		forward-button
      SPC		gmaps-place-details
      [		backward-page
@@ -9926,7 +9926,7 @@ Implements the Google Maps API
 ----------------------
 
  -- Variable: User Option gmaps-api-key
-     Maps API key — goto https://code.google.com/apis/console to get
+     Maps API key -- goto https://code.google.com/apis/console to get
      one.
 
      Default Value:
@@ -10004,7 +10004,7 @@ invada-studio-plugins-ladspa fil-plugins
      penultimate step during initialization.
 
      Key             Binding
-     ——————————————————————————-
+     -----------------------------------------------------
      RET		ladspa-instantiate
      SPC		ladspa-analyse-plugin-at-point
      a		emacspeak-m-player-add-ladspa
@@ -10142,7 +10142,7 @@ File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voi
 ===================
 
 This module defines the various voices used in voice-lock mode.  Module
-Plain is suitable for a device for which you haven’t yet implemented
+Plain is suitable for a device for which you haven't yet implemented
 appropriate voice-locking controls
 
    required modules
@@ -10171,10 +10171,10 @@ for use with Emacspeak.
    Module soundscape.el defines Emacs conveniences for running
 Soundscapes.  Main Entry Points:
 
-   • M-x soundscape-toggle – Enables or disables automatic SoundScapes.
-   • M-x soundscape – runs a named SoundScape
-   • M-x soundscape-stop – Stops a specified running Soundscape.
-   • M-x soundscape-kill – Kills all running Soundscapes.
+   • M-x soundscape-toggle - Enables or disables automatic SoundScapes.
+   • M-x soundscape - runs a named SoundScape
+   • M-x soundscape-stop - Stops a specified running Soundscape.
+   • M-x soundscape-kill - Kills all running Soundscapes.
 
    When automatic Soundscapes are enabled, SoundScapes are started and
 stopped based on the current major mode.  Active Soundscape are
@@ -10231,7 +10231,7 @@ email, IM, ...  map to the same _mood_.
 
  -- Command: soundscape-remote (names)
 
-     Activate scapes named ‘names’ — a list of strings.
+     Activate scapes named ‘names’ -- a list of strings.
 
      (fn NAMES)
 
