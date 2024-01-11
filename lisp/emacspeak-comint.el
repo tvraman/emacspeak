@@ -55,7 +55,7 @@
 
 ;;;  comint
 ;;;###autoload
-(defcustom emacspeak-comint-autospeak t
+(defcustom emacspeak-comint-autospeak nil
   "Speak comint output.
 Use \\[emacspeak-toggle-comint-autospeak] to toggle this setting. Do
 not set this globally."
