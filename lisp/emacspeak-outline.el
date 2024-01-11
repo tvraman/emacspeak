@@ -67,6 +67,7 @@
     (emacspeak-speak-line)))))
 
 ;;; outline-flag-region:
+
 ;; Handle outline hide/show directly here --- rather than relying on
 ;;overlay advice alone.
 
@@ -85,7 +86,27 @@
        beg end 'invisible
        (if (ad-get-arg 2) 'outline nil)))))
 
+;;; Misc Commands:
+
+(cl-loop
+ for f in 
+ '(outline-insert-heading outline-cycle-buffer outline-cycle)
+ do
+ (eval
+  `(defadvice ,f (type emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-line)))))
+
+
 ;;;   Hiding and showing subtrees
+
+(defadvice outline-show-only-headings (after emacspeak pre act comp)
+  "Produce an auditory icon"
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (message "Hid the body directly following this heading")))
 
 (defadvice outline-hide-entry (after emacspeak pre act comp)
   "Produce an auditory icon"
