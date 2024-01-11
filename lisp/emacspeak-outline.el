@@ -99,9 +99,10 @@
 ;; Handle outline hide/show directly here --- rather than relying on
 ;;overlay advice alone.
 
+(defvar ems--voiceify-overlays)
+
 (defadvice outline-flag-region (around emacspeak pre act comp)
   "Reflect hide/show via property invisible as well"
-  (defvar ems--voiceify-overlays)
   (let  ((ems--voiceify-overlays  nil)
          (beg (ad-get-arg 0))
          (end (ad-get-arg 1))
