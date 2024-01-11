@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.1, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -28,8 +28,10 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
   kbd.kbd {font-style: oblique}
   kbd.key {font-style: normal}
+  span:hover a.copiable-link {visibility: visible}
   -->
   /*]]>*/
   </style>
@@ -47,8 +49,10 @@
       "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <h4 class="subsection" id="Miscellaneous-Speech-Commands">6.4.3
-    Miscellaneous Speech Commands</h4>
+    <h4 class="subsection" id="Miscellaneous-Speech-Commands">
+    <span>6.4.3 Miscellaneous Speech Commands <a class=
+    "copiable-link" href=
+    "#Miscellaneous-Speech-Commands">¶</a></span></h4>
     <p>Speech can be stopped using command <code class=
     "code">dtk-stop</code> — though in normal use, the action of
     moving the cursor will stop ongoing speech. The speech server
@@ -56,18 +60,22 @@
     switch to a different server — or in the rare case to nuke a
     runaway speech server.</p>
     <dl class="table">
-      <dd>
-        <a class="index-entry-id" id="index-dtk_002dstop"></a>
-        <a class="index-entry-id" id="index-C_002de-s"></a>
-      </dd>
-      <dt><kbd class="kbd">C-e s</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-s"></a> <a id=
+        "index-dtk_002dstop"></a><span><kbd class="kbd">C-e s</kbd>
+        <a class="copiable-link" href=
+        "#index-dtk_002dstop">¶</a></span>
+      </dt>
       <dd>
         <p>dtk-stop</p>
-        <p>Stop speech now.</p><a class="index-entry-id" id=
-        "index-dtk_002dtoggle_002dquiet"></a> <a class=
-        "index-entry-id" id="index-C_002de-d-q"></a>
+        <p>Stop speech now.</p>
       </dd>
-      <dt><kbd class="kbd">C-e d q</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-d-q"></a>
+        <a id="index-dtk_002dtoggle_002dquiet"></a><span><kbd class="kbd">C-e
+        d q</kbd> <a class="copiable-link" href=
+        "#index-dtk_002dtoggle_002dquiet">¶</a></span>
+      </dt>
       <dd>
         <p><code class="code">dtk-toggle-quiet</code></p>
         <p>Toggle state of the speech device between being quiet
@@ -75,11 +83,15 @@
         Emacs session that has emacspeak loaded but wish to make
         the speech shut up. Optional argument PREFIX specifies
         whether speech is turned off in the current buffer or in
-        all buffers.</p><a class="index-entry-id" id=
-        "index-dtk_002demergency_002drestart"></a> <a class=
-        "index-entry-id" id="index-C_002de-C_002ds"></a>
+        all buffers.</p>
       </dd>
-      <dt><kbd class="kbd">C-e C-s</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-C_002ds"></a>
+        <a id=
+        "index-dtk_002demergency_002drestart"></a><span><kbd class=
+        "kbd">C-e C-s</kbd> <a class="copiable-link" href=
+        "#index-dtk_002demergency_002drestart">¶</a></span>
+      </dt>
       <dd>
         <p><code class="code">dtk-emergency-restart</code></p>
         <p>Use this to nuke the currently running dtk server and
@@ -92,12 +104,12 @@
     <abbr class="acronym">TTS</abbr> related keymap <kbd class=
     "kbd">C-e d</kbd>.</p>
     <dl class="table">
-      <dd>
-        <a class="index-entry-id" id=
-        "index-dtk_002dadd_002dcleanup_002dpattern"></a> <a class=
-        "index-entry-id" id="index-C_002de-d-a"></a>
-      </dd>
-      <dt><kbd class="kbd">C-e d a</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-d-a"></a>
+        <a id="index-dtk_002dadd_002dcleanup_002dpattern"></a><span><kbd class="kbd">C-e
+        d a</kbd> <a class="copiable-link" href=
+        "#index-dtk_002dadd_002dcleanup_002dpattern">¶</a></span>
+      </dt>
       <dd>
         <p><code class="code">dtk-add-cleanup-pattern</code></p>
         <p>Add this pattern to the list of repeating patterns that
@@ -109,22 +121,30 @@
         pattern ‘.’ (this is already added by default) emacspeak
         will say “aw fifteen dot” when speaking the string
         “...............” instead of “period period period
-        period”.</p><a class="index-entry-id" id=
-        "index-dtk_002dselect_002dserver"></a> <a class=
-        "index-entry-id" id="index-C_002de-d-d"></a>
+        period”.</p>
       </dd>
-      <dt><kbd class="kbd">C-e d d</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-d-d"></a>
+        <a id="index-dtk_002dselect_002dserver"></a><span><kbd class="kbd">C-e
+        d d</kbd> <a class="copiable-link" href=
+        "#index-dtk_002dselect_002dserver">¶</a></span>
+      </dt>
       <dd>
         <p><code class="code">dtk-select-server</code></p>
         <p>Select a speech server interactively. This will be the
         server that is used when you next call either M-x
         dtk-initialize or C-e C-s. Argument PROGRAM specifies the
-        speech server program.</p><a class="index-entry-id" id=
-        "index-dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace"></a>
-        <a class="index-entry-id" id="index-C_002de-d-SPACE"></a>
+        speech server program.</p>
       </dd>
-      <dt><kbd class="kbd">C-e d <kbd class=
-      "key">SPACE</kbd></kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-d-SPACE"></a>
+        <a id=
+        "index-dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace">
+        </a><span><kbd class="kbd">C-e d <kbd class=
+        "key">SPACE</kbd></kbd> <a class="copiable-link" href=
+        "#index-dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace">
+        ¶</a></span>
+      </dt>
       <dd>
         <p><code class=
         "code">dtk-toggle-splitting-on-white-space</code></p>
@@ -140,40 +160,52 @@
         unresponsive when asked to stop talking. Splitting on white
         space makes emacspeak’s stop command responsive. However,
         when splitting on white space, the speech sounds choppy
-        since the synthesizer is getting a word at a
-        time.</p><a class="index-entry-id" id=
-        "index-dtk_002dset_002dchunk_002dseparator_002dsyntax"></a>
-        <a class="index-entry-id" id="index-C_002de-d-RETURN"></a>
+        since the synthesizer is getting a word at a time.</p>
       </dd>
-      <dt><kbd class="kbd">C-e d <kbd class=
-      "key">RETURN</kbd></kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-d-RETURN"></a>
+        <a id=
+        "index-dtk_002dset_002dchunk_002dseparator_002dsyntax"></a><span><kbd class="kbd">C-e
+        d <kbd class="key">RETURN</kbd></kbd> <a class=
+        "copiable-link" href=
+        "#index-dtk_002dset_002dchunk_002dseparator_002dsyntax">¶</a></span>
+      </dt>
       <dd>
         <p><code class=
         "code">dtk-set-chunk-separator-syntax</code></p>
         <p>Interactively set how text is split in chunks. See the
         Emacs documentation on syntax tables for details on how
         characters are classified into various syntactic classes.
-        Argument S specifies the syntax class.</p><a class=
-        "index-entry-id" id="index-emacspeak_002ddial_002ddtk"></a>
-        <a class="index-entry-id" id="index-C_002de-d-t"></a>
+        Argument S specifies the syntax class.</p>
       </dd>
-      <dt><kbd class="kbd">C-e d t</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-d-t"></a>
+        <a id="index-emacspeak_002ddial_002ddtk"></a><span><kbd class="kbd">C-e
+        d t</kbd> <a class="copiable-link" href=
+        "#index-emacspeak_002ddial_002ddtk">¶</a></span>
+      </dt>
       <dd>
         <p><code class="code">emacspeak-dial-dtk</code></p>
-        <p>Prompt for and dial a phone NUMBER with the
-        Dectalk.</p><a class="index-entry-id" id=
-        "index-tts_002dspeak_002dversion"></a> <a class=
-        "index-entry-id" id="index-C_002de-d-cap-V"></a>
+        <p>Prompt for and dial a phone NUMBER with the Dectalk.</p>
       </dd>
-      <dt><kbd class="kbd">C-e d cap V</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-d-cap-V"></a>
+        <a id=
+        "index-tts_002dspeak_002dversion"></a><span><kbd class=
+        "kbd">C-e d cap V</kbd> <a class="copiable-link" href=
+        "#index-tts_002dspeak_002dversion">¶</a></span>
+      </dt>
       <dd>
         <p><code class="code">tts-speak-version</code></p>
         <p>Use this to find out which version of the <abbr class=
-        "acronym">TTS</abbr> firmware you are running.</p><a class=
-        "index-entry-id" id="index-emacspeak_002dzap_002ddtk"></a>
-        <a class="index-entry-id" id="index-C_002de-d-z"></a>
+        "acronym">TTS</abbr> firmware you are running.</p>
       </dd>
-      <dt><kbd class="kbd">C-e d z</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-d-z"></a>
+        <a id="index-emacspeak_002dzap_002ddtk"></a><span><kbd class="kbd">C-e
+        d z</kbd> <a class="copiable-link" href=
+        "#index-emacspeak_002dzap_002ddtk">¶</a></span>
+      </dt>
       <dd>
         <p><code class="code">emacspeak-zap-dtk</code></p>
         <p>Send this command to the <abbr class=

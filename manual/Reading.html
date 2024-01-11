@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.1, https://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -28,8 +28,10 @@
   <style type="text/css">
   /*<![CDATA[*/
   <!--
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
   kbd.kbd {font-style: oblique}
   kbd.key {font-style: normal}
+  span:hover a.copiable-link {visibility: visible}
   -->
   /*]]>*/
   </style>
@@ -49,8 +51,9 @@
       "Index" rel="index">Index</a>]</p>
     </div>
     <hr />
-    <h3 class="section" id="Reading-Without-Moving">6.3 Reading
-    Without Moving</h3>
+    <h3 class="section" id="Reading-Without-Moving"><span>6.3
+    Reading Without Moving <a class="copiable-link" href=
+    "#Reading-Without-Moving">¶</a></span></h3>
     <p>Emacspeak speaks information as you move around within a
     buffer. How much text is spoken depends on how you move, thus,
     when you move by words, you hear the current word; when you
@@ -60,32 +63,37 @@
     for the editing cursor).</p>
     <p>Reading without moving point:</p>
     <dl class="table">
-      <dd>
-        <a class="index-entry-id" id=
-        "index-emacspeak_002dspeak_002dchar"></a> <a class=
-        "index-entry-id" id="index-C_002de-c"></a>
-      </dd>
-      <dt><kbd class="kbd">C-e c</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-c"></a> <a id=
+        "index-emacspeak_002dspeak_002dchar"></a><span><kbd class=
+        "kbd">C-e c</kbd> <a class="copiable-link" href=
+        "#index-emacspeak_002dspeak_002dchar">¶</a></span>
+      </dt>
       <dd>
         <p><code class="code">emacspeak-speak-char</code></p>
         <p>Speak character under point. Pronounces character
-        phonetically unless called with a PREFIX arg.</p><a class=
-        "index-entry-id" id=
-        "index-emacspeak_002dspeak_002dword"></a> <a class=
-        "index-entry-id" id="index-C_002de-w"></a>
+        phonetically unless called with a PREFIX arg.</p>
       </dd>
-      <dt><kbd class="kbd">C-e w</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-w"></a> <a id=
+        "index-emacspeak_002dspeak_002dword"></a><span><kbd class=
+        "kbd">C-e w</kbd> <a class="copiable-link" href=
+        "#index-emacspeak_002dspeak_002dword">¶</a></span>
+      </dt>
       <dd>
         <p><code class="code">emacspeak-speak-word</code></p>
         <p>Speak current word. With prefix ARG, speaks the rest of
         the word from point. Negative prefix arg speaks from start
         of word to point. If executed on the same buffer position a
         second time, the word is spelled instead of being
-        spoken.</p><a class="index-entry-id" id=
-        "index-emacspeak_002dspeak_002dline"></a> <a class=
-        "index-entry-id" id="index-C_002de-l"></a>
+        spoken.</p>
       </dd>
-      <dt><kbd class="kbd">C-e l</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-l"></a> <a id=
+        "index-emacspeak_002dspeak_002dline"></a><span><kbd class=
+        "kbd">C-e l</kbd> <a class="copiable-link" href=
+        "#index-emacspeak_002dspeak_002dline">¶</a></span>
+      </dt>
       <dd>
         <p><code class="code">emacspeak-speak-line</code></p>
         <p>Speaks current line. With prefix ARG, speaks the rest of
@@ -100,62 +108,79 @@
         blocks of text, e.g. outline header lines, or header lines
         of blocks created by command
         ‘emacspeak-hide-or-expose-block’ are indicated with
-        auditory icon ellipses.</p><a class="index-entry-id" id=
-        "index-emacspeak_002dread_002dprevious_002dline"></a>
-        <a class="index-entry-id" id="index-C_002de-UP"></a>
+        auditory icon ellipses.</p>
       </dd>
-      <dt><kbd class="kbd">C-e <kbd class="key">UP</kbd></kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-UP"></a> <a id=
+        "index-emacspeak_002dread_002dprevious_002dline"></a><span><kbd class="kbd">C-e
+        <kbd class="key">UP</kbd></kbd> <a class="copiable-link"
+        href=
+        "#index-emacspeak_002dread_002dprevious_002dline">¶</a></span>
+      </dt>
       <dd>
         <p><code class=
         "code">emacspeak-read-previous-line</code></p>
         <p>Read previous line, specified by an offset, without
-        moving. Default is to read the previous line.</p><a class=
-        "index-entry-id" id=
-        "index-emacspeak_002dread_002dnext_002dline"></a> <a class=
-        "index-entry-id" id="index-C_002de-DOWN"></a>
+        moving. Default is to read the previous line.</p>
       </dd>
-      <dt><kbd class="kbd">C-e <kbd class=
-      "key">DOWN</kbd></kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-DOWN"></a>
+        <a id=
+        "index-emacspeak_002dread_002dnext_002dline"></a><span><kbd class="kbd">C-e
+        <kbd class="key">DOWN</kbd></kbd> <a class="copiable-link"
+        href=
+        "#index-emacspeak_002dread_002dnext_002dline">¶</a></span>
+      </dt>
       <dd>
         <p><code class="code">emacspeak-read-next-line</code></p>
         <p>Read next line, specified by an offset, without moving.
-        Default is to read the next line.</p><a class=
-        "index-entry-id" id=
-        "index-emacspeak_002dspeak_002dparagraph"></a> <a class=
-        "index-entry-id" id="index-C_002de-p"></a>
+        Default is to read the next line.</p>
       </dd>
-      <dt><kbd class="kbd">C-e p</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-p"></a> <a id=
+        "index-emacspeak_002dspeak_002dparagraph"></a><span><kbd class="kbd">C-e
+        p</kbd> <a class="copiable-link" href=
+        "#index-emacspeak_002dspeak_002dparagraph">¶</a></span>
+      </dt>
       <dd>
         <p><code class="code">emacspeak-speak-paragraph</code></p>
         <p>Speak paragraph. With prefix arg, speaks rest of current
         paragraph. Negative prefix arg will read from start of
         current paragraph to point. If voice-lock-mode is on, then
-        it will use any defined personality.</p><a class=
-        "index-entry-id" id=
-        "index-emacspeak_002dspeak_002dregion"></a> <a class=
-        "index-entry-id" id="index-C_002de-r"></a>
+        it will use any defined personality.</p>
       </dd>
-      <dt><kbd class="kbd">C-e r</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-r"></a> <a id=
+        "index-emacspeak_002dspeak_002dregion"></a><span><kbd class="kbd">C-e
+        r</kbd> <a class="copiable-link" href=
+        "#index-emacspeak_002dspeak_002dregion">¶</a></span>
+      </dt>
       <dd>
         <p><code class="code">emacspeak-speak-region</code></p>
         <p>Speak current region delimited by <em class=
         "dfn">point</em> and <em class="dfn">mark</em>. When called
         from a program, argument START and END specify region to
-        speak.</p><a class="index-entry-id" id=
-        "index-emacspeak_002dspeak_002drectangle"></a> <a class=
-        "index-entry-id" id="index-C_002de-cap-R"></a>
+        speak.</p>
       </dd>
-      <dt><kbd class="kbd">C-e cap R</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-cap-R"></a>
+        <a id=
+        "index-emacspeak_002dspeak_002drectangle"></a><span><kbd class="kbd">C-e
+        cap R</kbd> <a class="copiable-link" href=
+        "#index-emacspeak_002dspeak_002drectangle">¶</a></span>
+      </dt>
       <dd>
         <p><code class="code">emacspeak-speak-rectangle</code></p>
         <p>Speak a rectangle of text. Rectangle is delimited by
         point and mark. When call from a program, arguments specify
-        the START and END of the rectangle.</p><a class=
-        "index-entry-id" id=
-        "index-emacspeak_002dspeak_002dbuffer"></a> <a class=
-        "index-entry-id" id="index-C_002de-b"></a>
+        the START and END of the rectangle.</p>
       </dd>
-      <dt><kbd class="kbd">C-e b</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-b"></a> <a id=
+        "index-emacspeak_002dspeak_002dbuffer"></a><span><kbd class="kbd">C-e
+        b</kbd> <a class="copiable-link" href=
+        "#index-emacspeak_002dspeak_002dbuffer">¶</a></span>
+      </dt>
       <dd>
         <p><code class="code">emacspeak-speak-buffer</code></p>
         <p>Speak current buffer contents. With prefix ARG, speaks
@@ -165,21 +190,28 @@
         see command <code class=
         "code">emacspeak-speak-voice-annotate-paragraphs</code>.
         This provides the auditory equivalent of <em class=
-        "emph">dropped caps</em> from visual
-        typography.</p><a class="index-entry-id" id=
-        "index-emacspeak_002dspeak_002drest_002dof_002dbuffer"></a>
-        <a class="index-entry-id" id="index-C_002de-n"></a>
+        "emph">dropped caps</em> from visual typography.</p>
       </dd>
-      <dt><kbd class="kbd">C-e n</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-n"></a> <a id=
+        "index-emacspeak_002dspeak_002drest_002dof_002dbuffer"></a><span><kbd class="kbd">C-e
+        n</kbd> <a class="copiable-link" href=
+        "#index-emacspeak_002dspeak_002drest_002dof_002dbuffer">¶</a></span>
+      </dt>
       <dd>
         <p><code class=
         "code">emacspeak-speak-rest-of-buffer</code></p>
-        <p>Speak remainder of the buffer starting at
-        point</p><a class="index-entry-id" id=
-        "index-emacspeak_002dspeak_002dthis_002dbuffer_002dother_002dwindow_002ddisplay"></a>
-        <a class="index-entry-id" id="index-C_002de-_002f"></a>
+        <p>Speak remainder of the buffer starting at point</p>
       </dd>
-      <dt><kbd class="kbd">C-e /</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-_002f"></a>
+        <a id=
+        "index-emacspeak_002dspeak_002dthis_002dbuffer_002dother_002dwindow_002ddisplay">
+        </a><span><kbd class="kbd">C-e /</kbd> <a class=
+        "copiable-link" href=
+        "#index-emacspeak_002dspeak_002dthis_002dbuffer_002dother_002dwindow_002ddisplay">
+        ¶</a></span>
+      </dt>
       <dd>
         <p><code class=
         "code">emacspeak-speak-this-buffer-other-window-display</code></p>
@@ -193,48 +225,63 @@
         which of the displays you wish to speak. Typically you will
         have two or at most three such displays open. The current
         display is 0, the next is 1, and so on. Optional argument
-        ARG specifies the display to speak.</p><a class=
-        "index-entry-id" id=
-        "index-emacspeak_002dspeak_002dthis_002dbuffer_002dprevious_002ddisplay"></a>
-        <a class="index-entry-id" id="index-C_002de-LEFT"></a>
+        ARG specifies the display to speak.</p>
       </dd>
-      <dt><kbd class="kbd">C-e <kbd class=
-      "key">LEFT</kbd></kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-LEFT"></a>
+        <a id=
+        "index-emacspeak_002dspeak_002dthis_002dbuffer_002dprevious_002ddisplay">
+        </a><span><kbd class="kbd">C-e <kbd class=
+        "key">LEFT</kbd></kbd> <a class="copiable-link" href=
+        "#index-emacspeak_002dspeak_002dthis_002dbuffer_002dprevious_002ddisplay">
+        ¶</a></span>
+      </dt>
       <dd>
         <p><code class=
         "code">emacspeak-speak-this-buffer-previous-display</code></p>
         <p>Speak this buffer as displayed in a ‘previous’ window.
         See documentation for command <code class=
         "code">emacspeak-speak-this-buffer-other-window-display</code>
-        for the meaning of ‘previous’.</p><a class="index-entry-id"
-        id=
-        "index-emacspeak_002dspeak_002dthis_002dbuffer_002dnext_002ddisplay"></a>
-        <a class="index-entry-id" id="index-C_002de-RIGHT"></a>
+        for the meaning of ‘previous’.</p>
       </dd>
-      <dt><kbd class="kbd">C-e <kbd class=
-      "key">RIGHT</kbd></kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-RIGHT"></a>
+        <a id=
+        "index-emacspeak_002dspeak_002dthis_002dbuffer_002dnext_002ddisplay">
+        </a><span><kbd class="kbd">C-e <kbd class=
+        "key">RIGHT</kbd></kbd> <a class="copiable-link" href=
+        "#index-emacspeak_002dspeak_002dthis_002dbuffer_002dnext_002ddisplay">
+        ¶</a></span>
+      </dt>
       <dd>
         <p><code class=
         "code">emacspeak-speak-this-buffer-next-display</code></p>
         <p>Speak this buffer as displayed in a ‘previous’ window.
         See documentation for command <code class=
         "code">emacspeak-speak-this-buffer-other-window-display</code>
-        for the meaning of ‘previous’.</p><a class="index-entry-id"
-        id="index-emacspeak_002dspeak_002dpage"></a> <a class=
-        "index-entry-id" id="index-C_002de-_005b"></a>
+        for the meaning of ‘previous’.</p>
       </dd>
-      <dt><kbd class="kbd">C-e [</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-_005b"></a>
+        <a id=
+        "index-emacspeak_002dspeak_002dpage"></a><span><kbd class=
+        "kbd">C-e [</kbd> <a class="copiable-link" href=
+        "#index-emacspeak_002dspeak_002dpage">¶</a></span>
+      </dt>
       <dd>
         <p><code class="code">emacspeak-speak-page</code></p>
         <p>Speak a page. With prefix ARG, speaks rest of current
         page. Negative prefix arg will read from start of current
         page to point. If option ‘voice-lock-mode’ is on, then it
-        will use any defined personality.</p><a class=
-        "index-entry-id" id=
-        "index-emacspeak_002dspeak_002dpredefined_002dwindow"></a>
-        <a class="index-entry-id" id="index-C_002de-DIGIT"></a>
+        will use any defined personality.</p>
       </dd>
-      <dt><kbd class="kbd">C-e DIGIT</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-DIGIT"></a>
+        <a id=
+        "index-emacspeak_002dspeak_002dpredefined_002dwindow"></a><span><kbd class="kbd">C-e
+        DIGIT</kbd> <a class="copiable-link" href=
+        "#index-emacspeak_002dspeak_002dpredefined_002dwindow">¶</a></span>
+      </dt>
       <dd>
         <p><code class=
         "code">emacspeak-speak-predefined-window</code></p>
@@ -243,88 +290,115 @@
         than two or three. Argument ARG determines the ’other’
         window to speak. Speaks entire window irrespective of
         point. Semantics of ‘other’ is the same as for the builtin
-        Emacs command ‘other-window’.</p><a class="index-entry-id"
-        id="index-emacspeak_002dspeak_002dnext_002dwindow"></a>
-        <a class="index-entry-id" id="index-C_002de-C_002dn"></a>
+        Emacs command ‘other-window’.</p>
       </dd>
-      <dt><kbd class="kbd">C-e C-n</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-C_002dn"></a>
+        <a id=
+        "index-emacspeak_002dspeak_002dnext_002dwindow"></a><span><kbd class="kbd">C-e
+        C-n</kbd> <a class="copiable-link" href=
+        "#index-emacspeak_002dspeak_002dnext_002dwindow">¶</a></span>
+      </dt>
       <dd>
         <p><code class=
         "code">emacspeak-speak-next-window</code></p>
-        <p>Speak the next window.</p><a class="index-entry-id" id=
-        "index-emacspeak_002dspeak_002dprevious_002dwindow"></a>
-        <a class="index-entry-id" id="index-C_002de-C_002dp"></a>
+        <p>Speak the next window.</p>
       </dd>
-      <dt><kbd class="kbd">C-e C-p</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-C_002de-C_002dp"></a>
+        <a id=
+        "index-emacspeak_002dspeak_002dprevious_002dwindow"></a><span><kbd class="kbd">C-e
+        C-p</kbd> <a class="copiable-link" href=
+        "#index-emacspeak_002dspeak_002dprevious_002dwindow">¶</a></span>
+      </dt>
       <dd>
         <p><code class=
         "code">emacspeak-speak-previous-window</code></p>
-        <p>Speak the previous window.</p><a class="index-entry-id"
-        id="index-emacspeak_002dspeak_002dother_002dwindow"></a>
+        <p>Speak the previous window.</p>
       </dd>
-      <dt><kbd class="kbd">emacspeak-speak-other-window</kbd></dt>
+      <dt>
+        <a id=
+        "index-emacspeak_002dspeak_002dother_002dwindow"></a><span><kbd class="kbd">emacspeak-speak-other-window</kbd>
+        <a class="copiable-link" href=
+        "#index-emacspeak_002dspeak_002dother_002dwindow">¶</a></span>
+      </dt>
       <dd>
         <p>Speak contents of ‘other’ window. Speaks entire window
         irrespective of point. Semantics of ‘other’ is the same as
         for the builtin Emacs command ‘other-window’. Optional
-        argument ARG specifies ‘other’ window to
-        speak.</p><a class="index-entry-id" id=
-        "index-emacspeak_002dowindow_002dprevious_002dline"></a>
-        <a class="index-entry-id" id="index-ESCAPE-UP"></a>
+        argument ARG specifies ‘other’ window to speak.</p>
       </dd>
-      <dt><kbd class="kbd"><kbd class="key">ESCAPE</kbd>
-      <kbd class="key">UP</kbd></kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-ESCAPE-UP"></a> <a id=
+        "index-emacspeak_002dowindow_002dprevious_002dline"></a><span><kbd class="kbd"><kbd class="key">ESCAPE</kbd>
+        <kbd class="key">UP</kbd></kbd> <a class="copiable-link"
+        href=
+        "#index-emacspeak_002dowindow_002dprevious_002dline">¶</a></span>
+      </dt>
       <dd>
         <p><code class=
         "code">emacspeak-owindow-previous-line</code></p>
         <p>Move to the next line in the other window and speak it.
         Numeric prefix arg COUNT specifies number of lines to
-        move.</p><a class="index-entry-id" id=
-        "index-emacspeak_002dowindow_002dnext_002dline"></a>
-        <a class="index-entry-id" id="index-ESCAPE-DOWN"></a>
+        move.</p>
       </dd>
-      <dt><kbd class="kbd"><kbd class="key">ESCAPE</kbd>
-      <kbd class="key">DOWN</kbd></kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-ESCAPE-DOWN"></a>
+        <a id="index-emacspeak_002dowindow_002dnext_002dline"></a><span><kbd class="kbd"><kbd class="key">ESCAPE</kbd>
+        <kbd class="key">DOWN</kbd></kbd> <a class="copiable-link"
+        href=
+        "#index-emacspeak_002dowindow_002dnext_002dline">¶</a></span>
+      </dt>
       <dd>
         <p><code class=
         "code">emacspeak-owindow-next-line</code></p>
         <p>Move to the next line in the other window and speak it.
         Numeric prefix arg COUNT can specify number of lines to
-        move.</p><a class="index-entry-id" id=
-        "index-emacspeak_002dowindow_002dscroll_002dup"></a>
-        <a class="index-entry-id" id="index-ESCAPE-next"></a>
+        move.</p>
       </dd>
-      <dt><kbd class="kbd"><kbd class="key">ESCAPE</kbd>
-      next</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-ESCAPE-next"></a>
+        <a id="index-emacspeak_002dowindow_002dscroll_002dup"></a><span><kbd class="kbd"><kbd class="key">ESCAPE</kbd>
+        next</kbd> <a class="copiable-link" href=
+        "#index-emacspeak_002dowindow_002dscroll_002dup">¶</a></span>
+      </dt>
       <dd>
         <p><code class=
         "code">emacspeak-owindow-scroll-up</code></p>
         <p>Scroll up the window that command ‘other-window’ would
-        move to. Speak the window contents after
-        scrolling.</p><a class="index-entry-id" id=
-        "index-emacspeak_002dowindow_002dscroll_002ddown"></a>
-        <a class="index-entry-id" id="index-ESCAPE-prior"></a>
+        move to. Speak the window contents after scrolling.</p>
       </dd>
-      <dt><kbd class="kbd"><kbd class="key">ESCAPE</kbd>
-      prior</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id="index-ESCAPE-prior"></a>
+        <a id=
+        "index-emacspeak_002dowindow_002dscroll_002ddown"></a><span><kbd class="kbd"><kbd class="key">ESCAPE</kbd>
+        prior</kbd> <a class="copiable-link" href=
+        "#index-emacspeak_002dowindow_002dscroll_002ddown">¶</a></span>
+      </dt>
       <dd>
         <p><code class=
         "code">emacspeak-owindow-scroll-down</code></p>
         <p>Scroll down the window that command ‘other-window’ would
-        move to. Speak the window contents after
-        scrolling.</p><a class="index-entry-id" id=
-        "index-emacspeak_002dspeak_002dsexp"></a>
+        move to. Speak the window contents after scrolling.</p>
       </dd>
-      <dt><kbd class="kbd">emacspeak-speak-sexp</kbd></dt>
+      <dt>
+        <a id=
+        "index-emacspeak_002dspeak_002dsexp"></a><span><kbd class=
+        "kbd">emacspeak-speak-sexp</kbd> <a class="copiable-link"
+        href="#index-emacspeak_002dspeak_002dsexp">¶</a></span>
+      </dt>
       <dd>
         <p>Speak current sexp. With prefix ARG, speaks the rest of
         the sexp from point. Negative prefix arg speaks from start
-        of sexp to point.</p><a class="index-entry-id" id=
-        "index-emacspeak_002dspeak_002dspaces_002dat_002dpoint"></a>
-        <a class="index-entry-id" id=
-        "index-C_002de-meta-C_002d_0040"></a>
+        of sexp to point.</p>
       </dd>
-      <dt><kbd class="kbd">C-e meta C-@</kbd></dt>
+      <dt>
+        <a class="index-entry-id" id=
+        "index-C_002de-meta-C_002d_0040"></a> <a id=
+        "index-emacspeak_002dspeak_002dspaces_002dat_002dpoint"></a><span><kbd class="kbd">C-e
+        meta C-@</kbd> <a class="copiable-link" href=
+        "#index-emacspeak_002dspeak_002dspaces_002dat_002dpoint">¶</a></span>
+      </dt>
       <dd>
         <p><code class=
         "code">emacspeak-speak-spaces-at-point</code> Speak the
