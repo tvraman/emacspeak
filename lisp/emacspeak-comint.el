@@ -58,7 +58,8 @@
 (defcustom emacspeak-comint-autospeak nil
   "Speak comint output.
 Use \\[emacspeak-toggle-comint-autospeak] to toggle this setting. Do
-not set this globally."
+not set this globally. Also see custom option
+`emacspeak-wizards-project-shells'"
   :group 'emacspeak-speak
   :type 'boolean)
 
