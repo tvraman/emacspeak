@@ -51,49 +51,20 @@
 
 ;;;   Navigating through an outline:
 
-(defadvice outline-next-heading (after emacspeak pre act comp)
-  "Speak the line."
-  (when (ems-interactive-p)
+(cl-loop
+ for f in 
+ '(
+   outline-next-heading outline-previous-heading outline-next-preface
+   outline-next-visible-heading outline-previous-visible-heading
+   outline-back-to-heading outline-up-heading
+   outline-backward-same-level outline-forward-same-level)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
     (emacspeak-auditory-icon 'section)
-    (emacspeak-speak-line)))
-
-(defadvice outline-back-to-heading (after emacspeak pre act comp)
-  "Speak the line."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'section)
-    (emacspeak-speak-line)))
-
-(defadvice outline-next-visible-heading (after emacspeak pre act comp)
-  "Speak the line."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'section)
-    (and (looking-at "^$")
-         (skip-syntax-backward " "))
-    (emacspeak-speak-line)))
-
-(defadvice outline-previous-visible-heading (after emacspeak pre act comp)
-  "Speak the line."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'section)
-    (emacspeak-speak-line)))
-
-(defadvice outline-up-heading (after emacspeak pre act comp)
-  "speak."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))
-
-(defadvice outline-forward-same-level (after emacspeak pre act comp)
-  "speak."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'section)
-    (emacspeak-speak-line)))
-
-(defadvice outline-backward-same-level (after emacspeak pre act comp)
-  "speak."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'section)
-    (emacspeak-speak-line)))
+    (emacspeak-speak-line)))))
 
 ;;; outline-flag-region:
 ;; Handle outline hide/show directly here --- rather than relying on
