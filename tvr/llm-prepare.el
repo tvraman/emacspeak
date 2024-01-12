@@ -2,7 +2,7 @@
 ;;; Prepare various  LLM front-ends 
 ;;; Keys are stored in passwd-store
 
-(require 'markdown-mode)
+
 (require 'ellama)
 (require 'llm-gemini)
 (require 'gptel "gptel" 'no-error)
