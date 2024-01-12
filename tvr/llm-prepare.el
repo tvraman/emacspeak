@@ -21,6 +21,7 @@
   (setopt
    gptel-backend
    (gptel-make-gemini
-    "Gemini" :key(auth-source-pass-get 'secret "ai.google" ) :stream
-    t)
-   (add-hook 'gptel-post-response-hook #'emacspeak-speak-rest-of-buffer)))
+    "Gemini"
+    :key(auth-source-pass-get 'secret "ai.google" )
+    :stream t))
+  (add-hook 'gptel-post-response-hook #'emacspeak-speak-rest-of-buffer))
