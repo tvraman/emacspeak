@@ -2,6 +2,7 @@
 @menu
 * amixer::Set Audio Volume from Emacs.
 * dectalk-voices::Dectalk Voice  Codes.
+* dom-addons::dom.el addons.
 * dtk-speak::Interface to speech server.
 * emacspeak::The Complete Audio Desktop.
 * emacspeak-2048::Speech-enable 2048 Game.
@@ -219,13 +220,25 @@
 * emacspeak-xref::Speech-enable XREF.
 * emacspeak-xslt::XSLT.
 * emacspeak-yaml::Speech-enable YAML.
+* emacspeak-yasnippet::YASNIPPET.
 * espeak-voices::Define  Espeak tags.
 * extra-muggles::Additional Hydras.
+* g-utils::Google Client Utilities.
+* gm-nnir::Searching GMail Using NNIR.
+* gmaps::Google Maps.
+* ladspa::Ladspa Tools For Emacs.
+* light::Control Brightness.
 * mac-voices::Define  Mac tags.
+* omaps::Open street  Maps.
 * outloud-voices::Define  OutLoud tags.
 * plain-voices::No Voice lock voices.
+* soundscape::Soundscapes.
+* sox::An Audio Work-Bench.
+* sox-gen::Binaural Beats And More Using SoX.
+* tetris::Tetris for Emacs.
 * voice-defs::Define voices for voice-lock.
 * voice-setup::Setup voices for voice-lock.
+* xbacklight::Brightness.
 * URL Templates ::
 @end menu
 
@@ -235,7 +248,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1134 commands and 143 options.
+This chapter documents a total of 1151 commands and 146 options.
 
 @node amixer
 @section amixer
@@ -425,6 +438,11 @@ Default Value:
 @end verbatim
 
 @end defvar
+
+@node dom-addons
+@section dom-addons
+
+Useful additional functions for dom.el
 
 @node dtk-speak
 @section dtk-speak
@@ -2913,9 +2931,12 @@ directories that are used often.
 
 @defvar {User Option} emacspeak-comint-autospeak
 Speak comint output.
-Use M-x emacspeak-toggle-comint-autospeak to toggle this setting. Do
-not set this globally. Also see custom option
-‘emacspeak-wizards-project-shells’
+Use M-x emacspeak-toggle-comint-autospeak to toggle this
+setting. Do not set this globally. Also see custom option
+‘emacspeak-wizards-project-shells’ for starting up
+project-specific shells that have autospeak turned on. The
+default is intentionally nil, since this option should only be
+turned on where needed.
 
 Default Value: 
 
@@ -18209,6 +18230,11 @@ Browse XML URL with specified XSL style.
 YAML == Yet Another Markup Language
 This module speech-enables yaml-mode.
 
+@node emacspeak-yasnippet
+@section emacspeak-yasnippet
+
+YASNIPPET ==  Template based editing using snippets.
+
 @node espeak-voices
 @section espeak-voices
 
@@ -18639,6 +18665,500 @@ The body can be accessed via ‘emacspeak-origami/body’.
 @end format
 @end deffn
 
+@node g-utils
+@section g-utils
+
+Common Code  e.g. helper functions.
+Used by modules like gphoto, gblogger etc.
+
+@subsection g-utils Options
+
+@defvar {User Option} g-atom-view-xsl
+XSLT transform to convert Atom feed to HTML.
+
+Default Value: 
+
+@verbatim
+
+"/home/raman/emacs/lisp/emacspeak/xsl/atom-view.xsl"
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} g-cookie-jar
+Cookie jar used for Google services.
+Customize this to live on your local disk.
+
+Default Value: 
+
+@verbatim
+
+nil
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} g-curl-common-options
+Common options to pass to all Curl invocations.
+
+Default Value: 
+
+@verbatim
+
+"--http1.0 --compressed --silent --location --location-trusted --max-time 4 --connect-timeout 1"
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} g-curl-debug
+Set to T to see Curl stderr output.
+
+Default Value: 
+
+@verbatim
+
+nil
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} g-xslt-program
+XSLT Processor.
+
+Default Value: 
+
+@verbatim
+
+"xsltproc"
+
+@end verbatim
+
+@end defvar
+
+@node gm-nnir
+@section gm-nnir
+
+Makes search GMail more convenient.
+IMap search operators, GMail search extensions.
+
+@subsection Gm-Nnir Commands
+
+@subsubsection gm-nnir-group-make-gmail-group
+@deffn {Command} gm-nnir-group-make-gmail-group  (query)
+@findex gm-nnir-group-make-gmail-group
+
+@format
+Use GMail search syntax exclusively.
+See https://support.google.com/mail/answer/7190?hl=en for syntax.
+ note: nnimap-address etc are available as local vars if needed
+ in these functions.
+
+(fn QUERY)
+@end format
+@end deffn
+
+@node gmaps
+@section gmaps
+
+Implements the Google Maps API
+
+@subsection Gmaps Commands
+
+@subsubsection gmaps
+@deffn {Command} gmaps   
+@findex gmaps
+
+@format
+Google Maps Interaction.
+
+This function has :around advice: ‘ad-Advice-gmaps’.
+
+(fn)
+@end format
+@end deffn
+
+@subsubsection gmaps-bicycling-directions
+@deffn {Command} gmaps-bicycling-directions  (origin destination)
+@findex gmaps-bicycling-directions
+
+@format
+Biking directions from Google Maps.
+
+This function has :around advice: ‘ad-Advice-gmaps-bicycling-directions’.
+
+(fn ORIGIN DESTINATION)
+@end format
+@end deffn
+
+@subsubsection gmaps-directions
+@deffn {Command} gmaps-directions  (origin destination mode)
+@findex gmaps-directions
+
+@format
+Display  directions obtained from Google Maps.
+
+(fn ORIGIN DESTINATION MODE)
+@end format
+@end deffn
+
+@subsubsection gmaps-driving-directions
+@deffn {Command} gmaps-driving-directions  (origin destination)
+@findex gmaps-driving-directions
+
+@format
+Driving directions from Google Maps.
+
+This function has :around advice: ‘ad-Advice-gmaps-driving-directions’.
+
+(fn ORIGIN DESTINATION)
+@end format
+@end deffn
+
+@subsubsection gmaps-locations-load
+@deffn {Command} gmaps-locations-load   
+@findex gmaps-locations-load
+
+@format
+Load saved GMaps locations.
+@end format
+@end deffn
+
+@subsubsection gmaps-locations-save
+@deffn {Command} gmaps-locations-save   
+@findex gmaps-locations-save
+
+@format
+Save GMaps Locations.
+@end format
+@end deffn
+
+@subsubsection gmaps-mode
+@deffn {Command} gmaps-mode   
+@findex gmaps-mode
+
+@format
+A Google Maps front-end for the Emacspeak desktop.
+
+In addition to any hooks its parent mode ‘special-mode’ might have
+run, this mode runs the hook ‘gmaps-mode-hook’, as the final or
+penultimate step during initialization.
+
+Key             Binding
+-------------------------------------------------------------------------------
+TAB		forward-button
+SPC		gmaps-place-details
+[		backward-page
+]		forward-page
+b		gmaps-bicycling-directions
+c		gmaps-set-current-location
+d		gmaps-driving-directions
+f		gmaps-set-current-filter
+n		gmaps-places-nearby
+r		gmaps-set-current-radius
+s		gmaps-places-search
+t		gmaps-transit-directions
+w		gmaps-walking-directions
+
+M-i		backward-button
+
+@end format
+@end deffn
+
+@subsubsection gmaps-place-details
+@deffn {Command} gmaps-place-details   
+@findex gmaps-place-details
+
+@format
+Display details for place at point.
+Insert reviews if already displaying details.
+
+This function has :around advice: ‘ad-Advice-gmaps-place-details’.
+
+(fn)
+@end format
+@end deffn
+
+@subsubsection gmaps-place-reviews
+@deffn {Command} gmaps-place-reviews   
+@findex gmaps-place-reviews
+
+@format
+Display reviews for place at point.
+Place details need to have been expanded first.
+@end format
+@end deffn
+
+@subsubsection gmaps-places-nearby
+@deffn {Command} gmaps-places-nearby  (&optional clear-filter)
+@findex gmaps-places-nearby
+
+@format
+Find places near current location.
+Uses default radius. optional interactive prefix arg clears any active filters.
+
+This function has :around advice: ‘ad-Advice-gmaps-places-nearby’.
+
+(fn &optional CLEAR-FILTER)
+@end format
+@end deffn
+
+@subsubsection gmaps-places-search
+@deffn {Command} gmaps-places-search  (query &optional clear-filter)
+@findex gmaps-places-search
+
+@format
+Perform a places search.
+Use this only if you dont know the locality  of the place you’re looking for.
+Optional  prefix arg clears any active filters.
+
+This function has :around advice: ‘ad-Advice-gmaps-places-search’.
+
+(fn QUERY &optional CLEAR-FILTER)
+@end format
+@end deffn
+
+@subsubsection gmaps-set-current-filter
+@deffn {Command} gmaps-set-current-filter  (&optional all)
+@findex gmaps-set-current-filter
+
+@format
+Set up filter in current buffer.
+Optional interactive prefix arg prompts for all filter fields.
+
+(fn &optional ALL)
+@end format
+@end deffn
+
+@subsubsection gmaps-set-current-location
+@deffn {Command} gmaps-set-current-location  (address)
+@findex gmaps-set-current-location
+
+@format
+ Set current location.
+
+This function has :around advice: ‘ad-Advice-gmaps-set-current-location’.
+
+(fn ADDRESS)
+@end format
+@end deffn
+
+@subsubsection gmaps-set-current-radius
+@deffn {Command} gmaps-set-current-radius  (radius)
+@findex gmaps-set-current-radius
+
+@format
+Set current radius
+
+This function has :around advice: ‘ad-Advice-gmaps-set-current-radius’.
+
+(fn RADIUS)
+@end format
+@end deffn
+
+@subsubsection gmaps-transit-directions
+@deffn {Command} gmaps-transit-directions  (origin destination)
+@findex gmaps-transit-directions
+
+@format
+Transit directions from Google Maps.
+
+This function has :around advice: ‘ad-Advice-gmaps-transit-directions’.
+
+(fn ORIGIN DESTINATION)
+@end format
+@end deffn
+
+@subsubsection gmaps-walking-directions
+@deffn {Command} gmaps-walking-directions  (origin destination)
+@findex gmaps-walking-directions
+
+@format
+Walking directions from Google Maps.
+
+This function has :around advice: ‘ad-Advice-gmaps-walking-directions’.
+
+(fn ORIGIN DESTINATION)
+@end format
+@end deffn
+
+@subsection gmaps Options
+
+@defvar {User Option} gmaps-api-key
+Maps  API  key --- goto  https://code.google.com/apis/console to get one.
+
+Default Value: 
+
+@verbatim
+
+nil
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} gmaps-my-address
+Location address. Setting this updates gmaps-my-location
+coordinates via geocoding.
+
+Default Value: 
+
+@verbatim
+
+nil
+
+@end verbatim
+
+@end defvar
+
+@node ladspa
+@section ladspa
+
+This module  uses tools from the Ladspa SDK  to expose
+Ladspa plugins in a consistent way to elisp.
+The goal is to make it easy to inspect Ladspa Plugins,
+And invoke them easily from  Ladspa host applications such as MPlayer.
+Some Ladspa Packages that provide plugins:
+sudo apt-get install zam-plugins wah-plugins vco-plugins tap-plugins
+swh-plugins rev-plugins mcp-plugins liquidsoap-plugin-ladspa
+ladspa-foo-plugins invada-studio-plugins-ladspa fil-plugins
+
+@subsection Ladspa Commands
+
+@subsubsection ladspa
+@deffn {Command} ladspa  (&optional refresh)
+@findex ladspa
+
+@format
+Ladspa workbench.
+
+(fn &optional REFRESH)
+@end format
+@end deffn
+
+@subsubsection ladspa-analyse-plugin-at-point
+@deffn {Command} ladspa-analyse-plugin-at-point   
+@findex ladspa-analyse-plugin-at-point
+
+@format
+Analyse plugin at point.
+@end format
+@end deffn
+
+@subsubsection ladspa-edit-control
+@deffn {Command} ladspa-edit-control   
+@findex ladspa-edit-control
+
+@format
+Edit Ladspa control  at point by prompting for control values.
+@end format
+@end deffn
+
+@subsubsection ladspa-instantiate
+@deffn {Command} ladspa-instantiate   
+@findex ladspa-instantiate
+
+@format
+Instantiate plugin at point by prompting for control values.
+@end format
+@end deffn
+
+@subsubsection ladspa-mode
+@deffn {Command} ladspa-mode   
+@findex ladspa-mode
+
+@format
+A Ladspa workbench for the Emacspeak desktop.
+
+In addition to any hooks its parent mode ‘special-mode’ might have
+run, this mode runs the hook ‘ladspa-mode-hook’, as the final or
+penultimate step during initialization.
+
+Key             Binding
+-------------------------------------------------------------------------------
+RET		ladspa-instantiate
+SPC		ladspa-analyse-plugin-at-point
+a		emacspeak-m-player-add-ladspa
+d		emacspeak-m-player-delete-ladspa
+e		ladspa-edit-control
+n		next-line
+p		previous-line
+
+@end format
+@end deffn
+
+@node light
+@section light
+
+Provide an emacs front-end to light.
+This is a tool that controls the brightness on laptops.
+To install light,
+sudo apt-get install light
+Install light setuid (sudo chmod u+s /usr/bin/light)
+This module  is most   easily used in conjunction with  hydra:
+M-x package-install hydra
+
+@subsection Light Commands
+
+@subsubsection light-black
+@deffn {Command} light-black   
+@findex light-black
+
+@format
+Black screen.
+@end format
+@end deffn
+
+@subsubsection light-decrement
+@deffn {Command} light-decrement   
+@findex light-decrement
+
+@format
+Decrease brightness.
+@end format
+@end deffn
+
+@subsubsection light-get
+@deffn {Command} light-get   
+@findex light-get
+
+@format
+Get  brightness level.
+@end format
+@end deffn
+
+@subsubsection light-increment
+@deffn {Command} light-increment   
+@findex light-increment
+
+@format
+Increase brightness.
+@end format
+@end deffn
+
+@subsubsection light-set
+@deffn {Command} light-set  (brightness)
+@findex light-set
+
+@format
+Set brightness.
+
+(fn BRIGHTNESS)
+@end format
+@end deffn
+
+@subsubsection light-white
+@deffn {Command} light-white   
+@findex light-white
+
+@format
+White screen.
+@end format
+@end deffn
+
 @node mac-voices
 @section mac-voices
 
@@ -18658,6 +19178,12 @@ Default Value:
 @end verbatim
 
 @end defvar
+
+@node omaps
+@section omaps
+
+Implements geocoding via the Open Street Maps API
+https://nominatim.org/
 
 @node outloud-voices
 @section outloud-voices
@@ -18706,6 +19232,602 @@ This module defines the various voices used in voice-lock mode.
  implemented appropriate voice-locking controls
 
  required modules
+
+@node soundscape
+@section soundscape
+
+Soundscapes @url{https://en.wikipedia.org/wiki/Soundscape}
+define an acoustic environment.
+Boodler  at @url{http://boodler.org} is a
+Python-based SoundScape generator.
+To use this module, first install boodler.
+Then install the soundscape packages (*.boop) files available
+at @url{http://boodler.org/lib}.
+Make sure boodler works and produces audio in your environment.
+finally install the Boodler packages  from
+emacspeak/scapes from the Emacspeak GitHub repository by running
+@code{cd emacspeak/scapes; make }
+
+When  boodler is set up and all packages installed, copy
+file emacspeak/scapes/soundscapes  to ~/.boodler/Collection.
+The above file lists all installed SoundScapes.
+Directory emacspeak/scapes also contains
+additional Boodler Agents and SoundScapes  that
+I have created for use with Emacspeak.
+
+ Module soundscape.el  defines Emacs conveniences for running
+Soundscapes. Main Entry Points:
+
+@itemize
+@item M-x soundscape-toggle -- Enables or
+disables automatic SoundScapes.
+@item M-x soundscape --
+runs a named SoundScape
+@item M-x soundscape-stop -- Stops a specified running Soundscape.
+@item M-x soundscape-kill -- Kills all running Soundscapes.
+@end itemize
+
+When automatic Soundscapes are enabled, SoundScapes are
+ started and stopped based on the current major
+mode. Active Soundscape  are displayed as part of the minor-mode-alist.
+Command emacspeak-speak-minor-mode-line can be used to have this spoken.
+
+Thus, SoundScapes can be thought of as reflecting the
+@emph{mood} of the current @emph{mode}.
+This package defines a single @var{soundscape-default-theme}
+that is loaded using @code{(soundscape-load soundscape-default-theme)}.
+Emacs modes that provide similar functionality e.g.,
+communication == email, IM, ... map to  the same @emph{mood}.
+
+@subsection Soundscape Commands
+
+@subsubsection soundscape
+@deffn {Command} soundscape  (scape)
+@table @kbd
+@item C-. s
+@kindex C-. s
+@item C-x @@ s s
+@kindex C-x @@ s s
+@end table
+
+@findex soundscape
+
+@format
+Play soundscape.
+
+(fn SCAPE)
+@end format
+@end deffn
+
+@subsubsection soundscape-kill
+@deffn {Command} soundscape-kill   
+@findex soundscape-kill
+
+@format
+Stop all running soundscapes.
+@end format
+@end deffn
+
+@subsubsection soundscape-listener
+@deffn {Command} soundscape-listener  (&optional restart)
+@findex soundscape-listener
+
+@format
+Start  a Soundscape listener.
+Listener is loaded with all Soundscapes defined in ‘soundscape-default-theme’ .
+Optional interactive prefix arg restarts the listener.
+
+(fn &optional RESTART)
+@end format
+@end deffn
+
+@subsubsection soundscape-listener-shutdown
+@deffn {Command} soundscape-listener-shutdown   
+@findex soundscape-listener-shutdown
+
+@format
+Shutdown listener.
+@end format
+@end deffn
+
+@subsubsection soundscape-remote
+@deffn {Command} soundscape-remote  (names)
+@findex soundscape-remote
+
+@format
+Activate scapes named ‘names’ --- a list of strings.
+
+(fn NAMES)
+@end format
+@end deffn
+
+@subsubsection soundscape-restart
+@deffn {Command} soundscape-restart  (&optional prompt)
+@table @kbd
+@item C-. r
+@kindex C-. r
+@item C-x @@ s r
+@kindex C-x @@ s r
+@end table
+
+@findex soundscape-restart
+
+@format
+Restart Soundscape  environment.
+With prefix arg ‘prompt’, prompt for a alsa/ladspa device and volume.
+The  is then saved to soundscape-device for future use.
+
+(fn &optional PROMPT)
+@end format
+@end deffn
+
+@subsubsection soundscape-stop
+@deffn {Command} soundscape-stop  (scape)
+@findex soundscape-stop
+
+@format
+Stop running Soundscape.
+
+(fn SCAPE)
+@end format
+@end deffn
+
+@subsubsection soundscape-theme
+@deffn {Command} soundscape-theme   
+@findex soundscape-theme
+
+@format
+Shows default theme in a special buffer.
+@end format
+@end deffn
+
+@subsubsection soundscape-toggle
+@deffn {Command} soundscape-toggle   
+@table @kbd
+@item C-. t
+@kindex C-. t
+@item C-x @@ s t
+@kindex C-x @@ s t
+@end table
+
+@findex soundscape-toggle
+
+@format
+Toggle automatic SoundScapes.
+Run command M-x soundscape-theme to see the default mode->mood mapping.
+@end format
+@end deffn
+
+@subsubsection soundscape-update-mood
+@deffn {Command} soundscape-update-mood  (&optional prompt-mode)
+@table @kbd
+@item C-. u
+@kindex C-. u
+@item C-x @@ s u
+@kindex C-x @@ s u
+@end table
+
+@findex soundscape-update-mood
+
+@format
+Update mood/scape mapping for current  mode.
+The  updated mapping is not persisted.
+Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
+
+(fn &optional PROMPT-MODE)
+@end format
+@end deffn
+
+@subsection soundscape Options
+
+@defvar {User Option} soundscape-data
+Soundscape data directory.
+
+Default Value: 
+
+@verbatim
+
+"/home/raman/.boodler/Collection"
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} soundscape-device
+Alsa sound device to use for soundscapes.
+
+Default Value: 
+
+@verbatim
+
+"default"
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} soundscape-manager-options
+User customizable options list passed to boodler.
+Defaults specify alsa as the output and set master volume
+
+Default Value: 
+
+@verbatim
+
+("-m" "0.3")
+
+@end verbatim
+
+@end defvar
+
+@node sox
+@section sox
+
+This module defines a convenient speech-enabled
+interface for editing mp3 and wav files using SoX.
+
+Launching M-x sox  creates a special interaction buffer
+that provides single keystroke commands for editing and
+applying effects to a selected sound file. For adding mp3
+support to sox, do
+
+sudo apt-get libsox-fmt-mp3 install
+
+This module provides support for ladspa effects using module ladspa.el.
+To use ladspa effects with SoX, you need a relatively new build of Sox;
+The stock SoX that is package for Debian/Ubuntu  does not always work.
+This module can be used independent of Emacspeak.
+
+@subsection Sox Commands
+
+@subsubsection sox-add-effect
+@deffn {Command} sox-add-effect  (name)
+@findex sox-add-effect
+
+@format
+Adds  effect at the end of the effect list
+
+(fn NAME)
+@end format
+@end deffn
+
+@subsubsection sox-delete-effect-at-point
+@deffn {Command} sox-delete-effect-at-point   
+@findex sox-delete-effect-at-point
+
+@format
+Delete effect at point.
+
+This function has :around advice: ‘ad-Advice-sox-delete-effect-at-point’.
+
+(fn)
+@end format
+@end deffn
+
+@subsubsection sox-edit-effect-at-point
+@deffn {Command} sox-edit-effect-at-point   
+@findex sox-edit-effect-at-point
+
+@format
+Edit effect at point.
+@end format
+@end deffn
+
+@subsubsection sox-mode
+@deffn {Command} sox-mode   
+@findex sox-mode
+
+@format
+An audio workbench for the Emacspeak desktop.
+
+In addition to any hooks its parent mode ‘special-mode’ might have
+run, this mode runs the hook ‘sox-mode-hook’, as the final or
+penultimate step during initialization.
+
+@end format
+@end deffn
+
+@subsubsection sox-open-file
+@deffn {Command} sox-open-file  (snd-file)
+@findex sox-open-file
+
+@format
+Open specified snd-file on the Audio Workbench.
+
+This function has :around advice: ‘ad-Advice-sox-open-file’.
+
+(fn SND-FILE)
+@end format
+@end deffn
+
+@subsubsection sox-play
+@deffn {Command} sox-play   
+@findex sox-play
+
+@format
+Play sound .
+@end format
+@end deffn
+
+@subsubsection sox-refresh
+@deffn {Command} sox-refresh   
+@findex sox-refresh
+
+@format
+Redraw Audio Workbench.
+
+This function has :around advice: ‘ad-Advice-sox-refresh’.
+
+(fn)
+@end format
+@end deffn
+
+@subsubsection sox-save
+@deffn {Command} sox-save  (save-file)
+@findex sox-save
+
+@format
+Save context to  file after prompting.
+
+(fn SAVE-FILE)
+@end format
+@end deffn
+
+@subsubsection sox-set-effect
+@deffn {Command} sox-set-effect  (name)
+@findex sox-set-effect
+
+@format
+Set effect.
+
+(fn NAME)
+@end format
+@end deffn
+
+@subsubsection sox-show-timestamp
+@deffn {Command} sox-show-timestamp   
+@findex sox-show-timestamp
+
+@format
+Show timestamp   in stream.
+@end format
+@end deffn
+
+@subsubsection sox-stop
+@deffn {Command} sox-stop   
+@findex sox-stop
+
+@format
+Stop currently playing  sound from current context.
+@end format
+@end deffn
+
+@node sox-gen
+@section sox-gen
+
+Provides binaural audio along with pre-defined themes.
+This module can be used independent of Emacspeak.
+
+@subsection Binaural Beats  Using SoX
+
+A binaural beat is an auditory illusion perceived when two different
+pure-tone sine waves, both with frequencies lower than 1500 Hz, with
+less than a 40 Hz difference between them, are presented to a listener
+dichotically (one through each ear). For example, if a 530 Hz pure tone
+is presented to a subject's right ear, while a 520 Hz pure tone is
+presented to the subject's left ear, the listener will perceive the
+auditory illusion of a third tone, in addition to the two pure-tones
+presented to each ear. The third sound is called a binaural beat, and in
+this example would have a perceived pitch correlating to a frequency of
+10 Hz, that being the difference between the 530 Hz and 520 Hz pure
+tones presented to each ear. For more details, see
+@url{https://en.wikipedia.org/wiki/Binaural_beats}.
+
+This module implements a set of user-facing commands for generating
+binaural beats. The commands are organized from high-level commands that
+play predefined binaural beats to lower-level commands that can be
+used to create new effect sequences.
+
+All binaural beat sequences are played with a relatively low gain
+--- they are designed to be heard in the background and when
+effective blend fully into the background. You can increase the
+overall volume of all binaural beat sequences by customizing
+@defvar {User Option} sox-binaural-gain-offset to a positive value
+@end defvar
+--- default is 0.
+
+@subsubsection High-Level Commands For Pre-Defined Binaural Beats
+
+These commands can be called directly to play one of the predefined
+binaural beats.
+
+@itemize
+@item @command{sox-rev-up}: A set of binaural beats designed for  use
+at the start of the day. Transitions from @emph{Dream} -> @emph{Think}
+->@emph{Act} -> @emph{Focus}.
+@item @command{sox-wind-down}: A  set of binaural beats for winding down
+at the end of the day. This can be thought of as the reverse of
+@command{sox-rev-up} and the sequence transitions from @emph{Act} ->
+@emph{Think} -> @emph{Dream} ->@emph{Sleep}.
+@item @command{sox-turn-down}: Designed for falling asleep.
+This sequence starts with a short period of @emph{Dream} before moving
+to @emph{Sleep}.
+@item @command{sox-relax}:  A variant of the previous sequence,
+@code{sox-relax} spends equal time in @emph{Dream} and @emph{Sleep}.
+@item @command{sox-binaural}: Provide a completion-based front-end to
+playing any one of the predefined binaural effects (@emph{Delta},
+@emph{Theta}, @emph{Alpha}, @emph{Beta}, or @emph{Gamma}. The previously
+defined sequences are built up using these effects.
+@item @command{sox-beats-binaural}: Plays a collection of binaural
+beats, prompting for carrier and beat frequencies for each tone. The
+predefined sequences listed earlier were created after first generating
+experimental beat-sequences using this command.
+@item @command{sox-slide-binaural}: Prompts for two binaural effects
+(see above) and generates a binaural beat that @emph{slides} from the
+first effect to the second over a specified duration.
+@item @command{sox-chakras}: Pick  amongst one of a predefined set of
+sequences designed for @emph{Chakra} meditation.
+@item @command{sox-tone-binaural}: Generate a simple binaural beat
+with a single carrier frequency.
+@item @command{sox-tone-slide-binaural}: Generate a  tone that slides
+from one binaural beat to another.
+@end itemize
+
+@subsection Sox-Gen Commands
+
+@subsubsection sox-beats-binaural
+@deffn {Command} sox-beats-binaural  (length beat-spec-list gain)
+@findex sox-beats-binaural
+
+@format
+Play binaural audio with beat-spec specifying the various tones.
+Param ‘beat-spec-list’ is a list of ‘(carrier beat) tuples.
+
+(fn LENGTH BEAT-SPEC-LIST GAIN)
+@end format
+@end deffn
+
+@subsubsection sox-binaural
+@deffn {Command} sox-binaural  (name duration)
+@table @kbd
+@item C-, b
+@kindex C-, b
+@item C-x @@ a b
+@kindex C-x @@ a b
+@end table
+
+@findex sox-binaural
+
+@format
+Play specified binaural effect.
+
+(fn NAME DURATION)
+@end format
+@end deffn
+
+@subsubsection sox-chakras
+@deffn {Command} sox-chakras  (theme duration)
+@findex sox-chakras
+
+@format
+Play each chakra for specified duration.
+Parameter ‘theme’ specifies variant.
+
+(fn THEME DURATION)
+@end format
+@end deffn
+
+@subsubsection sox-relax
+@deffn {Command} sox-relax  (length)
+@findex sox-relax
+
+@format
+Play relax set of  binaural beats for ‘length’ seconds.
+
+(fn LENGTH)
+@end format
+@end deffn
+
+@subsubsection sox-rev-up
+@deffn {Command} sox-rev-up  (length)
+@findex sox-rev-up
+
+@format
+Play rev-up set of  binaural beats for ‘length’ seconds. 
+
+(fn LENGTH)
+@end format
+@end deffn
+
+@subsubsection sox-slide-binaural
+@deffn {Command} sox-slide-binaural  (name-1 name-2 duration)
+@findex sox-slide-binaural
+
+@format
+Play specified binaural slide from ‘name-1’ to ‘name-2’.
+
+(fn NAME-1 NAME-2 DURATION)
+@end format
+@end deffn
+
+@subsubsection sox-tone-binaural
+@deffn {Command} sox-tone-binaural  (length freq beat gain)
+@findex sox-tone-binaural
+
+@format
+Play binaural audio with carrier frequency ‘freq’, beat ‘beat’, and
+gain ‘gain’.
+
+(fn LENGTH FREQ BEAT GAIN)
+@end format
+@end deffn
+
+@subsubsection sox-tone-slide-binaural
+@deffn {Command} sox-tone-slide-binaural  (length freq beat-start beat-end gain)
+@findex sox-tone-slide-binaural
+
+@format
+Play binaural audio with carrier frequency ‘freq’, beat
+‘beat-start’ -> ‘beat-end’, and gain ‘gain’.
+
+(fn LENGTH FREQ BEAT-START BEAT-END GAIN)
+@end format
+@end deffn
+
+@subsubsection sox-turn-down
+@deffn {Command} sox-turn-down  (length)
+@findex sox-turn-down
+
+@format
+Play turn-down set of  binaural beats for ‘length’ seconds. 
+
+(fn LENGTH)
+@end format
+@end deffn
+
+@subsubsection sox-wind-down
+@deffn {Command} sox-wind-down  (length)
+@findex sox-wind-down
+
+@format
+Play wind-down set of  binaural beats for ‘length’ seconds.
+
+(fn LENGTH)
+@end format
+@end deffn
+
+@subsection sox-gen Options
+
+@defvar {User Option} sox-binaural-gain-offset
+User specified offset that is added to default gain when generating
+tones using SoX, e.g., for binaural beats.
+
+Default Value: 
+
+@verbatim
+
+0
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} sox-binaural-slider-scale
+Scale factor used to compute slide duration when moving from one
+binaural beat to another.
+
+Default Value: 
+
+@verbatim
+
+5.0
+
+@end verbatim
+
+@end defvar
+
+@node tetris
+@section tetris
 
 @node voice-defs
 @section voice-defs
@@ -19199,6 +20321,75 @@ Default Value:
 @end verbatim
 
 @end defvar
+
+@node xbacklight
+@section xbacklight
+
+Provide an emacs front-end to xbacklight.
+This is a tool that controls the brightness on laptops.
+To install xbacklight,
+sudo apt-get install xbacklight
+
+This module  is most   easily used in conjunction with  hydra:
+M-x package-install hydra
+
+@subsection Xbacklight Commands
+
+@subsubsection xbacklight-black
+@deffn {Command} xbacklight-black   
+@findex xbacklight-black
+
+@format
+Black screen.
+@end format
+@end deffn
+
+@subsubsection xbacklight-decrement
+@deffn {Command} xbacklight-decrement   
+@findex xbacklight-decrement
+
+@format
+Decrease brightness.
+@end format
+@end deffn
+
+@subsubsection xbacklight-get
+@deffn {Command} xbacklight-get   
+@findex xbacklight-get
+
+@format
+Get  brightness level.
+@end format
+@end deffn
+
+@subsubsection xbacklight-increment
+@deffn {Command} xbacklight-increment   
+@findex xbacklight-increment
+
+@format
+Increase brightness.
+@end format
+@end deffn
+
+@subsubsection xbacklight-set
+@deffn {Command} xbacklight-set  (brightness)
+@findex xbacklight-set
+
+@format
+Set brightness.
+
+(fn BRIGHTNESS)
+@end format
+@end deffn
+
+@subsubsection xbacklight-white
+@deffn {Command} xbacklight-white   
+@findex xbacklight-white
+
+@format
+White screen.
+@end format
+@end deffn
 
 @node URL Templates 
 @section URL Templates
