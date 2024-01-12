@@ -57,9 +57,12 @@
 ;;;###autoload
 (defcustom emacspeak-comint-autospeak nil
   "Speak comint output.
-Use \\[emacspeak-toggle-comint-autospeak] to toggle this setting. Do
-not set this globally. Also see custom option
-`emacspeak-wizards-project-shells'"
+Use \\[emacspeak-toggle-comint-autospeak] to toggle this
+setting. Do not set this globally. Also see custom option
+`emacspeak-wizards-project-shells' for starting up
+project-specific shells that have autospeak turned on. The
+default is intentionally nil, since this option should only be
+turned on where needed."
   :group 'emacspeak-speak
   :type 'boolean)
 
