@@ -67,7 +67,7 @@
   :type 'integer
   :set #'(lambda(sym val)
            (set-default sym val)
-           (when (string= "mac"dtk-program)
+           (when (string-match "mac\\'"dtk-program)
              (setq-default dtk-speech-rate val))))
 
 ;;;   voice table
