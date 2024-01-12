@@ -203,11 +203,12 @@
 @item ,  eldoc
 @item a  emacspeak-feeds-atom-display
 @item b  sox-binaural
+@item c  gptel
 @item d  deadgrep
 @item e  eww
 @item f  ffip
 @item g  rg
-@item l  eww-open-file
+@item l  ellama-chat
 @item o  emacspeak-feeds-opml-display
 @item p  emacspeak-wizards-pdf-open
 @item q  emacspeak-wizards-quotes
