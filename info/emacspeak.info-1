@@ -5678,12 +5678,13 @@ comint == command interaction.  Advice comint and friends to speak.
 
  -- Variable: User Option emacspeak-comint-autospeak
      Speak comint output.  Use M-x emacspeak-toggle-comint-autospeak to
-     toggle this setting.  Do not set this globally.
+     toggle this setting.  Do not set this globally.  Also see custom
+     option ‘emacspeak-wizards-project-shells’
 
      Default Value:
 
      
-     t
+     nil
      
 
 
