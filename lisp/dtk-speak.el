@@ -286,9 +286,10 @@ bound to \\[dtk-toggle-caps].")
   "List of  punctuation modes.")
 
 (defvar-local dtk-speech-rate
-    (if (string-match "dtk" dtk-program)
-        225 100)
-  "Speech rate.
+    100
+  "Speech rate. Default rate is set via
+    this is an internal variable; <tts-name>-default-speech-rate can
+    be customized for the engine specific default.
  Use `dtk-set-rate'
  bound to \\[dtk-set-rate].")
 
