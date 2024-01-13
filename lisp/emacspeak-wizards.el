@@ -501,7 +501,7 @@ meaning of `next'."
 
 ;;;   Display properties conveniently
 
-;; Useful for developping emacspeak:
+;; Useful for developing emacspeak:
 ;; Display selected properties of interest
 
 (defvar emacspeak-property-table
