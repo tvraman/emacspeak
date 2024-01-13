@@ -118,13 +118,11 @@ Use Custom to customize where possible. "
    #'(lambda (f) (put f 'disabled nil))
    '(list-threads narrow-to-page list-timers upcase-region
                   downcase-region  narrow-to-region eval-expression ))
-  (global-set-key (kbd "C-l") ctl-x-map)
   (global-set-key[remap dabbrev-expand] 'hippie-expand)
   (global-set-key (kbd "<insert>") empv-map)
   (cl-loop ;; global key-bindings
    for key in
    '(
-     ("C-]"  recenter-top-bottom)
      (  "C-x r a"  append-to-register)
      ("C-x r p"  prepend-to-register)
      ("C-x v ." magit-commit-create)
