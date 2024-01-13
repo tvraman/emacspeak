@@ -61,6 +61,16 @@
 
 ;;;  Interactive Commands:
 
+;;;  Switching Buffers:
+
+(defadvice evil-next-buffer (after emacspeak-speak-mode-line-advice activate)
+  "Speak mode line after switching to next buffers."
+  (emacspeak-speak-mode-line))
+
+(defadvice evil-prev-buffer (after emacspeak-speak-mode-line-advice activate)
+  "Speak mode line after switching to previous buffers."
+  (emacspeak-speak-mode-line))
+
 ;;;  Structured  Motion:
 
 (cl-loop
