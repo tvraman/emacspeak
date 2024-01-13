@@ -2833,7 +2833,8 @@ Filters out loopback for convenience."
 
 ;;;###autoload
 (defun emacspeak-selective-display ()
-  "Continuously adjust selective-display. "
+  "Continuously adjust selective-display.
+Use `,' and `.' to continuously decrease/increase `selective-display'. "
   (interactive )
   (cl-declare (special selective-display))
   (let ((key (event-basic-type last-command-event)))
@@ -2852,13 +2853,17 @@ Filters out loopback for convenience."
              (setq selective-display 2)
            (setq selective-display (+ selective-display 2)))
          (funcall-interactively #'set-selective-display selective-display))))
-    (message "Selective display: %s" selective-display)
     (set-transient-map
      (let ((map (make-sparse-keymap)))
        (dolist (key '("," "."))
          (define-key map key (lambda () (interactive) (emacspeak-selective-display ))))
        map)
-     t (lambda nil (emacspeak-auditory-icon 'repeat-end)))))
+     (lambda nil
+       (emacspeak-auditory-icon 'repeat-end))
+      t
+     (concat
+      (propertize (format "Selective Display: %s" selective-display) 'personality voice-bolden)
+      " Repeat with: %k"))))
 
 ;;; Cue window buffer change:
 
