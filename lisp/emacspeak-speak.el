@@ -2854,13 +2854,13 @@ Use `,' and `.' to continuously decrease/increase `selective-display'. "
            (setq selective-display (+ selective-display 2)))
          (funcall-interactively #'set-selective-display selective-display))))
     (set-transient-map
-     (let ((map (make-sparse-keymap)))
+     (let ((map (make-sparse-keymap))) ; map
        (dolist (key '("," "."))
          (define-key map key (lambda () (interactive) (emacspeak-selective-display ))))
        map)
-     t
-      (lambda nil (emacspeak-auditory-icon 'repeat-end))
-     (concat
+     t ; continue pred 
+      (lambda nil (emacspeak-auditory-icon 'repeat-end)); done action
+     (concat ; message while active
       (propertize (format "Selective Display: %s" selective-display) 'personality voice-bolden)
       " Repeat with %k"))))
 
