@@ -320,8 +320,7 @@ the Emacspeak desktop.")
     (or dtk-caps (dtk-toggle-caps))
     (emacspeak-pronounce-refresh-pronunciations)
     (or emacspeak-audio-indentation
-        (emacspeak-toggle-audio-indentation))
-    (which-function-mode 1)))
+        (emacspeak-toggle-audio-indentation))))
 
 (defun emacspeak-setup-programming-modes ()
   "Setup programming modes."
