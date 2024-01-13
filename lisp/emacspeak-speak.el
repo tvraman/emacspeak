@@ -2845,14 +2845,13 @@ Filters out loopback for convenience."
        (if (> selective-display 2)
            (setq selective-display (- selective-display 2))
          (setq selective-display nil)
-         (funcall-interactively 'set-selective-display selective-display)))
+         (funcall-interactively #'set-selective-display selective-display)))
       (?.
        (when (or (numberp selective-display) (null selective-display))
          (if (null selective-display)
              (setq selective-display 2)
            (setq selective-display (+ selective-display 2)))
-         (funcall-interactively 'set-selective-display
-                                selective-display))))
+         (funcall-interactively #'set-selective-display selective-display))))
     (message "Selective display: %s" selective-display)
     (set-transient-map
      (let ((map (make-sparse-keymap)))
