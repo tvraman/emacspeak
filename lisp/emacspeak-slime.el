@@ -40,9 +40,9 @@
 ;;; Commentary:
  ;;; SLIME == Superior  Lisp Interaction Mode For Emacs
 
-;; Slime is a powerful IDE for developing in Common Lisp and Clojure.
+;; Slime is a powerful IDE for developping in Common Lisp and Clojure.
 ;; It's similar but more modern than package ILisp that I used as a
-;; graduate student when developing AsTeR.
+;; graduate student when developping AsTeR.
 
 ;;; Code:
 
