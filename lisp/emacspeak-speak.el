@@ -2858,12 +2858,11 @@ Use `,' and `.' to continuously decrease/increase `selective-display'. "
        (dolist (key '("," "."))
          (define-key map key (lambda () (interactive) (emacspeak-selective-display ))))
        map)
-     (lambda nil
-       (emacspeak-auditory-icon 'repeat-end))
-      t
+     t
+      (lambda nil (emacspeak-auditory-icon 'repeat-end))
      (concat
       (propertize (format "Selective Display: %s" selective-display) 'personality voice-bolden)
-      " Repeat with: %k"))))
+      " Repeat with %k"))))
 
 ;;; Cue window buffer change:
 
