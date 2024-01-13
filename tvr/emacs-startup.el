@@ -1,12 +1,4 @@
 ;; Emacs initialization file for Raman:  -*- lexical-binding: t; -*-
-;;;  History:
-
-;; Segre March 22 1991
-;; July 15, 2001 finally cutting over to custom.
-;; August 12, 2007: Cleaned up for Emacs 22
-
-;; September 2017: Optimized and Cleaned Up
-;; August 2020: Limit code at top-level.
 ;;; Commentary:
 ;; *   This startup file is set up with the following goals:
 ;; 
