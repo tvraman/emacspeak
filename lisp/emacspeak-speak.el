@@ -1418,7 +1418,7 @@ which-func without turning that mode on.  "
       'right-half)
      (t ""))))
 
-(defsubst ems--autospeak-p nil
+(defsubst ems--comint-autospeak nil
   "Predicate to test if comint autospeak applies."
   (and emacspeak-comint-autospeak
        (or (derived-mode-p 'comint-mode) (eq 'vterm-mode major-mode))))
@@ -1455,7 +1455,7 @@ Interactive prefix arg speaks buffer info."
       (let ((global-info (downcase (format-mode-line global-mode-string)))
             (window-count (length (window-list)))
             (autospeak
-             (when (ems--autospeak-p)
+             (when (ems--comint-autospeak)
                (propertize "Autospeak" 'personality voice-lighten)))
             (vc-state
              (when (and vc-mode (buffer-file-name))
