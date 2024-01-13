@@ -537,7 +537,6 @@
  #'(lambda ()
      (cl-declare (special outline- outline-search-function))
      (outline-minor-mode)
-     (setq outline-regexp "^ *[•0-9]+\\.? ")
      (emacspeak-pronounce-toggle-use-of-dictionaries t)))
 
 
@@ -547,7 +546,7 @@
   (cl-declare (special outline-regexp outline-level outline-search-function))
   (cond
    (outline-search-function             ;turn off emacs 30 version:
-    (setq outline-regexp "^ *[•0-9]+\\.? "
+    (setq-local outline-regexp "^ *[•0-9]+\\.? "
           outline-level 'outline-level
           outline-search-function nil)
     (emacspeak-auditory-icon 'off)
