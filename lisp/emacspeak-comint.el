@@ -132,7 +132,7 @@ Interactive PREFIX arg means toggle the global default value. ")
          (format-time-string emacspeak-speak-time-brief-format)
          (propertize (buffer-name) 'personality voice-annotate)
          (abbreviate-file-name default-directory)
-         (when emacspeak-comint-autospeak
+         (when (ems--autospeak-p)
            (propertize "Autospeak" 'personality voice-lighten))
          (when (> (length (window-list)) 1)
            (format "%s" (length (window-list)))))))))
