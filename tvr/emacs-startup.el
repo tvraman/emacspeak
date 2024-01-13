@@ -4,7 +4,7 @@
 ;; 
 ;;    1. Speed up emacs startup
 ;;    2. Customize packages via a custom file where possible.
-;;    3. Keep the  custom settings  in a separate file
+;;    3. Keep the  custom settings  in a separate file.
 ;;    4. Place host-specific non-customizable bits in default.el.
 ;;    5. Define package-specific settings not available via Custom in a
 ;;       package-specific <package>-prepare.el file,
@@ -93,7 +93,7 @@ Configure dbus and set up tabs.
 Reset gc-cons-threshold to a smaller value  and play
 startup sound."
   (cl-declare (special emacspeak-sounds-directory))
-  (run-with-idle-timer 1 nil #'emacspeak-dbus-setup)
+  (emacspeak-dbus-setup)
   (setq gc-cons-threshold 64000000)
   (start-process
    "play" nil "aplay"
@@ -107,21 +107,19 @@ startup sound."
 (defun tvr-customize ()
   "Customize my emacs.
 Use Custom to customize where possible. "
-  (cl-declare (special custom-file
-                       global-mode-string outline-minor-mode-prefix
-                       outline-mode-prefix-map
-                       emacspeak-directory))
+  (cl-declare (special
+               custom-file global-mode-string outline-minor-mode-prefix
+               outline-mode-prefix-map emacspeak-directory))
   (setenv "PULSE_SINK" "effect_input.spatializer") ; for mplayer
   (load-library "aster")
   ;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
-  (mapc
+  (mapc ; not a novie:
    #'(lambda (f) (put f 'disabled nil))
    '(list-threads narrow-to-page list-timers upcase-region
                   downcase-region  narrow-to-region eval-expression ))
   (global-set-key (kbd "C-l") ctl-x-map)
   (global-set-key[remap dabbrev-expand] 'hippie-expand)
-  (global-set-key (kbd "<f12>") empv-map)
   (global-set-key (kbd "<insert>") empv-map)
   (cl-loop ;; global key-bindings
    for key in
@@ -161,7 +159,7 @@ Use Custom to customize where possible. "
     (define-key outline-mode-prefix-map "o" 'open-line))
   (unless noninteractive (server-start))
   (with-eval-after-load 'magit (require 'forge))
-  (load "eww")
+  ;(load "eww")
   (require 'dired-x)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
   (when (file-exists-p custom-file) (tvr-time-load (load custom-file)))
@@ -231,7 +229,6 @@ Use Custom to customize where possible. "
 This function loads Emacspeak. Emacs customization and library
 configuration happens via the after-init-hook. "
   (cl-declare (special emacspeak-directory ))
-                                        ; pipewire transition
   (unless (featurep 'emacspeak)
     (tvr-time-load                      ; load emacspeak:
         (load ;; setenv EMACSPEAK_DIR if you want to load a different version
