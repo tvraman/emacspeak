@@ -2829,6 +2829,38 @@ Filters out loopback for convenience."
     (ems--get-essid)
     (ems--get-ip-address(cl-first  (ems--get-active-network-interfaces))))))
 
+;;; Smarter selective-display:
+
+;;;###autoload
+(defun emacspeak-selective-display ()
+  "Continuously adjust selective-display. "
+  (interactive )
+  (cl-declare (special selective-display))
+  (let ((key (event-basic-type last-command-event)))
+    (emacspeak-auditory-icon 'repeat-start)
+    (cl-case key
+      (?,
+       (cl-assert (numberp selective-display) t
+                  "Selective display is off")
+       (if (> selective-display 2)
+           (setq selective-display (- selective-display 2))
+         (setq selective-display nil)
+         (funcall-interactively 'set-selective-display selective-display)))
+      (?.
+       (when (or (numberp selective-display) (null selective-display))
+         (if (null selective-display)
+             (setq selective-display 2)
+           (setq selective-display (+ selective-display 2)))
+         (funcall-interactively 'set-selective-display
+                                selective-display))))
+    (message "Selective display: %s" selective-display)
+    (set-transient-map
+     (let ((map (make-sparse-keymap)))
+       (dolist (key '("," "."))
+         (define-key map key (lambda () (interactive) (emacspeak-selective-display ))))
+       map)
+     t (lambda nil (emacspeak-auditory-icon 'repeat-end)))))
+
 ;;; Cue window buffer change:
 
 ;; Help set up a buffer local window change hook:

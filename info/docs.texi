@@ -248,7 +248,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1151 commands and 146 options.
+This chapter documents a total of 1152 commands and 146 options.
 
 @node amixer
 @section amixer
@@ -12252,6 +12252,20 @@ This is useful when using modes like ECB or the new GDB UI where
 but quickly switch to a window by name.
 
 (fn BUFFER-NAME)
+@end format
+@end deffn
+
+@subsubsection emacspeak-selective-display
+@deffn {Command} emacspeak-selective-display   
+@table @kbd
+@item C-e C-c
+@kindex C-e C-c
+@end table
+
+@findex emacspeak-selective-display
+
+@format
+Continuously adjust selective-display. 
 @end format
 @end deffn
 

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 12, 2024.
+last updated on January 13, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2652,7 +2652,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘C-@ emacspeak-speak-current-mark’
 ‘C-a emacspeak-toggle-auditory-icons’
 ‘C-b emacspeak-bookshare’
-‘C-c set-selective-display’
+‘C-c emacspeak-selective-display’
 ‘C-d emacspeak-toggle-show-point’
 ‘C-e move-end-of-line’
 ‘C-f emacspeak-find-dired’
@@ -3233,7 +3233,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1151 commands and 146 options.
+   This chapter documents a total of 1152 commands and 146 options.
 
 * Menu:
 

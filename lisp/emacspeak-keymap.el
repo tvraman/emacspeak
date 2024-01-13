@@ -211,7 +211,7 @@
    ("C-SPC" emacspeak-speak-current-mark)
    ("C-a" emacspeak-toggle-auditory-icons)
    ("C-b" emacspeak-bookshare)
-   ("C-c" set-selective-display)
+   ("C-c" emacspeak-selective-display)
    ("C-d" emacspeak-toggle-show-point)
    ("C-e" move-end-of-line)
    ("C-f" emacspeak-find-dired)
