@@ -74,6 +74,7 @@
       (when (= 0 col) (emacspeak-auditory-icon 'left))
       (when (= (1- (length tabulated-list-format)) col)
         (emacspeak-auditory-icon 'right))
+      (when (listp value) (setq value (car value)))
       (when (zerop (length (string-trim value)))
         (dtk-tone 261.6 150 'force))    ;blank
       (if (called-interactively-p 'interactive) 
