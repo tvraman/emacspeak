@@ -63,13 +63,16 @@
 
 ;;;  Switching Buffers:
 
-(defadvice evil-next-buffer (after emacspeak-speak-mode-line-advice activate)
-  "Speak mode line after switching to next buffers."
-  (emacspeak-speak-mode-line))
+(cl-loop
+ for f in
+ '(evil-next-buffer evil-prev-buffer)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-speak-mode-line)))))
 
-(defadvice evil-prev-buffer (after emacspeak-speak-mode-line-advice activate)
-  "Speak mode line after switching to previous buffers."
-  (emacspeak-speak-mode-line))
 
 ;;;  Structured  Motion:
 
