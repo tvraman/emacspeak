@@ -114,10 +114,11 @@ Use Custom to customize where possible. "
   (load-library "aster")
   ;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
-  (mapc ; not a novie:
+  (mapc                                 ; not a novie:
    #'(lambda (f) (put f 'disabled nil))
    '(list-threads narrow-to-page list-timers upcase-region
                   downcase-region  narrow-to-region eval-expression ))
+  (global-set-key (kbd "C-l") ctl-x-map)
   (global-set-key[remap dabbrev-expand] 'hippie-expand)
   (global-set-key (kbd "<insert>") empv-map)
   (cl-loop ;; global key-bindings
@@ -157,7 +158,7 @@ Use Custom to customize where possible. "
     (define-key outline-mode-prefix-map "o" 'open-line))
   (unless noninteractive (server-start))
   (with-eval-after-load 'magit (require 'forge))
-  ;(load "eww")
+                                        ;(load "eww")
   (require 'dired-x)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
   (when (file-exists-p custom-file) (tvr-time-load (load custom-file)))
