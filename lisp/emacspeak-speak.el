@@ -2832,11 +2832,12 @@ Filters out loopback for convenience."
 ;;; Smarter selective-display:
 
 ;;;###autoload
-(defun emacspeak-selective-display ()
+(defun emacspeak-selective-display (&optional arg)
   "Continuously adjust selective-display.
 Use `,' and `.' to continuously decrease/increase `selective-display'. "
-  (interactive )
+  (interactive "P")
   (cl-declare (special selective-display))
+  (setq selective-display (and arg (prefix-numeric-value arg)))
   (let ((key (event-basic-type last-command-event)))
     (emacspeak-auditory-icon 'repeat-start)
     (cl-case key
@@ -2856,10 +2857,10 @@ Use `,' and `.' to continuously decrease/increase `selective-display'. "
     (set-transient-map
      (let ((map (make-sparse-keymap)))  ; map
        (dolist (key '("," "."))
-         (define-key map key (lambda () (interactive) (emacspeak-selective-display ))))
+         (define-key map key (lambda () (interactive) (emacspeak-selective-display selective-display))))
        map)
-     t                                           ; continue predicate
-     (lambda nil (emacspeak-auditory-icon 'repeat-end))  ; done action
+     t                                  ; continue predicate
+     (lambda nil (emacspeak-auditory-icon 'repeat-end)) ; done action
      (propertize (format "Selective Display: %s" selective-display) 'personality voice-bolden))))
 
 ;;; Cue window buffer change:
