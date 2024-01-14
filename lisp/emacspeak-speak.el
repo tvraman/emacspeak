@@ -2845,8 +2845,8 @@ Use `,' and `.' to continuously decrease/increase `selective-display'. "
                   "Selective display is off")
        (if (> selective-display 2)
            (setq selective-display (- selective-display 2))
-         (setq selective-display nil)
-         (funcall-interactively #'set-selective-display selective-display)))
+         (setq selective-display nil))
+       (funcall-interactively #'set-selective-display selective-display))
       (?.
        (when (or (numberp selective-display) (null selective-display))
          (if (null selective-display)
@@ -2858,7 +2858,7 @@ Use `,' and `.' to continuously decrease/increase `selective-display'. "
        (dolist (key '("," "."))
          (define-key map key (lambda () (interactive) (emacspeak-selective-display ))))
        map)
-     t ; continue pred 
+     'continue  ; predicate
       (lambda nil (emacspeak-auditory-icon 'repeat-end)); done action
      (concat ; message while active
       (propertize (format "Selective Display: %s" selective-display) 'personality voice-bolden)
