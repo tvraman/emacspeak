@@ -12,5 +12,6 @@ This version requires Emacs-29.1 or later.
 
 * Speech-Enabled LLM Front-End
 
-Emacspeak speech-enables package ~ellama~ for interacting with LLMs
---- both local and remote.
+Emacspeak speech-enables package ~ellama~ and ~gptel~ for interacting
+with both local and remote LLMs.
+
