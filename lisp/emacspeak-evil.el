@@ -61,6 +61,19 @@
 
 ;;;  Interactive Commands:
 
+;;;  Switching Buffers:
+
+(cl-loop
+ for f in
+ '(evil-next-buffer evil-prev-buffer)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-speak-mode-line)))))
+
+
 ;;;  Structured  Motion:
 
 (cl-loop
