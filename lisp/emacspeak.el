@@ -88,7 +88,7 @@ the Emacspeak desktop.")
 ;; DocView
 (declare-function doc-view-open-text "doc-view")
 (with-eval-after-load "gptel"
-  (add-hook 'gptel-post-response-hook #'emacspeak-speak-region))
+  (add-hook 'gptel-post-response-functions 'emacspeak-speak-region))
 
 (with-eval-after-load "doc-view"
   (add-hook 'doc-view-mode-hook #'doc-view-open-text))
