@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 13, 2024.
+last updated on January 14, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -4769,11 +4769,13 @@ of emacspeak from becoming dependent on the speech server modules
 12.179.1.20 emacspeak-selective-display
 .......................................
 
- -- Command: emacspeak-selective-display
+ -- Command: emacspeak-selective-display (&optional arg)
      ‘C-e C-c’
 
      Continuously adjust selective-display.
      Use ‘,’ and ‘.’ to continuously decrease/increase ‘selective-display’.
+
+     (fn &optional ARG)
 
 12.179.1.21 emacspeak-shell-command
 ...................................
