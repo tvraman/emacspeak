@@ -12265,7 +12265,8 @@ but quickly switch to a window by name.
 @findex emacspeak-selective-display
 
 @format
-Continuously adjust selective-display. 
+Continuously adjust selective-display.
+Use ‘,’ and ‘.’ to continuously decrease/increase ‘selective-display’. 
 @end format
 @end deffn
 

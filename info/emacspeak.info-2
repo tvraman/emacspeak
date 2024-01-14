@@ -4773,6 +4773,7 @@ of emacspeak from becoming dependent on the speech server modules
      ‘C-e C-c’
 
      Continuously adjust selective-display.
+     Use ‘,’ and ‘.’ to continuously decrease/increase ‘selective-display’.
 
 12.179.1.21 emacspeak-shell-command
 ...................................
