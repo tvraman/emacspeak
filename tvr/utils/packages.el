@@ -1,11 +1,10 @@
-(setq
+(setopt
  package-selected-packages
  '(2048-game
    ace-window
    anaphora
    apiwrap
-   apiwrap-20180602
-   .2231
+   apiwrap-20180602.2231
    arxiv-citation
    arxiv-mode
    auctex
@@ -45,6 +44,7 @@
    enwc
    exec-path-from-shell
    exwm
+   feed-discovery
    find-file-in-project
    flx-ido
    flyspell-correct
@@ -59,6 +59,7 @@
    go-complete
    go-eldoc
    go-mode
+   gptel
    haskell-mode
    hotfuzz
    html2org
@@ -69,6 +70,7 @@
    iedit
    journalctl-mode
    js2-mode
+   keymap-utils
    lispy
    list-unicode-display
    logito
@@ -93,6 +95,8 @@
    sqlite3
    ssh-config-mode
    stumpwm-mode
+   swift-helpful
+   swift-mode
    threes
    tldr
    transient
@@ -103,4 +107,4 @@
    xkcd
    yasnippet
    yasnippet-snippets)
- )
+)
