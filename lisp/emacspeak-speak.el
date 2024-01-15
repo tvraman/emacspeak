@@ -2834,10 +2834,12 @@ Filters out loopback for convenience."
 ;;;###autoload
 (defun emacspeak-selective-display (&optional arg)
   "Continuously adjust selective-display.
-Use `,' and `.' to continuously decrease/increase `selective-display'. "
+Use `,' and `.' to continuously decrease/increase `selective-display'.
+ If not specified, `arg' defaults to current-column."
   (interactive "P")
   (cl-declare (special selective-display))
-  (setq selective-display (and arg (prefix-numeric-value arg)))
+  (setq selective-display
+        (if arg (prefix-numeric-value arg) (current-column)))
   (let ((key (event-basic-type last-command-event)))
     (emacspeak-auditory-icon 'repeat-start)
     (cl-case key
