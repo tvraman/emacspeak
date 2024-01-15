@@ -626,7 +626,7 @@ Safari/537.36"
   (define-key eww-link-keymap  "u" 'emacspeak-eww-url-to-register)
   (define-key eww-link-keymap  "!" 'emacspeak-eww-shell-cmd-on-url-at-point)
   (define-key eww-link-keymap  "k" 'shr-copy-url)
-  (define-key eww-link-keymap ";" 'emacspeak-empv-play-url)
+  (define-key eww-link-keymap ";" 'emacspeak-m-player-url)
   (define-key eww-link-keymap "Y" 'emacspeak-eww-yt-dl)
   (define-key eww-link-keymap "U" 'emacspeak-eww-curl-play-media-at-point)
   (define-key eww-link-keymap "x" 'emacspeak-feeds-select-feed)
