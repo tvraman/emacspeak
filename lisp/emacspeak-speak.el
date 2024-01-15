@@ -616,7 +616,7 @@ the sense of the filter. "
   "Show matched paren with context."
   (interactive)
   (let ((data (show-paren--default)))
-    (when data
+    (when (and data (cl-third data))
       (save-excursion
         (goto-char (cl-third  data))
         (dtk-speak
