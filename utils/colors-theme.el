@@ -4,7 +4,7 @@
 
 (defun tvr-theme-colors (palette)
   "Display colors in a theme palette"
-  (interactive "STheme:")
+  (interactive "SPalette:")
   (with-output-to-temp-buffer   "*Colors*"
     (print palette)
     (cl-loop
