@@ -14,17 +14,15 @@
        (and (boundp s)
             (not (functionp s))
             (string-match ".*palette$" (symbol-name s))) collect s)))))
-  (with-output-to-temp-buffer   "*Colors*"
-    (print palette)
+  (with-current-buffer (get-buffer-create    "*Colors*")
+    (insert (format "%s\n" palette))
     (cl-loop
      for p in  (symbol-value palette) 
      when (stringp (cl-second p)) do
      (let ((c (ems--color-name (cl-second p))))
        (set-text-properties 0 (length c) nil c)
-       (prin1 (cl-first p))
-       (prin1    c)
-       (prin1 (cl-second p))
-       (terpri))))
+       (insert (format "%s:\t%s\t%s\n" (cl-first p) c (cl-second p)))
+       )))
   (with-current-buffer "*Colors*"
     (let ((inhibit-read-only  t))
       (save-excursion
