@@ -13,3 +13,5 @@
      (prin1 (car p))
      (prin1    (ntc-name-this-color (cl-second p)))
      (terpri))))
+
+(provide 'theme-colors)
