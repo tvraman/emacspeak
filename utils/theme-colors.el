@@ -11,7 +11,10 @@
       "Palette: "
       (cl-loop
        for s being the symbols
-       when (string-match ".*palette$" (symbol-name s)) collect s)))))
+       when
+       (and (boundp s)
+            (not (functionp s))
+            (string-match ".*palette$" (symbol-name s))) collect s)))))
   (with-output-to-temp-buffer   "*Colors*"
     (print palette)
     (cl-loop
