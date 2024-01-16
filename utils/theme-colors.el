@@ -23,11 +23,7 @@
        when (stringp (cl-second p)) do
        (let ((c (ems--color-name (cl-second p))))
          (set-text-properties 0 (length c) nil c)
-         (insert (format "%s:\t%s\t%s\n" (cl-first p) c (cl-second p))))))
-    (save-excursion
-      (goto-char (point-min))
-      (while
-          (search-forward (format  "%c" 34) nil t)  (replace-match "" ))))
+         (insert (format "%s:\t%s\t%s\n" (cl-first p) c (cl-second p)))))))
   (emacspeak-auditory-icon 'open-object)
   (funcall-interactively #'switch-to-buffer "*Colors*")
   (goto-char (point-min))
