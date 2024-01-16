@@ -23,11 +23,13 @@
        (set-text-properties 0 (length c) nil c)
        (prin1 (cl-first p))
        (prin1    c)
+       (prin1 (cl-second p))
        (terpri))))
   (with-current-buffer "*Colors*"
-    (goto-char (point-min))
-    (save-excursion
-      (while (search-forward (format  "%c" 34)) nil t (replace-match "" ))))
+    (let ((inhibit-read-only  t))
+      (save-excursion
+        (goto-char (point-min))
+        (while (search-forward (format  "%c" 34)) nil t (replace-match "" )))))
   (emacspeak-auditory-icon 'open-object)
   (funcall-interactively #'switch-to-buffer "*Colors*"))
 
