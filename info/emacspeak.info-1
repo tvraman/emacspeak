@@ -3233,7 +3233,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1152 commands and 146 options.
+   This chapter documents a total of 1153 commands and 146 options.
 
 * Menu:
 
@@ -6559,6 +6559,13 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
      Filter is of the  form name=arg-1:arg-2:...
 
      (fn FILTER)
+
+12.61.1.11 emacspeak-empv-yt-download
+.....................................
+
+ -- Command: emacspeak-empv-yt-download
+
+     Download Youtube result.
 
 12.61.2 emacspeak-empv Options
 ------------------------------

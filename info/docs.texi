@@ -248,7 +248,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1152 commands and 146 options.
+This chapter documents a total of 1153 commands and 146 options.
 
 @node amixer
 @section amixer
@@ -3898,6 +3898,15 @@ Toggle Filter.
 Filter is of the  form name=arg-1:arg-2:...
 
 (fn FILTER)
+@end format
+@end deffn
+
+@subsubsection emacspeak-empv-yt-download
+@deffn {Command} emacspeak-empv-yt-download   
+@findex emacspeak-empv-yt-download
+
+@format
+Download Youtube result.
 @end format
 @end deffn
 
