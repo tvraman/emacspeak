@@ -3,7 +3,7 @@
 (require 'name-this-color)
 
 (defun tvr-theme-colors (palette)
-  "Display colors in a theme palette"
+  "Display colors in  palette"
   (interactive "SPalette:")
   (with-output-to-temp-buffer   "*Colors*"
     (print palette)
