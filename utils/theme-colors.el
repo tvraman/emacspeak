@@ -35,6 +35,7 @@
 
 (declare-function emacspeak-auditory-icon "emacspeak-sounds" (icon))
 (declare-function ems--color-name "emacspeak-wizards" (color))
+(declare-function emacspeak-speak-line "emacspeak-speak" (&optional arg))
 
 
 (provide 'theme-colors)
