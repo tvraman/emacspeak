@@ -2859,11 +2859,17 @@ Use `,' and `.' to continuously decrease/increase `selective-display'.
     (set-transient-map
      (let ((map (make-sparse-keymap)))  ; map
        (dolist (key '("," "."))
-         (define-key map key (lambda () (interactive) (emacspeak-selective-display selective-display))))
+         (define-key
+          map key
+          (lambda ()
+            (interactive)
+            (emacspeak-selective-display selective-display))))
        map)
      t                                  ; continue predicate
      (lambda nil (emacspeak-auditory-icon 'repeat-end)) ; done action
-     (propertize (format "Selective Display: %s" selective-display) 'personality voice-bolden))))
+     (propertize
+      (format "Selective Display: %s" selective-display)
+      'personality voice-bolden))))
 
 ;;; Cue window buffer change:
 
