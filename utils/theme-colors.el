@@ -22,6 +22,8 @@
      when (stringp (cl-second p)) do
      (prin1 (cl-first p))
      (prin1    (ntc-name-this-color (cl-second p)))
-     (terpri))))
+     (terpri)))
+  (emacspeak-auditory-icon 'open-object)
+  (funcall-interactively #'switch-to-buffer "*Colors*"))
 
 (provide 'theme-colors)
