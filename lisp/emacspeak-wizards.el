@@ -1858,24 +1858,33 @@ With interactive prefix arg, set foreground and background color first."
 (defun ems--color-hex (color)
   "Return Hex value for color."
   (apply #'color-rgb-to-hex (append (color-name-to-rgb color) '(2))))
+(defvar ems--color-names-table (make-hash-table )
+  "Table to memoize ntc color names.")
 
 (defun ems--color-name (color)
   "Return a meaningful color-name using name-this-color if available.
 Otherwise just return  `color'."
   (interactive "P")
+  (cl-declare (special ems--color-names-table))
   (cond
+   ((gethash color ems--color-names-table) (gethash color ems--color-names-table))
    ((fboundp 'ntc-name-this-color)
     (let* ((candidate (ntc--get-closest-color color))
            (name (ntc--struct-name (cdr candidate)))
            (shade (ntc--struct-shade (cdr candidate))))
       (cond
-       ((string= name shade) name)
+       ((string= name shade)
+        (puthash color name ems--color-names-table)
+        name)
        (t
-        (concat
-         (propertize name 'personality voice-bolden)
-         " shaded "
-         (propertize shade 'personality voice-annotate))))))
-   (t color)))
+        (let ((v (concat
+                  (propertize name 'personality voice-bolden)
+                  " shaded "
+                  (propertize shade 'personality voice-annotate))))
+          (puthash color v ems--color-names-table)
+          v)))))
+   (t (puthash color color ems--color-names-table)
+      color)))
 
 (defun emacspeak-wizards-frame-colors ()
   "Display frame's foreground/background color setting."
