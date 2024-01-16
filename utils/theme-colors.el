@@ -22,7 +22,6 @@
        for p in  (symbol-value palette) 
        when (stringp (cl-second p)) do
        (let ((c (ems--color-name (cl-second p))))
-         (set-text-properties 0 (length c) nil c)
          (insert (format "%s:\t%s\t%s\n" (cl-first p) c (cl-second p)))))))
   (emacspeak-auditory-icon 'open-object)
   (funcall-interactively #'switch-to-buffer "*Colors*")
