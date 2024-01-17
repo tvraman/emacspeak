@@ -2125,7 +2125,7 @@ q: Quit color wheel, after copying current hex value to kill-ring."
 
 ;;; Modus Theme And Friends:
 ;;;###autoload
-(defun tvr-theme-colors (palette)
+(defun emacspeak-wizards-show-theme (palette)
   "Display colors in  palette.
 Prompts for a color palette variable as used in the modus theme and
   its variants,
