@@ -2603,7 +2603,7 @@ Use for large EBook buffers."
   (cl-assert emacspeak-eww-yt-dl t "Install youtube-dl first.")
   (let ((dir (funcall eww-download-directory)))
     (access-file dir "Cannot download here")
-    (async-shell-command (format "cd %s; %s '%s'" dir emacspeak-eww-yt-dl url))))
+    (async-shell-command (format "cd %s;%s '%s'" dir emacspeak-eww-yt-dl url))))
 
 
 (defun emacspeak-eww-url-to-register ()
