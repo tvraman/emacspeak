@@ -3032,7 +3032,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-z-keymap,  Prev:
 * emacspeak-eudc::Speech enable  LDAP.
 * emacspeak-evil::Speech-enable EVIL.
 * emacspeak-eww::Speech-enable EWW Browser.
-* emacspeak-exec::Executable Locations.
 * emacspeak-extras::Speech-enable EXTRAS.
 * emacspeak-exwm::Speech-enable EXWM.
 * emacspeak-feeds::Atom, RSS.
@@ -3313,7 +3312,6 @@ thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 * emacspeak-eudc::
 * emacspeak-evil::
 * emacspeak-eww::
-* emacspeak-exec::
 * emacspeak-extras::
 * emacspeak-exwm::
 * emacspeak-feeds::
@@ -7751,7 +7749,7 @@ EVIL == VIM In Emacs This is work-in-progress and is not complete.
      Interactively toggle evil-mode.
 
 
-File: emacspeak.info,  Node: emacspeak-eww,  Next: emacspeak-exec,  Prev: emacspeak-evil,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-eww,  Next: emacspeak-extras,  Prev: emacspeak-evil,  Up: Emacspeak Commands And Options
 
 12.75 emacspeak-eww
 ===================
@@ -8819,28 +8817,17 @@ prefix arg to delete a previously created eww-mark.
      
 
 
-File: emacspeak.info,  Node: emacspeak-exec,  Next: emacspeak-extras,  Prev: emacspeak-eww,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-extras,  Next: emacspeak-exwm,  Prev: emacspeak-eww,  Up: Emacspeak Commands And Options
 
-12.76 emacspeak-exec
-====================
-
-EXEC == Executable Single place to define vars that track the location
-of various executable programs used in multiple modules.  Programs used
-in a single module will be declared in that module; will be promoted
-here if they are used in more than one module.
-
-
-File: emacspeak.info,  Node: emacspeak-extras,  Next: emacspeak-exwm,  Prev: emacspeak-exec,  Up: Emacspeak Commands And Options
-
-12.77 emacspeak-extras
+12.76 emacspeak-extras
 ======================
 
 Infrequently used wizards archived for posterity.
 
-12.77.1 Emacspeak-Extras Commands
+12.76.1 Emacspeak-Extras Commands
 ---------------------------------
 
-12.77.1.1 emacspeak-annotate-add-annotation
+12.76.1.1 emacspeak-annotate-add-annotation
 ...........................................
 
  -- Command: emacspeak-annotate-add-annotation (&optional reset)
@@ -8852,7 +8839,7 @@ Infrequently used wizards archived for posterity.
      Annotation is entered in a temporary buffer and the
      annotation is inserted into the working buffer when complete.
 
-12.77.1.2 emacspeak-clipfile-copy
+12.76.1.2 emacspeak-clipfile-copy
 .................................
 
  -- Command: emacspeak-clipfile-copy (start end &optional prompt)
@@ -8862,21 +8849,21 @@ Infrequently used wizards archived for posterity.
      dis a convenient way of sharing information between independent
      Emacspeak sessions running on  different machines.
 
-12.77.1.3 emacspeak-clipfile-paste
+12.76.1.3 emacspeak-clipfile-paste
 ..................................
 
  -- Command: emacspeak-clipfile-paste (&optional paste-table)
 
      Yank contents of the Emacspeak clipboard at point.
 
-12.77.1.4 emacspeak-curl
+12.76.1.4 emacspeak-curl
 ........................
 
  -- Command: emacspeak-curl (url)
 
      Grab URL using Curl, and preview it with a browser .
 
-12.77.1.5 emacspeak-wizards-add-autoload-cookies
+12.76.1.5 emacspeak-wizards-add-autoload-cookies
 ................................................
 
  -- Command: emacspeak-wizards-add-autoload-cookies (&optional f)
@@ -8884,28 +8871,28 @@ Infrequently used wizards archived for posterity.
      Add autoload cookies to file f.
      Default is to add autoload cookies to current file.
 
-12.77.1.6 emacspeak-wizards-bindings-from-org
+12.76.1.6 emacspeak-wizards-bindings-from-org
 .............................................
 
  -- Command: emacspeak-wizards-bindings-from-org (variable filename)
 
      Load bindings from a specified file.
 
-12.77.1.7 emacspeak-wizards-bindings-to-org
+12.76.1.7 emacspeak-wizards-bindings-to-org
 ...........................................
 
  -- Command: emacspeak-wizards-bindings-to-org (variable filename)
 
      Persists mapping to org file.
 
-12.77.1.8 emacspeak-wizards-display-pod-as-manpage
+12.76.1.8 emacspeak-wizards-display-pod-as-manpage
 ..................................................
 
  -- Command: emacspeak-wizards-display-pod-as-manpage (filename)
 
      Create a virtual manpage in Emacs from the Perl Online Documentation.
 
-12.77.1.9 emacspeak-wizards-find-grep
+12.76.1.9 emacspeak-wizards-find-grep
 .....................................
 
  -- Command: emacspeak-wizards-find-grep (glob pattern)
@@ -8913,14 +8900,14 @@ Infrequently used wizards archived for posterity.
      Run compile using find and grep.
      Interactive  arguments specify filename pattern and search pattern.
 
-12.77.1.10 emacspeak-wizards-fix-read-only-text
+12.76.1.10 emacspeak-wizards-fix-read-only-text
 ...............................................
 
  -- Command: emacspeak-wizards-fix-read-only-text (start end)
 
      Nuke read-only property on text range.
 
-12.77.1.11 emacspeak-wizards-generate-voice-sampler
+12.76.1.11 emacspeak-wizards-generate-voice-sampler
 ...................................................
 
  -- Command: emacspeak-wizards-generate-voice-sampler (step)
@@ -8928,7 +8915,7 @@ Infrequently used wizards archived for posterity.
      Generate a buffer that shows a sample line in all the ACSS settings
      for the current voice family.
 
-12.77.1.12 emacspeak-wizards-list-voices
+12.76.1.12 emacspeak-wizards-list-voices
 ........................................
 
  -- Command: emacspeak-wizards-list-voices (pattern)
@@ -8940,21 +8927,21 @@ Infrequently used wizards archived for posterity.
      Sample text to use comes from variable
        ‘ems-wizards-sampler-text
 
-12.77.1.13 emacspeak-wizards-midi-using-m-score
+12.76.1.13 emacspeak-wizards-midi-using-m-score
 ...............................................
 
  -- Command: emacspeak-wizards-midi-using-m-score (midi-file)
 
      Play midi file using mscore from musescore package.
 
-12.77.1.14 emacspeak-wizards-show-voices
+12.76.1.14 emacspeak-wizards-show-voices
 ........................................
 
  -- Command: emacspeak-wizards-show-voices
 
      Display a buffer with sample text in the defined voices.
 
-12.77.1.15 emacspeak-wizards-tramp-open-location
+12.76.1.15 emacspeak-wizards-tramp-open-location
 ................................................
 
  -- Command: emacspeak-wizards-tramp-open-location (name)
@@ -8964,14 +8951,14 @@ Infrequently used wizards archived for posterity.
      Open specified tramp location.
      Location is specified by name.
 
-12.77.1.16 emacspeak-wizards-voice-sampler
+12.76.1.16 emacspeak-wizards-voice-sampler
 ..........................................
 
  -- Command: emacspeak-wizards-voice-sampler (personality)
 
      Read a personality  and apply it to the current line.
 
-12.77.2 emacspeak-extras Options
+12.76.2 emacspeak-extras Options
 --------------------------------
 
  -- Variable: User Option emacspeak-clipfile-file
