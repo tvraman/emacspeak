@@ -447,5 +447,5 @@ and their meanings. ")
    ))
 
 (provide  'emacspeak-c)
-;;;   emacs local variables
+ 
 

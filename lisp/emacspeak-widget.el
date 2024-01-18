@@ -677,5 +677,5 @@ widget before summarizing."
     w))
 
 (provide  'emacspeak-widget)
-;;;   emacs local variables 
+  
 

@@ -323,5 +323,5 @@ Optional interactive PREFIX arg toggles global value."
        emacspeak-m-player-program nil  0 nil file))))
 
 (provide  'emacspeak-sounds)
-;;;   emacs local variables
+ 
 

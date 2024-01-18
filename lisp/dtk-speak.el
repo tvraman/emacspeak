@@ -2252,6 +2252,6 @@ When called interactively, CHAR defaults to the character after point."
 ;;; dtk-unicode.el ends here
 
 (provide 'dtk-speak)
-;;;   emacs local variables
+ 
 
 ;; coding: utf-8

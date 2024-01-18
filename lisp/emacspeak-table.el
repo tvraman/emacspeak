@@ -262,5 +262,5 @@ Calls callback once per column."
         (emacspeak-auditory-icon 'warn-user)))))
 
 (provide  'emacspeak-table)
-;;;   emacs local variables 
+  
 

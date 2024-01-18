@@ -191,5 +191,5 @@
    ad-do-it))
 
 (provide  'emacspeak-bbdb)
-;;;   emacs local variables 
+  
 

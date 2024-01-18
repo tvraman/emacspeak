@@ -127,5 +127,5 @@ Useful in voiceifying rich text."
                   (emacspeak-toggle-audio-indentation))))
 
 (provide  'emacspeak-enriched)
-;;;   emacs local variables 
+  
 

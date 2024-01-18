@@ -372,5 +372,5 @@ and TABLE gives the values along that dimension."
    '(ascii latin-iso8859-1 latin-iso8859-15 latin-iso8859-9 eight-bit-graphic)))
 
 (provide 'dectalk-voices)
-;;;   emacs local variables
+ 
 

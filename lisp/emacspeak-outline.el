@@ -314,5 +314,5 @@ except that the outline section is  spoken"
       (emacspeak-speak-line))))
 
 (provide  'emacspeak-outline)
-;;;   emacs local variables
+ 
 

@@ -89,5 +89,5 @@
   (emacspeak-auditory-icon 'select-object))
 
 (provide 'emacspeak-calc)
-;;;   emacs local variables 
+  
 

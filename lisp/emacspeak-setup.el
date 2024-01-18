@@ -61,7 +61,7 @@
     (emacspeak)))
 
 (provide 'emacspeak-setup)
-;;;   emacs local variables
+ 
 
 ;; mode: emacs-lisp
 

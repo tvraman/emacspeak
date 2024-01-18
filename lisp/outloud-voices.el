@@ -303,5 +303,5 @@
            eight-bit-graphic)))
 
 (provide 'outloud-voices)
-;;;   emacs local variables
+ 
 

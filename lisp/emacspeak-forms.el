@@ -260,5 +260,5 @@ Assumes that point is at the front of a field value."
      (forms-next-field 1)))
 
 (provide  'emacspeak-forms)
-;;;   emacs local variables 
+  
 

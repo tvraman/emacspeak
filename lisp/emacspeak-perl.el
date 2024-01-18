@@ -74,5 +74,5 @@
     (emacspeak-auditory-icon 'large-movement)))
 
 (provide  'emacspeak-perl)
-;;;   emacs local variables 
+  
 
