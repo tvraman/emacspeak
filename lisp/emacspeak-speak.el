@@ -1537,11 +1537,12 @@ Interactive prefix arg speaks buffer info."
    (zerop
     (shell-command
      "pacmd list-sinks | grep 'active port:'  | grep  Headphones"))))
+(defvar emacspeak-wpctl (executable-find "wpctl") "wpctl executable")
 
 (defconst ems--vol-cmd
   (eval-when-compile
     (cond
-     ((executable-find "wpctl") ; pipewire
+     (emacspeak-wpctl ; pipewire
       "wpctl get-volume @DEFAULT_AUDIO_SINK@")
      (t 
       (concat
