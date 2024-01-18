@@ -285,8 +285,8 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
       (insert (format "%s\n" text)))))
 
 (defvar emacspeak-notifications-gc-timer
-  (run-at-time 1800 1800 #'emacspeak-notifications-truncate)
-  "Idle timer that runs every 30 minutes to cleanup notifications.")
+     (run-at-time 43200 43200 #'emacspeak-notifications-truncate)
+  "Idle timer that runs every 12 hours  to cleanup notifications.")
 
 ;;;  Completion helper:
 
