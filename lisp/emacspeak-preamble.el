@@ -47,7 +47,7 @@
 (put 'defadvice 'byte-obsolete-info nil)
 (setq ad-redefinition-action 'accept)
 ;;;   Define locations
-
+(require 'emacspeak-exec)
 (defvar emacspeak-directory
   (expand-file-name "../" (file-name-directory load-file-name))
   "emacspeak directory")
@@ -90,12 +90,6 @@
   (expand-file-name "README" emacspeak-directory)
   "README.")
 ;;;###autoload
-(defvar emacspeak-mpv-program (executable-find "mpv")
-  "Name of MPV executable.")
-
-;;;###autoload
-(defvar emacspeak-curl-program (executable-find "curl")
-  "Curl.")
 
 ;;;###autoload
 (defvar emacspeak-media-extensions

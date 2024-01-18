@@ -1779,7 +1779,7 @@ Seconds value is also placed in the kill-ring."
 (defun emacspeak-setup-get-revision ()
   "Get SHA checksum of current revision that is suitable for spoken output."
   (let ((default-directory emacspeak-directory))
-    (if (and (executable-find "git")
+    (if (and emacspeak-git
              (file-exists-p (expand-file-name ".git" emacspeak-directory)))
         (propertize
          (shell-command-to-string "git show -s --pretty=format:%h HEAD ")

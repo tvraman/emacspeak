@@ -58,8 +58,7 @@
   :type 'string
   :group 'amixer)
 
-(defvar amixer-program  (executable-find "amixer")
-  "Amixer program")
+
 
 (defvar alsactl-program  (executable-find "alsactl")
   "AlsaCtl program")
@@ -125,8 +124,8 @@
 
 (defun amixer-build-db ()
   "Create a database of amixer controls and their settings."
-  (cl-declare (special amixer-db amixer-device amixer-program))
-  (unless amixer-program (error "You dont have a standard amixer."))
+  (cl-declare (special amixer-db amixer-device emacspeak-amixer))
+  (unless emacspeak-amixer (error "You dont have a standard amixer."))
   (let (
         (message-log-max nil)
         (controls nil)
@@ -242,7 +241,7 @@ to  ~/.emacs.d ")
   "ALSA settings.
 Interactive prefix arg refreshes cache."
   (interactive "P")
-  (cl-declare (special amixer-db amixer-alsactl-config-file amixer-program))
+  (cl-declare (special amixer-db amixer-alsactl-config-file emacspeak-amixer))
   (unless amixer-alsactl-config-file (amixer-alsactl-setup))
   (when (or refresh (null amixer-db))
     (amixer-build-db))
@@ -278,7 +277,7 @@ Interactive prefix arg refreshes cache."
         (amixer-control-setting control))
        update)
       (start-process
-       "AMixer" "*Debug*"  amixer-program
+       "AMixer" "*Debug*"  emacspeak-amixer
        "--device" amixer-device
        "cset"
        (format "numid=%s" (amixer-control-numid control))
@@ -291,7 +290,7 @@ Interactive prefix arg refreshes cache."
 (defun amixer-query (&optional refresh)
   "Show setting for specified control."
   (interactive "P")
-  (cl-declare (special amixer-db amixer-alsactl-config-file amixer-program))
+  (cl-declare (special amixer-db amixer-alsactl-config-file emacspeak-amixer))
   (unless amixer-alsactl-config-file (amixer-alsactl-setup))
   (when (or refresh (null amixer-db))
     (amixer-build-db))
@@ -351,7 +350,7 @@ Interactive prefix arg `PROMPT' reads percentage as a number"
         (inhibit-message t))
     (shell-command
      (format "%s set 'Master' '%d%%+'"
-             amixer-program
+             emacspeak-amixer
              (if prompt
                  (read-number "Volume Step:")
                amixer-volume-step)))
@@ -369,7 +368,7 @@ Interactive prefix arg `PROMPT' reads percentage as a number"
         (inhibit-message t))
     (shell-command
      (format "%s set 'Master' '%d%%-'"
-             amixer-program
+             emacspeak-amixer
              (if prompt
                  (read-number "Volume Step:")
                amixer-volume-step)))

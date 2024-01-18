@@ -1529,17 +1529,13 @@ flat classical club dance full-bass full-bass-and-treble
 
 ;;;  YouTube:
 
-(defvar ems--mp-yt-dl
-  (executable-find "youtube-dl")
-  "YouTube download tool")
-
 (defsubst ems--m-p-get-yt-audio-first-fmt (url)
   "First available audio format code for   YT URL"
   (substring
    (shell-command-to-string
     (format
      "%s -F '%s' | grep '^[0-9]'   |grep audio |  head -1 | cut -f 1 -d ' '"
-     ems--mp-yt-dl url))
+     emacspeak-ytdl url))
    0 -1))
 
 (defsubst ems--m-p-get-yt-audio-last-fmt (url)
@@ -1548,7 +1544,7 @@ flat classical club dance full-bass full-bass-and-treble
    (shell-command-to-string
     (format
      "%s -F '%s' | grep '^[0-9]'   | grep audio |tail -1 | cut -f 1 -d ' '"
-     ems--mp-yt-dl url))
+     emacspeak-ytdl url))
    0 -1))
 
 (declare-function emacspeak-google-result-url-prefix "emacspeak-google" nil)

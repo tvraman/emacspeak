@@ -88,6 +88,7 @@ the Emacspeak desktop.")
 ;; DocView
 (declare-function doc-view-open-text "doc-view")
 (with-eval-after-load "gptel"
+  (cl-declare (special gptel-post-response-functions))
   (cl-pushnew  'emacspeak-speak-region gptel-post-response-functions))
 
 (with-eval-after-load "doc-view"

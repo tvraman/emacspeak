@@ -142,6 +142,9 @@ Do not set this by hand;
    (intern theme-name)
    emacspeak-sounds-themes-table))
 
+(defvar emacspeak-paplay (executable-find "paplay" "PaPlay program"))
+(defvar emacspeak-pactl (executable-find "pactl") "PaCtl Executable.")
+
 (defun emacspeak-sounds-get-file (sound-name)
   "Get play arg  that produces  auditory icon SOUND-NAME.
 Fully qualified filename if using Alsa; basename if using pactl. "
@@ -154,7 +157,7 @@ Fully qualified filename if using Alsa; basename if using pactl. "
            (emacspeak-sounds-theme-get-ext emacspeak-sounds-current-theme))
           emacspeak-sounds-current-theme)))
     (if (file-exists-p f)
-        (if (string= emacspeak-play-program (executable-find "pactl"))
+        (if (string= emacspeak-play-program emacspeak-pactl)
             (file-name-nondirectory f) f)
       emacspeak-sounds-default)))
 
@@ -165,6 +168,7 @@ Fully qualified filename if using Alsa; basename if using pactl. "
    ((file-exists-p (expand-file-name "define-theme.el" theme-name))
     (load (expand-file-name "define-theme.el" theme-name)))
    (t (error "Theme %s is missing its configuration file. " theme-name))))
+(defvar emacspeak-pacmd (executable-find "pacmd") "pacmd")
 
 ;;;###autoload
 (defun emacspeak-sounds-select-theme  (&optional theme)
@@ -182,14 +186,14 @@ Fully qualified filename if using Alsa; basename if using pactl. "
     (setq theme  (file-name-directory theme)))
   (unless (file-exists-p theme)
     (error "Theme %s is not installed" theme))
-  (when (string= emacspeak-play-program (executable-find "pactl"))
+  (when (string= emacspeak-play-program emacspeak-pactl)
     (unless
         (member (file-relative-name theme emacspeak-sounds-directory)
                 '("ogg-3d/" "ogg-chimes/"))
       (error "%s: Only ogg-3d or ogg-chimes with Pulse Advanced" theme))
     (shell-command
      (format "%s load-sample-dir-lazy %s"
-             (executable-find "pacmd") theme)))
+             emacspeak-pacmd theme)))
   (setq emacspeak-sounds-current-theme theme)
   (emacspeak-sounds-define-theme-if-necessary theme)
   (emacspeak-auditory-icon 'button)
@@ -197,34 +201,34 @@ Fully qualified filename if using Alsa; basename if using pactl. "
 
 (defcustom emacspeak-play-program
   (or
-   (executable-find "aplay")
-   (executable-find "paplay")
-   (executable-find "play")
-   (executable-find "pactl"))
+   emacspeak-aplay
+   emacspeak-paplay
+   sox-play
+   emacspeak-pactl)
   "Play program."
   :type
   '(choice
-    (const :tag "Alsa" "/usr/bin/aplay")
+    (const :tag "Alsa" emacspeak-aplay)
     (const :tag "Pulse Basic" "/usr/bin/paplay")
     (const  :tag "Pulse Advanced" "/usr/bin/pactl")
-    (const  :tag "SoX" "/usr/bin/play"))
+    (const  :tag "SoX" sox-play))
   :set
   #'(lambda(sym val)
       (cl-declare (special emacspeak-play-args
                            emacspeak-sounds-current-theme))
       (set-default sym val)
       (cond
-       ((string= (executable-find "pactl") val)
+       ((string= emacspeak-pactl val)
         (setq emacspeak-play-args "play-sample")
         (setq emacspeak-sounds-current-theme
               (expand-file-name "ogg-chimes/" emacspeak-sounds-directory)))
-       ((string= (executable-find "paplay") val)
+       ((string= emacspeak-paplay val)
         (setq emacspeak-play-args nil))
-       ((string= (executable-find "aplay") val)
+       ((string= emacspeak-aplay val)
         (setq emacspeak-play-args nil)
         (setq emacspeak-sounds-current-theme
               (expand-file-name "pan-chimes/" emacspeak-sounds-directory)))
-       ((string= (executable-find "play") val)
+       ((string= sox-play val)
         (setq emacspeak-sounds-current-theme
               (expand-file-name "ogg-chimes/" emacspeak-sounds-directory))
         (setq emacspeak-play-args nil))))
@@ -275,9 +279,7 @@ Automatically set to `play-sample' if using pactl.")
        emacspeak-play-program nil emacspeak-play-program
        (emacspeak-sounds-get-file sound-name)))))
 
-(defvar emacspeak-sox (executable-find "sox")
-  
-  "Name of SoX executable.")
+
 
 ;;;   toggle auditory icons
 

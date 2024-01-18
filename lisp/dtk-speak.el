@@ -1538,18 +1538,19 @@ program. Port defaults to dtk-local-server-port"
     (expand-file-name program emacspeak-servers-directory))))
 
 ;;;   initialize the speech process
-
+(defvar dtk-pamixer (executable-find "pamixer") "pamixer")
+(defvar dtk-pulseaudio (executable-find "pulseaudio") "Pulseaudio executable")
 (defsubst tts-notification-from-env ()
   "Compute tts-notification device from env."
   (let* ((result nil)
          (device
           (or                        ; each clause is for a given env:
-           (and (not (executable-find "pulseaudio")) ;pipewire-alsa
+           (and (not dtk-pulseaudio) ;pipewire-alsa
                 (setq result
                       (string-trim
                        (shell-command-to-string "aplay -L | grep mono_right"))))
            (and                         ; pipewire-pulse
-            (executable-find "pamixer")
+            dtk-pamixer
             (setq result
                   (split-string
                    (shell-command-to-string

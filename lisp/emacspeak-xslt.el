@@ -87,9 +87,7 @@
    (read-file-name "XSL Transformation: "
                    emacspeak-xslt-directory
                    emacspeak-we-xsl-transform)))
-(defvar emacspeak-xslt-program
-  (executable-find "xsltproc")
-  "Name of XSLT transformation engine.")
+
 
 (defvar emacspeak-xslt-options
   "--html --nonet --novalid --encoding utf-8"

@@ -67,13 +67,6 @@
   :group 'emacspeak
   :group 'applications)
 
-(defvar sox-edit
-  (executable-find "sox")
-  "Location of SoX utility.")
-
-(defvar sox-play (executable-find "play")
-  "Location of play from SoX utility.")
-
 ;;;  Define Special Mode
 
 (defun sox-effect-at-point (&optional pos)
@@ -245,7 +238,7 @@
         for  p in (sox-effect-params e) do
         (when (cl-second p)(push (cl-second p)  options))))))
     (setq options (nreverse  options))
-    (when (string= action sox-edit) (push save-file options))
+    (when (string= action sox-sox) (push save-file options))
     (apply #'start-process
            "player" "*SOX*"
            action file options)))
@@ -289,8 +282,8 @@
 (defun sox-save(save-file)
   "Save context to  file after prompting."
   (interactive "FSave File: ")
-  (cl-declare (special sox-context sox-edit))
-  (sox-action sox-context sox-edit save-file))
+  (cl-declare (special sox-context sox-sox))
+  (sox-action sox-context sox-sox save-file))
 (defun sox-edit-effect-at-point ()
   "Edit effect at point."
   (interactive)

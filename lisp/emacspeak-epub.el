@@ -174,6 +174,20 @@
   (require 'derived)
   (require 'subr-x))
 (require 'dom)
+;;; Executables:
+;; unzip, wget, zipinfo
+(defvar emacspeak-epub-find
+  (executable-find "find")
+  "Name of find utility.")
+
+(defvar emacspeak-epub-wget (executable-find "wget")
+  "WGet Executable.")
+
+(defvar emacspeak-epub-unzip (executable-find "unzip")
+  "Unzip Executable.")
+
+(defvar emacspeak-epub-zipinfo (executable-find "zipinfo")
+  "Zipinfo Executable.")
 
 ;;;   Customizations, Variables:
 
@@ -187,32 +201,17 @@
   :type 'directory
   :group 'emacspeak-epub)
 
-(defvar emacspeak-epub-zip-extract
-  (cond ((executable-find "unzip") (executable-find "unzip") )
-        (t (message "unzip not found.")
-           nil))
-  "Program to extract a zip file member.")
-
-(defvar emacspeak-epub-wget
-  (executable-find "wget")
-  "WGet program.")
-
-(defvar emacspeak-epub-zip-info
-  (cond ((executable-find "zipinfo") "zipinfo")
-        (t (message "zipinfo not found.")))
-  "Program to examine a zip file.")
-
 ;;;  EPub Implementation:
 ;; Helper: dom from file in archive
 (defsubst emacspeak-epub-dom-from-archive (epub-file file &optional xml-p)
   "Return DOM from specified file in epub archive."
-  (cl-declare (special emacspeak-epub-zip-extract))
+  (cl-declare (special emacspeak-epub-unzip))
   (with-temp-buffer
     (setq buffer-undo-list t)
     (shell-command
      (format
       "%s -c -qq %s %s "
-      emacspeak-epub-zip-extract
+      emacspeak-epub-unzip
       epub-file
       (shell-quote-argument file))
      (current-buffer))
@@ -226,7 +225,7 @@
 
 (defvar emacspeak-epub-toc-command
   (format "%s -1 %%s | grep %s"
-          emacspeak-epub-zip-info
+          emacspeak-epub-zipinfo
           emacspeak-epub-toc-path-pattern)
   "Command that returns location of .ncx file in an epub archive.")
 
@@ -249,7 +248,7 @@
     (with-current-buffer buffer
       (setq buffer-undo-list t)
       (erase-buffer)
-      (call-process emacspeak-epub-zip-extract
+      (call-process emacspeak-epub-unzip
                     nil t nil
                     "-c" "-qq"
                     (emacspeak-epub-shell-unquote (emacspeak-epub-path epub))
@@ -283,7 +282,7 @@
 
 (defvar emacspeak-epub-opf-command
   (format "%s -1 %%s | grep %s"
-          emacspeak-epub-zip-info
+          emacspeak-epub-zipinfo
           emacspeak-epub-opf-path-pattern)
   "Command that returns location of .opf file in an epub archive.")
 
@@ -295,7 +294,7 @@
    0 -1))
 
 (defvar emacspeak-epub-ls-command
-  (format "%s -1 %%s | sort" emacspeak-epub-zip-info)
+  (format "%s -1 %%s | sort" emacspeak-epub-zipinfo)
   "Shell command that returns sorted list of files in an epub archive.")
 
 (defun emacspeak-epub-do-ls (file)
@@ -615,15 +614,13 @@ Letters do not insert themselves; instead, they are commands.
              (unless (file-exists-p filename) (remhash f emacspeak-epub-db)))
     (when updated (emacspeak-epub-bookshelf-save))))
 
-(defvar emacspeak-epub-find-program
-  (executable-find "find")
-  "Name of find utility.")
+
 
 (defun emacspeak-epub-find-epubs-in-directory (directory)
   "Return a list of all epub files under directory dir."
-  (cl-declare (special emacspeak-epub-find-program))
+  (cl-declare (special emacspeak-epub-find))
   (with-temp-buffer
-    (call-process emacspeak-epub-find-program
+    (call-process emacspeak-epub-find
                   nil t nil
                   (expand-file-name directory)
                   "-type" "f"
@@ -820,11 +817,11 @@ When opened, displays a bookshelf consisting of  epubs found at the
 root directory,see \\[emacspeak-epub-mode]"
   (interactive)
   (cl-declare (special emacspeak-epub-interaction-buffer
-                       emacspeak-epub-zip-info
-                       emacspeak-epub-zip-extract))
-  (unless emacspeak-epub-zip-extract
+                       emacspeak-epub-zipinfo
+                       emacspeak-epub-unzip))
+  (unless emacspeak-epub-unzip
     (error "Please install unzip."))
-  (unless emacspeak-epub-zip-info
+  (unless emacspeak-epub-zipinfo
     (error "Please install zipinfo. "))
   (let ((buffer (get-buffer emacspeak-epub-interaction-buffer)))
     (unless (buffer-live-p buffer)
@@ -1052,7 +1049,7 @@ Fetch if needed, or if refresh is T."
   :type 'directory
   :group 'emacspeak-epub)
 
-(defvar   emacspeak-epub-calibre-sqlite
+(defvar   emacspeak-epub-sqlite
   (eval-when-compile (executable-find "sqlite3"))
   "Path to sqlite3.")
 
@@ -1101,7 +1098,7 @@ Searches for matches in both  Title and Author."
 
 (defun emacspeak-epub-calibre-get-results (query)
   "Execute query against Calibre DB, and return parsed results."
-  (cl-declare (special emacspeak-epub-calibre-db emacspeak-epub-calibre-sqlite))
+  (cl-declare (special emacspeak-epub-calibre-db emacspeak-epub-sqlite))
   (let ((fields nil)
         (result nil)
         (calibre (get-buffer-create " *Calibre Results *")))
@@ -1111,7 +1108,7 @@ Searches for matches in both  Title and Author."
       (shell-command
        (format
         "%s -list -separator '@@' %s \"%s\" 2>/dev/null"
-        emacspeak-epub-calibre-sqlite emacspeak-epub-calibre-db query)
+        emacspeak-epub-sqlite emacspeak-epub-calibre-db query)
        calibre)
       (goto-char (point-min))
       (while (not (eobp))

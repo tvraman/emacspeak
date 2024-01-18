@@ -524,7 +524,7 @@ If on a directory, speak the total duration of all sound files under
   that directory."
   (interactive)
   (cl-declare (special emacspeak-media-extensions))
-  (cl-assert (executable-find "soxi")
+  (cl-assert sox-soxi
              t "This command needs soxi installed.")
   (cl-assert (eq major-mode 'dired-mode)
              t "This command is only available in dired buffers.")
