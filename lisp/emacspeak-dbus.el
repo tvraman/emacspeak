@@ -226,7 +226,7 @@ already disabled."
                     "-k" "/dev/snd/*"))))
 
 (add-hook  'emacspeak-dbus-sleep-hook#'emacspeak-dbus-sleep)
-(defvar-local emacspeak-orca (executable-find "orca") "Orca executable")
+(defvar emacspeak-orca (executable-find "orca") "Orca executable")
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
   (cl-declare (special amixer-alsactl-config-file
