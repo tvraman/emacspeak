@@ -2,35 +2,35 @@
 ;;
 ;; $Author: tv.raman.tv $
 ;; DescriptionEmacspeak Preamble
-;; Keywords:emacspeak, audio interface to emacs 
+;; Keywords:emacspeak, audio interface to emacs
 ;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
 ;; A speech interface to Emacs |
-;; 
+;;
 ;;  $Revision: 4532 $ |
 ;; Location https://github.com/tvraman/emacspeak
-;; 
+;;
 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2024, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
-;; 
+;;
 ;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
+;;
 ;; GNU Emacs is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2, or (at your option)
 ;; any later version.
-;; 
+;;
 ;; GNU Emacs is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-;; 
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
@@ -40,14 +40,48 @@
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-(cl-pushnew (file-name-directory load-file-name) load-path :test #'string-equal)
+(cl-pushnew (file-name-directory load-file-name) load-path :test #'string=)
 
 (eval-when-compile (require 'subr-x))
 (require 'advice)
 (put 'defadvice 'byte-obsolete-info nil)
 (setq ad-redefinition-action 'accept)
 ;;;   Define locations
-(require 'emacspeak-exec)
+;; Variable names: emacspeak-<prog> as far as possible
+;; defvar, not defcustom unless absolutely necessary.
+;; amixer
+
+(defvar emacspeak-amixer  (executable-find "amixer") "Amixer program")
+
+;; aplay
+(defvar emacspeak-aplay  (executable-find "aplay") "APlay program")
+
+;; curl:
+(defvar emacspeak-curl-program (executable-find "curl")
+  "Curl.")
+
+;; git:
+
+(defvar emacspeak-git (executable-find "git" "Git Executable"))
+
+;; mpv:
+(defvar emacspeak-mpv-program (executable-find "mpv")
+  "Name of MPV executable.")
+
+;; xsltproc
+(defvar emacspeak-xslt-program (executable-find "xsltproc") "xslt engine")
+
+;; sox, soxi and play
+
+(defvar sox-play (executable-find "play") "Location of play")
+
+(defvar sox-sox (executable-find "sox") "Location of sox")
+
+(defvar sox-soxi (executable-find "soxi") "Location of soxi")
+
+;; youtube-dl
+(defvar emacspeak-ytdl (executable-find "youtube-dl") "Youtube DL Executable")
+
 (defvar emacspeak-directory
   (expand-file-name "../" (file-name-directory load-file-name))
   "emacspeak directory")
@@ -97,7 +131,7 @@
     (let
         ((ext
           '("m3u" "pls"                 ; incorporate playlist ext
-            "flac" "m4a" "m4b"  
+            "flac" "m4a" "m4b"
             "aiff" "aac" "opus" "mkv"
             "ogv" "oga" "ogg" "mp3"  "mp4" "webm" "wav")))
       (concat
@@ -155,7 +189,7 @@
   (let ((ems--interactive-fn-name (ad-get-arg 0)))
     ad-do-it))
 
-;; Beware: Advice on defadvice 
+;; Beware: Advice on defadvice
 (advice-add 'defadvice :around #'ems--generate-interactive-check)
 (defun ems--generate-interactive-check (orig-macro fn-name args &rest body)
   "Lexically redefine ems-interactive-p  to test  ems--interactive-fn-name.
@@ -196,4 +230,3 @@ FN-NAME to our stored value of ems--interactive-fn-name."
 
 (provide  'emacspeak-preamble)
 ;;;   emacs local variables
-

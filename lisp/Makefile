@@ -63,7 +63,6 @@ plain-voices.elc espeak-voices.elc \
 outloud-voices.elc  mac-voices.elc
 
 SPEAK_OBJECTS =   \
-emacspeak-exec.elc \
 voice-setup.elc \
 voice-defs.elc \
 emacspeak-pronounce.elc \
