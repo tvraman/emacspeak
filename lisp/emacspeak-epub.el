@@ -176,9 +176,7 @@
 (require 'dom)
 ;;; Executables:
 ;; unzip, wget, zipinfo
-(defvar emacspeak-epub-find
-  (executable-find "find")
-  "Name of find utility.")
+(defvar emacspeak-epub-find (executable-find "find") "Find utility")
 
 (defvar emacspeak-epub-wget (executable-find "wget")
   "WGet Executable.")

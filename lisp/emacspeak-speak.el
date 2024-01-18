@@ -1568,8 +1568,8 @@ Interactive prefix arg speaks buffer info."
 Optional interactive prefix arg `log-msg' logs spoken info to
 *Messages*."
   (interactive "P")
-  (cl-declare (special minor-mode-alist))
-  (let* ((emacspeak-speak-show-volume (executable-find "amixer"))
+  (cl-declare (special minor-mode-alist ems--vol-cmd))
+  (let* ((emacspeak-speak-show-volume ems--vol-cmd)
          (info (format-mode-line minor-mode-alist)))
     (when log-msg (ems--log-message info))
     (tts-with-punctuations 'some

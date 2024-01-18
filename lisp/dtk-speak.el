@@ -1582,7 +1582,7 @@ Set to nil to disable a separate Notification stream."
 
 (defvar tts-audio-env-var
   (cond
-   ((executable-find "pulseaudio") "PULSE_SINK")
+   (dtk-pulseaudio "PULSE_SINK")
    (t "ALSA_DEFAULT"))
   "Environment  variable for TTS output; PULSE_SINK if running
   pulseaudio, otherwise ALSA_DEFAULT for both plain ALSA and

@@ -226,7 +226,7 @@ already disabled."
                     "-k" "/dev/snd/*"))))
 
 (add-hook  'emacspeak-dbus-sleep-hook#'emacspeak-dbus-sleep)
-
+(defvar-local emacspeak-orca (executable-find "orca") "Orca executable")
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
   (cl-declare (special amixer-alsactl-config-file
@@ -236,7 +236,7 @@ already disabled."
    (tts-restart)
    (emacspeak-prompt "waking-up")
    (amixer-restore amixer-alsactl-config-file)
-   (when (executable-find "orca")
+   (when emacspeak-orca
      (emacspeak-orca-toggle))
    (when (featurep 'soundscape) (soundscape-restart))
    (when (featurep 'light) (light-black))

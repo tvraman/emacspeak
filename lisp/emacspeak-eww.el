@@ -2242,7 +2242,6 @@ via command `org-insert-link' bound to \\[org-insert-link]."
 (defvar emacspeak-eww-url-shell-commands
   (delete nil
           (list
-                                        ;(executable-find "mpv")
            (expand-file-name "cbox" emacspeak-etc-directory)))
   "Shell commands we permit on URL under point.")
 
