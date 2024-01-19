@@ -290,7 +290,9 @@ with duplicates removed when saving as a list of string."
  #'emacspeak-feeds-rss-display)
 ;;; Google Emacspeak Site:
 
-(declare-function emacspeak-websearch-accessible-google "emacspeak-websearch" (query &optional options))
+(declare-function
+ emacspeak-websearch-accessible-google
+ "emacspeak-websearch" (query &optional options))
 
 
 (emacspeak-url-template-define
