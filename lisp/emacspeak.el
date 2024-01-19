@@ -371,8 +371,7 @@ This cannot be set via custom; set this in your startup file before
     (start-process
      "mp3" nil
      emacspeak-m-player-program
-     (expand-file-name "emacspeak.mp3"
-                       emacspeak-sounds-directory))))
+     emacspeak-icon)))
 
 
 (defsubst emacspeak-easter-egg ()
