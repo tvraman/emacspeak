@@ -148,6 +148,7 @@
 * emacspeak-pianobar::Speech-enable Pandora.
 * emacspeak-pipewire::Speech-enable PIPEWIRE.
 * emacspeak-popup::Speech-enable POPUP.
+* emacspeak-preamble::standard  include.
 * emacspeak-proced::Speech-enable PROCED.
 * emacspeak-project::Speech-enable PROJECT.
 * emacspeak-projectile::PROJECTILE.
@@ -11239,6 +11240,13 @@ PIPEWIRE ==  Pipewire Interaction from Emacs.
 @section emacspeak-popup
 
 POPUP ==  popup.el from MELPA
+
+@node emacspeak-preamble
+@section emacspeak-preamble
+
+Module that is preloaded by every emacspeak module.
+1.  Defines key macros.
+2. Defines location-related variables.
 
 @node emacspeak-proced
 @section emacspeak-proced
