@@ -50,23 +50,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;;   xslt Environment:
-(defsubst emacspeak-xslt-get (style)
-  "Return  stylesheet path."
-  (expand-file-name style emacspeak-xslt-directory))
-
-(defconst emacspeak-opml-view-xsl
-  (eval-when-compile  (emacspeak-xslt-get "opml.xsl"))
-  "XSL stylesheet used for viewing OPML  Feeds.")
-
-(defconst emacspeak-rss-view-xsl
-  (eval-when-compile  (emacspeak-xslt-get "rss.xsl"))
-  "XSL stylesheet used for viewing RSS Feeds.")
-
-(defconst emacspeak-atom-view-xsl
-  (eval-when-compile  (emacspeak-xslt-get "atom.xsl"))
-  "XSL stylesheet used for viewing Atom Feeds.")
-
 (defun emacspeak-xslt-params-from-xpath (path base)
   "Return params suitable for passing to  emacspeak-xslt-region"
   (list
@@ -400,19 +383,19 @@ and return the results in a newly created buffer. "
 (defun emacspeak-xslt-view-rss-file (file)
   "View RSS file."
   (interactive "fRSS File:")
-  (cl-declare (special emacspeak-rss-view-xsl))
+  (cl-declare (special emacspeak-rss-xsl))
   (funcall-interactively
    'emacspeak-xslt-view-file
-   emacspeak-rss-view-xsl file))
+   emacspeak-rss-xsl file))
 
 ;;;###autoload
 (defun emacspeak-xslt-view-atom-file (file)
   "View Atom file."
   (interactive "fAtom File:")
-  (cl-declare (special emacspeak-atom-view-xsl))
+  (cl-declare (special emacspeak-atom-xsl))
   (funcall-interactively
    'emacspeak-xslt-view-file
-   emacspeak-atom-view-xsl file))
+   emacspeak-atom-xsl file))
 
 ;;;###autoload
 (defun emacspeak-xslt-view (style url)

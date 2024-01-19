@@ -412,7 +412,7 @@ Useful if table of contents in toc.ncx is empty."
        'at-end)
       (browse-url-of-buffer))))
 
-(defvar epub-toc-xsl (emacspeak-xslt-get "epub-toc.xsl")
+(defconst epub-toc-xsl (emacspeak-xslt-get "epub-toc.xsl")
   "XSL to process .ncx file.")
 
 (defun emacspeak-epub-browse-toc (epub)

@@ -1080,7 +1080,7 @@ Target location is generated from author and title."
                 'auditory-icon 'item))
     (message "Unpacked content.")))
 
-(defvar emacspeak-bookshare-xslt
+(defconst emacspeak-bookshare-xslt
   "daisyTransform.xsl"
   "Name of bookshare  XSL transform.")
 
@@ -1093,7 +1093,7 @@ Target location is generated from author and title."
      ((file-exists-p xsl) xsl)
      (t (expand-file-name emacspeak-bookshare-xslt emacspeak-xslt-directory)))))
 
-(defvar emacspeak-bookshare-toc-xslt
+(defconst emacspeak-bookshare-toc-xslt
   "bookshare-toc.xsl"
   "Name of bookshare supplied XSL transform.")
 

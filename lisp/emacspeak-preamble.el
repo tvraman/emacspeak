@@ -153,6 +153,25 @@
       (list ".m3u" ".asx" ".pls"  ".ram"))
      "$"))
   "Playlist pattern.")
+
+
+;;;   xslt Environment:
+(defsubst emacspeak-xslt-get (style)
+  "Return  stylesheet path."
+  (expand-file-name style emacspeak-xslt-directory))
+
+(defconst emacspeak-opml-xsl
+  (eval-when-compile  (emacspeak-xslt-get "opml.xsl"))
+  "XSL stylesheet used for viewing OPML  Feeds.")
+
+(defconst emacspeak-rss-xsl
+  (eval-when-compile  (emacspeak-xslt-get "rss.xsl"))
+  "XSL stylesheet used for viewing RSS Feeds.")
+
+(defconst emacspeak-atom-xsl
+  (eval-when-compile  (emacspeak-xslt-get "atom.xsl"))
+  "XSL stylesheet used for viewing Atom Feeds.")
+
 ;;; Pull in core libraries:
 (mapc
  #'require
