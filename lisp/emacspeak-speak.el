@@ -2888,4 +2888,32 @@ Use `,' and `.' to continuously decrease/increase `selective-display'.
            (emacspeak-speak-windowful))
          (sox-multiwindow 'swap 1.25)) 0 'local)))
 
+;;; Bug Reporter:
+(defconst emacspeak-bug-address "emacspeak@emacspeak.net" "List address")
+
+(defun emacspeak-submit-bug ()
+  "Function to submit a bug to the Emacspeak list"
+  (interactive)
+  (require 'reporter)
+  (when
+      (yes-or-no-p "Are you sure you want to submit a bug report? ")
+    (let ((vars
+           '(
+             window-system window-system-version emacs-version system-type
+             emacspeak-version emacspeak-show-point
+             dtk-program dtk-speech-rate dtk-character-scale
+             dtk-split-caps dtk-punctuation-mode visual-line-mode
+             emacspeak-line-echo  emacspeak-word-echo emacspeak-character-echo 
+             emacspeak-auditory-icon-function emacspeak-audio-indentation )))
+      (mapc
+       #'(lambda (x)
+           (if (not (and (boundp x) (symbol-value x)))
+               (setq vars (delq x vars))))
+       vars)
+      (reporter-submit-bug-report
+       emacspeak-bug-address 
+       (concat "Emacspeak Version: " emacspeak-version )
+       vars nil nil
+       "Description of Problem:"))))
+
 ;;;  end of file
