@@ -183,7 +183,10 @@
     (if (and emacspeak-git
              (file-exists-p (expand-file-name ".git" emacspeak-directory)))
         (propertize
-         (shell-command-to-string "git show -s --pretty=format:%h HEAD ")
+         (substring
+          (shell-command-to-string "git show -s --pretty=format:%h
+  HEAD ")
+          0 7)
          'personality 'acss-s4-r6)
       "")))
 
