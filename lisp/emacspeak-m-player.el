@@ -347,8 +347,8 @@ Controls media playback when already playing.
 
 (defsubst emacspeak-m-player-playlist-p (resource)
   "Check if specified resource matches a playlist type."
-  (cl-declare (special emacspeak-m-player-playlist-pattern))
-  (string-match emacspeak-m-player-playlist-pattern resource))
+  (cl-declare (special emacspeak-playlist-pattern))
+  (string-match emacspeak-playlist-pattern resource))
 
 (defun emacspeak-m-player-bind-hotkey (directory key)
   "Binds key to invoke m-player  on specified directory."

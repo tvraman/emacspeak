@@ -36,16 +36,23 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
+;;; Commentary:
+;; Module that is preloaded by every emacspeak module.
+;; 1.  Defines key macros.
+;; 2. Defines location-related variables.
+;;; Code:
+
 ;;;  Define Locations, Require modules
 
-(eval-when-compile (require 'cl-lib))
+(eval-when-compile (require 'cl-lib)
+                   (require 'subr-x))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (cl-pushnew (file-name-directory load-file-name) load-path :test #'string=)
 
-(eval-when-compile (require 'subr-x))
 (require 'advice)
 (put 'defadvice 'byte-obsolete-info nil)
 (setq ad-redefinition-action 'accept)
+
 ;;;   Define locations
 ;; Variable names: emacspeak-<prog> as far as possible
 ;; defvar, not defcustom unless absolutely necessary.
@@ -57,16 +64,13 @@
 (defvar emacspeak-aplay  (executable-find "aplay") "APlay program")
 
 ;; curl:
-(defvar emacspeak-curl-program (executable-find "curl")
-  "Curl.")
+(defvar emacspeak-curl-program (executable-find "curl") "Curl.")
 
 ;; git:
-
 (defvar emacspeak-git (executable-find "git" "Git Executable"))
 
 ;; mpv:
-(defvar emacspeak-mpv-program (executable-find "mpv")
-  "Name of MPV executable.")
+(defvar emacspeak-mpv-program (executable-find "mpv") "MPV executable")
 
 ;; xsltproc
 (defvar emacspeak-xslt-program (executable-find "xsltproc") "xslt engine")
@@ -81,7 +85,9 @@
 
 ;; youtube-dl
 (defvar emacspeak-ytdl (executable-find "youtube-dl") "Youtube DL Executable")
+;; where we live:
 
+;;;###autoload
 (defvar emacspeak-directory
   (expand-file-name "../" (file-name-directory load-file-name))
   "emacspeak directory")
@@ -123,7 +129,6 @@
 (defvar emacspeak-readme-file
   (expand-file-name "README" emacspeak-directory)
   "README.")
-;;;###autoload
 
 ;;;###autoload
 (defvar emacspeak-media-extensions
@@ -141,13 +146,14 @@
   "Media Extensions.")
 
 ;;;###autoload
-(defvar  emacspeak-m-player-playlist-pattern
+(defvar  emacspeak-playlist-pattern
   (eval-when-compile
     (concat
      (regexp-opt
       (list ".m3u" ".asx" ".pls"  ".ram"))
      "$"))
   "Playlist pattern.")
+;;; Pull in core libraries:
 
 (require 'dtk-speak)
 (require 'voice-setup)
@@ -157,9 +163,7 @@
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 
-;;;  Interactive Check Implementation:
-
-;;; Notes:
+;;;  Interactive Check Implementation Explained:
 
 ;; The implementation from 2014 worked for emacspeak.  it has been
 ;; moved to obsolete/old-emacspeak-preamble.el to avoid the fragility
@@ -173,13 +177,14 @@
 ;; for the top-level call, not for any further recursive calls of the
 ;; function.
 
-;;; Design:
+;;;; Design:
 ;; Advice on funcall-interactively stores the name of the
 ;; interactive command being run.
 ;; The defadvice macro  itself has a defadvice  to generate a locally bound
 ;; predicate that ensures that ems-interactive-p is only called from
 ;; within emacspeak advice forms.
 ;; Thus, ems-interactive-p is reserved for use within Emacspeak advice.
+;;; Implementation: Interactive Check:
 
 (defvar ems--interactive-fn-name nil
   "Holds name of function being called interactively.")
@@ -191,6 +196,7 @@
 
 ;; Beware: Advice on defadvice
 (advice-add 'defadvice :around #'ems--generate-interactive-check)
+
 (defun ems--generate-interactive-check (orig-macro fn-name args &rest body)
   "Lexically redefine ems-interactive-p  to test  ems--interactive-fn-name.
 The local definition expands to a call to `eq' that compares
