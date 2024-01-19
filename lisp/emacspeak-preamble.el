@@ -130,6 +130,11 @@
   (expand-file-name "README" emacspeak-directory)
   "README.")
 
+(defconst emacspeak-icon
+  (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)
+  "Emacspeak startup icon.")
+
+
 ;;;###autoload
 (defconst emacspeak-media-extensions
   (eval-when-compile
@@ -171,6 +176,20 @@
 (defconst emacspeak-atom-xsl
   (eval-when-compile  (emacspeak-xslt-get "atom.xsl"))
   "XSL stylesheet used for viewing Atom Feeds.")
+;;; Git Revision:
+(defun emacspeak-get-revision ()
+  "Get SHA checksum of current revision that is suitable for spoken output."
+  (let ((default-directory emacspeak-directory))
+    (if (and emacspeak-git
+             (file-exists-p (expand-file-name ".git" emacspeak-directory)))
+        (propertize
+         (shell-command-to-string "git show -s --pretty=format:%h HEAD ")
+         'personality 'acss-s4-r6)
+      "")))
+
+(defconst emacspeak-git-revision
+  (emacspeak-get-revision)
+  "Git Revision")
 
 ;;; Pull in core libraries:
 (mapc

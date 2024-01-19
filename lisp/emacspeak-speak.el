@@ -1776,19 +1776,8 @@ Seconds value is also placed in the kill-ring."
 (defvar emacspeak-codename
   (propertize "VirtualDog" 'face 'bold)
   "Code name of present release.")
-
-(defun emacspeak-setup-get-revision ()
-  "Get SHA checksum of current revision that is suitable for spoken output."
-  (let ((default-directory emacspeak-directory))
-    (if (and emacspeak-git
-             (file-exists-p (expand-file-name ".git" emacspeak-directory)))
-        (propertize
-         (shell-command-to-string "git show -s --pretty=format:%h HEAD ")
-         'personality voice-smoothen)
-      "")))
-
 (defvar emacspeak-version
-  (concat "59.0,   " emacspeak-codename)
+(concat "59.0,   " emacspeak-codename emacspeak-git-revision)
   "Version number for Emacspeak.")
 
 (defun emacspeak-speak-version (&optional speak-rev)
@@ -1809,8 +1798,8 @@ Optional interactive prefix arg `speak-rev' speaks only the Git revision."
       (concat
        signature
        (if speak-rev
-           (emacspeak-setup-get-revision)
-         (concat emacspeak-version " " (emacspeak-setup-get-revision))))))))
+           emacspeak-git-revision
+         (concat emacspeak-version " " emacspeak-git-revision)))))))
 
 (defun emacspeak-speak-current-kill (&optional count)
   "Speak the current kill.
@@ -2910,8 +2899,7 @@ Use `,' and `.' to continuously decrease/increase `selective-display'.
        vars)
       (reporter-submit-bug-report
        emacspeak-bug-address 
-       (concat
-        "Emacspeak: " emacspeak-version (emacspeak-setup-get-revision) )
+       (concat "Emacspeak: " emacspeak-version emacspeak-git-revision )
        vars nil nil
        "Description of Problem:"))))
 
