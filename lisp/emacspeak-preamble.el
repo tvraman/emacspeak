@@ -42,7 +42,7 @@
 ;; 2. Defines location-related variables.
 ;;; Code:
 
-;;;  Define Locations, Require modules
+;;;  cl:
 
 (eval-when-compile (require 'cl-lib)
                    (require 'subr-x))
@@ -154,14 +154,11 @@
      "$"))
   "Playlist pattern.")
 ;;; Pull in core libraries:
-
-(require 'dtk-speak)
-(require 'voice-setup)
-(require 'voice-defs)
-(require 'emacspeak-pronounce)
-(require 'emacspeak-keymap)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
+(mapc
+ #'require
+ '(
+   dtk-speak voice-setup voice-defs
+   emacspeak-pronounce emacspeak-keymap emacspeak-speak emacspeak-sounds))
 
 ;;;  Interactive Check Implementation Explained:
 
