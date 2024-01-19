@@ -1780,13 +1780,11 @@ Seconds value is also placed in the kill-ring."
 (concat "59.0,   " emacspeak-codename emacspeak-git-revision)
   "Version number for Emacspeak.")
 
-(defun emacspeak-speak-version (&optional speak-rev)
+(defun emacspeak-speak-version (&optional speak-rev )
   "Announce version information for running emacspeak.
 Optional interactive prefix arg `speak-rev' speaks only the Git revision."
   (interactive "P")
-  (cl-declare (special
-               emacspeak-version emacspeak-icon
-               emacspeak-m-player-program emacspeak-use-auditory-icons))
+  (cl-declare (special emacspeak-use-auditory-icons))
   (let ((signature "Emacspeak "))
     (when
         (and (null speak-rev) emacspeak-use-auditory-icons
@@ -1799,7 +1797,7 @@ Optional interactive prefix arg `speak-rev' speaks only the Git revision."
        signature
        (if speak-rev
            emacspeak-git-revision
-         (concat emacspeak-version " " emacspeak-git-revision)))))))
+          emacspeak-version))))))
 
 (defun emacspeak-speak-current-kill (&optional count)
   "Speak the current kill.
