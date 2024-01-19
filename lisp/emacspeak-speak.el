@@ -1795,16 +1795,14 @@ Seconds value is also placed in the kill-ring."
   "Announce version information for running emacspeak.
 Optional interactive prefix arg `speak-rev' speaks only the Git revision."
   (interactive "P")
-  (cl-declare (special emacspeak-version emacspeak-sounds-directory
-                       emacspeak-m-player-program
-                       emacspeak-use-auditory-icons))
+  (cl-declare (special
+               emacspeak-version emacspeak-icon
+               emacspeak-m-player-program emacspeak-use-auditory-icons))
   (let ((signature "Emacspeak "))
     (when
         (and (null speak-rev) emacspeak-use-auditory-icons
              emacspeak-m-player-program)
-      (start-process
-       "mp3" nil "mplayer"
-       (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)))
+      (start-process "mp3" nil "mplayer" emacspeak-icon))
     (tts-with-punctuations
      'some
      (dtk-speak-and-echo
@@ -2912,7 +2910,8 @@ Use `,' and `.' to continuously decrease/increase `selective-display'.
        vars)
       (reporter-submit-bug-report
        emacspeak-bug-address 
-       (concat "Emacspeak Version: " emacspeak-version )
+       (concat
+        "Emacspeak: " emacspeak-version (emacspeak-setup-get-revision) )
        vars nil nil
        "Description of Problem:"))))
 
