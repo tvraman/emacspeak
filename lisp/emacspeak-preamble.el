@@ -55,83 +55,83 @@
 
 ;;;   Define locations
 ;; Variable names: emacspeak-<prog> as far as possible
-;; defvar, not defcustom unless absolutely necessary.
+;; defconst, not defcustom unless absolutely necessary.
 ;; amixer
 
-(defvar emacspeak-amixer  (executable-find "amixer") "Amixer program")
+(defconst emacspeak-amixer  (executable-find "amixer") "Amixer program")
 
 ;; aplay
-(defvar emacspeak-aplay  (executable-find "aplay") "APlay program")
+(defconst emacspeak-aplay  (executable-find "aplay") "APlay program")
 
 ;; curl:
-(defvar emacspeak-curl-program (executable-find "curl") "Curl.")
+(defconst emacspeak-curl-program (executable-find "curl") "Curl.")
 
 ;; git:
-(defvar emacspeak-git (executable-find "git" "Git Executable"))
+(defconst emacspeak-git (executable-find "git" "Git Executable"))
 
 ;; mpv:
-(defvar emacspeak-mpv-program (executable-find "mpv") "MPV executable")
+(defconst emacspeak-mpv-program (executable-find "mpv") "MPV executable")
 
 ;; xsltproc
-(defvar emacspeak-xslt-program (executable-find "xsltproc") "xslt engine")
+(defconst emacspeak-xslt-program (executable-find "xsltproc") "xslt engine")
 
 ;; sox, soxi and play
 
-(defvar sox-play (executable-find "play") "Location of play")
+(defconst sox-play (executable-find "play") "Location of play")
 
-(defvar sox-sox (executable-find "sox") "Location of sox")
+(defconst sox-sox (executable-find "sox") "Location of sox")
 
-(defvar sox-soxi (executable-find "soxi") "Location of soxi")
+(defconst sox-soxi (executable-find "soxi") "Location of soxi")
 
 ;; youtube-dl
-(defvar emacspeak-ytdl (executable-find "youtube-dl") "Youtube DL Executable")
+(defconst emacspeak-ytdl (executable-find "youtube-dl") "Youtube DL Executable")
 ;; where we live:
 
 ;;;###autoload
-(defvar emacspeak-directory
+(defconst emacspeak-directory
   (expand-file-name "../" (file-name-directory load-file-name))
   "emacspeak directory")
 
 ;;;###autoload
-(defvar emacspeak-lisp-directory
+(defconst emacspeak-lisp-directory
   (expand-file-name  "lisp/" emacspeak-directory)
   "Lisp directory.")
 
 ;;;###autoload
-(defvar emacspeak-sounds-directory
+(defconst emacspeak-sounds-directory
   (expand-file-name  "sounds/" emacspeak-directory)
   "Auditory icons directory.")
 
 ;;;###autoload
-(defvar emacspeak-xslt-directory
+(defconst emacspeak-xslt-directory
   (expand-file-name "xsl/" emacspeak-directory)
   "XSLT.")
 
 ;;;###autoload
-(defvar emacspeak-etc-directory
+(defconst emacspeak-etc-directory
   (expand-file-name  "etc/" emacspeak-directory)
   "Misc.")
 
 ;;;###autoload
-(defvar emacspeak-servers-directory
+(defconst emacspeak-servers-directory
   (expand-file-name  "servers/" emacspeak-directory)
   "Speech servers.")
 
 ;;;###autoload
-(defvar emacspeak-info-directory
+(defconst emacspeak-info-directory
   (expand-file-name  "info/" emacspeak-directory)
   "Info")
 
 ;;;###autoload
-(defvar emacspeak-user-directory (expand-file-name "~/.emacspeak/")
+(defconst emacspeak-user-directory (expand-file-name "~/.emacspeak/")
   "Resources.")
 
-(defvar emacspeak-readme-file
+(defconst emacspeak-readme-file
   (expand-file-name "README" emacspeak-directory)
   "README.")
 
 ;;;###autoload
-(defvar emacspeak-media-extensions
+(defconst emacspeak-media-extensions
   (eval-when-compile
     (let
         ((ext
@@ -146,7 +146,7 @@
   "Media Extensions.")
 
 ;;;###autoload
-(defvar  emacspeak-playlist-pattern
+(defconst  emacspeak-playlist-pattern
   (eval-when-compile
     (concat
      (regexp-opt

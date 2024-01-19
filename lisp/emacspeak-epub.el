@@ -176,15 +176,15 @@
 (require 'dom)
 ;;; Executables:
 ;; unzip, wget, zipinfo
-(defvar emacspeak-epub-find (executable-find "find") "Find utility")
+(defconst emacspeak-epub-find (executable-find "find") "Find utility")
 
-(defvar emacspeak-epub-wget (executable-find "wget")
+(defconst emacspeak-epub-wget (executable-find "wget")
   "WGet Executable.")
 
-(defvar emacspeak-epub-unzip (executable-find "unzip")
+(defconst emacspeak-epub-unzip (executable-find "unzip")
   "Unzip Executable.")
 
-(defvar emacspeak-epub-zipinfo (executable-find "zipinfo")
+(defconst emacspeak-epub-zipinfo (executable-find "zipinfo")
   "Zipinfo Executable.")
 
 ;;;   Customizations, Variables:
@@ -1047,7 +1047,7 @@ Fetch if needed, or if refresh is T."
   :type 'directory
   :group 'emacspeak-epub)
 
-(defvar   emacspeak-epub-sqlite
+(defconst   emacspeak-epub-sqlite
   (eval-when-compile (executable-find "sqlite3"))
   "Path to sqlite3.")
 

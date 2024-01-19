@@ -60,7 +60,7 @@
 
 
 
-(defvar alsactl-program  (executable-find "alsactl")
+(defconst alsactl-program  (executable-find "alsactl")
   "AlsaCtl program")
 
 (defvar amixer-db nil

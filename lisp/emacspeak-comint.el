@@ -572,7 +572,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
 
 ;;; zoxide:
 ;;; Inspired by zoxide.el
-(defvar emacspeak-comint-zoxide (executable-find "zoxide")
+(defconst emacspeak-comint-zoxide (executable-find "zoxide")
   "Zoxide Executable")
 ;;;###autoload
 (defun emacspeak-zoxide (q)

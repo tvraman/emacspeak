@@ -142,8 +142,8 @@ Do not set this by hand;
    (intern theme-name)
    emacspeak-sounds-themes-table))
 
-(defvar emacspeak-paplay (executable-find "paplay" "PaPlay program"))
-(defvar emacspeak-pactl (executable-find "pactl") "PaCtl Executable.")
+(defconst emacspeak-paplay (executable-find "paplay" "PaPlay program"))
+(defconst emacspeak-pactl (executable-find "pactl") "PaCtl Executable.")
 
 (defun emacspeak-sounds-get-file (sound-name)
   "Get play arg  that produces  auditory icon SOUND-NAME.
@@ -168,7 +168,7 @@ Fully qualified filename if using Alsa; basename if using pactl. "
    ((file-exists-p (expand-file-name "define-theme.el" theme-name))
     (load (expand-file-name "define-theme.el" theme-name)))
    (t (error "Theme %s is missing its configuration file. " theme-name))))
-(defvar emacspeak-pacmd (executable-find "pacmd") "pacmd")
+(defconst emacspeak-pacmd (executable-find "pacmd") "pacmd")
 
 ;;;###autoload
 (defun emacspeak-sounds-select-theme  (&optional theme)

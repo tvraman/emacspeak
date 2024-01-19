@@ -63,7 +63,7 @@
 (defvar g-scratch-buffer" *g scratch*"
   "Scratch buffer we do authentication work.")
 
-(defvar g-curl-program (executable-find "curl")
+(defconst g-curl-program (executable-find "curl")
   "Name of CURL executable.")
 
 (defcustom g-atom-view-xsl

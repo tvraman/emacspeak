@@ -95,7 +95,7 @@
 (require 'nvm "nvm" 'no-error)
 
 ;;;  Customizations And Variables:
-(defvar emacspeak-maths-node (executable-find "node") "Node
+(defconst emacspeak-maths-node (executable-find "node") "Node
 executable")
 
 (defvar emacspeak-maths-inferior-program
