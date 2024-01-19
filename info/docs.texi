@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1154 commands and 146 options.
+This chapter documents a total of 1155 commands and 146 options.
 
 @node amixer
 @section amixer
@@ -13347,6 +13347,15 @@ Optional second arg ‘set’ sets the TZ environment variable as well.
 @end format
 @end deffn
 
+@subsubsection emacspeak-submit-bug
+@deffn {Command} emacspeak-submit-bug   
+@findex emacspeak-submit-bug
+
+@format
+Function to submit a bug to the Emacspeak list
+@end format
+@end deffn
+
 @subsubsection emacspeak-switch-to-reference-buffer
 @deffn {Command} emacspeak-switch-to-reference-buffer   
 @findex emacspeak-switch-to-reference-buffer
@@ -17004,7 +17013,8 @@ Browse  Emacspeak productivity tips.
 @findex emacspeak-wizards-bbc-iplayer
 
 @format
-Browse BBC Schedule from get_iplayer radio cache
+Browse BBC Schedule from get_iplayer radio cache.
+Bug: First run fails to bind keys.   Works on subsequent runs.
 @end format
 @end deffn
 
@@ -20442,7 +20452,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 59 URL Templates.
+This section documents a total of 60 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -20496,7 +20506,9 @@ CNN Money@item @b{cricinfo print}
 
 Printer friendly   link on Cricinfo@item @b{dictionary lookup}
 
-Dictionary Lookup@item @b{finance  google}
+Dictionary Lookup@item @b{emacspeak search via google}
+
+Search Emacspeak Site@item @b{finance  google}
 
 Lookup ticker on Google Finance.@item @b{finance summary from google}
 

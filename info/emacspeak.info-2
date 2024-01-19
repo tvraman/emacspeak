@@ -5528,14 +5528,21 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn ZONE &optional SET)
 
-12.180.1.93 emacspeak-switch-to-reference-buffer
+12.180.1.93 emacspeak-submit-bug
+................................
+
+ -- Command: emacspeak-submit-bug
+
+     Function to submit a bug to the Emacspeak list
+
+12.180.1.94 emacspeak-switch-to-reference-buffer
 ................................................
 
  -- Command: emacspeak-switch-to-reference-buffer
 
      Switch back to buffer that generated completions.
 
-12.180.1.94 emacspeak-toggle-audio-indentation
+12.180.1.95 emacspeak-toggle-audio-indentation
 ..............................................
 
  -- Command: emacspeak-toggle-audio-indentation (&optional prefix)
@@ -5549,7 +5556,7 @@ of emacspeak from becoming dependent on the speech server modules
      line’s indentation.  Specifying ‘speak’
      results in the number of initial spaces being spoken.
 
-12.180.1.95 emacspeak-toggle-character-echo
+12.180.1.96 emacspeak-toggle-character-echo
 ...........................................
 
  -- Command: emacspeak-toggle-character-echo (&optional prefix)
@@ -5559,14 +5566,14 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.180.1.96 emacspeak-toggle-header-line
+12.180.1.97 emacspeak-toggle-header-line
 ........................................
 
  -- Command: emacspeak-toggle-header-line
 
      Toggle Emacspeak’s default header line.
 
-12.180.1.97 emacspeak-toggle-line-echo
+12.180.1.98 emacspeak-toggle-line-echo
 ......................................
 
  -- Command: emacspeak-toggle-line-echo (&optional prefix)
@@ -5576,7 +5583,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.180.1.98 emacspeak-toggle-mail-alert
+12.180.1.99 emacspeak-toggle-mail-alert
 .......................................
 
  -- Command: emacspeak-toggle-mail-alert (&optional prefix)
@@ -5588,8 +5595,8 @@ of emacspeak from becoming dependent on the speech server modules
      Turning on this option results in Emacspeak producing an auditory icon
      indicating the arrival  of new mail when displaying the mode line.
 
-12.180.1.99 emacspeak-toggle-show-point
-.......................................
+12.180.1.100 emacspeak-toggle-show-point
+........................................
 
  -- Command: emacspeak-toggle-show-point (&optional prefix)
      ‘C-e C-d’
@@ -5598,7 +5605,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.180.1.100 emacspeak-toggle-speak-line-invert-filter
+12.180.1.101 emacspeak-toggle-speak-line-invert-filter
 ......................................................
 
  -- Command: emacspeak-toggle-speak-line-invert-filter (&optional
@@ -5609,7 +5616,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.180.1.101 emacspeak-toggle-speak-messages
+12.180.1.102 emacspeak-toggle-speak-messages
 ............................................
 
  -- Command: emacspeak-toggle-speak-messages (&optional prefix)
@@ -5617,7 +5624,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Toggle  state of whether emacspeak echoes messages.
 
-12.180.1.102 emacspeak-toggle-word-echo
+12.180.1.103 emacspeak-toggle-word-echo
 .......................................
 
  -- Command: emacspeak-toggle-word-echo (&optional prefix)
@@ -5627,7 +5634,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.180.1.103 emacspeak-view-notifications
+12.180.1.104 emacspeak-view-notifications
 .........................................
 
  -- Command: emacspeak-view-notifications
@@ -5637,7 +5644,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Display notifications.
 
-12.180.1.104 emacspeak-zap-tts
+12.180.1.105 emacspeak-zap-tts
 ..............................
 
  -- Command: emacspeak-zap-tts
@@ -8359,7 +8366,8 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-bbc-iplayer
 
-     Browse BBC Schedule from get_iplayer radio cache
+     Browse BBC Schedule from get_iplayer radio cache.
+     Bug: First run fails to bind keys.   Works on subsequent runs.
 
 12.216.1.30 emacspeak-wizards-bbc-sounds
 ........................................
