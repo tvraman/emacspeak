@@ -60,7 +60,7 @@
 
 
 
-(defconst alsactl-program  (executable-find "alsactl")
+(defconst amixer-alsactl  (executable-find "alsactl")
   "AlsaCtl program")
 
 (defvar amixer-db nil
@@ -221,14 +221,14 @@ to  ~/.emacs.d ")
 ;;;###autoload
 (defun amixer-restore (&optional conf-file)
   "Reset Alsa."
-  (cl-declare (special alsactl-program))
+  (cl-declare (special amixer-alsactl))
   (if conf-file
       (start-process
-       "AlsaCtl" nil alsactl-program
+       "AlsaCtl" nil amixer-alsactl
        "-f" conf-file
        "restore")
     (start-process
-     "AlsaCtl" nil alsactl-program
+     "AlsaCtl" nil amixer-alsactl
      "restore"))
   (dtk-stop 'all)
   (message
@@ -323,11 +323,11 @@ Interactive prefix arg refreshes cache."
 (defun amixer-store()
   "Persist  amixer."
   (interactive)
-  (cl-declare (special  amixer-alsactl-config-file alsactl-program))
+  (cl-declare (special  amixer-alsactl-config-file amixer-alsactl))
   (unless amixer-alsactl-config-file (amixer-alsactl-setup))
   (when amixer-alsactl-config-file
     (start-process
-     "AlsaCtl" nil alsactl-program
+     "AlsaCtl" nil amixer-alsactl
      "-f"amixer-alsactl-config-file
      "store")
     (emacspeak-auditory-icon 'task-done)

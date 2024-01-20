@@ -56,15 +56,13 @@
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
+(require 'emacspeak-preamble)
 (require 'json)
 
 ;;;  Customizations:
 
 (defvar g-scratch-buffer" *g scratch*"
   "Scratch buffer we do authentication work.")
-
-(defconst emacspeak-curl (executable-find "curl")
-  "Name of CURL executable.")
 
 (defcustom g-atom-view-xsl
   (eval-when-compile
