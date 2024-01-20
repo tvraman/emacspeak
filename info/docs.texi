@@ -9558,19 +9558,6 @@ nil
 
 @end defvar
 
-@defvar {User Option} emacspeak-m-player-program
-Media player program.
-
-Default Value: 
-
-@verbatim
-
-"/usr/local/bin/mplayer"
-
-@end verbatim
-
-@end defvar
-
 @defvar {User Option} emacspeak-media-location-bindings
 Map  keys  to launch MPlayer on a  directory.
 
@@ -9579,6 +9566,19 @@ Default Value:
 @verbatim
 
 nil
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} emacspeak-mplayer
+Media player program.
+
+Default Value: 
+
+@verbatim
+
+"/usr/local/bin/mplayer"
 
 @end verbatim
 
@@ -18758,19 +18758,6 @@ nil
 
 @end defvar
 
-@defvar {User Option} g-curl-common-options
-Common options to pass to all Curl invocations.
-
-Default Value: 
-
-@verbatim
-
-"--http1.0 --compressed --silent --location --location-trusted --max-time 4 --connect-timeout 1"
-
-@end verbatim
-
-@end defvar
-
 @defvar {User Option} g-curl-debug
 Set to T to see Curl stderr output.
 
@@ -18779,6 +18766,19 @@ Default Value:
 @verbatim
 
 nil
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} g-curl-options
+Common options to pass to all Curl invocations.
+
+Default Value: 
+
+@verbatim
+
+"--http1.0 --compressed --silent --location --location-trusted --max-time 4 --connect-timeout 1"
 
 @end verbatim
 
