@@ -208,7 +208,7 @@ Optional arg `offset' (default 0) is used for getting more results."
          (result (g-json-get-result
                   (format
                    "%s  %s '%s'"
-                   g-curl-program g-curl-common-options url)))
+                   emacspeak-curl g-curl-options url)))
          (books (g-json-get 'books result)))
     (unless books (message "No results."))
     (emacspeak-auditory-icon 'task-done)
@@ -361,13 +361,13 @@ more results."
   (interactive
    (list
     (emacspeak-eww-read-url)))
-  (cl-declare (special g-curl-program g-curl-common-options
+  (cl-declare (special emacspeak-curl g-curl-options
                        emacspeak-xslt-program))
   (let ((file  (make-temp-file "librivox" nil ".rss"))
         (m3u-file nil))
     (shell-command
      (format "%s %s %s > %s"
-             g-curl-program g-curl-common-options rss-url file))
+             emacspeak-curl g-curl-options rss-url file))
     (setq m3u-file (emacspeak-librivox-get-m3u-name file))
     (shell-command
      (format "%s %s %s > \"%s\""

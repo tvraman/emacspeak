@@ -64,7 +64,7 @@
 (defconst emacspeak-aplay  (executable-find "aplay") "APlay program")
 
 ;; curl:
-(defconst emacspeak-curl-program (executable-find "curl") "Curl.")
+(defconst emacspeak-curl (executable-find "curl") "Curl.")
 
 ;; git:
 (defconst emacspeak-git (executable-find "git" "Git Executable"))

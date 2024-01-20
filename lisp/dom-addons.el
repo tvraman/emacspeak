@@ -147,11 +147,11 @@ ATTRIBUTE would typically be `class', `id' or the like."
 ;;; DOM From URL:
 (defun dom-from-url (url)
   "Return DOM for HTML content at URL."
-  (cl-declare (special g-curl-program g-curl-common-options))
+  (cl-declare (special emacspeak-curl g-curl-options))
   (g-using-scratch
    (shell-command
     (format "%s %s '%s'"
-            g-curl-program g-curl-common-options url)
+            emacspeak-curl g-curl-options url)
     (current-buffer))
    (goto-char (point-min))
    (xml-remove-comments (point-min) (point-max))

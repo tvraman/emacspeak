@@ -399,12 +399,12 @@ with duplicates removed when saving as a list of string."
 (defun emacspeak-url-template-google-atom-news-display (feed-url)
   "View Google Atom news feed pulled using Curl."
   (cl-declare (special emacspeak-atom-xsl
-                       g-curl-program g-curl-common-options))
+                       emacspeak-curl g-curl-options))
   (emacspeak-eww-autospeak)
   (g-display-result
    (format
     "%s %s    '%s' 2>/dev/null"
-    g-curl-program g-curl-common-options feed-url)
+    emacspeak-curl g-curl-options feed-url)
    emacspeak-atom-xsl))
 
 (emacspeak-url-template-define

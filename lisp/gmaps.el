@@ -195,7 +195,7 @@ Optional argument `raw-p' returns raw JSON  object."
   (let ((result
          (g-json-get-result
           (format "%s --max-time 5 --connect-timeout 3 %s '%s'"
-                  g-curl-program g-curl-common-options
+                  emacspeak-curl g-curl-options
                   (gmaps-reverse-geocoder-url
                    (format "%s,%s"
                            (g-json-get 'lat lat-long)

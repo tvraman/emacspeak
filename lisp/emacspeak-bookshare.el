@@ -259,7 +259,7 @@ Argument id specifies content. Argument fmt = 0 for Braille, 1
 
 (defvar emacspeak-bookshare-last-action-uri nil
   "Cache last API call URI.")
-(defvar emacspeak-bookshare-curl-common-options
+(defvar emacspeak-bookshare-curl-options
   " --insecure --location "
   "Common Curl options for Bookshare. Includes --insecure as per
 Bookshare docs.")
@@ -273,8 +273,8 @@ Optional argument `no-auth' says we dont need a user auth."
   (emacspeak-bookshare-get-result
    (format
     "%s %s %s  %s 2>/dev/null"
-    emacspeak-curl-program
-    emacspeak-bookshare-curl-common-options
+    emacspeak-curl
+    emacspeak-bookshare-curl-options
     (if no-auth "" (emacspeak-bookshare-user-password))
     emacspeak-bookshare-last-action-uri)))
 
@@ -286,8 +286,8 @@ Optional argument `no-auth' says we dont need a user auth."
         (emacspeak-bookshare-page-rest-endpoint))
   (emacspeak-bookshare-get-result
    (format "%s %s %s  %s 2>/dev/null"
-           emacspeak-curl-program
-           emacspeak-bookshare-curl-common-options
+           emacspeak-curl
+           emacspeak-bookshare-curl-options
            (emacspeak-bookshare-user-password)
            emacspeak-bookshare-last-action-uri)))
 
@@ -481,8 +481,8 @@ Optional interactive prefix arg prompts for a category to use as a filter."
   (shell-command
    (format
     "%s %s %s  '%s' -o \"%s\""
-    emacspeak-curl-program
-    emacspeak-bookshare-curl-common-options
+    emacspeak-curl
+    emacspeak-bookshare-curl-options
     (emacspeak-bookshare-user-password)
     url
     target)))

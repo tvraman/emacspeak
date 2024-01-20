@@ -63,7 +63,7 @@
 (defvar g-scratch-buffer" *g scratch*"
   "Scratch buffer we do authentication work.")
 
-(defconst g-curl-program (executable-find "curl")
+(defconst emacspeak-curl (executable-find "curl")
   "Name of CURL executable.")
 
 (defcustom g-atom-view-xsl
@@ -74,7 +74,7 @@
   :type 'string
   :group 'g)
 
-(defcustom g-curl-common-options
+(defcustom g-curl-options
   (concat "--http1.0 --compressed --silent --location --location-trusted "
           "--max-time 4 --connect-timeout 1")
   "Common options to pass to all Curl invocations."
@@ -294,7 +294,7 @@ references, poor-man's xpath."
 (defun g-json-from-url (url)
   "Return JSON read from URL."
   (g-json-get-result
-   (format "%s  %s '%s'" g-curl-program g-curl-common-options url)))
+   (format "%s  %s '%s'" emacspeak-curl g-curl-options url)))
 
 (defun g-display-result (command style)
   "Display result retrieved by command using specified style.

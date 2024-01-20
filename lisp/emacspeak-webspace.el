@@ -157,11 +157,11 @@ Generates auditory and visual display."
 (defun emacspeak-webspace-feed-titles (feed-url)
   "Return a list  `((title url)...) given an RSS/Atom  feed  URL."
   (cl-declare (special emacspeak-xslt-directory emacspeak-xslt-program
-                       g-curl-program g-curl-common-options))
+                       emacspeak-curl g-curl-options))
   (with-temp-buffer
     (shell-command
      (format "%s %s %s | %s %s - "
-             g-curl-program g-curl-common-options feed-url
+             emacspeak-curl g-curl-options feed-url
              emacspeak-xslt-program
              (expand-file-name "feed-titles.xsl" emacspeak-xslt-directory))
      (current-buffer))
