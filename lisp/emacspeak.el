@@ -366,24 +366,24 @@ This cannot be set via custom; set this in your startup file before
 (defsubst emacspeak-play-startup-icon ()
   "Play startup icon."
   (cl-declare (special emacspeak-play-startup-icon
-                       emacspeak-m-player-program))
-  (when (and  emacspeak-play-startup-icon emacspeak-m-player-program)
+                       emacspeak-mplayer))
+  (when (and  emacspeak-play-startup-icon emacspeak-mplayer)
     (start-process
      "mp3" nil
-     emacspeak-m-player-program
+     emacspeak-mplayer
      emacspeak-icon)))
 
 
 (defsubst emacspeak-easter-egg ()
   "Easter Egg"
-  (cl-declare (special emacspeak-m-player-program))
+  (cl-declare (special emacspeak-mplayer))
   (let ((f (expand-file-name "etc/ai/01-gemini.mp3" emacspeak-directory)))
     (when
-        (and  emacspeak-play-startup-icon emacspeak-m-player-program
+        (and  emacspeak-play-startup-icon emacspeak-mplayer
               (file-exists-p f)
               (string=                  ; anniversary
                (format-time-string "%m-%d") (format-time-string "04-25")))
-      (start-process "mp3" nil emacspeak-m-player-program f))))
+      (start-process "mp3" nil emacspeak-mplayer f))))
 
 (defvar emacspeak-startup-message
   (eval-when-compile

@@ -249,7 +249,7 @@ Reset immediately after being used.")
   :group 'emacspeak)
 
 ;;;###autoload
-(defcustom emacspeak-m-player-program
+(defcustom emacspeak-mplayer
   (executable-find "mplayer")
   "Media player program."
   :type 'string
@@ -550,7 +550,7 @@ dynamic playlist. "
                emacspeak-m-player-directory
                emacspeak-media-directory-regexp
                emacspeak-media-shortcuts-directory emacspeak-m-player-process
-               emacspeak-m-player-program emacspeak-m-player-options
+               emacspeak-mplayer emacspeak-m-player-options
                emacspeak-m-player-url emacspeak-m-player-url-p
                emacspeak-m-player-custom-filters))
   (when
@@ -606,7 +606,7 @@ dynamic playlist. "
       (setq emacspeak-m-player-process
             (apply
              #'start-process "MPLayer" buffer
-             emacspeak-m-player-program options))
+             emacspeak-mplayer options))
       (set-process-sentinel
        emacspeak-m-player-process #'ems--repeat-sentinel)
       (set-process-filter  emacspeak-m-player-process #'ems--mp-filter)
@@ -694,7 +694,7 @@ necessary."
            (split-string
             (shell-command-to-string
              (format "%s -input cmdlist"
-                     emacspeak-m-player-program))
+                     emacspeak-mplayer))
             "\n" 'omit-nulls)))
       (setq emacspeak-m-player-command-list
             (cl-loop  for c in commands

@@ -314,13 +314,13 @@ Optional interactive PREFIX arg toggles global value."
 (defun emacspeak-prompt (name)
   "Play  prompt for specified name."
   (cl-declare (special emacspeak-prompts-directory
-                       emacspeak-m-player-program))
+                       emacspeak-mplayer))
   (let  ((file (expand-file-name (format "%s.mp3" name)
                                  emacspeak-prompts-directory)))
     (cl-assert (file-exists-p file) t  "File does not exist")
-    (when emacspeak-m-player-program
+    (when emacspeak-mplayer
       (call-process
-       emacspeak-m-player-program nil  0 nil file))))
+       emacspeak-mplayer nil  0 nil file))))
 
 (provide  'emacspeak-sounds)
  

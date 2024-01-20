@@ -1788,7 +1788,7 @@ Optional interactive prefix arg `speak-rev' speaks only the Git revision."
   (let ((signature "Emacspeak "))
     (when
         (and (null speak-rev) emacspeak-use-auditory-icons
-             emacspeak-m-player-program)
+             emacspeak-mplayer)
       (start-process "mp3" nil "mplayer" emacspeak-icon))
     (tts-with-punctuations
      'some
