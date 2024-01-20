@@ -156,13 +156,13 @@ Generates auditory and visual display."
   "How often we fetch from a feed.")
 (defun emacspeak-webspace-feed-titles (feed-url)
   "Return a list  `((title url)...) given an RSS/Atom  feed  URL."
-  (cl-declare (special emacspeak-xslt-directory emacspeak-xslt-program
+  (cl-declare (special emacspeak-xslt-directory emacspeak-xslt
                        emacspeak-curl g-curl-options))
   (with-temp-buffer
     (shell-command
      (format "%s %s %s | %s %s - "
              emacspeak-curl g-curl-options feed-url
-             emacspeak-xslt-program
+             emacspeak-xslt
              (expand-file-name "feed-titles.xsl" emacspeak-xslt-directory))
      (current-buffer))
     (goto-char (point-min))

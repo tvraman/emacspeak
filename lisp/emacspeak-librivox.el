@@ -362,7 +362,7 @@ more results."
    (list
     (emacspeak-eww-read-url)))
   (cl-declare (special emacspeak-curl g-curl-options
-                       emacspeak-xslt-program))
+                       emacspeak-xslt))
   (let ((file  (make-temp-file "librivox" nil ".rss"))
         (m3u-file nil))
     (shell-command
@@ -371,7 +371,7 @@ more results."
     (setq m3u-file (emacspeak-librivox-get-m3u-name file))
     (shell-command
      (format "%s %s %s > \"%s\""
-             emacspeak-xslt-program (emacspeak-xslt-get "rss2m3u.xsl")
+             emacspeak-xslt (emacspeak-xslt-get "rss2m3u.xsl")
              file m3u-file))
     (emacspeak-m-player m3u-file 'playlist)))
 

@@ -70,10 +70,10 @@
 (defconst emacspeak-git (executable-find "git" "Git Executable"))
 
 ;; mpv:
-(defconst emacspeak-mpv-program (executable-find "mpv") "MPV executable")
+(defconst emacspeak-mpv (executable-find "mpv") "MPV executable")
 
 ;; xsltproc
-(defconst emacspeak-xslt-program (executable-find "xsltproc") "xslt engine")
+(defconst emacspeak-xslt (executable-find "xsltproc") "xslt engine")
 
 ;; sox, soxi and play
 

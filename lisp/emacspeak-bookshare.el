@@ -1264,7 +1264,7 @@ Useful for fulltext search in a book."
                                (when (eq major-mode 'dired-mode)
                                  (dired-get-filename))
                                emacspeak-bookshare-directory)))))
-  (cl-declare (special emacspeak-xslt-program))
+  (cl-declare (special emacspeak-xslt))
   (cl-declare (special emacspeak-bookshare-html-to-text-command
                        emacspeak-bookshare-directory))
   (let ((xsl (emacspeak-bookshare-xslt directory))
@@ -1275,7 +1275,7 @@ Useful for fulltext search in a book."
       (setq command
             (format
              "%s  --nonet --novalid %s %s | %s"
-             emacspeak-xslt-program xsl
+             emacspeak-xslt xsl
              (shell-quote-argument
               (cl-first (directory-files directory 'full "\\.xml\\'")))
              emacspeak-bookshare-html-to-text-command))
@@ -1303,7 +1303,7 @@ Useful for fulltext search in a book."
                                  (dired-get-filename))
                                emacspeak-bookshare-directory)))))
   (cl-declare (special eww-data
-                       emacspeak-xslt-program emacspeak-bookshare-directory
+                       emacspeak-xslt emacspeak-bookshare-directory
                        emacspeak-speak-directory-settings
                        emacspeak-bookshare-this-book))
   (let ((xsl (emacspeak-bookshare-xslt directory))
@@ -1314,7 +1314,7 @@ Useful for fulltext search in a book."
       (setq command
             (format
              "%s  --nonet --novalid %s %s "
-             emacspeak-xslt-program xsl
+             emacspeak-xslt xsl
              (shell-quote-argument
               (cl-first (directory-files directory 'full "\\.xml\\'")))))
       (erase-buffer)
