@@ -2897,7 +2897,7 @@ Use `,' and `.' to continuously decrease/increase `selective-display'.
        vars)
       (reporter-submit-bug-report
        emacspeak-bug-address 
-       (concat "Emacspeak: " emacspeak-version emacspeak-git-revision )
+       (concat "Emacspeak: " emacspeak-version)
        vars nil nil
        "Description of Problem:"))))
 
