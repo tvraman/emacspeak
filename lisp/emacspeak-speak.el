@@ -2882,7 +2882,8 @@ Use `,' and `.' to continuously decrease/increase `selective-display'.
   (require 'reporter)
   (when
       (yes-or-no-p "Are you sure you want to submit a bug report? ")
-    (let ((vars
+(let ((reporter-prompt-for-summary-p t)
+          (vars
            '(
              window-system window-system-version emacs-version system-type
              emacspeak-version emacspeak-show-point
