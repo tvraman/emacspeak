@@ -93,15 +93,24 @@
 ;; auditory icons when they execute
 (cl-loop
  for f in
- '(
-   evil-next-line evil-previous-line
-   evil-next-visual-line evil-previous-visual-line)
+ '(evil-next-line evil-previous-line)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)))))
+
+;; read visual lines when moving in visual lines 
+(cl-loop
+ for f in
+ '(evil-next-visual-line evil-previous-visual-line)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-speak-visual-line)))))
 
 (cl-loop
  for f in
