@@ -2879,27 +2879,29 @@ Use `,' and `.' to continuously decrease/increase `selective-display'.
 (defun emacspeak-submit-bug ()
   "Function to submit a bug to the Emacspeak list"
   (interactive)
+(cl-declare (special (reporter-prompt-for-summary-p t)))
   (require 'reporter)
   (when
       (yes-or-no-p "Are you sure you want to submit a bug report? ")
 (let ((reporter-prompt-for-summary-p t)
-          (vars
-           '(
-             window-system window-system-version emacs-version system-type
-             emacspeak-version emacspeak-show-point
-             dtk-program dtk-speech-rate dtk-character-scale
-             dtk-split-caps dtk-punctuation-mode visual-line-mode
-             emacspeak-line-echo  emacspeak-word-echo emacspeak-character-echo 
-             emacspeak-auditory-icon-function emacspeak-audio-indentation )))
-      (mapc
-       #'(lambda (x)
-           (if (not (and (boundp x) (symbol-value x)))
-               (setq vars (delq x vars))))
-       vars)
+      (vars
+       '(
+         window-system window-system-version emacs-version system-type
+         emacspeak-version emacspeak-show-point
+         dtk-program dtk-speech-rate dtk-character-scale
+         dtk-split-caps dtk-punctuation-mode visual-line-mode
+         emacspeak-line-echo  emacspeak-word-echo emacspeak-character-echo 
+         emacspeak-auditory-icon-function emacspeak-audio-indentation )))
+  (mapc
+   #'(lambda (x)
+       (if (not (and (boundp x) (symbol-value x)))
+           (setq vars (delq x vars))))
+   vars)
+  (when  reporter-prompt-for-summary-p ; to appease compiler
       (reporter-submit-bug-report
        emacspeak-bug-address 
        (concat "Emacspeak: " emacspeak-version)
        vars nil nil
-       "Description of Problem:"))))
+       "Description of Problem:")))))
 
 ;;;  end of file
