@@ -11,14 +11,14 @@ Quick Install (requires swift compiler)
 Recommended Settings
 ------------------------------------------------------------------------------
 ```
-  (setq mac-ignore-accessibility 't)
-  (setq dtk-program "swiftmac")
+  (setopt mac-ignore-accessibility 't)
+  (setopt mac-default-speech-rate 250)
+  (setopt dtk-program "swiftmac")
+  (defvar emacspeak-auditory-icon-function #'emacspeak-serve-auditory-icon)
   (setenv "SWIFTMAC_TONE_VOLUME" "0.5")
   (setenv "SWIFTMAC_SOUND_VOLUME" "0.5")
   (setenv "SWIFTMAC_VOICE_VOLUME" "1.0")
-  (defvar emacspeak-auditory-icon-function #'emacspeak-serve-auditory-icon)
   (require 'emacspeak-setup)
-  (dtk-set-rate 250 t)
 ```
 
 Bugs?
