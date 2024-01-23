@@ -650,7 +650,7 @@
     ("e" eww)
     ("f" ffip)
     ("g" rg)
-    ("l" ellama-chat)
+    ("C-l" ellama-chat)
     ("o" emacspeak-feeds-opml-display)
     ("p" emacspeak-wizards-pdf-open)
     ("q" emacspeak-wizards-quotes)
