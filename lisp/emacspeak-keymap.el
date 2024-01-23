@@ -651,6 +651,7 @@
     ("f" ffip)
     ("g" rg)
     ("C-l" ellama-chat)
+    ("l" eww-open-file)
     ("o" emacspeak-feeds-opml-display)
     ("p" emacspeak-wizards-pdf-open)
     ("q" emacspeak-wizards-quotes)
