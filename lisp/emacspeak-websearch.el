@@ -303,13 +303,7 @@ ARGS specifies additional arguments to SPEAKER if any."
   "Perform a Google search.  First optional interactive prefix arg
 `flag' prompts for additional search options. Second interactive
 prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
-  (interactive
-   (list
-    (if (= 16 (prefix-numeric-value current-prefix-arg))
-        
-        (gweb-google-autocomplete)
-      (read-string "Query: "))
-    current-prefix-arg))
+  (interactive (list (gweb-google-autocomplete) current-prefix-arg))
   (cl-declare (special
                emacspeak-google-query
                emacspeak-google-toolbelt
