@@ -338,8 +338,9 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
        'emacspeak-eww-post-process-hook
        #'(lambda ()
            (goto-char (point-min))
-           (search-forward "Search Tools" nil t)
-           (forward-line 1)
+           (emacspeak-eww-next-h)
+           (dtk-stop)
+           (emacspeak-eww-next-h)
            (emacspeak-speak-windowful))
        'at-end)      
       (emacspeak-we-extract-by-id-list
