@@ -1116,6 +1116,16 @@ template."
        "print/\\1"
        (shr-url-at-point nil)))))
 
+
+(emacspeak-url-template-define
+ "ESPN Cricinfo Search"
+ "_" ;() place holder
+ (list "Query: ") nil
+ "Cricinfo Search Using Google"
+ #'(lambda (q)
+     (emacspeak-websearch-google
+      (format "site:cricinfo.com+%s" q))))
+
 ;;; npr:
 
 (declare-function emacspeak-eww-links-rel "emacspeak-eww" nil)
