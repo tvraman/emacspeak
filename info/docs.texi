@@ -8106,6 +8106,7 @@ Default Value:
 @verbatim
 
 (("," eldoc)
+ ("C-l" ellama-chat)
  ("SPC" emacspeak-eww-smart-tabs)
  ("a" emacspeak-feeds-atom-display)
  ("b" sox-binaural)
@@ -8114,7 +8115,7 @@ Default Value:
  ("e" eww)
  ("f" ffip)
  ("g" rg)
- ("l" ellama-chat)
+ ("l" eww-open-file)
  ("o" emacspeak-feeds-opml-display)
  ("p" emacspeak-wizards-pdf-open)
  ("q" emacspeak-wizards-quotes)
@@ -20452,7 +20453,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 60 URL Templates.
+This section documents a total of 61 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -20508,7 +20509,9 @@ Printer friendly   link on Cricinfo@item @b{dictionary lookup}
 
 Dictionary Lookup@item @b{emacspeak search via google}
 
-Search Emacspeak Site@item @b{finance  google}
+Search Emacspeak Site@item @b{espn cricinfo search}
+
+Cricinfo Search Using Google@item @b{finance  google}
 
 Lookup ticker on Google Finance.@item @b{finance summary from google}
 

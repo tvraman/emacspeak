@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 20, 2024.
+last updated on January 26, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2846,6 +2846,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Nex
 11.5 Emacspeak Keybindings On emacspeak-alt-keymap
 ==================================================
 
+‘C-l ellama-chat’
 ‘SPC emacspeak-eww-smart-tabs’
 ‘, eldoc’
 ‘a emacspeak-feeds-atom-display’
@@ -2855,7 +2856,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Nex
 ‘e eww’
 ‘f ffip’
 ‘g rg’
-‘l ellama-chat’
+‘l eww-open-file’
 ‘o emacspeak-feeds-opml-display’
 ‘p emacspeak-wizards-pdf-open’
 ‘q emacspeak-wizards-quotes’

@@ -199,6 +199,7 @@
  @section Emacspeak Keybindings On emacspeak-alt-keymap
 
 @table @kbd
+@item C-l  ellama-chat
 @item SPC  emacspeak-eww-smart-tabs
 @item ,  eldoc
 @item a  emacspeak-feeds-atom-display
@@ -208,7 +209,7 @@
 @item e  eww
 @item f  ffip
 @item g  rg
-@item l  ellama-chat
+@item l  eww-open-file
 @item o  emacspeak-feeds-opml-display
 @item p  emacspeak-wizards-pdf-open
 @item q  emacspeak-wizards-quotes
