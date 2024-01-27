@@ -1476,11 +1476,11 @@ Set by \\[dtk-set-punctuations].")
     (ems--fastload "voice-setup")
     (dtk-initialize)))
 
-(defsubst tts-multistream-p (tts-engine)
+(defsubst tts-multistream-p (engine)
   "Checks if this tts-engine can support multiple streams."
   (cl-declare (special tts-notification-device))
   (and
-   (member tts-engine '("outloud"  "cloud-outloud"))
+   (member engine '("outloud"  "cloud-outloud" "dtk-soft" "cloud-dtk-soft"))
    (not (string= tts-notification-device "default"))))
 
 (defun dtk-cloud ()
