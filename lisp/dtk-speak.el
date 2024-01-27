@@ -1941,14 +1941,6 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
    ((dtk-notify-process)                ; we have a live notifier
     (dtk-notify-apply #'emacspeak-auditory-icon icon))))
 
-(defsubst dtk-get-notify-device ()
-  "Returns name of sound device for use as the notification stream.
-Designed to work with ALSA and Pulseaudio."
-  (cl-declare (special tts-notification-device))
-  (or
-   tts-notification-device
-   (tts-notification-from-env)))
-
 (defun dtk-notify-initialize ()
   "Initialize notification TTS stream."
   (interactive)
