@@ -1583,15 +1583,6 @@ Set to nil to disable a separate Notification stream."
           (string :value ""))
   :group 'tts)
 
-(defvar tts-audio-env-var
-  (cond
-   (dtk-pulseaudio "PULSE_SINK")
-   (t "ALSA_DEFAULT"))
-  "Environment  variable for TTS output; PULSE_SINK if running
-  pulseaudio, otherwise ALSA_DEFAULT for both plain ALSA and
-  pipewire-alsa.  Note that pipewire-pulse is special and also
-  uses PULSE_SINK, but only if pipewire-alsa is not installed.")
-
 ;; Helper: dtk-make-process:
 (defun dtk-make-process (name)
   "Make a  TTS process called name."
@@ -1961,8 +1952,7 @@ Designed to work with ALSA and Pulseaudio."
 (defun dtk-notify-initialize ()
   "Initialize notification TTS stream."
   (interactive)
-  (cl-declare (special dtk-notify-process
-                       tts-audio-env-var tts-notification-device))
+  (cl-declare (special dtk-notify-process tts-notification-device))
   (let ((new nil)
         (dtk-program
          (if (string-match "cloud" dtk-program) "cloud-notify" dtk-program)))
@@ -1972,7 +1962,8 @@ Designed to work with ALSA and Pulseaudio."
         (and (not (string-match "cloud" dtk-program))
              (zerop (length tts-notification-device)))
       (with-environment-variables
-          ((tts-audio-env-var tts-notification-device))
+          (("ALSA_DEFAULT" tts-notification-device)
+           ("PULSE_SINK" tts-notification-device))
         (setq  new (dtk-make-process "Notify"))
         (when (process-live-p new)
           (setq dtk-notify-process new))))))

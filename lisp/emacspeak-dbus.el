@@ -229,21 +229,17 @@ already disabled."
 (defconst emacspeak-orca (executable-find "orca") "Orca executable")
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
-  (cl-declare (special amixer-alsactl-config-file
-                       tts-audio-env-var
-                       tts-notification-device))
+  (cl-declare (special amixer-alsactl-config-file tts-notification-device))
   (ems-with-messages-silenced
    (tts-restart)
    (emacspeak-prompt "waking-up")
    (amixer-restore amixer-alsactl-config-file)
-   (when emacspeak-orca
-     (emacspeak-orca-toggle))
+   (when emacspeak-orca (emacspeak-orca-toggle))
    (when (featurep 'soundscape) (soundscape-restart))
    (when (featurep 'light) (light-black))
    (when
        (dbus-call-method
-        :session
-        "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
+        :session "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
         "org.gnome.ScreenSaver" "GetActive")
      (emacspeak-prompt "pwd")
      (emacspeak-auditory-icon 'help))))
