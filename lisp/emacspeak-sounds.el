@@ -167,16 +167,15 @@ Fully qualified filename if using Alsa. "
    (list
     (read-directory-name "Theme: " emacspeak-sounds-directory)))
   (cl-declare (special emacspeak-sounds-current-theme
-                       emacspeak-sounds-themes-table
-                       emacspeak-play-program
-                       emacspeak-sounds-directory))
+               emacspeak-sounds-themes-table
+               emacspeak-play-program emacspeak-sounds-directory))
   (or theme (setq theme emacspeak-sounds-current-theme))
   (emacspeak-sounds-define-theme-if-necessary theme)
   (unless (file-directory-p theme)
     (setq theme  (file-name-directory theme)))
   (unless (file-exists-p theme)
     (error "Theme %s is not installed" theme))
-  (when (string= emacspeak-play-program emacspeak-pactl)
+  (when (string= emacspeak-play-program emacspeak-pactl) ; load samples
     (unless
         (member (file-relative-name theme emacspeak-sounds-directory)
                 '("ogg-3d/" "ogg-chimes/"))
@@ -192,35 +191,28 @@ Fully qualified filename if using Alsa. "
            (string-trim
             (shell-command-to-string (format "basename %s .ogg" f)))))))
   (setq emacspeak-sounds-current-theme theme)
-  (emacspeak-sounds-define-theme-if-necessary theme)
   (emacspeak-auditory-icon 'button)
   t)
 
 (defcustom emacspeak-play-program
-  (or
-   emacspeak-pactl
-   emacspeak-aplay
-   emacspeak-paplay
-   sox-play)
+  (or emacspeak-pactl emacspeak-aplay emacspeak-paplay sox-play)
   "Play program."
   :type
   '(choice
     (const :tag "Alsa" emacspeak-aplay)
     (const :tag "Pulse Basic" emacspeak-paplay)
-    (const  :tag "Pulse Advanced" "/usr/bin/pactl")
+    (const  :tag "Pulse Advanced" emacspeak-pactl)
     (const  :tag "SoX" sox-play))
   :set
   #'(lambda(sym val)
-      (cl-declare (special emacspeak-play-args
-                           emacspeak-sounds-current-theme))
+      (cl-declare (special emacspeak-play-args emacspeak-sounds-current-theme))
       (set-default sym val)
       (cond
        ((string= emacspeak-pactl val)
         (setq emacspeak-play-args "play-sample")
-        (setq emacspeak-sounds-current-theme
-              (expand-file-name "ogg-chimes/"
-                                emacspeak-sounds-directory)))
+        (setq emacspeak-sounds-current-theme (expand-file-name "ogg-chimes/" emacspeak-sounds-directory)))
        ((string= emacspeak-paplay val)
+        (setq emacspeak-sounds-current-theme (expand-file-name "ogg-chimes/" emacspeak-sounds-directory))
         (setq emacspeak-play-args nil))
        ((string= emacspeak-aplay val)
         (setq emacspeak-play-args nil)
