@@ -181,9 +181,16 @@ Fully qualified filename if using Alsa. "
         (member (file-relative-name theme emacspeak-sounds-directory)
                 '("ogg-3d/" "ogg-chimes/"))
       (error "%s: Only ogg-3d or ogg-chimes with Pulse Advanced" theme))
-    (shell-command
-     (format "%s load-sample-dir-lazy %s"
-             emacspeak-pacmd theme)))
+    (cl-loop
+         for f in 
+         (directory-files emacspeak-sounds-current-theme 'full ".ogg$")
+         do
+         (shell-command
+          (format
+           "%s upload-sample %s %s"
+           emacspeak-pactl (string-trim f)
+           (string-trim
+            (shell-command-to-string (format "basename %s .ogg" f)))))))
   (setq emacspeak-sounds-current-theme theme)
   (emacspeak-sounds-define-theme-if-necessary theme)
   (emacspeak-auditory-icon 'button)
@@ -211,7 +218,8 @@ Fully qualified filename if using Alsa. "
        ((string= emacspeak-pactl val)
         (setq emacspeak-play-args "play-sample")
         (setq emacspeak-sounds-current-theme
-              (expand-file-name "ogg-chimes/" emacspeak-sounds-directory)))
+              (expand-file-name "ogg-chimes/"
+                                emacspeak-sounds-directory)))
        ((string= emacspeak-paplay val)
         (setq emacspeak-play-args nil))
        ((string= emacspeak-aplay val)
