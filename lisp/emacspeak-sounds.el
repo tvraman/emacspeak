@@ -147,7 +147,7 @@ Do not set this by hand;
 
 (defun emacspeak-sounds-get-file (sound-name)
   "Get play arg  that produces  auditory icon SOUND-NAME.
-Fully qualified filename if using Alsa; basename if using pactl. "
+Fully qualified filename if using Alsa. "
   (cl-declare (special emacspeak-sounds-current-theme))
   (let ((f
          (expand-file-name
