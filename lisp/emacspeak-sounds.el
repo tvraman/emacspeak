@@ -264,7 +264,9 @@ Automatically set to `play-sample' if using pactl.")
         (start-process
          emacspeak-play-program nil emacspeak-play-program
          emacspeak-play-args
-         (emacspeak-sounds-get-file sound-name))
+         (if (string= emacspeak-play-program emacspeak-pactl)
+             (symbol-name sound-name)
+             (emacspeak-sounds-get-file sound-name)))
       (start-process
        emacspeak-play-program nil emacspeak-play-program
        (emacspeak-sounds-get-file sound-name)))))
