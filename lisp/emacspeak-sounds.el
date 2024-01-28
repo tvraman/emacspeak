@@ -209,7 +209,7 @@ Fully qualified filename if using Alsa; basename if using pactl. "
   :type
   '(choice
     (const :tag "Alsa" emacspeak-aplay)
-    (const :tag "Pulse Basic" "/usr/bin/paplay")
+    (const :tag "Pulse Basic" emacspeak-paplay)
     (const  :tag "Pulse Advanced" "/usr/bin/pactl")
     (const  :tag "SoX" sox-play))
   :set

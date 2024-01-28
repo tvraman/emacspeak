@@ -54,7 +54,9 @@
   "speak."
   (when (ems-interactive-p)
     (dtk-notify-say "cleared desktop")
+    (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'delete-object)))
+
 (defadvice desktop-save (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
