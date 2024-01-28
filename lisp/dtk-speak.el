@@ -1475,13 +1475,16 @@ Set by \\[dtk-set-punctuations].")
   (when (called-interactively-p 'interactive)
     (ems--fastload "voice-setup")
     (dtk-initialize)))
+(defvar tts-multi-engines
+      '("espeak"  "outloud"   "dtk-soft")
+    "List of TTS engines that are multi capable.")
 
 (defsubst tts-multistream-p (engine)
-  "Checks if this tts-engine can support multiple streams."
-  (cl-declare (special tts-notification-device))
+  "Checks if this tts-engine can support multiple s."
+  (cl-declare (special tts-notification-device tts-multi-engines))
   (and
-   (member engine '("outloud"  "cloud-outloud" "dtk-soft" "cloud-dtk-soft"))
-   (not (string= tts-notification-device "default"))))
+   (not (string= tts-notification-device "default"))
+     (cl-find-if #'(lambda (e) (string-match e engine)) tts-multi-engines)))
 
 (defun dtk-cloud ()
   "Select  Cloud TTS server."
