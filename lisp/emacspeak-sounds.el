@@ -191,10 +191,10 @@ Fully qualified filename if using Alsa. "
 
 (defcustom emacspeak-play-program
   (or
+   emacspeak-pactl
    emacspeak-aplay
    emacspeak-paplay
-   sox-play
-   emacspeak-pactl)
+   sox-play)
   "Play program."
   :type
   '(choice
