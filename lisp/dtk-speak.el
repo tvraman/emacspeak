@@ -1452,32 +1452,23 @@ Set by \\[dtk-set-punctuations].")
            (:const "cloud-mac" :tag "Mac Variants")))
   :group 'dtk)
 
-(defun dtk-select-server (program &optional device)
-  "Select  speech server `program'.
- Optional arg device sets  env-var ALSA_DEFAULT."
+(defun dtk-select-server (program )
+  "Select  speech server `program'. "
   (interactive
    (list
     (completing-read
      "Speech server:"
      (or dtk-servers-alist (tts-setup-servers-alist))
-     nil t)
-    current-prefix-arg))
+     nil t)))
   (cl-declare (special dtk-program dtk-servers-alist
-                       tts-device emacspeak-servers-directory))
-  (when  device
-    (setq tts-device
-          (completing-read
-           "Device: "
-           (split-string (shell-command-to-string "aplay -L | grep tts"))
-           nil nil nil nil "default"))
-    (setenv "ALSA_DEFAULT" tts-device))
+                       emacspeak-servers-directory))
   (setq dtk-program program)
-  (when (called-interactively-p 'interactive)
-    (ems--fastload "voice-setup")
-    (dtk-initialize)))
+  (ems--fastload "voice-setup")
+  (dtk-initialize))
+
 (defvar tts-multi-engines
-      '("espeak"  "outloud"   "dtk-soft")
-    "List of TTS engines that are multi capable.")
+  '("espeak"  "outloud"   "dtk-soft")
+  "List of TTS engines that are multi capable.")
 
 (defsubst tts-multistream-p (engine)
   "Checks if this tts-engine can support multiple s."
