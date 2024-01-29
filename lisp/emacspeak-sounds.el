@@ -172,6 +172,20 @@ Fully qualified filename if using Alsa. "
             (file-name-nondirectory f) f)
       emacspeak-sounds-default)))
 
+
+(defun emacspeak-sounds-cache-rebuild (theme)
+  "Rebuild sound cache for theme."
+  ;; rebuild sound->file cache
+  (when (file-exists-p theme)
+    (cl-loop
+     for f in
+     (directory-files theme 'full
+                      (emacspeak-sounds-theme-get-ext theme))
+     do
+     (emacspeak-sounds-cache-put
+      (intern (file-name-sans-extension (file-name-nondirectory f)))
+      f))))
+
 (defun emacspeak-sounds-define-theme-if-necessary (theme-name)
   "Define selected theme if necessary."
   (cl-declare (special  emacspeak-sounds-cache))
@@ -179,16 +193,7 @@ Fully qualified filename if using Alsa. "
    ((emacspeak-sounds-theme-get-ext theme-name) t)
    ((file-exists-p (expand-file-name "define-theme.el" theme-name))
     (load (expand-file-name "define-theme.el" theme-name)))
-   (t (error "Theme %s is missing its configuration file. " theme-name)))
-  ;; rebuild sound->file cache
-  (when (file-exists-p theme-name)
-    (cl-loop
-     for f in
-     (directory-files theme-name 'full
-                      (emacspeak-sounds-theme-get-ext theme-name))
-     do
-     (emacspeak-sounds-cache-put
-      (intern (file-name-sans-extension (file-name-nondirectory f))) f))))
+   (t (error "Theme %s is missing its configuration file. " theme-name))))
 
 ;;;###autoload
 (defun emacspeak-sounds-select-theme  ( theme)
