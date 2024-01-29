@@ -8,28 +8,28 @@
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
 ;; A speech interface to Emacs |
-;; 
+;;
 ;;  $Revision: 4670 $ |
 ;; Location https://github.com/tvraman/emacspeak
-;; 
+;;
 
 ;;;   Copyright:
 ;; Copyright (C) 1995 -- 2024, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
-;; 
+;;
 ;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
+;;
 ;; GNU Emacs is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2, or (at your option)
 ;; any later version.
-;; 
+;;
 ;; GNU Emacs is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-;; 
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
@@ -61,15 +61,14 @@
 ;; Emacspeak 13.0, this module defines a themes architecture for
 ;; auditory icons.  Sound files corresponding to a given theme are
 ;; found in appropriate subdirectories of emacspeak-sounds-directory.
-;; @item The auditory icon player is configure via 
+;; @item The auditory icon player is configure via
 ;; custom option @code{emacspeak-play-program}.
 ;; @That custom setting handles the mapping to various play programs
 ;; from audio subsystems such as ALSA, Pulseaudio, and Pipewire.
 ;; @end itemize
-
+;;; Code:
 ;;;  required modules
 
-;;; Code:
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
@@ -90,18 +89,18 @@ Queue : Add auditory icon to speech queue.
 Use Serve when working with remote speech servers.")
 
 (defvar ems--lazy-icon-time '(0 0 0 0)
-  "Record time of last icon.")
+  "Record time of last icon; used to rate-limit icons..")
 
 ;;;###autoload
 (defun emacspeak-auditory-icon (icon)
   "Play an auditory ICON."
   (cl-declare (special emacspeak-use-auditory-icons ems--lazy-icon-time))
-  (when                             ;rate-limit
+  (when
       (and emacspeak-use-auditory-icons
-           (<
+           (<                              ;rate-limit
             1.0
             (float-time (time-subtract (current-time) ems--lazy-icon-time))))
-        (funcall emacspeak-auditory-icon-function icon)))
+    (funcall emacspeak-auditory-icon-function icon)))
 
 ;;;   Setup sound themes
 
@@ -159,18 +158,17 @@ Fully qualified filename if using Alsa. "
    ((emacspeak-sounds-theme-get-ext theme-name) t)
    ((file-exists-p (expand-file-name "define-theme.el" theme-name))
     (load (expand-file-name "define-theme.el" theme-name)))
-   (t (error "Theme %s is missing its configuration file. " theme-name))))
-(defconst emacspeak-pacmd (executable-find "pacmd") "pacmd")
+   (t (error "Theme %s is missing its configuration file. "
+             theme-name))))
 
 ;;;###autoload
 (defun emacspeak-sounds-select-theme  (&optional theme)
   "Select theme for auditory icons."
   (interactive
-   (list
-    (read-directory-name "Theme: " emacspeak-sounds-directory)))
+   (list (read-directory-name "Theme: " emacspeak-sounds-directory)))
   (cl-declare (special emacspeak-sounds-current-theme
-               emacspeak-sounds-themes-table
-               emacspeak-play-program emacspeak-sounds-directory))
+                       emacspeak-sounds-themes-table
+                       emacspeak-play-program emacspeak-sounds-directory))
   (or theme (setq theme emacspeak-sounds-current-theme))
   (emacspeak-sounds-define-theme-if-necessary theme)
   (unless (file-directory-p theme)
@@ -183,15 +181,12 @@ Fully qualified filename if using Alsa. "
                 '("ogg-3d/" "ogg-chimes/"))
       (error "%s: Only ogg-3d or ogg-chimes with Pulse Advanced" theme))
     (cl-loop
-         for f in 
-         (directory-files emacspeak-sounds-current-theme 'full ".ogg$")
-         do
-         (shell-command
-          (format
-           "%s upload-sample %s %s"
-           emacspeak-pactl (string-trim f)
-           (string-trim
-            (shell-command-to-string (format "basename %s .ogg" f)))))))
+     for f in (directory-files emacspeak-sounds-current-theme 'full ".ogg$") do
+     (shell-command
+      (format "%s upload-sample %s %s"
+              emacspeak-pactl (string-trim f)
+              (string-trim
+               (shell-command-to-string (format "basename %s .ogg" f)))))))
   (setq emacspeak-sounds-current-theme theme)
   (emacspeak-auditory-icon 'button)
   t)
@@ -233,7 +228,6 @@ Fully qualified filename if using Alsa. "
    (expand-file-name theme emacspeak-sounds-directory)))
 
 ;;;   queue an auditory icon
-
 (defun emacspeak-queue-auditory-icon (sound-name)
   "Queue auditory icon SOUND-NAME."
   (cl-declare (special dtk-speaker-process))
@@ -242,7 +236,6 @@ Fully qualified filename if using Alsa. "
                                (emacspeak-sounds-get-file sound-name))))
 
 ;;;   serve an auditory icon
-
 (defun emacspeak-serve-auditory-icon (sound-name)
   "Serve auditory icon SOUND-NAME."
   (cl-declare (special dtk-speaker-process))
@@ -251,7 +244,6 @@ Fully qualified filename if using Alsa. "
                                (emacspeak-sounds-get-file sound-name))))
 
 ;;;   Play an icon
-
 (defvar emacspeak-play-args nil
   "Set this to nil if using paplay from pulseaudio.
 Automatically set to `play-sample' if using pactl.")
@@ -268,12 +260,10 @@ Automatically set to `play-sample' if using pactl.")
          emacspeak-play-args
          (if (string= emacspeak-play-program emacspeak-pactl)
              (symbol-name sound-name)
-             (emacspeak-sounds-get-file sound-name)))
+           (emacspeak-sounds-get-file sound-name)))
       (start-process
        emacspeak-play-program nil emacspeak-play-program
        (emacspeak-sounds-get-file sound-name)))))
-
-
 
 ;;;   toggle auditory icons
 
@@ -283,39 +273,29 @@ Automatically set to `play-sample' if using pactl.")
   "Toggle use of auditory icons.
 Optional interactive PREFIX arg toggles global value."
   (interactive "P")
-  (cl-declare (special emacspeak-use-auditory-icons
-                       dtk-program emacspeak-auditory-icon-function))
+  (cl-declare (special emacspeak-use-auditory-icons))
   (cond
    (prefix
-    (setq  emacspeak-use-auditory-icons
-           (not emacspeak-use-auditory-icons))
-    (setq-default emacspeak-use-auditory-icons
-                  emacspeak-use-auditory-icons))
-   (t (setq emacspeak-use-auditory-icons
-            (not emacspeak-use-auditory-icons))))
+    (setq  emacspeak-use-auditory-icons (not emacspeak-use-auditory-icons))
+    (setq-default emacspeak-use-auditory-icons emacspeak-use-auditory-icons))
+   (t
+    (setq emacspeak-use-auditory-icons (not emacspeak-use-auditory-icons))))
   (message "Turned %s auditory icons %s"
            (if emacspeak-use-auditory-icons  "on" "off")
            (if prefix "" "locally"))
-  (when emacspeak-use-auditory-icons
-    (emacspeak-auditory-icon 'on)))
+  (when emacspeak-use-auditory-icons (emacspeak-auditory-icon 'on)))
 
 ;;;  emacspeak-prompts:
 
-(defvar emacspeak-prompts-directory 
+(defvar emacspeak-prompts-dir
   (expand-file-name "prompts" emacspeak-sounds-directory)
   "Where pre-defined prompt files are located.")
 
 (defun emacspeak-prompt (name)
   "Play  prompt for specified name."
-  (cl-declare (special emacspeak-prompts-directory
-                       emacspeak-mplayer))
-  (let  ((file (expand-file-name (format "%s.mp3" name)
-                                 emacspeak-prompts-directory)))
-    (cl-assert (file-exists-p file) t  "File does not exist")
-    (when emacspeak-mplayer
-      (call-process
-       emacspeak-mplayer nil  0 nil file))))
+  (cl-declare (special emacspeak-prompts-dir emacspeak-mplayer))
+  (let  ((f (expand-file-name (format "%s.mp3" name) emacspeak-prompts-dir)))
+    (cl-assert (file-exists-p f) t  "File does not exist")
+    (when emacspeak-mplayer (call-process emacspeak-mplayer nil  0 nil f))))
 
 (provide  'emacspeak-sounds)
- 
-
