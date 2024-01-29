@@ -11931,8 +11931,6 @@ custom option @code{emacspeak-play-program}.
 from audio subsystems such as ALSA, Pulseaudio, and Pipewire.
 @end itemize
 
- required modules
-
 @subsection Emacspeak-Sounds Commands
 
 @subsubsection emacspeak-sounds-select-theme

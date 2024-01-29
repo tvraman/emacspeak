@@ -119,7 +119,6 @@ Value is a string, a fully qualified filename. ")
   (cl-declare (special emacspeak-sounds-cache))
   (gethash sound emacspeak-sounds-cache))
 
-
 (defun emacspeak-sounds-resource (sound)
   "Return sound resource, either a fully qualified file name or a sample-name"
   (cl-declare (special emacspeak-sounds-cache))
@@ -131,9 +130,7 @@ Value is a string, a fully qualified filename. ")
 
 (defvar emacspeak-sounds-current-theme
   (expand-file-name "pan-chimes/" emacspeak-sounds-directory)
-  "Name of current theme for auditory icons.
-Do not set this by hand;
---use command \\[emacspeak-sounds-select-theme].")
+  "Name of current theme for auditory icons, a fully-qualified dir. ")
 
 (cl-declaim (special emacspeak-sounds-directory))
 
@@ -145,18 +142,16 @@ Do not set this by hand;
   (make-hash-table)
   "Maps valid sound themes to the file name extension used by that theme.")
 
-(defun emacspeak-sounds-define-theme (theme-name file-ext)
+(defsubst emacspeak-sounds-define-theme (theme-name file-ext)
   "Define a sounds theme for auditory icons. "
   (cl-declare (special emacspeak-sounds-themes-table))
   (setq theme-name (intern theme-name))
   (setf (gethash  theme-name emacspeak-sounds-themes-table) file-ext))
 
-(defun emacspeak-sounds-theme-get-ext (theme-name)
+(defsubst emacspeak-sounds-theme-get-ext (theme-name)
   "Retrieve filename extension for specified theme. "
   (cl-declare (special emacspeak-sounds-themes-table))
-  (gethash
-   (intern theme-name)
-   emacspeak-sounds-themes-table))
+  (gethash (intern theme-name) emacspeak-sounds-themes-table))
 
 (defconst emacspeak-paplay (executable-find "paplay" "PaPlay program"))
 (defconst emacspeak-pactl (executable-find "pactl") "PaCtl Executable.")
@@ -196,26 +191,23 @@ Fully qualified filename if using Alsa. "
       (intern (file-name-sans-extension (file-name-nondirectory f))) f))))
 
 ;;;###autoload
-(defun emacspeak-sounds-select-theme  (&optional theme)
+(defun emacspeak-sounds-select-theme  ( theme)
   "Select theme for auditory icons."
   (interactive
    (list (read-directory-name "Theme: " emacspeak-sounds-directory)))
-  (cl-declare (special emacspeak-sounds-current-theme
-                       emacspeak-sounds-themes-table
+  (cl-declare (special emacspeak-sounds-themes-table
                        emacspeak-play-program emacspeak-sounds-directory))
-  (or theme (setq theme emacspeak-sounds-current-theme))
   (emacspeak-sounds-define-theme-if-necessary theme)
   (unless (file-directory-p theme)
     (setq theme  (file-name-directory theme)))
-  (unless (file-exists-p theme)
-    (error "Theme %s is not installed" theme))
+  (unless (file-exists-p theme) (error "Theme %s is not installed" theme))
   (when (string= emacspeak-play-program emacspeak-pactl) ; load samples
     (unless
         (member (file-relative-name theme emacspeak-sounds-directory)
                 '("ogg-3d/" "ogg-chimes/"))
       (error "%s: Only ogg-3d or ogg-chimes with Pulse Advanced" theme))
     (cl-loop
-     for f in (directory-files emacspeak-sounds-current-theme 'full ".ogg$") do
+     for f in (directory-files theme 'full ".ogg$") do
      (shell-command
       (format "%s upload-sample %s %s"
               emacspeak-pactl (string-trim f)
@@ -223,7 +215,7 @@ Fully qualified filename if using Alsa. "
                (shell-command-to-string (format "basename %s .ogg" f)))))))
   (setq emacspeak-sounds-current-theme theme)
   (emacspeak-auditory-icon 'button)
-  t)
+  )
 
 (defcustom emacspeak-play-program
   (or emacspeak-pactl emacspeak-aplay emacspeak-paplay sox-play)
