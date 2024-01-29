@@ -432,7 +432,9 @@ commands and options for details."
   (setq ring-bell-function #'(lambda nil (emacspeak-auditory-icon 'warn-user)))
   (mapc
    #'load
-   (directory-files-recursively emacspeak-sounds-directory "define-theme\\.el"))
+   (directory-files-recursively emacspeak-sounds-directory
+                                "define-theme\\.el"))
+  (emacspeak-sounds-cache-rebuild emacspeak-sounds-current-theme)
   (emacspeak-pronounce-load-dictionaries)
   (make-thread #'(lambda () (ems--fastload "emacspeak-advice")))
   (emacspeak-setup-programming-modes)
