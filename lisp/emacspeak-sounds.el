@@ -203,10 +203,11 @@ Fully qualified filename if using Alsa. "
   (cl-declare (special emacspeak-sounds-themes-table
                        emacspeak-play-program emacspeak-sounds-directory))
   (emacspeak-sounds-define-theme-if-necessary theme)
-  (unless (file-directory-p theme)
-    (setq theme  (file-name-directory theme)))
-  (unless (file-exists-p theme) (error "Theme %s is not installed" theme))
-  (when (string= emacspeak-play-program emacspeak-pactl) ; load samples
+  (unless (file-directory-p theme) (setq theme  (file-name-directory theme)))
+  (unless (file-exists-p theme) (error "Theme %s is not installed"
+                                       theme))
+  (emacspeak-sounds-cache-rebuild theme)
+  (when (string= emacspeak-play-program emacspeak-pactl) ; upload samples
     (unless
         (member (file-relative-name theme emacspeak-sounds-directory)
                 '("ogg-3d/" "ogg-chimes/"))
@@ -219,8 +220,7 @@ Fully qualified filename if using Alsa. "
               (string-trim
                (shell-command-to-string (format "basename %s .ogg" f)))))))
   (setq emacspeak-sounds-current-theme theme)
-  (emacspeak-auditory-icon 'button)
-  )
+  (emacspeak-auditory-icon 'button))
 
 (defcustom emacspeak-play-program
   (or emacspeak-pactl emacspeak-aplay emacspeak-paplay sox-play)
