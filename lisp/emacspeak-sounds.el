@@ -119,6 +119,14 @@ Value is a string, a fully qualified filename. ")
   (cl-declare (special emacspeak-sounds-cache))
   (gethash sound emacspeak-sounds-cache))
 
+
+(defun emacspeak-sounds-resource (sound)
+  "Return sound resource, either a fully qualified file name or a sample-name"
+  (cl-declare (special emacspeak-sounds-cache))
+  (let ((f (emacspeak-sounds-get-file sound)))
+    (cl-assert (and f (file-exists-p f)) t "Sound does not exist.")
+        (if (string= emacspeak-play-program emacspeak-pactl) sound f)))
+
 ;;;Sound themes
 
 (defvar emacspeak-sounds-current-theme
@@ -171,12 +179,21 @@ Fully qualified filename if using Alsa. "
 
 (defun emacspeak-sounds-define-theme-if-necessary (theme-name)
   "Define selected theme if necessary."
+  (cl-declare (special  emacspeak-sounds-cache))
   (cond
    ((emacspeak-sounds-theme-get-ext theme-name) t)
    ((file-exists-p (expand-file-name "define-theme.el" theme-name))
     (load (expand-file-name "define-theme.el" theme-name)))
-   (t (error "Theme %s is missing its configuration file. "
-             theme-name))))
+   (t (error "Theme %s is missing its configuration file. " theme-name)))
+  ;; rebuild sound->file cache
+  (when (file-exists-p theme-name)
+    (cl-loop
+     for f in
+     (directory-files theme-name 'full
+                      (emacspeak-sounds-theme-get-ext theme-name))
+     do
+     (emacspeak-sounds-cache-put
+      (intern (file-name-sans-extension (file-name-nondirectory f))) f))))
 
 ;;;###autoload
 (defun emacspeak-sounds-select-theme  (&optional theme)
