@@ -43,17 +43,17 @@
 ;; @itemize
 ;; @item   Auditory icons should be used to
 ;; provide additional feedback, not as a gimmick.
-;; @item   The interface
+;; @item   The Emacspeak interface
 ;; should be usable at all times without the icons.
 ;; @item   General principle for when to use
-;; an icon: Convey information about events taking place in parallel.
+;; an icon:
+;; @item Convey information about events taking place in parallel.
 ;;@item  For instance, if making a selection automatically moves the current
 ;; focus to the next choice, We speak the next choice, while
-;; indicating the fact that something was selected with a auditory icon.
+;; indicating the fact that something was selected with an auditory icon.
 ;;@item  This interface will assume the availability of a shell command
 ;; @code{play} that can take one or more sound files and play them.
-;; @item This
-;; module provides  a mapping between names in the elisp world
+;; @item This module provides  a mapping between names in the elisp world
 ;; and actual sound files.
 ;; @item Modules that wish to use auditory icons
 ;; should use these names, instead of actual file names.
@@ -63,6 +63,8 @@
 ;; found in appropriate subdirectories of emacspeak-sounds-directory.
 ;; @item The auditory icon player is configure via 
 ;; custom option @code{emacspeak-play-program}.
+;; @That custom setting handles the mapping to various play programs
+;; from audio subsystems such as ALSA, Pulseaudio, and Pipewire.
 ;; @end itemize
 
 ;;;  required modules
