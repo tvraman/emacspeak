@@ -102,7 +102,24 @@ Use Serve when working with remote speech servers.")
             (float-time (time-subtract (current-time) ems--lazy-icon-time))))
     (funcall emacspeak-auditory-icon-function icon)))
 
-;;;   Setup sound themes
+;;; Sounds Cache:
+
+(defvar emacspeak-sounds-cache (make-hash-table)
+  "Cache sound file names.
+Key is a sound-name --- a symbol.
+Value is a string, a fully qualified filename. ")
+
+(defsubst emacspeak-sounds-cache-put (sound file)
+  "Map  sound to file."
+  (cl-declare (special emacspeak-sounds-cache))
+  (puthash sound file emacspeak-sounds-cache))
+
+(defsubst emacspeak-sounds-cache-get (sound )
+  "Return file that is mapped to sound."
+  (cl-declare (special emacspeak-sounds-cache))
+  (gethash sound emacspeak-sounds-cache))
+
+;;;Sound themes
 
 (defvar emacspeak-sounds-current-theme
   (expand-file-name "pan-chimes/" emacspeak-sounds-directory)
