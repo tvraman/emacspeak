@@ -97,9 +97,10 @@ Use Serve when working with remote speech servers.")
   (cl-declare (special emacspeak-use-auditory-icons ems--lazy-icon-time))
   (when
       (and emacspeak-use-auditory-icons
-           (<                              ;rate-limit
+           (<                           ;rate-limit
             1.0
             (float-time (time-subtract (current-time) ems--lazy-icon-time))))
+    (setq ems--lazy-icon-time (current-time))
     (funcall emacspeak-auditory-icon-function icon)))
 
 ;;; Sounds Cache:
@@ -124,7 +125,7 @@ Value is a string, a fully qualified filename. ")
   (cl-declare (special emacspeak-sounds-cache))
   (let ((f (emacspeak-sounds-cache-get sound)))
     (cl-assert (and f (file-exists-p f)) t "Sound does not exist.")
-        (if (string= emacspeak-play-program emacspeak-pactl) sound f)))
+    (if (string= emacspeak-play-program emacspeak-pactl) sound f)))
 
 ;;;Sound themes
 
@@ -171,7 +172,6 @@ Fully qualified filename if using Alsa. "
         (if (string= emacspeak-play-program emacspeak-pactl)
             (file-name-nondirectory f) f)
       emacspeak-sounds-default)))
-
 
 (defun emacspeak-sounds-cache-rebuild (theme)
   "Rebuild sound cache for theme."
