@@ -227,10 +227,10 @@ Fully qualified filename if using Alsa. "
   "Play program."
   :type
   '(choice
-    (const :tag "Alsa" (symbol-value emacspeak-aplay))
-    (const :tag "Pulse Basic" (symbol-value emacspeak-paplay))
-    (const  :tag "Pulse Advanced" (symbol-value emacspeak-pactl))
-    (const  :tag "SoX" (symbol-value sox-play)))
+    (const :tag "Alsa" "/usr/bin/aplay")
+    (const :tag "Pulse Basic" "/usr/bin/paplay")
+    (const  :tag "Pulse Advanced" "/usr/bin/pactl")
+    (const  :tag "SoX" "/usr/bin/play"))
   :set
   #'(lambda(sym val)
       (cl-declare (special emacspeak-play-args emacspeak-sounds-current-theme))
