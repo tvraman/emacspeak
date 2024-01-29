@@ -122,7 +122,7 @@ Value is a string, a fully qualified filename. ")
 (defun emacspeak-sounds-resource (sound)
   "Return sound resource, either a fully qualified file name or a sample-name"
   (cl-declare (special emacspeak-sounds-cache))
-  (let ((f (emacspeak-sounds-get-file sound)))
+  (let ((f (emacspeak-sounds-cache-get sound)))
     (cl-assert (and f (file-exists-p f)) t "Sound does not exist.")
         (if (string= emacspeak-play-program emacspeak-pactl) sound f)))
 
@@ -227,10 +227,10 @@ Fully qualified filename if using Alsa. "
   "Play program."
   :type
   '(choice
-    (const :tag "Alsa" emacspeak-aplay)
-    (const :tag "Pulse Basic" emacspeak-paplay)
-    (const  :tag "Pulse Advanced" emacspeak-pactl)
-    (const  :tag "SoX" sox-play))
+    (const :tag "Alsa" (symbol-value emacspeak-aplay))
+    (const :tag "Pulse Basic" (symbol-value emacspeak-paplay))
+    (const  :tag "Pulse Advanced" (symbol-value emacspeak-pactl))
+    (const  :tag "SoX" (symbol-value sox-play)))
   :set
   #'(lambda(sym val)
       (cl-declare (special emacspeak-play-args emacspeak-sounds-current-theme))
@@ -264,7 +264,7 @@ Fully qualified filename if using Alsa. "
   (cl-declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "a %s\n"
-                               (emacspeak-sounds-get-file sound-name))))
+                               (emacspeak-sounds-resource sound-name))))
 
 ;;;   serve an auditory icon
 (defun emacspeak-serve-auditory-icon (sound-name)
@@ -272,7 +272,7 @@ Fully qualified filename if using Alsa. "
   (cl-declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "p %s\n"
-                               (emacspeak-sounds-get-file sound-name))))
+                               (emacspeak-sounds-resource sound-name))))
 
 ;;;   Play an icon
 (defvar emacspeak-play-args nil
@@ -291,10 +291,10 @@ Automatically set to `play-sample' if using pactl.")
          emacspeak-play-args
          (if (string= emacspeak-play-program emacspeak-pactl)
              (symbol-name sound-name)
-           (emacspeak-sounds-get-file sound-name)))
+           (emacspeak-sounds-resource sound-name)))
       (start-process
        emacspeak-play-program nil emacspeak-play-program
-       (emacspeak-sounds-get-file sound-name)))))
+       (emacspeak-sounds-resource sound-name)))))
 
 ;;;   toggle auditory icons
 
