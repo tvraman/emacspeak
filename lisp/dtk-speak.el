@@ -893,7 +893,7 @@ this pattern if previously added.    "
           (setq ,switch (not ,switch))))
       (dtk-interp-sync)
       (when (called-interactively-p 'interactive)
-        (emacspeak-auditory-icon (if ,switch "on" "off"))
+        (emacspeak-auditory-icon (if ,switch 'on 'off))
         (message
          (format "Turned %s %s  %s."
                  (if ,switch "on" "off")

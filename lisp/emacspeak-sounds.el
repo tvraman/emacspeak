@@ -314,7 +314,7 @@ Optional interactive PREFIX arg toggles global value."
    (t
     (setq emacspeak-use-auditory-icons (not emacspeak-use-auditory-icons))))
   (message "Turned %s auditory icons %s"
-           (if emacspeak-use-auditory-icons  "on" "off")
+           (if emacspeak-use-auditory-icons  'on 'off)
            (if prefix "" "locally"))
   (when emacspeak-use-auditory-icons (emacspeak-auditory-icon 'on)))
 
