@@ -11934,7 +11934,7 @@ from audio subsystems such as ALSA, Pulseaudio, and Pipewire.
 @subsection Emacspeak-Sounds Commands
 
 @subsubsection emacspeak-sounds-select-theme
-@deffn {Command} emacspeak-sounds-select-theme  (&optional theme)
+@deffn {Command} emacspeak-sounds-select-theme  (theme)
 @table @kbd
 @item C-e )
 @kindex C-e )
@@ -11945,7 +11945,7 @@ from audio subsystems such as ALSA, Pulseaudio, and Pipewire.
 @format
 Select theme for auditory icons.
 
-(fn &optional THEME)
+(fn THEME)
 @end format
 @end deffn
 

@@ -357,8 +357,8 @@ proc tts_initialize {} {
     set queue(-1) ""
     set backup(-1) ""
     #play program
-    # always use aplay
-    set tts(play) "/usr/bin/aplay -q"
+    # always use paplay
+    set tts(play) "/usr/bin/paplay"
     #if env variable EMACSPEAK_PLAY is set, use it;
     if {[info exists env(EMACSPEAK_PLAY)] } {
         set tts(play)  $env(EMACSPEAK_PLAY)
