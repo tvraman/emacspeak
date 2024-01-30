@@ -232,7 +232,7 @@ already disabled."
   (cl-declare (special amixer-alsactl-config-file tts-notification-device))
   (ems-with-messages-silenced
    (tts-restart)
-   (emacspeak-prompt "waking-up")
+   (emacspeak-prompt 'waking-up)
    (amixer-restore amixer-alsactl-config-file)
    (when emacspeak-orca (emacspeak-orca-toggle))
    (when (featurep 'soundscape) (soundscape-restart))
@@ -241,7 +241,7 @@ already disabled."
        (dbus-call-method
         :session "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
         "org.gnome.ScreenSaver" "GetActive")
-     (emacspeak-prompt "pwd")
+     (emacspeak-prompt 'pwd)
      (emacspeak-auditory-icon 'help))))
 
 (add-hook 'emacspeak-dbus-resume-hook #'emacspeak-dbus-resume)
@@ -343,7 +343,7 @@ already disabled."
   (interactive)
   (emacspeak-dbus-screensaver-check)
   (emacspeak-auditory-icon 'close-object)
-  (emacspeak-prompt "locking-up")
+  (emacspeak-prompt 'locking-up)
   (when (featurep 'light) (light-black))
   (dbus-call-method
    :session
@@ -374,7 +374,7 @@ already disabled."
         (if lock
             (progn (emacspeak-screen-saver))
           (progn
-            (emacspeak-prompt "success")
+            (emacspeak-prompt 'success)
             (emacspeak-orca-toggle)
             (light-black)
             (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
