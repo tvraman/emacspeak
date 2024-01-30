@@ -209,6 +209,14 @@ Fully qualified filename if using Alsa. "
       (format "%s upload-sample %s %s"
               emacspeak-pactl (string-trim f)
               (string-trim
+               (shell-command-to-string (format "basename %s .ogg"
+                                                f))))))
+    (cl-loop                            ; prompts
+     for f in (directory-files emacspeak-prompts-dir 'full ".ogg$") do
+     (shell-command
+      (format "%s upload-sample %s %s"
+              emacspeak-pactl (string-trim f)
+              (string-trim
                (shell-command-to-string (format "basename %s .ogg" f)))))))
   (setq emacspeak-sounds-current-theme theme)
   (emacspeak-auditory-icon 'button))
@@ -315,6 +323,16 @@ Optional interactive PREFIX arg toggles global value."
 (defvar emacspeak-prompts-dir
   (expand-file-name "prompts" emacspeak-sounds-directory)
   "Where pre-defined prompt files are located.")
+
+(defun emacspeak-sounds-cache-prompts ()
+  "Populate sounds cache with prompts"
+    (cl-loop
+     for f in
+     (directory-files emacspeak-prompts-dir 'full ".ogg$")
+     do
+     (emacspeak-sounds-cache-put
+      (intern (file-name-sans-extension (file-name-nondirectory f)))
+      f)))
 
 (defun emacspeak-prompt (name)
   "Play  prompt for specified name."
