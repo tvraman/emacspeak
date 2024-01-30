@@ -336,11 +336,15 @@ Optional interactive PREFIX arg toggles global value."
 
 (defun emacspeak-prompt (name)
   "Play  prompt for specified name."
-  (cl-declare (special emacspeak-prompts-dir ))
+  (cl-declare (special dtk-program ))
   (let  ((f (emacspeak-sounds-resource name)))
-    (if (string= emacspeak-play-program emacspeak-pactl)
-        (start-process
-         "pactl" nil emacspeak-pactl "play-sample" (symbol-name f))
-      (start-process "paplay" nil emacspeak-paplay  f ))))
+    (cond
+     ((string-match "cloud" dtk-program)
+      (emacspeak-serve-auditory-icon f))
+     ((string= emacspeak-play-program emacspeak-pactl)
+      (start-process
+       "pactl" nil emacspeak-pactl "play-sample" (symbol-name f)))
+     (t
+      (start-process "paplay" nil emacspeak-paplay  f )))))
 
 (provide  'emacspeak-sounds)
