@@ -209,8 +209,7 @@ Fully qualified filename if using Alsa. "
       (format "%s upload-sample %s %s"
               emacspeak-pactl (string-trim f)
               (string-trim
-               (shell-command-to-string (format "basename %s .ogg"
-                                                f))))))
+               (shell-command-to-string (format "basename %s .ogg" f))))))
     (cl-loop                            ; prompts
      for f in (directory-files emacspeak-prompts-dir 'full ".ogg$") do
      (shell-command
