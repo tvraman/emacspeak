@@ -340,7 +340,7 @@ Optional interactive PREFIX arg toggles global value."
   (let  ((f (emacspeak-sounds-resource name)))
     (cond
      ((string-match "cloud" dtk-program)
-      (emacspeak-serve-auditory-icon f))
+      (emacspeak-serve-auditory-icon name))
      ((string= emacspeak-play-program emacspeak-pactl)
       (start-process
        "pactl" nil emacspeak-pactl "play-sample" (symbol-name f)))
