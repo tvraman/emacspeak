@@ -232,9 +232,11 @@ Fully qualified filename if using Alsa. "
       (cond
        ((string= emacspeak-pactl val)
         (setq emacspeak-play-args "play-sample")
-        (setq emacspeak-sounds-current-theme (expand-file-name "ogg-chimes/" emacspeak-sounds-directory)))
+        (setq emacspeak-sounds-current-theme
+              (expand-file-name "ogg-chimes/" emacspeak-sounds-directory)))
        ((string= emacspeak-paplay val)
-        (setq emacspeak-sounds-current-theme (expand-file-name "ogg-chimes/" emacspeak-sounds-directory))
+        (setq emacspeak-sounds-current-theme
+              (expand-file-name "ogg-chimes/" emacspeak-sounds-directory))
         (setq emacspeak-play-args nil))
        ((string= emacspeak-aplay val)
         (setq emacspeak-play-args nil)
