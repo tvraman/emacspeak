@@ -370,10 +370,9 @@ already disabled."
     "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
     "org.gnome.ScreenSaver" "ActiveChanged"
     #'(lambda (lock)
-        (cl-declare (special tts-notification-device))
         (if lock
             (progn (emacspeak-screen-saver))
-          (progn
+          (progn(emacspeak-prompt 'desktop-login)
             (emacspeak-prompt 'success)
             (emacspeak-orca-toggle)
             (light-black)
