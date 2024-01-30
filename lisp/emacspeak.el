@@ -435,6 +435,7 @@ commands and options for details."
    (directory-files-recursively emacspeak-sounds-directory
                                 "define-theme\\.el"))
   (emacspeak-sounds-cache-rebuild emacspeak-sounds-current-theme)
+  (emacspeak-sounds-cache-prompts)
   (emacspeak-pronounce-load-dictionaries)
   (make-thread #'(lambda () (ems--fastload "emacspeak-advice")))
   (emacspeak-setup-programming-modes)

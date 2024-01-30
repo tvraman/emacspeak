@@ -326,19 +326,19 @@ Optional interactive PREFIX arg toggles global value."
 
 (defun emacspeak-sounds-cache-prompts ()
   "Populate sounds cache with prompts"
-    (cl-loop
-     for f in
-     (directory-files emacspeak-prompts-dir 'full ".ogg$")
-     do
-     (emacspeak-sounds-cache-put
-      (intern (file-name-sans-extension (file-name-nondirectory f)))
-      f)))
+  (cl-loop
+   for f in
+   (directory-files emacspeak-prompts-dir 'full ".ogg$")
+   do
+   (emacspeak-sounds-cache-put
+    (intern (file-name-sans-extension (file-name-nondirectory f)))
+    f)))
 
 (defun emacspeak-prompt (name)
   "Play  prompt for specified name."
-  (cl-declare (special emacspeak-prompts-dir emacspeak-mplayer))
-  (let  ((f (expand-file-name (format "%s.mp3" name) emacspeak-prompts-dir)))
+  (cl-declare (special emacspeak-prompts-dir ))
+  (let  ((f (emacspeak-sounds-cache-get name)))
     (cl-assert (file-exists-p f) t  "File does not exist")
-    (when emacspeak-mplayer (call-process emacspeak-mplayer nil  0 nil f))))
+    (start-process "paplay" nil emacspeak-paplay f )))
 
 (provide  'emacspeak-sounds)
