@@ -365,13 +365,9 @@ This cannot be set via custom; set this in your startup file before
 
 (defsubst emacspeak-play-startup-icon ()
   "Play startup icon."
-  (cl-declare (special emacspeak-play-startup-icon
-                       emacspeak-mplayer))
-  (when (and  emacspeak-play-startup-icon emacspeak-mplayer)
-    (start-process
-     "mp3" nil
-     emacspeak-mplayer
-     emacspeak-icon)))
+  (cl-declare (special emacspeak-play-startup-icon sox-play))
+  (when (and  emacspeak-play-startup-icon sox-play)
+    (start-process "ogg" nil sox-play emacspeak-icon)))
 
 
 (defsubst emacspeak-easter-egg ()

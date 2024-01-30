@@ -131,7 +131,7 @@
   "README.")
 
 (defconst emacspeak-icon
-  (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)
+  (expand-file-name "emacspeak.ogg" emacspeak-sounds-directory)
   "Emacspeak startup icon.")
 
 
