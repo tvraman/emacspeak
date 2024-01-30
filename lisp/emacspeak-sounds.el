@@ -337,8 +337,10 @@ Optional interactive PREFIX arg toggles global value."
 (defun emacspeak-prompt (name)
   "Play  prompt for specified name."
   (cl-declare (special emacspeak-prompts-dir ))
-  (let  ((f (emacspeak-sounds-cache-get name)))
-    (cl-assert (file-exists-p f) t  "File does not exist")
-    (start-process "paplay" nil emacspeak-paplay f )))
+  (let  ((f (emacspeak-sounds-resource name)))
+    (if (string= emacspeak-play-program emacspeak-pactl)
+        (start-process
+         "pactl" nil emacspeak-pactl "play-sample" (symbol-name f))
+      (start-process "paplay" nil emacspeak-paplay  f ))))
 
 (provide  'emacspeak-sounds)
