@@ -225,13 +225,6 @@ this group is being deselected."
     (emacspeak-auditory-icon 'open-object)
     (dtk-speak "toggled topic mode")))
 
-(defadvice gnus-article-fill-long-lines (after emacspeak pre act comp)
-  "speak.
- Produce an auditory icon if possible."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'modified-object)
-    (dtk-speak "wrapped long lines")))
-
 (defadvice gnus-group-list-all-groups (after emacspeak pre act comp)
   "speak.
  Produce an auditory icon if possible."
@@ -560,6 +553,7 @@ Produce an auditory icon if possible."
   "Start speaking the article. "
   (when (ems-interactive-p)
     (with-current-buffer gnus-article-buffer
+      (visual-line-mode)
       (emacspeak-auditory-icon 'open-object)
       (condition-case nil 
           (emacspeak-hide-all-blocks-in-buffer)
