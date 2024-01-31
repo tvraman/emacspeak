@@ -67,12 +67,16 @@
         <a href="#Design-goal_003a" accesskey="1">Design goal:</a>
       </li>
       <li>
+        <a href="#Designing-Auditory-Icons" accesskey="2">Designing
+        Auditory Icons</a>
+      </li>
+      <li>
         <a href="#Emacspeak_002dSounds-Commands" accesskey=
-        "2">Emacspeak-Sounds Commands</a>
+        "3">Emacspeak-Sounds Commands</a>
       </li>
       <li>
         <a href="#emacspeak_002dsounds-Options" accesskey=
-        "3">emacspeak-sounds Options</a>
+        "4">emacspeak-sounds Options</a>
       </li>
     </ul>
     <div class="subsection-level-extent" id="Design-goal_003a">
@@ -95,6 +99,8 @@
         more sound files and play them.</li>
         <li>This module provides a mapping between names in the
         elisp world and actual sound files.</li>
+        <li>icon-names are symbols; sound files are fully-qualified
+        file-names.</li>
         <li>Modules that wish to use auditory icons should use
         these names, instead of actual file names.</li>
         <li>As of Emacspeak 13.0, this module defines a themes
@@ -111,8 +117,30 @@
       </ul>
     </div>
     <div class="subsection-level-extent" id=
+    "Designing-Auditory-Icons">
+      <h4 class="subsection"><span>12.179.2 Designing Auditory
+      Icons <a class="copiable-link" href=
+      "#Designing-Auditory-Icons">¶</a></span></h4>
+      <p>Here are some notes on what I have learnt while designing
+      and using auditory icons over the years:</p>
+      <ol class="enumerate">
+        <li>Auditory icons should be short — use command
+        <code class="code">soxi</code> or <code class=
+        "code">\;</code> in a dired buffer to see duration of a
+        sound file. Use the bundled themes as a guide.</li>
+        <li>Sounds have many properties, eg: duration, gain, pitch,
+        at the basic level. Even more important is the nature of
+        the sound and what it sounds like in the overall activity
+        where that sound is used.</li>
+        <li>This is why the gain of icons <em class="emph">never
+        be</em> normalized in my view.</li>
+        <li>The included themes have been optimized over years of
+        use and are primarily tuned for using with headphones.</li>
+      </ol>
+    </div>
+    <div class="subsection-level-extent" id=
     "Emacspeak_002dSounds-Commands">
-      <h4 class="subsection"><span>12.179.2 Emacspeak-Sounds
+      <h4 class="subsection"><span>12.179.3 Emacspeak-Sounds
       Commands <a class="copiable-link" href=
       "#Emacspeak_002dSounds-Commands">¶</a></span></h4>
       <ul class="mini-toc">
@@ -127,7 +155,7 @@
       </ul>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dsounds_002dselect_002dtheme">
-        <h4 class="subsubsection"><span>12.179.2.1
+        <h4 class="subsubsection"><span>12.179.3.1
         emacspeak-sounds-select-theme <a class="copiable-link"
         href="#emacspeak_002dsounds_002dselect_002dtheme">¶</a></span></h4>
         <dl class="first-deffn">
@@ -160,7 +188,7 @@
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dtoggle_002dauditory_002dicons">
-        <h4 class="subsubsection"><span>12.179.2.2
+        <h4 class="subsubsection"><span>12.179.3.2
         emacspeak-toggle-auditory-icons <a class="copiable-link"
         href=
         "#emacspeak_002dtoggle_002dauditory_002dicons">¶</a></span></h4>
@@ -196,7 +224,7 @@ Optional interactive PREFIX arg toggles global value.
     </div>
     <div class="subsection-level-extent" id=
     "emacspeak_002dsounds-Options">
-      <h4 class="subsection"><span>12.179.3 emacspeak-sounds
+      <h4 class="subsection"><span>12.179.4 emacspeak-sounds
       Options <a class="copiable-link" href=
       "#emacspeak_002dsounds-Options">¶</a></span></h4>
       <dl class="first-defvr first-defvar-alias-first-defvr">
