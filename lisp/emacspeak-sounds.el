@@ -128,9 +128,7 @@ Value is a string, a fully qualified filename. ")
 
 (cl-declaim (special emacspeak-sounds-directory))
 
-(defvar emacspeak-sounds-default
-  (expand-file-name "button.wav" emacspeak-sounds-current-theme)
-  "Fallback icon.")
+
 
 (defvar emacspeak-sounds-themes-table
   (make-hash-table)
@@ -142,7 +140,7 @@ Value is a string, a fully qualified filename. ")
   (setq theme (intern theme))
   (setf (gethash  theme emacspeak-sounds-themes-table) ext))
 
-(defsubst emacspeak-sounds-theme-get-ext (theme)
+(defsubst emacspeak-sounds-theme-ext (theme)
   "Retrieve filename extension for specified theme. "
   (cl-declare (special emacspeak-sounds-themes-table))
   (gethash (intern theme) emacspeak-sounds-themes-table))
@@ -159,13 +157,12 @@ Fully qualified filename if using Alsa. "
           (format
            "%s%s"
            icon
-           (emacspeak-sounds-theme-get-ext emacspeak-sounds-current-theme))
+           (emacspeak-sounds-theme-ext
+            emacspeak-sounds-current-theme))
           emacspeak-sounds-current-theme)))
-    (if (file-exists-p f)
         (if (string= emacspeak-play-program emacspeak-pactl)
             (file-name-nondirectory f)
-          f)
-      emacspeak-sounds-default)))
+          f)))
 ;; Called from emacspeak at startup, and also when selecting themes.
 (defun emacspeak-sounds-cache-rebuild (theme)
   "Rebuild sound cache for theme."
@@ -173,7 +170,7 @@ Fully qualified filename if using Alsa. "
     (cl-loop
      for f in
      (directory-files theme 'full
-                      (emacspeak-sounds-theme-get-ext theme))
+                      (emacspeak-sounds-theme-ext theme))
      do
      (emacspeak-sounds-cache-put
       (intern (file-name-sans-extension (file-name-nondirectory f)))
@@ -183,7 +180,7 @@ Fully qualified filename if using Alsa. "
   "Define selected theme if necessary."
   (cl-declare (special  emacspeak-sounds-cache))
   (cond
-   ((emacspeak-sounds-theme-get-ext theme-name) t)
+   ((emacspeak-sounds-theme-ext theme-name) t)
    ((file-exists-p (expand-file-name "define-theme.el" theme-name))
     (load (expand-file-name "define-theme.el" theme-name)))
    (t (error "Theme %s is missing its configuration file. " theme-name))))
