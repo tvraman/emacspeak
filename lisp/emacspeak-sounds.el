@@ -273,8 +273,7 @@ Automatically set to `play-sample' if using pactl.")
 
 (defun emacspeak-play-auditory-icon (icon)
   "Produce auditory icon ICON."
-  (cl-declare (special emacspeak-play-program emacspeak-play-args
-                       emacspeak-sounds-directory))
+  (cl-declare (special emacspeak-play-program emacspeak-play-args))
   (let ((process-connection-type nil))
     (if emacspeak-play-args
         (start-process
