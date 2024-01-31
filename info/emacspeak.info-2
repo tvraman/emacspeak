@@ -4539,7 +4539,7 @@ emacspeak.
 
 Here are some notes on what I have learnt while designing and using
 auditory icons over the years:
-  1. Auditory icons should be short -- use command ‘soxi’ or ‘\;’ in a
+  1. Auditory icons should be short -- use command ‘soxi’ or ‘;’ in a
      dired buffer to see duration of a sound file.  Use the bundled
      themes as a guide.
   2. Sounds have many properties, eg: duration, gain, pitch, at the

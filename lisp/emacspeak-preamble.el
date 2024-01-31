@@ -98,7 +98,7 @@
   "Lisp directory.")
 
 ;;;###autoload
-(defconst emacspeak-sounds-directory
+(defconst emacspeak-sounds-dir
   (expand-file-name  "sounds/" emacspeak-directory)
   "Auditory icons directory.")
 
@@ -131,7 +131,7 @@
   "README.")
 
 (defconst emacspeak-icon
-  (expand-file-name "emacspeak.ogg" emacspeak-sounds-directory)
+  (expand-file-name "emacspeak.ogg" emacspeak-sounds-dir)
   "Emacspeak startup icon.")
 
 

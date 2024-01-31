@@ -61,7 +61,7 @@
 ;; @item As of
 ;; Emacspeak 13.0, this module defines a themes architecture for
 ;; auditory icons.  Sound files corresponding to a given theme are
-;; found in appropriate subdirectories of emacspeak-sounds-directory.
+;; found in appropriate subdirectories of emacspeak-sounds-dir.
 ;; @item Contrast this with @code{prompts[ that dont belong to any theme.]}
 ;; @item The auditory icon player is configure via
 ;; custom option @code{emacspeak-play-program}.
@@ -141,10 +141,10 @@ Value is a string, a fully qualified filename. ")
 ;;;Sound themes
 
 (defvar emacspeak-sounds-current-theme
-  (expand-file-name "pan-chimes/" emacspeak-sounds-directory)
+  (expand-file-name "pan-chimes/" emacspeak-sounds-dir)
   "Name of current theme for auditory icons, a fully-qualified dir. ")
 
-(cl-declaim (special emacspeak-sounds-directory))
+(cl-declaim (special emacspeak-sounds-dir))
 
 
 
@@ -208,16 +208,16 @@ Fully qualified filename if using Alsa. "
 (defun emacspeak-sounds-select-theme  ( theme)
   "Select theme for auditory icons."
   (interactive
-   (list (read-directory-name "Theme: " emacspeak-sounds-directory)))
+   (list (read-directory-name "Theme: " emacspeak-sounds-dir)))
   (cl-declare (special emacspeak-sounds-themes-table
-                       emacspeak-play-program emacspeak-sounds-directory))
+                       emacspeak-play-program emacspeak-sounds-dir))
   (emacspeak-sounds-define-theme-if-necessary theme)
   (unless (file-directory-p theme) (setq theme  (file-name-directory theme)))
   (unless (file-exists-p theme) (error "Theme %s is not installed" theme))
   (emacspeak-sounds-cache-rebuild theme)
   (when (string= emacspeak-play-program emacspeak-pactl) ; upload samples
     (unless
-        (member (file-relative-name theme emacspeak-sounds-directory)
+        (member (file-relative-name theme emacspeak-sounds-dir)
                 '("ogg-3d/" "ogg-chimes/"))
       (error "%s: Only ogg-3d or ogg-chimes with Pulse Advanced" theme))
     (cl-loop
@@ -248,26 +248,26 @@ Fully qualified filename if using Alsa. "
        ((string= emacspeak-pactl val)
         (setq emacspeak-play-args "play-sample")
         (setq emacspeak-sounds-current-theme
-              (expand-file-name "ogg-chimes/" emacspeak-sounds-directory)))
+              (expand-file-name "ogg-chimes/" emacspeak-sounds-dir)))
        ((string= emacspeak-paplay val)
         (setq emacspeak-sounds-current-theme
-              (expand-file-name "ogg-chimes/" emacspeak-sounds-directory))
+              (expand-file-name "ogg-chimes/" emacspeak-sounds-dir))
         (setq emacspeak-play-args nil))
        ((string= emacspeak-aplay val)
         (setq emacspeak-play-args nil)
         (setq emacspeak-sounds-current-theme
-              (expand-file-name "pan-chimes/" emacspeak-sounds-directory)))
+              (expand-file-name "pan-chimes/" emacspeak-sounds-dir)))
        ((string= sox-play val)
         (setq emacspeak-sounds-current-theme
-              (expand-file-name "ogg-chimes/" emacspeak-sounds-directory))
+              (expand-file-name "ogg-chimes/" emacspeak-sounds-dir))
         (setq emacspeak-play-args nil))))
   :group 'emacspeak)
 
 (defun emacspeak-sounds-theme-p  (theme)
   "Predicate to test if theme is available."
-  (cl-declare (special emacspeak-sounds-directory))
+  (cl-declare (special emacspeak-sounds-dir))
   (file-exists-p
-   (expand-file-name theme emacspeak-sounds-directory)))
+   (expand-file-name theme emacspeak-sounds-dir)))
 
 ;;;   queue an auditory icon
 (defun emacspeak-queue-auditory-icon (icon)
@@ -327,7 +327,7 @@ Optional interactive PREFIX arg toggles global value."
 ;;;  emacspeak-prompts:
 
 (defvar emacspeak-prompts-dir
-  (expand-file-name "prompts" emacspeak-sounds-directory)
+  (expand-file-name "prompts" emacspeak-sounds-dir)
   "Where pre-defined prompt files are located.")
 
 (defun emacspeak-sounds-cache-prompts ()

@@ -52,7 +52,7 @@
 (require 'emacspeak-preamble)
 ;;;   variables
 
-(cl-declaim (special emacspeak-sounds-directory))
+(cl-declaim (special emacspeak-sounds-dir))
 
 ;;;  personalities 
 
