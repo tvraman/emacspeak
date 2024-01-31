@@ -4539,15 +4539,17 @@ emacspeak.
 
 Here are some notes on what I have learnt while designing and using
 auditory icons over the years:
-     Auditory icons should be short -- use command ‘soxi’ or ‘\;’ in a
+  1. Auditory icons should be short -- use command ‘soxi’ or ‘\;’ in a
      dired buffer to see duration of a sound file.  Use the bundled
      themes as a guide.
-  1. Sounds have many properties, eg: duration, gain, pitch, at the
-     basic level.  Even more important is the nature of the sound and
-     what it sounds like in the overall activity where that sound is
-     used.
-  2. This is why the gain of icons _never be_ normalized in my view.
-  3. The included themes have been optimized over years of use and are
+  2. Sounds have many properties, eg: duration, gain, pitch, at the
+     basic level.
+  3. Even more important is the nature of the sound and what it sounds
+     like in the overall activity where that sound is used.
+  4. This is why the gain of icons _should never be_ normalized in my
+     view-- tuning icons is as complex as picking colors from a color
+     palette.
+  5. The included themes have been optimized over years of use and are
      primarily tuned for using with headphones.
 
 12.179.3 Emacspeak-Sounds Commands
