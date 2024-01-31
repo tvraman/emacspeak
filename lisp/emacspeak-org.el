@@ -171,18 +171,11 @@
    )
  do
  (eval
-  `(defadvice ,f(around emacspeak pre act comp)
+  `(defadvice ,f(after emacspeak pre act comp)
      "Speak."
-     (cond
-      ((ems-interactive-p)
-       (let ((orig (point)))
-         ad-do-it
-         (if (> (count-lines orig (point)) 1)
-             (emacspeak-speak-region orig (point))
-           (emacspeak-speak-line)))
-       (emacspeak-auditory-icon 'large-movement))
-      (t ad-do-it)
-      ad-return-value))))
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'large-movement)))))
 
 (defadvice org-cycle-list-bullet (after emacspeak pre act comp)
   "Speak."
