@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 27, 2024.
+last updated on January 30, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -4510,12 +4510,13 @@ emacspeak.
 
    • Auditory icons should be used to provide additional feedback, not
      as a gimmick.
-   • The interface should be usable at all times without the icons.
-   • General principle for when to use an icon: Convey information about
-     events taking place in parallel.
+   • The Emacspeak interface should be usable at all times without the
+     icons.
+   • General principle for when to use an icon:
+   • Convey information about events taking place in parallel.
    • For instance, if making a selection automatically moves the current
      focus to the next choice, We speak the next choice, while
-     indicating the fact that something was selected with a auditory
+     indicating the fact that something was selected with an auditory
      icon.
    • This interface will assume the availability of a shell command
      ‘play’ that can take one or more sound files and play them.
@@ -4527,9 +4528,9 @@ emacspeak.
      auditory icons.  Sound files corresponding to a given theme are
      found in appropriate subdirectories of emacspeak-sounds-directory.
    • The auditory icon player is configure via custom option
-     ‘emacspeak-play-program’.
-
-   required modules
+     ‘emacspeak-play-program’.  That custom setting handles the mapping
+     to various play programs from audio subsystems such as ALSA,
+     Pulseaudio, and Pipewire.
 
 12.179.2 Emacspeak-Sounds Commands
 ----------------------------------
@@ -4537,12 +4538,12 @@ emacspeak.
 12.179.2.1 emacspeak-sounds-select-theme
 ........................................
 
- -- Command: emacspeak-sounds-select-theme (&optional theme)
+ -- Command: emacspeak-sounds-select-theme (theme)
      ‘C-e )’
 
      Select theme for auditory icons.
 
-     (fn &optional THEME)
+     (fn THEME)
 
 12.179.2.2 emacspeak-toggle-auditory-icons
 ..........................................
@@ -4564,7 +4565,7 @@ emacspeak.
      Default Value:
 
      
-     "/usr/bin/aplay"
+     "/usr/bin/pactl"
      
 
 
@@ -10158,12 +10159,10 @@ specific.
 12.232.1.1 outloud
 ..................
 
- -- Command: outloud (&optional device)
+ -- Command: outloud
      ‘C-e d C-o’
 
      Start Outloud.
-
-     (fn &optional DEVICE)
 
 12.232.2 outloud-voices Options
 -------------------------------

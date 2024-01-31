@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 27, 2024.
+last updated on January 30, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -791,7 +791,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.241 URL Templates
 ====================
 
-This section documents a total of 61 URL Templates.
+This section documents a total of 62 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u’.  This command
@@ -817,177 +817,180 @@ following steps:
   5. archwiki search
 
      Search Linux ArchWiki
-  6. bbc podcast directory
+  6. bbc 5-live schedule
+
+     BBC Radio 5 Live Schedule
+  7. bbc podcast directory
 
      BBC PodCast Directory
-  7. bbc r4 extra schedule
+  8. bbc r4 extra schedule
 
      BBC Radio 4 Extra Schedule
-  8. bbc r4 schedule
+  9. bbc r4 schedule
 
      BBC R4 Schedule
-  9. bbc sounds
+  10. bbc sounds
 
      Search BBC Sounds
-  10. bing news
+  11. bing news
 
      Bing News results as RSS feed.
-  11. business headlines from cnn
+  12. business headlines from cnn
 
      Money Headlines From CNN
-  12. cbs radio streams from streamtheworld
+  13. cbs radio streams from streamtheworld
 
      Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  13. cnbc quotes
+  14. cnbc quotes
 
      Stock portfolio via CNBC
-  14. cnbc ticker
+  15. cnbc ticker
 
      Stock Quote via CNBC
-  15. cnn headlines
+  16. cnn headlines
 
      News Headlines From CNN
-  16. cnn money
+  17. cnn money
 
      CNN Money
-  17. cricinfo print
+  18. cricinfo print
 
      Printer friendly link on Cricinfo
-  18. dictionary lookup
+  19. dictionary lookup
 
      Dictionary Lookup
-  19. emacspeak search via google
+  20. emacspeak search via google
 
      Search Emacspeak Site
-  20. espn cricinfo search
+  21. espn cricinfo search
 
      Cricinfo Search Using Google
-  21. finance google
+  22. finance google
 
      Lookup ticker on Google Finance.
-  22. finance summary from google
+  23. finance summary from google
 
      Display top stocks from Google Finance.
-  23. freesound
+  24. freesound
 
      Search FreeSound.
-  24. google news search
+  25. google news search
 
      Search Google news.
-  25. google scholar
+  26. google scholar
 
      Google Scholar Search
-  26. google trends
+  27. google trends
 
      Google Trends
-  27. google weather
+  28. google weather
 
      Light-weight Google weather.
-  28. guardian rss feeds directory
+  29. guardian rss feeds directory
 
      Guardian Feeds Directory
-  29. hacker news frontpage
+  30. hacker news frontpage
 
      Display Hacker News Front Page
-  30. hacker news search
+  31. hacker news search
 
      Display Hacker News Front Page
-  31. hoogle haskell api search
+  32. hoogle haskell api search
 
      Haskell API Search against a local server.
-  32. html google news search
+  33. html google news search
 
      Search Google news.
-  33. microsoft search
+  34. microsoft search
 
      Bing results as RSS feed.
-  34. nba standings
+  35. nba standings
 
      Display NBA standings.
-  35. nls bard bookshelf
+  36. nls bard bookshelf
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  36. nls bard popular
+  37. nls bard popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  37. nls bard recent
+  38. nls bard recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  38. nls bard search
+  39. nls bard search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  39. npr
+  40. npr
 
      Open NPR home , then display the alternative links to access RSS
      feeds.
-  40. online radiotime browser
+  41. online radiotime browser
 
      RadioTime Entry point.
-  41. online radiotime search
+  42. online radiotime search
 
      RadioTime Search
-  42. openlibrary
+  43. openlibrary
 
      Open Library Search
-  43. player fm bbc rss feeds
+  44. player fm bbc rss feeds
 
      Player FM BBC RSS Feeds
-  44. radiotime categories
+  45. radiotime categories
 
      RadioTime Categories
-  45. reddit at point
+  46. reddit at point
 
      Open RSS Feed for Reddit URL under point.
-  46. reddit by topic
+  47. reddit by topic
 
      Open RSS Feed for Reddit Topic.
-  47. reddit front page
+  48. reddit front page
 
      Open Feed for Reddit Front Page.
-  48. reddit search
+  49. reddit search
 
      Reddit Search Results Feed.
-  49. sourceforge browse mirrors
+  50. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  50. sourceforge download
+  51. sourceforge download
 
      Download specified file.
-  51. sourceforge project
+  52. sourceforge project
 
      Open specified project page at SourceForge.
-  52. tech news from cnet
+  53. tech news from cnet
 
      Display tech news from CNET
-  53. tinyurl
+  54. tinyurl
 
-  54. tunein radio
+  55. tunein radio
 
      Translate StreamId to playable stream.
-  55. w3c irc logs
+  56. w3c irc logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  56. w3c lists
+  57. w3c lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  57. washington post
+  58. washington post
 
      Washington Post Contents
-  58. wiki data search
+  59. wiki data search
 
      Search WikiData.
-  59. wikipedia at point
+  60. wikipedia at point
 
      Extract body content from Wikipedia link at point
-  60. wordnet search
+  61. wordnet search
 
      Look up term in WordNet.
-  61. yahoo rssnews
+  62. yahoo rssnews
 
      News From Yahoo As RSS.
 
@@ -2283,7 +2286,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <f1> M:                                emacspeak-wizards.  (line  211)
 * <f1> N:                                emacspeak-speak.    (line 1074)
 * <f1> TAB:                              emacspeak-info.     (line   38)
-* <fn>:                                  dtk-speak.          (line  226)
+* <fn>:                                  dtk-speak.          (line  225)
 * <help> ,:                              emacspeak-wizards.  (line  329)
 * <help> ":                              emacspeak-extras.   (line  106)
 * <help> \:                              emacspeak-wizards.  (line  339)
@@ -2400,7 +2403,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e ':                                 emacspeak-empv.     (line   48)
 * C-e ":                                 emacspeak-empv.     (line   59)
 * C-e (:                                 amixer.             (line   25)
-* C-e ):                                 emacspeak-sounds.   (line   43)
+* C-e ):                                 emacspeak-sounds.   (line   44)
 * C-e [:                                 Reading.            (line  121)
 * C-e [ <1>:                             emacspeak-speak.    (line  682)
 * C-e ]:                                 emacspeak-speak.    (line  660)
@@ -2449,7 +2452,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-<left>:                          emacspeak-wizards.  (line  139)
 * C-e C-<return>:                        emacspeak-speak.    (line  318)
 * C-e C-<right>:                         emacspeak-wizards.  (line  114)
-* C-e C-a:                               emacspeak-sounds.   (line   53)
+* C-e C-a:                               emacspeak-sounds.   (line   54)
 * C-e C-b:                               emacspeak-bookshare.
                                                              (line   53)
 * C-e C-c:                               emacspeak-speak.    (line  213)
@@ -2465,7 +2468,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-p:                               Reading.            (line  143)
 * C-e C-q:                               emacspeak-comint.   (line   35)
 * C-e C-s:                               Miscellaneous.      (line   26)
-* C-e C-s <1>:                           dtk-speak.          (line  332)
+* C-e C-s <1>:                           dtk-speak.          (line  331)
 * C-e C-SPC:                             emacspeak-speak.    (line  354)
 * C-e C-t ,:                             emacspeak-table-ui. (line   61)
 * C-e C-t .:                             emacspeak-table-ui. (line  406)
@@ -2517,29 +2520,29 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e cap V:                             Status Information. (line   38)
 * C-e d cap V:                           Miscellaneous.      (line   84)
 * C-e d -:                               dtk-speak.          (line   65)
-* C-e d ,:                               dtk-speak.          (line  248)
+* C-e d ,:                               dtk-speak.          (line  247)
 * C-e d .:                               dtk-speak.          (line   57)
 * C-e d +:                               dtk-speak.          (line   66)
 * C-e d =:                               dtk-speak.          (line   67)
-* C-e d 0:                               dtk-speak.          (line  151)
-* C-e d 1:                               dtk-speak.          (line  150)
-* C-e d 2:                               dtk-speak.          (line  149)
-* C-e d 3:                               dtk-speak.          (line  148)
-* C-e d 4:                               dtk-speak.          (line  147)
-* C-e d 5:                               dtk-speak.          (line  146)
-* C-e d 6:                               dtk-speak.          (line  145)
-* C-e d 7:                               dtk-speak.          (line  144)
-* C-e d 8:                               dtk-speak.          (line  143)
-* C-e d 9:                               dtk-speak.          (line  142)
+* C-e d 0:                               dtk-speak.          (line  150)
+* C-e d 1:                               dtk-speak.          (line  149)
+* C-e d 2:                               dtk-speak.          (line  148)
+* C-e d 3:                               dtk-speak.          (line  147)
+* C-e d 4:                               dtk-speak.          (line  146)
+* C-e d 5:                               dtk-speak.          (line  145)
+* C-e d 6:                               dtk-speak.          (line  144)
+* C-e d 7:                               dtk-speak.          (line  143)
+* C-e d 8:                               dtk-speak.          (line  142)
+* C-e d 9:                               dtk-speak.          (line  141)
 * C-e d a:                               Miscellaneous.      (line   36)
 * C-e d a <1>:                           dtk-speak.          (line   16)
 * C-e d c:                               Speech Output Control.
                                                              (line   66)
-* C-e d c <1>:                           dtk-speak.          (line  238)
+* C-e d c <1>:                           dtk-speak.          (line  237)
 * C-e d C-c:                             dtk-speak.          (line   28)
 * C-e d C-d:                             dectalk-voices.     (line   17)
 * C-e d C-e:                             espeak-voices.      (line   17)
-* C-e d C-j:                             dtk-speak.          (line  111)
+* C-e d C-j:                             dtk-speak.          (line  110)
 * C-e d C-n:                             dtk-speak.          (line   49)
 * C-e d C-o:                             outloud-voices.     (line   17)
 * C-e d C-s:                             dectalk-voices.     (line   25)
@@ -2549,7 +2552,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line   36)
 * C-e d f:                               Speech Output Control.
                                                              (line   23)
-* C-e d f <1>:                           dtk-speak.          (line   97)
+* C-e d f <1>:                           dtk-speak.          (line   96)
 * C-e d i:                               Speech Output Control.
                                                              (line   77)
 * C-e d i <1>:                           emacspeak-speak.    (line  981)
@@ -2560,28 +2563,28 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e d l <1>:                           emacspeak-speak.    (line 1012)
 * C-e d m:                               Speech Output Control.
                                                              (line   50)
-* C-e d N:                               dtk-speak.          (line  134)
-* C-e d n:                               dtk-speak.          (line  269)
-* C-e d o:                               dtk-speak.          (line  299)
+* C-e d N:                               dtk-speak.          (line  133)
+* C-e d n:                               dtk-speak.          (line  268)
+* C-e d o:                               dtk-speak.          (line  298)
 * C-e d p:                               Speech Output Control.
                                                              (line   43)
-* C-e d P:                               dtk-speak.          (line  173)
-* C-e d p <1>:                           dtk-speak.          (line  181)
+* C-e d P:                               dtk-speak.          (line  172)
+* C-e d p <1>:                           dtk-speak.          (line  180)
 * C-e d q:                               Miscellaneous.      (line   17)
-* C-e d q <1>:                           dtk-speak.          (line  259)
+* C-e d q <1>:                           dtk-speak.          (line  258)
 * C-e d r:                               Speech Output Control.
                                                              (line   16)
 * C-e d R:                               dtk-speak.          (line   78)
-* C-e d r <1>:                           dtk-speak.          (line  214)
+* C-e d r <1>:                           dtk-speak.          (line  213)
 * C-e d <RETURN>:                        Miscellaneous.      (line   71)
 * C-e d s:                               Speech Output Control.
                                                              (line   58)
-* C-e d S:                               dtk-speak.          (line  122)
-* C-e d s <1>:                           dtk-speak.          (line  279)
+* C-e d S:                               dtk-speak.          (line  121)
+* C-e d s <1>:                           dtk-speak.          (line  278)
 * C-e d <SPACE>:                         Miscellaneous.      (line   55)
-* C-e d SPC:                             dtk-speak.          (line  291)
+* C-e d SPC:                             dtk-speak.          (line  290)
 * C-e d t:                               Miscellaneous.      (line   79)
-* C-e d V:                               dtk-speak.          (line  340)
+* C-e d V:                               dtk-speak.          (line  339)
 * C-e d v:                               voice-setup.        (line   63)
 * C-e d w:                               Controlling Echo.   (line   25)
 * C-e d w <1>:                           emacspeak-speak.    (line 1063)
@@ -2638,7 +2641,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line   72)
 * C-e <RIGHT>:                           Reading.            (line  113)
 * C-e s:                                 Miscellaneous.      (line   12)
-* C-e s <1>:                             dtk-speak.          (line  227)
+* C-e s <1>:                             dtk-speak.          (line  226)
 * C-e SPC:                               Status Information. (line   23)
 * C-e SPC <1>:                           emacspeak-speak.    (line  925)
 * C-e t:                                 Status Information. (line   33)

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 27, 2024.
+last updated on January 30, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3716,13 +3716,12 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 12.4.1.8 dtk-select-server
 ..........................
 
- -- Command: dtk-select-server (program &optional device)
+ -- Command: dtk-select-server (program)
      ‘C-e d d’
 
      Select  speech server ‘program’.
-      Optional arg device sets  env-var ALSA_DEFAULT.
 
-     (fn PROGRAM &optional DEVICE)
+     (fn PROGRAM)
 
 12.4.1.9 dtk-set-character-scale
 ................................
