@@ -61,9 +61,10 @@
 ;; Emacspeak 13.0, this module defines a themes architecture for
 ;; auditory icons.  Sound files corresponding to a given theme are
 ;; found in appropriate subdirectories of emacspeak-sounds-directory.
+;; @item Contrast this with @code{prompts[ that dont belong to any theme.]}
 ;; @item The auditory icon player is configure via
 ;; custom option @code{emacspeak-play-program}.
-;; That custom setting handles the mapping to various play programs
+;;@item  That custom setting handles the mapping to various play programs
 ;; from audio subsystems such as ALSA, Pulseaudio, and Pipewire.
 ;; @end itemize
 ;;; Code:
