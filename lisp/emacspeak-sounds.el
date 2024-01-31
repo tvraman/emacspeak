@@ -63,7 +63,7 @@
 ;; found in appropriate subdirectories of emacspeak-sounds-directory.
 ;; @item The auditory icon player is configure via
 ;; custom option @code{emacspeak-play-program}.
-;; @That custom setting handles the mapping to various play programs
+;; That custom setting handles the mapping to various play programs
 ;; from audio subsystems such as ALSA, Pulseaudio, and Pipewire.
 ;; @end itemize
 ;;; Code:
