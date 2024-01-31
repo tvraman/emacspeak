@@ -81,14 +81,15 @@
       <ul class="itemize mark-bullet">
         <li>Auditory icons should be used to provide additional
         feedback, not as a gimmick.</li>
-        <li>The interface should be usable at all times without the
-        icons.</li>
-        <li>General principle for when to use an icon: Convey
-        information about events taking place in parallel.</li>
+        <li>The Emacspeak interface should be usable at all times
+        without the icons.</li>
+        <li>General principle for when to use an icon:</li>
+        <li>Convey information about events taking place in
+        parallel.</li>
         <li>For instance, if making a selection automatically moves
         the current focus to the next choice, We speak the next
         choice, while indicating the fact that something was
-        selected with a auditory icon.</li>
+        selected with an auditory icon.</li>
         <li>This interface will assume the availability of a shell
         command <code class="code">play</code> that can take one or
         more sound files and play them.</li>
@@ -101,9 +102,11 @@
         to a given theme are found in appropriate subdirectories of
         emacspeak-sounds-directory.</li>
         <li>The auditory icon player is configure via custom option
-        <code class="code">emacspeak-play-program</code>.</li>
+        <code class="code">emacspeak-play-program</code>. That
+        custom setting handles the mapping to various play programs
+        from audio subsystems such as ALSA, Pulseaudio, and
+        Pipewire.</li>
       </ul>
-      <p>required modules</p>
     </div>
     <div class="subsection-level-extent" id=
     "Emacspeak_002dSounds-Commands">
@@ -131,8 +134,8 @@
           <span class="category-def">Command:</span>
           <span><strong class=
           "def-name">emacspeak-sounds-select-theme</strong>
-          <var class="def-var-arguments">(&amp;optional
-          theme)</var> <a class="copiable-link" href=
+          <var class="def-var-arguments">(theme)</var> <a class=
+          "copiable-link" href=
           "#index-emacspeak_002dsounds_002dselect_002dtheme">¶</a></span></dt>
           <dd>
             <dl class="table">
@@ -147,7 +150,7 @@
               <pre class=
               "format-preformatted">Select theme for auditory icons.
 
-(fn &amp;optional THEME)
+(fn THEME)
 </pre>
             </div>
           </dd>
@@ -206,7 +209,7 @@ Optional interactive PREFIX arg toggles global value.
           <p>Play program.</p>
           <p>Default Value:</p>
           <pre class="verbatim">
-"/usr/bin/aplay"
+"/usr/bin/pactl"
 
 </pre>
         </dd>
