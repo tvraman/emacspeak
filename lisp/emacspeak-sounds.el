@@ -73,7 +73,7 @@
 ;; auditory icons over the years:
 ;; @enumerate
 ;;@item  Auditory icons should be short  --- use command @code{soxi} or
-;; @code{\;} in a dired buffer to see duration of a sound file. Use
+;; @code{;} in a dired buffer to see duration of a sound file. Use
 ;; the bundled themes as a guide.
 ;; @item Sounds have many properties, eg: duration, gain, pitch, at
 ;; the basic level.
