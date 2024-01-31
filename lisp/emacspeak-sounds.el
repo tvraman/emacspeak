@@ -55,6 +55,7 @@
 ;; @code{play} that can take one or more sound files and play them.
 ;; @item This module provides  a mapping between names in the elisp world
 ;; and actual sound files.
+;; @item icon-names are symbols; sound files  are fully-qualified file-names.
 ;; @item Modules that wish to use auditory icons
 ;; should use these names, instead of actual file names.
 ;; @item As of
