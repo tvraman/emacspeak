@@ -1788,16 +1788,14 @@ Optional interactive prefix arg `speak-rev' speaks only the Git revision."
   (let ((signature "Emacspeak "))
     (when
         (and (null speak-rev) emacspeak-use-auditory-icons
-             emacspeak-mplayer)
-      (start-process "mp3" nil "mplayer" emacspeak-icon))
+             sox-play)
+      (start-process "ogg" nil sox-play emacspeak-icon))
     (tts-with-punctuations
      'some
-     (dtk-speak-and-echo
+     (dtk-speak
       (concat
        signature
-       (if speak-rev
-           emacspeak-git-revision
-          emacspeak-version))))))
+       (if speak-rev emacspeak-git-revision emacspeak-version))))))
 
 (defun emacspeak-speak-current-kill (&optional count)
   "Speak the current kill.
