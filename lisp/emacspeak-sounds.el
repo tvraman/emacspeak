@@ -204,19 +204,10 @@ Fully qualified filename if using Alsa. "
                 '("ogg-3d/" "ogg-chimes/"))
       (error "%s: Only ogg-3d or ogg-chimes with Pulse Advanced" theme))
     (cl-loop
-     for f in (directory-files theme 'full ".ogg$") do
+     for key being the hash-keys of emacspeak-sounds-cache do
      (shell-command
       (format "%s upload-sample %s %s"
-              emacspeak-pactl (string-trim f)
-              (string-trim
-               (shell-command-to-string (format "basename %s .ogg" f))))))
-    (cl-loop                            ; prompts
-     for f in (directory-files emacspeak-prompts-dir 'full ".ogg$") do
-     (shell-command
-      (format "%s upload-sample %s %s"
-              emacspeak-pactl (string-trim f)
-              (string-trim
-               (shell-command-to-string (format "basename %s .ogg" f)))))))
+              emacspeak-pactl (gethash key emacspeak-sounds-cache) key))))
   (setq emacspeak-sounds-current-theme theme)
   (emacspeak-auditory-icon 'button))
 
