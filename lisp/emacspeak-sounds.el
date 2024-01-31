@@ -187,9 +187,7 @@ Fully qualified filename if using Alsa. "
   (emacspeak-sounds-cache-prompts)
   (when (file-exists-p theme)
     (cl-loop
-     for f in
-     (directory-files theme 'full
-                      (emacspeak-sounds-theme-ext theme))
+     for f in (directory-files theme 'full (emacspeak-sounds-theme-ext theme))
      do
      (emacspeak-sounds-cache-put
       (intern (file-name-sans-extension (file-name-nondirectory f)))
