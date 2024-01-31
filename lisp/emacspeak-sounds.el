@@ -68,6 +68,22 @@
 ;;@item  That custom setting handles the mapping to various play programs
 ;; from audio subsystems such as ALSA, Pulseaudio, and Pipewire.
 ;; @end itemize
+;; @subsection Designing Auditory Icons
+;; Here are some notes on what I have learnt while designing and using
+;; auditory icons over the years:
+;; @enumerate
+;; Auditory icons should be short  --- use command @code{soxi} or
+;; @code{\;} in a dired buffer to see duration of a sound file. Use
+;; the bundled themes as a guide.
+;; @item Sounds have many properties, eg: duration, gain, pitch, at
+;; the basic level.
+;; Even more important is the nature of the sound and what it sounds
+;; like in the overall activity where that sound is used.
+;; @item This is why  the gain of icons @emph{never be} normalized in
+;; my view.
+;; @item The included themes have been optimized over years of use and
+;; are primarily tuned for using with headphones.
+;; @end enumerate
 ;;; Code:
 ;;;  required modules
 

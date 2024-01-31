@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 30, 2024.
+last updated on January 31, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -4522,6 +4522,7 @@ emacspeak.
      ‘play’ that can take one or more sound files and play them.
    • This module provides a mapping between names in the elisp world and
      actual sound files.
+   • icon-names are symbols; sound files are fully-qualified file-names.
    • Modules that wish to use auditory icons should use these names,
      instead of actual file names.
    • As of Emacspeak 13.0, this module defines a themes architecture for
@@ -4533,10 +4534,26 @@ emacspeak.
    • That custom setting handles the mapping to various play programs
      from audio subsystems such as ALSA, Pulseaudio, and Pipewire.
 
-12.179.2 Emacspeak-Sounds Commands
+12.179.2 Designing Auditory Icons
+---------------------------------
+
+Here are some notes on what I have learnt while designing and using
+auditory icons over the years:
+     Auditory icons should be short -- use command ‘soxi’ or ‘\;’ in a
+     dired buffer to see duration of a sound file.  Use the bundled
+     themes as a guide.
+  1. Sounds have many properties, eg: duration, gain, pitch, at the
+     basic level.  Even more important is the nature of the sound and
+     what it sounds like in the overall activity where that sound is
+     used.
+  2. This is why the gain of icons _never be_ normalized in my view.
+  3. The included themes have been optimized over years of use and are
+     primarily tuned for using with headphones.
+
+12.179.3 Emacspeak-Sounds Commands
 ----------------------------------
 
-12.179.2.1 emacspeak-sounds-select-theme
+12.179.3.1 emacspeak-sounds-select-theme
 ........................................
 
  -- Command: emacspeak-sounds-select-theme (theme)
@@ -4546,7 +4563,7 @@ emacspeak.
 
      (fn THEME)
 
-12.179.2.2 emacspeak-toggle-auditory-icons
+12.179.3.2 emacspeak-toggle-auditory-icons
 ..........................................
 
  -- Command: emacspeak-toggle-auditory-icons (&optional prefix)
@@ -4557,7 +4574,7 @@ emacspeak.
 
      (fn &optional PREFIX)
 
-12.179.3 emacspeak-sounds Options
+12.179.4 emacspeak-sounds Options
 ---------------------------------
 
  -- Variable: User Option emacspeak-play-program
