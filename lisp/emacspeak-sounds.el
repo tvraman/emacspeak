@@ -166,6 +166,7 @@ Fully qualified filename if using Alsa. "
 ;; Called from emacspeak at startup, and also when selecting themes.
 (defun emacspeak-sounds-cache-rebuild (theme)
   "Rebuild sound cache for theme."
+  (emacspeak-sounds-cache-prompts)
   (when (file-exists-p theme)
     (cl-loop
      for f in
