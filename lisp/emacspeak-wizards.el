@@ -1126,7 +1126,7 @@ dates.")
   (cl-declare (special emacspeak-comint-autospeak))
   (with-environment-variables
       (("PAGER" "cat"))
-    (make-comint "units" "units" nil "--verbose"))
+    (make-comint "units" (executable-find "units") nil "--verbose"))
   (switch-to-buffer "*units*")
   (emacspeak-auditory-icon 'select-object)
   (goto-char (point-max))
