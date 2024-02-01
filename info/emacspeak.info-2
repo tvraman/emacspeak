@@ -4532,7 +4532,7 @@ emacspeak.
    • The auditory icon player is configure via custom option
      ‘emacspeak-play-program’.
    • That custom setting handles the mapping to various play programs
-     from audio subsystems such as ALSA, Pulseaudio, and Pipewire.
+     from audio subsystems such as Pulseaudio, and Pipewire.
 
 12.179.2 Designing Auditory Icons
 ---------------------------------

@@ -11930,7 +11930,7 @@ found in appropriate subdirectories of emacspeak-sounds-dir.
 @item The auditory icon player is configure via
 custom option @code{emacspeak-play-program}.
 @item  That custom setting handles the mapping to various play programs
-from audio subsystems such as ALSA, Pulseaudio, and Pipewire.
+from audio subsystems such as Pulseaudio, and Pipewire.
 @end itemize
 @subsection Designing Auditory Icons
 Here are some notes on what I have learnt while designing and using
