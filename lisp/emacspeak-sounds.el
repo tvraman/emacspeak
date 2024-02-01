@@ -212,14 +212,13 @@ Value is a string, a fully qualified filename. ")
   (emacspeak-auditory-icon 'button))
 
 ;; need to use pathnames ---
-;; cant use our predefined constants such as emacspeak-aplay here.
+;; cant use our predefined constants such as emacspeak-paplay here.
 
 (defcustom emacspeak-play-program
-  (or emacspeak-pactl emacspeak-aplay emacspeak-paplay sox-play)
+  (or emacspeak-pactl  emacspeak-paplay sox-play)
   "Play program."
   :type
   '(choice
-    (const :tag "Alsa" "/usr/bin/aplay")
     (const :tag "Pulse Basic" "/usr/bin/paplay")
     (const  :tag "Pulse Advanced" "/usr/bin/pactl")
     (const  :tag "SoX" "/usr/bin/play"))
@@ -236,10 +235,6 @@ Value is a string, a fully qualified filename. ")
         (setq emacspeak-sounds-current-theme
               (expand-file-name "ogg-chimes/" emacspeak-sounds-dir))
         (setq emacspeak-play-args nil))
-       ((string= emacspeak-aplay val)
-        (setq emacspeak-play-args nil)
-        (setq emacspeak-sounds-current-theme
-              (expand-file-name "pan-chimes/" emacspeak-sounds-dir)))
        ((string= sox-play val)
         (setq emacspeak-sounds-current-theme
               (expand-file-name "ogg-chimes/" emacspeak-sounds-dir))
