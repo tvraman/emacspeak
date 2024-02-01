@@ -60,9 +60,6 @@
 
 (defconst emacspeak-amixer  (executable-find "amixer") "Amixer program")
 
-;; aplay
-(defconst emacspeak-aplay  (executable-find "aplay") "APlay program")
-
 ;; curl:
 (defconst emacspeak-curl (executable-find "curl") "Curl.")
 
