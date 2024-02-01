@@ -66,7 +66,7 @@
 ;; @item The auditory icon player is configure via
 ;; custom option @code{emacspeak-play-program}.
 ;;@item  That custom setting handles the mapping to various play programs
-;; from audio subsystems such as ALSA, Pulseaudio, and Pipewire.
+;; from audio subsystems such as Pulseaudio, and Pipewire.
 ;; @end itemize
 ;; @subsection Designing Auditory Icons
 ;; Here are some notes on what I have learnt while designing and using
@@ -132,7 +132,7 @@ Value is a string, a fully qualified filename. ")
   (gethash sound emacspeak-sounds-cache))
 
 (defun emacspeak-sounds-resource (icon)
-  "Return icon resource, either a fully qualified file name or a sample-name"
+  "Return icon resource, either a fully qualified file name or a icon-name"
   (cl-declare (special emacspeak-sounds-cache))
   (let ((f (emacspeak-sounds-cache-get icon)))
     (cl-assert (and f (file-exists-p f)) t "Icon does not exist.")
@@ -166,21 +166,6 @@ Value is a string, a fully qualified filename. ")
 (defconst emacspeak-paplay (executable-find "paplay" "PaPlay program"))
 (defconst emacspeak-pactl (executable-find "pactl") "PaCtl Executable.")
 
-(defun emacspeak-sounds-get-file (icon)
-  "Get play arg  that produces  auditory icon `icon'
-Fully qualified filename if using Alsa. "
-  (cl-declare (special emacspeak-sounds-current-theme))
-  (let ((f
-         (expand-file-name
-          (format
-           "%s%s"
-           icon
-           (emacspeak-sounds-theme-ext
-            emacspeak-sounds-current-theme))
-          emacspeak-sounds-current-theme)))
-        (if (string= emacspeak-play-program emacspeak-pactl)
-            (file-name-nondirectory f)
-          f)))
 ;; Called from emacspeak at startup, and also when selecting themes.
 (defun emacspeak-sounds-cache-rebuild (theme)
   "Rebuild sound cache for theme."
