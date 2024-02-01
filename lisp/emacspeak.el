@@ -426,9 +426,6 @@ See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."
   (dtk-initialize)
   (setq ring-bell-function #'(lambda nil (emacspeak-auditory-icon 'warn-user)))
-  (mapc
-   #'load
-   (directory-files-recursively emacspeak-sounds-dir "define-theme\\.el"))
   (emacspeak-sounds-select-theme emacspeak-sounds-current-theme)
   (emacspeak-pronounce-load-dictionaries)
   (make-thread #'(lambda () (ems--fastload "emacspeak-advice")))
