@@ -263,8 +263,7 @@ Value is a string, a fully qualified filename. ")
 
 ;;;   Play an icon
 (defvar emacspeak-play-args nil
-  "Set this to nil if using paplay from pulseaudio.
-Automatically set to `play-sample' if using pactl.")
+  "Arguments passed to play program.")
 
 (defun emacspeak-play-auditory-icon (icon)
   "Produce auditory icon ICON."
@@ -326,8 +325,6 @@ Optional interactive PREFIX arg toggles global value."
         (emacspeak-serve-auditory-icon name))
        ((string= emacspeak-play-program emacspeak-pactl)
         (start-process
-         "pactl" nil emacspeak-pactl "play-sample" (symbol-name f)))
-       (t
-        (start-process "paplay" nil emacspeak-paplay  f ))))))
+         "pactl" nil emacspeak-pactl "play-sample" (symbol-name f)))))))
 
 (provide  'emacspeak-sounds)
