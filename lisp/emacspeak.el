@@ -87,12 +87,13 @@ the Emacspeak desktop.")
 
 ;; DocView
 (declare-function doc-view-open-text "doc-view")
-(with-eval-after-load "gptel"
-  (cl-declare (special gptel-post-response-functions))
-  (cl-pushnew  'emacspeak-speak-region gptel-post-response-functions))
 
 (with-eval-after-load "doc-view"
   (add-hook 'doc-view-mode-hook #'doc-view-open-text))
+
+(with-eval-after-load "gptel"
+  (cl-declare (special gptel-post-response-functions))
+  (cl-pushnew  'emacspeak-speak-region gptel-post-response-functions))
 
 ;;;  Setup package extensions
 (defvar emacspeak-packages-to-prepare
@@ -368,7 +369,6 @@ This cannot be set via custom; set this in your startup file before
   (cl-declare (special emacspeak-play-startup-icon sox-play))
   (when (and  emacspeak-play-startup-icon sox-play)
     (start-process "ogg" nil sox-play emacspeak-icon)))
-
 
 (defsubst emacspeak-easter-egg ()
   "Easter Egg"
