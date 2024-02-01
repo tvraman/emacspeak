@@ -166,7 +166,6 @@
    org-meta-return
    org-shiftmetaleft org-shiftmetaright org-shiftmetaup org-shiftmetadown
    org-mark-element org-mark-subtree
-   org-agenda-forward-block org-agenda-backward-block
    )
  do
  (eval
@@ -179,7 +178,9 @@
 
 (cl-loop
  for f in 
- '(org-backward-paragraph org-forward-paragraph)
+ '(
+   org-backward-paragraph org-forward-paragraph
+   org-agenda-forward-block org-agenda-backward-block)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
