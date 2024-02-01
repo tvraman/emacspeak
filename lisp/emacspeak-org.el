@@ -158,7 +158,6 @@
    org-forward-heading-same-level org-backward-heading-same-level
    org-backward-sentence org-forward-sentence
    org-backward-element org-forward-element
-   org-backward-paragraph org-forward-paragraph
    org-next-link org-previous-link
    org-goto  org-goto-ret
    org-goto-left org-goto-right
@@ -176,6 +175,19 @@
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'large-movement)))))
+
+
+(cl-loop
+ for f in 
+ '(org-backward-paragraph org-forward-paragraph)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'paragraph)
+       (emacspeak-speak-paragraph)))))
+
 
 (defadvice org-cycle-list-bullet (after emacspeak pre act comp)
   "Speak."
