@@ -1534,34 +1534,13 @@ program. Port defaults to dtk-local-server-port"
 ;;;   initialize the speech process
 (defconst dtk-pamixer (executable-find "pamixer") "pamixer")
 
-(defsubst tts-notification-from-env ()
-  "Compute tts-notification device from env."
-  (let* ((result nil)
-         (device
-          (or                        ; each clause is for a given env:
-           (when emacspeak-wpctl     ;pipewire-alsa
-             (setq result
-                   (string-trim
-                    (shell-command-to-string "aplay -L | grep mono_right"))))
-           (when dtk-pamixer            ; pipewire-pulse
-             (setq result
-                   (split-string
-                    (shell-command-to-string
-                     "pamixer --list-sinks | grep right")))
-             (substring (cl-second result) 1 -1))
-           ; asoundrc
-           (split-string                ; basic alsa
-            (shell-command-to-string
-             "aplay -L 2>/dev/null | grep tts_mono_right"))
-           "default")))
-    (if (string-match "<" device)       ; strip <> from pactl result
-        (substring device 1 -1)
-      device)))
+
 
 (defcustom tts-notification-device
-  (eval-when-compile (tts-notification-from-env))
+  nil
   "Virtual sound device to use for notifications stream.
-Set to nil to disable a separate Notification stream."
+Set to nil to disable a separate Notification stream.
+If you set the device here, make sure it exists first."
   :type '(choice
           (const :tag "None" nil)
           (string :value ""))

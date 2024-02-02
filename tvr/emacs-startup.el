@@ -229,6 +229,7 @@ This function loads Emacspeak. Emacs customization and library
 configuration happens via the after-init-hook. "
   (cl-declare (special emacspeak-directory ))
   (unless (featurep 'emacspeak)
+    (setopt tts-notification-device "tts_mono_right")
     (tvr-time-load                      ; load emacspeak:
         (load ;; setenv EMACSPEAK_DIR if you want to load a different version
          (expand-file-name
