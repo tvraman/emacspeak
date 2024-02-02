@@ -166,7 +166,6 @@ Value is a string, a fully qualified filename. ")
   (cl-declare (special emacspeak-sounds-themes-table))
   (gethash (intern theme) emacspeak-sounds-themes-table))
 
-(defconst emacspeak-paplay (executable-find "paplay" "PaPlay program"))
 (defconst emacspeak-pactl (executable-find "pactl") "PaCtl Executable.")
 
 ;; Called from emacspeak at startup, and also when selecting themes.
@@ -215,7 +214,7 @@ Value is a string, a fully qualified filename. ")
   (emacspeak-auditory-icon 'button))
 
 ;; need to use pathnames ---
-;; cant use our predefined constants such as emacspeak-paplay here.
+;; cant use our predefined constants such as emacspeak-pactl here.
 
 (defcustom emacspeak-play-program
   (or emacspeak-pactl sox-play)
