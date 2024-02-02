@@ -1180,12 +1180,13 @@ t
 @defvar {User Option} tts-notification-device
 Virtual sound device to use for notifications stream.
 Set to nil to disable a separate Notification stream.
+If you set the device here, make sure it exists first.
 
 Default Value: 
 
 @verbatim
 
-"tts_mono_right"
+nil
 
 @end verbatim
 

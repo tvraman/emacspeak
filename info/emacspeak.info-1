@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 1, 2024.
+last updated on February 2, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -4146,12 +4146,13 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
  -- Variable: User Option tts-notification-device
      Virtual sound device to use for notifications stream.  Set to nil
-     to disable a separate Notification stream.
+     to disable a separate Notification stream.  If you set the device
+     here, make sure it exists first.
 
      Default Value:
 
      
-     "tts_mono_right"
+     nil
      
 
 
