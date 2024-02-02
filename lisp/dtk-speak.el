@@ -1534,35 +1534,24 @@ program. Port defaults to dtk-local-server-port"
 ;;;   initialize the speech process
 (defconst dtk-pamixer (executable-find "pamixer") "pamixer")
 
-(defconst dtk-pulseaudio (executable-find "pulseaudio") "Pulseaudio
-executable")
-
 (defsubst tts-notification-from-env ()
   "Compute tts-notification device from env."
   (let* ((result nil)
          (device
           (or                        ; each clause is for a given env:
-           (and (not dtk-pulseaudio) ;pipewire-alsa
+           (when emacspeak-wpctl ;pipewire-alsa
                 (setq result
                       (string-trim
                        (shell-command-to-string "aplay -L | grep mono_right"))))
-           (and                         ; pipewire-pulse
-            dtk-pamixer
+           (when dtk-pamixer ; pipewire-pulse
             (setq result
-                  (split-string
-                   (shell-command-to-string
-                    "pamixer --list-sinks | grep right")))
+                   (split-string
+                    (shell-command-to-string
+                     "pamixer --list-sinks | grep right")))
             (substring (cl-second result) 1 -1))
-           (and                         ; pure pipewire  or pure alsa
-            (not (zerop (length (shell-command-to-string "pidof pulseaudio"))))
-            (cl-first
-             (split-string
-              (shell-command-to-string
-               "pacmd list-sinks | grep tts | cut -f 2 -d ':'"))))
-           (cl-second                   ; basic alsa
-            (split-string
+            (split-string                    ; basic alsa
              (shell-command-to-string
-              "aplay -L 2>/dev/null | grep tts")))
+              "aplay -L 2>/dev/null | grep tts_mono_right"))
            "default")))
     (if (string-match "<" device)       ; strip <> from pactl result
         (substring device 1 -1)
