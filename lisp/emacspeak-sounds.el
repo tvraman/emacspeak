@@ -264,16 +264,17 @@ Automatically set to `play-sample' if using pactl.")
   "Produce auditory icon SOUND-NAME."
   (cl-declare (special emacspeak-play-program emacspeak-play-args
                        emacspeak-sounds-directory))
-  (let ((process-connection-type nil)
-        (default-directory emacspeak-sounds-directory))
-    (if emacspeak-play-args
+  (when emacspeak-play-program ; if missing don't play but don't crash
+    (let ((process-connection-type nil)
+            (default-directory emacspeak-sounds-directory))
+        (if emacspeak-play-args
+            (start-process
+            emacspeak-play-program nil emacspeak-play-program
+            emacspeak-play-args
+            (emacspeak-sounds-get-file sound-name))
         (start-process
-         emacspeak-play-program nil emacspeak-play-program
-         emacspeak-play-args
-         (emacspeak-sounds-get-file sound-name))
-      (start-process
-       emacspeak-play-program nil emacspeak-play-program
-       (emacspeak-sounds-get-file sound-name)))))
+        emacspeak-play-program nil emacspeak-play-program
+        (emacspeak-sounds-get-file sound-name))))))
 
 (defvar emacspeak-sox (executable-find "sox")
   
