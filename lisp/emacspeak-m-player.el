@@ -249,7 +249,7 @@ Reset immediately after being used.")
   :group 'emacspeak)
 
 ;;;###autoload
-(defcustom emacspeak-m-player-program
+(defcustom emacspeak-mplayer
   (executable-find "mplayer")
   "Media player program."
   :type 'string
@@ -347,8 +347,8 @@ Controls media playback when already playing.
 
 (defsubst emacspeak-m-player-playlist-p (resource)
   "Check if specified resource matches a playlist type."
-  (cl-declare (special emacspeak-m-player-playlist-pattern))
-  (string-match emacspeak-m-player-playlist-pattern resource))
+  (cl-declare (special emacspeak-playlist-pattern))
+  (string-match emacspeak-playlist-pattern resource))
 
 (defun emacspeak-m-player-bind-hotkey (directory key)
   "Binds key to invoke m-player  on specified directory."
@@ -550,7 +550,7 @@ dynamic playlist. "
                emacspeak-m-player-directory
                emacspeak-media-directory-regexp
                emacspeak-media-shortcuts-directory emacspeak-m-player-process
-               emacspeak-m-player-program emacspeak-m-player-options
+               emacspeak-mplayer emacspeak-m-player-options
                emacspeak-m-player-url emacspeak-m-player-url-p
                emacspeak-m-player-custom-filters))
   (when
@@ -606,7 +606,7 @@ dynamic playlist. "
       (setq emacspeak-m-player-process
             (apply
              #'start-process "MPLayer" buffer
-             emacspeak-m-player-program options))
+             emacspeak-mplayer options))
       (set-process-sentinel
        emacspeak-m-player-process #'ems--repeat-sentinel)
       (set-process-filter  emacspeak-m-player-process #'ems--mp-filter)
@@ -694,7 +694,7 @@ necessary."
            (split-string
             (shell-command-to-string
              (format "%s -input cmdlist"
-                     emacspeak-m-player-program))
+                     emacspeak-mplayer))
             "\n" 'omit-nulls)))
       (setq emacspeak-m-player-command-list
             (cl-loop  for c in commands
@@ -1529,17 +1529,13 @@ flat classical club dance full-bass full-bass-and-treble
 
 ;;;  YouTube:
 
-(defvar ems--mp-yt-dl
-  (executable-find "youtube-dl")
-  "YouTube download tool")
-
 (defsubst ems--m-p-get-yt-audio-first-fmt (url)
   "First available audio format code for   YT URL"
   (substring
    (shell-command-to-string
     (format
      "%s -F '%s' | grep '^[0-9]'   |grep audio |  head -1 | cut -f 1 -d ' '"
-     ems--mp-yt-dl url))
+     emacspeak-ytdl url))
    0 -1))
 
 (defsubst ems--m-p-get-yt-audio-last-fmt (url)
@@ -1548,7 +1544,7 @@ flat classical club dance full-bass full-bass-and-treble
    (shell-command-to-string
     (format
      "%s -F '%s' | grep '^[0-9]'   | grep audio |tail -1 | cut -f 1 -d ' '"
-     ems--mp-yt-dl url))
+     emacspeak-ytdl url))
    0 -1))
 
 (declare-function emacspeak-google-result-url-prefix "emacspeak-google" nil)

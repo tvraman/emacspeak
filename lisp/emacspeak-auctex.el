@@ -259,5 +259,5 @@ the opening line of the newly inserted environment. "
   (forward-word 1))
 
 (provide  'emacspeak-auctex)
-;;;   emacs local variables 
+  
 

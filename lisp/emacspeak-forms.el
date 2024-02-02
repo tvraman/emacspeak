@@ -239,7 +239,9 @@ Assumes that point is at the front of a field value."
   (interactive
    (list
     (read-file-name "Forms file: "
-                    (expand-file-name "forms/" emacspeak-etc-directory))))
+                    (expand-file-name "forms/"
+                                      emacspeak-etc-directory))))
+  (load-file filename)
   (forms-find-file filename))
 
 ;;;  bind smart filters
@@ -260,5 +262,5 @@ Assumes that point is at the front of a field value."
      (forms-next-field 1)))
 
 (provide  'emacspeak-forms)
-;;;   emacs local variables 
+  
 

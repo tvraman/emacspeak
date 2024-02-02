@@ -95,6 +95,8 @@
 (require 'nvm "nvm" 'no-error)
 
 ;;;  Customizations And Variables:
+(defconst emacspeak-maths-node (executable-find "node") "Node
+executable")
 
 (defvar emacspeak-maths-inferior-program
   (cond
@@ -102,9 +104,9 @@
          (nvm--installed-versions))
     (let ((v (car (sort (mapcar #'car (nvm--installed-versions)) #'string>))))
       (nvm-use v)
-      (executable-find "node")))
+      emacspeak-maths-node))
    ;; The fallback below  --- /usr/bin/node e.g. on Ubuntu/Debian  is old.
-   ((executable-find "node") (executable-find "node")) 
+   (emacspeak-maths-node emacspeak-maths-node) 
    (t  nil))
   "Location of `node' executable.  Make sure the environment in which
 Emacs is launched finds the right installation of node.  M-x

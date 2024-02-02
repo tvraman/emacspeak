@@ -158,7 +158,6 @@
    org-forward-heading-same-level org-backward-heading-same-level
    org-backward-sentence org-forward-sentence
    org-backward-element org-forward-element
-   org-backward-paragraph org-forward-paragraph
    org-next-link org-previous-link
    org-goto  org-goto-ret
    org-goto-left org-goto-right
@@ -167,22 +166,29 @@
    org-meta-return
    org-shiftmetaleft org-shiftmetaright org-shiftmetaup org-shiftmetadown
    org-mark-element org-mark-subtree
-   org-agenda-forward-block org-agenda-backward-block
    )
  do
  (eval
-  `(defadvice ,f(around emacspeak pre act comp)
+  `(defadvice ,f(after emacspeak pre act comp)
      "Speak."
-     (cond
-      ((ems-interactive-p)
-       (let ((orig (point)))
-         ad-do-it
-         (if (> (count-lines orig (point)) 1)
-             (emacspeak-speak-region orig (point))
-           (emacspeak-speak-line)))
-       (emacspeak-auditory-icon 'large-movement))
-      (t ad-do-it)
-      ad-return-value))))
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'large-movement)))))
+
+
+(cl-loop
+ for f in 
+ '(
+   org-backward-paragraph org-forward-paragraph
+   org-agenda-forward-block org-agenda-backward-block)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'paragraph)
+       (emacspeak-speak-paragraph)))))
+
 
 (defadvice org-cycle-list-bullet (after emacspeak pre act comp)
   "Speak."

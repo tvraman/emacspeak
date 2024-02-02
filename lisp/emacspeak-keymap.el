@@ -650,7 +650,8 @@
     ("e" eww)
     ("f" ffip)
     ("g" rg)
-    ("l" ellama-chat)
+    ("C-l" ellama-chat)
+    ("l" eww-open-file)
     ("o" emacspeak-feeds-opml-display)
     ("p" emacspeak-wizards-pdf-open)
     ("q" emacspeak-wizards-quotes)
@@ -751,5 +752,5 @@
 (global-set-key (kbd "C-x r e") 'emacspeak-eww-open-mark)
 
 (provide 'emacspeak-keymap)
-;;;   emacs local variables
+ 
 

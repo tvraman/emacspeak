@@ -14,3 +14,5 @@ pactl load-module module-remap-sink sink_name=tts_mono_left  master=binaural cha
 #https://www.thegeekdiary.com/pw-link-command-examples-in-linux/
 # device: snoop -- to record and play
 pactl load-module module-combine-sink sink_name=snoop  sink_properties=device.description="Record-and-Play"
+
+# to undo, use pactl unload-module <module name>

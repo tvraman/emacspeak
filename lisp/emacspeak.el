@@ -87,11 +87,13 @@ the Emacspeak desktop.")
 
 ;; DocView
 (declare-function doc-view-open-text "doc-view")
-(with-eval-after-load "gptel"
-  (cl-pushnew  'emacspeak-speak-region gptel-post-response-functions))
 
 (with-eval-after-load "doc-view"
   (add-hook 'doc-view-mode-hook #'doc-view-open-text))
+
+(with-eval-after-load "gptel"
+  (cl-declare (special gptel-post-response-functions))
+  (cl-pushnew  'emacspeak-speak-region gptel-post-response-functions))
 
 ;;;  Setup package extensions
 (defvar emacspeak-packages-to-prepare
@@ -364,26 +366,20 @@ This cannot be set via custom; set this in your startup file before
 
 (defsubst emacspeak-play-startup-icon ()
   "Play startup icon."
-  (cl-declare (special emacspeak-play-startup-icon
-                       emacspeak-m-player-program))
-  (when (and  emacspeak-play-startup-icon emacspeak-m-player-program)
-    (start-process
-     "mp3" nil
-     emacspeak-m-player-program
-     (expand-file-name "emacspeak.mp3"
-                       emacspeak-sounds-directory))))
-
+  (cl-declare (special emacspeak-play-startup-icon sox-play))
+  (when (and  emacspeak-play-startup-icon sox-play)
+    (start-process "ogg" nil sox-play emacspeak-icon)))
 
 (defsubst emacspeak-easter-egg ()
   "Easter Egg"
-  (cl-declare (special emacspeak-m-player-program))
-  (let ((f (expand-file-name "etc/ai/01-gemini.mp3" emacspeak-directory)))
+  (cl-declare (special emacspeak-play))
+  (let ((f (expand-file-name "ai/01-gemini.ogg" emacspeak-etc-directory)))
     (when
-        (and  emacspeak-play-startup-icon emacspeak-m-player-program
+        (and  emacspeak-play-startup-icon sox-play
               (file-exists-p f)
               (string=                  ; anniversary
                (format-time-string "%m-%d") (format-time-string "04-25")))
-      (start-process "mp3" nil emacspeak-m-player-program f))))
+      (start-process "ogg" nil sox-play f))))
 
 (defvar emacspeak-startup-message
   (eval-when-compile
@@ -430,9 +426,7 @@ See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."
   (dtk-initialize)
   (setq ring-bell-function #'(lambda nil (emacspeak-auditory-icon 'warn-user)))
-  (mapc
-   #'load
-   (directory-files-recursively emacspeak-sounds-directory "define-theme\\.el"))
+  (emacspeak-sounds-select-theme emacspeak-sounds-current-theme)
   (emacspeak-pronounce-load-dictionaries)
   (make-thread #'(lambda () (ems--fastload "emacspeak-advice")))
   (emacspeak-setup-programming-modes)

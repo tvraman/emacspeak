@@ -86,5 +86,5 @@
 ;;;  Advise interactive commands:
 
 (provide  'emacspeak-gud)
-;;;   emacs local variables
+ 
 

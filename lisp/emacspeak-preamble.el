@@ -2,108 +2,146 @@
 ;;
 ;; $Author: tv.raman.tv $
 ;; DescriptionEmacspeak Preamble
-;; Keywords:emacspeak, audio interface to emacs 
+;; Keywords:emacspeak, audio interface to emacs
 ;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
 ;; A speech interface to Emacs |
-;; 
+;;
 ;;  $Revision: 4532 $ |
 ;; Location https://github.com/tvraman/emacspeak
-;; 
+;;
 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2024, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
-;; 
+;;
 ;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
+;;
 ;; GNU Emacs is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2, or (at your option)
 ;; any later version.
-;; 
+;;
 ;; GNU Emacs is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-;; 
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;;  Define Locations, Require modules
+;;; Commentary:
+;; Module that is preloaded by every emacspeak module.
+;; 1.  Defines key macros.
+;; 2. Defines location-related variables.
+;;; Code:
 
-(eval-when-compile (require 'cl-lib))
+;;;  cl:
+
+(eval-when-compile (require 'cl-lib)
+                   (require 'subr-x))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-(cl-pushnew (file-name-directory load-file-name) load-path :test #'string-equal)
+(cl-pushnew (file-name-directory load-file-name) load-path :test #'string=)
 
-(eval-when-compile (require 'subr-x))
 (require 'advice)
 (put 'defadvice 'byte-obsolete-info nil)
 (setq ad-redefinition-action 'accept)
-;;;   Define locations
 
-(defvar emacspeak-directory
+;;;   Define locations
+;; Variable names: emacspeak-<prog> as far as possible
+;; defconst, not defcustom unless absolutely necessary.
+;; amixer
+
+(defconst emacspeak-amixer  (executable-find "amixer") "Amixer program")
+;; wpctl:
+(defconst emacspeak-wpctl (executable-find "wpctl") "wpctl
+executable")
+
+;; curl:
+(defconst emacspeak-curl (executable-find "curl") "Curl.")
+
+;; git:
+(defconst emacspeak-git (executable-find "git" "Git Executable"))
+
+;; mpv:
+(defconst emacspeak-mpv (executable-find "mpv") "MPV executable")
+
+;; xsltproc
+(defconst emacspeak-xslt (executable-find "xsltproc") "xslt engine")
+
+;; sox, soxi and play
+
+(defconst sox-play (executable-find "play") "Location of play")
+
+(defconst sox-sox (executable-find "sox") "Location of sox")
+
+(defconst sox-soxi (executable-find "soxi") "Location of soxi")
+
+;; youtube-dl
+(defconst emacspeak-ytdl (executable-find "youtube-dl") "Youtube DL Executable")
+;; where we live:
+
+;;;###autoload
+(defconst emacspeak-directory
   (expand-file-name "../" (file-name-directory load-file-name))
   "emacspeak directory")
 
 ;;;###autoload
-(defvar emacspeak-lisp-directory
+(defconst emacspeak-lisp-directory
   (expand-file-name  "lisp/" emacspeak-directory)
   "Lisp directory.")
 
 ;;;###autoload
-(defvar emacspeak-sounds-directory
+(defconst emacspeak-sounds-dir
   (expand-file-name  "sounds/" emacspeak-directory)
   "Auditory icons directory.")
 
 ;;;###autoload
-(defvar emacspeak-xslt-directory
+(defconst emacspeak-xslt-directory
   (expand-file-name "xsl/" emacspeak-directory)
   "XSLT.")
 
 ;;;###autoload
-(defvar emacspeak-etc-directory
+(defconst emacspeak-etc-directory
   (expand-file-name  "etc/" emacspeak-directory)
   "Misc.")
 
 ;;;###autoload
-(defvar emacspeak-servers-directory
+(defconst emacspeak-servers-directory
   (expand-file-name  "servers/" emacspeak-directory)
   "Speech servers.")
 
 ;;;###autoload
-(defvar emacspeak-info-directory
+(defconst emacspeak-info-directory
   (expand-file-name  "info/" emacspeak-directory)
   "Info")
 
 ;;;###autoload
-(defvar emacspeak-user-directory (expand-file-name "~/.emacspeak/")
+(defconst emacspeak-user-directory (expand-file-name "~/.emacspeak/")
   "Resources.")
 
-(defvar emacspeak-readme-file
+(defconst emacspeak-readme-file
   (expand-file-name "README" emacspeak-directory)
   "README.")
-;;;###autoload
-(defvar emacspeak-mpv-program (executable-find "mpv")
-  "Name of MPV executable.")
+
+(defconst emacspeak-icon
+  (expand-file-name "emacspeak.ogg" emacspeak-sounds-dir)
+  "Emacspeak startup icon.")
+
 
 ;;;###autoload
-(defvar emacspeak-curl-program (executable-find "curl")
-  "Curl.")
-
-;;;###autoload
-(defvar emacspeak-media-extensions
+(defconst emacspeak-media-extensions
   (eval-when-compile
     (let
         ((ext
           '("m3u" "pls"                 ; incorporate playlist ext
-            "flac" "m4a" "m4b"  
+            "flac" "m4a" "m4b"
             "aiff" "aac" "opus" "mkv"
             "ogv" "oga" "ogg" "mp3"  "mp4" "webm" "wav")))
       (concat
@@ -113,7 +151,7 @@
   "Media Extensions.")
 
 ;;;###autoload
-(defvar  emacspeak-m-player-playlist-pattern
+(defconst  emacspeak-playlist-pattern
   (eval-when-compile
     (concat
      (regexp-opt
@@ -121,17 +159,49 @@
      "$"))
   "Playlist pattern.")
 
-(require 'dtk-speak)
-(require 'voice-setup)
-(require 'voice-defs)
-(require 'emacspeak-pronounce)
-(require 'emacspeak-keymap)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
 
-;;;  Interactive Check Implementation:
+;;;   xslt Environment:
+(defsubst emacspeak-xslt-get (style)
+  "Return  stylesheet path."
+  (expand-file-name style emacspeak-xslt-directory))
 
-;;; Notes:
+(defconst emacspeak-opml-xsl
+  (eval-when-compile  (emacspeak-xslt-get "opml.xsl"))
+  "XSL stylesheet used for viewing OPML  Feeds.")
+
+(defconst emacspeak-rss-xsl
+  (eval-when-compile  (emacspeak-xslt-get "rss.xsl"))
+  "XSL stylesheet used for viewing RSS Feeds.")
+
+(defconst emacspeak-atom-xsl
+  (eval-when-compile  (emacspeak-xslt-get "atom.xsl"))
+  "XSL stylesheet used for viewing Atom Feeds.")
+;;; Git Revision:
+(defun emacspeak-get-revision ()
+  "Get SHA checksum of current revision that is suitable for spoken output."
+  (let ((default-directory emacspeak-directory))
+    (if (and emacspeak-git
+             (file-exists-p (expand-file-name ".git" emacspeak-directory)))
+        (propertize
+         (substring
+          (shell-command-to-string "git show -s --pretty=format:%h
+  HEAD ")
+          0 7)
+         'personality 'acss-s4-r6)
+      "")))
+
+(defconst emacspeak-git-revision
+  (emacspeak-get-revision)
+  "Git Revision")
+
+;;; Pull in core libraries:
+(mapc
+ #'require
+ '(
+   dtk-speak voice-setup voice-defs
+   emacspeak-pronounce emacspeak-keymap emacspeak-speak emacspeak-sounds))
+
+;;;  Interactive Check Implementation Explained:
 
 ;; The implementation from 2014 worked for emacspeak.  it has been
 ;; moved to obsolete/old-emacspeak-preamble.el to avoid the fragility
@@ -145,13 +215,14 @@
 ;; for the top-level call, not for any further recursive calls of the
 ;; function.
 
-;;; Design:
+;;;; Design:
 ;; Advice on funcall-interactively stores the name of the
 ;; interactive command being run.
 ;; The defadvice macro  itself has a defadvice  to generate a locally bound
 ;; predicate that ensures that ems-interactive-p is only called from
 ;; within emacspeak advice forms.
 ;; Thus, ems-interactive-p is reserved for use within Emacspeak advice.
+;;; Implementation: Interactive Check:
 
 (defvar ems--interactive-fn-name nil
   "Holds name of function being called interactively.")
@@ -161,8 +232,9 @@
   (let ((ems--interactive-fn-name (ad-get-arg 0)))
     ad-do-it))
 
-;; Beware: Advice on defadvice 
+;; Beware: Advice on defadvice
 (advice-add 'defadvice :around #'ems--generate-interactive-check)
+
 (defun ems--generate-interactive-check (orig-macro fn-name args &rest body)
   "Lexically redefine ems-interactive-p  to test  ems--interactive-fn-name.
 The local definition expands to a call to `eq' that compares
@@ -201,5 +273,4 @@ FN-NAME to our stored value of ems--interactive-fn-name."
     (load file)))
 
 (provide  'emacspeak-preamble)
-;;;   emacs local variables
-
+ 

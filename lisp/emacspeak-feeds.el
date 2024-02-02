@@ -247,16 +247,16 @@ feeds."
   (interactive
    (list
     (emacspeak-eww-read-url)))
-  (cl-declare (special emacspeak-rss-view-xsl))
+  (cl-declare (special emacspeak-rss-xsl))
   (emacspeak-auditory-icon 'open-object)
-  (emacspeak-feeds-feed-display feed-url emacspeak-rss-view-xsl 'speak))
+  (emacspeak-feeds-feed-display feed-url emacspeak-rss-xsl 'speak))
 
 ;;;###autoload
 (defun emacspeak-feeds-opml-display (feed-url)
   "Display OPML feed."
   (interactive (list (emacspeak-eww-read-url)))
-  (cl-declare (special emacspeak-opml-view-xsl))
-  (emacspeak-feeds-feed-display feed-url emacspeak-opml-view-xsl 'speak))
+  (cl-declare (special emacspeak-opml-xsl))
+  (emacspeak-feeds-feed-display feed-url emacspeak-opml-xsl 'speak))
 
 ;;;###autoload
 (defun emacspeak-feeds-select-feed (feed-type)
@@ -274,9 +274,9 @@ feeds."
 (defun emacspeak-feeds-atom-display (feed-url)
   "Display ATOM feed."
   (interactive (list (emacspeak-eww-read-url)))
-  (cl-declare (special emacspeak-atom-view-xsl))
+  (cl-declare (special emacspeak-atom-xsl))
   (emacspeak-auditory-icon 'open-object)
-  (emacspeak-feeds-feed-display feed-url emacspeak-atom-view-xsl 'speak))
+  (emacspeak-feeds-feed-display feed-url emacspeak-atom-xsl 'speak))
 
 ;;;  Validate Feed:
 
@@ -291,9 +291,9 @@ Argument `feed' is a feed structure (label url type)."
         (style nil))
     (setq style
           (cond
-           ((eq type 'rss)emacspeak-rss-view-xsl)
-           ((eq type 'opml) emacspeak-opml-view-xsl)
-           ((eq type 'atom) emacspeak-atom-view-xsl)
+           ((eq type 'rss)emacspeak-rss-xsl)
+           ((eq type 'opml) emacspeak-opml-xsl)
+           ((eq type 'atom) emacspeak-atom-xsl)
            (t (error "Unknown feed type %s" type))))
     (emacspeak-feeds-feed-display uri style speak)))
 
@@ -351,7 +351,7 @@ See etc/fixup-awesome-rss  for first-time  for instructions."
   (interactive)
   (cl-declare (special emacspeak-feeds-awesome-rss-map
                        emacspeak-feeds-awesome-rss
-                       emacspeak-opml-view-xsl))
+                       emacspeak-opml-xsl))
   (unless (file-exists-p emacspeak-feeds-awesome-rss) 
     (error
      "Download awesome-rss from Github, \
@@ -371,7 +371,7 @@ and run the awesome-rss-fixup.sh script found  in %s"
           (completing-read "OPML: " emacspeak-feeds-awesome-rss-map nil t)
           emacspeak-feeds-awesome-rss-map)))
     (emacspeak-eww-autospeak)
-    (emacspeak-xslt-view-file emacspeak-opml-view-xsl feed)))
+    (emacspeak-xslt-view-file emacspeak-opml-xsl feed)))
 
 (provide 'emacspeak-feeds)
 ;;;  end of file

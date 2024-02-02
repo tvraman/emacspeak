@@ -412,14 +412,14 @@ annotation is inserted into the working buffer when complete."
 (defun emacspeak-curl (url)
   "Grab URL using Curl, and preview it with a browser ."
   (interactive "sURL: ")
-  (cl-declare (special emacspeak-curl-program
+  (cl-declare (special emacspeak-curl
                        emacspeak-curl-cookie-store))
   (with-temp-buffer
     (shell-command
      (format
       "%s -s --location-trusted --cookie-jar %s --cookie %s '%s'
 2>/dev/null"
-      emacspeak-curl-program
+      emacspeak-curl
       emacspeak-curl-cookie-store emacspeak-curl-cookie-store url)
      (current-buffer))
     (browse-url-of-buffer)))

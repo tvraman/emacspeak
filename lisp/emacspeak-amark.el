@@ -291,5 +291,5 @@ current file."
   (emacspeak-auditory-icon 'open-object))
 
 (provide  'emacspeak-amark)
-;;;   emacs local variables
+ 
 

@@ -209,5 +209,5 @@
     (emacspeak-speak-line)))
 
 (provide  'emacspeak-bibtex)
-;;;   emacs local variables 
+  
 

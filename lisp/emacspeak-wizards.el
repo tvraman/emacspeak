@@ -1126,7 +1126,7 @@ dates.")
   (cl-declare (special emacspeak-comint-autospeak))
   (with-environment-variables
       (("PAGER" "cat"))
-    (make-comint "units" "units" nil "--verbose"))
+    (make-comint "units" (executable-find "units") nil "--verbose"))
   (switch-to-buffer "*units*")
   (emacspeak-auditory-icon 'select-object)
   (goto-char (point-max))
@@ -1858,24 +1858,33 @@ With interactive prefix arg, set foreground and background color first."
 (defun ems--color-hex (color)
   "Return Hex value for color."
   (apply #'color-rgb-to-hex (append (color-name-to-rgb color) '(2))))
+(defvar ems--color-table (make-hash-table )
+  "Table to memoize ntc color names.")
 
 (defun ems--color-name (color)
   "Return a meaningful color-name using name-this-color if available.
 Otherwise just return  `color'."
   (interactive "P")
+  (cl-declare (special ems--color-table))
   (cond
+   ((gethash color ems--color-table) (gethash color ems--color-table))
    ((fboundp 'ntc-name-this-color)
     (let* ((candidate (ntc--get-closest-color color))
            (name (ntc--struct-name (cdr candidate)))
            (shade (ntc--struct-shade (cdr candidate))))
       (cond
-       ((string= name shade) name)
+       ((string= name shade)
+        (puthash color name ems--color-table)
+        name)
        (t
-        (concat
-         (propertize name 'personality voice-bolden)
-         " shaded "
-         (propertize shade 'personality voice-annotate))))))
-   (t color)))
+        (let ((v (concat
+                  (propertize name 'personality voice-bolden)
+                  " shaded "
+                  (propertize shade 'personality voice-annotate))))
+          (puthash color v ems--color-table)
+          v)))))
+   (t (puthash color color ems--color-table)
+      color)))
 
 (defun emacspeak-wizards-frame-colors ()
   "Display frame's foreground/background color setting."
@@ -2114,6 +2123,39 @@ q: Quit color wheel, after copying current hex value to kill-ring."
     (set-background-color fg)
     (call-interactively #'emacspeak-wizards-color-diff-at-point)))
 
+;;; Modus Theme And Friends:
+;;;###autoload
+(defun emacspeak-wizards-show-theme (palette)
+  "Display colors in  palette.
+Prompts for a color palette variable as used in the modus theme and
+  its variants,
+and pops to a buffer that describes the colors used in that palette."
+  (interactive
+   (list
+    (intern
+     (completing-read
+      "Palette: "
+      (cl-loop
+       for s being the symbols
+       when (and (boundp s)
+                 (not (functionp s))
+                 (string-match ".*palette$" (symbol-name s))) collect
+       s)))))                           ; done reading input
+  (with-current-buffer (get-buffer-create    "*Colors*") ; produce output
+    (let ((inhibit-read-only  t))
+      (erase-buffer)
+      (insert (format "%s\n" palette))
+      (cl-loop
+       for p in  (symbol-value palette) 
+       when (stringp (cl-second p)) do
+       (let ((c (ems--color-name (cl-second p))))
+         (insert (format "%s:\t%s\t%s\n" (cl-first p) c (cl-second p))))))
+    (setq buffer-read-only t)
+    (special-mode))
+  (emacspeak-auditory-icon 'open-object)
+  (funcall-interactively #'switch-to-buffer "*Colors*")
+  (goto-char (point-min))
+  (emacspeak-speak-line))
 ;;;  Utility: Read from a pipe helper:
 
 ;; For use from etc/emacs-pipe.pl
@@ -2620,7 +2662,8 @@ Press `y' on Episode links to play them with MPV."
   (emacspeak-url-template-open (emacspeak-url-template-get "BBC Sounds")))
 
 (defun emacspeak-wizards-bbc-iplayer ()
-  "Browse BBC Schedule from get_iplayer radio cache"
+  "Browse BBC Schedule from get_iplayer radio cache.
+Bug: First run fails to bind keys.   Works on subsequent runs."
   (interactive)
   (funcall-interactively
    #'emacspeak-forms-find-file

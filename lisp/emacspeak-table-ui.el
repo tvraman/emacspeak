@@ -644,7 +644,7 @@ The processed  data is  presented using emacspeak table navigation. "
   (interactive "sURL:\nP")
   (unless (or buffer-name (stringp buffer-name))
     (setq buffer-name "CSV Data Table"))
-  (cl-declare (special g-curl-program g-curl-common-options))
+  (cl-declare (special emacspeak-curl g-curl-options))
   (url-retrieve url #'emacspeak-table-render-csv-url  (list buffer-name)))
 
 ;;;  Processing a region of tabular data
@@ -1264,5 +1264,5 @@ future  use."
       (kill-buffer buffer))))
 
 (provide  'emacspeak-table-ui)
-;;;   emacs local variables
+ 
 

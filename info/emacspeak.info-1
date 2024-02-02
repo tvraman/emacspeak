@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 14, 2024.
+last updated on February 1, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2846,6 +2846,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Nex
 11.5 Emacspeak Keybindings On emacspeak-alt-keymap
 ==================================================
 
+‘C-l ellama-chat’
 ‘SPC emacspeak-eww-smart-tabs’
 ‘, eldoc’
 ‘a emacspeak-feeds-atom-display’
@@ -2855,7 +2856,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Nex
 ‘e eww’
 ‘f ffip’
 ‘g rg’
-‘l ellama-chat’
+‘l eww-open-file’
 ‘o emacspeak-feeds-opml-display’
 ‘p emacspeak-wizards-pdf-open’
 ‘q emacspeak-wizards-quotes’
@@ -3105,6 +3106,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-z-keymap,  Prev:
 * emacspeak-pianobar::Speech-enable Pandora.
 * emacspeak-pipewire::Speech-enable PIPEWIRE.
 * emacspeak-popup::Speech-enable POPUP.
+* emacspeak-preamble::standard  include.
 * emacspeak-proced::Speech-enable PROCED.
 * emacspeak-project::Speech-enable PROJECT.
 * emacspeak-projectile::PROJECTILE.
@@ -3233,7 +3235,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1152 commands and 146 options.
+   This chapter documents a total of 1155 commands and 146 options.
 
 * Menu:
 
@@ -3385,6 +3387,7 @@ thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 * emacspeak-pianobar::
 * emacspeak-pipewire::
 * emacspeak-popup::
+* emacspeak-preamble::
 * emacspeak-proced::
 * emacspeak-project::
 * emacspeak-projectile::
@@ -3713,13 +3716,12 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 12.4.1.8 dtk-select-server
 ..........................
 
- -- Command: dtk-select-server (program &optional device)
+ -- Command: dtk-select-server (program)
      ‘C-e d d’
 
      Select  speech server ‘program’.
-      Optional arg device sets  env-var ALSA_DEFAULT.
 
-     (fn PROGRAM &optional DEVICE)
+     (fn PROGRAM)
 
 12.4.1.9 dtk-set-character-scale
 ................................
@@ -6559,6 +6561,13 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
      Filter is of the  form name=arg-1:arg-2:...
 
      (fn FILTER)
+
+12.61.1.11 emacspeak-empv-yt-download
+.....................................
+
+ -- Command: emacspeak-empv-yt-download
+
+     Download Youtube result.
 
 12.61.2 emacspeak-empv Options
 ------------------------------

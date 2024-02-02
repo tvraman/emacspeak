@@ -893,7 +893,7 @@ this pattern if previously added.    "
           (setq ,switch (not ,switch))))
       (dtk-interp-sync)
       (when (called-interactively-p 'interactive)
-        (emacspeak-auditory-icon (if ,switch "on" "off"))
+        (emacspeak-auditory-icon (if ,switch 'on 'off))
         (message
          (format "Turned %s %s  %s."
                  (if ,switch "on" "off")
@@ -1452,36 +1452,30 @@ Set by \\[dtk-set-punctuations].")
            (:const "cloud-mac" :tag "Mac Variants")))
   :group 'dtk)
 
-(defun dtk-select-server (program &optional device)
-  "Select  speech server `program'.
- Optional arg device sets  env-var ALSA_DEFAULT."
+(defun dtk-select-server (program )
+  "Select  speech server `program'. "
   (interactive
    (list
     (completing-read
      "Speech server:"
      (or dtk-servers-alist (tts-setup-servers-alist))
-     nil t)
-    current-prefix-arg))
+     nil t)))
   (cl-declare (special dtk-program dtk-servers-alist
-                       tts-device emacspeak-servers-directory))
-  (when  device
-    (setq tts-device
-          (completing-read
-           "Device: "
-           (split-string (shell-command-to-string "aplay -L | grep tts"))
-           nil nil nil nil "default"))
-    (setenv "ALSA_DEFAULT" tts-device))
+                       emacspeak-servers-directory))
   (setq dtk-program program)
-  (when (called-interactively-p 'interactive)
-    (ems--fastload "voice-setup")
-    (dtk-initialize)))
+  (ems--fastload "voice-setup")
+  (dtk-initialize))
 
-(defsubst tts-multistream-p (tts-engine)
-  "Checks if this tts-engine can support multiple streams."
-  (cl-declare (special tts-notification-device))
+(defvar tts-multi-engines
+  '("espeak"  "outloud"   "dtk-soft")
+  "List of TTS engines that are multi capable.")
+
+(defsubst tts-multistream-p (engine)
+  "Checks if this tts-engine can support multiple s."
+  (cl-declare (special tts-notification-device tts-multi-engines))
   (and
-   (member tts-engine '("outloud"  "cloud-outloud"))
-   (not (string= tts-notification-device "default"))))
+   (not (string= tts-notification-device "default"))
+     (cl-find-if #'(lambda (e) (string-match e engine)) tts-multi-engines)))
 
 (defun dtk-cloud ()
   "Select  Cloud TTS server."
@@ -1538,33 +1532,26 @@ program. Port defaults to dtk-local-server-port"
     (expand-file-name program emacspeak-servers-directory))))
 
 ;;;   initialize the speech process
+(defconst dtk-pamixer (executable-find "pamixer") "pamixer")
 
 (defsubst tts-notification-from-env ()
   "Compute tts-notification device from env."
   (let* ((result nil)
          (device
           (or                        ; each clause is for a given env:
-           (and (not (executable-find "pulseaudio")) ;pipewire-alsa
+           (when emacspeak-wpctl ;pipewire-alsa
                 (setq result
                       (string-trim
                        (shell-command-to-string "aplay -L | grep mono_right"))))
-           (and                         ; pipewire-pulse
-            (executable-find "pamixer")
+           (when dtk-pamixer ; pipewire-pulse
             (setq result
-                  (split-string
-                   (shell-command-to-string
-                    "pamixer --list-sinks | grep right")))
+                   (split-string
+                    (shell-command-to-string
+                     "pamixer --list-sinks | grep right")))
             (substring (cl-second result) 1 -1))
-           (and                         ; pure pipewire  or pure alsa
-            (not (zerop (length (shell-command-to-string "pidof pulseaudio"))))
-            (cl-first
-             (split-string
-              (shell-command-to-string
-               "pacmd list-sinks | grep tts | cut -f 2 -d ':'"))))
-           (cl-second                   ; basic alsa
-            (split-string
+            (split-string                    ; basic alsa
              (shell-command-to-string
-              "aplay -L 2>/dev/null | grep tts")))
+              "aplay -L 2>/dev/null | grep tts_mono_right"))
            "default")))
     (if (string-match "<" device)       ; strip <> from pactl result
         (substring device 1 -1)
@@ -1578,15 +1565,6 @@ Set to nil to disable a separate Notification stream."
           (const :tag "None" nil)
           (string :value ""))
   :group 'tts)
-
-(defvar tts-audio-env-var
-  (cond
-   ((executable-find "pulseaudio") "PULSE_SINK")
-   (t "ALSA_DEFAULT"))
-  "Environment  variable for TTS output; PULSE_SINK if running
-  pulseaudio, otherwise ALSA_DEFAULT for both plain ALSA and
-  pipewire-alsa.  Note that pipewire-pulse is special and also
-  uses PULSE_SINK, but only if pipewire-alsa is not installed.")
 
 ;; Helper: dtk-make-process:
 (defun dtk-make-process (name)
@@ -1946,19 +1924,10 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
    ((dtk-notify-process)                ; we have a live notifier
     (dtk-notify-apply #'emacspeak-auditory-icon icon))))
 
-(defsubst dtk-get-notify-device ()
-  "Returns name of sound device for use as the notification stream.
-Designed to work with ALSA and Pulseaudio."
-  (cl-declare (special tts-notification-device))
-  (or
-   tts-notification-device
-   (tts-notification-from-env)))
-
 (defun dtk-notify-initialize ()
   "Initialize notification TTS stream."
   (interactive)
-  (cl-declare (special dtk-notify-process
-                       tts-audio-env-var tts-notification-device))
+  (cl-declare (special dtk-notify-process tts-notification-device))
   (let ((new nil)
         (dtk-program
          (if (string-match "cloud" dtk-program) "cloud-notify" dtk-program)))
@@ -1968,7 +1937,8 @@ Designed to work with ALSA and Pulseaudio."
         (and (not (string-match "cloud" dtk-program))
              (zerop (length tts-notification-device)))
       (with-environment-variables
-          ((tts-audio-env-var tts-notification-device))
+          (("ALSA_DEFAULT" tts-notification-device)
+           ("PULSE_SINK" tts-notification-device))
         (setq  new (dtk-make-process "Notify"))
         (when (process-live-p new)
           (setq dtk-notify-process new))))))
@@ -2251,6 +2221,6 @@ When called interactively, CHAR defaults to the character after point."
 ;;; dtk-unicode.el ends here
 
 (provide 'dtk-speak)
-;;;   emacs local variables
+ 
 
 ;; coding: utf-8

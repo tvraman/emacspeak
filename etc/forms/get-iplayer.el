@@ -24,7 +24,7 @@
     (async-shell-command
      (format "youtube-dl %s " (nth  13 forms-fields)))))
 
-(require 'forms)
+(unless (and forms-mode-map (keymapp forms-mode-map)) (load-library "forms"))
 (when (and forms-mode-map (keymapp forms-mode-map))
   (define-key forms-mode-map "d" 'ems--get-iplayer-download)
   (define-key forms-mode-map "p" 'ems--get-iplayer-play))

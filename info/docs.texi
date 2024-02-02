@@ -148,6 +148,7 @@
 * emacspeak-pianobar::Speech-enable Pandora.
 * emacspeak-pipewire::Speech-enable PIPEWIRE.
 * emacspeak-popup::Speech-enable POPUP.
+* emacspeak-preamble::standard  include.
 * emacspeak-proced::Speech-enable PROCED.
 * emacspeak-project::Speech-enable PROJECT.
 * emacspeak-projectile::PROJECTILE.
@@ -248,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1152 commands and 146 options.
+This chapter documents a total of 1155 commands and 146 options.
 
 @node amixer
 @section amixer
@@ -567,7 +568,7 @@ Reset TTS engine.
 @end deffn
 
 @subsubsection dtk-select-server
-@deffn {Command} dtk-select-server  (program &optional device)
+@deffn {Command} dtk-select-server  (program)
 @table @kbd
 @item C-e d d
 @kindex C-e d d
@@ -576,10 +577,9 @@ Reset TTS engine.
 @findex dtk-select-server
 
 @format
-Select  speech server ‘program’.
- Optional arg device sets  env-var ALSA_DEFAULT.
+Select  speech server ‘program’. 
 
-(fn PROGRAM &optional DEVICE)
+(fn PROGRAM)
 @end format
 @end deffn
 
@@ -3898,6 +3898,15 @@ Toggle Filter.
 Filter is of the  form name=arg-1:arg-2:...
 
 (fn FILTER)
+@end format
+@end deffn
+
+@subsubsection emacspeak-empv-yt-download
+@deffn {Command} emacspeak-empv-yt-download   
+@findex emacspeak-empv-yt-download
+
+@format
+Download Youtube result.
 @end format
 @end deffn
 
@@ -8096,6 +8105,7 @@ Default Value:
 @verbatim
 
 (("," eldoc)
+ ("C-l" ellama-chat)
  ("SPC" emacspeak-eww-smart-tabs)
  ("a" emacspeak-feeds-atom-display)
  ("b" sox-binaural)
@@ -8104,7 +8114,7 @@ Default Value:
  ("e" eww)
  ("f" ffip)
  ("g" rg)
- ("l" ellama-chat)
+ ("l" eww-open-file)
  ("o" emacspeak-feeds-opml-display)
  ("p" emacspeak-wizards-pdf-open)
  ("q" emacspeak-wizards-quotes)
@@ -9548,19 +9558,6 @@ nil
 
 @end defvar
 
-@defvar {User Option} emacspeak-m-player-program
-Media player program.
-
-Default Value: 
-
-@verbatim
-
-"/usr/local/bin/mplayer"
-
-@end verbatim
-
-@end defvar
-
 @defvar {User Option} emacspeak-media-location-bindings
 Map  keys  to launch MPlayer on a  directory.
 
@@ -9569,6 +9566,19 @@ Default Value:
 @verbatim
 
 nil
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} emacspeak-mplayer
+Media player program.
+
+Default Value: 
+
+@verbatim
+
+"/usr/local/bin/mplayer"
 
 @end verbatim
 
@@ -10217,7 +10227,6 @@ Call the body in the "emacspeak-muggles-toggle-option" hydra.
 The heads for the associated hydra are:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-toggle-option")’,
-"C-f":    ‘(call-interactively #’folding-mode)’,
 "a":    ‘(call-interactively #’abbrev-mode)’,
 "d":    ‘(call-interactively #’toggle-debug-on-error)’,
 "g":    ‘(call-interactively #’toggle-debug-on-quit)’,
@@ -11232,6 +11241,13 @@ PIPEWIRE ==  Pipewire Interaction from Emacs.
 
 POPUP ==  popup.el from MELPA
 
+@node emacspeak-preamble
+@section emacspeak-preamble
+
+Module that is preloaded by every emacspeak module.
+1.  Defines key macros.
+2. Defines location-related variables.
+
 @node emacspeak-proced
 @section emacspeak-proced
 
@@ -11891,34 +11907,53 @@ emacspeak.
 @itemize
 @item   Auditory icons should be used to
 provide additional feedback, not as a gimmick.
-@item   The interface
+@item   The Emacspeak interface
 should be usable at all times without the icons.
 @item   General principle for when to use
-an icon: Convey information about events taking place in parallel.
+an icon:
+@item Convey information about events taking place in parallel.
 @item  For instance, if making a selection automatically moves the current
 focus to the next choice, We speak the next choice, while
-indicating the fact that something was selected with a auditory icon.
+indicating the fact that something was selected with an auditory icon.
 @item  This interface will assume the availability of a shell command
 @code{play} that can take one or more sound files and play them.
-@item This
-module provides  a mapping between names in the elisp world
+@item This module provides  a mapping between names in the elisp world
 and actual sound files.
+@item icon-names are symbols; sound files  are fully-qualified file-names.
 @item Modules that wish to use auditory icons
 should use these names, instead of actual file names.
 @item As of
 Emacspeak 13.0, this module defines a themes architecture for
 auditory icons.  Sound files corresponding to a given theme are
-found in appropriate subdirectories of emacspeak-sounds-directory.
+found in appropriate subdirectories of emacspeak-sounds-dir.
+@item Contrast this with @code{prompts[ that dont belong to any theme.]}
 @item The auditory icon player is configure via
 custom option @code{emacspeak-play-program}.
+@item  That custom setting handles the mapping to various play programs
+from audio subsystems such as Pulseaudio, and Pipewire.
 @end itemize
-
- required modules
+@subsection Designing Auditory Icons
+Here are some notes on what I have learnt while designing and using
+auditory icons over the years:
+@enumerate
+@item  Auditory icons should be short  --- use command @code{soxi} or
+@code{;} in a dired buffer to see duration of a sound file. Use
+the bundled themes as a guide.
+@item Sounds have many properties, eg: duration, gain, pitch, at
+the basic level.
+@item  Even more important is the nature of the sound and what it sounds
+like in the overall activity where that sound is used.
+@item This is why  the gain of icons  @emph{should never be} normalized in
+my view---  tuning icons is as complex as picking
+colors from  a color palette.
+@item The included themes have been optimized over years of use and
+are primarily tuned for using with headphones.
+@end enumerate
 
 @subsection Emacspeak-Sounds Commands
 
 @subsubsection emacspeak-sounds-select-theme
-@deffn {Command} emacspeak-sounds-select-theme  (&optional theme)
+@deffn {Command} emacspeak-sounds-select-theme  (theme)
 @table @kbd
 @item C-e )
 @kindex C-e )
@@ -11929,7 +11964,7 @@ custom option @code{emacspeak-play-program}.
 @format
 Select theme for auditory icons.
 
-(fn &optional THEME)
+(fn THEME)
 @end format
 @end deffn
 
@@ -11959,7 +11994,7 @@ Default Value:
 
 @verbatim
 
-"/usr/bin/aplay"
+"/usr/bin/pactl"
 
 @end verbatim
 
@@ -12266,7 +12301,8 @@ but quickly switch to a window by name.
 
 @format
 Continuously adjust selective-display.
-Use ‘,’ and ‘.’ to continuously decrease/increase ‘selective-display’. 
+Use ‘,’ and ‘.’ to continuously decrease/increase ‘selective-display’.
+ If not specified, ‘arg’ defaults to current-column.
 
 (fn &optional ARG)
 @end format
@@ -13327,6 +13363,15 @@ Display current date and time  for specified zone.
 Optional second arg ‘set’ sets the TZ environment variable as well.
 
 (fn ZONE &optional SET)
+@end format
+@end deffn
+
+@subsubsection emacspeak-submit-bug
+@deffn {Command} emacspeak-submit-bug   
+@findex emacspeak-submit-bug
+
+@format
+Function to submit a bug to the Emacspeak list
 @end format
 @end deffn
 
@@ -16987,7 +17032,8 @@ Browse  Emacspeak productivity tips.
 @findex emacspeak-wizards-bbc-iplayer
 
 @format
-Browse BBC Schedule from get_iplayer radio cache
+Browse BBC Schedule from get_iplayer radio cache.
+Bug: First run fails to bind keys.   Works on subsequent runs.
 @end format
 @end deffn
 
@@ -17813,6 +17859,20 @@ Show  properties of  face.
 
 @format
 Convenience command to view state of memory used in this session so far.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-show-theme
+@deffn {Command} emacspeak-wizards-show-theme  (palette)
+@findex emacspeak-wizards-show-theme
+
+@format
+Display colors in  palette.
+Prompts for a color palette variable as used in the modus theme and
+  its variants,
+and pops to a buffer that describes the colors used in that palette.
+
+(fn PALETTE)
 @end format
 @end deffn
 
@@ -18717,19 +18777,6 @@ nil
 
 @end defvar
 
-@defvar {User Option} g-curl-common-options
-Common options to pass to all Curl invocations.
-
-Default Value: 
-
-@verbatim
-
-"--http1.0 --compressed --silent --location --location-trusted --max-time 4 --connect-timeout 1"
-
-@end verbatim
-
-@end defvar
-
 @defvar {User Option} g-curl-debug
 Set to T to see Curl stderr output.
 
@@ -18738,6 +18785,19 @@ Default Value:
 @verbatim
 
 nil
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} g-curl-options
+Common options to pass to all Curl invocations.
+
+Default Value: 
+
+@verbatim
+
+"--http1.0 --compressed --silent --location --location-trusted --max-time 4 --connect-timeout 1"
 
 @end verbatim
 
@@ -19211,7 +19271,7 @@ This module is IBM ViaVoice Outloud specific.
 @subsection Outloud-Voices Commands
 
 @subsubsection outloud
-@deffn {Command} outloud  (&optional device)
+@deffn {Command} outloud   
 @table @kbd
 @item C-e d C-o
 @kindex C-e d C-o
@@ -19221,8 +19281,6 @@ This module is IBM ViaVoice Outloud specific.
 
 @format
 Start Outloud.
-
-(fn &optional DEVICE)
 @end format
 @end deffn
 
@@ -20411,7 +20469,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 59 URL Templates.
+This section documents a total of 62 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -20437,7 +20495,9 @@ Retrieve product details from Amazon by either ISBN or ASIN.@item @b{aqi from wu
 
 Air quality from Wunderground@item @b{archwiki search}
 
-Search Linux ArchWiki@item @b{bbc podcast directory}
+Search Linux ArchWiki@item @b{bbc 5-live  schedule }
+
+BBC Radio 5 Live  Schedule@item @b{bbc podcast directory}
 
 BBC PodCast Directory@item @b{bbc r4 extra schedule }
 
@@ -20465,7 +20525,11 @@ CNN Money@item @b{cricinfo print}
 
 Printer friendly   link on Cricinfo@item @b{dictionary lookup}
 
-Dictionary Lookup@item @b{finance  google}
+Dictionary Lookup@item @b{emacspeak search via google}
+
+Search Emacspeak Site@item @b{espn cricinfo search}
+
+Cricinfo Search Using Google@item @b{finance  google}
 
 Lookup ticker on Google Finance.@item @b{finance summary from google}
 

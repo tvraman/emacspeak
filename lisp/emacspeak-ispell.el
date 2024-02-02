@@ -152,5 +152,5 @@ many available corrections."
   ad-return-value)
 
 (provide 'emacspeak-ispell)
-;;;   emacs local variables
+ 
 

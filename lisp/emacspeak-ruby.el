@@ -122,5 +122,5 @@ Cue electric insertion with a tone."
                (emacspeak-speak-line)))))
 
 (provide  'emacspeak-ruby)
-;;;   emacs local variables 
+  
 

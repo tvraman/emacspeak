@@ -150,6 +150,15 @@ Interactive prefix arg plays on left ear using alsa."
   (interactive)
   (emacspeak-accumulate-to-register ?u
                                     'empv-youtube-results--current-video-url))
+(declare-function emacspeak-eww-yt-dl "emacspeak-eww" (url))
+
+
+
+;;;###autoload
+(defun emacspeak-empv-yt-download ()
+  "Download Youtube result."
+  (interactive)
+  (emacspeak-eww-yt-dl (empv-youtube-results--current-video-url)))
 
 ;;; Seekers:
 
@@ -205,7 +214,8 @@ Interactive prefix arg plays on left ear using alsa."
      ("r" emacspeak-empv-relative-seek)
      ("s" emacspeak-empv-absolute-seek)
      ("u" emacspeak-empv-accumulate-to-register)
-     ("v" empv-set-volume))
+     ("v" empv-set-volume)
+     ("y" emacspeak-empv-yt-download))
    do
    (emacspeak-keymap-update empv-map b)
    (emacspeak-keymap-update empv-youtube-results-mode-map b))

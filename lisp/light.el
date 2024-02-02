@@ -43,7 +43,7 @@
 
 ;;;   Variables:
 
-(defvar light-cmd
+(defconst light-cmd
   (executable-find "light")
   "light executable.")
 

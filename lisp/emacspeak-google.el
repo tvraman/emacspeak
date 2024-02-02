@@ -671,7 +671,7 @@ which becomes buffer-local."
     (read-from-minibuffer "Text: ")
     current-prefix-arg))
   (cl-declare (special
-               emacspeak-mpv-program
+               emacspeak-mpv
                emacspeak-google-tts-default-language
                emacspeak-google-tts-rest-uri ))
   (when current-prefix-arg
@@ -685,7 +685,7 @@ which becomes buffer-local."
                      (url-hexify-string  text))))
     (kill-new url)
     (start-process
-     "google-tts" nil  emacspeak-mpv-program  url)))
+     "google-tts" nil  emacspeak-mpv  url)))
 
 ;;;###autoload
 (defun emacspeak-google-tts-region (start end &optional ask-lang)

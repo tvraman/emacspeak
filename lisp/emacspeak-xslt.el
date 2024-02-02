@@ -50,23 +50,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-;;;   xslt Environment:
-(defsubst emacspeak-xslt-get (style)
-  "Return  stylesheet path."
-  (expand-file-name style emacspeak-xslt-directory))
-
-(defconst emacspeak-opml-view-xsl
-  (eval-when-compile  (emacspeak-xslt-get "opml.xsl"))
-  "XSL stylesheet used for viewing OPML  Feeds.")
-
-(defconst emacspeak-rss-view-xsl
-  (eval-when-compile  (emacspeak-xslt-get "rss.xsl"))
-  "XSL stylesheet used for viewing RSS Feeds.")
-
-(defconst emacspeak-atom-view-xsl
-  (eval-when-compile  (emacspeak-xslt-get "atom.xsl"))
-  "XSL stylesheet used for viewing Atom Feeds.")
-
 (defun emacspeak-xslt-params-from-xpath (path base)
   "Return params suitable for passing to  emacspeak-xslt-region"
   (list
@@ -87,9 +70,7 @@
    (read-file-name "XSL Transformation: "
                    emacspeak-xslt-directory
                    emacspeak-we-xsl-transform)))
-(defvar emacspeak-xslt-program
-  (executable-find "xsltproc")
-  "Name of XSLT transformation engine.")
+
 
 (defvar emacspeak-xslt-options
   "--html --nonet --novalid --encoding utf-8"
@@ -150,7 +131,7 @@ pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
 ;;;###autoload
 (defun emacspeak-xslt-region (xsl start end &optional params no-comment)
   "Apply XSLT transformation to region and replace it with the result.  "
-  (cl-declare (special emacspeak-xslt-program emacspeak-xslt-options
+  (cl-declare (special emacspeak-xslt emacspeak-xslt-options
                        emacspeak-xslt-keep-errors modification-flag))
   (save-excursion
     (with-silent-modifications
@@ -169,7 +150,7 @@ pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
         (setq command
               (format
                "%s %s  %s  %s - %s"
-               emacspeak-xslt-program
+               emacspeak-xslt
                (or emacspeak-xslt-options "")
                (or parameters "")
                xsl
@@ -193,7 +174,7 @@ pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
 (defun emacspeak-xslt-run (xsl &optional start end)
   "Run xslt on region, and return output filtered by sort -u.
 Region defaults to entire buffer."
-  (cl-declare (special emacspeak-xslt-program emacspeak-xslt-options))
+  (cl-declare (special emacspeak-xslt emacspeak-xslt-options))
   (or start (setq start (point-min)))
   (or end (setq end (point-max)))
   (let ((coding-system-for-read 'utf-8)
@@ -202,7 +183,7 @@ Region defaults to entire buffer."
     (shell-command-on-region
      start end
      (format "%s %s %s - 2>/dev/null | sort -u"
-             emacspeak-xslt-program emacspeak-xslt-options xsl)
+             emacspeak-xslt emacspeak-xslt-options xsl)
      (current-buffer) 'replace)
     (set-buffer-multibyte t)
     (current-buffer)))
@@ -211,7 +192,7 @@ Region defaults to entire buffer."
 (defun emacspeak-xslt-url (xsl url &optional params no-comment)
   "Apply XSLT transformation to url
 and return the results in a newly created buffer. "
-  (cl-declare (special emacspeak-xslt-program
+  (cl-declare (special emacspeak-xslt
                        emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))
         (command nil)
@@ -227,7 +208,7 @@ and return the results in a newly created buffer. "
           (format
            "curl --silent %s | %s %s --html --novalid %s - %s"
            url
-           emacspeak-xslt-program
+           emacspeak-xslt
            (or parameters "")
            xsl
            (unless emacspeak-xslt-keep-errors " 2>/dev/null ")))
@@ -266,7 +247,7 @@ Argument `specs' is a list of elements of the form
 `(xsl xpath)'.
   This uses XSLT processor xsltproc available as
 part of the libxslt package."
-  (cl-declare (special emacspeak-xslt-program
+  (cl-declare (special emacspeak-xslt
                        emacspeak-xslt-keep-errors))
   (let ((result (url-retrieve-synchronously url))
         (command ""))
@@ -279,7 +260,7 @@ part of the libxslt package."
             (format
              "%s %s %s %s %s - 2>/dev/null  "
              (if (= i 0)  "" "|")
-             emacspeak-xslt-program
+             emacspeak-xslt
              (or emacspeak-xslt-options "")
              (mapconcat
               #'(lambda (pair)
@@ -315,7 +296,7 @@ part of the libxslt package."
 (defun emacspeak-xslt-xml-url (xsl url &optional params)
   "Apply XSLT transformation to XML url
 and return the results in a newly created buffer. "
-  (cl-declare (special emacspeak-xslt-program
+  (cl-declare (special emacspeak-xslt
                        emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))
         (command nil)
@@ -328,7 +309,7 @@ and return the results in a newly created buffer. "
     (setq command
           (format
            "%s %s --novalid %s '%s' %s"
-           emacspeak-xslt-program
+           emacspeak-xslt
            (or parameters "")
            xsl url
            (unless emacspeak-xslt-keep-errors " 2>/dev/null ")))
@@ -393,7 +374,7 @@ and return the results in a newly created buffer. "
       (shell-command
        (format
         "%s   --novalid --nonet --param base %s  %s  \"%s\"  2>/dev/null"
-        emacspeak-xslt-program 
+        emacspeak-xslt 
         (format "\"'file://%s'\"" file)
         style file)
        (current-buffer) 'replace)
@@ -402,19 +383,19 @@ and return the results in a newly created buffer. "
 (defun emacspeak-xslt-view-rss-file (file)
   "View RSS file."
   (interactive "fRSS File:")
-  (cl-declare (special emacspeak-rss-view-xsl))
+  (cl-declare (special emacspeak-rss-xsl))
   (funcall-interactively
    'emacspeak-xslt-view-file
-   emacspeak-rss-view-xsl file))
+   emacspeak-rss-xsl file))
 
 ;;;###autoload
 (defun emacspeak-xslt-view-atom-file (file)
   "View Atom file."
   (interactive "fAtom File:")
-  (cl-declare (special emacspeak-atom-view-xsl))
+  (cl-declare (special emacspeak-atom-xsl))
   (funcall-interactively
    'emacspeak-xslt-view-file
-   emacspeak-atom-view-xsl file))
+   emacspeak-atom-xsl file))
 
 ;;;###autoload
 (defun emacspeak-xslt-view (style url)

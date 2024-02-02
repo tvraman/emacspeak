@@ -342,5 +342,5 @@ and TABLE gives the values along that dimension."
 (plain-configure-tts)
 
 (provide 'plain-voices)
-;;;   emacs local variables
+ 
 

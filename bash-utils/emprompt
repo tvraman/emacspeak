@@ -1,0 +1,5 @@
+#!/bin/sh
+# Play prompt  from outside Emacs
+#Usage emprompt <prompt-name>
+l="$@"
+emacsclient -n -e "(make-thread #'(lambda () (emacspeak-prompt '$l)))"  2>&1 > /dev/null

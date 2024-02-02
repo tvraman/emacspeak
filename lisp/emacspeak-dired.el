@@ -421,7 +421,7 @@ On a directory line, run du -s on the directory to speak its size."
     ("\\.md" emacspeak-dired-md-open)
     ("\\.csv" emacspeak-dired-csv-open)
     (,emacspeak-media-extensions emacspeak-dired-play-this-media)
-    (,emacspeak-m-player-playlist-pattern emacspeak-dired-play-this-playlist))
+    (,emacspeak-playlist-pattern emacspeak-dired-play-this-playlist))
   "Association of filename extension patterns to Emacspeak handlers.")
 
 (defun emacspeak-dired-open-this-file  ()
@@ -524,7 +524,7 @@ If on a directory, speak the total duration of all sound files under
   that directory."
   (interactive)
   (cl-declare (special emacspeak-media-extensions))
-  (cl-assert (executable-find "soxi")
+  (cl-assert sox-soxi
              t "This command needs soxi installed.")
   (cl-assert (eq major-mode 'dired-mode)
              t "This command is only available in dired buffers.")

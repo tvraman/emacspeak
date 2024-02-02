@@ -211,7 +211,6 @@
      (unless hydra-is-helpful (emacspeak-hydra-toggle-talkative)))
    :post emacspeak-hydra-post)
   "
-_C-f_ turn-on-folding-mmode:       %`folding-mode
 _a_ abbrev-mode: %`abbrev-mode
 _d_ debug-on-error:    %`debug-on-error
 _g_ debug-on-quit:    %`debug-on-quit
@@ -219,7 +218,6 @@ _h_ hydra-is-helpful    %`hydra-is-helpful
 _p_ emacspeak-muggles-lispy-or-sp:
 "
   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-toggle-option"))
-  ("C-f" (call-interactively #'folding-mode))
   ("a" (call-interactively #'abbrev-mode))
   ("d" (call-interactively #'toggle-debug-on-error))
   ("g"  (call-interactively #'toggle-debug-on-quit))

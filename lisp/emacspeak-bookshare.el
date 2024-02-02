@@ -259,7 +259,7 @@ Argument id specifies content. Argument fmt = 0 for Braille, 1
 
 (defvar emacspeak-bookshare-last-action-uri nil
   "Cache last API call URI.")
-(defvar emacspeak-bookshare-curl-common-options
+(defvar emacspeak-bookshare-curl-options
   " --insecure --location "
   "Common Curl options for Bookshare. Includes --insecure as per
 Bookshare docs.")
@@ -273,8 +273,8 @@ Optional argument `no-auth' says we dont need a user auth."
   (emacspeak-bookshare-get-result
    (format
     "%s %s %s  %s 2>/dev/null"
-    emacspeak-curl-program
-    emacspeak-bookshare-curl-common-options
+    emacspeak-curl
+    emacspeak-bookshare-curl-options
     (if no-auth "" (emacspeak-bookshare-user-password))
     emacspeak-bookshare-last-action-uri)))
 
@@ -286,8 +286,8 @@ Optional argument `no-auth' says we dont need a user auth."
         (emacspeak-bookshare-page-rest-endpoint))
   (emacspeak-bookshare-get-result
    (format "%s %s %s  %s 2>/dev/null"
-           emacspeak-curl-program
-           emacspeak-bookshare-curl-common-options
+           emacspeak-curl
+           emacspeak-bookshare-curl-options
            (emacspeak-bookshare-user-password)
            emacspeak-bookshare-last-action-uri)))
 
@@ -481,8 +481,8 @@ Optional interactive prefix arg prompts for a category to use as a filter."
   (shell-command
    (format
     "%s %s %s  '%s' -o \"%s\""
-    emacspeak-curl-program
-    emacspeak-bookshare-curl-common-options
+    emacspeak-curl
+    emacspeak-bookshare-curl-options
     (emacspeak-bookshare-user-password)
     url
     target)))
@@ -1080,7 +1080,7 @@ Target location is generated from author and title."
                 'auditory-icon 'item))
     (message "Unpacked content.")))
 
-(defvar emacspeak-bookshare-xslt
+(defconst emacspeak-bookshare-xslt
   "daisyTransform.xsl"
   "Name of bookshare  XSL transform.")
 
@@ -1093,7 +1093,7 @@ Target location is generated from author and title."
      ((file-exists-p xsl) xsl)
      (t (expand-file-name emacspeak-bookshare-xslt emacspeak-xslt-directory)))))
 
-(defvar emacspeak-bookshare-toc-xslt
+(defconst emacspeak-bookshare-toc-xslt
   "bookshare-toc.xsl"
   "Name of bookshare supplied XSL transform.")
 
@@ -1264,7 +1264,7 @@ Useful for fulltext search in a book."
                                (when (eq major-mode 'dired-mode)
                                  (dired-get-filename))
                                emacspeak-bookshare-directory)))))
-  (cl-declare (special emacspeak-xslt-program))
+  (cl-declare (special emacspeak-xslt))
   (cl-declare (special emacspeak-bookshare-html-to-text-command
                        emacspeak-bookshare-directory))
   (let ((xsl (emacspeak-bookshare-xslt directory))
@@ -1275,7 +1275,7 @@ Useful for fulltext search in a book."
       (setq command
             (format
              "%s  --nonet --novalid %s %s | %s"
-             emacspeak-xslt-program xsl
+             emacspeak-xslt xsl
              (shell-quote-argument
               (cl-first (directory-files directory 'full "\\.xml\\'")))
              emacspeak-bookshare-html-to-text-command))
@@ -1303,7 +1303,7 @@ Useful for fulltext search in a book."
                                  (dired-get-filename))
                                emacspeak-bookshare-directory)))))
   (cl-declare (special eww-data
-                       emacspeak-xslt-program emacspeak-bookshare-directory
+                       emacspeak-xslt emacspeak-bookshare-directory
                        emacspeak-speak-directory-settings
                        emacspeak-bookshare-this-book))
   (let ((xsl (emacspeak-bookshare-xslt directory))
@@ -1314,7 +1314,7 @@ Useful for fulltext search in a book."
       (setq command
             (format
              "%s  --nonet --novalid %s %s "
-             emacspeak-xslt-program xsl
+             emacspeak-xslt xsl
              (shell-quote-argument
               (cl-first (directory-files directory 'full "\\.xml\\'")))))
       (erase-buffer)

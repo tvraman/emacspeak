@@ -117,19 +117,17 @@
 
 ;;;  sox-gen-p:
 
-(defvar sox-gen-p
-  (eval-when-compile (executable-find "sox"))
-  "Is sox available?")
+(defvar sox-gen-p sox-sox "Is sox available?")
 
 ;;;  SoX Command Generator:
-(defvar sox-gen-play (executable-find "play")
+(defconst sox-play (executable-find "play")
   "Location of play from SoX.")
 
 (defun sox-gen-cmd (cmd)
   "Play specified command."
-  (cl-declare (special sox-gen-play sox-gen-p))
+  (cl-declare (special sox-play sox-gen-p))
   (when sox-gen-p
-    (apply #'start-process "SoX" nil sox-gen-play  (split-string cmd))))
+    (apply #'start-process "SoX" nil sox-play  (split-string cmd))))
 
 ;;;  Binaural Audio:
 (defcustom sox-binaural-gain-offset 0

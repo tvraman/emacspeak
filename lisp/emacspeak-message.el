@@ -227,5 +227,5 @@
                      (buffer-name))))
 
 (provide  'emacspeak-message)
-;;;   emacs local variables 
+  
 

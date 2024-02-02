@@ -43,7 +43,7 @@
 
 ;;;   Variables:
 
-(defvar xbacklight-cmd
+(defconst xbacklight-cmd
   (executable-find "xbacklight")
   "xbacklight executable.")
 

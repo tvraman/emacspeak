@@ -1,4 +1,4 @@
-all:  self-document.elc
+all:  self-document.elc theme-colors.elc
 
 
 tests: module-test 
@@ -11,3 +11,6 @@ load-test: self-document.elc
 
 self-document.elc: self-document.el
 	emacs -q -batch -f batch-byte-compile self-document.el
+
+%.elc:%.el
+	emacs -batch -q -f package-initialize -f batch-byte-compile $<

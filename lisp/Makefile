@@ -329,6 +329,8 @@ indent:
 ll:
 	wc -L *.el | sort -n
 
+list-execs:
+	grep executable-find *.el | cut -d '"' -f 2 | sort  | uniq
 spell:
 	codespell -I .codespell *.el
 elint:

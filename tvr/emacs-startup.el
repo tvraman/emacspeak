@@ -92,12 +92,12 @@ Produce timing information as the last step."
 Configure dbus and set up tabs.
 Reset gc-cons-threshold to a smaller value  and play
 startup sound."
-  (cl-declare (special emacspeak-sounds-directory))
+  (cl-declare (special emacspeak-sounds-dir))
   (emacspeak-dbus-setup)
   (setq gc-cons-threshold 64000000)
   (start-process
    "play" nil "aplay"
-   (expand-file-name "highbells.au" emacspeak-sounds-directory))
+   (expand-file-name "highbells.au" emacspeak-sounds-dir))
   (tvr-tabs)
   (switch-to-buffer "Home")
   (message

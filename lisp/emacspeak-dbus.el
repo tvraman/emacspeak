@@ -226,26 +226,22 @@ already disabled."
                     "-k" "/dev/snd/*"))))
 
 (add-hook  'emacspeak-dbus-sleep-hook#'emacspeak-dbus-sleep)
-
+(defconst emacspeak-orca (executable-find "orca") "Orca executable")
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
-  (cl-declare (special amixer-alsactl-config-file
-                       tts-audio-env-var
-                       tts-notification-device))
+  (cl-declare (special amixer-alsactl-config-file tts-notification-device))
   (ems-with-messages-silenced
    (tts-restart)
-   (emacspeak-prompt "waking-up")
+   (emacspeak-prompt 'waking-up)
    (amixer-restore amixer-alsactl-config-file)
-   (when (executable-find "orca")
-     (emacspeak-orca-toggle))
+   (when emacspeak-orca (emacspeak-orca-toggle))
    (when (featurep 'soundscape) (soundscape-restart))
    (when (featurep 'light) (light-black))
    (when
        (dbus-call-method
-        :session
-        "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
+        :session "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
         "org.gnome.ScreenSaver" "GetActive")
-     (emacspeak-prompt "pwd")
+     (emacspeak-prompt 'pwd)
      (emacspeak-auditory-icon 'help))))
 
 (add-hook 'emacspeak-dbus-resume-hook #'emacspeak-dbus-resume)
@@ -347,7 +343,7 @@ already disabled."
   (interactive)
   (emacspeak-dbus-screensaver-check)
   (emacspeak-auditory-icon 'close-object)
-  (emacspeak-prompt "locking-up")
+  (emacspeak-prompt 'locking-up)
   (when (featurep 'light) (light-black))
   (dbus-call-method
    :session
@@ -374,11 +370,10 @@ already disabled."
     "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
     "org.gnome.ScreenSaver" "ActiveChanged"
     #'(lambda (lock)
-        (cl-declare (special tts-notification-device))
         (if lock
             (progn (emacspeak-screen-saver))
-          (progn
-            (emacspeak-prompt "success")
+          (progn(emacspeak-prompt 'desktop-login)
+            (emacspeak-prompt 'success)
             (emacspeak-orca-toggle)
             (light-black)
             (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))

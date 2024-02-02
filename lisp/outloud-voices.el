@@ -64,12 +64,12 @@
 ;;;  Top level TTS  switcher
 
 ;;;###autoload
-(defun outloud (&optional device)
+(defun outloud ()
   "Start Outloud."
-  (interactive "P")
+  (interactive )
   (outloud-configure-tts)
   (ems--fastload "voice-defs")
-  (funcall-interactively #'dtk-select-server "outloud" device)
+  (funcall-interactively #'dtk-select-server "outloud" )
   (dtk-initialize))
 
 ;;;   voice table
@@ -303,5 +303,5 @@
            eight-bit-graphic)))
 
 (provide 'outloud-voices)
-;;;   emacs local variables
+ 
 

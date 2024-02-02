@@ -115,5 +115,5 @@
 
 (provide 'emacspeak-compile)
 
-;;;   emacs local variables
+ 
 

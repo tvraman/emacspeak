@@ -253,5 +253,5 @@ node-spec."
 (define-key Info-mode-map "\M-p" 'emacspeak-info-previous-section)
 
 (provide  'emacspeak-info)
-;;;   emacs local variables
+ 
 

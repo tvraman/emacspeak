@@ -82,7 +82,7 @@ Interactive PREFIX arg means toggle  global default value. "
    (t (make-local-variable 'emacspeak-comint-autospeak)
       (setq emacspeak-comint-autospeak (not emacspeak-comint-autospeak))))
   (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon (if emacspeak-comint-autospeak "on" "off"))
+    (emacspeak-auditory-icon (if emacspeak-comint-autospeak 'on 'off))
     (dtk-speak-and-echo
      (format "Turned emacspeak-comint-autospeak %s  %s."
              (if emacspeak-comint-autospeak "on" "off")
@@ -572,7 +572,8 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
 
 ;;; zoxide:
 ;;; Inspired by zoxide.el
-
+(defconst emacspeak-comint-zoxide (executable-find "zoxide")
+  "Zoxide Executable")
 ;;;###autoload
 (defun emacspeak-zoxide (q)
   "Query zoxide  and launch dired.
@@ -580,7 +581,7 @@ Shell Utility zoxide --- implemented in Rust --- lets you jump to
 directories that are used often. "
   (interactive "sZoxide:")
   (if-let
-      ((z (executable-find "zoxide"))
+      ((z emacspeak-comint-zoxide)
        (target
         (with-temp-buffer; match found here if process returns 0
           (if (= 0 (call-process z nil t nil "query" q))
