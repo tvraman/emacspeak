@@ -1539,19 +1539,20 @@ program. Port defaults to dtk-local-server-port"
   (let* ((result nil)
          (device
           (or                        ; each clause is for a given env:
-           (when emacspeak-wpctl ;pipewire-alsa
-                (setq result
-                      (string-trim
-                       (shell-command-to-string "aplay -L | grep mono_right"))))
-           (when dtk-pamixer ; pipewire-pulse
-            (setq result
+           (when emacspeak-wpctl     ;pipewire-alsa
+             (setq result
+                   (string-trim
+                    (shell-command-to-string "aplay -L | grep mono_right"))))
+           (when dtk-pamixer            ; pipewire-pulse
+             (setq result
                    (split-string
                     (shell-command-to-string
                      "pamixer --list-sinks | grep right")))
-            (substring (cl-second result) 1 -1))
-            (split-string                    ; basic alsa
-             (shell-command-to-string
-              "aplay -L 2>/dev/null | grep tts_mono_right"))
+             (substring (cl-second result) 1 -1))
+           ; asoundrc
+           (split-string                ; basic alsa
+            (shell-command-to-string
+             "aplay -L 2>/dev/null | grep tts_mono_right"))
            "default")))
     (if (string-match "<" device)       ; strip <> from pactl result
         (substring device 1 -1)
