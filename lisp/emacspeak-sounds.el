@@ -233,7 +233,8 @@ Value is a string, a fully qualified filename. ")
         (setq emacspeak-play-args "play-sample")
         (setq emacspeak-sounds-current-theme
               (expand-file-name "ogg-chimes/" emacspeak-sounds-dir)))
-       ((string= sox-play val)
+       ((or  (string= "/usr/bin/play" val)
+               (string= "/usr/local/bin/play" val))
         (setq emacspeak-play-args "-q")
         (setq emacspeak-sounds-current-theme
               (expand-file-name "ogg-chimes/" emacspeak-sounds-dir)))))
