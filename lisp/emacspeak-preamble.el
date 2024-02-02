@@ -59,6 +59,9 @@
 ;; amixer
 
 (defconst emacspeak-amixer  (executable-find "amixer") "Amixer program")
+;; wpctl:
+(defconst emacspeak-wpctl (executable-find "wpctl") "wpctl
+executable")
 
 ;; curl:
 (defconst emacspeak-curl (executable-find "curl") "Curl.")
