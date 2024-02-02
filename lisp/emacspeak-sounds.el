@@ -223,7 +223,7 @@ Value is a string, a fully qualified filename. ")
   :type
   '(choice
     (const  :tag "Pulse" "/usr/bin/pactl")
-    (const  :tag "SoX" "/usr/bin/play"))
+    (const  :tag "SoX" "/usr/local/bin/play"))
   :set
   #'(lambda(sym val)
       (cl-declare (special emacspeak-play-args emacspeak-sounds-current-theme))
@@ -234,9 +234,9 @@ Value is a string, a fully qualified filename. ")
         (setq emacspeak-sounds-current-theme
               (expand-file-name "ogg-chimes/" emacspeak-sounds-dir)))
        ((string= sox-play val)
+        (setq emacspeak-play-args "-q")
         (setq emacspeak-sounds-current-theme
-              (expand-file-name "ogg-chimes/" emacspeak-sounds-dir))
-        (setq emacspeak-play-args nil))))
+              (expand-file-name "ogg-chimes/" emacspeak-sounds-dir)))))
   :group 'emacspeak)
 
 (defun emacspeak-sounds-theme-p  (theme)
