@@ -110,12 +110,13 @@ Use Serve when working with remote speech servers.")
 ;;;###autoload
 (defun emacspeak-auditory-icon (icon)
   "Play an auditory ICON."
-  (cl-declare (special emacspeak-use-auditory-icons
-                       emacspeak-play-program
+  (cl-declare (special emacspeak-use-auditory-icons emacspeak-play-program
                        emacspeak-auditory-icon-function))
   (when emacspeak-use-auditory-icons
     (when (and (null emacspeak-play-program)
-               (eq emacspeak-auditory-icon-function 'emacspeak-play-auditory-icon))
+               (eq emacspeak-auditory-icon-function
+                   'emacspeak-play-auditory-icon))
+      ;; expecting a local player but none available, so turn off icons.
       (setq-default emacspeak-use-auditory-icons nil)
       (error "No valid player for auditory icons."))
     (funcall emacspeak-auditory-icon-function icon)))
