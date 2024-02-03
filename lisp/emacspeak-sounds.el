@@ -256,7 +256,9 @@ None: For systems that rely on the speech server playing the icon."
 
 ;;;   queue an auditory icon
 (defun emacspeak-queue-auditory-icon (icon)
-  "Queue auditory icon ICON."
+  "Queue auditory icon ICON.
+Used by TTS layer to play icons that are found as text property
+`auditory-icon' on text being spoken"
   (cl-declare (special dtk-speaker-process))
   (process-send-string
    dtk-speaker-process
