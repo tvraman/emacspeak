@@ -112,9 +112,6 @@ Use Serve when working with remote speech servers.")
   "Play an auditory ICON."
   (cl-declare (special emacspeak-use-auditory-icons emacspeak-play-program ))
   (when emacspeak-use-auditory-icons
-    (unless emacspeak-play-program
-      (setq-default emacspeak-use-auditory-icons nil)
-      (error "No valid player for auditory icons."))
     (funcall emacspeak-auditory-icon-function icon)))
 
 ;;; Sounds Cache:
@@ -267,6 +264,9 @@ Value is a string, a fully qualified filename. ")
 
 (defun emacspeak-play-auditory-icon (icon)
   "Produce auditory icon ICON."
+  (unless emacspeak-play-program
+    (setq-default emacspeak-use-auditory-icons nil)
+    (error "No valid player for auditory icons."))
   (cl-declare (special emacspeak-play-program emacspeak-play-args))
   (let ((process-connection-type nil))
     (if emacspeak-play-args
