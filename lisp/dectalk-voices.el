@@ -52,7 +52,7 @@
 ;;;  Customizations:
 
 (defcustom dectalk-default-speech-rate 225
-  "Default speech rate . "
+  "Default speech rate for DECTalk engines. "
   :group 'tts
   :type 'integer
   :set #'(lambda(sym val)
