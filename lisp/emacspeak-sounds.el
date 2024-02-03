@@ -236,7 +236,7 @@ None: For systems that rely on the speech server playing the icon."
       (set-default sym val)
       (cond ; todo: should we reset icon player  when prog  becomes non-null
        ((null  val)                     ; no local player. Use server
-        (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon))
+        (setq emacspeak-auditory-icon-function #'emacspeak-serve-auditory-icon))
         ((string= emacspeak-pactl val)
          (setq emacspeak-play-args "play-sample")
          (setq emacspeak-sounds-current-theme

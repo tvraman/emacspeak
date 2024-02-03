@@ -1568,9 +1568,12 @@ If you set the device here, make sure it exists first."
   (unless dtk-program (setq dtk-program "espeak"))
   (let ((new (dtk-make-process "Speaker")))
     ;; success, so nuke old server
-    (when (processp dtk-speaker-process) (delete-process dtk-speaker-process))
+    (when (processp dtk-speaker-process) (delete-process
+                                          dtk-speaker-process))
     (setq dtk-speaker-process new)
     (when (tts-multistream-p dtk-program) (dtk-notify-initialize))
+    (when (string-match "cloud" dtk-program)
+      (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon))
     ;; `voice-setup' requires us, so we can't require it at top-level.
     (require 'voice-setup)
     (voice-setup)))
