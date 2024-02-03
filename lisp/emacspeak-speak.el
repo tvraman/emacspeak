@@ -1541,24 +1541,14 @@ Interactive prefix arg speaks buffer info."
 
 (defconst ems--vol-cmd
   (eval-when-compile
-    (cond
-     (emacspeak-wpctl ; pipewire
-      "wpctl get-volume @DEFAULT_AUDIO_SINK@")
-     (t 
-      (concat
-       "pacmd list-sinks | grep -A 8 '  \\* index' | grep volume"
-       "|  cut -d ',' -f 1"
-       "| cut -d ':' -f 3"
-       "| cut -d '/' -f 2"))))
+     (when emacspeak-wpctl  "wpctl get-volume @DEFAULT_AUDIO_SINK@"))
   "Shell pipeline for getting volume.")
 
 (defsubst ems--show-current-volume ()
   "volume display in minor-mode-line"
   (cl-declare (special ems--vol-cmd))
   (propertize
-   (format
-    " %s "
-    (string-trim (shell-command-to-string ems--vol-cmd)))
+   (format " %s " (string-trim (shell-command-to-string ems--vol-cmd)))
    'personality 'voice-bolden))
 
 (defvar emacspeak-speak-show-volume nil
