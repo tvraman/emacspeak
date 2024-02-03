@@ -221,26 +221,32 @@ Value is a string, a fully qualified filename. ")
 
 (defcustom emacspeak-play-program
   (or emacspeak-pactl sox-play)
-  "Play program."
+  "Play program.
+Pulse: For systems running Pipewire or Pulseaudio.
+sox-play: For systems using SoX as the local player.
+None: For systems that rely on the speech server playing the icon."
   :type
   '(choice
+    (const  :tag "None" nil)
     (const  :tag "Pulse" "/usr/bin/pactl")
     (const  :tag "SoX" "/usr/local/bin/play"))
   :set
   #'(lambda(sym val)
       (cl-declare (special emacspeak-play-args emacspeak-sounds-current-theme))
       (set-default sym val)
-      (cond
-       ((string= emacspeak-pactl val)
-        (setq emacspeak-play-args "play-sample")
-        (setq emacspeak-sounds-current-theme
-              (expand-file-name "ogg-chimes/" emacspeak-sounds-dir)))
-       ((or  (string= "/usr/bin/play" val)
-               (string= "/usr/local/bin/play" val))
-        (setq emacspeak-play-args "-q")
-        (setq emacspeak-sounds-current-theme
-              (expand-file-name "ogg-chimes/" emacspeak-sounds-dir)))))
-  :group 'emacspeak)
+      (cond ; todo: should we reset icon player  when prog  becomes non-null
+       ((null  val)                     ; no local player. Use server
+        (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon))
+        ((string= emacspeak-pactl val)
+         (setq emacspeak-play-args "play-sample")
+         (setq emacspeak-sounds-current-theme
+               (expand-file-name "ogg-chimes/" emacspeak-sounds-dir)))
+        ((or  (string= "/usr/bin/play" val)
+              (string= "/usr/local/bin/play" val))
+         (setq emacspeak-play-args "-q")
+         (setq emacspeak-sounds-current-theme
+               (expand-file-name "ogg-chimes/" emacspeak-sounds-dir)))))
+      :group 'emacspeak)
 
 (defun emacspeak-sounds-theme-p  (theme)
   "Predicate to test if theme is available."
