@@ -3614,7 +3614,7 @@ module is Dectalk specific.
 -----------------------------
 
  -- Variable: User Option dectalk-default-speech-rate
-     Default speech rate . 
+     Default speech rate for DECTalk engines. 
 
      Default Value:
      

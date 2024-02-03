@@ -431,7 +431,7 @@ Software Dectalk TTS.
 
 @defvar {User Option} dectalk-default-speech-rate
 @verbatim
-Default speech rate . 
+Default speech rate for DECTalk engines. 
 @end verbatim
 
 Default Value: 
