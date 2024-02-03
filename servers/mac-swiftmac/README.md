@@ -6,6 +6,7 @@ Quick Install (requires swift compiler)
 ------------------------------------------------------------------------------
  - make swiftmac (note: emits warnings)
  - Change the server in your configuration to "swiftmac"
+ - Make sure you have SoX installed.
  - Restart emacs
 
 Recommended Settings
