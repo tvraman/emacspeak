@@ -45,19 +45,25 @@
 ;; provide additional feedback, not as a gimmick.
 ;; @item   The Emacspeak interface
 ;; should be usable at all times without the icons.
+;; @item  Command @code{emacspeak-toggle-auditory-icons} toggles the
+;; use of auditory icons.
 ;; @item   General principle for when to use
 ;; an icon:
+;; @enumerate
 ;; @item Convey information about events taking place in parallel.
 ;;@item  For instance, if making a selection automatically moves the current
 ;; focus to the next choice, We speak the next choice, while
-;; indicating the fact that something was selected with an auditory icon.
-;;@item  This interface will assume the availability of a shell command
-;; @code{play} that can take one or more sound files and play them.
+;; indicating the fact that something was selected with an auditory
+;; icon.
+;; @end enumerate
 ;; @item This module provides  a mapping between names in the elisp world
 ;; and actual sound files.
 ;; @item icon-names are symbols; sound files  are fully-qualified file-names.
 ;; @item Modules that wish to use auditory icons
-;; should use these names, instead of actual file names.
+;; should use these names and not  actual file names.
+;; @item Icons are played either using a local player, or by sending
+;; appropriate commands to the speech server (local or cloud).
+;; @item  This is determined by the value of emacspeak-auditory-icon-function.
 ;; @item As of
 ;; Emacspeak 13.0, this module defines a themes architecture for
 ;; auditory icons.  Sound files corresponding to a given theme are
@@ -65,8 +71,9 @@
 ;; @item Contrast this with @code{prompts[ that dont belong to any theme.]}
 ;; @item The auditory icon player is configure via
 ;; custom option @code{emacspeak-play-program}.
-;;@item  That custom setting handles the mapping to various play programs
-;; from audio subsystems such as Pulseaudio, and Pipewire.
+;;@item  That custom setting handles the mapping to various play
+;; backends (local or cloud)
+;; from audio subsystems such as Pulseaudio and Pipewire.
 ;; @end itemize
 ;; @subsection Designing Auditory Icons
 ;; Here are some notes on what I have learnt while designing and using
@@ -78,7 +85,7 @@
 ;; @item Sounds have many properties, eg: duration, gain, pitch, at
 ;; the basic level.
 ;;@item  Even more important is the nature of the sound and what it sounds
-;; like in the overall activity where that sound is used.
+;; like in the context of the overall speech output  where that sound is used.
 ;; @item This is why  the gain of icons  @emph{should never be} normalized in
 ;; my view---  tuning icons is as complex as picking
 ;; colors from  a color palette.
