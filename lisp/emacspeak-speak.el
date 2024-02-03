@@ -1524,21 +1524,6 @@ Interactive prefix arg speaks buffer info."
                          (dtk-speak
                           (buffer-name))))
 
-(defsubst ems--pulse-speaker-p ()
-  "Predicate to check if we are on speaker."
-  (ems-with-messages-silenced
-   (zerop
-    (shell-command
-     "pacmd list-sinks | grep 'active port:'  | grep  Speaker"))))
-
-(defsubst ems--pulse-headphones-p ()
-  "Predicate to check if we are on Headphones."
-  (ems-with-messages-silenced
-   (zerop
-    (shell-command
-     "pacmd list-sinks | grep 'active port:'  | grep  Headphones"))))
-
-
 (defconst ems--vol-cmd
   (eval-when-compile
      (when emacspeak-wpctl  "wpctl get-volume @DEFAULT_AUDIO_SINK@"))
