@@ -364,10 +364,11 @@ Interactive prefix arg ‘PROMPT’ reads percentage as a number
 @subsection amixer Options
 
 @defvar {User Option} amixer-device
+@verbatim
 ALSA Control Device.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "default"
@@ -377,10 +378,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} amixer-volume-step
+@verbatim
 Step-size for volume change.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 1
@@ -428,10 +430,11 @@ Software Dectalk TTS.
 @subsection dectalk-voices Options
 
 @defvar {User Option} dectalk-default-speech-rate
+@verbatim
 Default speech rate . 
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 225
@@ -965,10 +968,11 @@ Speak version.
 @subsection dtk-speak Options
 
 @defvar {User Option} dtk-allcaps-prefix
+@verbatim
 Prefix used to indicate AllCaps
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 #(" acc " 0 5 (personality acss-p3-s1-r3))
@@ -978,10 +982,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} dtk-caps-prefix
+@verbatim
 Prefix used to indicate capitalization
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 #("cap" 0 3 (personality acss-p3-s1-r3))
@@ -991,6 +996,7 @@ Default Value:
 @end defvar
 
 @defvar {User Option} dtk-cleanup-repeats
+@verbatim
 List of repeating patterns to clean up.
 Use ‘dtk-add-cleanup-pattern’
  bound to C-e d a  to add  patterns.
@@ -998,9 +1004,9 @@ Use ‘dtk-add-cleanup-pattern’
 More than 3 consecutive occurrences
 of a  pattern   is
 replaced with a repeat count. 
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (". " "."
@@ -1031,10 +1037,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} dtk-cloud-server
+@verbatim
 Set this to your preferred cloud TTS server.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "cloud-outloud"
@@ -1044,10 +1051,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} dtk-local-engine
+@verbatim
 Engine we use  for our local TTS  server.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "outloud"
@@ -1057,10 +1065,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} dtk-speech-rate-base
+@verbatim
 Value of lowest speech rate.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 50
@@ -1070,10 +1079,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} dtk-speech-rate-step
+@verbatim
 Speech rate step used by ‘dtk-set-predefined-speech-rate’.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 8
@@ -1083,10 +1093,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} dtk-unicode-character-replacement-alist
+@verbatim
 Replacements for  characters.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 ((150 . "-")
@@ -1126,10 +1137,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} dtk-unicode-name-transformation-rules-alist
+@verbatim
 Alist of character name transformation rules.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (("BOX DRAWING" lambda (_ignored) ".")
@@ -1151,11 +1163,12 @@ Default Value:
 @end defvar
 
 @defvar {User Option} dtk-unicode-untouched-charsets
+@verbatim
 Characters of these charsets are  ignored by
   dtk-unicode-replace-chars.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (ascii latin-iso8859-1)
@@ -1165,10 +1178,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} dtk-use-tones
+@verbatim
 Toggle tones. 
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 t
@@ -1178,12 +1192,13 @@ t
 @end defvar
 
 @defvar {User Option} tts-notification-device
+@verbatim
 Virtual sound device to use for notifications stream.
 Set to nil to disable a separate Notification stream.
 If you set the device here, make sure it exists first.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -1221,10 +1236,11 @@ Toggle state of orca.
 @subsection emacspeak Options
 
 @defvar {User Option} emacspeak-soundscapes
+@verbatim
 Whether we should turn on soundscapes on startup.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -1394,10 +1410,11 @@ not needed in Emacs 22.
 @subsection emacspeak-advice Options
 
 @defvar {User Option} emacspeak-speak-messages-filter
+@verbatim
 List of strings used to filter spoken messages.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 ("Decrypting" "psession" "auto saving")
@@ -1407,10 +1424,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-speak-tooltips
+@verbatim
 Enable to get tooltips spoken.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -2289,12 +2307,13 @@ Play pages in specified page range from URL.
 @subsection emacspeak-bookshare Options
 
 @defvar {User Option} emacspeak-bookshare-api-key
+@verbatim
 Web API  key for this application.
 See http://developer.bookshare.org/docs for details on how to get
   an API key. 
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -2304,10 +2323,11 @@ nil
 @end defvar
 
 @defvar {User Option} emacspeak-bookshare-directory
+@verbatim
 Customize this to the root of where books are organized.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/home/raman/books/book-share"
@@ -2931,6 +2951,7 @@ directories that are used often.
 @subsection emacspeak-comint Options
 
 @defvar {User Option} emacspeak-comint-autospeak
+@verbatim
 Speak comint output.
 Use M-x emacspeak-toggle-comint-autospeak to toggle this
 setting. Do not set this globally. Also see custom option
@@ -2938,9 +2959,9 @@ setting. Do not set this globally. Also see custom option
 project-specific shells that have autospeak turned on. The
 default is intentionally nil, since this option should only be
 turned on where needed.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -3914,11 +3935,12 @@ Download Youtube result.
 @subsection emacspeak-empv Options
 
 @defvar {User Option} emacspeak-empv-custom-filters
+@verbatim
 List of custom filters to turn on/off at one shot
 The default value is suitable for classical instrumental music.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 ("extrastereo" "stereowiden=4.25:.1:735:.8")
@@ -4560,10 +4582,11 @@ Custom URL executor for use in EPub Mode.
 @subsection emacspeak-epub Options
 
 @defvar {User Option} emacspeak-epub-bookshelf-directory
+@verbatim
 Directory where we keep .bsf files defining various bookshelves.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/home/raman/EBooks/bsf/"
@@ -4573,10 +4596,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-epub-calibre-root-dir
+@verbatim
 Root of Calibre library.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/home/raman/EBooks/calibre"
@@ -4586,10 +4610,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-epub-gutenberg-mirror
+@verbatim
 Base URL  for Gutenberg mirror.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "http://www.gutenberg.org/ebooks/"
@@ -4599,10 +4624,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-epub-gutenberg-suffix
+@verbatim
 Suffix of book type we retrieve.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 ".epub.noimages"
@@ -4612,10 +4638,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-epub-library-directory
+@verbatim
 Directory under which we store Epubs.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/home/raman/EBooks/"
@@ -4705,11 +4732,12 @@ set the current local value to the result.
 @subsection emacspeak-erc Options
 
 @defvar {User Option} emacspeak-erc-ignore-notices
+@verbatim
 Set to T if you dont want to see notification  messages from the
 server.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 t
@@ -4719,10 +4747,11 @@ t
 @end defvar
 
 @defvar {User Option} emacspeak-erc-my-nick
+@verbatim
 My IRC nick.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 ""
@@ -4732,10 +4761,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-erc-speak-all-participants
+@verbatim
 Speak all things said if t.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -6541,12 +6571,13 @@ Download link at point   using youtube-dl --- works with BBC Sounds.
 @subsection emacspeak-eww Options
 
 @defvar {User Option} emacspeak-eww-autospeak
+@verbatim
 Turn this on to make section navigation autospeak.
 This also reverses the meaning of the prefix-arg to section nav
   commands.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 t
@@ -6556,10 +6587,11 @@ t
 @end defvar
 
 @defvar {User Option} emacspeak-eww-inhibit-images
+@verbatim
 Turn this on to avoid rendering images.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -6756,12 +6788,13 @@ Read a personality  and apply it to the current line.
 @subsection emacspeak-extras Options
 
 @defvar {User Option} emacspeak-clipfile-file
+@verbatim
 File used to save Emacspeak clipboard.
 The emacspeak clipboard provides a convenient mechanism for exchanging
 information between different Emacs sessions.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/home/raman/.emacspeak//clipboard"
@@ -6771,10 +6804,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-curl-cookie-store
+@verbatim
 Cookie store used by Curl.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/home/raman/.curl-cookies"
@@ -6784,13 +6818,14 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-wizards-tramp-locations
+@verbatim
 Tramp locations used by Emacspeak tramp wizard.
 Locations added here via custom can be opened using command
 emacspeak-wizards-tramp-open-location
 bound to C-x @@ h C-t.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -6967,11 +7002,12 @@ Prompt for feed-type (Atom, RSS, OPML and open it.
 @subsection emacspeak-feeds Options
 
 @defvar {User Option} emacspeak-feeds
+@verbatim
 Table of RSS/Atom feeds.
 The feed list is persisted to file saved-feeds on exit.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (("BBC Podcast Directory" "http://www.bbc.co.uk/podcasts.opml" opml)
@@ -6983,10 +7019,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-feeds-awesome-rss
+@verbatim
 Location of Awesome RSS
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/home/raman/sourceforge/awesome-rss-feeds/"
@@ -7100,10 +7137,11 @@ between ido, popup and helm.
 @subsection emacspeak-flyspell Options
 
 @defvar {User Option} emacspeak-flyspell-correct
+@verbatim
 Correction style to use with flyspell.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 flyspell-correct-ido
@@ -7277,13 +7315,14 @@ Catch up on all articles in current group.
 @subsection emacspeak-gnus Options
 
 @defvar {User Option} emacspeak-gnus-large-article
+@verbatim
 Articles having more than
 emacspeak-gnus-large-article lines will be considered to be a large article.
 A large article is not spoken all at once;
 instead you hear only the first screenful.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 100
@@ -7293,10 +7332,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-punctuation-mode
+@verbatim
 Pronunciation mode to use for gnus buffers.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 all
@@ -7639,10 +7679,11 @@ Turn YT Channel or Playlist url into an RSS feed and open it.
 @subsection emacspeak-google Options
 
 @defvar {User Option} emacspeak-google-kg-key
+@verbatim
 API Key for Google Knowledge Graph.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -7858,10 +7899,11 @@ entire list.
 @subsection emacspeak-ido Options
 
 @defvar {User Option} emacspeak-ido-typing-delay
+@verbatim
 How long we wait before speaking completions.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 0.15
@@ -7942,13 +7984,14 @@ node-spec.
 @subsection emacspeak-info Options
 
 @defvar {User Option} emacspeak-info-select-node-speak-chunk
+@verbatim
 Specifies how much of the selected node gets spoken.
 Possible values are:
 screenfull  -- speak the displayed screen
 node -- speak the entire node.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 screenfull
@@ -7975,11 +8018,12 @@ C-r and C-s.
 @subsection emacspeak-ispell Options
 
 @defvar {User Option} emacspeak-ispell-max-choices
+@verbatim
 Emacspeak will not speak the choices if there are more than this
 many available corrections.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 8
@@ -8056,10 +8100,11 @@ Speak most recent message if one exists.
 @subsection emacspeak-jabber Options
 
 @defvar {User Option} emacspeak-jabber-speak-presence-alerts
+@verbatim
 Set to T if you want to hear presence alerts.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -8099,10 +8144,11 @@ Note that the <fn> key found on laptops is denoted <fn>
 @subsection emacspeak-keymap Options
 
 @defvar {User Option} emacspeak-alt-keys
+@verbatim
 Alt key bindings. 
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (("," eldoc)
@@ -8131,10 +8177,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-ctl-z-keys
+@verbatim
 CTL-z keymap.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (("SPC" flyspell-mode)
@@ -8155,10 +8202,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-hyper-keys
+@verbatim
 Hyper-Key bindings. 
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (("C-;" emacspeak-amark-bookshelf)
@@ -8194,10 +8242,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-multi-keys
+@verbatim
 Multi key bindings. 
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (("'" emacspeak-pianobar)
@@ -8215,10 +8264,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-super-keys
+@verbatim
 Super key bindings. 
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (("." emacspeak-wizards-shell-directory-reset)
@@ -8247,10 +8297,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-v-keys
+@verbatim
 Key bindings for use with C-e v. 
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (("v" view-register))
@@ -8260,10 +8311,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-windows-keys
+@verbatim
 Key bindings on the windows  key. 
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -8273,10 +8325,11 @@ nil
 @end defvar
 
 @defvar {User Option} emacspeak-x-keys
+@verbatim
 Key bindings for  C-e x. 
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (("," emacspeak-wizards-shell-directory-set)
@@ -8316,10 +8369,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-y-keys
+@verbatim
 Key bindings for use with C-e y. 
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (("a" emacspeak-xslt-view-atom-file)
@@ -8435,10 +8489,11 @@ more results.
 @subsection emacspeak-librivox Options
 
 @defvar {User Option} emacspeak-librivox-local-cache
+@verbatim
 Location where we cache LIBRIVOX playlists.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/home/raman/.emacspeak/librivox"
@@ -9534,10 +9589,11 @@ M-.		emacspeak-m-player-set-clip-end
 @subsection emacspeak-m-player Options
 
 @defvar {User Option} emacspeak-m-player-clips
+@verbatim
 Directory where we store clips.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/home/raman/mp3/clips"
@@ -9547,10 +9603,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-m-player-custom-filters
+@verbatim
 Additional filters to apply to streams.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -9560,10 +9617,11 @@ nil
 @end defvar
 
 @defvar {User Option} emacspeak-media-location-bindings
+@verbatim
 Map  keys  to launch MPlayer on a  directory.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -9573,10 +9631,11 @@ nil
 @end defvar
 
 @defvar {User Option} emacspeak-mplayer
+@verbatim
 Media player program.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/usr/local/bin/mplayer"
@@ -9845,10 +9904,11 @@ advice for posting message commands
 @subsection emacspeak-message Options
 
 @defvar {User Option} emacspeak-message-punctuation-mode
+@verbatim
 Pronunciation mode to use for message buffers.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 all
@@ -10637,10 +10697,11 @@ Writes out recognized text from all pages in current document.
 @subsection emacspeak-ocr Options
 
 @defvar {User Option} emacspeak-ocr-compress-image
+@verbatim
 Command used to compress the scanned tiff file.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -10650,10 +10711,11 @@ nil
 @end defvar
 
 @defvar {User Option} emacspeak-ocr-compress-image-options
+@verbatim
 Options used for compressing tiff image.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "-c g3 "
@@ -10663,10 +10725,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-ocr-compress-photo-options
+@verbatim
 Options used when created JPEG from  scanned photographs.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "-optimize -progressive"
@@ -10676,10 +10739,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-ocr-engine
+@verbatim
 OCR engine to process acquired image.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/home/raman/emacs/lisp/emacspeak/etc/tesseract.pl"
@@ -10689,10 +10753,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-ocr-engine-options
+@verbatim
 Command line options to pass to OCR engine.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -10702,10 +10767,11 @@ nil
 @end defvar
 
 @defvar {User Option} emacspeak-ocr-image-extension
+@verbatim
 Filename extension used for acquired image.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 ".tif"
@@ -10715,10 +10781,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-ocr-jpeg-metadata-writer
+@verbatim
 Program to add metadata to JPEG files.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "wrjpgcom"
@@ -10728,10 +10795,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-ocr-keep-uncompressed-image
+@verbatim
 If set to T, uncompressed image is not removed.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -10741,10 +10809,11 @@ nil
 @end defvar
 
 @defvar {User Option} emacspeak-ocr-photo-compress
+@verbatim
 Program to create JPEG compressed images.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "cjpeg"
@@ -10754,10 +10823,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-ocr-scan-image
+@verbatim
 Name of image acquisition program.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "scanimage"
@@ -10767,10 +10837,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-ocr-scan-image-options
+@verbatim
 Command line options to pass to image acquisition program.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "--resolution 300 --mode lineart --format=tiff"
@@ -10780,10 +10851,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-ocr-scan-photo-options
+@verbatim
 Options  used when scanning in photographs.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "--mode color --format=pnm"
@@ -10793,11 +10865,12 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-ocr-working-directory
+@verbatim
 Directory where images and OCR results
 will be placed.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/home/raman/.emacspeak/ocr/"
@@ -10944,10 +11017,11 @@ echoes row header and element
 @subsection emacspeak-org Options
 
 @defvar {User Option} emacspeak-org-hotlist
+@verbatim
 Emacspeak org hotlist location.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/home/raman/.org/hotlist.org"
@@ -10957,10 +11031,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-org-table-after-movement-function
+@verbatim
 The function to call after moving in a table
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 emacspeak-org-table-speak-current-element
@@ -11513,10 +11588,11 @@ Toggle use of pronunciation personality.
 @subsection emacspeak-pronounce Options
 
 @defvar {User Option} emacspeak-pronounce-dictionaries-file
+@verbatim
 File that holds  emacspeak pronunciations.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/home/raman/.emacspeak/.dictionary"
@@ -11526,10 +11602,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-pronounce-internet-smileys-pronunciations
+@verbatim
 Smileys
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 ((":-)" . " smile ")
@@ -11548,10 +11625,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-pronounce-xml-ns
+@verbatim
 Namespace URIs.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (("http://www.w3.org/2005/Atom" . " atom ")
@@ -11910,19 +11988,25 @@ emacspeak.
 provide additional feedback, not as a gimmick.
 @item   The Emacspeak interface
 should be usable at all times without the icons.
+@item  Command @code{emacspeak-toggle-auditory-icons} toggles the
+use of auditory icons.
 @item   General principle for when to use
 an icon:
+@enumerate
 @item Convey information about events taking place in parallel.
 @item  For instance, if making a selection automatically moves the current
 focus to the next choice, We speak the next choice, while
-indicating the fact that something was selected with an auditory icon.
-@item  This interface will assume the availability of a shell command
-@code{play} that can take one or more sound files and play them.
+indicating the fact that something was selected with an auditory
+icon.
+@end enumerate
 @item This module provides  a mapping between names in the elisp world
 and actual sound files.
 @item icon-names are symbols; sound files  are fully-qualified file-names.
 @item Modules that wish to use auditory icons
-should use these names, instead of actual file names.
+should use these names and not  actual file names.
+@item Icons are played either using a local player, or by sending
+appropriate commands to the speech server (local or cloud).
+@item  This is determined by the value of emacspeak-auditory-icon-function.
 @item As of
 Emacspeak 13.0, this module defines a themes architecture for
 auditory icons.  Sound files corresponding to a given theme are
@@ -11930,8 +12014,9 @@ found in appropriate subdirectories of emacspeak-sounds-dir.
 @item Contrast this with @code{prompts[ that dont belong to any theme.]}
 @item The auditory icon player is configure via
 custom option @code{emacspeak-play-program}.
-@item  That custom setting handles the mapping to various play programs
-from audio subsystems such as Pulseaudio, and Pipewire.
+@item  That custom setting handles the mapping to various play
+backends (local or cloud)
+from audio subsystems such as Pulseaudio and Pipewire.
 @end itemize
 @subsection Designing Auditory Icons
 Here are some notes on what I have learnt while designing and using
@@ -11943,7 +12028,7 @@ the bundled themes as a guide.
 @item Sounds have many properties, eg: duration, gain, pitch, at
 the basic level.
 @item  Even more important is the nature of the sound and what it sounds
-like in the overall activity where that sound is used.
+like in the context of the overall speech output  where that sound is used.
 @item This is why  the gain of icons  @emph{should never be} normalized in
 my view---  tuning icons is as complex as picking
 colors from  a color palette.
@@ -11989,13 +12074,14 @@ Optional interactive PREFIX arg toggles global value.
 @subsection emacspeak-sounds Options
 
 @defvar {User Option} emacspeak-play-program
+@verbatim
 Play program.
 Pulse: For systems running Pipewire or Pulseaudio.
 sox-play: For systems using SoX as the local player.
 None: For systems that rely on the speech server playing the icon.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/usr/bin/pactl"
@@ -13564,13 +13650,14 @@ Send this command to the TTS directly.
 @subsection emacspeak-speak Options
 
 @defvar {User Option} emacspeak-audio-indentation
+@verbatim
 Option indicating if line indentation is cued.
 You can use  command ‘emacspeak-toggle-audio-indentation’ bound
 to C-e d i to toggle this
 setting.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -13580,13 +13667,14 @@ nil
 @end defvar
 
 @defvar {User Option} emacspeak-character-echo
+@verbatim
 If t, then emacspeak echoes characters  as you type.
 You can
 use C-e d k to toggle this
 setting.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 t
@@ -13596,12 +13684,13 @@ t
 @end defvar
 
 @defvar {User Option} emacspeak-line-echo
+@verbatim
 If t, then emacspeak echoes lines as you type.
 You can use C-e d l to set this
 option.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -13611,15 +13700,16 @@ nil
 @end defvar
 
 @defvar {User Option} emacspeak-mail-alert
+@verbatim
  If t, emacspeak will alert you about newly arrived mail
 with an auditory icon when
 displaying the mode line.
 You can use command
 ‘emacspeak-toggle-mail-alert’ bound to
 C-e M-m to set this option. 
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 t
@@ -13629,11 +13719,12 @@ t
 @end defvar
 
 @defvar {User Option} emacspeak-mail-alert-interval
+@verbatim
 Interval in seconds between mail alerts for the same pending
   message.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 300
@@ -13643,11 +13734,12 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-mail-spool-file
+@verbatim
 Mail spool file examined  to alert you about newly
 arrived mail.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/var/mail/raman"
@@ -13657,10 +13749,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-silence-hook
+@verbatim
 Functions run after emacspeak-silence is called.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (emacspeak-m-player-pause-or-resume emacspeak-emms-pause-or-resume)
@@ -13670,10 +13763,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-speak-filter-persistent-store
+@verbatim
 File where emacspeak filters are persisted.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/home/raman/.emacspeak/.filters"
@@ -13683,14 +13777,15 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-speak-messages
+@verbatim
 Option indicating if messages are spoken.  If nil,
 emacspeak will not speak messages as they are echoed to the
 message area.  You can use command
 ‘emacspeak-toggle-speak-messages’ bound to
 C-e C-M-q.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 t
@@ -13700,10 +13795,11 @@ t
 @end defvar
 
 @defvar {User Option} emacspeak-speak-time-brief-format
+@verbatim
 Format for time in brief.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "%l %M%p"
@@ -13713,12 +13809,13 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-speak-time-format
+@verbatim
 Format string that specifies how the time should be spoken.
 See the documentation for function
 ‘format-time-string’
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "%l %M%p on %A %B %_e"
@@ -13728,10 +13825,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-speak-zoneinfo-directory
+@verbatim
 Directory containing timezone data.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/usr/share/zoneinfo/"
@@ -13741,12 +13839,13 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-word-echo
+@verbatim
 If t, then emacspeak echoes words as you type.
 You can use C-e d w to toggle this
 option.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 t
@@ -15316,12 +15415,13 @@ Save url templates.
 @subsection emacspeak-url-template Options
 
 @defvar {User Option} emacspeak-stock-tickers
+@verbatim
 Set this to the stock tickers you want to check. Default is
 the current fab-7!. Tickers is a list of stock symbols sorted in lexical order
 with duplicates removed when saving as a list of string.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 ("aapl" "amzn" "goog" "meta" "msft" "nflx" "nvda")
@@ -15482,11 +15582,12 @@ Yank specified header into kill ring.
 @subsection emacspeak-vm Options
 
 @defvar {User Option} emacspeak-vm-cal2text
+@verbatim
 Executable that converts calendar invitations    on
   standard input to plain text.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/home/raman/emacs/lisp/emacspeak/etc/cal2text"
@@ -15496,11 +15597,12 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-vm-customize-mime-settings
+@verbatim
 Non-nil will cause Emacspeak to configure VM mime
 settings to match what the author of Emacspeak uses.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 t
@@ -15510,11 +15612,12 @@ t
 @end defvar
 
 @defvar {User Option} emacspeak-vm-pdf2text
+@verbatim
 Executable that converts PDF on standard input to plain
 text using pdftotext.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/home/raman/emacs/lisp/emacspeak/etc/pdf2text"
@@ -15524,10 +15627,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-vm-use-raman-settings
+@verbatim
 Should VM  use the customizations used by the author of Emacspeak.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 t
@@ -15537,11 +15641,12 @@ t
 @end defvar
 
 @defvar {User Option} emacspeak-vm-voice-loc
+@verbatim
 Set this to T if you want messages automatically voice locked.
 Note that some badly formed mime messages  cause trouble.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -16183,10 +16288,11 @@ Select XSL transformation applied to Web pages before they are displayed .
 @subsection emacspeak-we Options
 
 @defvar {User Option} emacspeak-we-filters-rename-buffer
+@verbatim
 Set to T  if you want the buffer name to contain the applied filter.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -16502,10 +16608,11 @@ Yank link under point into kill ring.
 @subsection emacspeak-webspace Options
 
 @defvar {User Option} emacspeak-webspace-feeds
+@verbatim
 Feeds to use in Headline Ticker.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -18114,10 +18221,11 @@ Buffer menu filtered by  mode of current-buffer.
 @subsection emacspeak-wizards Options
 
 @defvar {User Option} emacspeak-brightness-autoblack
+@verbatim
 Set to T to automatically turn display black.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -18127,11 +18235,12 @@ nil
 @end defvar
 
 @defvar {User Option} emacspeak-speak-telephone-directory
+@verbatim
 File holding telephone directory.
 This is just a text file, and we use grep to search it.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/home/raman/.emacspeak/tel-dir"
@@ -18141,10 +18250,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-wizards-pdf-to-text-options
+@verbatim
 options to Command for running pdftotext.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "-layout"
@@ -18154,10 +18264,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} emacspeak-wizards-project-shells
+@verbatim
 Project shells, a list of shell-name/initial-directory pairs.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -18167,10 +18278,11 @@ nil
 @end defvar
 
 @defvar {User Option} emacspeak-wizards-remote-workstation
+@verbatim
 Name of remote workstation.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 ""
@@ -18341,10 +18453,11 @@ Start ESpeak.
 @subsection espeak-voices Options
 
 @defvar {User Option} espeak-default-speech-rate
+@verbatim
 Default speech rate for eSpeak.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 175
@@ -18755,10 +18868,11 @@ Used by modules like gphoto, gblogger etc.
 @subsection g-utils Options
 
 @defvar {User Option} g-atom-view-xsl
+@verbatim
 XSLT transform to convert Atom feed to HTML.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/home/raman/emacs/lisp/emacspeak/xsl/atom-view.xsl"
@@ -18768,11 +18882,12 @@ Default Value:
 @end defvar
 
 @defvar {User Option} g-cookie-jar
+@verbatim
 Cookie jar used for Google services.
 Customize this to live on your local disk.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -18782,10 +18897,11 @@ nil
 @end defvar
 
 @defvar {User Option} g-curl-debug
+@verbatim
 Set to T to see Curl stderr output.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -18795,10 +18911,11 @@ nil
 @end defvar
 
 @defvar {User Option} g-curl-options
+@verbatim
 Common options to pass to all Curl invocations.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "--http1.0 --compressed --silent --location --location-trusted --max-time 4 --connect-timeout 1"
@@ -18808,10 +18925,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} g-xslt-program
+@verbatim
 XSLT Processor.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "xsltproc"
@@ -19069,10 +19187,11 @@ This function has :around advice: ‘ad-Advice-gmaps-walking-directions’.
 @subsection gmaps Options
 
 @defvar {User Option} gmaps-api-key
+@verbatim
 Maps  API  key --- goto  https://code.google.com/apis/console to get one.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -19082,11 +19201,12 @@ nil
 @end defvar
 
 @defvar {User Option} gmaps-my-address
+@verbatim
 Location address. Setting this updates gmaps-my-location
 coordinates via geocoding.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 nil
@@ -19248,10 +19368,11 @@ This module defines the various voices used in voice-lock mode by Mac TTS.
 @subsection mac-voices Options
 
 @defvar {User Option} mac-default-speech-rate
+@verbatim
 Default speech rate for mac.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 225
@@ -19291,10 +19412,11 @@ Start Outloud.
 @subsection outloud-voices Options
 
 @defvar {User Option} outloud-default-speech-rate
+@verbatim
 Default speech rate.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 50
@@ -19500,10 +19622,11 @@ Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
 @subsection soundscape Options
 
 @defvar {User Option} soundscape-data
+@verbatim
 Soundscape data directory.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "/home/raman/.boodler/Collection"
@@ -19513,10 +19636,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} soundscape-device
+@verbatim
 Alsa sound device to use for soundscapes.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 "default"
@@ -19526,11 +19650,12 @@ Default Value:
 @end defvar
 
 @defvar {User Option} soundscape-manager-options
+@verbatim
 User customizable options list passed to boodler.
 Defaults specify alsa as the output and set master volume
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 ("-m" "0.3")
@@ -19878,11 +20003,12 @@ Play wind-down set of  binaural beats for ‘length’ seconds.
 @subsection sox-gen Options
 
 @defvar {User Option} sox-binaural-gain-offset
+@verbatim
 User specified offset that is added to default gain when generating
 tones using SoX, e.g., for binaural beats.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 0
@@ -19892,11 +20018,12 @@ Default Value:
 @end defvar
 
 @defvar {User Option} sox-binaural-slider-scale
+@verbatim
 Scale factor used to compute slide duration when moving from one
 binaural beat to another.
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 5.0
@@ -19955,10 +20082,11 @@ distinct parts of the utterance.
 @subsection voice-defs Options
 
 @defvar {User Option} voice-animate-extra-settings
+@verbatim
 Settings for voice-animate-extra
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil nil 8 8 8)
@@ -19968,10 +20096,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-animate-medium-settings
+@verbatim
 Settings for voice-animate-medium
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil nil 7 7 7)
@@ -19981,10 +20110,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-animate-settings
+@verbatim
 Settings for voice-animate
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil nil 6 6 6)
@@ -19994,10 +20124,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-annotate-settings
+@verbatim
 Settings for voice-annotate
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil nil 4 0 4)
@@ -20007,10 +20138,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-bolden-and-animate-settings
+@verbatim
 Settings for voice-bolden-and-animate
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil 3 8 8 8)
@@ -20020,10 +20152,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-bolden-extra-settings
+@verbatim
 Settings for voice-bolden-extra
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil 1 nil 8)
@@ -20033,10 +20166,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-bolden-medium-settings
+@verbatim
 Settings for voice-bolden-medium
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil 2 nil 3)
@@ -20046,10 +20180,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-bolden-settings
+@verbatim
 Settings for voice-bolden
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil 3 nil 6)
@@ -20059,10 +20194,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-brighten-extra-settings
+@verbatim
 Settings for voice-brighten-extra
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil nil nil 3 8)
@@ -20072,10 +20208,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-brighten-medium-settings
+@verbatim
 Settings for voice-brighten-medium
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil nil nil 4 7)
@@ -20085,10 +20222,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-brighten-settings
+@verbatim
 Settings for voice-brighten
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil nil nil 5 6)
@@ -20098,10 +20236,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-indent-settings
+@verbatim
 Settings for voice-indent
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil nil 3 1 3)
@@ -20111,10 +20250,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-lighten-extra-settings
+@verbatim
 Settings for voice-lighten-extra
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil 9 nil 4)
@@ -20124,10 +20264,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-lighten-medium-settings
+@verbatim
 Settings for voice-lighten-medium
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil 7 nil 3)
@@ -20137,10 +20278,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-lighten-settings
+@verbatim
 Settings for voice-lighten
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil 6 nil 2)
@@ -20150,10 +20292,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-monotone-extra-settings
+@verbatim
 Settings for voice-monotone-extra
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil nil 0 0)
@@ -20163,10 +20306,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-monotone-medium-settings
+@verbatim
 Settings for voice-monotone-medium
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil nil 1 2)
@@ -20176,10 +20320,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-monotone-settings
+@verbatim
 Settings for voice-monotone
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil nil 2 4)
@@ -20189,10 +20334,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-overlay-0-settings
+@verbatim
 Settings for voice-overlay-0
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil 8 nil nil nil nil)
@@ -20202,10 +20348,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-overlay-1-settings
+@verbatim
 Settings for voice-overlay-1
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil nil 8 nil nil nil)
@@ -20215,10 +20362,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-overlay-2-settings
+@verbatim
 Settings for voice-overlay-2
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil nil nil 8 nil nil)
@@ -20228,10 +20376,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-overlay-3-settings
+@verbatim
 Settings for voice-overlay-3
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil nil nil nil 8 nil)
@@ -20241,10 +20390,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-smoothen-extra-settings
+@verbatim
 Settings for voice-smoothen-extra
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil nil nil 0 2)
@@ -20254,10 +20404,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-smoothen-medium-settings
+@verbatim
 Settings for voice-smoothen-medium
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil nil nil 2 4)
@@ -20267,10 +20418,11 @@ Default Value:
 @end defvar
 
 @defvar {User Option} voice-smoothen-settings
+@verbatim
 Settings for voice-smoothen
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (nil nil nil 4 6)
@@ -20387,12 +20539,13 @@ Toggle audibility of personality under point  .
 @subsection voice-setup Options
 
 @defvar {User Option} voice-lock-mode-hook
+@verbatim
 Hook run after entering or leaving ‘voice-lock-mode’.
 No problems result if this variable is not bound.
 ‘add-hook’ automatically binds it.  (This is true for all hook variables.)
+@end verbatim
 
 Default Value: 
-
 @verbatim
 
 (voice-lock-mode-set-explicitly)

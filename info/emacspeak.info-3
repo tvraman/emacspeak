@@ -317,7 +317,6 @@ binaural beats.
      tones using SoX, e.g., for binaural beats.
 
      Default Value:
-
      
      0
      
@@ -327,7 +326,6 @@ binaural beats.
      binaural beat to another.
 
      Default Value:
-
      
      5.0
      
@@ -394,7 +392,6 @@ unique voices defined in this module.
      Settings for voice-animate-extra
 
      Default Value:
-
      
      (nil nil 8 8 8)
      
@@ -403,7 +400,6 @@ unique voices defined in this module.
      Settings for voice-animate-medium
 
      Default Value:
-
      
      (nil nil 7 7 7)
      
@@ -412,7 +408,6 @@ unique voices defined in this module.
      Settings for voice-animate
 
      Default Value:
-
      
      (nil nil 6 6 6)
      
@@ -421,7 +416,6 @@ unique voices defined in this module.
      Settings for voice-annotate
 
      Default Value:
-
      
      (nil nil 4 0 4)
      
@@ -430,7 +424,6 @@ unique voices defined in this module.
      Settings for voice-bolden-and-animate
 
      Default Value:
-
      
      (nil 3 8 8 8)
      
@@ -439,7 +432,6 @@ unique voices defined in this module.
      Settings for voice-bolden-extra
 
      Default Value:
-
      
      (nil 1 nil 8)
      
@@ -448,7 +440,6 @@ unique voices defined in this module.
      Settings for voice-bolden-medium
 
      Default Value:
-
      
      (nil 2 nil 3)
      
@@ -457,7 +448,6 @@ unique voices defined in this module.
      Settings for voice-bolden
 
      Default Value:
-
      
      (nil 3 nil 6)
      
@@ -466,7 +456,6 @@ unique voices defined in this module.
      Settings for voice-brighten-extra
 
      Default Value:
-
      
      (nil nil nil 3 8)
      
@@ -475,7 +464,6 @@ unique voices defined in this module.
      Settings for voice-brighten-medium
 
      Default Value:
-
      
      (nil nil nil 4 7)
      
@@ -484,7 +472,6 @@ unique voices defined in this module.
      Settings for voice-brighten
 
      Default Value:
-
      
      (nil nil nil 5 6)
      
@@ -493,7 +480,6 @@ unique voices defined in this module.
      Settings for voice-indent
 
      Default Value:
-
      
      (nil nil 3 1 3)
      
@@ -502,7 +488,6 @@ unique voices defined in this module.
      Settings for voice-lighten-extra
 
      Default Value:
-
      
      (nil 9 nil 4)
      
@@ -511,7 +496,6 @@ unique voices defined in this module.
      Settings for voice-lighten-medium
 
      Default Value:
-
      
      (nil 7 nil 3)
      
@@ -520,7 +504,6 @@ unique voices defined in this module.
      Settings for voice-lighten
 
      Default Value:
-
      
      (nil 6 nil 2)
      
@@ -529,7 +512,6 @@ unique voices defined in this module.
      Settings for voice-monotone-extra
 
      Default Value:
-
      
      (nil nil 0 0)
      
@@ -538,7 +520,6 @@ unique voices defined in this module.
      Settings for voice-monotone-medium
 
      Default Value:
-
      
      (nil nil 1 2)
      
@@ -547,7 +528,6 @@ unique voices defined in this module.
      Settings for voice-monotone
 
      Default Value:
-
      
      (nil nil 2 4)
      
@@ -556,7 +536,6 @@ unique voices defined in this module.
      Settings for voice-overlay-0
 
      Default Value:
-
      
      (nil 8 nil nil nil nil)
      
@@ -565,7 +544,6 @@ unique voices defined in this module.
      Settings for voice-overlay-1
 
      Default Value:
-
      
      (nil nil 8 nil nil nil)
      
@@ -574,7 +552,6 @@ unique voices defined in this module.
      Settings for voice-overlay-2
 
      Default Value:
-
      
      (nil nil nil 8 nil nil)
      
@@ -583,7 +560,6 @@ unique voices defined in this module.
      Settings for voice-overlay-3
 
      Default Value:
-
      
      (nil nil nil nil 8 nil)
      
@@ -592,7 +568,6 @@ unique voices defined in this module.
      Settings for voice-smoothen-extra
 
      Default Value:
-
      
      (nil nil nil 0 2)
      
@@ -601,7 +576,6 @@ unique voices defined in this module.
      Settings for voice-smoothen-medium
 
      Default Value:
-
      
      (nil nil nil 2 4)
      
@@ -610,7 +584,6 @@ unique voices defined in this module.
      Settings for voice-smoothen
 
      Default Value:
-
      
      (nil nil nil 4 6)
      
@@ -715,12 +688,11 @@ from other modules.
 ----------------------------
 
  -- Variable: User Option voice-lock-mode-hook
-     Hook run after entering or leaving ‘voice-lock-mode’.  No problems
-     result if this variable is not bound.  ‘add-hook’ automatically
-     binds it.  (This is true for all hook variables.)
+     Hook run after entering or leaving ‘voice-lock-mode’.
+     No problems result if this variable is not bound.
+     ‘add-hook’ automatically binds it.  (This is true for all hook variables.)
 
      Default Value:
-
      
      (voice-lock-mode-set-explicitly)
      
@@ -2403,7 +2375,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e ':                                 emacspeak-empv.     (line   48)
 * C-e ":                                 emacspeak-empv.     (line   59)
 * C-e (:                                 amixer.             (line   25)
-* C-e ):                                 emacspeak-sounds.   (line   64)
+* C-e ):                                 emacspeak-sounds.   (line   70)
 * C-e [:                                 Reading.            (line  121)
 * C-e [ <1>:                             emacspeak-speak.    (line  682)
 * C-e ]:                                 emacspeak-speak.    (line  660)
@@ -2452,7 +2424,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-<left>:                          emacspeak-wizards.  (line  139)
 * C-e C-<return>:                        emacspeak-speak.    (line  318)
 * C-e C-<right>:                         emacspeak-wizards.  (line  114)
-* C-e C-a:                               emacspeak-sounds.   (line   74)
+* C-e C-a:                               emacspeak-sounds.   (line   80)
 * C-e C-b:                               emacspeak-bookshare.
                                                              (line   53)
 * C-e C-c:                               emacspeak-speak.    (line  213)

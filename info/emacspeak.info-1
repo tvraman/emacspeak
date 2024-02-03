@@ -3570,7 +3570,6 @@ To reset all controls to their default values, Press ‘C-j’.
      ALSA Control Device.
 
      Default Value:
-
      
      "default"
      
@@ -3579,7 +3578,6 @@ To reset all controls to their default values, Press ‘C-j’.
      Step-size for volume change.
 
      Default Value:
-
      
      1
      
@@ -3616,10 +3614,9 @@ module is Dectalk specific.
 -----------------------------
 
  -- Variable: User Option dectalk-default-speech-rate
-     Default speech rate .
+     Default speech rate . 
 
      Default Value:
-
      
      225
      
@@ -3981,7 +3978,6 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      Prefix used to indicate AllCaps
 
      Default Value:
-
      
      #(" acc " 0 5 (personality acss-p3-s1-r3))
      
@@ -3990,20 +3986,20 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      Prefix used to indicate capitalization
 
      Default Value:
-
      
      #("cap" 0 3 (personality acss-p3-s1-r3))
      
 
  -- Variable: User Option dtk-cleanup-repeats
-     List of repeating patterns to clean up.  Use
-     ‘dtk-add-cleanup-pattern’ bound to C-e d a to add patterns.
-
-     More than 3 consecutive occurrences of a pattern is replaced with a
-     repeat count.
+     List of repeating patterns to clean up.
+     Use ‘dtk-add-cleanup-pattern’
+      bound to C-e d a  to add  patterns.
+     
+     More than 3 consecutive occurrences
+     of a  pattern   is
+     replaced with a repeat count. 
 
      Default Value:
-
      
      (". " "."
       "_"
@@ -4033,16 +4029,14 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      Set this to your preferred cloud TTS server.
 
      Default Value:
-
      
      "cloud-outloud"
      
 
  -- Variable: User Option dtk-local-engine
-     Engine we use for our local TTS server.
+     Engine we use  for our local TTS  server.
 
      Default Value:
-
      
      "outloud"
      
@@ -4051,7 +4045,6 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      Value of lowest speech rate.
 
      Default Value:
-
      
      50
      
@@ -4060,16 +4053,14 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      Speech rate step used by ‘dtk-set-predefined-speech-rate’.
 
      Default Value:
-
      
      8
      
 
  -- Variable: User Option dtk-unicode-character-replacement-alist
-     Replacements for characters.
+     Replacements for  characters.
 
      Default Value:
-
      
      ((150 . "-")
       (9473 . "-")
@@ -4108,7 +4099,6 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      Alist of character name transformation rules.
 
      Default Value:
-
      
      (("BOX DRAWING" lambda (_ignored) ".")
       ("^Mathematical Sans-Serif\\( small\\| capital\\)? letter \\(.*\\)$" lambda
@@ -4126,31 +4116,28 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      
 
  -- Variable: User Option dtk-unicode-untouched-charsets
-     Characters of these charsets are ignored by
-     dtk-unicode-replace-chars.
+     Characters of these charsets are  ignored by
+       dtk-unicode-replace-chars.
 
      Default Value:
-
      
      (ascii latin-iso8859-1)
      
 
  -- Variable: User Option dtk-use-tones
-     Toggle tones.
+     Toggle tones. 
 
      Default Value:
-
      
      t
      
 
  -- Variable: User Option tts-notification-device
-     Virtual sound device to use for notifications stream.  Set to nil
-     to disable a separate Notification stream.  If you set the device
-     here, make sure it exists first.
+     Virtual sound device to use for notifications stream.
+     Set to nil to disable a separate Notification stream.
+     If you set the device here, make sure it exists first.
 
      Default Value:
-
      
      nil
      
@@ -4185,7 +4172,6 @@ system.
      Whether we should turn on soundscapes on startup.
 
      Default Value:
-
      
      nil
      
@@ -4341,7 +4327,6 @@ forms not needed in Emacs 22.
      List of strings used to filter spoken messages.
 
      Default Value:
-
      
      ("Decrypting" "psession" "auto saving")
      
@@ -4350,7 +4335,6 @@ forms not needed in Emacs 22.
      Enable to get tooltips spoken.
 
      Default Value:
-
      
      nil
      
@@ -5117,12 +5101,11 @@ Assuming you have correctly setup your API key:
 -----------------------------------
 
  -- Variable: User Option emacspeak-bookshare-api-key
-     Web API key for this application.  See
-     http://developer.bookshare.org/docs for details on how to get an
-     API key.
+     Web API  key for this application.
+     See http://developer.bookshare.org/docs for details on how to get
+       an API key. 
 
      Default Value:
-
      
      nil
      
@@ -5131,7 +5114,6 @@ Assuming you have correctly setup your API key:
      Customize this to the root of where books are organized.
 
      Default Value:
-
      
      "/home/raman/books/book-share"
      
@@ -5681,15 +5663,15 @@ comint == command interaction.  Advice comint and friends to speak.
 --------------------------------
 
  -- Variable: User Option emacspeak-comint-autospeak
-     Speak comint output.  Use M-x emacspeak-toggle-comint-autospeak to
-     toggle this setting.  Do not set this globally.  Also see custom
-     option ‘emacspeak-wizards-project-shells’ for starting up
-     project-specific shells that have autospeak turned on.  The default
-     is intentionally nil, since this option should only be turned on
-     where needed.
+     Speak comint output.
+     Use M-x emacspeak-toggle-comint-autospeak to toggle this
+     setting. Do not set this globally. Also see custom option
+     ‘emacspeak-wizards-project-shells’ for starting up
+     project-specific shells that have autospeak turned on. The
+     default is intentionally nil, since this option should only be
+     turned on where needed.
 
      Default Value:
-
      
      nil
      
@@ -6574,11 +6556,10 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 ------------------------------
 
  -- Variable: User Option emacspeak-empv-custom-filters
-     List of custom filters to turn on/off at one shot The default value
-     is suitable for classical instrumental music.
+     List of custom filters to turn on/off at one shot
+     The default value is suitable for classical instrumental music.
 
      Default Value:
-
      
      ("extrastereo" "stereowiden=4.25:.1:735:.8")
      
@@ -7149,7 +7130,6 @@ table of contents.
      Directory where we keep .bsf files defining various bookshelves.
 
      Default Value:
-
      
      "/home/raman/EBooks/bsf/"
      
@@ -7158,16 +7138,14 @@ table of contents.
      Root of Calibre library.
 
      Default Value:
-
      
      "/home/raman/EBooks/calibre"
      
 
  -- Variable: User Option emacspeak-epub-gutenberg-mirror
-     Base URL for Gutenberg mirror.
+     Base URL  for Gutenberg mirror.
 
      Default Value:
-
      
      "http://www.gutenberg.org/ebooks/"
      
@@ -7176,7 +7154,6 @@ table of contents.
      Suffix of book type we retrieve.
 
      Default Value:
-
      
      ".epub.noimages"
      
@@ -7185,7 +7162,6 @@ table of contents.
      Directory under which we store Epubs.
 
      Default Value:
-
      
      "/home/raman/EBooks/"
      
@@ -7265,11 +7241,10 @@ http://www.cs.cmu.edu/~berez/irc/erc.el
 -----------------------------
 
  -- Variable: User Option emacspeak-erc-ignore-notices
-     Set to T if you dont want to see notification messages from the
+     Set to T if you dont want to see notification  messages from the
      server.
 
      Default Value:
-
      
      t
      
@@ -7278,7 +7253,6 @@ http://www.cs.cmu.edu/~berez/irc/erc.el
      My IRC nick.
 
      Default Value:
-
      
      ""
      
@@ -7287,7 +7261,6 @@ http://www.cs.cmu.edu/~berez/irc/erc.el
      Speak all things said if t.
 
      Default Value:
-
      
      nil
      
@@ -8801,11 +8774,11 @@ prefix arg to delete a previously created eww-mark.
 ------------------------------
 
  -- Variable: User Option emacspeak-eww-autospeak
-     Turn this on to make section navigation autospeak.  This also
-     reverses the meaning of the prefix-arg to section nav commands.
+     Turn this on to make section navigation autospeak.
+     This also reverses the meaning of the prefix-arg to section nav
+       commands.
 
      Default Value:
-
      
      t
      
@@ -8814,7 +8787,6 @@ prefix arg to delete a previously created eww-mark.
      Turn this on to avoid rendering images.
 
      Default Value:
-
      
      nil
      
@@ -8965,12 +8937,11 @@ Infrequently used wizards archived for posterity.
 --------------------------------
 
  -- Variable: User Option emacspeak-clipfile-file
-     File used to save Emacspeak clipboard.  The emacspeak clipboard
-     provides a convenient mechanism for exchanging information between
-     different Emacs sessions.
+     File used to save Emacspeak clipboard.
+     The emacspeak clipboard provides a convenient mechanism for exchanging
+     information between different Emacs sessions.
 
      Default Value:
-
      
      "/home/raman/.emacspeak//clipboard"
      
@@ -8979,18 +8950,17 @@ Infrequently used wizards archived for posterity.
      Cookie store used by Curl.
 
      Default Value:
-
      
      "/home/raman/.curl-cookies"
      
 
  -- Variable: User Option emacspeak-wizards-tramp-locations
-     Tramp locations used by Emacspeak tramp wizard.  Locations added
-     here via custom can be opened using command
-     emacspeak-wizards-tramp-open-location bound to C-x @ h C-t.
+     Tramp locations used by Emacspeak tramp wizard.
+     Locations added here via custom can be opened using command
+     emacspeak-wizards-tramp-open-location
+     bound to C-x @@ h C-t.
 
      Default Value:
-
      
      nil
      

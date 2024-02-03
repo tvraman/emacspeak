@@ -144,11 +144,10 @@ This module provides Feeds support for Emacspeak required modules
 -------------------------------
 
  -- Variable: User Option emacspeak-feeds
-     Table of RSS/Atom feeds.  The feed list is persisted to file
-     saved-feeds on exit.
+     Table of RSS/Atom feeds.
+     The feed list is persisted to file saved-feeds on exit.
 
      Default Value:
-
      
      (("BBC Podcast Directory" "http://www.bbc.co.uk/podcasts.opml" opml)
       ("CNet Tech News" "http://feeds.feedburner.com/cnet/tcoc" rss)
@@ -159,7 +158,6 @@ This module provides Feeds support for Emacspeak required modules
      Location of Awesome RSS
 
      Default Value:
-
      
      "/home/raman/sourceforge/awesome-rss-feeds/"
      
@@ -274,7 +272,6 @@ popup and helm.
      Correction style to use with flyspell.
 
      Default Value:
-
      
      flyspell-correct-ido
      
@@ -443,12 +440,12 @@ news.
 ------------------------------
 
  -- Variable: User Option emacspeak-gnus-large-article
-     Articles having more than emacspeak-gnus-large-article lines will
-     be considered to be a large article.  A large article is not spoken
-     all at once; instead you hear only the first screenful.
+     Articles having more than
+     emacspeak-gnus-large-article lines will be considered to be a large article.
+     A large article is not spoken all at once;
+     instead you hear only the first screenful.
 
      Default Value:
-
      
      100
      
@@ -457,7 +454,6 @@ news.
      Pronunciation mode to use for gnus buffers.
 
      Default Value:
-
      
      all
      
@@ -726,7 +722,6 @@ e.g.  blog search are tbm=
      API Key for Google Knowledge Graph.
 
      Default Value:
-
      
      nil
      
@@ -934,7 +929,6 @@ to 3 using Custom so you dont hear the entire list.
      How long we wait before speaking completions.
 
      Default Value:
-
      
      0.15
      
@@ -1006,12 +1000,12 @@ This module speech-enables the Emacs Info Reader.
 -------------------------------
 
  -- Variable: User Option emacspeak-info-select-node-speak-chunk
-     Specifies how much of the selected node gets spoken.  Possible
-     values are: screenfull - speak the displayed screen node - speak
-     the entire node.
+     Specifies how much of the selected node gets spoken.
+     Possible values are:
+     screenfull  -- speak the displayed screen
+     node -- speak the entire node.
 
      Default Value:
-
      
      screenfull
      
@@ -1041,7 +1035,6 @@ corrections with C-r and C-s.
      many available corrections.
 
      Default Value:
-
      
      8
      
@@ -1114,7 +1107,6 @@ hosted at sourceforge.  I use emacs-jabber with my gmail.com account
      Set to T if you want to hear presence alerts.
 
      Default Value:
-
      
      nil
      
@@ -1161,10 +1153,9 @@ found on laptops is denoted <fn>
 ---------------------------------
 
  -- Variable: User Option emacspeak-alt-keys
-     Alt key bindings.
+     Alt key bindings. 
 
      Default Value:
-
      
      (("," eldoc)
       ("C-l" ellama-chat)
@@ -1192,7 +1183,6 @@ found on laptops is denoted <fn>
      CTL-z keymap.
 
      Default Value:
-
      
      (("SPC" flyspell-mode)
       ("b" emacspeak-wizards-view-buffers-filtered-by-this-mode)
@@ -1209,10 +1199,9 @@ found on laptops is denoted <fn>
      
 
  -- Variable: User Option emacspeak-hyper-keys
-     Hyper-Key bindings.
+     Hyper-Key bindings. 
 
      Default Value:
-
      
      (("C-;" emacspeak-amark-bookshelf)
       ("C-a" ansi-term)
@@ -1244,10 +1233,9 @@ found on laptops is denoted <fn>
      
 
  -- Variable: User Option emacspeak-multi-keys
-     Multi key bindings.
+     Multi key bindings. 
 
      Default Value:
-
      
      (("'" emacspeak-pianobar)
       ("C-'" empv-exit)
@@ -1261,10 +1249,9 @@ found on laptops is denoted <fn>
      
 
  -- Variable: User Option emacspeak-super-keys
-     Super key bindings.
+     Super key bindings. 
 
      Default Value:
-
      
      (("." emacspeak-wizards-shell-directory-reset)
       ("C-n" emacspeak-wizards-google-headlines)
@@ -1289,28 +1276,25 @@ found on laptops is denoted <fn>
      
 
  -- Variable: User Option emacspeak-v-keys
-     Key bindings for use with C-e v.
+     Key bindings for use with C-e v. 
 
      Default Value:
-
      
      (("v" view-register))
      
 
  -- Variable: User Option emacspeak-windows-keys
-     Key bindings on the windows key.
+     Key bindings on the windows  key. 
 
      Default Value:
-
      
      nil
      
 
  -- Variable: User Option emacspeak-x-keys
-     Key bindings for C-e x.
+     Key bindings for  C-e x. 
 
      Default Value:
-
      
      (("," emacspeak-wizards-shell-directory-set)
       ("." emacspeak-wizards-shell-directory-reset)
@@ -1346,10 +1330,9 @@ found on laptops is denoted <fn>
      
 
  -- Variable: User Option emacspeak-y-keys
-     Key bindings for use with C-e y.
+     Key bindings for use with C-e y. 
 
      Default Value:
-
      
      (("a" emacspeak-xslt-view-atom-file)
       ("p" emacspeak-pianobar)
@@ -1455,7 +1438,6 @@ accessing the book.
      Location where we cache LIBRIVOX playlists.
 
      Default Value:
-
      
      "/home/raman/.emacspeak/librivox"
      
@@ -2362,7 +2344,6 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      Directory where we store clips.
 
      Default Value:
-
      
      "/home/raman/mp3/clips"
      
@@ -2371,16 +2352,14 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      Additional filters to apply to streams.
 
      Default Value:
-
      
      nil
      
 
  -- Variable: User Option emacspeak-media-location-bindings
-     Map keys to launch MPlayer on a directory.
+     Map  keys  to launch MPlayer on a  directory.
 
      Default Value:
-
      
      nil
      
@@ -2389,7 +2368,6 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      Media player program.
 
      Default Value:
-
      
      "/usr/local/bin/mplayer"
      
@@ -2640,7 +2618,6 @@ advice for posting message commands
      Pronunciation mode to use for message buffers.
 
      Default Value:
-
      
      all
      
@@ -3341,7 +3318,6 @@ an OCR engine that can take acquired images and produce text.
      Command used to compress the scanned tiff file.
 
      Default Value:
-
      
      nil
      
@@ -3350,16 +3326,14 @@ an OCR engine that can take acquired images and produce text.
      Options used for compressing tiff image.
 
      Default Value:
-
      
      "-c g3 "
      
 
  -- Variable: User Option emacspeak-ocr-compress-photo-options
-     Options used when created JPEG from scanned photographs.
+     Options used when created JPEG from  scanned photographs.
 
      Default Value:
-
      
      "-optimize -progressive"
      
@@ -3368,7 +3342,6 @@ an OCR engine that can take acquired images and produce text.
      OCR engine to process acquired image.
 
      Default Value:
-
      
      "/home/raman/emacs/lisp/emacspeak/etc/tesseract.pl"
      
@@ -3377,7 +3350,6 @@ an OCR engine that can take acquired images and produce text.
      Command line options to pass to OCR engine.
 
      Default Value:
-
      
      nil
      
@@ -3386,7 +3358,6 @@ an OCR engine that can take acquired images and produce text.
      Filename extension used for acquired image.
 
      Default Value:
-
      
      ".tif"
      
@@ -3395,7 +3366,6 @@ an OCR engine that can take acquired images and produce text.
      Program to add metadata to JPEG files.
 
      Default Value:
-
      
      "wrjpgcom"
      
@@ -3404,7 +3374,6 @@ an OCR engine that can take acquired images and produce text.
      If set to T, uncompressed image is not removed.
 
      Default Value:
-
      
      nil
      
@@ -3413,7 +3382,6 @@ an OCR engine that can take acquired images and produce text.
      Program to create JPEG compressed images.
 
      Default Value:
-
      
      "cjpeg"
      
@@ -3422,7 +3390,6 @@ an OCR engine that can take acquired images and produce text.
      Name of image acquisition program.
 
      Default Value:
-
      
      "scanimage"
      
@@ -3431,25 +3398,23 @@ an OCR engine that can take acquired images and produce text.
      Command line options to pass to image acquisition program.
 
      Default Value:
-
      
      "--resolution 300 --mode lineart --format=tiff"
      
 
  -- Variable: User Option emacspeak-ocr-scan-photo-options
-     Options used when scanning in photographs.
+     Options  used when scanning in photographs.
 
      Default Value:
-
      
      "--mode color --format=pnm"
      
 
  -- Variable: User Option emacspeak-ocr-working-directory
-     Directory where images and OCR results will be placed.
+     Directory where images and OCR results
+     will be placed.
 
      Default Value:
-
      
      "/home/raman/.emacspeak/ocr/"
      
@@ -3570,7 +3535,6 @@ http://orgmode.org/
      Emacspeak org hotlist location.
 
      Default Value:
-
      
      "/home/raman/.org/hotlist.org"
      
@@ -3579,7 +3543,6 @@ http://orgmode.org/
      The function to call after moving in a table
 
      Default Value:
-
      
      emacspeak-org-table-speak-current-element
      
@@ -4086,10 +4049,9 @@ given file.
 ------------------------------------
 
  -- Variable: User Option emacspeak-pronounce-dictionaries-file
-     File that holds emacspeak pronunciations.
+     File that holds  emacspeak pronunciations.
 
      Default Value:
-
      
      "/home/raman/.emacspeak/.dictionary"
      
@@ -4099,7 +4061,6 @@ given file.
      Smileys
 
      Default Value:
-
      
      ((":-)" . " smile ")
       (";)" . " half-wink ")
@@ -4117,7 +4078,6 @@ given file.
      Namespace URIs.
 
      Default Value:
-
      
      (("http://www.w3.org/2005/Atom" . " atom ")
       ("http://www.w3.org/1999/02/22-rdf-syntax-ns#" . "RDF Syntax")
@@ -4512,27 +4472,32 @@ emacspeak.
      as a gimmick.
    • The Emacspeak interface should be usable at all times without the
      icons.
+   • Command ‘emacspeak-toggle-auditory-icons’ toggles the use of
+     auditory icons.
    • General principle for when to use an icon:
-   • Convey information about events taking place in parallel.
-   • For instance, if making a selection automatically moves the current
-     focus to the next choice, We speak the next choice, while
-     indicating the fact that something was selected with an auditory
-     icon.
-   • This interface will assume the availability of a shell command
-     ‘play’ that can take one or more sound files and play them.
+       1. Convey information about events taking place in parallel.
+       2. For instance, if making a selection automatically moves the
+          current focus to the next choice, We speak the next choice,
+          while indicating the fact that something was selected with an
+          auditory icon.
    • This module provides a mapping between names in the elisp world and
      actual sound files.
    • icon-names are symbols; sound files are fully-qualified file-names.
-   • Modules that wish to use auditory icons should use these names,
-     instead of actual file names.
+   • Modules that wish to use auditory icons should use these names and
+     not actual file names.
+   • Icons are played either using a local player, or by sending
+     appropriate commands to the speech server (local or cloud).
+   • This is determined by the value of
+     emacspeak-auditory-icon-function.
    • As of Emacspeak 13.0, this module defines a themes architecture for
      auditory icons.  Sound files corresponding to a given theme are
      found in appropriate subdirectories of emacspeak-sounds-dir.
    • Contrast this with ‘prompts[ that dont belong to any theme.]’
    • The auditory icon player is configure via custom option
      ‘emacspeak-play-program’.
-   • That custom setting handles the mapping to various play programs
-     from audio subsystems such as Pulseaudio, and Pipewire.
+   • That custom setting handles the mapping to various play backends
+     (local or cloud) from audio subsystems such as Pulseaudio and
+     Pipewire.
 
 12.179.2 Designing Auditory Icons
 ---------------------------------
@@ -4545,7 +4510,8 @@ auditory icons over the years:
   2. Sounds have many properties, eg: duration, gain, pitch, at the
      basic level.
   3. Even more important is the nature of the sound and what it sounds
-     like in the overall activity where that sound is used.
+     like in the context of the overall speech output where that sound
+     is used.
   4. This is why the gain of icons _should never be_ normalized in my
      view-- tuning icons is as complex as picking colors from a color
      palette.
@@ -4580,12 +4546,12 @@ auditory icons over the years:
 ---------------------------------
 
  -- Variable: User Option emacspeak-play-program
-     Play program.  Pulse: For systems running Pipewire or Pulseaudio.
-     sox-play: For systems using SoX as the local player.  None: For
-     systems that rely on the speech server playing the icon.
+     Play program.
+     Pulse: For systems running Pipewire or Pulseaudio.
+     sox-play: For systems using SoX as the local player.
+     None: For systems that rely on the speech server playing the icon.
 
      Default Value:
-
      
      "/usr/bin/pactl"
      
@@ -5680,62 +5646,64 @@ of emacspeak from becoming dependent on the speech server modules
 --------------------------------
 
  -- Variable: User Option emacspeak-audio-indentation
-     Option indicating if line indentation is cued.  You can use command
-     ‘emacspeak-toggle-audio-indentation’ bound to C-e d i to toggle
-     this setting.
+     Option indicating if line indentation is cued.
+     You can use  command ‘emacspeak-toggle-audio-indentation’ bound
+     to C-e d i to toggle this
+     setting.
 
      Default Value:
-
      
      nil
      
 
  -- Variable: User Option emacspeak-character-echo
-     If t, then emacspeak echoes characters as you type.  You can use
-     C-e d k to toggle this setting.
+     If t, then emacspeak echoes characters  as you type.
+     You can
+     use C-e d k to toggle this
+     setting.
 
      Default Value:
-
      
      t
      
 
  -- Variable: User Option emacspeak-line-echo
-     If t, then emacspeak echoes lines as you type.  You can use C-e d l
-     to set this option.
+     If t, then emacspeak echoes lines as you type.
+     You can use C-e d l to set this
+     option.
 
      Default Value:
-
      
      nil
      
 
  -- Variable: User Option emacspeak-mail-alert
-     If t, emacspeak will alert you about newly arrived mail with an
-     auditory icon when displaying the mode line.  You can use command
-     ‘emacspeak-toggle-mail-alert’ bound to C-e M-m to set this option.
+      If t, emacspeak will alert you about newly arrived mail
+     with an auditory icon when
+     displaying the mode line.
+     You can use command
+     ‘emacspeak-toggle-mail-alert’ bound to
+     C-e M-m to set this option. 
 
      Default Value:
-
      
      t
      
 
  -- Variable: User Option emacspeak-mail-alert-interval
      Interval in seconds between mail alerts for the same pending
-     message.
+       message.
 
      Default Value:
-
      
      300
      
 
  -- Variable: User Option emacspeak-mail-spool-file
-     Mail spool file examined to alert you about newly arrived mail.
+     Mail spool file examined  to alert you about newly
+     arrived mail.
 
      Default Value:
-
      
      "/var/mail/raman"
      
@@ -5744,7 +5712,6 @@ of emacspeak from becoming dependent on the speech server modules
      Functions run after emacspeak-silence is called.
 
      Default Value:
-
      
      (emacspeak-m-player-pause-or-resume emacspeak-emms-pause-or-resume)
      
@@ -5753,18 +5720,18 @@ of emacspeak from becoming dependent on the speech server modules
      File where emacspeak filters are persisted.
 
      Default Value:
-
      
      "/home/raman/.emacspeak/.filters"
      
 
  -- Variable: User Option emacspeak-speak-messages
-     Option indicating if messages are spoken.  If nil, emacspeak will
-     not speak messages as they are echoed to the message area.  You can
-     use command ‘emacspeak-toggle-speak-messages’ bound to C-e C-M-q.
+     Option indicating if messages are spoken.  If nil,
+     emacspeak will not speak messages as they are echoed to the
+     message area.  You can use command
+     ‘emacspeak-toggle-speak-messages’ bound to
+     C-e C-M-q.
 
      Default Value:
-
      
      t
      
@@ -5773,17 +5740,16 @@ of emacspeak from becoming dependent on the speech server modules
      Format for time in brief.
 
      Default Value:
-
      
      "%l %M%p"
      
 
  -- Variable: User Option emacspeak-speak-time-format
-     Format string that specifies how the time should be spoken.  See
-     the documentation for function ‘format-time-string’
+     Format string that specifies how the time should be spoken.
+     See the documentation for function
+     ‘format-time-string’
 
      Default Value:
-
      
      "%l %M%p on %A %B %_e"
      
@@ -5792,17 +5758,16 @@ of emacspeak from becoming dependent on the speech server modules
      Directory containing timezone data.
 
      Default Value:
-
      
      "/usr/share/zoneinfo/"
      
 
  -- Variable: User Option emacspeak-word-echo
-     If t, then emacspeak echoes words as you type.  You can use C-e d w
-     to toggle this option.
+     If t, then emacspeak echoes words as you type.
+     You can use C-e d w to toggle this
+     option.
 
      Default Value:
-
      
      t
      
@@ -7089,13 +7054,11 @@ presently defined.
 ---------------------------------------
 
  -- Variable: User Option emacspeak-stock-tickers
-     Set this to the stock tickers you want to check.  Default is the
-     current fab-7!.  Tickers is a list of stock symbols sorted in
-     lexical order with duplicates removed when saving as a list of
-     string.
+     Set this to the stock tickers you want to check. Default is
+     the current fab-7!. Tickers is a list of stock symbols sorted in lexical order
+     with duplicates removed when saving as a list of string.
 
      Default Value:
-
      
      ("aapl" "amzn" "goog" "meta" "msft" "nflx" "nvda")
      
@@ -7241,50 +7204,45 @@ headers and cited messages
 -----------------------------
 
  -- Variable: User Option emacspeak-vm-cal2text
-     Executable that converts calendar invitations on standard input to
-     plain text.
+     Executable that converts calendar invitations    on
+       standard input to plain text.
 
      Default Value:
-
      
      "/home/raman/emacs/lisp/emacspeak/etc/cal2text"
      
 
  -- Variable: User Option emacspeak-vm-customize-mime-settings
-     Non-nil will cause Emacspeak to configure VM mime settings to match
-     what the author of Emacspeak uses.
+     Non-nil will cause Emacspeak to configure VM mime
+     settings to match what the author of Emacspeak uses.
 
      Default Value:
-
      
      t
      
 
  -- Variable: User Option emacspeak-vm-pdf2text
-     Executable that converts PDF on standard input to plain text using
-     pdftotext.
+     Executable that converts PDF on standard input to plain
+     text using pdftotext.
 
      Default Value:
-
      
      "/home/raman/emacs/lisp/emacspeak/etc/pdf2text"
      
 
  -- Variable: User Option emacspeak-vm-use-raman-settings
-     Should VM use the customizations used by the author of Emacspeak.
+     Should VM  use the customizations used by the author of Emacspeak.
 
      Default Value:
-
      
      t
      
 
  -- Variable: User Option emacspeak-vm-voice-loc
      Set this to T if you want messages automatically voice locked.
-     Note that some badly formed mime messages cause trouble.
+     Note that some badly formed mime messages  cause trouble.
 
      Default Value:
-
      
      nil
      
@@ -7744,10 +7702,9 @@ browse-url to handle Web pages.
 -----------------------------
 
  -- Variable: User Option emacspeak-we-filters-rename-buffer
-     Set to T if you want the buffer name to contain the applied filter.
+     Set to T  if you want the buffer name to contain the applied filter.
 
      Default Value:
-
      
      nil
      
@@ -8010,7 +7967,6 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
      Feeds to use in Headline Ticker.
 
      Default Value:
-
      
      nil
      
@@ -9160,17 +9116,15 @@ Contains various wizards for the Emacspeak desktop.
      Set to T to automatically turn display black.
 
      Default Value:
-
      
      nil
      
 
  -- Variable: User Option emacspeak-speak-telephone-directory
-     File holding telephone directory.  This is just a text file, and we
-     use grep to search it.
+     File holding telephone directory.
+     This is just a text file, and we use grep to search it.
 
      Default Value:
-
      
      "/home/raman/.emacspeak/tel-dir"
      
@@ -9179,7 +9133,6 @@ Contains various wizards for the Emacspeak desktop.
      options to Command for running pdftotext.
 
      Default Value:
-
      
      "-layout"
      
@@ -9188,7 +9141,6 @@ Contains various wizards for the Emacspeak desktop.
      Project shells, a list of shell-name/initial-directory pairs.
 
      Default Value:
-
      
      nil
      
@@ -9197,7 +9149,6 @@ Contains various wizards for the Emacspeak desktop.
      Name of remote workstation.
 
      Default Value:
-
      
      ""
      
@@ -9358,7 +9309,6 @@ ESpeak TTS engine.
      Default speech rate for eSpeak.
 
      Default Value:
-
      
      175
      
@@ -9725,17 +9675,15 @@ gblogger etc.
      XSLT transform to convert Atom feed to HTML.
 
      Default Value:
-
      
      "/home/raman/emacs/lisp/emacspeak/xsl/atom-view.xsl"
      
 
  -- Variable: User Option g-cookie-jar
-     Cookie jar used for Google services.  Customize this to live on
-     your local disk.
+     Cookie jar used for Google services.
+     Customize this to live on your local disk.
 
      Default Value:
-
      
      nil
      
@@ -9744,7 +9692,6 @@ gblogger etc.
      Set to T to see Curl stderr output.
 
      Default Value:
-
      
      nil
      
@@ -9753,7 +9700,6 @@ gblogger etc.
      Common options to pass to all Curl invocations.
 
      Default Value:
-
      
      "--http1.0 --compressed --silent --location --location-trusted --max-time 4 --connect-timeout 1"
      
@@ -9762,7 +9708,6 @@ gblogger etc.
      XSLT Processor.
 
      Default Value:
-
      
      "xsltproc"
      
@@ -9991,21 +9936,18 @@ Implements the Google Maps API
 ----------------------
 
  -- Variable: User Option gmaps-api-key
-     Maps API key -- goto https://code.google.com/apis/console to get
-     one.
+     Maps  API  key --- goto  https://code.google.com/apis/console to get one.
 
      Default Value:
-
      
      nil
      
 
  -- Variable: User Option gmaps-my-address
-     Location address.  Setting this updates gmaps-my-location
+     Location address. Setting this updates gmaps-my-location
      coordinates via geocoding.
 
      Default Value:
-
      
      nil
      
@@ -10153,7 +10095,6 @@ TTS.
      Default speech rate for mac.
 
      Default Value:
-
      
      225
      
@@ -10193,7 +10134,6 @@ specific.
      Default speech rate.
 
      Default Value:
-
      
      50
      
@@ -10357,7 +10297,6 @@ email, IM, ...  map to the same _mood_.
      Soundscape data directory.
 
      Default Value:
-
      
      "/home/raman/.boodler/Collection"
      
@@ -10366,17 +10305,15 @@ email, IM, ...  map to the same _mood_.
      Alsa sound device to use for soundscapes.
 
      Default Value:
-
      
      "default"
      
 
  -- Variable: User Option soundscape-manager-options
-     User customizable options list passed to boodler.  Defaults specify
-     alsa as the output and set master volume
+     User customizable options list passed to boodler.
+     Defaults specify alsa as the output and set master volume
 
      Default Value:
-
      
      ("-m" "0.3")
      

@@ -246,11 +246,11 @@
               (documentation-property  o 'variable-documentation)))
         (value (symbol-value  o)))
     (insert (format "\n\n@defvar {User Option} %s\n" o))
-    (insert (format "%s\n"
+    (insert (format "@verbatim\n%s\n@end verbatim\n\n"
                     (or doc
                         (format "###%s: Not Documented\n" o))))
     (insert
-     (format "\nDefault Value: \n\n@verbatim\n%s\n@end verbatim\n\n"
+     (format "\nDefault Value: \n@verbatim\n%s\n@end verbatim\n\n"
              (with-temp-buffer
                  (cl-prettyprint value)
                (buffer-substring-no-properties (point-min) (point-max)))))
