@@ -42,10 +42,11 @@
 ;; Emacspeak extends Emacs to be a fully functional audio desktop.
 ;; This is the main emacspeak module.
 ;; It actually does very little:
-;; It sets up Emacs to load package-specific
+;; @itemize
+;; @item  It sets up Emacs to load package-specific
 ;; Emacspeak modules as each package is loaded.
-;; It implements function emacspeak which loads the rest of the system.
-
+;; @item  It implements function emacspeak which loads the rest of the system.
+;; @end itemize
 ;;; Code:
 
 ;;;  Required modules
@@ -64,7 +65,7 @@
                    :help-echo "Emacspeak Blog")
   :link '(url-link :tag "Apps"
                    "https://tvraman.github.io/emacspeak/applications.html"
-                   :help-echo "Browse available  applications on
+                   :help-echo "Browse Speech-Enabled  applications on
 the Emacspeak desktop.")
   :link '(url-link :tag "Guide"
                    "https://tvraman.github.io/emacspeak/manual"
@@ -72,6 +73,8 @@ the Emacspeak desktop.")
   :link '(url-link :tag "Tips"
                    "https://tvraman.github.io/emacspeak/tips.html"
                    :help-echo "Emacspeak Tips and Tricks.")
+  :link '(url-link :tag "Mail Archive"
+                   "https://www.emacspeak.net")
   ;; end links
   :group 'applications)
 
@@ -334,20 +337,7 @@ the Emacspeak desktop.")
     (mapc
      #'(lambda (hook)
          (add-hook hook #'emacspeak-setup-programming-mode ))
-     '(etc-modules-conf-generic-mode-hook
-       resolve-conf-generic-mode-hook
-       named-database-generic-mode-hook named-boot-generic-mode-hook
-       show-tabs-generic-mode-hook etc-sudoers-generic-mode-hook
-       etc-fstab-generic-mode-hook etc-passwd-generic-mode-hook
-       etc-services-generic-mode-hook inetd-conf-generic-mode-hook
-       mailrc-generic-mode-hook ansible-inventory-generic-mode-hook
-       alias-generic-mode-hook java-properties-generic-mode-hook
-       java-manifest-generic-mode-hook vrml-generic-mode-hook
-       prototype-generic-mode-hook mailagent-rules-generic-mode-hook
-       hosts-generic-mode-hook xmodmap-generic-mode-hook
-       x-resource-generic-mode-hook fvwm-generic-mode-hook
-       samba-generic-mode-hook apache-log-generic-mode-hook
-       apache-conf-generic-mode-hook default-generic-mode-hook)))
+     generic-extras-enable-list))
   (mapc
    #'(lambda (hook)
        (add-hook hook #'emacspeak-setup-programming-mode))
