@@ -150,7 +150,8 @@ Value is a string, a fully qualified filename. ")
   (cl-declare (special emacspeak-sounds-cache))
   (let ((f (emacspeak-sounds-cache-get icon)))
     (cl-assert (and f (file-exists-p f)) t "Icon does not exist.")
-    (if (string= emacspeak-play-program emacspeak-pactl) icon f)))
+    (when emacspeak-play-program
+      (if (string= emacspeak-play-program emacspeak-pactl) icon f))))
 
 ;;;Sound themes
 
@@ -209,16 +210,17 @@ Value is a string, a fully qualified filename. ")
   (unless (file-directory-p theme) (setq theme  (file-name-directory theme)))
   (unless (file-exists-p theme) (error "Theme %s is not installed" theme))
   (emacspeak-sounds-cache-rebuild theme)
-  (when (string= emacspeak-play-program emacspeak-pactl) ; upload samples
-    (unless
-        (member (file-relative-name theme emacspeak-sounds-dir)
-                '("ogg-3d/" "ogg-chimes/"))
-      (error "%s: Only ogg-3d or ogg-chimes with Pulse Advanced" theme))
-    (cl-loop
-     for key being the hash-keys of emacspeak-sounds-cache do
-     (shell-command
-      (format "%s upload-sample %s %s"
-              emacspeak-pactl (gethash key emacspeak-sounds-cache) key))))
+  (when emacspeak-play-program
+    (when (string= emacspeak-play-program emacspeak-pactl) ; upload samples
+        (unless
+            (member (file-relative-name theme emacspeak-sounds-dir)
+                    '("ogg-3d/" "ogg-chimes/"))
+        (error "%s: Only ogg-3d or ogg-chimes with Pulse Advanced" theme))
+        (cl-loop
+        for key being the hash-keys of emacspeak-sounds-cache do
+        (shell-command
+        (format "%s upload-sample %s %s"
+                emacspeak-pactl (gethash key emacspeak-sounds-cache) key)))))
   (setq emacspeak-sounds-current-theme theme)
   (emacspeak-auditory-icon 'button))
 
@@ -340,8 +342,9 @@ Optional interactive PREFIX arg toggles global value."
       (cond
        ((string-match "cloud" dtk-program)
         (emacspeak-serve-auditory-icon name))
-       ((string= emacspeak-play-program emacspeak-pactl)
-        (start-process
-         "pactl" nil emacspeak-pactl "play-sample" (symbol-name f)))))))
+       ((when emacspeak-play-program
+          (string= emacspeak-play-program emacspeak-pactl)
+          (start-process
+           "pactl" nil emacspeak-pactl "play-sample" (symbol-name f))))))))
 
 (provide  'emacspeak-sounds)
