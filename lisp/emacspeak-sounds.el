@@ -150,8 +150,11 @@ Value is a string, a fully qualified filename. ")
   (cl-declare (special emacspeak-sounds-cache))
   (let ((f (emacspeak-sounds-cache-get icon)))
     (cl-assert (and f (file-exists-p f)) t "Icon does not exist.")
-    (when emacspeak-play-program ; avoid nil nil comparison
-      (if (string= emacspeak-play-program emacspeak-pactl) icon f))))
+    (cond 
+     ((and  emacspeak-play-program      ; avoid nil nil comparison
+            (string= emacspeak-play-program emacspeak-pactl)) ; only pactl takes an icon  
+      icon)
+     (t  f))))
 
 ;;;Sound themes
 
