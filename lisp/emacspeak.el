@@ -334,6 +334,7 @@ the Emacspeak desktop.")
   "Setup programming modes."
   (add-hook 'prog-mode-hook #'emacspeak-setup-programming-mode)
   (with-eval-after-load "generic-x"
+    (cl-declare (special generic-extras-enable-list))
     (mapc
      #'(lambda (hook)
          (add-hook hook #'emacspeak-setup-programming-mode ))

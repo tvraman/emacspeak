@@ -210,21 +210,17 @@ Value is a string, a fully qualified filename. ")
   (unless (file-directory-p theme) (setq theme  (file-name-directory theme)))
   (unless (file-exists-p theme) (error "Theme %s is not installed" theme))
   (emacspeak-sounds-cache-rebuild theme)
-  (when emacspeak-play-program ; avoid nil nil comparison
-    (when (string= emacspeak-play-program emacspeak-pactl) ; upload samples
-        (unless
-            (member (file-relative-name theme emacspeak-sounds-dir)
-                    '("ogg-3d/" "ogg-chimes/"))
-        (error "%s: Only ogg-3d or ogg-chimes with Pulse Advanced" theme))
+  (when (and emacspeak-play-program     ; avoid nil nil comparison
+             (string= emacspeak-play-program emacspeak-pactl)) ; upload samples
         (cl-loop
         for key being the hash-keys of emacspeak-sounds-cache do
         (shell-command
         (format "%s upload-sample %s %s"
-                emacspeak-pactl (gethash key emacspeak-sounds-cache) key)))))
+                emacspeak-pactl (gethash key emacspeak-sounds-cache) key))))
   (setq emacspeak-sounds-current-theme theme)
   (emacspeak-auditory-icon 'button))
 
-;; need to use pathnames ---
+;; need to use explicit pathnames ---
 ;; cant use our predefined constants such as emacspeak-pactl here.
 
 (defcustom emacspeak-play-program
