@@ -152,7 +152,7 @@ Value is a string, a fully qualified filename. ")
     (cl-assert (and f (file-exists-p f)) t "Icon does not exist.")
     (cond 
      ((and  emacspeak-play-program      ; avoid nil nil comparison
-            (string= emacspeak-play-program emacspeak-pactl)) ; only pactl takes an icon  
+            (string= emacspeak-play-program emacspeak-pactl)) ; pactl -> icon  
       icon)
      (t  f))))
 
