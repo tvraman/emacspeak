@@ -130,7 +130,7 @@ Use Serve when working with remote speech servers.")
                    'emacspeak-play-auditory-icon))
       ;; expecting a local player but none available, so turn off icons.
       (setq-default emacspeak-use-auditory-icons nil)
-      (error "No valid player for auditory icons."))
+      (message "No valid player for auditory icons."))
     (funcall emacspeak-auditory-icon-function icon)))
 
 ;;; Sounds Cache:
@@ -151,20 +151,21 @@ Value is a string, a fully qualified filename. ")
   (gethash sound emacspeak-sounds-cache))
 
 (defun emacspeak-sounds-resource (icon)
-  "Return icon resource, either a fully qualified file name or a icon-name"
+  "Return icon resource, either a fully qualified file name or a
+icon-name as string."
   (cl-declare (special emacspeak-sounds-cache))
   (let ((f (emacspeak-sounds-cache-get icon)))
-    (cl-assert (and f (file-exists-p f)) t "Icon does not exist.")
+         (cl-assert  f  t "Icon does not exist.")
     (cond 
      ((and  emacspeak-play-program      ; avoid nil nil comparison
             (string= emacspeak-play-program emacspeak-pactl)) ; pactl -> icon  
-      icon)
+      (symbol-name icon))
      (t  f))))
 
 ;;;Sound themes
 
 (defvar emacspeak-sounds-current-theme
-  (expand-file-name "pan-chimes/" emacspeak-sounds-dir)
+  (expand-file-name "ogg-chimes/" emacspeak-sounds-dir)
   "Name of current theme for auditory icons, a fully-qualified dir. ")
 
 (cl-declaim (special emacspeak-sounds-dir))
@@ -198,14 +199,14 @@ Value is a string, a fully qualified filename. ")
       (intern (file-name-sans-extension (file-name-nondirectory f)))
       f))))
 
-(defun emacspeak-sounds-define-theme-if-necessary (theme-name)
+(defun emacspeak-sounds-define-theme-if-necessary (theme)
   "Define selected theme if necessary."
   (cl-declare (special  emacspeak-sounds-cache))
   (cond
-   ((emacspeak-sounds-theme-ext theme-name) t)
-   ((file-exists-p (expand-file-name "define-theme.el" theme-name))
-    (load (expand-file-name "define-theme.el" theme-name)))
-   (t (error "Theme %s is missing its configuration file. " theme-name))))
+   ((emacspeak-sounds-theme-ext theme) t)
+   ((file-exists-p (expand-file-name "define-theme.el" theme))
+    (load (expand-file-name "define-theme.el" theme)))
+   (t (error "Theme %s is missing its configuration file. " theme))))
 
 ;;;###autoload
 (defun emacspeak-sounds-select-theme  ( theme)
@@ -251,16 +252,14 @@ None: For systems that rely on the speech server playing the icon."
         (setq emacspeak-auditory-icon-function #'emacspeak-serve-auditory-icon))
        ((string= emacspeak-pactl val)
         (setq emacspeak-play-args "play-sample")
-        (setq emacspeak-sounds-current-theme
-              (expand-file-name "ogg-chimes/" emacspeak-sounds-dir)))
+        )
        ((or  (string= "/usr/bin/play" val)
              (string= "/usr/local/bin/play" val))
         (setq emacspeak-play-args "-q")
-        (setq emacspeak-sounds-current-theme
-              (expand-file-name "ogg-chimes/" emacspeak-sounds-dir)))))
+        )))
   :group 'emacspeak)
 
-(defun emacspeak-sounds-theme-p  (theme)
+(defsubst emacspeak-sounds-theme-p  (theme)
   "Predicate to test if theme is available."
   (cl-declare (special emacspeak-sounds-dir))
   (file-exists-p
@@ -298,9 +297,7 @@ Mac, Linux without Pipewire/Pulse: play from sox."
     (if emacspeak-play-args
         (start-process
          emacspeak-play-program nil emacspeak-play-program emacspeak-play-args
-         (if (string= emacspeak-play-program emacspeak-pactl)
-             (symbol-name icon)
-           (emacspeak-sounds-resource icon)))
+         (emacspeak-sounds-resource icon))
       (start-process
        emacspeak-play-program nil emacspeak-play-program
        (emacspeak-sounds-resource icon)))))
