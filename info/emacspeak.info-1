@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 3, 2024.
+last updated on February 6, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -4149,10 +4149,11 @@ File: emacspeak.info,  Node: emacspeak,  Next: emacspeak-2048,  Prev: dtk-speak,
 ==============
 
 Emacspeak extends Emacs to be a fully functional audio desktop.  This is
-the main emacspeak module.  It actually does very little: It sets up
-Emacs to load package-specific Emacspeak modules as each package is
-loaded.  It implements function emacspeak which loads the rest of the
-system.
+the main emacspeak module.  It actually does very little:
+   • It sets up Emacs to load package-specific Emacspeak modules as each
+     package is loaded.
+   • It implements function emacspeak which loads the rest of the
+     system.
 
 12.5.1 Emacspeak Commands
 -------------------------

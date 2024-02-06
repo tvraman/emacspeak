@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 3, 2024.
+last updated on February 6, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -4463,28 +4463,33 @@ File: emacspeak.info,  Node: emacspeak-sounds,  Next: emacspeak-speak,  Prev: em
 =======================
 
 This module provides the interface for generating auditory icons in
-emacspeak.
+emacspeak.  It also defines sound themes for auditory icons.
 
 12.179.1 Design goal:
 ---------------------
 
    • Auditory icons should be used to provide additional feedback, not
      as a gimmick.
-   • The Emacspeak interface should be usable at all times without the
-     icons.
+   • The Emacspeak interface should be usable at all times with the
+     icons turned off.
    • Command ‘emacspeak-toggle-auditory-icons’ toggles the use of
-     auditory icons.
-   • General principle for when to use an icon:
+     auditory icons.  This flag is buffer-local; use an interactive
+     prefix argosy ‘C-u’ to turn auditory icons on/off globally.  Use
+     ‘setq-default emacspeak-use-auditory-icons nil)’ to turn these off
+     at startup; default is to use auditory icons globally.
+   • General principle:
        1. Convey information about events taking place in parallel.
        2. For instance, if making a selection automatically moves the
           current focus to the next choice, We speak the next choice,
           while indicating the fact that something was selected with an
           auditory icon.
-   • This module provides a mapping between names in the elisp world and
-     actual sound files.
+       3. Speed of interaction -- auditory icons take less time than the
+          accompanying spoken feedback.
+   • This module provides a mapping between names in the elisp world
+     (symbols) and actual sound files.
    • icon-names are symbols; sound files are fully-qualified file-names.
-   • Modules that wish to use auditory icons should use these names and
-     not actual file names.
+   • Modules that use auditory icons should use these names and not
+     actual file names.
    • Icons are played either using a local player, or by sending
      appropriate commands to the speech server (local or cloud).
    • This is determined by the value of

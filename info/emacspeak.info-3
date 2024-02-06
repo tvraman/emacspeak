@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 3, 2024.
+last updated on February 6, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -2375,7 +2375,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e ':                                 emacspeak-empv.     (line   48)
 * C-e ":                                 emacspeak-empv.     (line   59)
 * C-e (:                                 amixer.             (line   25)
-* C-e ):                                 emacspeak-sounds.   (line   70)
+* C-e ):                                 emacspeak-sounds.   (line   75)
 * C-e [:                                 Reading.            (line  121)
 * C-e [ <1>:                             emacspeak-speak.    (line  682)
 * C-e ]:                                 emacspeak-speak.    (line  660)
@@ -2424,7 +2424,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-<left>:                          emacspeak-wizards.  (line  139)
 * C-e C-<return>:                        emacspeak-speak.    (line  318)
 * C-e C-<right>:                         emacspeak-wizards.  (line  114)
-* C-e C-a:                               emacspeak-sounds.   (line   80)
+* C-e C-a:                               emacspeak-sounds.   (line   85)
 * C-e C-b:                               emacspeak-bookshare.
                                                              (line   53)
 * C-e C-c:                               emacspeak-speak.    (line  213)
@@ -2770,6 +2770,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * S-<up>:                                emacspeak-wizards.  (line  169)
 * s-m:                                   extra-muggles.      (line   53)
 * s-n:                                   emacspeak-muggles.  (line  135)
-* s-o:                                   emacspeak.          (line   20)
+* s-o:                                   emacspeak.          (line   21)
 * s-SPC:                                 emacspeak-muggles.  (line  112)
 
