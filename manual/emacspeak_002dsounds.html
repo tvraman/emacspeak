@@ -61,7 +61,8 @@
     emacspeak-sounds <a class="copiable-link" href=
     "#emacspeak_002dsounds-1">¶</a></span></h3>
     <p>This module provides the interface for generating auditory
-    icons in emacspeak.</p>
+    icons in emacspeak. It also defines sound themes for auditory
+    icons.</p>
     <ul class="mini-toc">
       <li>
         <a href="#Design-goal_003a" accesskey="1">Design goal:</a>
@@ -86,23 +87,38 @@
         <li>Auditory icons should be used to provide additional
         feedback, not as a gimmick.</li>
         <li>The Emacspeak interface should be usable at all times
-        without the icons.</li>
-        <li>General principle for when to use an icon:</li>
-        <li>Convey information about events taking place in
-        parallel.</li>
-        <li>For instance, if making a selection automatically moves
-        the current focus to the next choice, We speak the next
-        choice, while indicating the fact that something was
-        selected with an auditory icon.</li>
-        <li>This interface will assume the availability of a shell
-        command <code class="code">play</code> that can take one or
-        more sound files and play them.</li>
+        with the icons turned off.</li>
+        <li>Command <code class=
+        "code">emacspeak-toggle-auditory-icons</code> toggles the
+        use of auditory icons. This flag is buffer-local; use an
+        interactive prefix argosy <code class="code">C-u</code> to
+        turn auditory icons on/off globally. Use <code class=
+        "code">setq-default emacspeak-use-auditory-icons
+        nil)</code> to turn these off at startup; default is to use
+        auditory icons globally.</li>
+        <li>General principle:
+          <ol class="enumerate">
+            <li>Convey information about events taking place in
+            parallel.</li>
+            <li>For instance, if making a selection automatically
+            moves the current focus to the next choice, We speak
+            the next choice, while indicating the fact that
+            something was selected with an auditory icon.</li>
+            <li>Speed of interaction — auditory icons take less
+            time than the accompanying spoken feedback.</li>
+          </ol>
+        </li>
         <li>This module provides a mapping between names in the
-        elisp world and actual sound files.</li>
+        elisp world (symbols) and actual sound files.</li>
         <li>icon-names are symbols; sound files are fully-qualified
         file-names.</li>
-        <li>Modules that wish to use auditory icons should use
-        these names, instead of actual file names.</li>
+        <li>Modules that use auditory icons should use these names
+        and not actual file names.</li>
+        <li>Icons are played either using a local player, or by
+        sending appropriate commands to the speech server (local or
+        cloud).</li>
+        <li>This is determined by the value of
+        emacspeak-auditory-icon-function.</li>
         <li>As of Emacspeak 13.0, this module defines a themes
         architecture for auditory icons. Sound files corresponding
         to a given theme are found in appropriate subdirectories of
@@ -112,8 +128,8 @@
         <li>The auditory icon player is configure via custom option
         <code class="code">emacspeak-play-program</code>.</li>
         <li>That custom setting handles the mapping to various play
-        programs from audio subsystems such as Pulseaudio, and
-        Pipewire.</li>
+        backends (local or cloud) from audio subsystems such as
+        Pulseaudio and Pipewire.</li>
       </ul>
     </div>
     <div class="subsection-level-extent" id=
@@ -131,8 +147,8 @@
         <li>Sounds have many properties, eg: duration, gain, pitch,
         at the basic level.</li>
         <li>Even more important is the nature of the sound and what
-        it sounds like in the overall activity where that sound is
-        used.</li>
+        it sounds like in the context of the overall speech output
+        where that sound is used.</li>
         <li>This is why the gain of icons <em class="emph">should
         never be</em> normalized in my view— tuning icons is as
         complex as picking colors from a color palette.</li>
@@ -238,10 +254,11 @@ Optional interactive PREFIX arg toggles global value.
         "copiable-link" href=
         "#index-User-Option-78">¶</a></span></dt>
         <dd>
-          <p>Play program. Pulse: For systems running Pipewire or
-          Pulseaudio. sox-play: For systems using SoX as the local
-          player. None: For systems that rely on the speech server
-          playing the icon.</p>
+          <pre class="verbatim">Play program.
+Pulse: For systems running Pipewire or Pulseaudio.
+sox-play: For systems using SoX as the local player.
+None: For systems that rely on the speech server playing the icon.
+</pre>
           <p>Default Value:</p>
           <pre class="verbatim">
 "/usr/bin/pactl"
