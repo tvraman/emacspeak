@@ -34,32 +34,37 @@
 ;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
-
 ;;; Commentary:
 ;; This module provides the interface for generating auditory icons in
-;; emacspeak.
+;; emacspeak. It also defines sound themes for auditory icons.
 ;; @subsection Design goal:
 ;;
 ;; @itemize
 ;; @item   Auditory icons should be used to
 ;; provide additional feedback, not as a gimmick.
 ;; @item   The Emacspeak interface
-;; should be usable at all times without the icons.
+;; should be usable at all times with the icons turned off.
 ;; @item  Command @code{emacspeak-toggle-auditory-icons} toggles the
-;; use of auditory icons.
-;; @item   General principle for when to use
-;; an icon:
+;; use of auditory icons. This flag is buffer-local; use an
+;; interactive prefix argosy @code{C-u} to turn auditory icons on/off
+;; globally.
+;; Use @code{setq-default emacspeak-use-auditory-icons nil)} to turn
+;; these off at startup; default is to use auditory icons globally.
+;; @item   General principle:
 ;; @enumerate
 ;; @item Convey information about events taking place in parallel.
 ;;@item  For instance, if making a selection automatically moves the current
 ;; focus to the next choice, We speak the next choice, while
 ;; indicating the fact that something was selected with an auditory
 ;; icon.
+;; @item Speed of interaction --- auditory icons take less time than
+;; the accompanying spoken feedback.
 ;; @end enumerate
-;; @item This module provides  a mapping between names in the elisp world
+;; @item This module provides  a mapping between names in the elisp
+;; world (symbols)
 ;; and actual sound files.
 ;; @item icon-names are symbols; sound files  are fully-qualified file-names.
-;; @item Modules that wish to use auditory icons
+;; @item Modules that  use auditory icons
 ;; should use these names and not  actual file names.
 ;; @item Icons are played either using a local player, or by sending
 ;; appropriate commands to the speech server (local or cloud).
