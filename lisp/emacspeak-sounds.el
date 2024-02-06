@@ -206,7 +206,7 @@ icon-name as string."
    ((emacspeak-sounds-theme-ext theme) t)
    ((file-exists-p (expand-file-name "define-theme.el" theme))
     (load (expand-file-name "define-theme.el" theme)))
-   (t (error "Theme %s is missing its configuration file. " theme))))
+   (t (message "Theme %s is missing its configuration file. " theme))))
 
 ;;;###autoload
 (defun emacspeak-sounds-select-theme  ( theme)
@@ -217,7 +217,7 @@ icon-name as string."
                        emacspeak-play-program emacspeak-sounds-dir))
   (emacspeak-sounds-define-theme-if-necessary theme)
   (unless (file-directory-p theme) (setq theme  (file-name-directory theme)))
-  (unless (file-exists-p theme) (error "Theme %s is not installed" theme))
+  (unless (file-exists-p theme) (message "Theme %s is not installed" theme))
   (emacspeak-sounds-cache-rebuild theme)
   (when (and emacspeak-play-program     ; avoid nil nil comparison
              (string= emacspeak-play-program emacspeak-pactl)) ; upload samples
@@ -251,12 +251,10 @@ None: For systems that rely on the speech server playing the icon."
        ((null  val)                     ; no local player. Use server
         (setq emacspeak-auditory-icon-function #'emacspeak-serve-auditory-icon))
        ((string= emacspeak-pactl val)
-        (setq emacspeak-play-args "play-sample")
-        )
+        (setq emacspeak-play-args "play-sample"))
        ((or  (string= "/usr/bin/play" val)
              (string= "/usr/local/bin/play" val))
-        (setq emacspeak-play-args "-q")
-        )))
+        (setq emacspeak-play-args "-q"))))
   :group 'emacspeak)
 
 (defsubst emacspeak-sounds-theme-p  (theme)
@@ -294,13 +292,10 @@ Linux: Pipewire and Pulse: pactl.
 Mac, Linux without Pipewire/Pulse: play from sox."
   (cl-declare (special emacspeak-play-program emacspeak-play-args))
   (let ((process-connection-type nil))
-    (if emacspeak-play-args
         (start-process
-         emacspeak-play-program nil emacspeak-play-program emacspeak-play-args
-         (emacspeak-sounds-resource icon))
-      (start-process
-       emacspeak-play-program nil emacspeak-play-program
-       (emacspeak-sounds-resource icon)))))
+         emacspeak-play-program nil emacspeak-play-program
+         (or emacspeak-play-args "")
+         (emacspeak-sounds-resource icon))))
 
 ;;;   toggle auditory icons
 
@@ -349,6 +344,6 @@ Optional interactive PREFIX arg toggles global value."
        ((and emacspeak-play-program     ; guard against nil-nil check
              (string= emacspeak-play-program emacspeak-pactl))
         (start-process
-         "pactl" nil emacspeak-pactl "play-sample" f))))))
+         "prompt" nil emacspeak-play-args "play-sample" f))))))
 
 (provide  'emacspeak-sounds)
