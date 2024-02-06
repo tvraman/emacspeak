@@ -281,7 +281,7 @@ Used by TTS layer to play icons that are found as text property
   (cl-declare (special dtk-speaker-process))
   (process-send-string
    dtk-speaker-process
-   (format "p %s\n" (emacspeak-sounds-resource icon))))
+   (format "a %s\n" (emacspeak-sounds-resource icon))))
 
 ;;;   Play an icon
 (defvar emacspeak-play-args nil
