@@ -213,6 +213,11 @@ beginning or end of a physical line produces an  auditory icon."
         ((or line-move-visual visual-line-mode) (emacspeak-speak-visual-line))
         (t (emacspeak-speak-line)))))))
 
+(defadvice delete-horizontal-space (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'delete-object)))
+
+
 (defadvice kill-visual-line (before emacspeak pre act comp)
   "Speak line we're  to kill."
   (when (ems-interactive-p)
