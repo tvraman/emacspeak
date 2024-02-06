@@ -150,7 +150,7 @@ Value is a string, a fully qualified filename. ")
   (cl-declare (special emacspeak-sounds-cache))
   (let ((f (emacspeak-sounds-cache-get icon)))
     (cl-assert (and f (file-exists-p f)) t "Icon does not exist.")
-    (when emacspeak-play-program
+    (when emacspeak-play-program ; avoid nil nil comparison
       (if (string= emacspeak-play-program emacspeak-pactl) icon f))))
 
 ;;;Sound themes
@@ -210,7 +210,7 @@ Value is a string, a fully qualified filename. ")
   (unless (file-directory-p theme) (setq theme  (file-name-directory theme)))
   (unless (file-exists-p theme) (error "Theme %s is not installed" theme))
   (emacspeak-sounds-cache-rebuild theme)
-  (when emacspeak-play-program
+  (when emacspeak-play-program ; avoid nil nil comparison
     (when (string= emacspeak-play-program emacspeak-pactl) ; upload samples
         (unless
             (member (file-relative-name theme emacspeak-sounds-dir)
@@ -283,9 +283,12 @@ Used by TTS layer to play icons that are found as text property
 ;;;   Play an icon
 (defvar emacspeak-play-args nil
   "Arguments passed to play program.")
+;; Should never be called if local player not available
 
 (defun emacspeak-play-auditory-icon (icon)
-  "Produce auditory icon ICON."
+  "Produce auditory icon ICON using a local player.
+Linux: Pipewire and Pulse: pactl.
+Mac, Linux without Pipewire/Pulse: play from sox."
   (cl-declare (special emacspeak-play-program emacspeak-play-args))
   (let ((process-connection-type nil))
     (if emacspeak-play-args
@@ -342,9 +345,9 @@ Optional interactive PREFIX arg toggles global value."
       (cond
        ((string-match "cloud" dtk-program)
         (emacspeak-serve-auditory-icon name))
-       ((when emacspeak-play-program
-          (string= emacspeak-play-program emacspeak-pactl)
-          (start-process
-           "pactl" nil emacspeak-pactl "play-sample" (symbol-name f))))))))
+       ((and emacspeak-play-program     ; guard against nil-nil check
+             (string= emacspeak-play-program emacspeak-pactl))
+        (start-process
+         "pactl" nil emacspeak-pactl "play-sample" (symbol-name f)))))))
 
 (provide  'emacspeak-sounds)
