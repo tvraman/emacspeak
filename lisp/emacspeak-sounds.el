@@ -344,6 +344,6 @@ Optional interactive PREFIX arg toggles global value."
        ((and emacspeak-play-program     ; guard against nil-nil check
              (string= emacspeak-play-program emacspeak-pactl))
         (start-process
-         "prompt" nil emacspeak-play-args "play-sample" f))))))
+         "prompt" nil emacspeak-pactl emacspeak-play-args  f))))))
 
 (provide  'emacspeak-sounds)
