@@ -496,9 +496,11 @@ name of the list.")
      #'(lambda (s) (flush-lines s (point-min) (point-max)))
      '("WATCHLIST" "^52 High" "^Last " "RT Quote " "^quote price arrow "
        "^Volume" "^$"))
+    (emacspeak-pronounce-add-buffer-local-dictionary-entry (emacspeak-stock-tickers) "portfolio")
     (goto-char (point-min))
     (forward-line 1)
     (emacspeak-auditory-icon 'open-object)
+    (rename-buffer "Portfolio" 'unique)
     (emacspeak-speak-line)))
 
 (emacspeak-url-template-define
