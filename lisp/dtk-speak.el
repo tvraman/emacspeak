@@ -1482,7 +1482,9 @@ Set by \\[dtk-set-punctuations].")
   (interactive)
   (cl-declare (special dtk-cloud-server))
   (dtk-select-server dtk-cloud-server)
-  (setq emacspeak-auditory-icon-function #'emacspeak-serve-auditory-icon)
+  (setq emacspeak-auditory-icon-function
+        #'emacspeak-serve-auditory-icon
+        emacspeak-play-program nil)
   (dtk-initialize)
   (when (tts-multistream-p dtk-cloud-server)
     (dtk-notify-initialize)))

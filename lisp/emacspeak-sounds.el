@@ -294,8 +294,7 @@ Mac, Linux without Pipewire/Pulse: play from sox."
   (let ((process-connection-type nil))
         (start-process
          emacspeak-play-program nil emacspeak-play-program
-         (or emacspeak-play-args "")
-         (emacspeak-sounds-resource icon))))
+         emacspeak-play-args (emacspeak-sounds-resource icon))))
 
 ;;;   toggle auditory icons
 
@@ -337,13 +336,12 @@ Optional interactive PREFIX arg toggles global value."
   "Play  prompt for specified name."
   (cl-declare (special dtk-program emacspeak-use-auditory-icons ))
   (when emacspeak-use-auditory-icons
-    (let  ((f (emacspeak-sounds-resource name)))
-      (cond
-       ((string-match "cloud" dtk-program)
-        (emacspeak-serve-auditory-icon name))
-       ((and emacspeak-play-program     ; guard against nil-nil check
-             (string= emacspeak-play-program emacspeak-pactl))
-        (start-process
-         "prompt" nil emacspeak-pactl emacspeak-play-args  f))))))
+    (cond
+     ((string-match "cloud" dtk-program) (emacspeak-serve-auditory-icon name))
+     ((and emacspeak-play-program
+           (string= emacspeak-play-program emacspeak-pactl))
+      (start-process
+       "prompt" nil emacspeak-pactl emacspeak-play-args
+       (emacspeak-sounds-resource name))))))
 
 (provide  'emacspeak-sounds)
