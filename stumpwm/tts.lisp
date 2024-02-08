@@ -140,7 +140,7 @@
                 (sb-ext:process-alive-p *tts-process*))
     (tts-open))
   (let ((i (sb-ext:process-input *tts-process*)))
-    (write-line (format nil "a ~a\;d" filename) i)
+    (write-line (format nil "p ~a\;d" filename) i)
     (force-output i)))
 
 (defun tts-say (text)

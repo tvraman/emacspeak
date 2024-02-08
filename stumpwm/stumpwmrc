@@ -13,21 +13,21 @@
   (concatenate 'string
                *emacspeak-dir*
                "/"
-               "sounds/pan-chimes/window-resize.wav")
+               "sounds/ogg-chimes/window-resize.ogg")
   "Window change icon.")
 
 (defvar *tts-off-icon*
   (concatenate 'string
                *emacspeak-dir*
                "/"
-               "sounds/pan-chimes/off.wav")
+               "sounds/ogg-chimes/off.ogg")
   "Off icon.")
 
 (defvar *tts-on-icon*
   (concatenate 'string
                *emacspeak-dir*
                "/"
-               "sounds/pan-chimes/on.wav")
+               "sounds/ogg-chimes/on.ogg")
   "On icon.")
 
 ;;}}}
@@ -48,7 +48,7 @@
 (concatenate 'string   *emacspeak-dir* "/servers/dtk-soft"))
 
 (tts-say "TTS: Ready to talk! ")
-(tts-rate 80)
+(tts-rate 300)
 ;;}}}
 ;;{{{Speak Actions:
 (defun speak-window-change (new old)
