@@ -244,6 +244,8 @@ configuration happens via the after-init-hook. "
 
 (declare-function yas--load-snippet-dirs "yasnippet" (&optional nojit))
 (declare-function emacspeak-dbus-setup "emacspeak-dbus" nil)
+(declare-function emacspeak-prompt "emacspeak-sounds" (name))
+
 (declare-function
  emacspeak-wizards-project-shells-initialize
  "emacspeak-wizards" nil)
