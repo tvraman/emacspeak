@@ -96,8 +96,8 @@ startup sound."
   (emacspeak-dbus-setup)
   (setq gc-cons-threshold 64000000)
   (start-process
-   "play" nil "aplay"
-   (expand-file-name "highbells.au" emacspeak-sounds-dir))
+   "play" nil "play"
+   (expand-file-name "highbells.ogg" emacspeak-sounds-dir))
   (tvr-tabs)
   (switch-to-buffer "Home")
   (message
