@@ -419,7 +419,7 @@ commands and options for details."
   (setq ring-bell-function #'(lambda nil (emacspeak-auditory-icon 'warn-user)))
   (emacspeak-sounds-select-theme emacspeak-sounds-current-theme)
   (emacspeak-pronounce-load-dictionaries)
-  (make-thread #'(lambda () (ems--fastload "emacspeak-advice")))
+  (ems--fastload "emacspeak-advice")
   (emacspeak-setup-programming-modes)
   (make-thread #'emacspeak-prepare-emacs)
   (setq line-number-mode nil column-number-mode nil)
