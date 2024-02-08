@@ -7,7 +7,7 @@ import PackageDescription
 let package = Package(
   name: "SwiftMacPackage",
   platforms: [
-    .macOS(.v10_15)
+    .macOS(.v11)
   ],
   products: [
     // Products define the executables and libraries a package
@@ -20,6 +20,7 @@ let package = Package(
     // Dependencies declare other packages that this package
     // depends on.
     // .package(url: /* package url */, from: "1.0.0"),
+    .package(url: "https://github.com/arkasas/OggDecoder.git", .branch("main"))
   ],
   targets: [
     // Targets are the basic building blocks of a package.
@@ -28,7 +29,7 @@ let package = Package(
     // and on products in packages this package depends on.
     .executableTarget(
       name: "swiftmac",
-      dependencies: [],
+      dependencies: ["OggDecoder"],
       path: "Sources/SwiftMacPackage",
       sources: ["logger.swift", "statestore.swift", "playpuretone.swift", "main.swift"]
     )
