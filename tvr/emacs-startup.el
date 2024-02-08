@@ -95,9 +95,7 @@ startup sound."
   (cl-declare (special emacspeak-sounds-dir))
   (emacspeak-dbus-setup)
   (setq gc-cons-threshold 64000000)
-  (start-process
-   "play" nil "play"
-   (expand-file-name "highbells.ogg" emacspeak-sounds-dir))
+  (emacspeak-prompt 'tvr-emacs)
   (tvr-tabs)
   (switch-to-buffer "Home")
   (message
