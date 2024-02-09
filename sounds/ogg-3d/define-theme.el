@@ -1,6 +1,2 @@
-;;; OGG icons using chimes as a theme  -*- lexical-binding: t; -*-
-;;; Icons from theme Chimes with effect autopan applied using mplayer and ladspa
-
-(emacspeak-sounds-define-theme
- (expand-file-name "ogg-3d/" emacspeak-sounds-dir)
- ".ogg")
+;;; OGG icons using 3d as a theme  -*- lexical-binding: t; -*-
+;;; Icons generated using CSound
