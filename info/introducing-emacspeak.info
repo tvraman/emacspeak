@@ -1,4 +1,4 @@
-This is introducing-emacspeak.info, produced by makeinfo version 7.0.3
+This is introducing-emacspeak.info, produced by makeinfo version 7.1
 from introducing-emacspeak.texi.
 
 Copyright © 2003, 2005, 2006 Robert J. Chassell
@@ -71,7 +71,7 @@ Emacs, which underlies Emacspeak.
 driver, situationally blind.  Regardless of circumstance, your friend
 will find that Emacspeak is different from other user interfaces.
 
-   You will notice that I keep mentioning ‘your friend’; of course, you
+   You will notice that I keep mentioning 'your friend'; of course, you
 may be introducing yourself to Emacspeak.  This is not impossible.  It
 is just harder.  This is how I learned Emacspeak.
 
@@ -111,7 +111,7 @@ synthesizers and about one method of installation.
      of Emacspeak, one using ‘eflite’ and the other using ‘espeakf’, I
      am least certain about this part.  This is because so much of my
      Emacs and other installation is from sources rather than from
-     standard, precompiled binaries.  I don’t know what a standard
+     standard, precompiled binaries.  I don't know what a standard
      Debian or standard Emacspeak installation involves.  I think what I
      describe is correct; but am not sure.
 
@@ -178,9 +178,9 @@ various Emacspeak commands and to discuss the philosophy or world-view
 behind Emacspeak.
 
    You can also explain the meaning of some of the jargon, such as
-‘point’ to mean the place in the text where commands operate, ‘visit’ to
-mean opening a file in a buffer, and ‘string’ to mean a ‘string of
-characters’.
+'point' to mean the place in the text where commands operate, 'visit' to
+mean opening a file in a buffer, and 'string' to mean a 'string of
+characters'.
 
    Sighted people tend to work with the three contemporary user
 interfaces: command line, graphical, and Emacs.  Each is different.
@@ -189,17 +189,17 @@ interfaces: command line, graphical, and Emacs.  Each is different.
 user interface.
 
    Emacspeak is different from the shell command line interface that
-uses commands such as ‘ls’.  It is different from a graphic user
-interface such as GNOME/sawfish that uses a package such as ‘Mozilla’.
+uses commands such as 'ls'.  It is different from a graphic user
+interface such as GNOME/sawfish that uses a package such as 'Mozilla'.
 Moreover, although it is based on the virtual lisp machine interface
 that is GNU Emacs, it is different from it, too.
 
    Put another way, Emacs and Emacspeak are both integrated user
-interfaces, like a shell, plus ‘vi’, plus ‘ls’, plus ‘gdb’, plus ‘gcc’,
+interfaces, like a shell, plus 'vi', plus 'ls', plus 'gdb', plus 'gcc',
 and so on.  While related to each other, they are also different.
 
    Emacspeak is a complete audio desktop; it is not a visual desktop.
-T. V. Raman describes it in his Emacspeak manual.  *Note Emacspeak:
+T.  V. Raman describes it in his Emacspeak manual.  *Note Emacspeak:
 (emacspeak)Top.
 
 * Menu:
@@ -339,7 +339,7 @@ right mind uses an Escape key, unless forced by a really old keyboard.
 
    While I am speaking of keybindings, and to be complete, please be
 sure the control key is the key to the left of the A key.  This is
-something you should set up; you don’t need to explain any of this.
+something you should set up; you don't need to explain any of this.
 
    You may have to change the keybinding.  On some keyboards, the key to
 the left of the A key is labeled Caps_Lock.  It is as if the keyboard
@@ -373,7 +373,7 @@ file.
 available early during the boot process, it is a good idea to copy the
 ‘/usr/share/keymaps/i386/qwerty/emacs2.kmap.gz’ to the
 ‘/etc/console/boottime.kmap.gz’ file.  This is what the ‘install-keymap’
-command does.  If you don’t have an ‘install-keymap’ command, you can
+command does.  If you don't have an ‘install-keymap’ command, you can
 copy the file yourself and put a
 ‘loadkeys /etc/console/boottime.kmap.gz’ command into one of your boot
 scripts.)
@@ -405,7 +405,7 @@ as ‘C-x C-e’:
 
      (info "(emacs)Keyboard Translations")
 
-(Please remember to note my use of the jargon word ‘point’; it needs to
+(Please remember to note my use of the jargon word 'point'; it needs to
 be explained as the place in the text where editing commands operate.)
 
 
@@ -446,7 +446,7 @@ File: introducing-emacspeak.info,  Node: Basic Commands Reference,  Next: Charac
 Basic Commands Reference
 ========================
 
-For a description of the basic commands, see the node ‘Reading’ in the
+For a description of the basic commands, see the node 'Reading' in the
 Info file emacspeak.info
 
      (info "(emacspeak)Reading")
@@ -456,7 +456,7 @@ Emacs Lisp expression: position point after the final parenthesis and
 type ‘Control-x Control-e’.)
 
    Perhaps evaluation is too much too soon, since it means remembering a
-new command as well as figuring out where ‘point’ is.  On the other
+new command as well as figuring out where 'point' is.  On the other
 hand, I think it is worth illustrating the action, since it opens up
 future possibilities.
 
@@ -493,8 +493,8 @@ understand it, the sentences make perfect sense.
 
    When I first started, I read the manual in segments over 2 years.
 (This was in the 1980s.)  I did not understand all that I could do at
-first.  Indeed, for the longest time, I did not switch from using ‘ls
--al’ in a command line to using Dired mode.
+first.  Indeed, for the longest time, I did not switch from using 'ls
+-al' in a command line to using Dired mode.
 
    Some people say that the Emacs learning curve is steep.
 
@@ -506,7 +506,7 @@ first, except write.
 use many of the features that Emacs provides.  I have described GNU
 Emacs as
 
-     ... like having a dragon’s cave of treasures.
+     ... like having a dragon's cave of treasures.
 
    You should not try to be too greedy and over-stuff yourself all one
 sitting.
@@ -541,7 +541,7 @@ of this as editing.
 
    However, if you think about it, you will discover that the Emacspeak
 actions in Dired mode are a kind of editing.  Indeed, the name Dired is
-a contraction for the phrase ‘directory editor’.
+a contraction for the phrase 'directory editor'.
 
    But the kind of editing that goes on in Dired is not same kind of
 editing as people do in an editor like ‘vi’ when they press the ‘h’,
@@ -555,7 +555,7 @@ Emacs that the combination of ‘ls’, ‘mv’, ‘chown’, ‘chgrp’, ‘g
 ‘more’, ‘vi’, and ‘rm’ provide in a shell.  A library provides a mode.
 
    Because of the adoption of Xerox Parc style windowing systems over
-the past generation, many people are confused by Emacs’ use of the words
+the past generation, many people are confused by Emacs' use of the words
 window and frame.  Emacs provides for multiple windows within a frame,
 as it always has.
 
@@ -579,10 +579,10 @@ display.
 
    But when Apple, Sun, and the X Consortium, and their followers,
 adopted the term window to mean a part of a display, they lacked a term
-to handle a part of a window.  (The word ‘pane’ was suggested, but never
-popular, because it sounds similar to the word ‘pain’, spelled p a i n,
+to handle a part of a window.  (The word 'pane' was suggested, but never
+popular, because it sounds similar to the word 'pain', spelled p a i n,
 and because some people were accustomed to material windows that were
-not made up of multiple ‘panes of glass’.)
+not made up of multiple 'panes of glass'.)
 
    However, in those days, mostly the 1980s, windows seldom contained
 parts, other than a menu or tool bar or panel that applied to a whole
@@ -610,9 +610,9 @@ another.  The mode line will tell you which frame you are in.  (Type
 second and subsequent frames.)
 
    Emacs jargon can be brutal.  Some people are upset by the use of the
-word ‘kill’ to mean ‘cut’ as in ‘cut and paste’.  (The word ‘cut’ also
-upsets some people, but generally less than the word ‘kill’.)  In Emacs,
-an entity ‘killed’ can be resurrected, which I think of as a Christian
+word 'kill' to mean 'cut' as in 'cut and paste'.  (The word 'cut' also
+upsets some people, but generally less than the word 'kill'.)  In Emacs,
+an entity 'killed' can be resurrected, which I think of as a Christian
 form of meaning.
 
    Some years ago, at the transition from Emacs version 18 to version
@@ -623,9 +623,9 @@ Alternatively, you could yank the segment from the ‘clip-ring’.  I
 picked ‘clip’ as the replacement word since it has four letters and fits
 the older formatting and language without requiring much rewriting.
 
-   Moreover, had I changed the term to ‘cut’, people would have expected
-me to replace the word ‘yank’ with ‘paste’, to fit the phrase ‘cut and
-paste’.  But I do not like the word ‘paste’; I no longer literally paste
+   Moreover, had I changed the term to 'cut', people would have expected
+me to replace the word ‘yank’ with 'paste', to fit the phrase 'cut and
+paste'.  But I do not like the word 'paste'; I no longer literally paste
 clips onto a sheet of paper as I did when I was young.  It makes more
 sense to me to ‘yank’ a segment back from the ‘clip-ring’.
 
@@ -633,7 +633,7 @@ sense to me to ‘yank’ a segment back from the ‘clip-ring’.
 of the reason is that at that time, RMS still enjoyed what I think of as
 a dead joke: the manual for version 18 Emacs said:
 
-     ... you don’t have to kill all the text in one command; you can
+     ... you don't have to kill all the text in one command; you can
      keep killing line after line, or word after word, until you have
      killed it all, and you can still get it all back at once.  (Thus we
      join television in leading people to kill thoughtlessly.)
@@ -642,7 +642,7 @@ a dead joke: the manual for version 18 Emacs said:
 and the other wording slightly improved.)
 
    Perhaps more significantly, RMS asked many people whether they were
-bothered by the jargon use of ‘kill’.  They said ‘no’.  It turned out
+bothered by the jargon use of ‘kill’.  They said 'no'.  It turned out
 that RMS asked people he thought of as significant, namely people at
 M.I.T.  I think that was too narrow a group.  But that is what happened,
 and I still think it was a mistake.
@@ -665,7 +665,7 @@ With Emacspeak, you can listen to your email, browse the Web, write
 reports, programs, novels, and poetry.
 
    You may also want to download various books, documents, and audio
-recordings from the Gutenberg Project archive, such as Jane Austen’s
+recordings from the Gutenberg Project archive, such as Jane Austen's
 novel ‘Pride and Prejudice’.
 
    You can visit the archive directory using W3 mode or W3M mode at
@@ -730,7 +730,7 @@ somewhat.
 
    I will not describe my full ‘~/.emacs’ file since it is more than 180
 kilobytes long.  Instead, I will create for you a much shorter, sample
-‘~/.emacs’ file that works — I tested it – and that has a few of the
+‘~/.emacs’ file that works -- I tested it - and that has a few of the
 customizations that I like.
 
    The following ‘~/.emacs’ file contains left and right angle brackets.
@@ -949,8 +949,8 @@ since these two commands are experimental, I am putting them into the
 /usr/local/bin/ directory, to remind me that I created them locally.
 
    (Incidentally, I am also running two other non-Emacspeak instances of
-Emacs: an experimental Emacs version 22 owned by user ‘bob’, and an
-Emacs version 20.7 owned by user ‘root’.  That way, I separate dangerous
+Emacs: an experimental Emacs version 22 owned by user 'bob', and an
+Emacs version 20.7 owned by user 'root'.  That way, I separate dangerous
 system administration task from ordinary work.)
 
 
@@ -1086,7 +1086,7 @@ Instead, I put all the configuration information into the two
 
    The two scripts contain sharp signs, exclamation marks, left and
 right brackets, and much else.  To listen to all the characters in them,
-you need to set Emacspeak’s punctuation mode to all.  If you are
+you need to set Emacspeak's punctuation mode to all.  If you are
 listening to this in Emacspeak, you can evaluate the following
 expression by placing point after it and typing ‘Control-x Control-e’:
 
@@ -1182,22 +1182,22 @@ in a shell as user ‘root’.
 
 
 Tag Table:
-Node: Top762
-Node: This Essay1849
-Node: Questions4103
-Node: How to Introduce Emacspeak6348
-Node: Info and Help8426
-Node: Movement10953
-Node: Keybindings12175
-Node: X Windows Keybindings14791
-Node: Speech Rate15907
-Node: Basic Commands Reference16939
-Node: Characteristics18297
-Node: Emacs manual20200
-Node: Free Books26902
-Node: An Initialization File29016
-Node: Software Synthesizers36228
-Node: Installation37747
+Node: Top760
+Node: This Essay1847
+Node: Questions4095
+Node: How to Introduce Emacspeak6340
+Node: Info and Help8379
+Node: Movement10906
+Node: Keybindings12128
+Node: X Windows Keybindings14740
+Node: Speech Rate15852
+Node: Basic Commands Reference16884
+Node: Characteristics18234
+Node: Emacs manual20131
+Node: Free Books26769
+Node: An Initialization File28881
+Node: Software Synthesizers36090
+Node: Installation37601
 
 End Tag Table
 
