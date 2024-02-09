@@ -2819,23 +2819,18 @@ Produce an auditory icon if possible."
 
 ;;; Speaking Spaces:
 
-(defun ems--speak-spaces ()
-  (let ((beg (save-excursion (skip-syntax-backward " ")))
-        (end (save-excursion (skip-syntax-forward " "))))
-      (dtk-notify-say  (format "%s spaces " (+ (- end beg))))))
-
 (defadvice cycle-spacing (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (ems--speak-spaces)))
+    (emacspeak-speak-spaces)))
 
 
 (defadvice just-one-space (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (ems--speak-spaces)))
+    (emacspeak-speak-spaces)))
 
 (provide 'emacspeak-advice)
 

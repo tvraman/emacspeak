@@ -625,6 +625,13 @@ the sense of the filter. "
 
 ;;;   Speak units of text
 
+(defun emacspeak-speak-spaces ()
+  "Speak number of spaces at point."
+  (interactive)
+  (let ((beg (save-excursion (skip-syntax-backward " ")))
+        (end (save-excursion (skip-syntax-forward " "))))
+    (dtk-notify-say  (format "%s spaces " (+ (- end beg))))))
+
 (defun emacspeak-speak-region (start end)
   "Speak region bounded by start and end. "
   (interactive "r")
