@@ -73,6 +73,7 @@
 ;; Emacspeak 13.0, this module defines a themes architecture for
 ;; auditory icons.  Sound files corresponding to a given theme are
 ;; found in appropriate subdirectories of emacspeak-sounds-dir.
+;; @item There are two supported themes: @code{ogg-chimes} and @coe{ogg-3d}.
 ;; @item Contrast this with @code{prompts[ that dont belong to any theme.]}
 ;; @item The auditory icon player is configure via
 ;; custom option @code{emacspeak-play-program}.
@@ -168,23 +169,6 @@ icon-name as string."
   (expand-file-name "ogg-chimes/" emacspeak-sounds-dir)
   "Name of current theme for auditory icons, a fully-qualified dir. ")
 
-(cl-declaim (special emacspeak-sounds-dir))
-
-(defvar emacspeak-sounds-themes-table
-  (make-hash-table)
-  "Maps valid sound themes to the file name extension used by that theme.")
-
-(defsubst emacspeak-sounds-define-theme (theme ext)
-  "Define a sounds theme for auditory icons. "
-  (cl-declare (special emacspeak-sounds-themes-table))
-  (setq theme (intern theme))
-  (setf (gethash  theme emacspeak-sounds-themes-table) ext))
-
-(defsubst emacspeak-sounds-theme-ext (theme)
-  "Retrieve filename extension for specified theme. "
-  (cl-declare (special emacspeak-sounds-themes-table))
-  (gethash (intern theme) emacspeak-sounds-themes-table))
-
 (defconst emacspeak-pactl (executable-find "pactl") "PaCtl Executable.")
 
 ;; Called from emacspeak at startup, and also when selecting themes.
@@ -193,42 +177,31 @@ icon-name as string."
   (emacspeak-sounds-cache-prompts)
   (when (file-exists-p theme)
     (cl-loop
-     for f in (directory-files theme 'full (emacspeak-sounds-theme-ext theme))
+     for f in (directory-files theme 'full ".ogg")
      do
      (emacspeak-sounds-cache-put
-      (intern (file-name-sans-extension (file-name-nondirectory f)))
-      f))))
-
-(defun emacspeak-sounds-define-theme-if-necessary (theme)
-  "Define selected theme if necessary."
-  (cl-declare (special  emacspeak-sounds-cache))
-  (cond
-   ((emacspeak-sounds-theme-ext theme) t)
-   ((file-exists-p (expand-file-name "define-theme.el" theme))
-    (load (expand-file-name "define-theme.el" theme)))
-   (t (message "Theme %s is missing its configuration file. " theme))))
+      (intern (file-name-sans-extension (file-name-nondirectory f))) f))))
 
 ;;;###autoload
 (defun emacspeak-sounds-select-theme  ( theme)
   "Select theme for auditory icons."
   (interactive
-   (list (read-directory-name "Theme: " emacspeak-sounds-dir)))
-  (cl-declare (special emacspeak-sounds-themes-table
-                       emacspeak-play-program emacspeak-sounds-dir))
-  (emacspeak-sounds-define-theme-if-necessary theme)
-  (unless (file-directory-p theme) (setq theme  (file-name-directory theme)))
-  (unless (file-exists-p theme) (message "Theme %s is not installed" theme))
+   (list
+    (expand-file-name
+     (completing-read "Theme: " '("ogg-3c" "ogg-chimes") nil 'must-match)
+     emacspeak-sounds-dir)))
+  (cl-declare (special emacspeak-play-program emacspeak-sounds-dir))
   (emacspeak-sounds-cache-rebuild theme)
-  (when (and emacspeak-play-program     ; avoid nil nil comparison
-             (string= emacspeak-play-program emacspeak-pactl)
-             (not (string-match "cloud" dtk-program))) ; upload samples
-        (cl-loop
-        for key being the hash-keys of emacspeak-sounds-cache do
-        (shell-command
+  (when (and emacspeak-play-program   ; avoid nil nil comparison
+               (string= emacspeak-play-program emacspeak-pactl)
+               (not (string-match "cloud" dtk-program))) ; upload samples
+      (cl-loop
+       for key being the hash-keys of emacspeak-sounds-cache do
+       (shell-command
         (format "%s upload-sample %s %s"
                 emacspeak-pactl (gethash key emacspeak-sounds-cache) key))))
-  (setq emacspeak-sounds-current-theme theme)
-  (emacspeak-auditory-icon 'button))
+   (setq emacspeak-sounds-current-theme theme)
+   (emacspeak-auditory-icon 'button))
 
 ;; need to use explicit pathnames ---
 ;; can't use our predefined constants such as emacspeak-pactl here.
@@ -246,7 +219,6 @@ None: For systems that rely on the speech server playing the icon."
     (const  :tag "SoX" "/usr/local/bin/play"))
   :set
   #'(lambda(sym val)
-      (cl-declare (special emacspeak-play-args emacspeak-sounds-current-theme))
       (set-default sym val)
       (cond ; todo: should we reset icon player  when prog  becomes non-null
        ((null  val)                     ; no local player. Use server
@@ -257,12 +229,6 @@ None: For systems that rely on the speech server playing the icon."
              (string= "/usr/local/bin/play" val))
         (setq emacspeak-play-args "-q"))))
   :group 'emacspeak)
-
-(defsubst emacspeak-sounds-theme-p  (theme)
-  "Predicate to test if theme is available."
-  (cl-declare (special emacspeak-sounds-dir))
-  (file-exists-p
-   (expand-file-name theme emacspeak-sounds-dir)))
 
 ;;;   queue an auditory icon
 (defun emacspeak-queue-auditory-icon (icon)
