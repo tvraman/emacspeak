@@ -121,7 +121,7 @@ Startup  apps that need the network."
   (dtk-notify-say
    (message "Network up: %s"
             (ems--get-essid)))
-  (emacspeak-play-auditory-icon 'network-up))
+  (emacspeak-auditory-icon 'network-up))
 
 (defun emacspeak-dbus-nm-disconnected ()
   "Announce  network manager disconnection.
@@ -259,7 +259,7 @@ already disabled."
     "org.freedesktop.UDisks2" "/org/freedesktop/UDisks2"
     "org.freedesktop.DBus.ObjectManager" "InterfacesAdded"
     #'(lambda(path _props)
-        (emacspeak-play-auditory-icon 'open-object)
+        (emacspeak-auditory-icon 'open-object)
         (message "Added storage %s" path)))
    (dbus-register-signal
     :system
@@ -267,7 +267,7 @@ already disabled."
     "org.freedesktop.DBus.ObjectManager" "InterfacesRemoved"
     #'(lambda(path _props)
         (message "Removed storage %s" path)
-        (emacspeak-play-auditory-icon 'close-object)))))
+        (emacspeak-auditory-icon 'close-object)))))
 
 (defun emacspeak-dbus-udisks-enable()
   "Enable integration with UDisks2. Does nothing if already enabled."
@@ -301,7 +301,7 @@ already disabled."
     "org.freedesktop.UPower" "/org/freedesktop/UPower"
     "org.freedesktop.UPower" "DeviceAdded"
     #'(lambda(device)
-        (emacspeak-play-auditory-icon 'on)
+        (emacspeak-auditory-icon 'on)
         (message "Added device %s" device)))
    (dbus-register-signal
     :system
@@ -309,13 +309,13 @@ already disabled."
     "org.freedesktop.UPower" "DeviceRemoved"
     #'(lambda(device)
         (message "Removed device  %s" device)
-        (emacspeak-play-auditory-icon 'off)))
+        (emacspeak-auditory-icon 'off)))
    (dbus-register-signal
     :system
     "org.freedesktop.UPower" "/org/freedesktop/UPower"
     "org.freedesktop.DBus.Properties.PropertiesChanged" "OnBattery"
     #'(lambda(state)
-        (emacspeak-play-auditory-icon 'on)
+        (emacspeak-auditory-icon 'on)
         (message "Battery State:  %s" state)))))
 
 (defun emacspeak-dbus-upower-enable()

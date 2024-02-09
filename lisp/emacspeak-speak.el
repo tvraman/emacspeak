@@ -58,7 +58,6 @@
 (require 'emacspeak-pronounce)
 (require 'emacspeak-sounds)
 (require 'sox-gen)
-(declare-function emacspeak-play-auditory-icon "emacspeak-sounds" (sound-name))
 (declare-function operate-on-rectangle "rect" (function start end coerce-tabs))
 (declare-function which-function "which-func" nil)
 (declare-function calendar-cursor-to-nearest-date "cal-move" nil)
@@ -2416,7 +2415,7 @@ See documentation for command run-at-time for details on time-spec."
    #'(lambda (m)
        (dtk-notify-speak m)
        (when emacspeak-use-auditory-icons
-         (emacspeak-play-auditory-icon 'alarm))
+         (emacspeak-auditory-icon 'alarm))
        (sox-tones))
    message)
   (message "Set alarm for %s" time)

@@ -81,7 +81,7 @@
   "Provide auditory icon. "
   (dtk-stop 'all)
   (when emacspeak-use-auditory-icons
-    (emacspeak-play-auditory-icon 'close-object)))
+    (emacspeak-auditory-icon 'close-object)))
 
 ;;;  Setup Help And Hint 
 
