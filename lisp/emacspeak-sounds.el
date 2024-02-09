@@ -35,8 +35,8 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 ;;; Commentary:
-;; This module provides the interface for generating auditory icons in
-;; emacspeak. It also defines sound themes for auditory icons.
+;; This module provides the interface for generating auditory icons 
+;;  It also defines sound themes for auditory icons.
 ;; @subsection Design goal:
 ;;
 ;; @itemize
@@ -46,11 +46,11 @@
 ;; should be usable at all times with the icons turned off.
 ;; @item  Command @code{emacspeak-toggle-auditory-icons} toggles the
 ;; use of auditory icons. This flag is buffer-local; use an
-;; interactive prefix argosy @code{C-u} to turn auditory icons on/off
+;; interactive prefix argosy @code{C-u} to toggle auditory icons on/off
 ;; globally.
-;; Use @code{setq-default emacspeak-use-auditory-icons nil)} to turn
-;; these off at startup; default is to use auditory icons globally.
-;; @item   General principle:
+;; @item  Use @code{setq-default emacspeak-use-auditory-icons nil)} to turn
+;; auditory icons  off at startup; default is to use auditory icons globally.
+;; @item   General principle for using auditory icons:
 ;; @enumerate
 ;; @item Convey information about events taking place in parallel.
 ;;@item  For instance, if making a selection automatically moves the current
@@ -63,9 +63,9 @@
 ;; @item This module provides  a mapping between names in the elisp
 ;; world (symbols)
 ;; and actual sound files.
-;; @item icon-names are symbols; sound files  are fully-qualified file-names.
+;; @item icon names are symbols; sound files  are fully-qualified file-names.
 ;; @item Modules that  use auditory icons
-;; should use these names and not  actual file names.
+;; should use icon names and not  actual file names.
 ;; @item Icons are played either using a local player, or by sending
 ;; appropriate commands to the speech server (local or cloud).
 ;; @item  This is determined by the value of emacspeak-auditory-icon-function.
@@ -74,8 +74,8 @@
 ;; auditory icons.  Sound files corresponding to a given theme are
 ;; found in appropriate subdirectories of emacspeak-sounds-dir.
 ;; @item There are two supported themes: @code{ogg-chimes} and @coe{ogg-3d}.
-;; @item Contrast this with @code{prompts[ that dont belong to any theme.]}
-;; @item The auditory icon player is configure via
+;; @item Contrast this with @code{prompts} --- they  dont belong to any theme.
+;; @item The auditory icon player is configure when setting 
 ;; custom option @code{emacspeak-play-program}.
 ;;@item  That custom setting handles the mapping to various play
 ;; backends (local or cloud)
