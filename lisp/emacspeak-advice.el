@@ -2772,7 +2772,7 @@ Produce an auditory icon if possible."
            (mode-line keymap
                       (mouse-1 . elisp-enable-lexical-binding)))))))))
 
-(provide 'emacspeak-advice)
+
 ;;; Spinner:
 
 (defadvice spinner-start (after emacspeak pre act comp)
@@ -2816,4 +2816,22 @@ Produce an auditory icon if possible."
      (when (ems-interactive-p)
        (emacspeak-speak-char t )))))
 
+
+;;; Speaking Spaces:
+
+(defun ems--speak-spaces ()
+  (let ((beg (save-excursion (skip-syntax-backward " ")))
+        (end (save-excursion (skip-syntax-forward " "))))
+      (dtk-notify-say  (format "%s spaces " (+ (- end beg))))))
+
+(defadvice cycle-spacing (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (ems--speak-spaces)))
+
+
+(provide 'emacspeak-advice)
+
 ;;;  end of file
+
+
