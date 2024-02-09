@@ -35,7 +35,7 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 ;;; Commentary:
-;; This module provides the interface for generating auditory icons 
+;; This module provides the interface for generating auditory icons. 
 ;;  It also defines sound themes for auditory icons.
 ;; @subsection Design goal:
 ;;
