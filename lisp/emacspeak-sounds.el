@@ -220,7 +220,8 @@ icon-name as string."
   (unless (file-exists-p theme) (message "Theme %s is not installed" theme))
   (emacspeak-sounds-cache-rebuild theme)
   (when (and emacspeak-play-program     ; avoid nil nil comparison
-             (string= emacspeak-play-program emacspeak-pactl)) ; upload samples
+             (string= emacspeak-play-program emacspeak-pactl)
+             (not (string-match "cloud" dtk-program))) ; upload samples
         (cl-loop
         for key being the hash-keys of emacspeak-sounds-cache do
         (shell-command
