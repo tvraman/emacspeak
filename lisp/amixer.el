@@ -58,8 +58,6 @@
   :type 'string
   :group 'amixer)
 
-
-
 (defconst amixer-alsactl  (executable-find "alsactl")
   "AlsaCtl program")
 

@@ -96,10 +96,10 @@
   "Move to next row and speak that cell"
   (interactive)
   (let ((col
-          (cl-position
-           (get-text-property (point) 'tabulated-list-column-name)
-           tabulated-list-format
-           :test #'string= :key #'car)))
+         (cl-position
+          (get-text-property (point) 'tabulated-list-column-name)
+          tabulated-list-format
+          :test #'string= :key #'car)))
     (forward-line 1)
     (tabulated-list-next-column  col)
     (when-let ((goal (next-single-property-change (point)
@@ -111,10 +111,10 @@
   "Move to previous row and speak that cell."
   (interactive)
   (let ((col
-          (cl-position
-           (get-text-property (point) 'tabulated-list-column-name)
-           tabulated-list-format
-           :test #'string= :key #'car)))
+         (cl-position
+          (get-text-property (point) 'tabulated-list-column-name)
+          tabulated-list-format
+          :test #'string= :key #'car)))
     (forward-line -1)
     (tabulated-list-next-column  col)
     (when-let ((goal (next-single-property-change

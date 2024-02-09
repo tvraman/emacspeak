@@ -376,5 +376,4 @@ end up building a template page first."
   (let ((html-helper-build-new-buffer nil)) ad-do-it))
 
 (provide  'emacspeak-dismal)
-  
 

@@ -373,15 +373,15 @@ already disabled."
         (if lock
             (progn (emacspeak-screen-saver))
           (progn(emacspeak-prompt 'desktop-login)
-            (emacspeak-prompt 'success)
-            (emacspeak-orca-toggle)
-            (light-black)
-            (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
-            (when
-                (window-configuration-p emacspeak-screen-saver-saved-conf)
-              (set-window-configuration
-               emacspeak-screen-saver-saved-conf))
-            (emacspeak-speak-mode-line)))))))
+                (emacspeak-prompt 'success)
+                (emacspeak-orca-toggle)
+                (light-black)
+                (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
+                (when
+                    (window-configuration-p emacspeak-screen-saver-saved-conf)
+                  (set-window-configuration
+                   emacspeak-screen-saver-saved-conf))
+                (emacspeak-speak-mode-line)))))))
 
 (defun emacspeak-dbus-unwatch-screen-lock ()
   "De-Register a handler to watch screen lock/unlock."

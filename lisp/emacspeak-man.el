@@ -177,5 +177,4 @@ Also provide an auditory icon"
 (define-key Man-mode-map "]" 'forward-paragraph)
 
 (provide  'emacspeak-man)
-  
 

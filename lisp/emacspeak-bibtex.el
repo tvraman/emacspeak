@@ -209,5 +209,4 @@
     (emacspeak-speak-line)))
 
 (provide  'emacspeak-bibtex)
-  
 

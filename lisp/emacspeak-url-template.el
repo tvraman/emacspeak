@@ -69,7 +69,6 @@
 
 (declare-function iimage-recenter "iimage" (&optional arg))
 
-
 ;;;  structures
 
 (cl-defstruct (emacspeak-url-template
@@ -300,7 +299,6 @@ with duplicates removed when saving as a list of string."
  emacspeak-websearch-accessible-google
  "emacspeak-websearch" (query &optional options))
 
-
 (emacspeak-url-template-define
  "Emacspeak Search Via Google"
  "%s"
@@ -389,7 +387,7 @@ with duplicates removed when saving as a list of string."
  "Dictionary Lookup"
  #'(lambda (url)
      (emacspeak-xslt-without-xsl
-         (browse-url url))))
+      (browse-url url))))
 
 ;;;  google OverviewOfNews
 
@@ -665,7 +663,6 @@ Format is stationid+AM/FM."
 If on a URL, replace it with the shortened version. If on a link
 in EWW, use it. Otherwise prompt for a URL to shorten and insert
 the result at point.")
-
 
 ;;; Hoogle
 (declare-function emacspeak-eww-next-h1 "emacspeak-eww" (&optional speak))
@@ -1122,7 +1119,6 @@ template."
        "ci/content/\\(.*\\)\\.html*"
        "print/\\1"
        (shr-url-at-point nil)))))
-
 
 (emacspeak-url-template-define
  "ESPN Cricinfo Search"

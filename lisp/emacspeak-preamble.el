@@ -134,7 +134,6 @@ executable")
   (expand-file-name "emacspeak.ogg" emacspeak-sounds-dir)
   "Emacspeak startup icon.")
 
-
 ;;;###autoload
 (defconst emacspeak-media-extensions
   (eval-when-compile
@@ -158,7 +157,6 @@ executable")
       (list ".m3u" ".asx" ".pls"  ".ram"))
      "$"))
   "Playlist pattern.")
-
 
 ;;;   xslt Environment:
 (defsubst emacspeak-xslt-get (style)
@@ -273,4 +271,4 @@ FN-NAME to our stored value of ems--interactive-fn-name."
     (load file)))
 
 (provide  'emacspeak-preamble)
- 
+

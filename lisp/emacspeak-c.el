@@ -447,5 +447,4 @@ and their meanings. ")
    ))
 
 (provide  'emacspeak-c)
- 
 

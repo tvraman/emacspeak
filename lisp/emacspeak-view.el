@@ -363,5 +363,4 @@ keybindings for view mode")
   (emacspeak-view-optimize-view-keys))
 
 (provide  'emacspeak-view)
-  
 

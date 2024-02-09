@@ -930,9 +930,9 @@ The time position can also be specified as HH:MM:SS."
               (or
                emacspeak-m-player-url-p
                (and emacspeak-m-player-resource
-                (string-match
-                 emacspeak-media-shortcuts-directory
-                 emacspeak-m-player-resource))
+                    (string-match
+                     emacspeak-media-shortcuts-directory
+                     emacspeak-m-player-resource))
                (cl-minusp (emacspeak-m-player-get-length)))
             (emacspeak-m-player-amark-add ems--m-player-mark)
             (emacspeak-m-player-amark-save))

@@ -74,5 +74,4 @@
     (emacspeak-auditory-icon 'large-movement)))
 
 (provide  'emacspeak-perl)
-  
 

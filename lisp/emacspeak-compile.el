@@ -115,5 +115,3 @@
 
 (provide 'emacspeak-compile)
 
- 
-

@@ -539,7 +539,6 @@
      (outline-minor-mode)
      (emacspeak-pronounce-toggle-use-of-dictionaries t)))
 
-
 (defun emacspeak-eww-shr-outline-toggle ()
   "Toggle between shr and native outliner."
   (interactive)
@@ -547,8 +546,8 @@
   (cond
    (outline-search-function             ;turn off emacs 30 version:
     (setq-local outline-regexp "^ *[•0-9]+\\.? "
-          outline-level 'outline-level
-          outline-search-function nil)
+                outline-level 'outline-level
+                outline-search-function nil)
     (emacspeak-auditory-icon 'off)
     (message "Turned off SHR specific outliner"))
    (t                                   ; Turn on emacs 30 version:
@@ -2600,7 +2599,6 @@ Use for large EBook buffers."
   (let ((dir (funcall eww-download-directory)))
     (access-file dir "Cannot download here")
     (async-shell-command (format "cd %s;%s '%s'" dir emacspeak-ytdl url))))
-
 
 (defun emacspeak-eww-url-to-register ()
   "Accumulate  URL in register `u'"

@@ -173,5 +173,4 @@ Otherwise cue user to the line just created."
                (emacspeak-etable-speak-cell)))))
 
 (provide  'emacspeak-etable)
-  
 

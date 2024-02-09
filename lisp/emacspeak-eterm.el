@@ -1272,5 +1272,4 @@ there is terminal activity.")
 completions for filename at point")))
 
 (provide 'emacspeak-eterm)
- 
 

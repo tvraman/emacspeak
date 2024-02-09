@@ -181,5 +181,4 @@ Otherwise cue user to the line just created. "
                   (emacspeak-toggle-audio-indentation))))
 
 (provide  'emacspeak-cperl)
-  
 

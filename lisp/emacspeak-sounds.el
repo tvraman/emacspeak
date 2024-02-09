@@ -156,7 +156,7 @@ Value is a string, a fully qualified filename. ")
 icon-name as string."
   (cl-declare (special emacspeak-sounds-cache))
   (let ((f (emacspeak-sounds-cache-get icon)))
-         (cl-assert  f  t "Icon does not exist.")
+    (cl-assert  f  t "Icon does not exist.")
     (cond 
      ((and  emacspeak-play-program      ; avoid nil nil comparison
             (string= emacspeak-play-program emacspeak-pactl)) ; pactl -> icon  
@@ -193,15 +193,15 @@ icon-name as string."
   (cl-declare (special emacspeak-play-program emacspeak-sounds-dir))
   (emacspeak-sounds-cache-rebuild theme)
   (when (and emacspeak-play-program   ; avoid nil nil comparison
-               (string= emacspeak-play-program emacspeak-pactl)
-               (not (string-match "cloud" dtk-program))) ; upload samples
-      (cl-loop
-       for key being the hash-keys of emacspeak-sounds-cache do
-       (shell-command
-        (format "%s upload-sample %s %s"
-                emacspeak-pactl (gethash key emacspeak-sounds-cache) key))))
-   (setq emacspeak-sounds-current-theme theme)
-   (emacspeak-auditory-icon 'button))
+             (string= emacspeak-play-program emacspeak-pactl)
+             (not (string-match "cloud" dtk-program))) ; upload samples
+    (cl-loop
+     for key being the hash-keys of emacspeak-sounds-cache do
+     (shell-command
+      (format "%s upload-sample %s %s"
+              emacspeak-pactl (gethash key emacspeak-sounds-cache) key))))
+  (setq emacspeak-sounds-current-theme theme)
+  (emacspeak-auditory-icon 'button))
 
 ;; need to use explicit pathnames ---
 ;; can't use our predefined constants such as emacspeak-pactl here.
@@ -259,9 +259,9 @@ Linux: Pipewire and Pulse: pactl.
 Mac, Linux without Pipewire/Pulse: play from sox."
   (cl-declare (special emacspeak-play-program emacspeak-play-args))
   (let ((process-connection-type nil))
-        (start-process
-         emacspeak-play-program nil emacspeak-play-program
-         emacspeak-play-args (emacspeak-sounds-resource icon))))
+    (start-process
+     emacspeak-play-program nil emacspeak-play-program
+     emacspeak-play-args (emacspeak-sounds-resource icon))))
 
 ;;;   toggle auditory icons
 

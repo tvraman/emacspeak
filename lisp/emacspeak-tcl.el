@@ -152,5 +152,4 @@ Default list includes some TclX keywords. ")
     (emacspeak-speak-line)))
 
 (provide  'emacspeak-tcl)
-  
 

@@ -2669,7 +2669,6 @@ Bug: First run fails to bind keys.   Works on subsequent runs."
    #'emacspeak-forms-find-file
    (expand-file-name "forms/get-iplayer.el" emacspeak-etc-directory)))
 
-
 ;;; Portfolio:
 
 ;;;###autoload

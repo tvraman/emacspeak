@@ -677,5 +677,4 @@ widget before summarizing."
     w))
 
 (provide  'emacspeak-widget)
-  
 

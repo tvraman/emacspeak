@@ -227,5 +227,4 @@
                      (buffer-name))))
 
 (provide  'emacspeak-message)
-  
 

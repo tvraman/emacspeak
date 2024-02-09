@@ -1475,7 +1475,7 @@ Set by \\[dtk-set-punctuations].")
   (cl-declare (special tts-notification-device tts-multi-engines))
   (and
    (not (string= tts-notification-device "default"))
-     (cl-find-if #'(lambda (e) (string-match e engine)) tts-multi-engines)))
+   (cl-find-if #'(lambda (e) (string-match e engine)) tts-multi-engines)))
 
 (defun dtk-cloud ()
   "Select  Cloud TTS server."
@@ -1535,8 +1535,6 @@ program. Port defaults to dtk-local-server-port"
 
 ;;;   initialize the speech process
 (defconst dtk-pamixer (executable-find "pamixer") "pamixer")
-
-
 
 (defcustom tts-notification-device
   nil
@@ -2206,6 +2204,5 @@ When called interactively, CHAR defaults to the character after point."
 ;;; dtk-unicode.el ends here
 
 (provide 'dtk-speak)
- 
 
 ;; coding: utf-8

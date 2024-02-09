@@ -753,5 +753,4 @@
 (global-set-key (kbd "C-x r e") 'emacspeak-eww-open-mark)
 
 (provide 'emacspeak-keymap)
- 
 

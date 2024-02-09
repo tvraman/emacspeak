@@ -175,7 +175,6 @@
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'large-movement)))))
 
-
 (cl-loop
  for f in 
  '(
@@ -188,7 +187,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'paragraph)
        (emacspeak-speak-paragraph)))))
-
 
 (defadvice org-cycle-list-bullet (after emacspeak pre act comp)
   "Speak."

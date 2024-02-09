@@ -145,5 +145,4 @@ Then speak the  line."
   (diminish 'folding-mode ""))
 
 (provide  'emacspeak-folding)
- 
 

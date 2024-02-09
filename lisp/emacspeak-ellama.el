@@ -7,7 +7,6 @@
 ;;  $Revision: 4532 $ |
 ;; Location https://github.com/tvraman/emacspeak
 
-
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2024, T. V. Raman
@@ -56,42 +55,41 @@
     (emacspeak-auditory-icon 'item)
     (dtk-speak (ad-get-arg 0))))
 
-
 (cl-loop
  for f in 
  '(
-  ellama-add-code
-  ellama-ask
-  ellama-ask-about
-  ellama-ask-interactive
-  ellama-ask-line
-  ellama-ask-selection
-  ellama-change
-  ellama-change-code
-  ellama-chat
-  ellama-code-add
-  ellama-code-complete
-  ellama-code-edit
-  ellama-code-improve
-  ellama-code-review
-  ellama-complete
-  ellama-complete-code
-  ellama-define-word
-  ellama-enhance-code
-  ellama-enhance-grammar-spelling
-  ellama-enhance-wording
-  ellama-improve-conciseness
-  ellama-improve-grammar
-  ellama-improve-wording
-  ellama-make-concise
-  ellama-make-format
-  ellama-make-list
-  ellama-make-table
-  ellama-render
-  ellama-summarize
-  ellama-summarize-webpage
-  ellama-translate
-  )
+   ellama-add-code
+   ellama-ask
+   ellama-ask-about
+   ellama-ask-interactive
+   ellama-ask-line
+   ellama-ask-selection
+   ellama-change
+   ellama-change-code
+   ellama-chat
+   ellama-code-add
+   ellama-code-complete
+   ellama-code-edit
+   ellama-code-improve
+   ellama-code-review
+   ellama-complete
+   ellama-complete-code
+   ellama-define-word
+   ellama-enhance-code
+   ellama-enhance-grammar-spelling
+   ellama-enhance-wording
+   ellama-improve-conciseness
+   ellama-improve-grammar
+   ellama-improve-wording
+   ellama-make-concise
+   ellama-make-format
+   ellama-make-list
+   ellama-make-table
+   ellama-render
+   ellama-summarize
+   ellama-summarize-webpage
+   ellama-translate
+   )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -99,7 +97,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (dtk-speak "Calling LLM")))))
-
 
 (provide 'emacspeak-ellama)
 ;;;  end of file

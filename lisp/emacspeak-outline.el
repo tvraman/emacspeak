@@ -63,8 +63,8 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'section)
-    (emacspeak-speak-line)))))
+       (emacspeak-auditory-icon 'section)
+       (emacspeak-speak-line)))))
 
 ;;; outline-flag-region:
 
@@ -98,7 +98,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-line)))))
-
 
 ;;;   Hiding and showing subtrees
 
@@ -294,8 +293,6 @@ except that the outline section is  spoken"
 
 ;;;  silence errors to help org-mode:
 
-
-
 ;;;  foldout specific advice
 
 (with-eval-after-load "foldout"
@@ -314,5 +311,4 @@ except that the outline section is  spoken"
       (emacspeak-speak-line))))
 
 (provide  'emacspeak-outline)
- 
 

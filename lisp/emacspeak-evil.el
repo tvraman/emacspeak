@@ -73,7 +73,6 @@
      (when (ems-interactive-p)
        (emacspeak-speak-mode-line)))))
 
-
 ;;;  Structured  Motion:
 
 (cl-loop

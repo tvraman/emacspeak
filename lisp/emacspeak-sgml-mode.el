@@ -88,5 +88,4 @@
     (dtk-speak  "Toggled display of tags")))
 
 (provide  'emacspeak-sgml-mode)
-  
 

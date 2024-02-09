@@ -194,5 +194,3 @@ Fields are assumed to be delimited by whitespace. "
 
 (provide 'emacspeak-tabulate)
 
-  
-

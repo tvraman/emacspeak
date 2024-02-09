@@ -61,7 +61,6 @@
     (emacspeak)))
 
 (provide 'emacspeak-setup)
- 
 
 ;; mode: emacs-lisp
 

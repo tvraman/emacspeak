@@ -612,8 +612,6 @@ Letters do not insert themselves; instead, they are commands.
              (unless (file-exists-p filename) (remhash f emacspeak-epub-db)))
     (when updated (emacspeak-epub-bookshelf-save))))
 
-
-
 (defun emacspeak-epub-find-epubs-in-directory (directory)
   "Return a list of all epub files under directory dir."
   (cl-declare (special emacspeak-epub-find))

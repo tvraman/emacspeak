@@ -234,5 +234,4 @@
               'emacspeak-rmail-speak-current-message-labels))
 
 (provide  'emacspeak-rmail)
-  
 

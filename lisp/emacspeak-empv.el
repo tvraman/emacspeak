@@ -135,8 +135,7 @@ Interactive prefix arg plays on left ear using alsa."
 (defsubst emacspeak-empv-local-file ()
   "Return local media filename read with completion."
   (let (( default-directory empv-audio-dir))
-      (emacspeak-media-local-resource nil)))
-
+    (emacspeak-media-local-resource nil)))
 
 (defun emacspeak-empv-play-local (file )
   "Play a local resource  using mpv."
@@ -151,8 +150,6 @@ Interactive prefix arg plays on left ear using alsa."
   (emacspeak-accumulate-to-register ?u
                                     'empv-youtube-results--current-video-url))
 (declare-function emacspeak-eww-yt-dl "emacspeak-eww" (url))
-
-
 
 ;;;###autoload
 (defun emacspeak-empv-yt-download ()
@@ -249,7 +246,6 @@ Filter is of the  form name=arg-1:arg-2:..."
   (cl-declare (special emacspeak-empv-filter-history))
   (cl-pushnew filter emacspeak-empv-filter-history :test #'string=)
   (empv--send-command (list "af" "toggle" filter)))
-
 
 (defun emacspeak-empv-clear-filter ()
   "Clear all filters. "

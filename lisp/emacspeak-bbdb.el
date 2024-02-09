@@ -191,5 +191,4 @@
    ad-do-it))
 
 (provide  'emacspeak-bbdb)
-  
 

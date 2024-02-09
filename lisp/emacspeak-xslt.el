@@ -71,7 +71,6 @@
                    emacspeak-xslt-directory
                    emacspeak-we-xsl-transform)))
 
-
 (defvar emacspeak-xslt-options
   "--html --nonet --novalid --encoding utf-8"
   "Options passed to xsltproc.")

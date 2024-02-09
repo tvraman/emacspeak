@@ -1264,5 +1264,4 @@ future  use."
       (kill-buffer buffer))))
 
 (provide  'emacspeak-table-ui)
- 
 

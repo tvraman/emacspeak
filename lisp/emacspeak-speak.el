@@ -284,7 +284,7 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
       (insert (format "%s\n" text)))))
 
 (defvar emacspeak-notifications-gc-timer
-     (run-at-time 43200 43200 #'emacspeak-notifications-truncate)
+  (run-at-time 43200 43200 #'emacspeak-notifications-truncate)
   "Idle timer that runs every 12 hours  to cleanup notifications.")
 
 ;;;  Completion helper:
@@ -1429,7 +1429,6 @@ which-func without turning that mode on.  "
   (and emacspeak-comint-autospeak
        (or (derived-mode-p 'comint-mode) (eq 'vterm-mode major-mode))))
 
-
 (defun emacspeak-speak-mode-line (&optional buffer-info)
   "Speak the mode-line.
 Speaks header-line if that is set when called non-interactively.
@@ -1490,27 +1489,27 @@ Interactive prefix arg speaks buffer info."
             (when buffer-read-only
               (emacspeak-auditory-icon 'unmodified-object)))
           (tts-with-punctuations
-              'all
-            (dtk-speak
-             (concat
-              autospeak
-              dir-info
-              (propertize (buffer-name) 'personality
-                          voice-lighten-medium)
-              (emacspeak-get-current-percentage-verbously)
-              (when window-count
-                (propertize window-count 'personality voice-smoothen))
-              (when vc-mode
-                (propertize (downcase vc-mode) 'personality voice-smoothen))
-              (when vc-state (format " %s " vc-state))
-              (when line-number-mode
-                (format "line %d" (emacspeak-get-current-line-number)))
-              (when column-number-mode
-                (format "column %d" (current-column)))
-              (propertize
-               (downcase
-                (format-mode-line mode-name)) 'personality voice-animate)
-              global-info frame-info recursion-info))))))))))
+           'all
+           (dtk-speak
+            (concat
+             autospeak
+             dir-info
+             (propertize (buffer-name) 'personality
+                         voice-lighten-medium)
+             (emacspeak-get-current-percentage-verbously)
+             (when window-count
+               (propertize window-count 'personality voice-smoothen))
+             (when vc-mode
+               (propertize (downcase vc-mode) 'personality voice-smoothen))
+             (when vc-state (format " %s " vc-state))
+             (when line-number-mode
+               (format "line %d" (emacspeak-get-current-line-number)))
+             (when column-number-mode
+               (format "column %d" (current-column)))
+             (propertize
+              (downcase
+               (format-mode-line mode-name)) 'personality voice-animate)
+             global-info frame-info recursion-info))))))))))
 
 (defun emacspeak-return-mode-line ()
   "Debug tool: return visually displayed mode-line as a string."
@@ -1532,7 +1531,7 @@ Interactive prefix arg speaks buffer info."
 
 (defconst ems--vol-cmd
   (eval-when-compile
-     (when emacspeak-wpctl  "wpctl get-volume @DEFAULT_AUDIO_SINK@"))
+    (when emacspeak-wpctl  "wpctl get-volume @DEFAULT_AUDIO_SINK@"))
   "Shell pipeline for getting volume.")
 
 (defsubst ems--show-current-volume ()
@@ -1758,7 +1757,7 @@ Seconds value is also placed in the kill-ring."
   (propertize "VirtualDog" 'face 'bold)
   "Code name of present release.")
 (defvar emacspeak-version
-(concat "59.0,   " emacspeak-codename emacspeak-git-revision)
+  (concat "59.0,   " emacspeak-codename emacspeak-git-revision)
   "Version number for Emacspeak.")
 
 (defun emacspeak-speak-version (&optional speak-rev )
@@ -2858,29 +2857,29 @@ Use `,' and `.' to continuously decrease/increase `selective-display'.
 (defun emacspeak-submit-bug ()
   "Function to submit a bug to the Emacspeak list"
   (interactive)
-(cl-declare (special (reporter-prompt-for-summary-p t)))
+  (cl-declare (special (reporter-prompt-for-summary-p t)))
   (require 'reporter)
   (when
       (yes-or-no-p "Are you sure you want to submit a bug report? ")
-(let ((reporter-prompt-for-summary-p t)
-      (vars
-       '(
-         window-system window-system-version emacs-version system-type
-         emacspeak-version emacspeak-show-point
-         dtk-program dtk-speech-rate dtk-character-scale
-         dtk-split-caps dtk-punctuation-mode visual-line-mode
-         emacspeak-line-echo  emacspeak-word-echo emacspeak-character-echo 
-         emacspeak-auditory-icon-function emacspeak-audio-indentation )))
-  (mapc
-   #'(lambda (x)
-       (if (not (and (boundp x) (symbol-value x)))
-           (setq vars (delq x vars))))
-   vars)
-  (when  reporter-prompt-for-summary-p ; to appease compiler
-      (reporter-submit-bug-report
-       emacspeak-bug-address 
-       (concat "Emacspeak: " emacspeak-version)
-       vars nil nil
-       "Description of Problem:")))))
+    (let ((reporter-prompt-for-summary-p t)
+          (vars
+           '(
+             window-system window-system-version emacs-version system-type
+             emacspeak-version emacspeak-show-point
+             dtk-program dtk-speech-rate dtk-character-scale
+             dtk-split-caps dtk-punctuation-mode visual-line-mode
+             emacspeak-line-echo  emacspeak-word-echo emacspeak-character-echo 
+             emacspeak-auditory-icon-function emacspeak-audio-indentation )))
+      (mapc
+       #'(lambda (x)
+           (if (not (and (boundp x) (symbol-value x)))
+               (setq vars (delq x vars))))
+       vars)
+      (when  reporter-prompt-for-summary-p ; to appease compiler
+        (reporter-submit-bug-report
+         emacspeak-bug-address 
+         (concat "Emacspeak: " emacspeak-version)
+         vars nil nil
+         "Description of Problem:")))))
 
 ;;;  end of file

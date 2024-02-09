@@ -301,5 +301,4 @@ and TABLE gives the values along that dimension."
 ;;;  tts-env for Mac:
 
 (provide 'mac-voices)
- 
 
