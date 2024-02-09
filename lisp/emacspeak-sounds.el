@@ -115,10 +115,10 @@ Use `emacspeak-toggle-auditory-icons' bound to
 
 (defvar emacspeak-auditory-icon-function #'emacspeak-play-icon
   "Function that plays auditory icons.
-play : Launches play-program to play.
-Serve: Send a command to the speech-server to play.
-Queue : Add auditory icon to speech queue.
-Use Serve when working with remote speech servers.")
+play : Launches play-program to play icon.
+Serve: Send a command to the speech-server to play icon.
+Queue : Add  icon to speech queue.
+Recommended: Use Serve when working with remote speech servers.")
 
 ;;;###autoload
 (defun emacspeak-auditory-icon (icon)
@@ -152,7 +152,7 @@ Value is a string, a fully qualified filename. ")
   (gethash sound emacspeak-sounds-cache))
 
 (defun emacspeak-sounds-resource (icon)
-  "Return icon resource, either a fully qualified file name or a
+  "Return  resource, either a fully qualified file name or a
 icon-name as string."
   (cl-declare (special emacspeak-sounds-cache))
   (let ((f (emacspeak-sounds-cache-get icon)))
@@ -167,17 +167,17 @@ icon-name as string."
 
 (defvar emacspeak-sounds-current-theme
   (expand-file-name "ogg-chimes/" emacspeak-sounds-dir)
-  "Name of current theme for auditory icons, a fully-qualified dir. ")
+  "Current theme for  icons, a fully-qualified directory. ")
 
 (defconst emacspeak-pactl (executable-find "pactl") "PaCtl Executable.")
 
-;; Called from emacspeak at startup, and also when selecting themes.
+;; Called when  selecting themes.
 (defun emacspeak-sounds-cache-rebuild (theme)
   "Rebuild sound cache for theme."
   (emacspeak-sounds-cache-prompts)
   (when (file-exists-p theme)
     (cl-loop
-     for f in (directory-files theme 'full ".ogg")
+     for f in (directory-files theme 'full "\\.ogg$")
      do
      (emacspeak-sounds-cache-put
       (intern (file-name-sans-extension (file-name-nondirectory f))) f))))
@@ -265,19 +265,13 @@ Mac, Linux without Pipewire/Pulse: play from sox."
 
 ;;;   toggle auditory icons
 
-;; This is the main entry point to this module:
-
 (defun emacspeak-toggle-auditory-icons (&optional prefix)
   "Toggle use of auditory icons.
 Optional interactive PREFIX arg toggles global value."
   (interactive "P")
   (cl-declare (special emacspeak-use-auditory-icons))
-  (cond
-   (prefix
-    (setq  emacspeak-use-auditory-icons (not emacspeak-use-auditory-icons))
-    (setq-default emacspeak-use-auditory-icons emacspeak-use-auditory-icons))
-   (t
-    (setq emacspeak-use-auditory-icons (not emacspeak-use-auditory-icons))))
+  (setq  emacspeak-use-auditory-icons (not emacspeak-use-auditory-icons))
+   (when prefix (setq-default emacspeak-use-auditory-icons emacspeak-use-auditory-icons))
   (message "Turned %s auditory icons %s"
            (if emacspeak-use-auditory-icons  'on 'off)
            (if prefix "" "locally"))
@@ -293,7 +287,7 @@ Optional interactive PREFIX arg toggles global value."
   "Populate sounds cache with prompts"
   (cl-loop
    for f in
-   (directory-files emacspeak-prompts-dir 'full ".ogg$")
+   (directory-files emacspeak-prompts-dir 'full "\\.ogg$")
    do
    (emacspeak-sounds-cache-put
     (intern (file-name-sans-extension (file-name-nondirectory f)))
