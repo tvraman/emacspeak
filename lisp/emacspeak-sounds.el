@@ -231,7 +231,7 @@ icon-name as string."
   (emacspeak-auditory-icon 'button))
 
 ;; need to use explicit pathnames ---
-;; cant use our predefined constants such as emacspeak-pactl here.
+;; can't use our predefined constants such as emacspeak-pactl here.
 
 (defcustom emacspeak-play-program
   (or emacspeak-pactl sox-play)
