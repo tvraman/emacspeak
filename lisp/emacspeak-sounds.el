@@ -174,7 +174,6 @@ icon-name as string."
 ;; Called when  selecting themes.
 (defun emacspeak-sounds-cache-rebuild (theme)
   "Rebuild sound cache for theme."
-  (emacspeak-sounds-cache-prompts)
   (when (file-exists-p theme)
     (cl-loop
      for f in (directory-files theme 'full "\\.ogg$")
