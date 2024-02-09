@@ -2831,6 +2831,12 @@ Produce an auditory icon if possible."
     (ems--speak-spaces)))
 
 
+(defadvice just-one-space (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)
+    (ems--speak-spaces)))
+
 (provide 'emacspeak-advice)
 
 ;;;  end of file
