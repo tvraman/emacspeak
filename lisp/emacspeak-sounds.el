@@ -194,7 +194,10 @@ icon-name as string."
 (defun emacspeak-sounds-select-theme  ( theme)
   "Select theme for auditory icons."
   (interactive
-   (list (completing-read "Theme: " '("ogg-3c" "ogg-chimes"))))
+   (list
+    (expand-file-name
+     (completing-read "Theme: " '("ogg-3c" "ogg-chimes"))
+     emacspeak-sounds-dir)))
   (cl-declare (special emacspeak-play-program emacspeak-sounds-dir))
   (emacspeak-sounds-define-theme-if-necessary theme)
   (unless (file-directory-p theme) (setq theme  (file-name-directory theme)))
