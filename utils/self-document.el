@@ -406,9 +406,7 @@
            #'string-lessp))
     (with-current-buffer output
       (erase-buffer)
-      (condition-case nil
-          (texinfo-mode)
-        (error nil))
+      (let ((texinfo-mode-hook  nil)))
       (insert "@c Auto-generated, do not hand-edit.\n")
       (insert
        (format

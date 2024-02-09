@@ -5667,7 +5667,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Default Value:
      
-     t
+     nil
      
 
  -- Variable: User Option emacspeak-character-echo

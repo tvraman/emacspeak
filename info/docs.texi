@@ -13683,7 +13683,7 @@ setting.
 Default Value: 
 @verbatim
 
-t
+nil
 
 @end verbatim
 
