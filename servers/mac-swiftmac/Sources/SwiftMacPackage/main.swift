@@ -2,9 +2,10 @@ import AVFoundation
 import AppKit
 import Darwin
 import Foundation
+import OggDecoder
 
 /* Global Constants */
-let version = "1.0.5"
+let version = "1.0.7"
 let name = "swiftmac"
 let speaker = NSSpeechSynthesizer()
 let defaultRate: Float = 200
@@ -432,8 +433,26 @@ func playSound(_ line: String) async {
     debugLogger.log("Enter: playSound")
   #endif
   let p = await isolateParams(line)
-  let soundURL = URL(fileURLWithPath: p)
-  let sound = NSSound(contentsOf: soundURL, byReference: true)
+  let trimmedP = p.trimmingCharacters(in: .whitespacesAndNewlines)
+  let soundURL = URL(fileURLWithPath: trimmedP)
+
+  let savedWavUrl: URL? = await withCheckedContinuation { continuation in
+    if soundURL.pathExtension.lowercased() == "ogg" {
+      let decoder = OGGDecoder()
+      decoder.decode(soundURL) { savedWavUrl in
+        continuation.resume(returning: savedWavUrl)
+      }
+    } else {
+      continuation.resume(returning: soundURL)
+    }
+  }
+
+  guard let url = savedWavUrl else {
+    print("Failed to get audio file URL")
+    return
+  }
+
+  let sound = NSSound(contentsOf: url, byReference: true)
   sound?.volume = await soundVolume
   sound?.play()
 }

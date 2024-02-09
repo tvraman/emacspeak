@@ -7,19 +7,23 @@ LIBPARENTDIR = ${PREFIX}/share/emacs/site-lisp
 LIBDIR =$(LIBPARENTDIR)/emacspeak/servers/mac-swiftmac
 
 SWIFT=swift
-TTS=../swiftmac
+TTS=../
 RELEASE=./.build/release/swiftmac
+OGG=./.build/release/ogg.framework
+VORBIS=./.build/release/vorbis.framework
 
 all:   $(TTS)
 
 $(TTS): $(RELEASE)
-	cp $(RELEASE) $(TTS)
+	cp -f $(RELEASE) $(TTS)
+	cp -rf $(OGG) $(TTS)
+	cp -rf $(VORBIS) $(TTS)
 
-$(RELEASE):
+$(RELEASE): clean
 	$(SWIFT) build -c release
 
 clean:
-	rm -rf .build
+	$(SWIFT) package clean
 
 tidy:
 	swift-format Package.swift > temp
@@ -34,7 +38,7 @@ tidy:
 	cp temp Sources/SwiftMacPackage/statestore.swift 
 	rm temp
 
-# TODO: find someone who actually installs this way and confirm works
-install: $(TTS)
-	$(INSTALL) -d $(DESTDIR)$(LIBDIR)
-	$(INSTALL) $< $(DESTDIR)$(LIBDIR)
+# NOTE: untested path, disabled for now
+# install: $(TTS)
+#	$(INSTALL) -d $(DESTDIR)$(LIBDIR)
+#	$(INSTALL) $< $(DESTDIR)$(LIBDIR)
