@@ -53,8 +53,8 @@ Only supports RSS 1.0
           <xsl:apply-templates select="title|rss:title"/>
         </xsl:element>
       </h2>
-      <p>
       <b><xsl:value-of select="./pubDate/text()"/></b>
+      <p>
       <xsl:apply-templates
           select="description|rss:description"/>
       <xsl:apply-templates
