@@ -184,12 +184,6 @@ icon-name as string."
       (intern (file-name-sans-extension (file-name-nondirectory f)))
       f))))
 
-(defun emacspeak-sounds-define-theme-if-necessary (theme)
-  "Define selected theme if necessary."
-  (if (file-exists-p (expand-file-name "define-theme.el" theme))
-      (load (expand-file-name "define-theme.el" theme))
-    (message "Theme %s is missing its configuration file. " theme)))
-
 ;;;###autoload
 (defun emacspeak-sounds-select-theme  ( theme)
   "Select theme for auditory icons."
@@ -199,7 +193,6 @@ icon-name as string."
      (completing-read "Theme: " '("ogg-3c" "ogg-chimes"))
      emacspeak-sounds-dir)))
   (cl-declare (special emacspeak-play-program emacspeak-sounds-dir))
-  (emacspeak-sounds-define-theme-if-necessary theme)
   (unless (file-directory-p theme) (setq theme  (file-name-directory theme)))
   (unless (file-exists-p theme) (message "Theme %s is not installed" theme))
   (emacspeak-sounds-cache-rebuild theme)
