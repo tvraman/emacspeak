@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 6, 2024.
+last updated on February 8, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -654,19 +654,19 @@ from other modules.
 
      Toggle voice lock mode.
 
-     This is a minor mode.  If called interactively, toggle the
-     ‘Voice-Lock mode’ mode.  If the prefix argument is positive,
-     enable the mode, and if it is zero or negative, disable the mode.
+     This is a minor mode.  If called interactively, toggle the ‘Voice-Lock
+     mode’ mode.  If the prefix argument is positive, enable the mode, and if
+     it is zero or negative, disable the mode.
 
-     If called from Lisp, toggle the mode if ARG is ‘toggle’.  Enable
-     the mode if ARG is nil, omitted, or is a positive number.
-     Disable the mode if ARG is a negative number.
+     If called from Lisp, toggle the mode if ARG is ‘toggle’.  Enable the
+     mode if ARG is nil, omitted, or is a positive number.  Disable the mode
+     if ARG is a negative number.
 
      To check whether the minor mode is enabled in the current buffer,
      evaluate ‘voice-lock-mode’.
 
-     The mode’s hook is called both when the mode is enabled and when
-     it is disabled.
+     The mode’s hook is called both when the mode is enabled and when it is
+     disabled.
 
      (fn &optional ARG)
 
@@ -2256,7 +2256,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <f1> C-s:                              emacspeak-wizards.  (line  398)
 * <f1> C-v:                              emacspeak-wizards.  (line  411)
 * <f1> M:                                emacspeak-wizards.  (line  211)
-* <f1> N:                                emacspeak-speak.    (line 1074)
+* <f1> N:                                emacspeak-speak.    (line 1082)
 * <f1> TAB:                              emacspeak-info.     (line   38)
 * <fn>:                                  dtk-speak.          (line  225)
 * <help> ,:                              emacspeak-wizards.  (line  329)
@@ -2268,7 +2268,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <help> C-s:                            emacspeak-wizards.  (line  399)
 * <help> C-v:                            emacspeak-wizards.  (line  412)
 * <help> M:                              emacspeak-wizards.  (line  212)
-* <help> N:                              emacspeak-speak.    (line 1075)
+* <help> N:                              emacspeak-speak.    (line 1083)
 * <help> TAB:                            emacspeak-info.     (line   39)
 * <print>:                               emacspeak-muggles.  (line   49)
 * <silence>:                             emacspeak-speak.    (line  234)
@@ -2383,7 +2383,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e /:                                 Reading.            (line   91)
 * C-e / <1>:                             emacspeak-websearch.
                                                              (line   53)
-* C-e \:                                 emacspeak-speak.    (line 1045)
+* C-e \:                                 emacspeak-speak.    (line 1053)
 * C-e &:                                 emacspeak-wizards.  (line  827)
 * C-e # a:                               emacspeak-gridtext. (line   27)
 * C-e # l:                               emacspeak-gridtext. (line   37)
@@ -2403,7 +2403,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e =:                                 Status Information. (line   87)
 * C-e = <1>:                             emacspeak-speak.    (line  331)
 * C-e |:                                 emacspeak-speak.    (line  505)
-* C-e 1:                                 emacspeak-speak.    (line  858)
+* C-e 1:                                 emacspeak-speak.    (line  866)
 * C-e 2:                                 emacspeak-speak.    (line  644)
 * C-e 3:                                 amixer.             (line   53)
 * C-e 4:                                 amixer.             (line   52)
@@ -2428,13 +2428,13 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-b:                               emacspeak-bookshare.
                                                              (line   53)
 * C-e C-c:                               emacspeak-speak.    (line  213)
-* C-e C-d:                               emacspeak-speak.    (line 1034)
+* C-e C-d:                               emacspeak-speak.    (line 1042)
 * C-e C-f:                               emacspeak-dired.    (line  165)
 * C-e C-j:                               emacspeak-hide.     (line   39)
 * C-e C-l:                               Status Information. (line   82)
 * C-e C-M-c:                             emacspeak-extras.   (line   28)
-* C-e C-M-q:                             emacspeak-speak.    (line 1055)
-* C-e C-M-SPC:                           emacspeak-speak.    (line  843)
+* C-e C-M-q:                             emacspeak-speak.    (line 1063)
+* C-e C-M-SPC:                           emacspeak-speak.    (line  851)
 * C-e C-n:                               Reading.            (line  138)
 * C-e C-o:                               emacspeak-ocr.      (line   18)
 * C-e C-p:                               Reading.            (line  143)
@@ -2487,7 +2487,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-t x:                             emacspeak-table-ui. (line   24)
 * C-e C-u:                               emacspeak-feeds.    (line   53)
 * C-e C-w:                               Status Information. (line   28)
-* C-e C-w <1>:                           emacspeak-speak.    (line  917)
+* C-e C-w <1>:                           emacspeak-speak.    (line  925)
 * C-e C-x:                               emacspeak-speak.    (line  439)
 * C-e cap V:                             Status Information. (line   38)
 * C-e d cap V:                           Miscellaneous.      (line   84)
@@ -2527,12 +2527,12 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e d f <1>:                           dtk-speak.          (line   96)
 * C-e d i:                               Speech Output Control.
                                                              (line   77)
-* C-e d i <1>:                           emacspeak-speak.    (line  981)
+* C-e d i <1>:                           emacspeak-speak.    (line  989)
 * C-e d k:                               Controlling Echo.   (line   18)
-* C-e d k <1>:                           emacspeak-speak.    (line  995)
+* C-e d k <1>:                           emacspeak-speak.    (line 1003)
 * C-e d l:                               Controlling Echo.   (line   32)
 * C-e d L:                               dtk-speak.          (line   36)
-* C-e d l <1>:                           emacspeak-speak.    (line 1012)
+* C-e d l <1>:                           emacspeak-speak.    (line 1020)
 * C-e d m:                               Speech Output Control.
                                                              (line   50)
 * C-e d N:                               dtk-speak.          (line  133)
@@ -2559,9 +2559,9 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e d V:                               dtk-speak.          (line  339)
 * C-e d v:                               voice-setup.        (line   63)
 * C-e d w:                               Controlling Echo.   (line   25)
-* C-e d w <1>:                           emacspeak-speak.    (line 1063)
+* C-e d w <1>:                           emacspeak-speak.    (line 1071)
 * C-e d z:                               Miscellaneous.      (line   90)
-* C-e d z <1>:                           emacspeak-speak.    (line 1083)
+* C-e d z <1>:                           emacspeak-speak.    (line 1091)
 * C-e DIGIT:                             Reading.            (line  129)
 * C-e <DOWN>:                            Reading.            (line   49)
 * C-e f:                                 Status Information. (line   43)
@@ -2590,7 +2590,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e M-h:                               emacspeak-wizards.  (line  202)
 * C-e M-i:                               emacspeak-table-ui. (line   43)
 * C-e M-l:                               emacspeak-speak.    (line  652)
-* C-e M-m:                               emacspeak-speak.    (line 1022)
+* C-e M-m:                               emacspeak-speak.    (line 1030)
 * C-e M-o:                               emacspeak-comint.   (line   26)
 * C-e M-p:                               emacspeak-wizards.  (line  150)
 * C-e M-s:                               emacspeak-wizards.  (line  268)
@@ -2598,7 +2598,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e M-t:                               emacspeak-speak.    (line   82)
 * C-e M-u:                               emacspeak-feeds.    (line   16)
 * C-e M-v:                               emacspeak-wizards.  (line  161)
-* C-e M-w:                               emacspeak-speak.    (line  908)
+* C-e M-w:                               emacspeak-speak.    (line  916)
 * C-e meta C-@:                          Reading.            (line  183)
 * C-e n:                                 Reading.            (line   86)
 * C-e n <1>:                             emacspeak-speak.    (line   36)
@@ -2615,19 +2615,20 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e s:                                 Miscellaneous.      (line   12)
 * C-e s <1>:                             dtk-speak.          (line  226)
 * C-e SPC:                               Status Information. (line   23)
-* C-e SPC <1>:                           emacspeak-speak.    (line  925)
+* C-e SPC <1>:                           emacspeak-speak.    (line  933)
 * C-e t:                                 Status Information. (line   33)
-* C-e t <1>:                             emacspeak-speak.    (line  866)
+* C-e t <1>:                             emacspeak-speak.    (line  874)
 * C-e T:                                 emacspeak-wizards.  (line  289)
 * C-e TAB:                               emacspeak-speak.    (line  123)
 * C-e u:                                 emacspeak-url-template.
                                                              (line   20)
 * C-e <UP>:                              Reading.            (line   43)
 * C-e v:                                 Status Information. (line   66)
-* C-e V:                                 emacspeak-speak.    (line  880)
+* C-e V:                                 emacspeak-speak.    (line  888)
+* C-e v SPC:                             emacspeak-speak.    (line  843)
 * C-e w:                                 Reading.            (line   21)
 * C-e W:                                 emacspeak-speak.    (line  200)
-* C-e w <1>:                             emacspeak-speak.    (line  933)
+* C-e w <1>:                             emacspeak-speak.    (line  941)
 * C-e x ,:                               emacspeak-wizards.  (line  853)
 * C-e x ;:                               emacspeak-m-player. (line  656)
 * C-e x ::                               emacspeak-m-player. (line  380)
@@ -2702,7 +2703,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-h C-s:                               emacspeak-wizards.  (line  397)
 * C-h C-v:                               emacspeak-wizards.  (line  410)
 * C-h M:                                 emacspeak-wizards.  (line  210)
-* C-h N:                                 emacspeak-speak.    (line 1073)
+* C-h N:                                 emacspeak-speak.    (line 1081)
 * C-h TAB:                               emacspeak-info.     (line   37)
 * C-M-y:                                 emacspeak-muggles.  (line   97)
 * C-x @ a /:                             extra-muggles.      (line  332)

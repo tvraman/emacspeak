@@ -239,6 +239,7 @@
  @section Emacspeak Keybindings On emacspeak-v-keymap
 
 @table @kbd
+@item SPC  emacspeak-speak-spaces
 @item v  view-register
 @end table
 

@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1155 commands and 146 options.
+This chapter documents a total of 1156 commands and 146 options.
 
 @node amixer
 @section amixer
@@ -8306,7 +8306,8 @@ Key bindings for use with C-e v.
 Default Value: 
 @verbatim
 
-(("v" view-register))
+(("SPC" emacspeak-speak-spaces)
+ ("v" view-register))
 
 @end verbatim
 
@@ -13282,6 +13283,20 @@ Skim the current buffer  a paragraph at a time.
 @end format
 @end deffn
 
+@subsubsection emacspeak-speak-spaces
+@deffn {Command} emacspeak-speak-spaces   
+@table @kbd
+@item C-e v SPC
+@kindex C-e v SPC
+@end table
+
+@findex emacspeak-speak-spaces
+
+@format
+Speak number of spaces at point.
+@end format
+@end deffn
+
 @subsubsection emacspeak-speak-spaces-at-point
 @deffn {Command} emacspeak-speak-spaces-at-point   
 @table @kbd
@@ -13668,7 +13683,7 @@ setting.
 Default Value: 
 @verbatim
 
-nil
+t
 
 @end verbatim
 
@@ -20508,19 +20523,19 @@ use from other modules.
 @format
 Toggle voice lock mode.
 
-This is a minor mode.  If called interactively, toggle the
-‘Voice-Lock mode’ mode.  If the prefix argument is positive,
-enable the mode, and if it is zero or negative, disable the mode.
+This is a minor mode.  If called interactively, toggle the ‘Voice-Lock
+mode’ mode.  If the prefix argument is positive, enable the mode, and if
+it is zero or negative, disable the mode.
 
-If called from Lisp, toggle the mode if ARG is ‘toggle’.  Enable
-the mode if ARG is nil, omitted, or is a positive number.
-Disable the mode if ARG is a negative number.
+If called from Lisp, toggle the mode if ARG is ‘toggle’.  Enable the
+mode if ARG is nil, omitted, or is a positive number.  Disable the mode
+if ARG is a negative number.
 
 To check whether the minor mode is enabled in the current buffer,
 evaluate ‘voice-lock-mode’.
 
-The mode’s hook is called both when the mode is enabled and when
-it is disabled.
+The mode’s hook is called both when the mode is enabled and when it is
+disabled.
 
 (fn &optional ARG)
 @end format
