@@ -2827,6 +2827,7 @@ Produce an auditory icon if possible."
 (defadvice cycle-spacing (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
+    (emacspeak-speak-line)
     (ems--speak-spaces)))
 
 
