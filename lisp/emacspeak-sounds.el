@@ -73,7 +73,7 @@
 ;; Emacspeak 13.0, this module defines a themes architecture for
 ;; auditory icons.  Sound files corresponding to a given theme are
 ;; found in appropriate subdirectories of emacspeak-sounds-dir.
-;; @item There are two supported themes: @code{ogg-chimes} and @coe{ogg-3d}.
+;; @item There are two supported themes: @code{ogg-chimes} and @code{ogg-3d}.
 ;; @item Contrast this with @code{prompts} --- they  dont belong to any theme.
 ;; @item The auditory icon player is configure when setting 
 ;; custom option @code{emacspeak-play-program}.

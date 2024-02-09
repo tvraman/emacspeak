@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 8, 2024.
+last updated on February 9, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -4463,8 +4463,8 @@ File: emacspeak.info,  Node: emacspeak-sounds,  Next: emacspeak-speak,  Prev: em
 12.179 emacspeak-sounds
 =======================
 
-This module provides the interface for generating auditory icons in
-emacspeak.  It also defines sound themes for auditory icons.
+This module provides the interface for generating auditory icons It also
+defines sound themes for auditory icons.
 
 12.179.1 Design goal:
 ---------------------
@@ -4475,10 +4475,11 @@ emacspeak.  It also defines sound themes for auditory icons.
      icons turned off.
    • Command ‘emacspeak-toggle-auditory-icons’ toggles the use of
      auditory icons.  This flag is buffer-local; use an interactive
-     prefix argosy ‘C-u’ to turn auditory icons on/off globally.  Use
-     ‘setq-default emacspeak-use-auditory-icons nil)’ to turn these off
-     at startup; default is to use auditory icons globally.
-   • General principle:
+     prefix argosy ‘C-u’ to toggle auditory icons on/off globally.
+   • Use ‘setq-default emacspeak-use-auditory-icons nil)’ to turn
+     auditory icons off at startup; default is to use auditory icons
+     globally.
+   • General principle for using auditory icons:
        1. Convey information about events taking place in parallel.
        2. For instance, if making a selection automatically moves the
           current focus to the next choice, We speak the next choice,
@@ -4488,8 +4489,8 @@ emacspeak.  It also defines sound themes for auditory icons.
           accompanying spoken feedback.
    • This module provides a mapping between names in the elisp world
      (symbols) and actual sound files.
-   • icon-names are symbols; sound files are fully-qualified file-names.
-   • Modules that use auditory icons should use these names and not
+   • icon names are symbols; sound files are fully-qualified file-names.
+   • Modules that use auditory icons should use icon names and not
      actual file names.
    • Icons are played either using a local player, or by sending
      appropriate commands to the speech server (local or cloud).
@@ -4498,8 +4499,9 @@ emacspeak.  It also defines sound themes for auditory icons.
    • As of Emacspeak 13.0, this module defines a themes architecture for
      auditory icons.  Sound files corresponding to a given theme are
      found in appropriate subdirectories of emacspeak-sounds-dir.
-   • Contrast this with ‘prompts[ that dont belong to any theme.]’
-   • The auditory icon player is configure via custom option
+   • There are two supported themes: ‘ogg-chimes’ and ‘ogg-3d’.
+   • Contrast this with ‘prompts’ -- they dont belong to any theme.
+   • The auditory icon player is configure when setting custom option
      ‘emacspeak-play-program’.
    • That custom setting handles the mapping to various play backends
      (local or cloud) from audio subsystems such as Pulseaudio and
