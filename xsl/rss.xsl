@@ -54,9 +54,9 @@ Only supports RSS 1.0
         </xsl:element>
       </h2>
       <p>
+      <b><xsl:value-of select="./pubDate/text()"/></b>
       <xsl:apply-templates
           select="description|rss:description"/>
-      
       <xsl:apply-templates
           select="enclosure|rss:enclosure|media:content"/>
       </p>
