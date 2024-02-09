@@ -113,7 +113,7 @@ Use `emacspeak-toggle-auditory-icons' bound to
 
 ;;;   setup play function
 
-(defvar emacspeak-auditory-icon-function #'emacspeak-play-auditory-icon
+(defvar emacspeak-auditory-icon-function #'emacspeak-play-icon
   "Function that plays auditory icons.
 play : Launches play-program to play.
 Serve: Send a command to the speech-server to play.
@@ -128,7 +128,7 @@ Use Serve when working with remote speech servers.")
   (when emacspeak-use-auditory-icons
     (when (and (null emacspeak-play-program)
                (eq emacspeak-auditory-icon-function
-                   'emacspeak-play-auditory-icon))
+                   'emacspeak-play-icon))
       ;; expecting a local player but none available, so turn off icons.
       (setq-default emacspeak-use-auditory-icons nil)
       (message "No valid player for auditory icons."))
@@ -222,7 +222,7 @@ None: For systems that rely on the speech server playing the icon."
       (set-default sym val)
       (cond ; todo: should we reset icon player  when prog  becomes non-null
        ((null  val)                     ; no local player. Use server
-        (setq emacspeak-auditory-icon-function #'emacspeak-serve-auditory-icon))
+        (setq emacspeak-auditory-icon-function #'emacspeak-serve-icon))
        ((string= emacspeak-pactl val)
         (setq emacspeak-play-args "play-sample"))
        ((or  (string= "/usr/bin/play" val)
@@ -231,7 +231,7 @@ None: For systems that rely on the speech server playing the icon."
   :group 'emacspeak)
 
 ;;;   queue an auditory icon
-(defun emacspeak-queue-auditory-icon (icon)
+(defun emacspeak-queue-icon (icon)
   "Queue auditory icon ICON.
 Used by TTS layer to play icons that are found as text property
 `auditory-icon' on text being spoken"
@@ -241,7 +241,7 @@ Used by TTS layer to play icons that are found as text property
    (format "a %s\n" (emacspeak-sounds-resource icon))))
 
 ;;;   serve an auditory icon
-(defun emacspeak-serve-auditory-icon (icon)
+(defun emacspeak-serve-icon (icon)
   "Serve auditory icon ICON."
   (cl-declare (special dtk-speaker-process))
   (process-send-string
@@ -253,7 +253,7 @@ Used by TTS layer to play icons that are found as text property
   "Arguments passed to play program.")
 ;; Should never be called if local player not available
 
-(defun emacspeak-play-auditory-icon (icon)
+(defun emacspeak-play-icon (icon)
   "Produce auditory icon ICON using a local player.
 Linux: Pipewire and Pulse: pactl.
 Mac, Linux without Pipewire/Pulse: play from sox."
@@ -304,7 +304,7 @@ Optional interactive PREFIX arg toggles global value."
   (cl-declare (special dtk-program emacspeak-use-auditory-icons ))
   (when emacspeak-use-auditory-icons
     (cond
-     ((string-match "cloud" dtk-program) (emacspeak-serve-auditory-icon name))
+     ((string-match "cloud" dtk-program) (emacspeak-serve-icon name))
      ((and emacspeak-play-program
            (string= emacspeak-play-program emacspeak-pactl))
       (start-process

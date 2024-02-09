@@ -57,7 +57,7 @@
 
 (declare-function voice-setup-get-voice-for-face "voice-setup" (face))
 (declare-function emacspeak-auditory-icon "emacspeak-sounds.el" (icon))
-(declare-function emacspeak-queue-auditory-icon "emacspeak-sounds.el"
+(declare-function emacspeak-queue-icon "emacspeak-sounds.el"
                   (icon))
 ;;;###autoload
 (defvar dtk-program
@@ -803,7 +803,7 @@ Argument COMPLEMENT  is the complement of separator."
                        tts-default-voice emacspeak-use-auditory-icons))
   (when (and emacspeak-use-auditory-icons
              (get-text-property start 'auditory-icon))
-    (emacspeak-queue-auditory-icon (get-text-property start 'auditory-icon)))
+    (emacspeak-queue-icon (get-text-property start 'auditory-icon)))
   (dtk-interp-queue-code (tts-voice-reset-code))
   (when-let ((pause  (get-text-property start 'pause))
              (dtk-interp-silence pause)))
@@ -1483,7 +1483,7 @@ Set by \\[dtk-set-punctuations].")
   (cl-declare (special dtk-cloud-server))
   (dtk-select-server dtk-cloud-server)
   (setq emacspeak-auditory-icon-function
-        #'emacspeak-serve-auditory-icon
+        #'emacspeak-serve-icon
         emacspeak-play-program nil)
   (dtk-initialize)
   (when (tts-multistream-p dtk-cloud-server)
@@ -1575,7 +1575,7 @@ If you set the device here, make sure it exists first."
     (setq dtk-speaker-process new)
     (when (tts-multistream-p dtk-program) (dtk-notify-initialize))
     (when (string-match "cloud" dtk-program)
-      (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon))
+      (setq emacspeak-auditory-icon-function 'emacspeak-serve-icon))
     ;; `voice-setup' requires us, so we can't require it at top-level.
     (require 'voice-setup)
     (voice-setup)))
