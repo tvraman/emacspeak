@@ -4463,8 +4463,8 @@ File: emacspeak.info,  Node: emacspeak-sounds,  Next: emacspeak-speak,  Prev: em
 12.179 emacspeak-sounds
 =======================
 
-This module provides the interface for generating auditory icons It also
-defines sound themes for auditory icons.
+This module provides the interface for generating auditory icons.  It
+also defines sound themes for auditory icons.
 
 12.179.1 Design goal:
 ---------------------

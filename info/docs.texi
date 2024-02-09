@@ -11982,7 +11982,7 @@ Speak number of stones remaining.
 @node emacspeak-sounds
 @section emacspeak-sounds
 
-This module provides the interface for generating auditory icons
+This module provides the interface for generating auditory icons.
  It also defines sound themes for auditory icons.
 @subsection Design goal:
 
