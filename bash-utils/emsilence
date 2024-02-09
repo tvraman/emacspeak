@@ -2,4 +2,5 @@
 # Silence emacspeak (speech, media)from outside 
 #Usage emsilence 
 
-emacsclient -n -e "(make-thread #'(lambda nil (emacspeak-silence)))"  2>&1 > /dev/null
+pidof -q `which emacs` &&\
+ emacsclient -n -e "(emacspeak-silence)"  2>&1 > /dev/null

@@ -1,5 +1,0 @@
-#!/bin/sh
-# Play media URL using emacspeak-m-player
-#Usage emplay $url 
-
-emacsclient -n -e "(emacspeak-m-player \"$@\")"  2>&1 > /dev/null

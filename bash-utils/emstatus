@@ -2,4 +2,5 @@
 # Speak from outside Emacs
 #Usage emstatus 
 
-emacsclient -n -e "(make-thread #'emacspeak-speak-mode-line)"  2>&1 > /dev/null
+pidof -q `which emacs` &&  \
+emacsclient -n -e "(emacspeak-speak-mode-line)"  2>&1 > /dev/null

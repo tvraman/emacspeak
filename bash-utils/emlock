@@ -1,4 +1,5 @@
 #!/bin/sh
 # Ask emacs to lock the screen.
 #Usage emlock 
-emacsclient -n -e "(emacspeak-dbus-lock-screen)"  2>&1 > /dev/null
+pidof -q `which emacs` &&\
+ emacsclient -n -e "(emacspeak-dbus-lock-screen)"   2>&1 > /dev/null

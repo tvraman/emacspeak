@@ -2,4 +2,5 @@
 # Speak from outside Emacs
 #Usage emsay <text> 
 l="$@"
-emacsclient -n -e "(make-thread #'(lambda () (dtk-speak \"$l\")))"  2>&1 > /dev/null
+pidof -q `which emacs` &&\
+ emacsclient -n -e "(dtk-speak \"$l\")"

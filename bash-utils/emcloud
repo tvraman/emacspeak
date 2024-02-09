@@ -2,4 +2,5 @@
 # Have emacspeak connect to a TTS server in the cloud 
 #Usage emcloud 
 
-emacsclient -n -e "(dtk-cloud)"
+pidof -q `which emacs` &&\
+ emacsclient -n -e "(dtk-cloud)" 2>&1 > /dev/null
