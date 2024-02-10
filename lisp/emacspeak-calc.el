@@ -45,7 +45,7 @@
 ;; To fix all of calc's interactive functions
 ;;; Code:
 
-;;;  required modules
+;;  required modules
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 

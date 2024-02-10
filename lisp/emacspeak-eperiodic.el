@@ -44,7 +44,7 @@
 ;; http://vegemite.chem.nottingham.ac.uk/~matt/emacs/eperiodic.el
 ;;; Code:
 
-;;;  required modules
+;;  required modules
 
 ;;; Code:
 

@@ -41,7 +41,7 @@
 ;;; Commentary:
 ;; This module provides Feeds support for Emacspeak
 
-;;;  required modules
+;;  required modules
 
 ;;; Code:
 (eval-when-compile (require 'cl-lib))

@@ -43,7 +43,7 @@
 ;; This module is Dectalk specific.
 ;;; Code:
 
-;;;  required modules
+;;  required modules
 
 (eval-when-compile (require 'cl-lib))
 (require 'emacspeak-preamble)

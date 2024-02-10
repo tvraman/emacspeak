@@ -42,7 +42,7 @@
 ;;  Module Plain is  suitable for a device for which you haven't yet
 ;;  implemented appropriate voice-locking controls
 
-;;;  required modules
+;;  required modules
 
 ;;; Code:
 (eval-when-compile (require 'cl-lib))

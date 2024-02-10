@@ -43,7 +43,7 @@
 ;; This module speech-enables ses
 ;;; Code:
 
-;;;  required modules
+;;  required modules
 
 ;;; Code:
 (cl-declaim  (optimize  (safety 0) (speed 3)))

@@ -45,7 +45,7 @@
 ;; relative position.
 ;; 
 
-;;;  required modules
+;;  required modules
 
 ;;; Code:
 (eval-when-compile (require 'cl-lib))

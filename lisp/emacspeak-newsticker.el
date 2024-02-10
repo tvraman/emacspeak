@@ -43,7 +43,7 @@
 ;; RSS
 ;; Provides functionality similar to amphetadesk --but in pure elisp
 
-;;;  required modules
+;;  required modules
 
 ;;; Code:
 (cl-declaim  (optimize  (safety 0) (speed 3)))

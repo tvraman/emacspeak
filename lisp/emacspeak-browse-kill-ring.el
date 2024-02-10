@@ -42,7 +42,7 @@
 ;; browse-kill-ring.el - interactively insert items from kill-ring 
 ;;; Code:
 
-;;;  required modules
+;;  required modules
 
 ;;; Code:
 (eval-when-compile (require 'cl-lib))

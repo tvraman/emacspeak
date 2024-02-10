@@ -43,7 +43,7 @@
 ;; This module implements the necessary extensions to provide talking
 ;; widgets.
 
-;;;  required modules 
+;;  required modules 
 
 ;;; Code:
 

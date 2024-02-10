@@ -95,7 +95,7 @@
 ;; If @code{emacspeak-play-program} is set to @code{nil} we serve icons, otherwise play
 ;;them using a local player.
 ;;; Code:
-;;;  required modules
+;;  required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))

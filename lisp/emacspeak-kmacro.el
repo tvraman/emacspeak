@@ -41,7 +41,7 @@
 ;;;   Introduction
 ;; speech-enables kmacro --- a kbd macro interface
 
-;;;  required modules
+;;  required modules
 
 ;;; Code:
 (cl-declaim  (optimize  (safety 0) (speed 3)))

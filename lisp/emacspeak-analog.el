@@ -42,7 +42,7 @@
 
 ;; Speech-enables package analog --convenient log analyzer 
 
-;;;  required modules
+;;  required modules
 
 ;;; Code:
 (eval-when-compile (require 'cl-lib))

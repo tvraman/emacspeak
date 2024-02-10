@@ -43,7 +43,7 @@
 
 ;;; Code:
 
-;;;  required modules
+;;  required modules
 
 ;;; Code:
 
