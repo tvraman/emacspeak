@@ -426,6 +426,7 @@ commands and options for details."
   (setq line-number-mode nil column-number-mode nil)
   (global-visual-line-mode -1)
   (transient-mark-mode -1)
+  (when emacspeak-wpctl)
   (add-to-list
    'minor-mode-alist
    '(emacspeak-speak-show-volume (:eval (ems--show-current-volume))))
