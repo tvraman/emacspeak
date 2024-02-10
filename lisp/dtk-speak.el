@@ -1471,7 +1471,7 @@ Set by \\[dtk-set-punctuations].")
   "List of TTS engines that are multi capable.")
 
 (defsubst tts-multistream-p (engine)
-  "Checks if this tts-engine can support multiple s."
+  "Checks if this tts-engine can support multiple streams."
   (cl-declare (special tts-notification-device tts-multi-engines))
   (and
    (not (string= tts-notification-device "default"))
@@ -1482,9 +1482,7 @@ Set by \\[dtk-set-punctuations].")
   (interactive)
   (cl-declare (special dtk-cloud-server))
   (dtk-select-server dtk-cloud-server)
-  (setq emacspeak-auditory-icon-function
-        #'emacspeak-serve-icon
-        emacspeak-play-program nil)
+  (setq emacspeak-play-program nil)
   (dtk-initialize)
   (when (tts-multistream-p dtk-cloud-server)
     (dtk-notify-initialize)))
@@ -1572,8 +1570,8 @@ If you set the device here, make sure it exists first."
                                           dtk-speaker-process))
     (setq dtk-speaker-process new)
     (when (tts-multistream-p dtk-program) (dtk-notify-initialize))
-    (when (string-match "cloud" dtk-program)
-      (setq emacspeak-auditory-icon-function 'emacspeak-serve-icon))
+    (when (string-match "cloud" dtk-program) ; we'll serve icons.
+      (setq emacspeak-play-program nil))
     ;; `voice-setup' requires us, so we can't require it at top-level.
     (require 'voice-setup)
     (voice-setup)))

@@ -296,7 +296,7 @@ and TABLE gives the values along that dimension."
   (dtk-unicode-update-untouched-charsets
    '(ascii latin-iso8859-1 latin-iso8859-15 latin-iso8859-9
            eight-bit-graphic))
-  (setq emacspeak-auditory-icon-function #'emacspeak-serve-icon))
+  (setq emacspeak-play-program nil))
 
 ;;;  tts-env for Mac:
 
