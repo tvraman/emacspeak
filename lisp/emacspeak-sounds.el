@@ -68,7 +68,7 @@
 ;; should use icon names and not  actual file names.
 ;; @item Icons are played either using a local player, or by sending
 ;; appropriate commands to the speech server (local or cloud).
-;; @item  This is determined by the value of emacspeak-auditory-icon-function.
+;; @item  This is determined by the value of @code{emacspeak-play-program.}
 ;; @item As of
 ;; Emacspeak 13.0, this module defines a themes architecture for
 ;; auditory icons.  Sound files corresponding to a given theme are
@@ -98,6 +98,9 @@
 ;; @item The included themes have been optimized over years of use and
 ;; are primarily tuned for using with headphones.
 ;; @end enumerate
+
+;; If the above is set to @code{nil} we serve icons, otherwise play
+;;them using a local player.;;* 
 ;;; Code:
 ;;;  required modules
 
@@ -113,26 +116,14 @@ Use `emacspeak-toggle-auditory-icons' bound to
 
 ;;;   setup play function
 
-(defvar emacspeak-auditory-icon-function #'emacspeak-play-icon
-  "Function that plays auditory icons.
-play : Launches play-program to play icon.
-Serve: Send a command to the speech-server to play icon.
-Queue : Add  icon to speech queue.
-Recommended: Use Serve when working with remote speech servers.")
-
 ;;;###autoload
 (defun emacspeak-auditory-icon (icon)
-  "Play an auditory ICON."
-  (cl-declare (special emacspeak-use-auditory-icons emacspeak-play-program
-                       emacspeak-auditory-icon-function))
+  "Produce an auditory ICON."
+  (cl-declare (special emacspeak-use-auditory-icons emacspeak-play-program))
   (when emacspeak-use-auditory-icons
-    (when (and (null emacspeak-play-program)
-               (eq emacspeak-auditory-icon-function
-                   'emacspeak-play-icon))
-      ;; expecting a local player but none available, so turn off icons.
-      (setq-default emacspeak-use-auditory-icons nil)
-      (message "No valid player for auditory icons."))
-    (funcall emacspeak-auditory-icon-function icon)))
+    (if   (null emacspeak-play-program) ; serve icon
+        (emacspeak-serve-icon icon)
+        (emacspeak-play-icon icon))))
 
 ;;; Sounds Cache:
 
@@ -219,9 +210,7 @@ None: For systems that rely on the speech server playing the icon."
   :set
   #'(lambda(sym val)
       (set-default sym val)
-      (cond ; todo: should we reset icon player  when prog  becomes non-null
-       ((null  val)                     ; no local player. Use server
-        (setq emacspeak-auditory-icon-function #'emacspeak-serve-icon))
+      (cond
        ((string= emacspeak-pactl val)
         (setq emacspeak-play-args "play-sample"))
        ((or  (string= "/usr/bin/play" val)
