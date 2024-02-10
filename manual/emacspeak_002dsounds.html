@@ -104,21 +104,21 @@
             moves the current focus to the next choice, We speak
             the next choice, while indicating the fact that
             something was selected with an auditory icon.</li>
-            <li>Speed of interaction — auditory icons take less
+            <li>Speed up task completion — auditory icons take less
             time than the accompanying spoken feedback.</li>
           </ol>
         </li>
         <li>This module provides a mapping between names in the
-        elisp world (symbols) and actual sound files.</li>
-        <li>icon names are symbols; sound files are fully-qualified
-        file-names.</li>
-        <li>Modules that use auditory icons should use icon names
-        and not actual file names.</li>
+        elisp world and actual sound files.</li>
+        <li>icon names are symbols; sound files are strings that
+        fully-qualified file-names.</li>
+        <li>Modules that use auditory icons use icon names and not
+        actual file names.</li>
         <li>Icons are played either using a local player, or by
         sending appropriate commands to the speech server (local or
         cloud).</li>
         <li>This is determined by the value of <code class=
-        "code">emacspeak-play-program.</code></li>
+        "code">emacspeak-play-program</code>.</li>
         <li>As of Emacspeak 13.0, this module defines a themes
         architecture for auditory icons. Sound files corresponding
         to a given theme are found in appropriate subdirectories of
@@ -128,12 +128,6 @@
         "code">ogg-3d</code>.</li>
         <li>Contrast this with <code class="code">prompts</code> —
         they dont belong to any theme.</li>
-        <li>The auditory icon player is configure when setting
-        custom option <code class=
-        "code">emacspeak-play-program</code>.</li>
-        <li>That custom setting handles the mapping to various play
-        backends (local or cloud) from audio subsystems such as
-        Pulseaudio and Pipewire.</li>
       </ul>
     </div>
     <div class="subsection-level-extent" id=
@@ -159,8 +153,9 @@
         <li>The included themes have been optimized over years of
         use and are primarily tuned for using with headphones.</li>
       </ol>
-      <p>If the above is set to <code class="code">nil</code> we
-      serve icons, otherwise play them using a local player.;;*</p>
+      <p>If <code class="code">emacspeak-play-program</code> is set
+      to <code class="code">nil</code> we serve icons, otherwise
+      play them using a local player.</p>
     </div>
     <div class="subsection-level-extent" id=
     "Emacspeak_002dSounds-Commands">
