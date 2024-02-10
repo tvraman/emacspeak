@@ -359,7 +359,7 @@ This cannot be set via custom; set this in your startup file before
   "Play startup icon."
   (cl-declare (special emacspeak-play-startup-icon ))
   (when (and  emacspeak-play-startup-icon )
-    (emacspeak-prompt 'emacspeak)))
+    (emacspeak-icon 'emacspeak)))
 
 (defsubst emacspeak-easter-egg ()
   "Easter Egg"
@@ -432,7 +432,7 @@ commands and options for details."
      '(emacspeak-speak-show-volume (:eval (ems--show-current-volume)))))
   (setenv "EMACSPEAK_DIR" emacspeak-directory)
   (message emacspeak-startup-message)
-  (when   emacspeak-play-startup-icon (emacspeak-prompt 'emacspeak)
+  (when   emacspeak-play-startup-icon (emacspeak-icon 'emacspeak)
           (emacspeak-easter-egg)))
 
 (provide 'emacspeak)

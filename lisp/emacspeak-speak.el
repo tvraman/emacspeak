@@ -2624,7 +2624,7 @@ but quickly switch to a window by name."
            (string=  (alist-get ?L data) "off-line")
            (< (string-to-number (alist-get ?p data)) 10)
            (>= (string-to-number (alist-get ?p emacspeak-battery-prev)) 10))
-    (emacspeak-prompt 'battery-low)
+    (emacspeak-icon 'battery-low)
     (setq emacspeak-battery-prev data)))
 (when (boundp 'battery-update-functions)
   (add-to-list 'battery-update-functions 'emacspeak-battery-alarm))

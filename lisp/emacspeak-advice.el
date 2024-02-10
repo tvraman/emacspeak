@@ -913,7 +913,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   "speak."
   (emacspeak-icon 'open-object)
   (dtk-speak (or  (ad-get-arg 0) "password: "))
-  (emacspeak-prompt 'pwd))
+  (emacspeak-icon 'pwd))
 
 (defvar emacspeak-read-char-prompt-cache nil
   "Cache prompt from read-char etc.")

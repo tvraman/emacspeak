@@ -281,16 +281,6 @@ Optional interactive PREFIX arg toggles global value."
     (intern (file-name-sans-extension (file-name-nondirectory f)))
     f)))
 
-(defun emacspeak-prompt (name)
-  "Play  prompt for specified name."
-  (cl-declare (special dtk-program emacspeak-use-auditory-icons ))
-  (when emacspeak-use-auditory-icons
-    (cond
-     ((string-match "cloud" dtk-program) (emacspeak-serve-icon name))
-     ((and emacspeak-play-program
-           (string= emacspeak-play-program emacspeak-pactl))
-      (start-process
-       "prompt" nil emacspeak-pactl emacspeak-play-args
-       (emacspeak-sounds-resource name))))))
+
 
 (provide  'emacspeak-sounds)

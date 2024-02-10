@@ -95,7 +95,7 @@ startup sound."
   (cl-declare (special emacspeak-sounds-dir))
   (emacspeak-dbus-setup)
   (setq gc-cons-threshold 64000000)
-  (emacspeak-prompt 'tvr-emacs)
+  (emacspeak-icon 'tvr-emacs)
   (tvr-tabs)
   (switch-to-buffer "Home")
   (message
@@ -244,7 +244,7 @@ configuration happens via the after-init-hook. "
 
 (declare-function yas--load-snippet-dirs "yasnippet" (&optional nojit))
 (declare-function emacspeak-dbus-setup "emacspeak-dbus" nil)
-(declare-function emacspeak-prompt "emacspeak-sounds" (name))
+
 
 (declare-function
  emacspeak-wizards-project-shells-initialize
