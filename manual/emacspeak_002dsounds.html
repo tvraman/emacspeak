@@ -117,8 +117,8 @@
         <li>Icons are played either using a local player, or by
         sending appropriate commands to the speech server (local or
         cloud).</li>
-        <li>This is determined by the value of
-        emacspeak-auditory-icon-function.</li>
+        <li>This is determined by the value of <code class=
+        "code">emacspeak-play-program.</code></li>
         <li>As of Emacspeak 13.0, this module defines a themes
         architecture for auditory icons. Sound files corresponding
         to a given theme are found in appropriate subdirectories of
@@ -159,6 +159,8 @@
         <li>The included themes have been optimized over years of
         use and are primarily tuned for using with headphones.</li>
       </ol>
+      <p>If the above is set to <code class="code">nil</code> we
+      serve icons, otherwise play them using a local player.;;*</p>
     </div>
     <div class="subsection-level-extent" id=
     "Emacspeak_002dSounds-Commands">
