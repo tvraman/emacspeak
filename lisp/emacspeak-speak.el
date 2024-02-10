@@ -2869,7 +2869,7 @@ Use `,' and `.' to continuously decrease/increase `selective-display'.
              dtk-program dtk-speech-rate dtk-character-scale
              dtk-split-caps dtk-punctuation-mode visual-line-mode
              emacspeak-line-echo  emacspeak-word-echo emacspeak-character-echo 
-             emacspeak-auditory-icon-function emacspeak-audio-indentation )))
+              emacspeak-audio-indentation )))
       (mapc
        #'(lambda (x)
            (if (not (and (boundp x) (symbol-value x)))
