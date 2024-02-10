@@ -12015,7 +12015,7 @@ and actual sound files.
 should use icon names and not  actual file names.
 @item Icons are played either using a local player, or by sending
 appropriate commands to the speech server (local or cloud).
-@item  This is determined by the value of emacspeak-auditory-icon-function.
+@item  This is determined by the value of @code{emacspeak-play-program.}
 @item As of
 Emacspeak 13.0, this module defines a themes architecture for
 auditory icons.  Sound files corresponding to a given theme are
@@ -12045,6 +12045,9 @@ colors from  a color palette.
 @item The included themes have been optimized over years of use and
 are primarily tuned for using with headphones.
 @end enumerate
+
+If the above is set to @code{nil} we serve icons, otherwise play
+them using a local player.;;*
 
 @subsection Emacspeak-Sounds Commands
 

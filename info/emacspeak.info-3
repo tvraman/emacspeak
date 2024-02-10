@@ -2375,7 +2375,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e ':                                 emacspeak-empv.     (line   48)
 * C-e ":                                 emacspeak-empv.     (line   59)
 * C-e (:                                 amixer.             (line   25)
-* C-e ):                                 emacspeak-sounds.   (line   77)
+* C-e ):                                 emacspeak-sounds.   (line   79)
 * C-e [:                                 Reading.            (line  121)
 * C-e [ <1>:                             emacspeak-speak.    (line  682)
 * C-e ]:                                 emacspeak-speak.    (line  660)
@@ -2424,7 +2424,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-<left>:                          emacspeak-wizards.  (line  139)
 * C-e C-<return>:                        emacspeak-speak.    (line  318)
 * C-e C-<right>:                         emacspeak-wizards.  (line  114)
-* C-e C-a:                               emacspeak-sounds.   (line   87)
+* C-e C-a:                               emacspeak-sounds.   (line   89)
 * C-e C-b:                               emacspeak-bookshare.
                                                              (line   53)
 * C-e C-c:                               emacspeak-speak.    (line  213)
