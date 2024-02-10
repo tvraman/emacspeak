@@ -242,8 +242,8 @@ s   Sub-square Distribution.
      (list (* (% this 3) 3)
            (* (/ this 3) 3)))
     (if (eq (get-text-property  (point) 'face) 'bold)
-        (emacspeak-auditory-icon 'item)
-      (emacspeak-auditory-icon 'select-object))
+        (emacspeak-icon 'item)
+      (emacspeak-icon 'select-object))
     (emacspeak-sudoku-speak-current-cell-value)))
 
 (defun emacspeak-sudoku-up-sub-square ()
@@ -295,7 +295,7 @@ s   Sub-square Distribution.
      (cl-loop for i from 0 to  8
               collect  (list i (cl-second cell)))))
   (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon 'delete-object)))
+    (emacspeak-icon 'delete-object)))
 
 (defun emacspeak-sudoku-erase-current-column ()
   "Erase current column."
@@ -306,7 +306,7 @@ s   Sub-square Distribution.
      (cl-loop for i from 0 to  8
               collect  (list (cl-first cell) i))))
   (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon 'delete-object)))
+    (emacspeak-icon 'delete-object)))
 
 (defun emacspeak-sudoku-sub-square-cells (square)
   "Return list of cells in sub-square."
@@ -327,7 +327,7 @@ s   Sub-square Distribution.
          (square-cells (emacspeak-sudoku-sub-square-cells square)))
     (emacspeak-sudoku-erase-these-cells square-cells))
   (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon 'delete-object)))
+    (emacspeak-icon 'delete-object)))
 
 ;;;  advice motion:
 
@@ -348,8 +348,8 @@ s   Sub-square Distribution.
              (when (ems-interactive-p)
                (emacspeak-sudoku-speak-current-cell-value)
                (if (eq (get-text-property  (point) 'face) 'bold)
-                   (emacspeak-auditory-icon 'item)
-                 (emacspeak-auditory-icon 'select-object))))))
+                   (emacspeak-icon 'item)
+                 (emacspeak-icon 'select-object))))))
 
 ;;;  advice interaction:
 
@@ -358,7 +358,7 @@ s   Sub-square Distribution.
   for details."
   (when (ems-interactive-p)
     (dtk-set-punctuations 'some)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-sudoku-speak-current-cell-value)))
 (defvar emacspeak-sudoku-history-stack nil
   "Holds history of interesting board configurations.")
@@ -371,7 +371,7 @@ s   Sub-square Distribution.
 (defadvice sudoku-restart (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-sudoku-speak-current-cell-value)))
 
 ;;;  implement history stack:
@@ -384,7 +384,7 @@ s   Sub-square Distribution.
   (cl-declare (special emacspeak-sudoku-history-stack
                        current-board))
   (push current-board emacspeak-sudoku-history-stack)
-  (emacspeak-auditory-icon 'mark-object)
+  (emacspeak-icon 'mark-object)
   (message "Saved state on history stack."))
 
 (defun emacspeak-sudoku-history-pop ()
@@ -405,7 +405,7 @@ s   Sub-square Distribution.
     (sudoku-board-print current-board sudoku-onscreen-instructions)
     (sudoku-goto-cell original)
     (setq buffer-read-only t)
-    (emacspeak-auditory-icon 'yank-object)
+    (emacspeak-icon 'yank-object)
     (message "Reset board from history  %s squares remain."
              (sudoku-remaining-cells current-board))))
 

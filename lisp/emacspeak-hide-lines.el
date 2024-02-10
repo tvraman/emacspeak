@@ -60,7 +60,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'button)))))
+       (emacspeak-icon 'button)))))
 
 (provide 'emacspeak-hide-lines)
 ;;;  end of file

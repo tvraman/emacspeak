@@ -275,7 +275,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
   (cl-declare (special emacspeak-eterm-pointer))
   (set-marker emacspeak-eterm-pointer (point))
   (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-eterm-speak-cursor)))
 
 (defun emacspeak-eterm-pointer-to-top ()
@@ -286,7 +286,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
     (goto-char term-home-marker)
     (set-marker emacspeak-eterm-pointer (point))
     (when (called-interactively-p 'interactive)
-      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-icon 'large-movement)
       (emacspeak-speak-line))))
 
 (defun emacspeak-eterm-pointer-to-bottom  ()
@@ -297,7 +297,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
     (goto-char (point-max))
     (set-marker emacspeak-eterm-pointer (point))
     (when (called-interactively-p 'interactive)
-      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-icon 'large-movement)
       (emacspeak-speak-line))))
 
 (defun emacspeak-eterm-pointer-up (count)
@@ -371,7 +371,7 @@ Argument COUNT specifies number of columns by which to move."
     (set-marker emacspeak-eterm-pointer (point))
     (when (called-interactively-p 'interactive)
       (dtk-stop)
-      (emacspeak-auditory-icon 'right)
+      (emacspeak-icon 'right)
       (emacspeak-speak-char t))))
 
 (defun emacspeak-eterm-pointer-to-left-edge ()
@@ -384,7 +384,7 @@ Argument COUNT specifies number of columns by which to move."
     (set-marker emacspeak-eterm-pointer (point))
     (when (called-interactively-p 'interactive)
       (dtk-stop)
-      (emacspeak-auditory-icon 'left)
+      (emacspeak-icon 'left)
       (emacspeak-speak-char t))))
 
 (defun emacspeak-eterm-pointer-backward-word (count)
@@ -429,7 +429,7 @@ Argument COUNT specifies number of words by which to move."
     (goto-char term-home-marker)
     (forward-line line)
     (set-marker emacspeak-eterm-pointer (point))
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defun emacspeak-eterm-search-forward ()
@@ -470,9 +470,9 @@ If found, the Emacspeak pointer is left at the hit. "
             (setq found (search-backward   string end t))))
         (cond
          (found (set-marker emacspeak-eterm-pointer (point-marker))
-                (emacspeak-auditory-icon 'search-hit)
+                (emacspeak-icon 'search-hit)
                 (emacspeak-eterm-speak-pointer-line))
-         (t(emacspeak-auditory-icon 'search-miss)
+         (t(emacspeak-icon 'search-miss)
            (message "%s not found " string)))))))
 
 ;;;   Highlight tracking:
@@ -494,7 +494,7 @@ Optional argument COUNT specifies how many changes to skip."
                                          'personality current))
       (cond
        (found (set-marker emacspeak-eterm-pointer found)
-              (emacspeak-auditory-icon 'large-movement)
+              (emacspeak-icon 'large-movement)
               (emacspeak-eterm-speak-pointer-line))
        (t (message "No color change found on the screen "))))))
 
@@ -513,7 +513,7 @@ Optional argument COUNT specifies how many changes to skip."
                                          'personality current))
       (cond
        (found (set-marker emacspeak-eterm-pointer found)
-              (emacspeak-auditory-icon 'large-movement)
+              (emacspeak-icon 'large-movement)
               (emacspeak-eterm-speak-pointer-line))
        (t (message "No color change found on the screen "))))))
 
@@ -552,7 +552,7 @@ without sending input to the terminal itself."
         (use-local-map emacspeak-eterm-keymap)))
     (message
      "Terminal review should be used when eterm is in character mode "))
-  (emacspeak-auditory-icon (if emacspeak-eterm-review-p 'on 'off)))
+  (emacspeak-icon (if emacspeak-eterm-review-p 'on 'off)))
 
 ;;;   Cut and paste while reviewing:
 
@@ -573,7 +573,7 @@ to by the emacspeak eterm pointer."
           (emacspeak-eterm-position-to-coordinates
            (marker-position emacspeak-eterm-pointer)))
     (when (called-interactively-p 'interactive)
-      (emacspeak-auditory-icon 'mark-object)
+      (emacspeak-icon 'mark-object)
       (dtk-stop)
       (message "Set eterm mark at row %s column %s"
                (cdr coordinates)
@@ -589,7 +589,7 @@ emacspeak eterm pointer."
                        emacspeak-eterm-pointer))
   (kill-ring-save (marker-position emacspeak-eterm-marker)
                   (marker-position emacspeak-eterm-pointer))
-  (emacspeak-auditory-icon 'mark-object)
+  (emacspeak-icon 'mark-object)
   (message "Snarfed %s characters "
            (abs (- (marker-position emacspeak-eterm-marker)
                    (marker-position emacspeak-eterm-pointer)))))
@@ -606,7 +606,7 @@ emacspeak eterm pointer to a register."
                     (marker-position emacspeak-eterm-marker)
                     (marker-position emacspeak-eterm-pointer)
                     nil)
-  (emacspeak-auditory-icon 'mark-object)
+  (emacspeak-icon 'mark-object)
   (message "Snarfed %s characters to register %c "
            (abs (- (marker-position emacspeak-eterm-marker)
                    (marker-position emacspeak-eterm-pointer)))
@@ -621,7 +621,7 @@ sent to the terminal as if it were typed by the user."
     (cond
      ((stringp contents)
       (term-send-raw-string contents)
-      (emacspeak-auditory-icon 'yank-object))
+      (emacspeak-icon 'yank-object))
      (t (error "Register %c does not contain text"
                register)))))
 
@@ -872,7 +872,7 @@ Argument ID specifies the window."
        (narrow-to-region term-home-marker (point-max))
        (emacspeak-eterm-return-window-contents
         (emacspeak-eterm-get-window id)))))
-  (emacspeak-auditory-icon 'yank-object)
+  (emacspeak-icon 'yank-object)
   (message "Yanked contents of window %s at point" id))
 
 (defun emacspeak-eterm-describe-window  (id)
@@ -969,7 +969,7 @@ activity within the filter window."
       (setq emacspeak-eterm-focus-window nil)
     (setq emacspeak-eterm-focus-window 1))
   (dtk-stop)
-  (emacspeak-auditory-icon (if emacspeak-eterm-focus-window
+  (emacspeak-icon (if emacspeak-eterm-focus-window
                                'on 'off)))
 
 (defun emacspeak-eterm-toggle-filter-window ()
@@ -980,7 +980,7 @@ activity within the filter window."
       (setq emacspeak-eterm-filter-window nil)
     (setq emacspeak-eterm-filter-window 1))
   (dtk-stop)
-  (emacspeak-auditory-icon (if emacspeak-eterm-filter-window
+  (emacspeak-icon (if emacspeak-eterm-filter-window
                                'on 'off)))
 
 (defun emacspeak-eterm-speak-predefined-window ()
@@ -1220,7 +1220,7 @@ there is terminal activity.")
 (defadvice term-previous-prompt (after emacspeak pre act comp)
   "Speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'item)
+    (emacspeak-icon 'item)
     (if (eolp)
         (emacspeak-speak-line)
       (emacspeak-speak-line 1))))
@@ -1228,7 +1228,7 @@ there is terminal activity.")
 (defadvice term-next-prompt (after emacspeak pre act comp)
   "Speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'item)
+    (emacspeak-icon 'item)
     (if (eolp)
         (emacspeak-speak-line)
       (emacspeak-speak-line 1))))
@@ -1239,7 +1239,7 @@ there is terminal activity.")
 (defadvice term-kill-output (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (message "Nuked output of last command ")))
 
 (defadvice term-quit-subjob (after emacspeak pre act comp)
@@ -1262,7 +1262,7 @@ there is terminal activity.")
   (when (ems-interactive-p)
     (let ((pmark (process-mark (get-buffer-process (current-buffer)))))
       (when  (> (point) (marker-position pmark))
-        (emacspeak-auditory-icon 'delete-object)
+        (emacspeak-icon 'delete-object)
         (emacspeak-speak-region  pmark (point))))))
 
 (defadvice term-dynamic-list-filename-completions (after emacspeak pre act comp)

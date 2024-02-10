@@ -101,24 +101,24 @@
   `(defadvice ,f (after emacspeak pre act com)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 (defadvice slime-info (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'help)
+    (emacspeak-icon 'help)
     (emacspeak-speak-buffer)))
 
 (defadvice slime-selector (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice slime-scratch (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 (add-hook
  'slime-repl-mode-hook
@@ -145,7 +145,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 (cl-loop
@@ -161,7 +161,7 @@
          (goto-char
           (previous-single-property-change (point)   'face nil (point-min)))
          (emacspeak-speak-range))
-       (emacspeak-auditory-icon 'close-object)))))
+       (emacspeak-icon 'close-object)))))
 
 (cl-loop
  for f in
@@ -192,7 +192,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'delete-object)))))
+       (emacspeak-icon 'delete-object)))))
 
 (cl-loop
  for f in
@@ -205,7 +205,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'close-object)))))
+       (emacspeak-icon 'close-object)))))
 
 (cl-loop
  for f in
@@ -230,12 +230,12 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done)))))
+       (emacspeak-icon 'task-done)))))
 
 (defadvice slime-repl-inspect (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 (cl-loop
  for f in
  '(slime-list-repl-short-cuts slime-repl-shortcut-help
@@ -247,12 +247,12 @@
      (defadvice slime-cheat-sheet (after emacspeak pre act comp)
        "speak."
        (when (ems-interactive-p)
-         (emacspeak-auditory-icon 'help)
+         (emacspeak-icon 'help)
          (dtk-speak "Displaying  help in new frame.")))
 
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'help)
+       (emacspeak-icon 'help)
        (dtk-speak "Displayed help in other window.")))))
 
 ;;;  Writing Code:
@@ -270,7 +270,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done)))))
+       (emacspeak-icon 'task-done)))))
 
 ;;;  Lisp Interaction:
 
@@ -290,31 +290,31 @@
        (sit-for 0.1)
        (with-current-buffer (slime-buffer-name :description)
          (emacspeak-speak-buffer)
-         (emacspeak-auditory-icon 'help))))))
+         (emacspeak-icon 'help))))))
 
 ;;;  Inspector:
 
 (defadvice slime-inspector-pop (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-line)))
 
 (defadvice slime-inspector-pprint (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (dtk-speak "Pretty printed description in other window.")
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 
 (defadvice slime-inspector-quit (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 (defadvice slime-inspector-toggle-verbose (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'button)
+    (emacspeak-icon 'button)
     (emacspeak-speak-line)))
 (cl-loop
  for f in
@@ -326,7 +326,7 @@
      speak.
      (when (ems-interactive-p)
        (emacspeak-speak-range)
-       (emacspeak-auditory-icon 'large-movement)))))
+       (emacspeak-icon 'large-movement)))))
 
 (cl-loop
  for f in
@@ -344,7 +344,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'open-object)))))
+       (emacspeak-icon 'open-object)))))
 
 (cl-loop
  for f in
@@ -355,7 +355,7 @@
      speak.
      (when (ems-interactive-p)
        (emacspeak-speak-buffer)
-       (emacspeak-auditory-icon 'help)))))
+       (emacspeak-icon 'help)))))
 
 '(
   slime-inspector-copy-down-to-repl

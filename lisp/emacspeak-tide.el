@@ -64,14 +64,14 @@
 (defadvice tide-compile-file (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 (defadvice tide-documentation-at-point (after emacspeak pre act comp)
   "Speak documentation if any."
   (let ((documentation (ad-get-arg 0)))
     (when documentation
       (dtk-speak documentation)
-      (emacspeak-auditory-icon 'help))))
+      (emacspeak-icon 'help))))
 (cl-loop
  for f in
  '(
@@ -82,18 +82,18 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 (defadvice tide-format(after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 (defadvice tide-references(after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (provide 'emacspeak-tide)

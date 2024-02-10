@@ -108,13 +108,13 @@ Assumes that point is at the front of a field value."
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'search-hit)
+       (emacspeak-icon 'search-hit)
        (emacspeak-speak-line)))))
 
 (defadvice forms-next-record (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (goto-char (next-single-property-change 
                 (point)
                 'read-only
@@ -125,7 +125,7 @@ Assumes that point is at the front of a field value."
 (defadvice forms-prev-record (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (goto-char (next-single-property-change 
                 (point)
                 'read-only
@@ -136,31 +136,31 @@ Assumes that point is at the front of a field value."
 (defadvice forms-first-record (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-forms-summarize-current-record)))
 
 (defadvice forms-last-record (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-forms-summarize-current-record)))
 
 (defadvice forms-jump-record (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-forms-summarize-current-record)))
 
 (defadvice forms-search (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'search-hit)
+    (emacspeak-icon 'search-hit)
     (emacspeak-forms-summarize-current-record)))
 
 (defadvice forms-exit (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice forms-next-field (around emacspeak pre act comp)
@@ -168,7 +168,7 @@ Assumes that point is at the front of a field value."
   (cond
    ((ems-interactive-p)
     ad-do-it
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-forms-speak-field))
    (t ad-do-it))
   ad-return-value)
@@ -177,25 +177,25 @@ Assumes that point is at the front of a field value."
   "speak."
   
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-forms-speak-field)))   
 
 (defadvice forms-kill-record (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     ))
 
 (defadvice forms-insert-record (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     ))
 
 (defadvice forms-save-buffer (after emacspeak pre act comp)
   "speak."
   (when  (ems-interactive-p)
-    (emacspeak-auditory-icon 'save-object)))
+    (emacspeak-icon 'save-object)))
 
 ;;;  smart filters
 

@@ -143,9 +143,9 @@ the match  being passed to the func which returns  the new pronunciation."
    ((not (boundp 'emacspeak-pronounce-pronunciation-table)) ;first time
     (set (make-local-variable 'emacspeak-pronounce-pronunciation-table)
          (emacspeak-pronounce-compose-pronunciation-table))
-    (when (called-interactively-p 'interactive)(emacspeak-auditory-icon 'on)))
+    (when (called-interactively-p 'interactive)(emacspeak-icon 'on)))
    (emacspeak-pronounce-pronunciation-table ;already on --
-    (when (called-interactively-p 'interactive)(emacspeak-auditory-icon 'on)))
+    (when (called-interactively-p 'interactive)(emacspeak-icon 'on)))
    (t                                   ;turn it on
     (setq emacspeak-pronounce-pronunciation-table
           (emacspeak-pronounce-compose-pronunciation-table))))
@@ -275,7 +275,7 @@ the match  being passed to the func which returns  the new pronunciation."
    (emacspeak-pronounce-personality
     (setq emacspeak-pronounce-personality nil))
    (t (setq emacspeak-pronounce-personality 'match)))
-  (emacspeak-auditory-icon
+  (emacspeak-icon
    (if emacspeak-pronounce-personality 'on 'off))
   (message "Turned %s pronunciation personality"
            (if emacspeak-pronounce-personality 'on 'off)))
@@ -512,7 +512,7 @@ First loads any persistent dictionaries if not already loaded."
    ((null state)                        ;already on --turn it off
     (setq emacspeak-pronounce-pronunciation-table nil)))
   (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon
+    (emacspeak-icon
      (if emacspeak-pronounce-pronunciation-table 'on 'off))
     (message
      "Pronunciations %s."
@@ -533,7 +533,7 @@ First loads any persistent dictionaries if not already loaded."
     (setq emacspeak-pronounce-pronunciation-table
           (emacspeak-pronounce-compose-pronunciation-table))))
   (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon 'on)
+    (emacspeak-icon 'on)
     (message
      "Refreshed pronunciations for this buffer")))
 
@@ -696,7 +696,7 @@ specified pronunciation dictionary key."
            'emacspeak-pronounce-toggle-use-of-dictionaries))
       (?v (call-interactively 'emacspeak-pronounce-toggle-voice))
       (otherwise (message emacspeak-pronounce-help)))
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 ;;;  Helpers: pronouncers
 

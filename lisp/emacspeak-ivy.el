@@ -89,7 +89,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'close-object)))))
+       (emacspeak-icon 'close-object)))))
 
 (defun emacspeak-ivy-speak-selection ()
   "Speak current ivy selection."
@@ -111,7 +111,7 @@
      "Speak selection."
      (when (ems-interactive-p)
        (emacspeak-ivy-speak-selection)
-       (emacspeak-auditory-icon 'select-object)))))
+       (emacspeak-icon 'select-object)))))
 
 (defadvice ivy--exhibit (after emacspeak pre act comp)
   "Speak updated Ivy list."
@@ -121,7 +121,7 @@
 
 (defadvice ivy-read (before emacspeak pre act comp)
   "Speak prompt"
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (dtk-speak (ad-get-arg 0)))
 
 (provide 'emacspeak-ivy)

@@ -92,7 +92,7 @@ fly spell checking."
      (when (sit-for 1)
        (dtk-notify-speak (cl-second flyspell-auto-correct-ring)))
      (when (sit-for 1) (emacspeak-speak-message-again))
-     (emacspeak-auditory-icon 'select-object))) (t ad-do-it)) ad-return-value)
+     (emacspeak-icon 'select-object))) (t ad-do-it)) ad-return-value)
 
 (defadvice flyspell-unhighlight-at (before emacspeak pre act comp)
   "handle highlight/unhighlight."
@@ -107,7 +107,7 @@ fly spell checking."
 (add-hook
  'flyspell-incorrect-hook
  #'(lambda (_s _e p)
-     (unless (eq p 'doublon) (emacspeak-auditory-icon 'help))
+     (unless (eq p 'doublon) (emacspeak-icon 'help))
      nil))
 
 ;;;  use flyspell-correct if available:

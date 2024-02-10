@@ -103,19 +103,19 @@
 (defadvice c-up-conditional (after emacspeak pre act comp)
   "Speak the line moved to."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice c-forward-conditional (after emacspeak pre act comp)
   "Speak the line moved to."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice c-backward-conditional (after emacspeak pre act comp)
   "Speak the line moved to."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 ;; Statements
@@ -123,19 +123,19 @@
 (defadvice c-beginning-of-statement (after emacspeak pre act comp)
   "Speak the line moved to."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'item)
+    (emacspeak-icon 'item)
     (emacspeak-speak-line)))
 
 (defadvice c-end-of-statement (after emacspeak pre act comp)
   "Speak the line moved to."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'item)
+    (emacspeak-icon 'item)
     (emacspeak-speak-line)))
 
 (defadvice c-mark-function (after emacspeak pre act comp)
   "Provide spoken and auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-icon 'mark-object)
     (emacspeak-speak-line)))
 
 ;;;  advice program navigation
@@ -143,13 +143,13 @@
 (defadvice  c-beginning-of-defun (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'paragraph)
+    (emacspeak-icon 'paragraph)
     (emacspeak-speak-line)))
 
 (defadvice  c-end-of-defun (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'paragraph)
+    (emacspeak-icon 'paragraph)
     (emacspeak-speak-line)))
 
 ;;;   extensions  provided by c++ mode
@@ -164,7 +164,7 @@
 (defun c-previous-statement (count)
   "Move to the previous  C statement. "
   (interactive "P")
-  (emacspeak-auditory-icon 'item)
+  (emacspeak-icon 'item)
   (let  ((opoint (point))
          (semantics (c-guess-basic-syntax)))
     ;; skip across a comment
@@ -194,7 +194,7 @@ this level")
 (defun c-next-statement (count)
   "Move to the next C statement. "
   (interactive "P")
-  (emacspeak-auditory-icon 'item)
+  (emacspeak-icon 'item)
   (let  ((opoint (point))
          (semantics (c-guess-basic-syntax)))
     ;; skip across a comment
@@ -346,7 +346,7 @@ and their meanings. ")
 
 (defadvice c-indent-defun (after emacspeak pre act comp)
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'fill-object)
+    (emacspeak-icon 'fill-object)
     (message "Indented function")))
 
 (defadvice c-indent-command (after emacspeak pre act comp)
@@ -366,12 +366,12 @@ and their meanings. ")
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 (defadvice c-backslash-region (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-icon 'task-done)
     (emacspeak-speak-region (point) (mark))))
 (cl-loop
  for f in
@@ -382,7 +382,7 @@ and their meanings. ")
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'open-object)))))
+       (emacspeak-icon 'open-object)))))
 
 (cl-loop
  for f in
@@ -393,7 +393,7 @@ and their meanings. ")
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'large-movement)))))
+       (emacspeak-icon 'large-movement)))))
 (cl-loop
  for f in
  '(
@@ -404,7 +404,7 @@ and their meanings. ")
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'fill-object)
+       (emacspeak-icon 'fill-object)
        (emacspeak-speak-line)))))
 
 (cl-loop
@@ -419,7 +419,7 @@ and their meanings. ")
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'button)
+       (emacspeak-icon 'button)
        (message   "Toggled %s"  ,(symbol-name f))))))
 
 ;;;  Additional keybindings:

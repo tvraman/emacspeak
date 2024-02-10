@@ -90,19 +90,19 @@ If in locate-mode, speak full pathname."
   (cond
    ((ems-interactive-p)
     (ems-with-messages-silenced ad-do-it)
-    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-icon 'task-done)
     (emacspeak-speak-mode-line))
    (t ad-do-it))
   ad-return-value)
 
 (defadvice dired-query (before emacspeak pre act comp)
   "Produce auditory icon."
-  (emacspeak-auditory-icon 'ask-short-question))
+  (emacspeak-icon 'ask-short-question))
 
 (defadvice dired-quit (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defun emacspeak-dired-initialize ()
@@ -119,7 +119,7 @@ If in locate-mode, speak full pathname."
      "Set up emacspeak."
      (when (ems-interactive-p)
        (emacspeak-dired-initialize)
-       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-icon 'open-object)
        (emacspeak-speak-mode-line)))))
 
 (defadvice dired-find-file  (around  emacspeak pre act comp)
@@ -130,7 +130,7 @@ If in locate-mode, speak full pathname."
       ad-do-it
       (when directory-p (emacspeak-dired-label-fields))
       (emacspeak-speak-mode-line)
-      (emacspeak-auditory-icon 'open-object)))
+      (emacspeak-icon 'open-object)))
    (t ad-do-it))
   ad-return-value)
 
@@ -147,7 +147,7 @@ If in locate-mode, speak full pathname."
   `(defadvice ,f (after emacspeak pre act comp)
      "Speak the filename."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-dired-speak-line)))))
 
 (cl-loop
@@ -159,7 +159,7 @@ If in locate-mode, speak full pathname."
   `(defadvice ,f  (after emacspeak pre act comp)
      "Speak the filename."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-icon 'select-object)
        (emacspeak-dired-speak-line)))))
 
 ;; Producing auditory icons:
@@ -173,19 +173,19 @@ If in locate-mode, speak full pathname."
 (defadvice dired-mark (after emacspeak pre act comp)
   "Produce an auditory icon."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-icon 'mark-object)
     (emacspeak-dired-speak-line)))
 
 (defadvice dired-flag-file-deletion (after emacspeak pre act comp)
   "Produce an auditory icon indicating that a file was marked for deletion."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (emacspeak-dired-speak-line)))
 
 (defadvice dired-unmark (after emacspeak pre act comp)
   "Give speech feedback. Also provide an auditory icon."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'deselect-object)
+    (emacspeak-icon 'deselect-object)
     (emacspeak-dired-speak-line)))
 
 ;;;   labeling fields in the dired buffer:
@@ -260,7 +260,7 @@ options passed to command `file'."
 (defun emacspeak-dired-speak-header-line()
   "Speak the header line of the dired buffer. "
   (interactive)
-  (emacspeak-auditory-icon 'section)
+  (emacspeak-icon 'section)
   (save-excursion (goto-char (point-min))
                   (forward-line 2)
                   (emacspeak-speak-region (point-min) (point))))
@@ -274,7 +274,7 @@ On a directory line, run du -s on the directory to speak its size."
     (cond
      ((and filename
            (file-directory-p filename))
-      (emacspeak-auditory-icon 'progress)
+      (emacspeak-icon 'progress)
       (emacspeak-shell-command (format "du -s \"%s\"" filename)))
      (filename
       (setq size (nth 7 (file-attributes filename)))
@@ -283,7 +283,7 @@ On a directory line, run du -s on the directory to speak its size."
         (setq size
               (nth  4
                     (split-string (ems--this-line)))))
-      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-icon 'select-object)
       (message "File size %s"
                size))
      (t (message "No file on current line")))))
@@ -294,7 +294,7 @@ On a directory line, run du -s on the directory to speak its size."
   (let ((filename (dired-get-filename nil t)))
     (cond
      (filename
-      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-icon 'select-object)
       (message "Modified on : %s"
                (format-time-string
                 emacspeak-speak-time-format
@@ -307,7 +307,7 @@ On a directory line, run du -s on the directory to speak its size."
   (let ((filename (dired-get-filename nil t)))
     (cond
      (filename
-      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-icon 'select-object)
       (message "Last accessed   on  %s"
                (format-time-string
                 emacspeak-speak-time-format
@@ -319,7 +319,7 @@ On a directory line, run du -s on the directory to speak its size."
   (let ((filename (dired-get-filename nil t)))
     (cond
      (filename
-      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-icon 'select-object)
       (cond
        ((file-symlink-p filename)
         (message "Target is %s"
@@ -332,7 +332,7 @@ On a directory line, run du -s on the directory to speak its size."
   (let ((filename (dired-get-filename nil t)))
     (cond
      (filename
-      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-icon 'select-object)
       (message "Permissions %s"
                (nth 8 (file-attributes filename))))
      (t (message "No file on current line")))))
@@ -377,7 +377,7 @@ On a directory line, run du -s on the directory to speak its size."
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'open-object)))))
+       (emacspeak-icon 'open-object)))))
 (load "locate" t t)
 
 (cl-declaim (special locate-mode-map))
@@ -476,7 +476,7 @@ current file in DirEd."
   "Open epub on current line  in EWW"
   (interactive)
   (emacspeak-epub-eww (shell-quote-argument(dired-get-filename)))
-  (emacspeak-auditory-icon 'open-object))
+  (emacspeak-icon 'open-object))
 
 (defun emacspeak-dired-csv-open ()
   "Open CSV file on current dired line."

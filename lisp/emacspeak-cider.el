@@ -101,7 +101,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-mode-line)
-       (emacspeak-auditory-icon 'open-object)))))
+       (emacspeak-icon 'open-object)))))
 
 ;;;  Associate Connection:
 
@@ -117,7 +117,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done)))))
+       (emacspeak-icon 'task-done)))))
 
 ;;;  Browse:
 
@@ -134,7 +134,7 @@
      "speak."
      (when (ems-interactive-p)
        (with-current-buffer (window-buffer (selected-window))
-         (emacspeak-auditory-icon 'open-object)
+         (emacspeak-icon 'open-object)
          (emacspeak-speak-line))))))
 
 ;;;  Speech-enable Eval:
@@ -151,7 +151,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done)))))
+       (emacspeak-icon 'task-done)))))
 
 ;;;  cider-repl:
 
@@ -171,7 +171,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 (cl-loop
  for f in
@@ -185,7 +185,7 @@
          (goto-char
           (previous-single-property-change (point)   'face nil (point-min)))
          (emacspeak-speak-range))
-       (emacspeak-auditory-icon 'close-object)))))
+       (emacspeak-icon 'close-object)))))
 
 (cl-loop
  for f in
@@ -200,7 +200,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'delete-object)))))
+       (emacspeak-icon 'delete-object)))))
 
 (cl-loop
  for f in
@@ -213,23 +213,23 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'select-object)))))
+       (emacspeak-icon 'select-object)))))
 
 (defadvice cider-repl-switch-to-other(after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 (defadvice cider-repl-set-ns (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 (defadvice cider-repl-toggle-pretty-printing (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (f cider-repl-use-pretty-printing 'on 'off))
+    (emacspeak-icon (f cider-repl-use-pretty-printing 'on 'off))
     (message "Turned  %s pretty printing."
              (if cider-repl-use-pretty-printing 'on 'off))))
 
@@ -254,30 +254,30 @@
      "speak."
      (when (ems-interactive-p)
        (with-current-buffer (window-buffer (selected-window))
-         (emacspeak-auditory-icon 'close-object)
+         (emacspeak-icon 'close-object)
          (emacspeak-speak-mode-line))))))
 
 (defadvice cider-connections-goto-connection (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 
 (defadvice cider-connect (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 
 (defadvice  cider-close-nrepl-session(after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (message "Closed Repl Session")))
 (defadvice cider-close-ancillary-buffers (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (message "Closed ancillary buffers")))
 (cl-loop
  for f in
@@ -288,7 +288,7 @@
   `(defadvice ,f  (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-icon 'open-object)
        (message "Displayed in other window.")))))
 
 ;;;  Speech-enable Debug:
@@ -301,7 +301,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'button)))))
+       (emacspeak-icon 'button)))))
 
 ;;;  Speech-enable Insert:
 
@@ -316,7 +316,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'yank-object)))))
+       (emacspeak-icon 'yank-object)))))
 
 ;;;  Inspect And Inspector:
 
@@ -332,7 +332,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-icon 'open-object)
        (emacspeak-speak-mode-line)))))
 (cl-loop
  for f in
@@ -351,7 +351,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-icon 'select-object)
        (emacspeak-speak-line)))))
 
 (provide 'emacspeak-cider)

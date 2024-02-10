@@ -117,7 +117,7 @@ Use `emacspeak-toggle-auditory-icons' bound to
 ;;;   setup play function
 
 ;;;###autoload
-(defun emacspeak-auditory-icon (icon)
+(defun emacspeak-icon (icon)
   "Produce an auditory ICON."
   (cl-declare (special emacspeak-use-auditory-icons emacspeak-play-program))
   (when emacspeak-use-auditory-icons
@@ -191,7 +191,7 @@ icon-name as string."
       (format "%s upload-sample %s %s"
               emacspeak-pactl (gethash key emacspeak-sounds-cache) key))))
   (setq emacspeak-sounds-current-theme theme)
-  (emacspeak-auditory-icon 'button))
+  (emacspeak-icon 'button))
 
 ;; need to use explicit pathnames ---
 ;; can't use our predefined constants such as emacspeak-pactl here.
@@ -263,7 +263,7 @@ Optional interactive PREFIX arg toggles global value."
   (message "Turned %s auditory icons %s"
            (if emacspeak-use-auditory-icons  'on 'off)
            (if prefix "" "locally"))
-  (when emacspeak-use-auditory-icons (emacspeak-auditory-icon 'on)))
+  (when emacspeak-use-auditory-icons (emacspeak-icon 'on)))
 
 ;;;  emacspeak-prompts:
 

@@ -63,19 +63,19 @@
 (defadvice ecb-activate (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice ecb-cancel-dialog (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice ecb-show-help (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'help)
+    (emacspeak-icon 'help)
     (emacspeak-speak-mode-line)))
 
 (cl-loop
@@ -96,13 +96,13 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'select-object)))))
+       (emacspeak-icon 'select-object)))))
 
 (defadvice ecb-select-ecb-frame (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 ;;;   inform tree browser about emacspeak
 
@@ -121,7 +121,7 @@
                    (max 0 (1- (length
                                tree-buffer-incr-searchpattern)))))
   (dtk-speak  tree-buffer-incr-searchpattern)
-  (emacspeak-auditory-icon 'delete-object))
+  (emacspeak-icon 'delete-object))
 
 (defun emacspeak-ecb-tree-clear ()
   "Clear search pattern during incremental search in tree buffers."
@@ -170,15 +170,15 @@ available."
               (ems-set-personality-temporarily
                beg end   voice-bolden
                (emacspeak-speak-line)))
-            (emacspeak-auditory-icon 'search-hit))))
-       (t (emacspeak-auditory-icon 'search-miss)))))
+            (emacspeak-icon 'search-hit))))
+       (t (emacspeak-icon 'search-miss)))))
    (t ad-do-it))
   ad-return-value)
 
 (defadvice tree-buffer-select (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-line)))
 (defun tree-node-is-expanded (node)
   "Check if node is expanded."
@@ -192,8 +192,8 @@ available."
     (let ((node (ad-get-arg 0))) ;; note that logic is reversed
       (cond
        ((tree-node-is-expanded node)
-        (emacspeak-auditory-icon 'open-object))
-       (t (emacspeak-auditory-icon 'close-object))))))
+        (emacspeak-icon 'open-object))
+       (t (emacspeak-icon 'close-object))))))
 
 (defadvice tree-buffer-update (after emacspeak pre act comp)
   "Provide context speech feedback."
@@ -208,19 +208,19 @@ available."
 (defadvice tree-buffer-arrow-pressed (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'button)
+    (emacspeak-icon 'button)
     (emacspeak-speak-line)))
 
 (defadvice tree-buffer-tab-pressed (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'button)
+    (emacspeak-icon 'button)
     (emacspeak-speak-line)))
 
 (defadvice tree-buffer-return-pressed (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'button)
+    (emacspeak-icon 'button)
     (emacspeak-speak-line)))
 
 (defadvice tree-buffer-show-menu-keyboard (around emacspeak pre

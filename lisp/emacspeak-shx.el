@@ -57,7 +57,7 @@
   "Announce switching to shell mode.
 Provide an auditory icon if possible."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice shx-send-input (after emacspeak pre act comp)
@@ -69,26 +69,26 @@ Provide an auditory icon if possible."
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 (defadvice shx--turn-on (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'on)
+    (emacspeak-icon 'on)
     (message "Turned on shx")))
 (defadvice shx-send-input-or-open-thing (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (unless (eq major-mode 'shell-mode)
       (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'open-object))))
+      (emacspeak-icon 'open-object))))
 
 (defadvice shx-global-mode (after emacspeak  pre act comp)
   "speak."
   (when (ems-interactive-p)
     (message "Turned %s shx globally"
              (if shx-global-mode "on" "off"))
-    (emacspeak-auditory-icon
+    (emacspeak-icon
      (if shx-global-mode 'on 'off))))
 
 (defadvice shx-magic-insert (around emacspeak pre act comp)
@@ -106,7 +106,7 @@ Provide an auditory icon if possible."
            (forward-word -1)
            (emacspeak-speak-word)))
         (t
-         (emacspeak-auditory-icon 'complete)
+         (emacspeak-icon 'complete)
          (emacspeak-speak-region
           (comint-line-beginning-position) (point)))))))
    (t ad-do-it))

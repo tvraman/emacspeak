@@ -162,7 +162,7 @@
 (defadvice magit-mark-item (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-icon 'mark-object)
     (emacspeak-speak-line)))
 
 (cl-loop
@@ -181,7 +181,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak"
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-icon 'select-object)
        (emacspeak-speak-line)))))
 
 ;;;  Section Toggle:
@@ -201,11 +201,11 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (emacspeak-speak-line)
-     (emacspeak-auditory-icon 'open-object))))
+     (emacspeak-icon 'open-object))))
 
 (defadvice magit-section-hide (after emacspeak pre act comp)
   "Icon."
-  (emacspeak-auditory-icon 'close-object))
+  (emacspeak-icon 'close-object))
 
 (defadvice magit-section-cycle-global (after emacspeak pre act comp)
   "speak."
@@ -222,7 +222,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon
+       (emacspeak-icon
         (if   (oref (ad-get-arg 0) hidden) 'close-object 'open-object))))))
 
 ;;; blob mode:
@@ -230,13 +230,13 @@
 (defadvice magit-kill-this-buffer (after emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice magit-blob-visit-file (after emacspeak pre act comp)
   "Speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (cl-loop
@@ -247,20 +247,20 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)))))
+       (emacspeak-icon 'large-movement)))))
 
 ;;;  Additional commands to advice:
 
 (defadvice magit-refresh (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-icon 'task-done)
     (emacspeak-speak-line)))
 
 (defadvice magit-status (after emacspeak pre act  comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-line)))
 
 (cl-loop
@@ -272,32 +272,32 @@
      "speak."
      (when (ems-interactive-p)
        (with-current-buffer (window-buffer (selected-window))
-         (emacspeak-auditory-icon 'close-object)
+         (emacspeak-icon 'close-object)
          (emacspeak-speak-mode-line))))))
 
 (defadvice magit-refresh-all (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-icon 'task-done)
     (emacspeak-speak-line)))
 
 (defadvice magit-display-buffer (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-line)))
 
 ;;;  Advise process-sentinel:
 
 (defadvice magit-process-finish(after emacspeak pre act comp)
   "Produce auditory icon."
-  (emacspeak-auditory-icon 'task-done))
+  (emacspeak-icon 'task-done))
 
 ;;;  Magit Blame:
 
 (defun emacspeak-magit-blame-speak ()
   "Summarize current blame chunk."
-  (emacspeak-auditory-icon 'left)
+  (emacspeak-icon 'left)
   (dtk-speak
    (concat
     (buffer-substring (line-beginning-position) (line-end-position))
@@ -314,24 +314,24 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-magit-blame-speak)
-       (emacspeak-auditory-icon 'large-movement)))))
+       (emacspeak-icon 'large-movement)))))
 
 (defadvice magit-blame-quit (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 (defadvice magit-blame-toggle-headings (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if magit-blame-show-headings 'on 'off))
+    (emacspeak-icon (if magit-blame-show-headings 'on 'off))
     (message "Toggled blame headings.")))
 
 (defadvice magit-blame (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (message "Entering Magit Blame")
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 
 (defadvice magit-diff-show-or-scroll-up (around emacspeak pre act comp)
   "speak."
@@ -342,8 +342,8 @@
       (cond
        ((= orig (point))
         (message "Displayed commit in other window.")
-        (emacspeak-auditory-icon 'open-object))
-       (t (emacspeak-auditory-icon 'scroll)
+        (emacspeak-icon 'open-object))
+       (t (emacspeak-icon 'scroll)
           (emacspeak-speak-line)))))
    (t ad-do-it))
   ad-return-value)

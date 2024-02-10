@@ -67,13 +67,13 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 (defadvice flymake-compile (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 (provide 'emacspeak-flymake)
 ;;;  end of file

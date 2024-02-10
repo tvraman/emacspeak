@@ -116,7 +116,7 @@
   (when emacspeak-filtertext-info
     (erase-buffer)
     (insert (emacspeak-filtertext-text emacspeak-filtertext-info))
-    (emacspeak-auditory-icon 'unmodified-object)
+    (emacspeak-icon 'unmodified-object)
     (message "Reverted filtered text.")))
 
 (provide 'emacspeak-filtertext)

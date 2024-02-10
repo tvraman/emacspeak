@@ -506,7 +506,7 @@ Optional interactive prefix arg author-first prints author at the
     (sort-lines nil (point-min) (point-max))
     (goto-char (point-min)))
   (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 (defun emacspeak-epub-bookshelf-refresh ()
   "Refresh and redraw bookshelf."
@@ -517,7 +517,7 @@ Optional interactive prefix arg author-first prints author at the
   (emacspeak-epub-bookshelf-update)
   (emacspeak-epub-bookshelf-redraw)
   (emacspeak-epub-bookshelf-save)
-  (emacspeak-auditory-icon 'task-done))
+  (emacspeak-icon 'task-done))
 
 (define-derived-mode emacspeak-epub-mode special-mode
   "EPub Bookshelf"
@@ -731,7 +731,7 @@ No book files are deleted."
       (remhash epub emacspeak-epub-db)
       (emacspeak-epub-bookshelf-save)
       (emacspeak-epub-bookshelf-redraw)
-      (emacspeak-auditory-icon 'task-done)
+      (emacspeak-icon 'task-done)
       (goto-char orig)
       (emacspeak-speak-line))))
 
@@ -765,7 +765,7 @@ No book files are deleted."
       (save-buffer buff)
       (kill-buffer buff)
       (when (called-interactively-p 'interactive)
-        (emacspeak-auditory-icon 'save-object)))))
+        (emacspeak-icon 'save-object)))))
 
 (defun emacspeak-epub-bookshelf-load ()
   "Load bookshelf metadata from disk."
@@ -798,7 +798,7 @@ No book files are deleted."
           (propertize
            (format "EPub Bookshelf: %s" bookshelf-name)
            'face 'bold))
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-header-line)))
 
 ;;;  Interactive Commands:
@@ -825,7 +825,7 @@ root directory,see \\[emacspeak-epub-mode]"
           (get-buffer-create emacspeak-epub-interaction-buffer)
         (emacspeak-epub-mode)))
     (pop-to-buffer emacspeak-epub-interaction-buffer)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defun emacspeak-epub-open (epub-file)
@@ -897,7 +897,7 @@ in the epub file."
       (when emacspeak-eww-post-process-hook
         (emacspeak-eww-run-post-process-hook))
       (goto-char (point-min))
-      (emacspeak-auditory-icon 'open-object))
+      (emacspeak-icon 'open-object))
     (funcall-interactively #'switch-to-buffer eww-epub)))
 
 (defvar emacspeak-epub-google-search-template
@@ -921,7 +921,7 @@ to find Epubs  having full viewability.")
   (goto-char (next-single-property-change (point) 'epub))
   (beginning-of-line)
   (emacspeak-speak-line)
-  (emacspeak-auditory-icon 'select-object))
+  (emacspeak-icon 'select-object))
 
 (defun emacspeak-epub-previous ()
   "Move to previous book."
@@ -930,7 +930,7 @@ to find Epubs  having full viewability.")
   (goto-char (previous-single-property-change (point) 'epub))
   (beginning-of-line)
   (emacspeak-speak-line)
-  (emacspeak-auditory-icon 'select-object))
+  (emacspeak-icon 'select-object))
 
 (defun emacspeak-epub-delete ()
   "Delete EPub under point."
@@ -942,7 +942,7 @@ to find Epubs  having full viewability.")
                (format "Delete %s" file))
           (delete-file file)
           (emacspeak-epub-bookshelf-refresh)
-          (emacspeak-auditory-icon 'delete-object))))))
+          (emacspeak-icon 'delete-object))))))
 
 ;;;  Gutenberg Hookup:
 
@@ -1033,7 +1033,7 @@ Fetch if needed, or if refresh is T."
      emacspeak-epub-gutenberg-cat
      emacspeak-epub-gutenberg-catalog-url))
   (view-file-other-window emacspeak-epub-gutenberg-cat)
-  (emacspeak-auditory-icon 'task-done))
+  (emacspeak-icon 'task-done))
 
 ;;;  Calibre Hookup:
 
@@ -1212,7 +1212,7 @@ Letters do not insert themselves; instead, they are commands.
   (let ((path (get-text-property (point) 'path)))
     (unless path (error "No valid result here"))
     (dired (expand-file-name path emacspeak-epub-calibre-root-dir))
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (cl-declaim (special emacspeak-calibre-mode-map))
@@ -1248,7 +1248,7 @@ Letters do not insert themselves; instead, they are commands.
       (goto-char (point-min))
       (forward-line 2))
     (switch-to-buffer buffer)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-line)))
 
 ;;;  Locate epub using Locate:

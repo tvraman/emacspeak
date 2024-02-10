@@ -106,7 +106,7 @@
 (defadvice sage-shell-help:describe-symbol (after emacspeak pre act comp)
   "speak."
   (with-current-buffer (window-buffer (selected-window))
-    (emacspeak-auditory-icon 'help)
+    (emacspeak-icon 'help)
     (emacspeak-speak-buffer)))
 
 (cl-loop
@@ -119,10 +119,10 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'help)
+       (emacspeak-icon 'help)
        (emacspeak-speak-buffer)))))
 
-(emacspeak-auditory-icon 'help)
+(emacspeak-icon 'help)
 
 ;;;  Advice sage-edit:
 
@@ -149,7 +149,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done)))))
+       (emacspeak-icon 'task-done)))))
 
 (cl-loop
  for f in
@@ -159,7 +159,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done))
+       (emacspeak-icon 'task-done))
      (sit-for 0.1)
      (emacspeak-sage-speak-output))))
 
@@ -173,7 +173,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 ;;;  sage comint interaction:
@@ -181,7 +181,7 @@
   "speak."
   (when (ems-interactive-p)
     (with-current-buffer (window-buffer (selected-window))
-      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-icon 'open-object)
       (emacspeak-speak-line))))
 
 (defadvice sage-shell:delchar-or-maybe-eof (around emacspeak pre act comp)
@@ -200,7 +200,7 @@
 (defadvice sage-shell:delete-output (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (emacspeak-speak-line)))
 
 (cl-loop
@@ -211,14 +211,14 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done)
+       (emacspeak-icon 'task-done)
        (emacspeak-speak-mode-line)))))
 
 (defadvice sage-shell:copy-previous-output-to-kill-ring
     (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'yank-object)
+    (emacspeak-icon 'yank-object)
     (call-interactively #'emacspeak-speak-current-kill)))
 
 (defadvice sage-shell:send-input (after emacspeak pre act comp)
@@ -227,7 +227,7 @@
     (sit-for .01)
     (accept-process-output)
     (emacspeak-sage-speak-output)
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 ;;;  sage sagetext:
 
@@ -246,7 +246,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done)
+       (emacspeak-icon 'task-done)
        (emacspeak-speak-mode-line)))))
 
 ;;;  Additional Interactive Commands:

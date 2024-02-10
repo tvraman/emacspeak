@@ -888,7 +888,7 @@ b Browse
         (setq buffer-read-only t)
         (emacspeak-bookshare-mode))
       (switch-to-buffer emacspeak-bookshare-interaction-buffer)))
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defun emacspeak-bookshare-action  ()
@@ -904,7 +904,7 @@ b Browse
     (setq start (point))
     (emacspeak-bookshare-bookshare-handler response)
     (goto-char start)
-    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-icon 'task-done)
     (emacspeak-speak-line)))
 
 (defun emacspeak-bookshare-browse ()
@@ -921,7 +921,7 @@ b Browse
 Once retrieved, memoize to avoid multiple retrievals."
   (interactive)
   (emacspeak-bookshare-assert)
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (let* ((inhibit-read-only t)
          (id (emacspeak-bookshare-get-id))
          (author (emacspeak-bookshare-get-author))
@@ -945,7 +945,7 @@ Once retrieved, memoize to avoid multiple retrievals."
       (indent-rigidly start (point) 4)
       (emacspeak-speak-region start (point))))
     (goto-char start)
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-icon 'large-movement)))
 
 (defun emacspeak-bookshare-download-daisy-at-point ()
   "Download Daisy version of book under point.
@@ -956,7 +956,7 @@ Target location is generated from author and title."
          (author (emacspeak-bookshare-get-author))
          (title (emacspeak-bookshare-get-title))
          (target (emacspeak-bookshare-generate-target author title)))
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (cond
      ((file-exists-p target)
       (message "This content is available locally at %s" target))
@@ -967,7 +967,7 @@ Target location is generated from author and title."
          (line-beginning-position) (line-end-position)
          (list'face 'bold
                     'auditory-icon 'select-object))
-        (emacspeak-auditory-icon 'task-done)
+        (emacspeak-icon 'task-done)
         (message "Downloaded content to %s" target))
        (t
         (let ((new (read-from-minibuffer "Retry with new target:" target)))
@@ -984,7 +984,7 @@ Target location is generated from author and title."
          (author (emacspeak-bookshare-get-author))
          (title (emacspeak-bookshare-get-title))
          (target (emacspeak-bookshare-generate-target author title "audio")))
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (cond
      ((file-exists-p target)
       (message "This content is available locally at %s" target))
@@ -995,7 +995,7 @@ Target location is generated from author and title."
          (line-beginning-position) (line-end-position)
          (list'face 'bold
                     'auditory-icon 'select-object))
-        (emacspeak-auditory-icon 'task-done)
+        (emacspeak-icon 'task-done)
         (message "Downloaded content to %s" target))
        (t
         (let ((new (read-from-minibuffer "Retry with new target:" target)))
@@ -1012,7 +1012,7 @@ Target location is generated from author and title."
          (author (emacspeak-bookshare-get-author))
          (title (emacspeak-bookshare-get-title))
          (target (emacspeak-bookshare-generate-target author title "epub-3")))
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (cond
      ((file-exists-p target)
       (message "This content is available locally at %s" target))
@@ -1023,7 +1023,7 @@ Target location is generated from author and title."
          (line-beginning-position) (line-end-position)
          (list'face 'bold
                     'auditory-icon 'select-object))
-        (emacspeak-auditory-icon 'task-done)
+        (emacspeak-icon 'task-done)
         (message "Downloaded content to %s" target))
        (t
         (let ((new (read-from-minibuffer "Retry with new target:" target)))
@@ -1040,7 +1040,7 @@ Target location is generated from author and title."
          (author (emacspeak-bookshare-get-author))
          (title (emacspeak-bookshare-get-title))
          (target (emacspeak-bookshare-generate-target author title)))
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (cond
      ((file-exists-p target)
       (message "This content is available locally at %s" target))
@@ -1051,10 +1051,10 @@ Target location is generated from author and title."
          (line-beginning-position) (line-end-position)
          (list'face 'bold
                     'auditory-icon 'select-object))
-        (emacspeak-auditory-icon 'task-done)
+        (emacspeak-icon 'task-done)
         (message "Downloaded content to %s" target))
        (t (error "Error downloading content.")))
-      (emacspeak-auditory-icon 'task-done)
+      (emacspeak-icon 'task-done)
       (message "Downloading content to %s" target)))))
 
 (defun emacspeak-bookshare-unpack-at-point ()
@@ -1151,7 +1151,7 @@ Make sure it's downloaded and unpacked first."
            (cl-declare (special emacspeak-we-url-executor))
            (setq emacspeak-we-url-executor 'emacspeak-bookshare-url-executor)
            (emacspeak-speak-mode-line)
-           (emacspeak-auditory-icon 'open-object)))
+           (emacspeak-icon 'open-object)))
       (emacspeak-xslt-view-file
        xsl
        (shell-quote-argument
@@ -1285,7 +1285,7 @@ Useful for fulltext search in a book."
       (setq buffer-read-only t)
       (goto-char (point-min)))
     (switch-to-buffer buffer)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 (defvar-local emacspeak-bookshare-this-book nil
   "Record current book in buffer where it is rendered.")
@@ -1329,7 +1329,7 @@ Useful for fulltext search in a book."
            (emacspeak-speak-load-directory-settings directory)
            (plist-put eww-data :source nil)
            (plist-put eww-data :dom nil)
-           (emacspeak-auditory-icon 'open-object)
+           (emacspeak-icon 'open-object)
            (emacspeak-speak-mode-line)))
       (browse-url-of-buffer)
       (kill-buffer buffer))))
@@ -1341,7 +1341,7 @@ Useful for fulltext search in a book."
   (interactive)
   (goto-char (line-end-position))
   (goto-char (next-single-property-change (point) 'id))
-  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-icon 'select-object)
   (forward-char 1)
   (emacspeak-speak-line))
 
@@ -1350,7 +1350,7 @@ Useful for fulltext search in a book."
   (interactive)
   (goto-char (previous-single-property-change (point) 'id))
   (beginning-of-line)
-  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-icon 'select-object)
   (emacspeak-speak-line))
 
 (defun emacspeak-bookshare-flush-lines(regexp)

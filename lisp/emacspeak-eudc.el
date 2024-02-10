@@ -57,14 +57,14 @@
 (defadvice eudc-move-to-next-record (after emacspeak pre act comp)
   "speak. "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-line)))
 
 (defadvice eudc-move-to-previous-record (after emacspeak pre act
                                                comp)
   "speak. "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-line)))
 
 ;;;  speech enable  eudc widgets 
@@ -96,7 +96,7 @@
 Summarize the form to welcome the user. "
   (cl-declare (special eudc-server))
   (emacspeak-eudc-widgets-add-emacspeak-help)
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (let((server (propertize "Server " 'personality voice-smoothen))
        (host eudc-server))
     (dtk-speak 

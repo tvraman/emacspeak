@@ -64,13 +64,13 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "provide feedback"
      (let ((emacspeak-show-point t))
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-icon 'select-object)
        (emacspeak-speak-line)))))
 
 (defadvice yas-insert-snippet (after emacspeak pre act comp)
   "Speak inserted template."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-line)))
 
 (provide 'emacspeak-yasnippet)

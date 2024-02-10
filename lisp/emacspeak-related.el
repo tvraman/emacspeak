@@ -60,7 +60,7 @@
      "Speech-enabled by emacspeak."
      (when (ems-interactive-p)
        (emacspeak-speak-mode-line)
-       (emacspeak-auditory-icon 'select-object)))))
+       (emacspeak-icon 'select-object)))))
 
 (provide 'emacspeak-related)
 ;;;  end of file

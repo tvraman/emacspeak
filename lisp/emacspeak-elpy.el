@@ -67,31 +67,31 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done)
+       (emacspeak-icon 'task-done)
        (emacspeak-speak-mode-line)))))
 
 (defadvice elpy-enable (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'on)
+    (emacspeak-icon 'on)
     (message "Enabled elpy")))
 
 (defadvice elpy-disable (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'off)
+    (emacspeak-icon 'off)
     (message "Disabled elpy")))
 
 (defadvice elpy-doc (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'help)
+    (emacspeak-icon 'help)
     (message "Displayed help in other window.")))
 
 (defadvice elpy-find-file (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 (cl-loop
  for f in
@@ -102,7 +102,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
                                         ; elpy-flymake-show-error
@@ -121,7 +121,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 (provide 'emacspeak-elpy)

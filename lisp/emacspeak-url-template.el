@@ -326,7 +326,7 @@ with duplicates removed when saving as a list of string."
  #'(lambda nil
      (search-forward "Search Tools")
      (forward-line 1)
-     (emacspeak-auditory-icon 'open-object)
+     (emacspeak-icon 'open-object)
      (emacspeak-speak-windowful))
  "Light-weight Google weather.")
 
@@ -347,7 +347,7 @@ with duplicates removed when saving as a list of string."
          (?o "nasdaq")
          (error "O: nasdaq N: nyse")))))
  #'(lambda nil
-     (emacspeak-auditory-icon 'open-object)
+     (emacspeak-icon 'open-object)
      (search-forward "Most Active")
      (emacspeak-speak-windowful))
  "Lookup ticker on Google Finance.")
@@ -357,7 +357,7 @@ with duplicates removed when saving as a list of string."
  "https://finance.google.com"
  nil
  #'(lambda nil
-     (emacspeak-auditory-icon 'open-object)
+     (emacspeak-icon 'open-object)
      (search-forward "Most Active")
      (emacspeak-speak-windowful))
  "Display top stocks  from Google Finance.")
@@ -496,7 +496,7 @@ name of the list.")
        "^Volume" "^$"))
     (goto-char (point-min))
     (forward-line 1)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (rename-buffer "Portfolio" 'unique)
     (emacspeak-speak-line)))
 
@@ -793,7 +793,7 @@ the result at point.")
                    (point-max)))
     (help-print-return-message))
   (emacspeak-speak-help)
-  (emacspeak-auditory-icon 'help))
+  (emacspeak-icon 'help))
 (defun emacspeak-url-template-generate-name-setter (name)
   "Generate a setter that sets emacspeak-eww-url-template
 to specified name for use as a callback."
@@ -898,7 +898,7 @@ Each URL template carries out the following steps:
  "" nil nil
  "Extract body content from Wikipedia link at point"
  #'(lambda (_)
-     (emacspeak-auditory-icon 'open-object)
+     (emacspeak-icon 'open-object)
      (emacspeak-eww-autospeak)
      (emacspeak-we-extract-by-id "bodyContent" (shr-url-at-point nil))))
 
@@ -922,7 +922,7 @@ Each URL template carries out the following steps:
     (setq add
           (replace-regexp-in-string "download/detail" "wishlist/add" book))
     (message "Updating  book in  wishlist.")
-    (emacspeak-auditory-icon 'progress)
+    (emacspeak-icon 'progress)
     (eww add)))
 
 (emacspeak-url-template-define

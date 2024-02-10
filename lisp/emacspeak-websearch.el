@@ -109,7 +109,7 @@
       (goto-char (point-min)))
     (pop-to-buffer (help-buffer))
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'help)))
+    (emacspeak-icon 'help)))
 
 (emacspeak-websearch-set-searcher  'help
                                    'emacspeak-websearch-help)

@@ -138,19 +138,19 @@
 (defadvice ses-forward-or-insert (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-ses-summarize-current-cell)))
 
 (defadvice ses-recalculate-cell (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-ses-summarize-current-cell)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 (defadvice ses-jump (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-ses-summarize-current-cell)))
 
 ;;;  Setup:

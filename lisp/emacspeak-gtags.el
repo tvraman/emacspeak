@@ -75,19 +75,19 @@
           `(defadvice ,f (after emacspeak pre act comp)
              "speak."
              (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'large-movement)
+               (emacspeak-icon 'large-movement)
                (emacspeak-speak-line)))))
 
 (defadvice gtags-pop-stack (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-line)))
 
 (defadvice gtags-select-mode (after emacspeak pre act comp)
   "Provide  auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-line)))
 
 (provide 'emacspeak-gtags)

@@ -65,7 +65,7 @@
   "speak."
   (when (ems-interactive-p)
     (emacspeak-toggle-audio-indentation)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (cl-loop
@@ -80,7 +80,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'button)))))
+       (emacspeak-icon 'button)))))
 
 (provide 'emacspeak-pipewire)
 ;; end of file

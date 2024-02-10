@@ -60,7 +60,7 @@
 (defadvice sh-indent-line (after emacspeak pre act comp)
   "speak to indicate indentation."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-current-column)))
 
 (unless (and (boundp 'post-self-insert-hook)
@@ -90,13 +90,13 @@
                                          comp)
   "Speak point moved to."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 (defadvice sh-end-of-command(after emacspeak pre act
                                    comp)
   "Speak point moved to."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 ;;;  advice skeleton insertion 

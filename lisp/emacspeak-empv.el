@@ -66,13 +66,13 @@
      "speak."
      (when (ems-interactive-p)
        (dtk-stop 'all)
-       (emacspeak-auditory-icon 'button)))))
+       (emacspeak-icon 'button)))))
 
 (defadvice empv-exit (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (dtk-stop 'all)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice empv-youtube-tabulated (after emacspeak pre act comp)
@@ -164,7 +164,7 @@ Interactive prefix arg plays on left ear using alsa."
   (interactive "nTarget:")
   (empv-seek target)
   (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon 'button)
+    (emacspeak-icon 'button)
     (call-interactively 'empv-display-current)))
 
 (defun emacspeak-empv-absolute-seek (target)
@@ -172,7 +172,7 @@ Interactive prefix arg plays on left ear using alsa."
   (interactive "nTarget:")
   (empv-seek target '("absolute"))
   (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon 'button)
+    (emacspeak-icon 'button)
     (call-interactively 'empv-display-current)))
 
 (defun emacspeak-empv-percentage-seek (target)
@@ -180,7 +180,7 @@ Interactive prefix arg plays on left ear using alsa."
   (interactive "nTarget:")
   (empv-seek target '("absolute-percent"))
   (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon 'button)
+    (emacspeak-icon 'button)
     (call-interactively 'empv-display-current)))
 
 ;;; Setup:
@@ -252,7 +252,7 @@ Filter is of the  form name=arg-1:arg-2:..."
   (interactive)
   (empv--send-command (list "af" "clr" "" ))
   (message "Cleared filters")
-  (emacspeak-auditory-icon 'delete-object))
+  (emacspeak-icon 'delete-object))
 
 (defcustom emacspeak-empv-custom-filters
   '("extrastereo" "stereowiden=4.25:.1:735:.8")
@@ -269,7 +269,7 @@ The default value is suitable for classical instrumental music."
     (mapc
      #'(lambda (filter) (empv--send-command (list "af" "toggle" filter)))
      emacspeak-empv-custom-filters)
-    (emacspeak-auditory-icon 'button)
+    (emacspeak-icon 'button)
     (message "Toggled custom filters")))
 
 (provide 'emacspeak-empv)

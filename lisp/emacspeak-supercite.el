@@ -52,7 +52,7 @@
 (defadvice sc-cite-region (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-icon 'mark-object)
     (message "Cited region containing %s lines"
              (count-lines (ad-get-arg 0)
                           (ad-get-arg 1)))))
@@ -60,7 +60,7 @@
 (defadvice sc-recite-region (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-icon 'mark-object)
     (message "Re-cited region containing %s lines"
              (count-lines (ad-get-arg 0)
                           (ad-get-arg 1)))))
@@ -68,7 +68,7 @@
 (defadvice sc-uncite-region (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-icon 'mark-object)
     (message "Uncited region containing %s lines"
              (count-lines (ad-get-arg 0)
                           (ad-get-arg 1)))))
@@ -81,7 +81,7 @@
     (let ((opoint (point)))
       ad-do-it
       (emacspeak-speak-region opoint (point))
-      (emacspeak-auditory-icon 'yank-object)))
+      (emacspeak-icon 'yank-object)))
    (t ad-do-it))
   ad-return-value)
 (defadvice sc-insert-citation (after emacspeak pre act
@@ -89,12 +89,12 @@
   "Speak what we inserted"
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'yank-object)))
+    (emacspeak-icon 'yank-object)))
 
 (defadvice sc-open-line (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (dtk-speak "Opened a blank line")))
 
 (provide 'emacspeak-supercite)

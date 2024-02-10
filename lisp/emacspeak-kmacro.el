@@ -57,7 +57,7 @@
 (defadvice kmacro-start-macro (before emacspeak pre act comp)
   "Provide auditory icon."
   (when  (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (message "Defining new kbd macro.")))
 
 (defadvice kmacro-start-macro-or-insert-counter (before emacspeak pre act comp)
@@ -65,7 +65,7 @@
   (when (and (ems-interactive-p)
              (not  defining-kbd-macro)
              (not executing-kbd-macro))
-    (emacspeak-auditory-icon 'yank-object)
+    (emacspeak-icon 'yank-object)
     (message "Defining new kbd macro.")))
 
 (defadvice kmacro-end-or-call-macro (before emacspeak pre act comp)
@@ -73,9 +73,9 @@
   (cond
    ((and (ems-interactive-p)
          defining-kbd-macro)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (message "Finished defining kbd macro."))
-   (t(emacspeak-auditory-icon 'open-object)
+   (t(emacspeak-icon 'open-object)
      (message "Calling macro."))))
 
 (defadvice kmacro-end-or-call-macro-repeat (before emacspeak pre act comp)
@@ -84,14 +84,14 @@
    ((and (ems-interactive-p)
          defining-kbd-macro)
     (message "Finished defining kbd macro."))
-   (t(emacspeak-auditory-icon 'select-object)
+   (t(emacspeak-icon 'select-object)
      (message "Calling macro."))))
 
 (defadvice kmacro-edit-macro-repeat (after emacspeak pre act
                                            comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice kmacro-call-ring-2nd-repeat (before emacspeak pre act comp)

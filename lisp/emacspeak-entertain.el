@@ -78,7 +78,7 @@
       ((ems-interactive-p)
        (let ((orig (point)))
          ad-do-it
-         (emacspeak-auditory-icon 'mark-object)
+         (emacspeak-icon 'mark-object)
          (emacspeak-speak-region orig (point))))
       (t ad-do-it))
      ad-return-value)))
@@ -104,7 +104,7 @@
 (defadvice hm-self-guess-char (after emacspeak pre act comp)
   "Speak the char."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 (defun emacspeak-hangman-speak-guess ()
   "Speak current guessed string. "
@@ -125,7 +125,7 @@
   "Speech enable hangman."
   (when (ems-interactive-p)
     (emacspeak-hangman-setup-pronunciations)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 (cl-declaim (special hm-map))
 (when (boundp 'hm-map)
   (cl-declaim (special hm-map))

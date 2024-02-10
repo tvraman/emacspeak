@@ -126,7 +126,7 @@ given name, it is updated with path and position."
       (save-buffer)
       (message "Saved AMarks in %s" (buffer-file-name))
       (kill-buffer buff)
-      (emacspeak-auditory-icon 'save-object))))
+      (emacspeak-icon 'save-object))))
 
 ;;;###autoload
 (defun emacspeak-amark-load ()
@@ -176,7 +176,7 @@ given name, it is updated with path and position."
   "Delete Amark and save."
   (cl-declare (special emacspeak-amark-list))
   (setq emacspeak-amark-list (remove amark emacspeak-amark-list))
-  (emacspeak-auditory-icon 'delete-object)
+  (emacspeak-icon 'delete-object)
   (emacspeak-amark-save)
   (emacspeak-amark-browse)
   (message "Updated amarks"))
@@ -288,7 +288,7 @@ current file."
      (t (funcall-interactively #'locate emacspeak-amark-file))))
   (rename-buffer "AMark Bookshelf" 'unique)
   (emacspeak-speak-line)
-  (emacspeak-auditory-icon 'open-object))
+  (emacspeak-icon 'open-object))
 
 (provide  'emacspeak-amark)
 

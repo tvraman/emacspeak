@@ -75,9 +75,9 @@
   (let* ((pos (mines-index-2-matrix (mines-current-pos)))
          (row (cl-first pos))
          (column (cl-second pos)))
-    (when (= 0 column) (emacspeak-auditory-icon 'left))
-    (when (= 7 column) (emacspeak-auditory-icon 'right))
-    (when (or (= row 0) (= row 7)) (emacspeak-auditory-icon 'large-movement))
+    (when (= 0 column) (emacspeak-icon 'left))
+    (when (= 7 column) (emacspeak-icon 'right))
+    (when (or (= row 0) (= row 7)) (emacspeak-icon 'large-movement))
     (dtk-speak
      (format "%c in row %s column %s" (following-char) row column))))
 
@@ -225,7 +225,7 @@ to beginning of board before searching."
   "speak."
   (when (ems-interactive-p)
     (dtk-speak "New Minesweeper game")
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 
 (cl-loop
  for f in
@@ -243,7 +243,7 @@ to beginning of board before searching."
 (defadvice mines-dig (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (unless mines-game-over (emacspeak-mines-speak-cell))))
 
 (defadvice mines-flag-cell (after emacspeak pre act comp)
@@ -251,18 +251,18 @@ to beginning of board before searching."
   (when (ems-interactive-p)
 
     (if (eq t (aref mines-grid (mines-current-pos)))
-        (emacspeak-auditory-icon 'close-object)
-      (emacspeak-auditory-icon 'mark-object))
+        (emacspeak-icon 'close-object)
+      (emacspeak-icon 'mark-object))
     (emacspeak-mines-speak-cell)))
 
 (defadvice mines-game-over (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'shutdown)))
+    (emacspeak-icon 'shutdown)))
 
 (defadvice mines-game-completed(after emacspeak pre act comp)
   "Provide an auditory icon."
-  (emacspeak-auditory-icon 'task-done))
+  (emacspeak-icon 'task-done))
 
 (provide 'emacspeak-mines)
 ;;;  end of file

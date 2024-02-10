@@ -59,8 +59,8 @@
   (cl-declare (special eshell-last-command-status))
   (cond
    ((= 0 eshell-last-command-status)
-    (emacspeak-auditory-icon 'item))
-   (t (emacspeak-auditory-icon 'warn-user))))
+    (emacspeak-icon 'item))
+   (t (emacspeak-icon 'warn-user))))
 
 (add-hook 'eshell-after-prompt-hook 'emacspeak-eshell-prompt-function)
 
@@ -83,7 +83,7 @@
   "Announce switching to shell mode.
 Provide an auditory icon if possible."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (dtk-set-punctuations 'all)
     (or dtk-split-caps
         (dtk-toggle-split-caps))
@@ -104,7 +104,7 @@ Provide an auditory icon if possible."
   `(defadvice ,f (after  emacspeak pre act comp)
      "Speak selected command."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-icon 'select-object)
        (save-excursion
          (beginning-of-line)
          (eshell-skip-prompt)
@@ -151,7 +151,7 @@ personalities.")
              "Speak selected command."
              (when (ems-interactive-p)
                (let ((emacspeak-speak-messages nil))
-                 (emacspeak-auditory-icon 'select-object)
+                 (emacspeak-icon 'select-object)
                  (emacspeak-speak-line 1))))))
 
 ;;;   advice esh-arg
@@ -166,14 +166,14 @@ personalities.")
           `(defadvice ,f (after emacspeak pre act comp)
              "Speak output."
              (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'select-object)
+               (emacspeak-icon 'select-object)
                (emacspeak-speak-line)))))
 
 (defadvice eshell-insert-process (after emacspeak pre
                                         act comp)
   "Speak output."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-line)))
 
 ;;;  advice esh-mode
@@ -205,24 +205,24 @@ personalities.")
   "Speak output."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
-      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-icon 'large-movement)
       (emacspeak-speak-region (point) (mark)))))
 (defadvice eshell-mark-output (after emacspeak pre act comp)
   "Speak output."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
-      (emacspeak-auditory-icon 'mark-object)
+      (emacspeak-icon 'mark-object)
       (emacspeak-speak-line))))
 (defadvice eshell-kill-output (after emacspeak pre act comp)
   "Produce auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (message "Flushed output")))
 
 (defadvice eshell-kill-input (before emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (emacspeak-speak-line)))
 
 (defadvice eshell-toggle (after emacspeak pre act comp)
@@ -233,7 +233,7 @@ personalities.")
       (emacspeak-setup-programming-mode)
       (emacspeak-speak-line))
      (t (emacspeak-speak-mode-line)))
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 (defadvice eshell-toggle-cd (after emacspeak pre act comp)
   "Provide spoken context feedback."
   (when (ems-interactive-p)
@@ -241,7 +241,7 @@ personalities.")
      ((eq major-mode 'eshell-mode)
       (emacspeak-speak-line))
      (t (emacspeak-speak-mode-line)))
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 ;;; Additional Commands To Enable: 
 
@@ -256,7 +256,7 @@ personalities.")
          (ems-interactive-p)
        (let ((emacspeak-show-point t))
          (emacspeak-speak-line)
-         (emacspeak-auditory-icon 'large-movement))))))
+         (emacspeak-icon 'large-movement))))))
 
 (cl-loop
  for f in
@@ -283,7 +283,7 @@ personalities.")
            (save-excursion
              (eshell-bol)
              (point))))
-      (emacspeak-auditory-icon 'yank-object)
+      (emacspeak-icon 'yank-object)
       (emacspeak-speak-region start (point)))))
 (defadvice eshell-get-next-from-history (after emacspeak pre act comp)
   "Speak what was inserted."
@@ -292,7 +292,7 @@ personalities.")
            (save-excursion
              (eshell-bol)
              (point))))
-      (emacspeak-auditory-icon 'yank-object)
+      (emacspeak-icon 'yank-object)
       (emacspeak-speak-region start (point)))))
 
 (provide 'emacspeak-eshell)

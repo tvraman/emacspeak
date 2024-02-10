@@ -53,12 +53,12 @@
 (defadvice calc-dispatch (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 
 (defadvice calc-quit (after emacspeak pre act comp)
   "Announce the buffer that becomes current when calc is quit."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 ;;;   speak output 
@@ -70,7 +70,7 @@
     (ems-with-messages-silenced ad-do-it)
     (tts-with-punctuations 'all
                            (emacspeak-read-previous-line))
-    (emacspeak-auditory-icon 'task-done))
+    (emacspeak-icon 'task-done))
    (t ad-do-it))
   ad-return-value)
 
@@ -80,13 +80,13 @@
   (tts-with-punctuations
    'all
    (emacspeak-read-previous-line)
-   (emacspeak-auditory-icon 'select-object))
+   (emacspeak-icon 'select-object))
   ad-return-value)
 
 (defadvice  calc-trail-here (after emacspeak pre act comp)
   "Speak previous line of output."
   (emacspeak-speak-line)
-  (emacspeak-auditory-icon 'select-object))
+  (emacspeak-icon 'select-object))
 
 (provide 'emacspeak-calc)
 

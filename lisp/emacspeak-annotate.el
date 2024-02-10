@@ -74,7 +74,7 @@
      "speak."
      (when (ems-interactive-p)
        (let ((o (cl-first (overlays-at (point)))))
-         (emacspeak-auditory-icon 'large-movement)
+         (emacspeak-icon 'large-movement)
          (emacspeak-speak-line)
          (dtk-notify-speak (overlay-get o 'annotation)))))))
 

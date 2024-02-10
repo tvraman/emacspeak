@@ -82,7 +82,7 @@ Interactive PREFIX arg means toggle  global default value. "
    (t (make-local-variable 'emacspeak-comint-autospeak)
       (setq emacspeak-comint-autospeak (not emacspeak-comint-autospeak))))
   (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon (if emacspeak-comint-autospeak 'on 'off))
+    (emacspeak-icon (if emacspeak-comint-autospeak 'on 'off))
     (dtk-speak-and-echo
      (format "Turned emacspeak-comint-autospeak %s  %s."
              (if emacspeak-comint-autospeak "on" "off")
@@ -171,7 +171,7 @@ Interactive PREFIX arg means toggle the global default value. ")
 (defadvice comint-delete-output (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (emacspeak-speak-line)))
 (cl-loop
  for f in
@@ -183,13 +183,13 @@ Interactive PREFIX arg means toggle the global default value. ")
      (when (ems-interactive-p)
        (save-excursion
          (comint-bol-or-process-mark)
-         (emacspeak-auditory-icon 'select-object)
+         (emacspeak-icon 'select-object)
          (emacspeak-speak-line 1))))))
 
 (defadvice comint-clear-buffer (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (emacspeak-speak-line)))
 
 (defadvice comint-magic-space (around emacspeak pre act comp)
@@ -207,7 +207,7 @@ Interactive PREFIX arg means toggle the global default value. ")
            (forward-word -1)
            (emacspeak-speak-word)))
         (t
-         (emacspeak-auditory-icon 'complete)
+         (emacspeak-icon 'complete)
          (emacspeak-speak-region
           (comint-line-beginning-position) (point)))))))
    (t ad-do-it))
@@ -220,7 +220,7 @@ Interactive PREFIX arg means toggle the global default value. ")
     (let ((orig (point)))
       ad-do-it
       (emacspeak-speak-region orig (point))
-      (emacspeak-auditory-icon 'yank-object)))
+      (emacspeak-icon 'yank-object)))
    (t ad-do-it))
   ad-return-value)
 
@@ -276,7 +276,7 @@ Interactive PREFIX arg means toggle the global default value. ")
   (when (ems-interactive-p)
     (save-excursion
       (comint-bol)
-      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-icon 'select-object)
       (emacspeak-speak-line 1))))
 (cl-loop
  for f in
@@ -291,27 +291,27 @@ Interactive PREFIX arg means toggle the global default value. ")
        (save-excursion
          (goto-char (comint-line-beginning-position))
          (emacspeak-speak-line 1))
-       (emacspeak-auditory-icon 'select-object)))))
+       (emacspeak-icon 'select-object)))))
 
 (defadvice shell-forward-command (after emacspeak pre act comp)
   "Speak  line."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'item))))
+      (emacspeak-icon 'item))))
 
 (defadvice shell-backward-command (after emacspeak pre act comp)
   "Speak  line."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'item))))
+      (emacspeak-icon 'item))))
 
 (defadvice comint-show-output (after emacspeak pre act comp)
   "Speak  line."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
-      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-icon 'large-movement)
       (emacspeak-speak-region (point) (mark)))))
 
 (defadvice comint-show-maximum-output (after emacspeak pre act comp)
@@ -319,19 +319,19 @@ Interactive PREFIX arg means toggle the global default value. ")
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'scroll))))
+      (emacspeak-icon 'scroll))))
 
 (defadvice comint-bol-or-process-mark (after emacspeak pre act comp)
   "Speak line."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'select-object))))
+      (emacspeak-icon 'select-object))))
 
 (defadvice comint-copy-old-input (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'yank-object)
+    (emacspeak-icon 'yank-object)
     (emacspeak-speak-line)))
 
 (defadvice comint-output-filter (around emacspeak pre act comp)
@@ -358,7 +358,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
              (dtk-speak output))
            ( prompt-p
              (when emacspeak-comint-autospeak
-               (emacspeak-auditory-icon 'item))))))
+               (emacspeak-icon 'item))))))
       ad-return-value)))
 
 (defadvice comint-dynamic-list-completions (around emacspeak pre act comp)
@@ -385,7 +385,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
        (if (> (point) prior)
            (tts-with-punctuations
             'all
-            (emacspeak-auditory-icon 'complete)
+            (emacspeak-icon 'complete)
             (dtk-speak (buffer-substring prior (point))))
          (emacspeak-speak-completions-if-available)))))
    (t ad-do-it))
@@ -399,7 +399,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
      (save-excursion
        (goto-char (comint-line-beginning-position))
        (emacspeak-speak-line 1)))
-    (emacspeak-auditory-icon 'item)))
+    (emacspeak-icon 'item)))
 
 (defadvice comint-next-matching-input (after emacspeak pre act comp)
   "Speak line."
@@ -409,7 +409,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
      (save-excursion
        (goto-char (comint-line-beginning-position))
        (emacspeak-speak-line 1)))
-    (emacspeak-auditory-icon 'item)))
+    (emacspeak-icon 'item)))
 
 (defadvice comint-previous-input (after emacspeak pre act comp)
   "Speak line."
@@ -419,7 +419,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
      (save-excursion
        (goto-char (comint-line-beginning-position))
        (emacspeak-speak-line 1)))
-    (emacspeak-auditory-icon 'item)))
+    (emacspeak-icon 'item)))
 
 (defadvice comint-previous-matching-input (after emacspeak pre act comp)
   "Speak line."
@@ -429,18 +429,18 @@ instead, always play an auditory icon when the shell prompt is displayed."
      (save-excursion
        (goto-char (comint-line-beginning-position))
        (emacspeak-speak-line 1)))
-    (emacspeak-auditory-icon 'item)))
+    (emacspeak-icon 'item)))
 
 (defadvice comint-send-input (after emacspeak pre act comp)
   "Flush any ongoing speech."
   (when (ems-interactive-p)
     (dtk-stop 'all)
-    (emacspeak-auditory-icon 'more)))
+    (emacspeak-icon 'more)))
 
 (defadvice comint-previous-prompt (after emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'item)
+    (emacspeak-icon 'item)
     (if (eolp)
         (emacspeak-speak-line)
       (emacspeak-speak-line 1))))
@@ -448,7 +448,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
 (defadvice comint-next-prompt (after emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'item)
+    (emacspeak-icon 'item)
     (if (eolp)
         (emacspeak-speak-line)
       (emacspeak-speak-line 1))))
@@ -456,7 +456,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
 (defadvice comint-get-next-from-history (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'item)
+    (emacspeak-icon 'item)
     (save-excursion
       (comint-bol)
       (emacspeak-speak-line 1))))
@@ -483,7 +483,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
           (forward-line 3)
           (while (search-backward "completion" nil 'move)
             (replace-match "history reference")))
-        (emacspeak-auditory-icon 'help)
+        (emacspeak-icon 'help)
         (next-completion 1)
         (dtk-speak (emacspeak-get-current-completion)))))
    (t ad-do-it))
@@ -492,7 +492,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
 (defadvice comint-kill-output (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (message "Nuked output of last command ")))
 
 (defadvice comint-quit-subjob (after emacspeak pre act comp)
@@ -513,7 +513,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
 (defadvice comint-kill-input (before emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (let ((pmark (process-mark (get-buffer-process (current-buffer)))))
       (when (> (point) (marker-position pmark))
         (emacspeak-speak-region pmark (point))))))

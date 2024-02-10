@@ -170,7 +170,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'task-done)))))
+       (emacspeak-icon 'task-done)))))
 
 (cl-loop
  for f in
@@ -193,7 +193,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 (defadvice haskell-cabal-mode (after emacspeak pre act comp)
@@ -220,7 +220,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'select-object)))))
+       (emacspeak-icon 'select-object)))))
 
 ;;; haskell-mode-hook:
 

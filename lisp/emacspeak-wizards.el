@@ -131,7 +131,7 @@
     (completing-read "News: "
                      (directory-files emacspeak-etc-directory nil "NEWS*"))
     emacspeak-etc-directory))
-  (emacspeak-auditory-icon 'news)
+  (emacspeak-icon 'news)
   (org-mode)
   (org-next-visible-heading 1)
   (emacspeak-speak-line))
@@ -144,7 +144,7 @@
    (browse-url
     (format "file:///%stips.html"
             emacspeak-etc-directory)))
-  (emacspeak-auditory-icon 'help)
+  (emacspeak-icon 'help)
   (emacspeak-speak-mode-line))
 
 ;;;  utility function to copy documents:
@@ -195,7 +195,7 @@ Prompts for the new location and preserves modification time
      t                                  ;preserve
                                         ;modification time
      )
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (message "Copied current document to %s" location)))
 
 (defun emacspeak-link-current-file ()
@@ -229,7 +229,7 @@ Prompts for the new location and preserves modification time
              location)))
     (add-name-to-file
      file location)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (message "Linked current document to %s" location)))
 
 (defun emacspeak-symlink-current-file ()
@@ -263,7 +263,7 @@ Prompts for the new location and preserves modification time
              location)))
     (make-symbolic-link
      file location)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (message "Symlinked  current doc>ument to %s" location)))
 
 ;;;  pop up messages buffer
@@ -273,7 +273,7 @@ Prompts for the new location and preserves modification time
   "Pop up Messages  and switch to it."
   (interactive)
   (select-window (view-echo-area-messages))
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (emacspeak-read-previous-line))
 
 (defvar emacspeak-speak-network-interfaces-list
@@ -344,7 +344,7 @@ tramp/sudo), if the file is not writable by user."
     (setq file (concat "/sudo:root@localhost:" file)))
   (find-file file)
   (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 ;;;  browse chunks
@@ -478,7 +478,7 @@ open at multiple places at once.  "
                window-list))
     (select-frame (window-frame win))
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 ;;;###autoload
 (defun emacspeak-select-this-buffer-previous-display ()
   "Select this buffer as displayed in a `previous' window.
@@ -586,7 +586,7 @@ If optional arg property is not supplied, read it interactively. "
               (put-text-property 0 (length skipped)
                                  'personality
                                  voice-annotate skipped))
-            (emacspeak-auditory-icon 'select-object)
+            (emacspeak-icon 'select-object)
             (dtk-speak
              (concat skipped (ems--this-line))))))
       (modify-syntax-entry 10 (format "%c" save-syntax)))))
@@ -617,7 +617,7 @@ If optional arg property is not supplied, read it interactively. "
               (put-text-property 0 (length skipped)
                                  'personality
                                  voice-annotate skipped))
-            (emacspeak-auditory-icon 'select-object)
+            (emacspeak-icon 'select-object)
             (dtk-speak
              (concat skipped (ems--this-line))))))
       (modify-syntax-entry 10 (format "%c" save-syntax)))))
@@ -656,7 +656,7 @@ If optional arg property is not supplied, read it interactively. "
     (unless (string-equal (expand-file-name dir)
                           (expand-file-name default-directory))
       (shell-cd dir))
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
 ;;;  pdf wizard
@@ -710,7 +710,7 @@ Optional interactive prefix arg ask-pwd prompts for password."
     (text-mode)
     (view-mode)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 
 ;;;  tramp wizard
 
@@ -748,7 +748,7 @@ Location is specified by name."
   "Customize Emacspeak."
   (interactive)
   (customize-group 'emacspeak)
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (emacspeak-custom-goto-group))
 
 ;;;  squeeze blank lines in current buffer:
@@ -816,7 +816,7 @@ prompts for and sets value of the file local pattern."
          emacspeak-occur-pattern)
     (occur emacspeak-occur-pattern)
     (message "Displayed header lines in other window.")
-    (emacspeak-auditory-icon 'open-object))
+    (emacspeak-icon 'open-object))
    (t
     (let ((pattern (read-from-minibuffer "Regular expression: ")))
       (setq emacspeak-occur-pattern pattern)
@@ -830,7 +830,7 @@ prompts for and sets value of the file local pattern."
   (interactive)
   (kill-buffer nil)
   (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 ;;;  VC viewer
@@ -917,7 +917,7 @@ Ubuntu and Debian this is group `tty'.")
   (cl-declare (special last-input-event))
   (emacspeak-wizards-vc-viewer (format "%c" last-input-event))
   (emacspeak-speak-line)
-  (emacspeak-auditory-icon 'open-object))
+  (emacspeak-icon 'open-object))
 
 (cl-declaim (special emacspeak-wizards-vc-view-mode-map))
 
@@ -1026,7 +1026,7 @@ Moves to the shortest line when called interactively."
       (switch-to-buffer output)
       (goto-char (point-min))
       (emacspeak-speak-mode-line)
-      (emacspeak-auditory-icon 'open-object))))
+      (emacspeak-icon 'open-object))))
 
 ;;;  ISO dates
 ;; implementation based on icalendar.el
@@ -1128,7 +1128,7 @@ dates.")
       (("PAGER" "cat"))
     (make-comint "units" (executable-find "units") nil "--verbose"))
   (switch-to-buffer "*units*")
-  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-icon 'select-object)
   (goto-char (point-max))
   (unless emacspeak-comint-autospeak
     (emacspeak-toggle-inaudible-or-comint-autospeak))
@@ -1295,7 +1295,7 @@ of the source buffer."
   (interactive)
   (cl-declare (special emacspeak-wizards--project-shell-directory))
   (setq emacspeak-wizards--project-shell-directory default-directory)
-  (emacspeak-auditory-icon 'task-done)
+  (emacspeak-icon 'task-done)
   (message (abbreviate-file-name default-directory)))
 
 ;;;###autoload
@@ -1309,11 +1309,11 @@ the current directory."
   (cond
    ((and prefix (eq major-mode 'shell-mode))
     (setq emacspeak-wizards--project-shell-directory default-directory)
-    (emacspeak-auditory-icon 'item)
+    (emacspeak-icon 'item)
     (message "%s" (abbreviate-file-name default-directory)))
    ((and (eq major-mode 'shell-mode)
          (process-live-p (get-buffer-process (current-buffer))))
-    (emacspeak-auditory-icon 'item)
+    (emacspeak-icon 'item)
     (ems--shell-pushd-if-needed
      emacspeak-wizards--project-shell-directory (current-buffer))
     (message (abbreviate-file-name default-directory)))
@@ -1366,7 +1366,7 @@ buffer keyed by `key'gets the key of buffer `buffer'."
   (interactive)
   (search-forward-regexp
    "\\(^ *[0-9]+\\. \\)\\|\\( O \\) *")
-  (emacspeak-auditory-icon 'item)
+  (emacspeak-icon 'item)
   (emacspeak-speak-line))
 
 (defun emacspeak-wizards-previous-bullet ()
@@ -1374,7 +1374,7 @@ buffer keyed by `key'gets the key of buffer `buffer'."
   (interactive)
   (search-backward-regexp
    "\\(^ *[0-9]+\\. \\)\\|\\(^O\s\\) *")
-  (emacspeak-auditory-icon 'item)
+  (emacspeak-icon 'item)
   (emacspeak-speak-line))
 
 ;;;  Start or switch to term:
@@ -1480,7 +1480,7 @@ interactive prompt."
     (pop-to-buffer buffer)
     (emacs-lisp-mode)
     (goto-char (point-min))
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defun emacspeak-wizards-show-memory-used ()
@@ -1505,7 +1505,7 @@ interactive prompt."
       (insert (documentation 'memory-use-counts))
       (goto-char (point-min)))
     (pop-to-buffer buffer)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 ;;;###autoload
@@ -1680,7 +1680,7 @@ mapped to voices."
         (with-current-buffer buffer
           (eq major-mode mode)))))
   (rename-buffer (format "Buffers Filtered By  %s" mode) 'unique)
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (emacspeak-speak-line))
 
 ;;;###autoload
@@ -1701,7 +1701,7 @@ mapped to voices."
            (eq major-mode 'emacspeak-m-player-mode)
            (process-live-p (get-buffer-process buffer)))))))
   (rename-buffer "*Media Player Buffers*" 'unique)
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (emacspeak-speak-line))
 
 ;;;###autoload
@@ -1901,7 +1901,7 @@ Otherwise just return  `color'."
     (cl-case choice
       (?b (set-background-color color))
       (?f (set-foreground-color color)))
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (call-interactively #'emacspeak-wizards-frame-colors)))
 
 ;;;###autoload
@@ -2016,7 +2016,7 @@ q: Quit color wheel, after copying current hex value to kill-ring."
       (setq event (read-event (ems--color-wheel-describe w color)))
       (cond
        ((eq event ?c)
-        (emacspeak-auditory-icon 'button)
+        (emacspeak-icon 'button)
         (setf (ems--color-wheel-red w) (- 255 (ems--color-wheel-red w)))
         (setf (ems--color-wheel-green w)
               (- 255 (ems--color-wheel-green w)))
@@ -2024,14 +2024,14 @@ q: Quit color wheel, after copying current hex value to kill-ring."
               (- 255 (ems--color-wheel-blue w))))
        ((eq event ?q)
         (setq continue nil)
-        (emacspeak-auditory-icon 'close-object)
+        (emacspeak-icon 'close-object)
         (message "Copied color %s %s to kill ring"
                  (ems--color-wheel-hex w)
                  (ems--color-wheel-name w))
         (kill-new (ems--color-wheel-hex w)))
        ((eq event ?f)
         (setq continue nil)
-        (emacspeak-auditory-icon 'close-object)
+        (emacspeak-icon 'close-object)
         (set-foreground-color (ems--color-wheel-hex w))
         (message "Setting foreground  color  to %s %s"
                  (ems--color-wheel-hex w)
@@ -2039,7 +2039,7 @@ q: Quit color wheel, after copying current hex value to kill-ring."
         (kill-new (ems--color-wheel-hex w)))
        ((eq event ?b)
         (setq continue nil)
-        (emacspeak-auditory-icon 'close-object)
+        (emacspeak-icon 'close-object)
         (set-background-color (ems--color-wheel-hex w))
         (message "Setting background color  to %s %s"
                  (ems--color-wheel-hex w)
@@ -2152,7 +2152,7 @@ and pops to a buffer that describes the colors used in that palette."
          (insert (format "%s:\t%s\t%s\n" (cl-first p) c (cl-second p))))))
     (setq buffer-read-only t)
     (special-mode))
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (funcall-interactively #'switch-to-buffer "*Colors*")
   (goto-char (point-min))
   (emacspeak-speak-line))
@@ -2164,7 +2164,7 @@ and pops to a buffer that describes the colors used in that palette."
 (defun emacspeak-wizards-pipe ()
   "convenience function"
   (pop-to-buffer (get-buffer-create " *piped*"))
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (emacspeak-speak-mode-line))
 
 ;;;  Customize Saved Settings  By Pattern:
@@ -2187,12 +2187,12 @@ updating custom settings for a specific package or group of packages."
     (when (not found) (user-error "No saved user options matching %s"
                                   pattern))
     (ems-with-messages-silenced
-     (emacspeak-auditory-icon 'progress)
+     (emacspeak-icon 'progress)
      (custom-buffer-create
       (custom-sort-items found t nil)
       (format "*Customize %d Saved options Matching %s*" (length
                                                           found) pattern)))
-    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-icon 'task-done)
     (emacspeak-speak-mode-line)))
 
 ;;;  NOAA Weather API:
@@ -2304,7 +2304,7 @@ Default is to display weather for `gmaps-my-address'."
           ((get-buffer "*NOAA Weather*") (get-buffer "*NOAA Weather*"))
           (t (ems--noaa-get-data ask)))))
     (switch-to-buffer buffer)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-line)))
 
 ;;;  generate declare-function statements:
@@ -2550,9 +2550,9 @@ Optional interactive prefix arg deletes it."
         (cond
          (delete
           (kill-region (1+ orig) (1- (point)))
-          (emacspeak-auditory-icon 'delete-object))
+          (emacspeak-icon 'delete-object))
          (t (kill-ring-save (1+ orig) (1- (point)))
-            (emacspeak-auditory-icon 'mark-object)))
+            (emacspeak-icon 'mark-object)))
         (dtk-speak (car kill-ring))))))
 
 ;;; Brightness Alert:
@@ -2577,7 +2577,7 @@ before brightness is checked.")
   (cl-declare (special emacspeak-brightness-autoblack))
   (with-local-quit
     (unless (zerop (light-get))
-      (emacspeak-auditory-icon 'alert-user)
+      (emacspeak-icon 'alert-user)
       (when emacspeak-brightness-autoblack (light-black))
       (message "Brightness %s." (light-get)))))
 
@@ -2598,7 +2598,7 @@ before brightness is checked.")
   (when (called-interactively-p 'interactive)
     (message "turned %s brightness alert"
              (if emacspeak-brightness-timer "on" "off"))
-    (emacspeak-auditory-icon
+    (emacspeak-icon
      (if emacspeak-brightness-timer 'on 'off))))
 
 ;;;###autoload
@@ -2610,7 +2610,7 @@ before brightness is checked.")
   (when (called-interactively-p 'interactive)
     (message "Turned %s autoblack"
              (if emacspeak-brightness-autoblack ' "on" "off"))
-    (emacspeak-auditory-icon
+    (emacspeak-icon
      (if emacspeak-brightness-autoblack 'on 'off))))
 
 ;;;  Content Locator:
@@ -2644,7 +2644,7 @@ before brightness is checked.")
                 "[ '/\"_.,-]")
      emacspeak-wizards-content-extensions)
     (goto-char (point-min))
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (rename-buffer (format "Content  matching %s" pattern))
     (emacspeak-speak-mode-line)))
 

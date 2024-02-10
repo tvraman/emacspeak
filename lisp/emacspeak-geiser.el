@@ -83,7 +83,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-mode-line)
-       (emacspeak-auditory-icon 'open-object)))))
+       (emacspeak-icon 'open-object)))))
 
 (cl-loop
  for f in
@@ -103,7 +103,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'task-done)))))
+       (emacspeak-icon 'task-done)))))
 
 (cl-loop
  for f in
@@ -121,7 +121,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'open-object)))))
+       (emacspeak-icon 'open-object)))))
 
 (cl-loop
  for f in
@@ -131,7 +131,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-icon 'select-object)
        (emacspeak-speak-line)))))
 
 (cl-loop
@@ -145,13 +145,13 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 (defadvice geiser-repl-exit (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-line)))
 
 (defadvice geiser-repl-import-module(around emacspeak pre act comp)
@@ -160,7 +160,7 @@
    ((ems-interactive-p)
     (let ((start (point)))
       ad-do-it
-      (emacspeak-auditory-icon 'task-done)
+      (emacspeak-icon 'task-done)
       (emacspeak-speak-region start (point))))
    (t ad-do-it))
   ad-return-value)
@@ -171,7 +171,7 @@
    ((ems-interactive-p)
     (let ((start (point)))
       ad-do-it
-      (emacspeak-auditory-icon 'close-object)
+      (emacspeak-icon 'close-object)
       (emacspeak-speak-region start (point))))
    (t ad-do-it))
   ad-return-value)
@@ -180,7 +180,7 @@
   "speak."
   (when (ems-interactive-p)
     (with-current-buffer (window-buffer (selected-window))
-      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-icon 'open-object)
       (emacspeak-speak-buffer))))
 
 (cl-loop
@@ -193,7 +193,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 (provide 'emacspeak-geiser)

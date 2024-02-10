@@ -94,7 +94,7 @@
   (interactive)
   (let ((button (button-at (point))))
     (cond
-     (button (emacspeak-auditory-icon 'yank-object)
+     (button (emacspeak-icon 'yank-object)
              (message "%s"
                       (kill-new
                        (or (cl-second (button-get button 'feed))
@@ -126,7 +126,7 @@ Generates auditory and visual display."
   (cl-declare (special header-line-format))
   (setq header-line-format infolet)
   (dtk-speak (format-mode-line header-line-format))
-  (emacspeak-auditory-icon 'progress))
+  (emacspeak-icon 'progress))
 
 ;;;###autoload
 (define-prefix-command 'emacspeak-webspace 'emacspeak-webspace-keymap)
@@ -219,7 +219,7 @@ Newly found headlines are inserted into the ring within our feedstore."
   (with-local-quit
     (emacspeak-webspace-headlines-fetch
      (emacspeak-webspace-fs-next emacspeak-webspace-headlines)))
-  (emacspeak-auditory-icon 'progress)
+  (emacspeak-icon 'progress)
   t)
 
 (defun emacspeak-webspace-headlines-update ()
@@ -310,7 +310,7 @@ Updated headlines found in emacspeak-webspace-headlines."
       (emacspeak-webspace-mode)))
   (switch-to-buffer emacspeak-webspace-headlines-buffer)
   (goto-char (point-min))
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (emacspeak-speak-mode-line))
 
 (define-button-type 'emacspeak-webspace-headline
@@ -369,7 +369,7 @@ Optional interactive prefix arg forces a refresh."
   (switch-to-buffer emacspeak-webspace-reader-buffer)
   (goto-char (point-min))
   (emacspeak-speak-mode-line)
-  (emacspeak-auditory-icon 'open-object))
+  (emacspeak-icon 'open-object))
 (defun emacspeak-webspace-feed-reader-create ()
   "Prepare Reader buffer."
   (cl-declare (special emacspeak-feeds emacspeak-webspace-reader-buffer))

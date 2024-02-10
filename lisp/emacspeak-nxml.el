@@ -149,7 +149,7 @@
       ad-do-it
       (emacspeak-speak-region start (point))
       (when (= (preceding-char) ?>)
-        (emacspeak-auditory-icon 'close-object))))
+        (emacspeak-icon 'close-object))))
    (t ad-do-it))
   ad-return-value)
 
@@ -182,7 +182,7 @@
           `(defadvice ,f (after emacspeak pre act comp)
              "speak."
              (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'large-movement)
+               (emacspeak-icon 'large-movement)
                (emacspeak-speak-line)))))
 
 (cl-loop for f in 
@@ -194,7 +194,7 @@
           `(defadvice ,f (after emacspeak pre act comp)
              "speak."
              (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'close-object)
+               (emacspeak-icon 'close-object)
                (dtk-speak
                 (format "Closed %s"
                         (xmltok-start-tag-qname)))))))
@@ -211,7 +211,7 @@
           `(defadvice ,f (after emacspeak pre act comp)
              "Provide auditory icon."
              (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'close-object)
+               (emacspeak-icon 'close-object)
                (emacspeak-speak-line)))))
 
 (cl-loop for f in
@@ -225,7 +225,7 @@
           `(defadvice ,f (after emacspeak pre act comp)
              "Provide auditory icon."
              (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'open-object)
+               (emacspeak-icon 'open-object)
                (emacspeak-speak-line)))))
 
 ;;;  Outline summarizer:
@@ -246,7 +246,7 @@
         (dtk-speak (concat 
                     (overlay-get  o-open 'display)
                     (overlay-get o-close 'display)))))
-    (emacspeak-auditory-icon 'ellipses))
+    (emacspeak-icon 'ellipses))
    (t (message "Not on a hidden outline"))))
 
 (provide 'emacspeak-nxml)

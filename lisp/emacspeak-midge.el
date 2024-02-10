@@ -63,7 +63,7 @@
 (defadvice midge-indent-line(after emacspeak pre act comp)
   "Speak line after indenting it."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice midge-close-bracket(after emacspeak pre act comp)
@@ -74,83 +74,83 @@
 (defadvice midge-head-block(after emacspeak pre act comp)
   "Announce insertion of head block"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (message "Started head section")))
 
 (defadvice midge-body-block(after emacspeak pre act comp)
   "Announce insertion of body block"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (message "Started body section")))
 
 (defadvice midge-repeat-block(after emacspeak pre act comp)
   "Announce insertion of repeat block"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (message "Started repeat block")))
 
 (defadvice midge-choose-block(after emacspeak pre act comp)
   "Announce insertion of choose block"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (message "Started choose block")))
 
 (defadvice midge-bend-block(after emacspeak pre act comp)
   "Announce insertion of bend block"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (message "Started bend block")))
 
 (defadvice midge-define-block(after emacspeak pre act comp)
   "Announce insertion of define block"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (message "Started define block")))
 
 (defadvice midge-repeat-line(after emacspeak pre act comp)
   "Announce insertion of repeat block"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-line)))
 
 (defadvice midge-bend-line(after emacspeak pre act comp)
   "Announce insertion of bend block"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-line)))
 
 (defadvice midge-define-line(after emacspeak pre act comp)
   "Announce insertion of define block"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-line)))
 
 (defadvice midge-choose-line(after emacspeak pre act comp)
   "Announce insertion of choose block"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-line)))
 
 (defadvice midge-compile(after emacspeak pre act comp)
   "Produce auditory icon."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-message-again)))
 
 (defadvice midge-compile-debug(after emacspeak pre act comp)
   "Produce auditory icon."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 (defadvice midge-compile-verbose(after emacspeak pre act comp)
   "Produce auditory icon."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 (defadvice midge-compile-ask(after emacspeak pre act comp)
   "Produce auditory icon."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 ;;;  midge-mode-hook
 

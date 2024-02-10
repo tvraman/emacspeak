@@ -121,7 +121,7 @@ Startup  apps that need the network."
   (dtk-notify-say
    (message "Network up: %s"
             (ems--get-essid)))
-  (emacspeak-auditory-icon 'network-up))
+  (emacspeak-icon 'network-up))
 
 (defun emacspeak-dbus-nm-disconnected ()
   "Announce  network manager disconnection.
@@ -129,7 +129,7 @@ Stop apps that use the network."
   (cl-declare (special emacspeak-speak-network-interfaces-list))
   (setq emacspeak-speak-network-interfaces-list
         (mapcar #'car (network-interface-list)))
-  (emacspeak-auditory-icon 'network-down)
+  (emacspeak-icon 'network-down)
   (dtk-notify-say "Network down")
   (message (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
 
@@ -242,7 +242,7 @@ already disabled."
         :session "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
         "org.gnome.ScreenSaver" "GetActive")
      (emacspeak-prompt 'pwd)
-     (emacspeak-auditory-icon 'help))))
+     (emacspeak-icon 'help))))
 
 (add-hook 'emacspeak-dbus-resume-hook #'emacspeak-dbus-resume)
 
@@ -259,7 +259,7 @@ already disabled."
     "org.freedesktop.UDisks2" "/org/freedesktop/UDisks2"
     "org.freedesktop.DBus.ObjectManager" "InterfacesAdded"
     #'(lambda(path _props)
-        (emacspeak-auditory-icon 'open-object)
+        (emacspeak-icon 'open-object)
         (message "Added storage %s" path)))
    (dbus-register-signal
     :system
@@ -267,7 +267,7 @@ already disabled."
     "org.freedesktop.DBus.ObjectManager" "InterfacesRemoved"
     #'(lambda(path _props)
         (message "Removed storage %s" path)
-        (emacspeak-auditory-icon 'close-object)))))
+        (emacspeak-icon 'close-object)))))
 
 (defun emacspeak-dbus-udisks-enable()
   "Enable integration with UDisks2. Does nothing if already enabled."
@@ -301,7 +301,7 @@ already disabled."
     "org.freedesktop.UPower" "/org/freedesktop/UPower"
     "org.freedesktop.UPower" "DeviceAdded"
     #'(lambda(device)
-        (emacspeak-auditory-icon 'on)
+        (emacspeak-icon 'on)
         (message "Added device %s" device)))
    (dbus-register-signal
     :system
@@ -309,13 +309,13 @@ already disabled."
     "org.freedesktop.UPower" "DeviceRemoved"
     #'(lambda(device)
         (message "Removed device  %s" device)
-        (emacspeak-auditory-icon 'off)))
+        (emacspeak-icon 'off)))
    (dbus-register-signal
     :system
     "org.freedesktop.UPower" "/org/freedesktop/UPower"
     "org.freedesktop.DBus.Properties.PropertiesChanged" "OnBattery"
     #'(lambda(state)
-        (emacspeak-auditory-icon 'on)
+        (emacspeak-icon 'on)
         (message "Battery State:  %s" state)))))
 
 (defun emacspeak-dbus-upower-enable()
@@ -342,7 +342,7 @@ already disabled."
   "Lock screen using DBus."
   (interactive)
   (emacspeak-dbus-screensaver-check)
-  (emacspeak-auditory-icon 'close-object)
+  (emacspeak-icon 'close-object)
   (emacspeak-prompt 'locking-up)
   (when (featurep 'light) (light-black))
   (dbus-call-method

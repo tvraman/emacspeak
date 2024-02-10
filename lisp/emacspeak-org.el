@@ -147,7 +147,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-icon 'select-object)
        (emacspeak-org-speak-item)))))
 
 (cl-loop
@@ -173,7 +173,7 @@
      "Speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'large-movement)))))
+       (emacspeak-icon 'large-movement)))))
 
 (cl-loop
  for f in 
@@ -185,13 +185,13 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'paragraph)
+       (emacspeak-icon 'paragraph)
        (emacspeak-speak-paragraph)))))
 
 (defadvice org-cycle-list-bullet (after emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'item)
+    (emacspeak-icon 'item)
     (emacspeak-speak-line)))
 
 (defcustom emacspeak-org-table-after-movement-function
@@ -270,7 +270,7 @@
      "Speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'open-object)))))
+       (emacspeak-icon 'open-object)))))
 
 (defadvice org-delete-char (around emacspeak pre act comp)
   "Speak character you're deleting."
@@ -296,7 +296,7 @@
      "Speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'yank-object)))))
+       (emacspeak-icon 'yank-object)))))
 
 ;;;  completion:
 
@@ -325,7 +325,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'button)
+       (emacspeak-icon 'button)
        (emacspeak-speak-line)))))
 
 ;;;  ToDo:
@@ -340,7 +340,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-icon 'select-object)
        (emacspeak-speak-line)))))
 
 (cl-loop for f in
@@ -350,7 +350,7 @@
           `(defadvice ,f (after emacspeak pre act comp)
              "speak."
              (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'select-object)
+               (emacspeak-icon 'select-object)
                (dtk-speak org-last-changed-timestamp)))))
 
 (defadvice org-eval-in-calendar (after emacspeak pre act comp)
@@ -374,7 +374,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-icon 'select-object)
        (emacspeak-speak-line)))))
 
 (cl-loop
@@ -385,7 +385,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'close-object)
+       (emacspeak-icon 'close-object)
        (emacspeak-speak-mode-line)))))
 
 (cl-loop
@@ -396,13 +396,13 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-icon 'open-object)
        (emacspeak-speak-line)))))
 
 (defadvice org-agenda (after emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-line)))
 
 ;;;  tables:
@@ -413,7 +413,7 @@
   "speak."
   (cl-declare (special orgtbl-mode))
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if orgtbl-mode 'on 'off))
+    (emacspeak-icon (if orgtbl-mode 'on 'off))
     (message "Turned %s org table mode."
              (if orgtbl-mode 'on 'off))))
 
@@ -427,7 +427,7 @@
       (funcall emacspeak-org-table-after-movement-function))
      (t
       (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'select-object)))))
+      (emacspeak-icon 'select-object)))))
 
 ;;;  Keymap update:
 
@@ -500,7 +500,7 @@
 (defadvice org-toggle-checkbox (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'button)
+    (emacspeak-icon 'button)
     (emacspeak-speak-line)))
 
 ;;;  fix misc commands:
@@ -516,19 +516,19 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p) (emacspeak-speak-line)
-           (emacspeak-auditory-icon 'select-object)))))
+           (emacspeak-icon 'select-object)))))
 
 (defadvice org-beginning-of-line (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'left)))
+    (emacspeak-icon 'left)))
 
 (defadvice org-end-of-line (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'right)))
+    (emacspeak-icon 'right)))
 
 ;;;  global input wizard
 
@@ -542,21 +542,21 @@
 (defadvice org-capture-goto-last-stored (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice org-capture-goto-target (after emacspeak pre act comp)
   "speak."
-  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-icon 'large-movement)
   (emacspeak-speak-line))
 
 (defadvice org-capture-finalize (after emacspeak pre act comp)
   "speak."
-  (emacspeak-auditory-icon 'save-object))
+  (emacspeak-icon 'save-object))
 
 (defadvice org-capture-kill (after emacspeak pre act comp)
   "speak."
-  (emacspeak-auditory-icon 'close-object))
+  (emacspeak-icon 'close-object))
 
 (defun emacspeak-org-table-speak-current-element ()
   "echoes current table element"
@@ -709,7 +709,7 @@ arg just opens the file"
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'close-object)
+       (emacspeak-icon 'close-object)
        (emacspeak-speak-line)))))
 
 (cl-loop
@@ -719,7 +719,7 @@ arg just opens the file"
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-icon 'open-object)
        (emacspeak-speak-mode-line)))))
 
 ;;;  Fillers:
@@ -727,13 +727,13 @@ arg just opens the file"
 (defadvice org-fill-paragraph (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'fill-object)
+    (emacspeak-icon 'fill-object)
     (message "Filled current paragraph")))
 
 (defadvice org-todo (after emacspeak pre act comp)
   "speak when changing the state of a TODO item."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'button)
+    (emacspeak-icon 'button)
     (let ((state (org-get-todo-state)))
       (if (null state)
           (message "State unset")
@@ -747,7 +747,7 @@ arg just opens the file"
   (forward-line 0)
   (insert "  -  ")
   (emacspeak-speak-line)
-  (emacspeak-auditory-icon 'item))
+  (emacspeak-icon 'item))
 
 (defun tvr-org-enumerate ()
   "Start a numbered  list."
@@ -755,7 +755,7 @@ arg just opens the file"
   (forward-line 0)
   (insert "  1.  ")
   (emacspeak-speak-line)
-  (emacspeak-auditory-icon 'item))
+  (emacspeak-icon 'item))
 
 ;;;  specialized input buffers:
 
@@ -791,7 +791,7 @@ arg just opens the file"
 (defadvice org-md-export-as-markdown (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-icon 'task-done)
     (emacspeak-speak-mode-line)))
 
 ;;; org-mks:

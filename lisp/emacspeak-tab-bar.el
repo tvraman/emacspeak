@@ -67,7 +67,7 @@
 
 (defsubst emacspeak-tab-bar-speak-tab-name ()
   "Speak name of current tab."
-  (emacspeak-auditory-icon 'tick-tick)
+  (emacspeak-icon 'tick-tick)
   (dtk-notify-speak
    (format "%s"
            (alist-get 'name (alist-get 'current-tab (tab-bar-tabs))))))
@@ -91,7 +91,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-icon 'select-object)
        (emacspeak-tab-bar-speak-tab-name)))))
 
 (cl-loop
@@ -104,7 +104,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'close-object)
+       (emacspeak-icon 'close-object)
        (emacspeak-tab-bar-speak-tab-name)))))
 
 (cl-loop
@@ -115,14 +115,14 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-icon 'open-object)
        (emacspeak-tab-bar-speak-tab-name)))))
 
 (defadvice tab-bar-close-tab-by-name (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (dtk-speak (message "Closed tab %s" (ad-get-arg  0)))
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 ;;; tab-list commands:
 
@@ -134,12 +134,12 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)))))
+       (emacspeak-icon 'open-object)))))
 
 (defadvice tab-bar-list-execute (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 (cl-loop
  for f in 
@@ -149,13 +149,13 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 (defadvice tab-bar-list-unmark (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'unmark-object)
+    (emacspeak-icon 'unmark-object)
     (emacspeak-speak-line)))
 
 (cl-loop
@@ -166,13 +166,13 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'delete-object)
+       (emacspeak-icon 'delete-object)
        (emacspeak-speak-line)))))
 
 (defadvice tab-bar-list-select (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-line)))
 
 (provide 'emacspeak-tab-bar)

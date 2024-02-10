@@ -128,7 +128,7 @@ Argument `k-map' is a symbol  that names a keymap."
             (setq key (read-key-sequence "Key: ")
                   cmd (lookup-key ,k-map key)))
           (call-interactively (lookup-key (current-global-map) key))
-          (emacspeak-auditory-icon 'close-object))))))
+          (emacspeak-icon 'close-object))))))
 
 ;; Create a command to invoke our media player map:
 

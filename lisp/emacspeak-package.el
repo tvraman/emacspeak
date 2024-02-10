@@ -81,16 +81,16 @@
          (state (aref entry 2)))
     (cond
      ((string= state "installed")
-      (emacspeak-auditory-icon 'select-object))
+      (emacspeak-icon 'select-object))
      ((string= state "built-in")
-      (emacspeak-auditory-icon 'mark-object))
+      (emacspeak-icon 'mark-object))
      ((string= state "dependency")
-      (emacspeak-auditory-icon 'close-object))
+      (emacspeak-icon 'close-object))
      ((string= state "obsolete")
-      (emacspeak-auditory-icon 'deselect-object))
+      (emacspeak-icon 'deselect-object))
      ((string= state "incompat")
-      (emacspeak-auditory-icon 'alert-user))
-     (t (emacspeak-auditory-icon 'item)))
+      (emacspeak-icon 'alert-user))
+     (t (emacspeak-icon 'item)))
     (put-text-property 0 (length name)
                        'personality voice-bolden-medium name)
     (dtk-speak-and-echo  (concat name ": "desc))))
@@ -123,7 +123,7 @@
 (defadvice package-menu-describe-package (after emacspeak pre act comp)
   "Speak displayed description."
   (when  (ems-interactive-p)
-    (emacspeak-auditory-icon 'help)
+    (emacspeak-icon 'help)
     (emacspeak-speak-help)))
 
 (defadvice package-menu-execute(around emacspeak pre act comp)
@@ -142,7 +142,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'mark-object)))))
+       (emacspeak-icon 'mark-object)))))
 
 ;;;  Advice Upgrade:
 

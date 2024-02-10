@@ -119,7 +119,7 @@ Default list includes some TclX keywords. ")
 (defadvice tcl-help-on-word (after emacspeak pre act comp)
   "Speak  the help."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'help)
+    (emacspeak-icon 'help)
     (with-current-buffer "*Tcl help*"      (emacspeak-speak-buffer))))
 
 ;;;   Program structure:
@@ -127,24 +127,24 @@ Default list includes some TclX keywords. ")
 (defadvice tcl-mark-defun (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-icon 'mark-object)
     (message "Marked procedure")))
 
 (defadvice tcl-beginning-of-defun (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'paragraph)
+    (emacspeak-icon 'paragraph)
     (emacspeak-speak-line)))
 
 (defadvice tcl-end-of-defun (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'paragraph)))
+    (emacspeak-icon 'paragraph)))
 
 (defadvice indent-tcl-exp (after emacspeak pre act comp)
   "Produce an auditory icon"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'fill-object)))
+    (emacspeak-icon 'fill-object)))
 
 (defadvice tcl-indent-line (after emacspeak pre act comp)
   "Speak the line"

@@ -130,14 +130,14 @@
   "Speak the board."
   (interactive)
   (cl-declare (special threes-cells threes-next-number threes-game-over-p ))
-  (when threes-game-over-p (emacspeak-auditory-icon 'alarm))
+  (when threes-game-over-p (emacspeak-icon 'alarm))
   (emacspeak-threes-sox-gen threes-next-number)
   (let ((cells (apply #'append (copy-sequence threes-cells)))
         (next
          (list (propertize
                 (format "%s" threes-next-number) 'personality voice-bolden))))
     (dtk-speak-list (append cells next) 4)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 (defun emacspeak-threes-speak-empty-count ()
   "Speak number of cells that are non-empty."
@@ -160,7 +160,7 @@
   (interactive)
   (cl-declare (special threes-cells))
   (dtk-speak-list   (threes-cells-transpose threes-cells) 4)
-  (emacspeak-auditory-icon 'progress))
+  (emacspeak-icon 'progress))
 
 (defun emacspeak-threes-setup ()
   "Set up additional key-bindings."
@@ -190,7 +190,7 @@
   (setq threes-game-over-p nil)
   (random t)
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-threes-speak-board)))
 
 (declare-function threes-cells-score "threes" nil)
@@ -233,7 +233,7 @@
    (make-emacspeak-threes-game-state
     :board (copy-sequence threes-cells))
    emacspeak-threes-game-stack)
-  (emacspeak-auditory-icon 'mark-object)
+  (emacspeak-icon 'mark-object)
   (message "Saved state."))
 (declare-function threes-print-board "threes.el" nil)
 (defun emacspeak-threes-pop-state ()
@@ -248,7 +248,7 @@
     (let ((state (pop emacspeak-threes-game-stack)))
       (setq threes-cells (emacspeak-threes-game-state-board state))
       (threes-print-board)
-      (emacspeak-auditory-icon 'yank-object)
+      (emacspeak-icon 'yank-object)
       (message "Popped: Score is now %s" (threes-cells-score))))))
 
 (defun emacspeak-threes-prune-stack (drop)
@@ -267,7 +267,7 @@
                  (- (length emacspeak-threes-game-stack) drop)))
   (message "Stack is now %s deep"
            (length emacspeak-threes-game-stack))
-  (emacspeak-auditory-icon 'delete-object))
+  (emacspeak-icon 'delete-object))
 
 ;;;  Export And Import Games:
 
@@ -293,7 +293,7 @@ Note that the file is overwritten silently."
       (pp emacspeak-threes-game-stack (current-buffer))
       (insert ")\n")
       (write-file file)
-      (emacspeak-auditory-icon 'save-object)
+      (emacspeak-icon 'save-object)
       (message "Exported game to %s." file))))
 
 (defun emacspeak-threes-import (&optional prompt)
@@ -305,7 +305,7 @@ Optional interactive prefix arg prompts for a filename."
              (read-file-name "File to import game from: ")
            emacspeak-threes-game-file)))
     (load-file file)
-    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-icon 'task-done)
     (message "Imported game %s." file)))
 
 (provide 'emacspeak-threes)

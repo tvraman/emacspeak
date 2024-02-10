@@ -147,12 +147,12 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'large-movement)))))
+       (emacspeak-icon 'large-movement)))))
 
 (defadvice ein:tb-show-km (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-line)))
 
 ;;; pytools:
@@ -165,7 +165,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 ;;;  Worksheets:
@@ -180,7 +180,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'delete-object)))))
+       (emacspeak-icon 'delete-object)))))
 
 (cl-loop
  for f in
@@ -195,7 +195,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done)
+       (emacspeak-icon 'task-done)
        (forward-line 1)
        (message "Press C-c . to hear the results.")))))
 
@@ -209,7 +209,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-ein-speak-current-cell)))))
 
 (cl-loop
@@ -223,7 +223,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'yank-object)
+       (emacspeak-icon 'yank-object)
        (emacspeak-speak-line)))))
 
 (cl-loop
@@ -245,27 +245,27 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-icon 'open-object)
        (emacspeak-speak-line)))))
 
 (defadvice ein:worksheet-move-cell-up-km (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (dtk-speak "Moved cell up")
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     ))
 
 (defadvice ein:worksheet-move-cell-down-km (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (dtk-speak "Moved cell down")
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-icon 'large-movement)))
 
 (defadvice ein:worksheet-yank-cell (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-ein-speak-current-cell)
-    (emacspeak-auditory-icon 'yank-object)))
+    (emacspeak-icon 'yank-object)))
 
 (cl-loop
  for f in 
@@ -277,7 +277,7 @@
      (when (ems-interactive-p)
        (let  ((state (slot-value (ein:worksheet-get-current-cell)
                                  'collapsed )))
-         (emacspeak-auditory-icon
+         (emacspeak-icon
           (if state 'close-object 'open-object))
          (dtk-speak
           (format "%s output"
@@ -286,13 +286,13 @@
 (defadvice ein:worksheet-split-cell-at-point (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-line)))
 
 (defadvice ein:worksheet-merge-cell (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-line)))
 
 ;;; Notebooks:
@@ -306,7 +306,7 @@
      "speak."
      (when (ems-interactive-p)
        (message "Saving notebook")
-       (emacspeak-auditory-icon 'save-object)))))
+       (emacspeak-icon 'save-object)))))
 
 (cl-loop
  for f in 
@@ -326,19 +326,19 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-icon 'open-object)
        (emacspeak-speak-mode-line)))))
 
 (defadvice ein:notebook-jump-to-opened-notebook (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice ein:notebook-close-km (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 ;;; Notebooklists:
@@ -351,7 +351,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 (provide 'emacspeak-ein)

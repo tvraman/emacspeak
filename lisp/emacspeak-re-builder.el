@@ -63,13 +63,13 @@
 (defadvice  re-builder (after emacspeak pre act comp)
   "Speak status information."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-line)))
 
 (defadvice reb-quit (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 (defadvice reb-next-match (after emacspeak pre act comp)
   "Speak matched line."
@@ -78,7 +78,7 @@
       (save-excursion
         (set-buffer reb-target-buffer)
         (emacspeak-speak-line)
-        (emacspeak-auditory-icon 'large-movement)))))
+        (emacspeak-icon 'large-movement)))))
 
 (defadvice reb-prev-match (after emacspeak pre act comp)
   "Speak matched line."
@@ -87,29 +87,29 @@
       (save-excursion
         (set-buffer reb-target-buffer)
         (emacspeak-speak-line)
-        (emacspeak-auditory-icon 'large-movement)))))
+        (emacspeak-icon 'large-movement)))))
 
 (defadvice reb-toggle-case (after emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
     (save-excursion
       (set-buffer reb-target-buffer)
-      (emacspeak-auditory-icon (if case-fold-search 'on 'off)))))
+      (emacspeak-icon (if case-fold-search 'on 'off)))))
 
 (defadvice reb-copy (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'yank-object)))
+    (emacspeak-icon 'yank-object)))
 
 (defadvice reb-enter-subexp-mode (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 
 (defadvice reb-quit-subexp-mode (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 (defadvice reb-auto-update (after emacspeak pre act comp)
   "Speak after update is done."

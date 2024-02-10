@@ -52,7 +52,7 @@
   "speak."
   (let ((dtk-caps nil))
     (dtk-interp-sync)
-    (emacspeak-auditory-icon 'item)
+    (emacspeak-icon 'item)
     (dtk-speak (ad-get-arg 0))))
 
 (cl-loop
@@ -95,7 +95,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-icon 'select-object)
        (dtk-speak "Calling LLM")))))
 
 (provide 'emacspeak-ellama)

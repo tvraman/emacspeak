@@ -51,7 +51,7 @@
   "Speak the error line"
   (cl-declare (special gud-overlay-arrow-position))
   (let ((marker gud-overlay-arrow-position))
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (and marker
          (marker-buffer marker)
          (marker-position marker)
@@ -80,7 +80,7 @@
      "Silence minibuffer message that echoes command."
      (ems-with-messages-silenced
       ad-do-it
-      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-icon 'select-object)
       ad-return-value))))
 
 ;;;  Advise interactive commands:

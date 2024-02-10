@@ -79,7 +79,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done)
+       (emacspeak-icon 'task-done)
        (emacspeak-speak-line)))))
 
 (cl-loop
@@ -90,13 +90,13 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-icon 'select-object)
        (emacspeak-speak-line)))))
 
 (defadvice elfeed (after emacspeak pre act  comp)
   "Emacspeak setup."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 (cl-loop
  for f in
  '(elfeed-kill-buffer  elfeed-search-quit-window)
@@ -105,13 +105,13 @@
   `(defadvice ,f (after emacspeak pre act  comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'close-object)
+       (emacspeak-icon 'close-object)
        (emacspeak-speak-mode-line)))))
 
 (defadvice elfeed-search-yank (after emacspeak pre act  comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'yank-object)))
+    (emacspeak-icon 'yank-object)))
 
 ;;;  Helpers:
 
@@ -133,10 +133,10 @@
     (when title
       (dtk-speak (propertize title 'personality voice-brighten))
       (when (memq 'read tags)
-        (emacspeak-auditory-icon 'modified-object))
+        (emacspeak-icon 'modified-object))
       (when (memq 'seen  tags)
-        (emacspeak-auditory-icon 'mark-object))
-      (emacspeak-auditory-icon 'item)
+        (emacspeak-icon 'mark-object))
+      (emacspeak-icon 'item)
       (elfeed-tag e 'seen))))
 
 ;;;  Define additional interactive commands:

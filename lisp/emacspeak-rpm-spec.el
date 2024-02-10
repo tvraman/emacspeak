@@ -88,7 +88,7 @@
           `(defadvice ,f (after emacspeak pre act comp)
              "speak."
              (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'large-movement)
+               (emacspeak-icon 'large-movement)
                (emacspeak-speak-line)))))
 
 ;;;  Advice build commands 
@@ -113,7 +113,7 @@
                                       (quote ,f))))
                  (setq target
                        (car (last (split-string target "-"))))
-                 (emacspeak-auditory-icon 'task-done)
+                 (emacspeak-icon 'task-done)
                  (message
                   (format "Launched build %s " target)))))))
 
@@ -140,7 +140,7 @@
                         (replace-regexp-in-string "toggle"
                                                   "spec"
                                                   toggle)))
-                 (emacspeak-auditory-icon (if (eval switch) 'on 'off)))))))
+                 (emacspeak-icon (if (eval switch) 'on 'off)))))))
 
 ;;;  voice locking 
 

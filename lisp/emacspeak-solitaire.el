@@ -74,7 +74,7 @@
              (?. "hole"))
            (emacspeak-solitaire-current-row)
            (emacspeak-solitaire-current-column)))
-  (emacspeak-auditory-icon
+  (emacspeak-icon
    (emacspeak-solitaire-cell-to-icon (format "%c" (following-char)))))
 
 (defun emacspeak-solitaire-speak-stones ()
@@ -103,7 +103,7 @@
   (let ((cells
          (split-string
           (buffer-substring (line-beginning-position) (line-end-position)))))
-    (mapcar #'emacspeak-auditory-icon
+    (mapcar #'emacspeak-icon
             (mapcar #'emacspeak-solitaire-cell-to-icon cells))))
 
 (defun emacspeak-solitaire-show-column ()
@@ -135,7 +135,7 @@
            (?. (push "." cells))))))
       (setq cells (nreverse cells))
       (mapcar
-       #'emacspeak-auditory-icon
+       #'emacspeak-icon
        (mapcar #'emacspeak-solitaire-cell-to-icon cells)))))
 
 ;;;  advice commands
@@ -149,7 +149,7 @@
   "speak"
   (when (ems-interactive-p)
     (let ((dtk-stop-immediately nil))
-      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-icon 'select-object)
       (and emacspeak-solitaire-autoshow (emacspeak-solitaire-show-column))
       (emacspeak-solitaire-speak-coordinates))))
 
@@ -157,7 +157,7 @@
   "speak"
   (when (ems-interactive-p)
     (let ((dtk-stop-immediately nil))
-      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-icon 'select-object)
       (and emacspeak-solitaire-autoshow  (emacspeak-solitaire-show-column))
       (emacspeak-solitaire-speak-coordinates))))
 
@@ -165,7 +165,7 @@
   "speak"
   (when (ems-interactive-p)
     (let ((dtk-stop-immediately nil))
-      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-icon 'select-object)
       (and emacspeak-solitaire-autoshow (emacspeak-solitaire-show-row))
       (emacspeak-solitaire-speak-coordinates))))
 
@@ -173,19 +173,19 @@
   "speak"
   (when (ems-interactive-p)
     (let ((dtk-stop-immediately nil))
-      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-icon 'select-object)
       (and emacspeak-solitaire-autoshow (emacspeak-solitaire-show-row))
       (emacspeak-solitaire-speak-coordinates))))
 
 (defadvice solitaire-center-point (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-solitaire-speak-coordinates)))
 
 (defadvice solitaire-move (after emacspeak pre act comp)
   "speak"
-  (emacspeak-auditory-icon 'item)
+  (emacspeak-icon 'item)
   (emacspeak-solitaire-speak-coordinates))
 
 (defun emacspeak-solitaire-setup()
@@ -203,7 +203,7 @@ emacspeak-solitaire-show-row
 \\[emacspeak-solitaire-speak-coordinates]
 emacspeak-solitaire-speak-coordinates"
   (delete-other-windows)
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (emacspeak-solitaire-setup-keymap)
   (message "Welcome to Solitaire"))
 
@@ -213,7 +213,7 @@ emacspeak-solitaire-speak-coordinates"
 (defadvice solitaire-quit (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-icon 'task-done)
     (emacspeak-speak-mode-line)))
 
 ;;;   add keybindings

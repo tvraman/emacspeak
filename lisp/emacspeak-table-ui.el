@@ -135,7 +135,7 @@ Full List Of Keybindings:
   (set-buffer-modified-p nil)
   (setq buffer-undo-list t)
   (setq buffer-read-only t)
-  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-icon 'select-object)
   (emacspeak-speak-mode-line))
 
 (cl-loop
@@ -619,7 +619,7 @@ The processed  data is  presented using emacspeak table navigation. "
       )
     (kill-buffer scratch)
     (emacspeak-table-prepare-table-buffer table buffer)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 
 (defun emacspeak-table-render-csv-url  (_status result-buffer)
   "Render the result of asynchronously retrieving CSV data from url."
@@ -635,7 +635,7 @@ The processed  data is  presented using emacspeak table navigation. "
       (emacspeak-table-view-csv-buffer)
       (rename-buffer result-buffer 'unique)
       (emacspeak-speak-mode-line)
-      (emacspeak-auditory-icon 'open-object))))
+      (emacspeak-icon 'open-object))))
 
 ;;;###autoload
 (defun emacspeak-table-view-csv-url  (url &optional buffer-name)
@@ -750,7 +750,7 @@ browsing table elements"
             (?. 'emacspeak-table-speak-coordinates)
             (otherwise (message "Invalid method specified")
                        emacspeak-table-speak-element)))
-    (emacspeak-auditory-icon 'button)))
+    (emacspeak-icon 'button)))
 
 ;;;  Navigating the table:
 
@@ -808,7 +808,7 @@ browsing table elements"
   (emacspeak-table-goto-cell emacspeak-table row column)
   (emacspeak-table-synchronize-display)
   (funcall emacspeak-table-speak-element)
-  (emacspeak-auditory-icon 'large-movement))
+  (emacspeak-icon 'large-movement))
 
 (defun emacspeak-table-goto-top ()
   "Goes to the top of the current column."
@@ -820,7 +820,7 @@ browsing table elements"
    0 (emacspeak-table-current-column emacspeak-table))
   (emacspeak-table-synchronize-display)
   (funcall emacspeak-table-speak-element)
-  (emacspeak-auditory-icon 'large-movement))
+  (emacspeak-icon 'large-movement))
 
 (defun emacspeak-table-goto-bottom ()
   "Goes to the bottom of the current column."
@@ -835,7 +835,7 @@ browsing table elements"
     emacspeak-table))
   (emacspeak-table-synchronize-display)
   (funcall emacspeak-table-speak-element)
-  (emacspeak-auditory-icon 'large-movement))
+  (emacspeak-icon 'large-movement))
 
 (defun emacspeak-table-goto-left ()
   "Goes to the left of the current row."
@@ -847,7 +847,7 @@ browsing table elements"
    (emacspeak-table-current-row emacspeak-table) 0)
   (emacspeak-table-synchronize-display)
   (funcall emacspeak-table-speak-element)
-  (emacspeak-auditory-icon 'left))
+  (emacspeak-icon 'left))
 
 (defun emacspeak-table-goto-right ()
   "Goes to the right of the current row."
@@ -860,7 +860,7 @@ browsing table elements"
    (1- (emacspeak-table-num-columns emacspeak-table)))
   (emacspeak-table-synchronize-display)
   (funcall emacspeak-table-speak-element)
-  (emacspeak-auditory-icon 'right))
+  (emacspeak-icon 'right))
 
 ;;;  searching and finding:
 
@@ -903,8 +903,8 @@ the matching cell current. When called from a program, `what' can
        ((eq slice 'column)
         (emacspeak-table-goto-cell emacspeak-table found column)))
       (emacspeak-table-synchronize-display)
-      (emacspeak-auditory-icon 'search-hit))
-     (t (emacspeak-auditory-icon 'search-miss)))
+      (emacspeak-icon 'search-hit))
+     (t (emacspeak-icon 'search-miss)))
     (funcall emacspeak-table-speak-element)))
 
 (defun emacspeak-table-search-row ()
@@ -961,8 +961,8 @@ match, makes the matching row or column current."
        ((eq slice 'column)
         (emacspeak-table-goto-cell emacspeak-table row found)))
       (emacspeak-table-synchronize-display)
-      (emacspeak-auditory-icon 'search-hit))
-     (t (emacspeak-auditory-icon 'search-miss)))
+      (emacspeak-icon 'search-hit))
+     (t (emacspeak-icon 'search-miss)))
     (emacspeak-table-speak-both-headers-and-element)))
 
 ;;;  cutting and pasting tables:
@@ -974,7 +974,7 @@ match, makes the matching row or column current."
   (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (kill-new  (emacspeak-table-current-element emacspeak-table))
   (when (called-interactively-p 'interactive) 
-    (emacspeak-auditory-icon 'yank-object)
+    (emacspeak-icon 'yank-object)
     (message "Copied element to kill ring")))
 (defun emacspeak-table-copy-current-element-to-register (register)
   "Copy current table element to specified register."
@@ -984,7 +984,7 @@ match, makes the matching row or column current."
   (set-register register (emacspeak-table-current-element
                           emacspeak-table))
   (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (message "Copied element to register %c" register)))
 
 ;;;  variables

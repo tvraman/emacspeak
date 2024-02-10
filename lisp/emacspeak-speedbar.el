@@ -84,7 +84,7 @@
 (defadvice speedbar-close-frame (after emacspeak pre act comp)
   "Cue buffer that becomes active"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice speedbar-next (around emacspeak pre act comp)
@@ -94,7 +94,7 @@
     (let ((emacspeak-speak-messages nil))
       ad-do-it
       (emacspeak-speedbar-speak-line)
-      (emacspeak-auditory-icon 'select-object)))
+      (emacspeak-icon 'select-object)))
    (t ad-do-it))
   ad-return-value)
 (defadvice speedbar-prev (around emacspeak pre act comp)
@@ -104,13 +104,13 @@
     (let ((emacspeak-speak-messages nil))
       ad-do-it
       (emacspeak-speedbar-speak-line)
-      (emacspeak-auditory-icon 'select-object)))
+      (emacspeak-icon 'select-object)))
    (t ad-do-it))
   ad-return-value)
 (defadvice speedbar-edit-line (after emacspeak pre act comp)
   "Speak line you jumped to"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-icon 'large-movement)))
 
 (defadvice speedbar-tag-find (after emacspeak pre act comp)
   "Speak the line you jumped to"
@@ -118,7 +118,7 @@
 
 (defadvice speedbar-find-file (after emacspeak pre act comp)
   "Speak modeline of buffer we switched to"
-  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-icon 'select-object)
   (emacspeak-speak-mode-line))
 
 (defadvice speedbar-expand-line (after emacspeak pre act
@@ -126,13 +126,13 @@
   "Speak the line we just expanded"
   (when (ems-interactive-p) 
     (emacspeak-speedbar-speak-line)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 
 (defadvice speedbar-contract-line (after emacspeak pre act comp)
   "Speak the line we just contracted"
   (when (ems-interactive-p) 
     (emacspeak-speedbar-speak-line)
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 (defadvice speedbar-up-directory (around emacspeak pre act comp)
   " Auditory icon and speech feedback indicate result of the
@@ -140,7 +140,7 @@ action"
   (cond
    ((ems-interactive-p)
     ad-do-it
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speedbar-speak-line))
    (t ad-do-it))
   ad-return-value)
@@ -149,14 +149,14 @@ action"
                                            comp)
   "Speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speedbar-speak-line)))
 
 (defadvice speedbar-restricted-prev (after emacspeak pre act
                                            comp)
   "Speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speedbar-speak-line)))
 
 ;;;  additional navigation
@@ -177,7 +177,7 @@ An automatically updating speedbar consumes resources.")
   (when emacspeak-speedbar-disable-updates 
     (speedbar-stealthy-updates)
     (speedbar-disable-update))
-  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-icon 'select-object)
   (dtk-speak
    (concat "Speedbar: "
            (let ((start nil))
@@ -204,7 +204,7 @@ An automatically updating speedbar consumes resources.")
                (forward-char 1)
                (setq action-char (following-char))
                (emacspeak-speedbar-speak-line)
-               (emacspeak-auditory-icon
+               (emacspeak-icon
                 (cl-case action-char
                   (?+ 'open-object)
                   (?- 'close-object)

@@ -64,24 +64,24 @@
   (interactive)
   (cl-declare (special hydra-is-helpful))
   (setq hydra-is-helpful (not hydra-is-helpful))
-  (emacspeak-auditory-icon (if hydra-is-helpful 'on 'off)))
+  (emacspeak-icon (if hydra-is-helpful 'on 'off)))
 
 ;;;  Emacspeak Helpers:
 ;;;###autoload
 (defun emacspeak-hydra-body-pre (&optional name)
   "Provide auditory icon"
   (when name (dtk-speak name))
-  (emacspeak-auditory-icon 'open-object))
+  (emacspeak-icon 'open-object))
 ;;;###autoload
 (defun emacspeak-hydra-pre ()
   "Provide auditory icon"
-  (emacspeak-auditory-icon 'progress))
+  (emacspeak-icon 'progress))
 ;;;###autoload
 (defun emacspeak-hydra-post ()
   "Provide auditory icon. "
   (dtk-stop 'all)
   (when emacspeak-use-auditory-icons
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 ;;;  Setup Help And Hint 
 
@@ -107,7 +107,7 @@
 (defadvice lv-message (after emacspeak pre act comp)
   "speak."
   (cl-declare (special ems--lv-cache))
-  (emacspeak-auditory-icon 'help)
+  (emacspeak-icon 'help)
   (with-current-buffer (window-buffer (lv-window))
     (setq ems--lv-cache (buffer-substring (point-min) (point-max)))
     (emacspeak-speak-buffer)))
@@ -115,7 +115,7 @@
 (defadvice lv-delete-window (after emacspeak pre act comp)
   "speak."
   (dtk-stop 'all)
-  (emacspeak-auditory-icon 'delete-object))
+  (emacspeak-icon 'delete-object))
 
 (provide 'emacspeak-hydra)
 ;;;  end of file

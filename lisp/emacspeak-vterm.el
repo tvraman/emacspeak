@@ -77,20 +77,20 @@
   "speak."
   (emacspeak-vterm-snapshot)
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'scroll)
+    (emacspeak-icon 'scroll)
     (message "Cleared screen")))
 
 (defadvice vterm-clear-scrollback (after emacspeak pre act comp)
   "speak."
   (emacspeak-vterm-snapshot)
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'scroll)
+    (emacspeak-icon 'scroll)
     (message "Cleared scrollback")))
 
 (defadvice vterm-copy-mode-done (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-line)))
 
 (with-eval-after-load "vterm"
@@ -103,7 +103,7 @@
   "speak."
 
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (cl-loop
@@ -114,13 +114,13 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 (defadvice vterm-reset-cursor-point (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-line)))
 
 (defadvice vterm-send-return (after emacspeak pre act comp)
@@ -135,7 +135,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 ;;; Speech-enable term emulation:

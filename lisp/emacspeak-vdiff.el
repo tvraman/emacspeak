@@ -118,19 +118,19 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done)
+       (emacspeak-icon 'task-done)
        (emacspeak-vdiff-speak-this-hunk)))))
 
 (defadvice vdiff-switch-buffer (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice vdiff-refine-all-hunks (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 (cl-loop
  for f in
  '(vdiff-buffers vdiff-buffers3 vdiff-magit-compare
@@ -140,7 +140,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done)
+       (emacspeak-icon 'task-done)
        (emacspeak-speak-mode-line)))))
 
 ;;;  open/close Folds:
@@ -152,7 +152,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-icon 'open-object)
        (emacspeak-speak-line)))))
 
 (cl-loop
@@ -163,7 +163,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'close-object)
+       (emacspeak-icon 'close-object)
        (emacspeak-speak-line)))))
 
 ;;;  Navigation:
@@ -181,7 +181,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-vdiff-speak-this-hunk)
-       (emacspeak-auditory-icon 'large-movement)))))
+       (emacspeak-icon 'large-movement)))))
 
 ;;;  Setup:
 

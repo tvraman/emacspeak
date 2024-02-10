@@ -75,7 +75,7 @@
     (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (save-excursion
       (when (looking-at  "\\?")
         (forward-line 1))
@@ -84,7 +84,7 @@
 (defadvice bbdb-edit-current-field (before emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 
 (defadvice bbdb-send-mail (before emacspeak pre act comp)
   "speak"
@@ -95,7 +95,7 @@
                 (bbdb-dwim-net-address
                  (ad-get-arg 0))))
           (subject  (ad-get-arg 1)))
-      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-icon 'open-object)
       (message "Starting an email message  %s to %s %s "
                (if subject  (format "about %s" subject) "")
                to
@@ -105,7 +105,7 @@
 (defadvice bbdb-next-record (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (save-excursion
       (when (looking-at  "\\?")
         (forward-line 1))
@@ -114,7 +114,7 @@
 (defadvice bbdb-prev-record (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (save-excursion
       (when (looking-at  "\\?")
         (forward-line 1))
@@ -123,13 +123,13 @@
 (defadvice bbdb-omit-record (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-line)))
 
 (defadvice bbdb-bury-buffer (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice bbdb-elide-record (after emacspeak pre act comp)
@@ -140,7 +140,7 @@
 (defadvice bbdb-transpose-fields (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice bbdb-complete-name (around emacspeak pre act comp)

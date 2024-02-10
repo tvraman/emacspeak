@@ -113,7 +113,7 @@ many available corrections."
    ((ems-interactive-p)
     (let ((dtk-stop-immediately t))
       (ems-with-messages-silenced ad-do-it)
-      (emacspeak-auditory-icon 'task-done)))
+      (emacspeak-icon 'task-done)))
    (t ad-do-it)))
 
 (defadvice ispell-help (before emacspeak pre act comp)
@@ -134,7 +134,7 @@ many available corrections."
       ((ems-interactive-p)
        (let ((dtk-stop-immediately t))
          (ems-with-messages-silenced ad-do-it)
-         (emacspeak-auditory-icon 'task-done)))
+         (emacspeak-icon 'task-done)))
       (t ad-do-it))
      ad-return-value)))
 
@@ -147,7 +147,7 @@ many available corrections."
       (setq emacspeak-last-message nil)
       (ems-with-messages-silenced ad-do-it)
       (emacspeak-speak-message-again)
-      (emacspeak-auditory-icon 'task-done)))
+      (emacspeak-icon 'task-done)))
    (t ad-do-it))
   ad-return-value)
 

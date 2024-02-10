@@ -56,7 +56,7 @@
 ;;;  Forward Declarations:
 
 (declare-function voice-setup-get-voice-for-face "voice-setup" (face))
-(declare-function emacspeak-auditory-icon "emacspeak-sounds.el" (icon))
+(declare-function emacspeak-icon "emacspeak-sounds.el" (icon))
 (declare-function emacspeak-queue-icon "emacspeak-sounds.el"
                   (icon))
 ;;;###autoload
@@ -893,7 +893,7 @@ this pattern if previously added.    "
           (setq ,switch (not ,switch))))
       (dtk-interp-sync)
       (when (called-interactively-p 'interactive)
-        (emacspeak-auditory-icon (if ,switch 'on 'off))
+        (emacspeak-icon (if ,switch 'on 'off))
         (message
          (format "Turned %s %s  %s."
                  (if ,switch "on" "off")
@@ -968,16 +968,16 @@ the speech rate.  Call when on a non-blank line to preview the effectt"
             ((or ?+ ?=) dtk-speech-rate-step)
             (?- (- dtk-speech-rate-step))
             (_ dtk-speech-rate-step))))
-    (emacspeak-auditory-icon 'repeat-start)
+    (emacspeak-icon 'repeat-start)
     (dtk-set-rate (+ dtk-speech-rate  step))
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon (if (cl-minusp step) 'left 'right))
+    (emacspeak-icon (if (cl-minusp step) 'left 'right))
     (set-transient-map
      (let ((map (make-sparse-keymap)))
        (dolist (key '("=" "+" "-")) ;; = is often unshifted +.
          (define-key map key (lambda () (interactive) (dtk-rate-adjust ))))
        map)
-     t (lambda nil (emacspeak-auditory-icon 'repeat-end))
+     t (lambda nil (emacspeak-icon 'repeat-end))
      "Repeat with %k")))
 
 (defun dtk-set-character-scale (factor &optional prefix)
@@ -1091,7 +1091,7 @@ Interactive PREFIX arg makes the new setting global."
    ((eq 'some dtk-punctuation-mode)
     (dtk-set-punctuations-to-all prefix)))
   (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon 'button)
+    (emacspeak-icon 'button)
     (message "set punctuation mode to %s %s"
              dtk-punctuation-mode
              (if prefix "" "locally"))))
@@ -1678,7 +1678,7 @@ unless   `dtk-quiet' is set to t. "
     (when selective-display
       (let ((ctrl-m (string-match "\015" text)))
         (and ctrl-m (setq text (substring text 0 ctrl-m))
-             (emacspeak-auditory-icon 'ellipses))))
+             (emacspeak-icon 'ellipses))))
     (let (                              ;snapshot relevant state
           (orig-mode major-mode)
           (char-alias  char-property-alias-alist)
@@ -1903,7 +1903,7 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
   "Play icon  on notification stream. "
   (cond
    ((dtk-notify-process)                ; we have a live notifier
-    (dtk-notify-apply #'emacspeak-auditory-icon icon))))
+    (dtk-notify-apply #'emacspeak-icon icon))))
 
 (defun dtk-notify-initialize ()
   "Initialize notification TTS stream."

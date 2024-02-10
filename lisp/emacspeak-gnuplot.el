@@ -58,30 +58,30 @@
 (defadvice gnuplot-send-region-to-gnuplot (after emacspeak pre act comp)
   "Speak status."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-other-window)))
 
 (defadvice gnuplot-send-line-to-gnuplot (after emacspeak pre act comp)
   "Speak status."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-other-window)))
 
 (defadvice gnuplot-send-line-and-forward (after emacspeak pre act comp)
   "Speak status."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-other-window)))
 
 (defadvice gnuplot-send-buffer-to-gnuplot (after emacspeak pre act comp)
   "Speak status."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-other-window)))
 (defadvice gnuplot-send-file-to-gnuplot (after emacspeak pre act comp)
   "Speak status."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-other-window )))
 
 (defadvice gnuplot-delchar-or-maybe-eof (around emacspeak pre act comp)
@@ -101,14 +101,14 @@
                                               act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice gnuplot-show-gnuplot-buffer (after emacspeak pre
                                               act comp)
   "Speak status."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice gnuplot-complete-keyword (around emacspeak pre act comp)
@@ -126,13 +126,13 @@
                                       comp)
   "Speak line we idnented."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice gnuplot-negate-option (after emacspeak pre act comp)
   "Speak line we negated."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-line)))
 
 (add-hook 'gnuplot-mode-hook

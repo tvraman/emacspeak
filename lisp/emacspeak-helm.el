@@ -57,7 +57,7 @@
 (defadvice helm-mode (after emacspeak pre act comp)
   "Cue state of helm mode."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if helm-mode  'on 'off))
+    (emacspeak-icon (if helm-mode  'on 'off))
     (message "Turned %s helm-mode"
              (if helm-mode "on" "off"))))
 
@@ -65,7 +65,7 @@
 
 (defun emacspeak-helm-before-initialize-hook ()
   "Remove emacspeak minibuffer setup hook."
-  (emacspeak-auditory-icon 'complete)
+  (emacspeak-icon 'complete)
   (remove-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook))
 
                                         ;(add-hook
@@ -110,7 +110,7 @@
   "Speak current selection."
   (when (ems-interactive-p)
     (with-current-buffer (helm-buffer-get)
-      (emacspeak-auditory-icon 'scroll)
+      (emacspeak-icon 'scroll)
       (emacspeak-speak-line))))
 
 ;;;  Advice helm-yank-selection
@@ -118,7 +118,7 @@
 (defadvice helm-yank-selection (after emacspeak pre act comp)
   "Speak minibuffer after yanking."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'yank-object)
+    (emacspeak-icon 'yank-object)
     (emacspeak-speak-line)))
 
 ;;;  Support helm-help
@@ -127,14 +127,14 @@
  #'(lambda()
      "Turn off speaking read-key prompts"
      (setq emacspeak-speak-messages nil)
-     (emacspeak-auditory-icon 'open-object)))
+     (emacspeak-icon 'open-object)))
 
 (add-hook
  'helm-help-mode-after-hook
  #'(lambda()
      "restore speaking messages."
      (setq emacspeak-speak-messages t)
-     (emacspeak-auditory-icon 'close-object)))
+     (emacspeak-icon 'close-object)))
 
 (provide 'emacspeak-helm)
 ;;;  end of file

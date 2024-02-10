@@ -55,12 +55,12 @@
   (when (ems-interactive-p)
     (dtk-notify-say "cleared desktop")
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'delete-object)))
+    (emacspeak-icon 'delete-object)))
 
 (defadvice desktop-save (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'save-object)))
+    (emacspeak-icon 'save-object)))
 
 (defadvice desktop-lazy-create-buffer (around emacspeak pre act
                                               comp)

@@ -72,7 +72,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-icon 'open-object)
        (emacspeak-speak-buffer)))))
 
 (cl-loop
@@ -83,7 +83,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Speak the next screenful."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'scroll)
+       (emacspeak-icon 'scroll)
        (dtk-speak (emacspeak-get-window-contents))))))
 
 ;;; Mode Hook:

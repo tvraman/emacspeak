@@ -39,7 +39,7 @@
                                'replace
                                "*xml errors*")
       (goto-char orig)
-      (emacspeak-auditory-icon 'task-done))))
+      (emacspeak-icon 'task-done))))
 
 (defcustom psgml-xmlindent-program "xmlindent"
   "XML indent tool."
@@ -71,7 +71,7 @@
   (interactive "r")
   (save-excursion
     (indent-region  start end nil)
-    (emacspeak-auditory-icon 'fill-object)))
+    (emacspeak-icon 'fill-object)))
 
 (require 'psgml)
 

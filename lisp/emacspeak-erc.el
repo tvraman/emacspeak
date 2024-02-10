@@ -100,18 +100,18 @@ server."
 (defadvice erc-select (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 (defadvice erc-send-current-line (after emacspeak pre act
                                         comp)
   "Provide auditory icon."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 (defadvice erc-send-paragraph (after emacspeak pre act
                                      comp)
   "Provide auditory icon."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'paragraph)))
+    (emacspeak-icon 'paragraph)))
 
 (provide 'emacspeak-erc)
 ;;;  monitoring chatrooms 
@@ -164,7 +164,7 @@ Optional interactive prefix  arg defines a pronunciation that
   (cl-pushnew name emacspeak-erc-people-to-monitor :test #'string-equal)
   (when quiten-pronunciation
     (emacspeak-pronounce-add-buffer-local-dictionary-entry name ""))
-  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-icon 'select-object)
   (message "monitoring %s"
            (mapconcat #'identity 
                       emacspeak-erc-people-to-monitor " ")))
@@ -182,7 +182,7 @@ Optional interactive prefix  arg defines a pronunciation that
          #'(lambda (x)
              (string-equal x name))
          emacspeak-erc-people-to-monitor))
-  (emacspeak-auditory-icon 'delete-object)
+  (emacspeak-icon 'delete-object)
   (message "monitoring %s"
            (mapconcat #'identity 
                       emacspeak-erc-people-to-monitor " ")))
@@ -241,7 +241,7 @@ set the current local value to the result.")
               (msg (emacspeak-erc-compute-message (ad-get-arg 0)
                                                   buffer)))
           (when msg
-            (emacspeak-auditory-icon 'progress)
+            (emacspeak-icon 'progress)
             (message msg)
             (tts-with-punctuations dtk-punctuation-mode
                                    (dtk-speak  msg))))))))
@@ -260,7 +260,7 @@ set the current local value to the result.")
         (let ((msg (emacspeak-erc-compute-message (ad-get-arg 0)
                                                   buffer)))
           (when msg
-            (emacspeak-auditory-icon 'progress)
+            (emacspeak-icon 'progress)
             (dtk-speak-and-echo (format "%s" msg))
             (tts-with-punctuations dtk-punctuation-mode
                                    (dtk-speak  msg))))))))

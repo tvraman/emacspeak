@@ -77,18 +77,18 @@
   (when (ems-interactive-p)
     (forward-line -2)
     (what-line)
-    (emacspeak-auditory-icon 'ellipses)))
+    (emacspeak-icon 'ellipses)))
 
 (defadvice syslog-filter-lines (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'ellipses)))
+    (emacspeak-icon 'ellipses)))
 
 (defadvice syslog-boot-start (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (cl-loop
@@ -103,7 +103,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-mode-line)
-       (emacspeak-auditory-icon 'open-object)))))
+       (emacspeak-icon 'open-object)))))
 
 ;;; keymap setup:
 (defun emacspeak-syslog-setup ()

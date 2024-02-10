@@ -205,7 +205,7 @@
   "Jump to the most recent target square."
   (interactive)
   (cl-declare (special emacspeak-chess-last-target))
-  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-icon 'large-movement)
   (cl-assert emacspeak-chess-last-target t "No recent target")
   (goto-char
    (chess-display-index-pos
@@ -219,7 +219,7 @@
   (goto-char
    (chess-display-index-pos
     (current-buffer) (chess-coord-to-index coord)))
-  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-icon 'large-movement)
   (emacspeak-chess-speak-this-square))
 
 (defun emacspeak-chess-move (direction)
@@ -230,7 +230,7 @@
     (setq target (chess-next-index  index direction))
     (unless target (error "Edge of board"))
     (goto-char (chess-display-index-pos (current-buffer) target))
-    (emacspeak-auditory-icon 'item)
+    (emacspeak-icon 'item)
     (emacspeak-chess-speak-this-square)))
 
 (defun emacspeak-chess-north ()
@@ -326,7 +326,7 @@
   "Look north "
   (interactive)
   (cl-declare (special chess-direction-north))
-  (emacspeak-auditory-icon 'task-done)
+  (emacspeak-icon 'task-done)
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-north)
    2))
@@ -335,7 +335,7 @@
   "Look south "
   (interactive)
   (cl-declare (special chess-direction-south))
-  (emacspeak-auditory-icon 'task-done)
+  (emacspeak-icon 'task-done)
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-south)
    2))
@@ -344,7 +344,7 @@
   "Look west "
   (interactive)
   (cl-declare (special chess-direction-west))
-  (emacspeak-auditory-icon 'task-done)
+  (emacspeak-icon 'task-done)
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-west)
    2))
@@ -353,7 +353,7 @@
   "Look east "
   (interactive)
   (cl-declare (special chess-direction-east))
-  (emacspeak-auditory-icon 'task-done)
+  (emacspeak-icon 'task-done)
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-east)
    2))
@@ -362,7 +362,7 @@
   "Look northwest "
   (interactive)
   (cl-declare (special chess-direction-northwest))
-  (emacspeak-auditory-icon 'task-done)
+  (emacspeak-icon 'task-done)
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-northwest)
    2))
@@ -371,7 +371,7 @@
   "Look southwest "
   (interactive)
   (cl-declare (special chess-direction-southwest))
-  (emacspeak-auditory-icon 'task-done)
+  (emacspeak-icon 'task-done)
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-southwest)
    2))
@@ -380,7 +380,7 @@
   "Look northeast "
   (interactive)
   (cl-declare (special chess-direction-northeast))
-  (emacspeak-auditory-icon 'task-done)
+  (emacspeak-icon 'task-done)
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-northeast)
    2))
@@ -389,7 +389,7 @@
   "Look southeast "
   (interactive)
   (cl-declare (special chess-direction-southeast))
-  (emacspeak-auditory-icon 'task-done)
+  (emacspeak-icon 'task-done)
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-southeast)
    2))
@@ -459,7 +459,7 @@
   "Look along non-empty squares reachable by a knight from current position. "
   (interactive)
   (dtk-speak-list (emacspeak-chess-collect-knight-squares) 2)
-  (emacspeak-auditory-icon 'task-done))
+  (emacspeak-icon 'task-done))
 
 (defun emacspeak-chess-collect-king-squares ()
   "List of non-empty squares a king can reach from current position."
@@ -493,7 +493,7 @@
   "Look along non-empty squares reachable by the king  from current position. "
   (interactive)
   (dtk-speak-list (emacspeak-chess-collect-king-squares) 2)
-  (emacspeak-auditory-icon 'task-done))
+  (emacspeak-icon 'task-done))
 
 (defun emacspeak-chess-square-name (index)
   "Return an audio formatted name of square at given index
@@ -653,7 +653,7 @@ specifies index of move, default is final index."
              (emacspeak-chess-piece-name s-piece)
              (chess-index-to-coord target))))
      ((and s-piece t-piece target)
-      (emacspeak-auditory-icon 'close-object)
+      (emacspeak-icon 'close-object)
       (setq text
             (format
              "%s %s takes %s at %s"
@@ -701,7 +701,7 @@ specifies index of move, default is final index."
        (let ((orig chess-display-index))
          ad-do-it
          (when (not (= orig chess-display-index))
-           (emacspeak-auditory-icon 'search-hit)
+           (emacspeak-icon 'search-hit)
            (dtk-speak
             (emacspeak-chess-describe-move
              chess-module-game chess-display-index)))))
@@ -726,7 +726,7 @@ specifies index of move, default is final index."
 (defadvice chess-display-undo  (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'progress)
+    (emacspeak-icon 'progress)
     (dtk-speak (emacspeak-chess-describe-move chess-module-game))))
 
 (defadvice chess-display-move-first (around emacspeak pre act comp)
@@ -735,7 +735,7 @@ specifies index of move, default is final index."
    ((ems-interactive-p)
     (ems-with-messages-silenced ad-do-it)
     (emacspeak-chess-state-speaker)
-    (emacspeak-auditory-icon 'left))
+    (emacspeak-icon 'left))
    (t ad-do-it))
   ad-return-value)
 
@@ -744,7 +744,7 @@ specifies index of move, default is final index."
   (cond
    ((ems-interactive-p)
     (ems-with-messages-silenced  ad-do-it)
-    (emacspeak-auditory-icon 'left)
+    (emacspeak-icon 'left)
     (emacspeak-chess-state-speaker))
    (t ad-do-it))
   ad-return-value)
@@ -754,7 +754,7 @@ specifies index of move, default is final index."
   (cond
    ((ems-interactive-p)
     (ems-with-messages-silenced ad-do-it)
-    (emacspeak-auditory-icon 'right)
+    (emacspeak-icon 'right)
     (emacspeak-chess-state-speaker))
    (t ad-do-it))
   ad-return-value)
@@ -764,7 +764,7 @@ specifies index of move, default is final index."
   (cond
    ((ems-interactive-p)
     (ems-with-messages-silenced ad-do-it)
-    (emacspeak-auditory-icon 'right)
+    (emacspeak-icon 'right)
     (emacspeak-chess-state-speaker))
    (t ad-do-it))
   ad-return-value)
@@ -779,10 +779,10 @@ specifies index of move, default is final index."
          (consp chess-display-last-selected )
          (= (point) (car chess-display-last-selected)))
         (message "Deselected")
-        (emacspeak-auditory-icon 'deselect-object))
+        (emacspeak-icon 'deselect-object))
        ((null chess-display-last-selected)
         (dtk-speak-list (emacspeak-chess-describe-square square))
-        (emacspeak-auditory-icon 'select-object)))
+        (emacspeak-icon 'select-object)))
       ad-do-it))
    (t ad-do-it))
   ad-return-value)
@@ -794,11 +794,11 @@ specifies index of move, default is final index."
   (cond
    ((eq event 'initialize)
     (emacspeak-chess-setup)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     t)
    ((eq event 'move)
     (dtk-speak  (emacspeak-chess-describe-move game))
-    (emacspeak-auditory-icon 'time)
+    (emacspeak-icon 'time)
     t)
    ((eq event 'kibitz)
     (message (car args)))))

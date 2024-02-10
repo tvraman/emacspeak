@@ -72,7 +72,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'window-resize)
+       (emacspeak-icon 'window-resize)
        (dtk-notify-using-voice
         voice-smoothen
         (or
@@ -88,7 +88,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'close-object)
+       (emacspeak-icon 'close-object)
        (emacspeak-speak-mode-line))))
  )
 

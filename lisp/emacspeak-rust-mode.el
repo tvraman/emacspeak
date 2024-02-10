@@ -68,39 +68,39 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done))))) 
+       (emacspeak-icon 'task-done))))) 
 
 (defadvice rust-dbg-wrap-or-unwrap (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-icon 'task-done)
     (emacspeak-speak-line)))
 
 (defadvice rust-format-buffer (after emacspeak pre act comp)
   "speak."
   (cond
    ((buffer-live-p (get-buffer rust-rustfmt-buffername))
-    (emacspeak-auditory-icon 'open-object))
+    (emacspeak-icon 'open-object))
    
-   (t (emacspeak-auditory-icon 'task-done))))
+   (t (emacspeak-icon 'task-done))))
 
 (defadvice rust-goto-format-problem (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'large-movement))))
+      (emacspeak-icon 'large-movement))))
 
 (defadvice rust-enable-format-on-save (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'on)
+    (emacspeak-icon 'on)
     (message "Enabled format on save")))
 
 (defadvice rust-disable-format-on-save (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'off)
+    (emacspeak-icon 'off)
     (message "Disabled format on save")))
 
 (cl-loop
@@ -111,7 +111,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 (defun emacspeak-rust-mode-setup ()
@@ -138,7 +138,7 @@
      "speak."
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
-         (emacspeak-auditory-icon 'large-movement)
+         (emacspeak-icon 'large-movement)
          (emacspeak-speak-line))))))
 
 (provide 'emacspeak-rust-mode)

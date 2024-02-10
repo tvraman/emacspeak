@@ -73,23 +73,23 @@
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-icon 'large-movement)))
 
 (defadvice jdee-open-source-for-symbol (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-icon 'large-movement)))
 
 (defadvice jdee-open-base-class-source (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-icon 'large-movement)))
 (defadvice jdee-complete-popup-message (before emacspeak pre act comp)
   "speak."
   (message "%s" (ad-get-arg 0))
-  (emacspeak-auditory-icon 'help))
+  (emacspeak-icon 'help))
 
 (defadvice jdee-complete-at-point (around emacspeak pre act comp)
   "Say what you completed."
@@ -102,14 +102,14 @@
 (defadvice jdee-compile (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (dtk-speak "Compiling current java project")))
 
 (defadvice bsh (after emacspeak pre act comp)
   "speak"
   (cl-declare (special emacspeak-comint-autospeak))
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (setq emacspeak-comint-autospeak nil)
     (emacspeak-speak-mode-line)))
 
@@ -117,14 +117,14 @@
   "speak"
   (cl-declare (special emacspeak-comint-autospeak))
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (setq emacspeak-comint-autospeak nil)
     (emacspeak-speak-mode-line)))
 
 (defadvice jdee-db (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
 ;;;  jdeebug 
@@ -133,41 +133,41 @@
   "Speak the line where we eventually stop. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-icon 'large-movement)))
 
 (defadvice jdee-bug-step-over (after emacspeak pre act comp)
   "Speak the line we stepped to "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-line)))
 
 (defadvice jdee-bug-step-into (after emacspeak pre act comp)
   "Speak the line we stepped to "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-line)))
 
 (defadvice jdee-bug-step-out (after emacspeak pre act comp)
   "Speak the line we stepped to "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-line)))
 
 (defadvice jdee-bug-continue (after emacspeak pre act comp)
   "Speak the line we stop  to "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice jdee-bug-exit (after emacspeak pre act comp)
   "Produce auditory icon indicating successful exit "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-line)))
 
 (defadvice jdee-bug-clear-breakpoint (after emacspeak pre act comp)
   "Produce auditory icon."
-  (emacspeak-auditory-icon 'off))
+  (emacspeak-icon 'off))
 
 (defadvice jdee-bug-toggle-breakpoint (after emacspeak pre
                                              act comp)
@@ -179,12 +179,12 @@
   "Speak the line we set the break point at "
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'mark-object)))
+    (emacspeak-icon 'mark-object)))
 
 (defadvice jdee-bug-clear-breakpoint (after emacspeak pre act comp)
   "Speak the line we nuked the breakpoint  "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'deselect-object)
+    (emacspeak-icon 'deselect-object)
     (emacspeak-speak-line)))
 
 (defadvice jdee-bug-highlight-breakpoint (after emacspeak pre act comp)
@@ -215,13 +215,13 @@
 (defadvice jdee-bug-up-stack (after emacspeak pre act comp)
   "Speak the line we stepped to "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-line)))
 
 (defadvice jdee-bug-down-stack (after emacspeak pre act comp)
   "Speak the line we stepped to "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-line)))
 
 ;;;  speech enable jdb interaction 
@@ -239,45 +239,45 @@
              "speak."
              (when (ems-interactive-p)
                (emacspeak-speak-line)
-               (emacspeak-auditory-icon 'select-object)))))
+               (emacspeak-icon 'select-object)))))
 
 (defadvice jdee-db-run (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 (defadvice jdee-debug-cont (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-icon 'task-done)
     (message "Continuing execution.")))
 (defadvice jdee-debug-quit (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (message "Quit debugger.")))
 (defadvice jdee-debug-set-breakpoint (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'mark-object)))
+    (emacspeak-icon 'mark-object)))
 
 (defadvice jdee-debug-toggle-breakpoint (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'button)))
+    (emacspeak-icon 'button)))
 (defadvice jdee-debug-clear-breakpoints (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (message "Cleared all break points.")))
 
 ;;;  advice jdee-xref
 (defadvice jdee-xref-first-caller(after emacspeak pre act comp)
   "Speak line we jumped to."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice jdee-xref-next-caller(around emacspeak pre act comp)
@@ -288,7 +288,7 @@ If we are on the last call, do nothing."
    ((and (ems-interactive-p)
          (car jdee-xref-stack))
     ad-do-it
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line))
    (t ad-do-it))
   ad-return-value)
@@ -297,7 +297,7 @@ If we are on the last call, do nothing."
 
 (defadvice efc-option-dialog (after emacspeak pre act comp)
   "Announce dialog box we just opened."
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (dtk-speak
    (ad-get-arg 0)))
 

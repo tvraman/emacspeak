@@ -71,10 +71,10 @@
 
 (defadvice popup-menu-event-loop (around emacspeak pre act comp)
   "speak."
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (emacspeak-popup-speak-item (ad-get-arg 0))
   ad-do-it
-  (emacspeak-auditory-icon 'close-object))
+  (emacspeak-icon 'close-object))
 
 (defadvice popup-menu-read-key-sequence (before emacspeak pre act comp)
   "Speak our prompt."
@@ -88,7 +88,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     (emacspeak-auditory-icon 'select-object)
+     (emacspeak-icon 'select-object)
      (emacspeak-popup-speak-item (ad-get-arg 0)))))
 
 (cl-loop
@@ -97,12 +97,12 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     (emacspeak-auditory-icon 'scroll)
+     (emacspeak-icon 'scroll)
      (emacspeak-popup-speak-item (ad-get-arg 0)))))
 (defadvice popup-menu-show-help (after emacspeak pre act comp)
   "Speak help if available."
   (let ((doc (popup-item-documentation item)))
-    (emacspeak-auditory-icon 'help)
+    (emacspeak-icon 'help)
     (if doc
         (dtk-speak doc)
       (dtk-speak "helpless"))))

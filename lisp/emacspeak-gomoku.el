@@ -65,7 +65,7 @@
     (read-number "Row: ")
     (read-number "Column: ")))
   (gomoku-goto-xy x y)
-  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-icon 'large-movement)
   (emacspeak-gomoku-speak-square))
 
 (defun emacspeak-gomoku-speak-square ()
@@ -242,12 +242,12 @@
   `(defadvice ,f  (after emacspeak pre act comp)
      "speak"
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-icon 'select-object)
        (emacspeak-gomoku-speak-square)))))
 
 (defadvice gomoku-emacs-plays (after emacspeak pre act comp)
   "Tell me where you played"
-  (emacspeak-auditory-icon 'mark-object)
+  (emacspeak-icon 'mark-object)
   (emacspeak-gomoku-speak-square))
 
 (defadvice gomoku-terminate-game (around emacspeak pre act comp)

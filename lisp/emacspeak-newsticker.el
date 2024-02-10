@@ -95,7 +95,7 @@
           `(defadvice ,f (after emacspeak pre act comp)
              "Speak."
              (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'large-movement)
+               (emacspeak-icon 'large-movement)
                (emacspeak-newsticker-summarize-item)))))
 
 ;;;   silence auto activity

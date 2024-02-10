@@ -97,7 +97,7 @@ a rewrite rule even if one is already defined."
            (cl-first emacspeak-we-url-rewrite-rule)
            (cl-second emacspeak-we-url-rewrite-rule)
            url))
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (browse-url (or redirect url))))
 
 ;;;  url expand and execute
@@ -114,7 +114,7 @@ a rewrite rule even if one is already defined."
   (emacspeak-eww-browser-check)
   (let ((url (funcall emacspeak-eww-url-at-point)))
     (unless url (error "Not on a link."))
-    (emacspeak-auditory-icon 'button)
+    (emacspeak-icon 'button)
     (cond
      ((functionp emacspeak-we-url-executor)
       (if prefix
@@ -190,7 +190,7 @@ Default is to apply sort-tables.")
   (cl-declare (special emacspeak-we-xsl-transform))
   (setq emacspeak-we-xsl-transform xsl)
   (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (message "Will apply %s before displaying HTML pages."
              (file-name-sans-extension
               (file-name-nondirectory xsl)))))
@@ -201,7 +201,7 @@ Default is to apply sort-tables.")
   (cl-declare (special emacspeak-we-xsl-p))
   (setq emacspeak-we-xsl-p (not emacspeak-we-xsl-p))
   (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon
+    (emacspeak-icon
      (if emacspeak-we-xsl-p 'on 'off))
     (message "Turned %s XSL"
              (if emacspeak-we-xsl-p 'on 'off))))
@@ -239,7 +239,7 @@ Default is to apply sort-tables.")
   (setq emacspeak-we-xsl-keep-result
         (not emacspeak-we-xsl-keep-result))
   (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon (if emacspeak-we-xsl-keep-result 'on 'off))
+    (emacspeak-icon (if emacspeak-we-xsl-keep-result 'on 'off))
     (message "Turned %s xslt keep results."
              (if emacspeak-we-xsl-keep-result
                  'on 'off))))
@@ -764,7 +764,7 @@ used as well."
      class
      (or redirect url)
      'speak)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 
 (defvar emacspeak-we-id-filter nil
   "Buffer local id filter.")

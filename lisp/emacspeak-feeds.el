@@ -151,7 +151,7 @@ Archiving is useful when synchronizing feeds across multiple machines."
       (erase-buffer)
       (ems-with-messages-silenced (cl-prettyprint emacspeak-feeds))
       (save-buffer)
-      (emacspeak-auditory-icon 'save-object)
+      (emacspeak-icon 'save-object)
       (message "Archived emacspeak-feeds containing %d feeds in %s"
                (length emacspeak-feeds)
                emacspeak-feeds-archive-file))))
@@ -207,7 +207,7 @@ feeds."
      feed-url #'emacspeak-feeds-render
      (list feed-url  style  speak)))
   (message "pulling feed.")
-  (emacspeak-auditory-icon 'item))
+  (emacspeak-icon 'item))
 
 (defun emacspeak-feeds-render  (_status feed-url style   speak)
   "Render the result of asynchronously retrieving feed-url."
@@ -248,7 +248,7 @@ feeds."
    (list
     (emacspeak-eww-read-url)))
   (cl-declare (special emacspeak-rss-xsl))
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (emacspeak-feeds-feed-display feed-url emacspeak-rss-xsl 'speak))
 
 ;;;###autoload
@@ -275,7 +275,7 @@ feeds."
   "Display ATOM feed."
   (interactive (list (emacspeak-eww-read-url)))
   (cl-declare (special emacspeak-atom-xsl))
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (emacspeak-feeds-feed-display feed-url emacspeak-atom-xsl 'speak))
 
 ;;;  Validate Feed:
@@ -305,7 +305,7 @@ Argument `feed' is a feed structure (label url type)."
     (let ((completion-ignore-case t))
       (completing-read "Feed:" emacspeak-feeds nil 'must-match))))
   (add-hook 'emacspeak-eww-post-process-hook
-            #'(lambda nil (emacspeak-auditory-icon 'open-object)))
+            #'(lambda nil (emacspeak-icon 'open-object)))
   (emacspeak-feeds-browse-feed (assoc feed emacspeak-feeds) 'speak))
 
 ;;;  Finding Feeds:

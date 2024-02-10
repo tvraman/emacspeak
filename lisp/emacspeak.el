@@ -416,7 +416,7 @@ Press C-, to access keybindings in emacspeak-alt-keymap:
 See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."
   (dtk-initialize)
-  (setq ring-bell-function #'(lambda nil (emacspeak-auditory-icon 'warn-user)))
+  (setq ring-bell-function #'(lambda nil (emacspeak-icon 'warn-user)))
   (emacspeak-sounds-select-theme emacspeak-sounds-current-theme)
   (emacspeak-sounds-cache-prompts)
   (emacspeak-pronounce-load-dictionaries)
@@ -426,10 +426,10 @@ commands and options for details."
   (setq line-number-mode nil column-number-mode nil)
   (global-visual-line-mode -1)
   (transient-mark-mode -1)
-  (when emacspeak-wpctl)
-  (add-to-list
-   'minor-mode-alist
-   '(emacspeak-speak-show-volume (:eval (ems--show-current-volume))))
+  (when emacspeak-wpctl
+    (add-to-list
+     'minor-mode-alist
+     '(emacspeak-speak-show-volume (:eval (ems--show-current-volume)))))
   (setenv "EMACSPEAK_DIR" emacspeak-directory)
   (message emacspeak-startup-message)
   (when   emacspeak-play-startup-icon (emacspeak-prompt 'emacspeak)

@@ -548,13 +548,13 @@
     (setq-local outline-regexp "^ *[•0-9]+\\.? "
                 outline-level 'outline-level
                 outline-search-function nil)
-    (emacspeak-auditory-icon 'off)
+    (emacspeak-icon 'off)
     (message "Turned off SHR specific outliner"))
    (t                                   ; Turn on emacs 30 version:
     (setq outline-regexp nil
           outline-level 'shr-outline-level
           outline-search-function 'shr-outline-search)
-    (emacspeak-auditory-icon 'on)
+    (emacspeak-icon 'on)
     (message "Turned on SHR specific outliner"))))
 
 (defvar emacspeak-eww-masquerade t
@@ -567,7 +567,7 @@
   (setq emacspeak-eww-masquerade (not emacspeak-eww-masquerade))
   (message "Turned %s masquerade"
            (if emacspeak-eww-masquerade "on" "off"))
-  (emacspeak-auditory-icon (if emacspeak-eww-masquerade 'on 'off)))
+  (emacspeak-icon (if emacspeak-eww-masquerade 'on 'off)))
 
 (defvar  emacspeak-eww-masquerade-as
   (format "User-Agent: %s\r\n"
@@ -826,7 +826,7 @@ are available are cued by an auditory icon on the header line."
   `(defadvice ,f (after emacspeak pre act comp)
      "speak"
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-icon 'open-object)
        (dtk-speak (emacspeak-eww-current-title))))))
 
 (defvar-local emacspeak-eww-style nil
@@ -886,7 +886,7 @@ Retain previously set punctuations  mode."
   `(defadvice ,f (after emacspeak pre act comp)
      "speak"
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)))))
+       (emacspeak-icon 'open-object)))))
 
 (defvar emacspeak-eww-rename-buffer t
   "Result buffer is renamed to document title.")
@@ -909,32 +909,32 @@ Retain previously set punctuations  mode."
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
   "speak."
-  (when (ems-interactive-p) (emacspeak-auditory-icon 'mark-object)))
+  (when (ems-interactive-p) (emacspeak-icon 'mark-object)))
 
 (defadvice eww-beginning-of-text (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-icon 'large-movement)))
 
 (defadvice eww-end-of-text(after emacspeak pre act comp)
   "speak."
-  (when (ems-interactive-p) (emacspeak-auditory-icon 'mark-object)))
+  (when (ems-interactive-p) (emacspeak-icon 'mark-object)))
 
 (defadvice eww-bookmark-browse (after emacspeak pre act comp)
   "speak."
-  (when (ems-interactive-p) (emacspeak-auditory-icon 'open-object)))
+  (when (ems-interactive-p) (emacspeak-icon 'open-object)))
 
 (defadvice eww-bookmark-kill (after emacspeak pre act comp)
   "speak."
-  (when (ems-interactive-p) (emacspeak-auditory-icon 'delete-object)))
+  (when (ems-interactive-p) (emacspeak-icon 'delete-object)))
 
 (defadvice eww-bookmark-yank(after emacspeak pre act comp)
   "speak."
-  (when (ems-interactive-p) (emacspeak-auditory-icon 'yank-object)))
+  (when (ems-interactive-p) (emacspeak-icon 'yank-object)))
 
 (defadvice eww-list-bookmarks(after emacspeak pre act comp)
   "speak."
-  (when (ems-interactive-p) (emacspeak-auditory-icon 'open-object)))
+  (when (ems-interactive-p) (emacspeak-icon 'open-object)))
 
 (cl-loop
  for f in
@@ -943,12 +943,12 @@ Retain previously set punctuations  mode."
  (eval
   `(defadvice ,f(after emacspeak pre act comp)
      "speak."
-     (when (ems-interactive-p) (emacspeak-auditory-icon 'select-object))
+     (when (ems-interactive-p) (emacspeak-icon 'select-object))
      (emacspeak-speak-line))))
 
 (defadvice eww-quit(after emacspeak pre act comp)
   "speak."
-  (when (ems-interactive-p) (emacspeak-auditory-icon 'close-object)))
+  (when (ems-interactive-p) (emacspeak-icon 'close-object)))
 
 (cl-loop
  for f in
@@ -960,7 +960,7 @@ Retain previously set punctuations  mode."
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'button)))))
+       (emacspeak-icon 'button)))))
 
 (cl-loop
  for f in
@@ -982,8 +982,8 @@ Retain previously set punctuations  mode."
             emacspeak-we-url-executor
             (string-match "reddit" host)
             (string-match "wikipedia" host))
-           (emacspeak-auditory-icon 'item))
-          (t (emacspeak-auditory-icon 'button))))
+           (emacspeak-icon 'item))
+          (t (emacspeak-icon 'button))))
        (emacspeak-speak-region
         (point)
         (next-single-property-change (point) 'help-echo nil (point-max)))))))
@@ -993,7 +993,7 @@ Retain previously set punctuations  mode."
 (defadvice eww-follow-link (around emacspeak pre act comp)
   "Respect emacspeak-we-url-executor if set."
   (cl-declare (special emacspeak-we-url-executor))
-  (emacspeak-auditory-icon 'button)
+  (emacspeak-icon 'button)
   (let ((emacspeak-eww-masquerade t))
     (cond
      ((and (ems-interactive-p)
@@ -1112,7 +1112,7 @@ Note that the Web browser should reset this hook after using it.")
   "Speak contents."
   (let ((inhibit-read-only t))
     ad-do-it
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-buffer)))
 
 ;;;   Customize image loading:
@@ -1313,7 +1313,7 @@ for use as a DOM filter."
     (goto-char (point-min))
     (setq buffer-read-only t))
   (eww-update-header-line-format)
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (emacspeak-speak-buffer))
 
 (defun emacspeak-eww-read-list (reader)
@@ -1611,7 +1611,7 @@ Optional interactive arg `multi' prompts for multiple classes."
     (keep-lines pattern)
     (goto-char (point-min))
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 
 (defun eww-view-dom-having-elements (&optional multi)
   "Display DOM filtered by specified elements.
@@ -1654,7 +1654,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
                       dom)))
       (emacspeak-eww-view-helper
        (dom-html-from-nodes dom (eww-current-url)))
-      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-icon 'open-object)
       (emacspeak-speak-mode-line))
      (t (message "Filtering failed.")))))
 
@@ -1681,7 +1681,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (cl-declare (special eww-history eww-history-position))
   (eww-restore-history(elt eww-history eww-history-position))
   (emacspeak-speak-mode-line)
-  (emacspeak-auditory-icon 'open-object))
+  (emacspeak-icon 'open-object))
 
 ;;;  Filters For Non-interactive  Use:
 
@@ -1850,7 +1850,7 @@ Prompts if content at point is enclosed by multiple elements."
           (next-single-property-change (point) emacspeak-eww-el-nav-history)))
     (save-excursion
       (emacspeak-eww-next-element  emacspeak-eww-el-nav-history)
-      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-icon 'select-object)
       (emacspeak-speak-region start (point)))))
 
 ;; Generate next and previous structural navigators:
@@ -1879,11 +1879,11 @@ The %s is automatically spoken if there is no user activity."
      (cl-declare (special emacspeak-eww-autospeak))
      (let ((s (intern ,(format "%s" f))))
        (when (memq s '(h1 h2 h3 h4 h))
-         (emacspeak-auditory-icon 'section))
+         (emacspeak-icon 'section))
        (when (eq s 'li)
-         (emacspeak-auditory-icon 'item))
+         (emacspeak-icon 'item))
        (when (eq s 'p)
-         (emacspeak-auditory-icon 'paragraph))
+         (emacspeak-icon 'paragraph))
        (when (and speak (= 16 (car speak)))
          (setq emacspeak-eww-autospeak (not emacspeak-eww-autospeak)))
        (funcall-interactively #'emacspeak-eww-next-element s speak))))
@@ -1899,11 +1899,11 @@ The %s is automatically spoken if there is no user activity."
      (cl-declare (special emacspeak-eww-autospeak))
      (let ((s (intern ,(format "%s" f))))
        (when (memq s '(h1 h2 h3 h4 h))
-         (emacspeak-auditory-icon 'section))
+         (emacspeak-icon 'section))
        (when (eq s 'li)
-         (emacspeak-auditory-icon 'item))
+         (emacspeak-icon 'item))
        (when (eq s 'p)
-         (emacspeak-auditory-icon 'paragraph))
+         (emacspeak-icon 'paragraph))
        (when (and speak (= 16 (car speak)))
          (setq emacspeak-eww-autospeak (not emacspeak-eww-autospeak)))
        (funcall-interactively #'emacspeak-eww-previous-element s)))))
@@ -1927,7 +1927,7 @@ The %s is automatically spoken if there is no user activity."
   (ems-with-messages-silenced
    ad-do-it
    (when (ems-interactive-p)
-     (emacspeak-auditory-icon 'delete-object)
+     (emacspeak-icon 'delete-object)
      (let ((u (car kill-ring)))
        (when
            (and u (stringp u)
@@ -1940,7 +1940,7 @@ The %s is automatically spoken if there is no user activity."
   (ems-with-messages-silenced
    ad-do-it
    (when (ems-interactive-p)
-     (emacspeak-auditory-icon 'delete-object)
+     (emacspeak-icon 'delete-object)
      (let ((u (car kill-ring)))
        (when
            (and u (stringp u)
@@ -1962,21 +1962,21 @@ The %s is automatically spoken if there is no user activity."
 (defadvice eww-list-buffers (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-eww-speak-buffer-line)))
 
 (defadvice eww-buffer-kill (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-eww-speak-buffer-line)))
 
 (defadvice eww-buffer-select (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 
 (cl-loop
  for f in
@@ -1986,7 +1986,7 @@ The %s is automatically spoken if there is no user activity."
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-icon 'select-object)
        (emacspeak-eww-speak-buffer-line)))))
 
 ;;;   EWW Filtering shortcuts:
@@ -2084,7 +2084,7 @@ into `notes'.`m"
     (puthash  name bm emacspeak-eww-marks)
     (emacspeak-eww-marks-save)
     (cl-pushnew `(,(concat "ebook:" name) ,name) org-stored-links)
-    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-icon 'mark-object)
     (message "Created  EWW mark %s." name)))
 
 (defun emacspeak-eww-jump-to-mark (bm)
@@ -2120,7 +2120,7 @@ into `notes'.`m"
     (when buffer
       (funcall-interactively #'pop-to-buffer buffer)
       (when point (goto-char point))
-      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-icon 'large-movement)
       t)))
 
 (defun emacspeak-eww-delete-mark (name)
@@ -2129,7 +2129,7 @@ into `notes'.`m"
   (cl-declare (special emacspeak-eww-marks))
   (remhash name emacspeak-eww-marks)
   (emacspeak-eww-marks-save)
-  (emacspeak-auditory-icon 'delete-object)
+  (emacspeak-icon 'delete-object)
   (message "Removed Emacspeak EWW mark %s" name))
 
 (declare-function emacspeak-bookshare-eww "emacspeak-bookshare" (directory))
@@ -2148,7 +2148,7 @@ arg `delete', delete that mark instead."
   (cl-declare (special emacspeak-eww-marks))
   (cond
    (delete (emacspeak-eww-delete-mark name)
-           (emacspeak-auditory-icon 'delete-object))
+           (emacspeak-icon 'delete-object))
    (t
     (let* ((bm (gethash name emacspeak-eww-marks))
            (handler nil)
@@ -2175,7 +2175,7 @@ arg `delete', delete that mark instead."
                                         ;(eww-mode)
                (delete-other-windows)
                (emacspeak-speak-windowful)
-               (emacspeak-auditory-icon 'large-movement))
+               (emacspeak-icon 'large-movement))
            'at-end)
           (when (eq type 'local-file)
             (add-hook 'emacspeak-eww-post-process-hook
@@ -2258,7 +2258,7 @@ via command `org-insert-link' bound to \\[org-insert-link]."
            (cl-first emacspeak-eww-url-shell-commands))))
     (cl-assert url t "No url found")
     (async-shell-command (format "%s '%s'" cmd url))
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 ;;; Smart Tabs:
 
@@ -2284,7 +2284,7 @@ via command `org-insert-link' bound to \\[org-insert-link]."
     (read-from-minibuffer "URL:")))
   (cl-declare (special emacspeak-eww-smart-tabs))
   (emacspeak-eww-smart-tabs-put char url)
-  (emacspeak-auditory-icon 'close-object))
+  (emacspeak-icon 'close-object))
 
 ;;;###autoload
 (defun emacspeak-eww-smart-tabs (char &optional define)
@@ -2305,7 +2305,7 @@ with an interactive prefix arg. "
     (emacspeak-eww-smart-tabs-add char (read-from-minibuffer "URL:")))
   (let ((url (emacspeak-eww-smart-tabs-get char)))
     (cl-assert (stringp url) t "No URL stored in this location.")
-    (emacspeak-auditory-icon 'button)
+    (emacspeak-icon 'button)
     (eww url)))
 
 (defun emacspeak-eww-smart-tabs-save ()
@@ -2452,7 +2452,7 @@ Value is specified as a position in the list of table cells.")
        (>= emacspeak-eww-table-cell quotient)
        t "On first row.")
       (cl-decf emacspeak-eww-table-cell quotient)
-      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-icon 'large-movement)
       (emacspeak-eww-table-speak-cell)))))
 
 (defun emacspeak-eww-table-next-row (&optional prefix)
@@ -2475,7 +2475,7 @@ Value is specified as a position in the list of table cells.")
        (< (+ emacspeak-eww-table-cell quotient) n-cells)
        t "On last row.")
       (cl-incf emacspeak-eww-table-cell quotient)
-      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-icon 'large-movement)
       (emacspeak-eww-table-speak-cell)))))
 
 (defun emacspeak-eww-table-next-cell (&optional prefix)
@@ -2497,7 +2497,7 @@ Interactive prefix arg moves to the last cell in the table."
     (skip-syntax-forward " ")
     (cl-incf emacspeak-eww-table-cell 1)
     (goto-char (next-single-property-change (point) 'display))))
-  (emacspeak-auditory-icon 'left)
+  (emacspeak-icon 'left)
   (emacspeak-eww-table-speak-cell))
 
 (defun emacspeak-eww-table-previous-cell (&optional prefix)
@@ -2516,7 +2516,7 @@ With interactive prefix arg, move to the start of the table."
     (goto-char (previous-single-property-change (point) 'display))
     (skip-syntax-backward " ")
     (cl-decf emacspeak-eww-table-cell 1)))
-  (emacspeak-auditory-icon 'right)
+  (emacspeak-icon 'right)
   (emacspeak-eww-table-speak-cell))
 
 (defun emacspeak-eww-table-data ()
@@ -2584,7 +2584,7 @@ Use for large EBook buffers."
   (plist-put eww-data :source nil)
   (plist-put eww-data :dom nil)
   (when  (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 ;;; Command: url-to-register
 ;;; youtube-dl downloader:

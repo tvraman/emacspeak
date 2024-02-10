@@ -142,7 +142,7 @@ Otherwise cue user to the line just created."
   "speak."
   (when (ems-interactive-p)
     (let ((count (ad-get-arg 0)))
-      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-icon 'open-object)
       (message "Opened %s blank line%s"
                (if (= count 1) "a" count)
                (if (= count 1) "" "s")))))
@@ -169,7 +169,7 @@ Otherwise cue user to the line just created."
       contents."
              (when (ems-interactive-p)
                (table--finish-delayed-tasks)
-               (emacspeak-auditory-icon 'select-object)
+               (emacspeak-icon 'select-object)
                (emacspeak-etable-speak-cell)))))
 
 (provide  'emacspeak-etable)

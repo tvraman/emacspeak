@@ -85,7 +85,7 @@ Otherwise cue user to the line just created. "
 (defadvice cperl-indent-exp  (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'fill-object)
+    (emacspeak-icon 'fill-object)
     (message "Indented current s expression ")))
 
 ;;;  Advice info to talk:
@@ -93,13 +93,13 @@ Otherwise cue user to the line just created. "
 (defadvice cperl-info-on-current-command (after emacspeak pre act comp)
   "Speak the displayed info"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'help)
+    (emacspeak-icon 'help)
     (message "Displayed info in other window")))
 
 (defadvice cperl-info-on-command (after emacspeak pre act comp)
   "Speak the displayed info"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'help)
+    (emacspeak-icon 'help)
     (message "Displayed help in other window.")))
 
 ;;;  structured editing
@@ -109,7 +109,7 @@ Otherwise cue user to the line just created. "
   "Speak updated line"
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 (defadvice cperl-comment-region (after emacspeak pre act comp)
   "Speak."
@@ -138,20 +138,20 @@ Otherwise cue user to the line just created. "
   "speak"
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-icon 'large-movement)))
 
 (defadvice cperl-indent-region (after emacspeak pre act
                                       comp)
   "speak when done"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'fill-object)
+    (emacspeak-icon 'fill-object)
     (message "Filled region containing %s lines"
              (count-lines (region-beginning)
                           (region-end)))))
 (defadvice cperl-fill-paragraph (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'fill-object)
+    (emacspeak-icon 'fill-object)
     (message "Filled current paragraph")))
 
 ;;;   misc
@@ -161,14 +161,14 @@ Otherwise cue user to the line just created. "
   "speak"
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 
 (defadvice cperl-find-bad-style (after emacspeak pre act
                                        comp)
   "speak when done."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 ;;;  set up hooks 
 

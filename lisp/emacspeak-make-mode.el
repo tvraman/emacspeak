@@ -56,28 +56,28 @@
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'large-movement))))
+      (emacspeak-icon 'large-movement))))
 
 (defadvice makefile-browser-next-line (after emacspeak pre act
                                              comp)
   "Speak line we moved to"
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 (defadvice makefile-browser-previous-line (after emacspeak pre act
                                                  comp)
   "Speak line we moved to"
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 (defadvice makefile-previous-dependency (after emacspeak pre act comp)
   "Speak line we moved to"
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'large-movement))))
+      (emacspeak-icon 'large-movement))))
 
 (defadvice makefile-complete (around emacspeak pre act comp)
   "Speak what we completed"
@@ -96,20 +96,20 @@
     (message "Backslashed region containing %s lines"
              (count-lines (region-beginning)
                           (region-end)))
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 (defadvice makefile-browser-quit (after emacspeak pre act
                                         comp)
   "speak"
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 (defadvice makefile-switch-to-browser (after emacspeak pre
                                              act comp)
   "Provide status information"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice makefile-browser-toggle (around emacspeak pre act comp)
@@ -123,7 +123,7 @@
       ad-do-it
       (setq state
             (makefile-browser-get-state-for-line this-line))
-      (emacspeak-auditory-icon (if state 'on 'off))
+      (emacspeak-icon (if state 'on 'off))
       (emacspeak-speak-line)))
    (t ad-do-it))
   ad-return-value)

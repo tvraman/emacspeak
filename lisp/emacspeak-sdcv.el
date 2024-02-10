@@ -65,7 +65,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done)))))
+       (emacspeak-icon 'task-done)))))
 
 (cl-loop
  for f in
@@ -76,7 +76,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'large-movement)))))
+       (emacspeak-icon 'large-movement)))))
 
 (cl-loop
  for f in
@@ -86,7 +86,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)))))
+       (emacspeak-icon 'select-object)))))
 
 (defun emacspeak-sdcv-update-dictionary-list ()
   "Update sdcv dictionary lists if necessary by examining
@@ -116,7 +116,7 @@
 (defadvice sdcv-quit (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 (when (bound-and-true-p sdcv-mode-map)
   (emacspeak-sdcv-setup))

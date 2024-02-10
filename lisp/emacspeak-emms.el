@@ -71,7 +71,7 @@
           `(defadvice ,f (after emacspeak pre act comp)
              "Speak track name."
              (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'select-object)))))
+               (emacspeak-icon 'select-object)))))
 
 ;; these commands should not be made to talk since that would  interferes
 ;; with real work.
@@ -83,7 +83,7 @@
           `(defadvice ,f (after emacspeak pre act comp)
              "Provide auditory icon."
              (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'select-object)))))
+               (emacspeak-icon 'select-object)))))
 
 (cl-loop
  for f in
@@ -94,7 +94,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 (cl-loop for f in
          '(emms-browser emms-browser-next-filter
@@ -105,13 +105,13 @@
              "speak."
              (when (ems-interactive-p)
                (emacspeak-speak-mode-line)
-               (emacspeak-auditory-icon 'open-object)))))
+               (emacspeak-icon 'open-object)))))
 
 (defadvice emms-browser-bury-buffer (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 ;;;  Module emms-streaming:
 (cl-declaim (special emms-stream-mode-map))
@@ -124,13 +124,13 @@
                                               comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (emacspeak-speak-line)))
 
 (defadvice emms-stream-save-bookmarks-file (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'save-object)
+    (emacspeak-icon 'save-object)
     (message "Saved stream bookmarks.")))
 
 (cl-loop for f in
@@ -156,7 +156,7 @@
 (defadvice emms-playlist-mode-bury-buffer (after emacspeak pre act comp)
   "Announce the buffer that becomes current."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
 ;;;  silence chatter from info

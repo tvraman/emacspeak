@@ -8,10 +8,10 @@
      (let* ((ask (concat (ad-get-arg 0) " y/n "))
             (c (read-char ask)))
        (while (not (member c '(?n ?y)))
-              (emacspeak-auditory-icon
+              (emacspeak-icon
    (if ad-return-value 'y-answer 'n-answer))
               (setq c  (read-char ask))
-              (emacspeak-auditory-icon  'ask-question))
+              (emacspeak-icon  'ask-question))
        (setq ad-return-value
              (cl-case c
                       (?y t)
@@ -24,7 +24,7 @@
   (let* ((ask (concat (ad-get-arg 0) " y/n "))
          (c (read-char ask)))
     (while (not (member c '(?n ?y)))
-           (emacspeak-auditory-icon  'ask-short-question)
+           (emacspeak-icon  'ask-short-question)
            (setq c  (read-char ask)))
     (setq ad-return-value
           (cl-case c

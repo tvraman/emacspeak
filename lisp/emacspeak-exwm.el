@@ -61,7 +61,7 @@
 (defadvice exwm-floating-hide (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (dtk-speak "Hid floating window")))
 
 (defadvice exwm-floating-toggle-floating (after emacspeak pre act comp)
@@ -70,20 +70,20 @@
     (dtk-speak
      (format "Turned %s floating"
              (if exwm--floating-frame "on" "off")))
-    (emacspeak-auditory-icon
+    (emacspeak-icon
      (if  exwm--floating-frame 'on 'off))))
 
 (defadvice exwm-input-grab-keyboard (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (dtk-speak "line mode")
-    (emacspeak-auditory-icon 'off)))
+    (emacspeak-icon 'off)))
 
 (defadvice exwm-input-release-keyboard (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (dtk-speak "Char mode")
-    (emacspeak-auditory-icon 'oon)))
+    (emacspeak-icon 'oon)))
 
 (defadvice exwm-input-toggle-keyboard (after emacspeak pre act comp)
   "speak."
@@ -91,28 +91,28 @@
     (cl-case exwm--input-mode
       (line-mode
        (dtk-speak "Line mode")
-       (emacspeak-auditory-icon 'off))
+       (emacspeak-icon 'off))
       (char-mode
        (dtk-speak "Char mode")
-       (emacspeak-auditory-icon 'on)))))
+       (emacspeak-icon 'on)))))
 
 (defadvice exwm-layout-show-mode-line (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (dtk-speak "Showing mode line")
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 
 (defadvice exwm-layout-set-fullscreen (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (dtk-speak "Full screen")
-    (emacspeak-auditory-icon 'window-resize)))
+    (emacspeak-icon 'window-resize)))
 
 (defadvice exwm-layout-hide-mode-line (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (dtk-speak "hid mode line")
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 (defadvice exwm-layout-toggle-fullscreen (after emacspeak pre act comp)
   "speak."
@@ -121,7 +121,7 @@
      (format
       "Turned %s full screen"
       (if (exwm-layout--fullscreen-p) "on" "off")))
-    (emacspeak-auditory-icon (if (exwm-layout--fullscreen-p) 'on  'off))))
+    (emacspeak-icon (if (exwm-layout--fullscreen-p) 'on  'off))))
 
 (defadvice exwm-layout-toggle-mode-line (after emacspeak pre act comp)
   "speak."
@@ -129,7 +129,7 @@
     (dtk-speak
      (format "Turned %s mode line"
              (if mode-line-format 'on 'off)))
-    (emacspeak-auditory-icon (if mode-line-format 'on 'off))))
+    (emacspeak-icon (if mode-line-format 'on 'off))))
 (defadvice exwm-workspace-switch (after emacspeak pre act comp)
   "speak frame title."
   (when (ems-interactive-p)

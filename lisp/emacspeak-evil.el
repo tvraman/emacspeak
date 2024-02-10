@@ -85,7 +85,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-icon 'select-object)
        (emacspeak-speak-line)))))
 
 ;; we want the next set to be a little less noisy and not play
@@ -131,7 +131,7 @@
      "speak."
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
-         (emacspeak-auditory-icon 'large-movement)
+         (emacspeak-icon 'large-movement)
          (emacspeak-speak-line))))))
 
 (cl-loop
@@ -142,7 +142,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-current-window)))))
 
 ;;;  Word Motion
@@ -189,12 +189,12 @@
   "speak."
   (when (ems-interactive-p)
     (dtk-speak "Deleted to end of line.")
-    (emacspeak-auditory-icon 'delete-object)))
+    (emacspeak-icon 'delete-object)))
 
 (defadvice evil-delete (before emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (emacspeak-speak-region (ad-get-arg 0) (ad-get-arg 1))))
 
 ;;;  Searching:
@@ -208,7 +208,7 @@
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
          (emacspeak-speak-line)
-         (emacspeak-auditory-icon 'search-hit))))))
+         (emacspeak-icon 'search-hit))))))
 
 ;;;  Completion:
 
@@ -224,7 +224,7 @@
        (let ((orig (save-excursion (skip-syntax-backward "^ >") (point))))
          (ems-with-messages-silenced
           ad-do-it
-          (emacspeak-auditory-icon 'complete)
+          (emacspeak-icon 'complete)
           (if (< orig (point))
               (dtk-speak (buffer-substring orig (point)))
             (dtk-speak (word-at-point))))))
@@ -240,14 +240,14 @@
      "Speak completed line."
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
-         (emacspeak-auditory-icon 'complete)
+         (emacspeak-icon 'complete)
          (emacspeak-speak-line))))))
 
 ;;;  Marks:
 (defadvice evil-set-marker (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-icon 'mark-object)
     (let ((emacspeak-show-point t))
       (dtk-notify-speak (format "Marker %c" (ad-get-arg 0)))
       (emacspeak-speak-line))))
@@ -297,7 +297,7 @@
   (cl-declare (special evil-previous-state evil-next-state))
   (when (and evil-previous-state evil-next-state
              (not (eq evil-previous-state evil-next-state)))
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (dtk-notify-speak
      (format "Changing state from %s to %s"
              evil-previous-state evil-next-state))))
@@ -313,7 +313,7 @@
 (defadvice evil-exit-emacs-state (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (dtk-notify-speak "Leaving Emacs state.")))
 
 ;;;  Additional Commands:
@@ -327,7 +327,7 @@
   (cl-assert (locate-library "evil") nil "I see no evil!")
   (require 'evil)
   (evil-mode (if evil-mode -1 1))
-  (emacspeak-auditory-icon (if evil-mode 'on 'off))
+  (emacspeak-icon (if evil-mode 'on 'off))
   (message "Turned %s evil-mode"
            (if evil-mode "on" "off")))
 

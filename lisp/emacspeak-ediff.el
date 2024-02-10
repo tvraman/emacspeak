@@ -182,7 +182,7 @@
   (let ((a-overlay (emacspeak-ediff-difference-a-overlay n))
         (b-overlay (emacspeak-ediff-difference-b-overlay n))
         (key ""))
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (dtk-speak
      (concat
       "Difference ai "
@@ -215,18 +215,18 @@
 (defadvice ediff-toggle-help (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'help)))
+    (emacspeak-icon 'help)))
 
 (defadvice ediff-next-difference (after emacspeak pre act comp)
   "Speak the difference interactively."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-ediff-speak-current-difference)))
 
 (defadvice ediff-previous-difference (after emacspeak pre act comp)
   "Speak the difference interactively."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-ediff-speak-current-difference)))
 
 (defadvice ediff-status-info (after emacspeak pre act comp)
@@ -239,13 +239,13 @@
 (defadvice ediff-scroll-up (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'scroll)
+    (emacspeak-icon 'scroll)
     (message "Scrolled up buffers A and B")))
 
 (defadvice ediff-scroll-down (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'scroll)
+    (emacspeak-icon 'scroll)
     (message "Scrolled down buffers A and B")))
 
 (defadvice ediff-toggle-split (after emacspeak pre act comp)
@@ -258,19 +258,19 @@
 (defadvice ediff-recenter (after emacspeak pre act comp)
   "Speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (message "Refreshed the ediff display")))
 
 (defadvice ediff-jump-to-difference (after emacspeak pre act comp)
   "Speak the difference you jumped to"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-ediff-speak-current-difference)))
 
 (defadvice ediff-jump-to-difference-at-point (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-ediff-speak-current-difference)))
 
 ;; advice meta panel
@@ -278,23 +278,23 @@
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 (defadvice ediff-next-meta-item (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 (defadvice ediff-registry-action (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 
 (defadvice ediff-show-registry (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (message "Welcome to the Ediff registry")))
 
 (defadvice ediff-toggle-filename-truncation (after emacspeak pre act comp)
@@ -309,7 +309,7 @@
  'ediff-mode-hook
  #'(lambda ()
      (emacspeak-speak-mode-line)
-     (emacspeak-auditory-icon 'open-object)))
+     (emacspeak-icon 'open-object)))
 
 (provide 'emacspeak-ediff)
 ;;;  emacs local variables

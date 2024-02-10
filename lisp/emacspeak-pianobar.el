@@ -141,7 +141,7 @@
     (use-local-map pianobar-key-map)
     (emacspeak-speak-mode-line)
     (bury-buffer)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 
 ;; Advice all actions to play a pre-auditory icon
 
@@ -164,7 +164,7 @@
   `(defadvice ,f (before emacspeak pre act comp)
      "Play auditory icon."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'item)))))
+       (emacspeak-icon 'item)))))
 
 (defadvice pianobar-window-toggle (after emacspeak pre act comp)
   "speak."
@@ -172,16 +172,16 @@
     (let ((state (get-buffer-window pianobar-buffer)))
       (cond
        (state
-        (emacspeak-auditory-icon'open-object)
+        (emacspeak-icon'open-object)
         (dtk-speak "Displayed pianobar"))
        (t
-        (emacspeak-auditory-icon'close-object)
+        (emacspeak-icon'close-object)
         (dtk-speak "Hid Pianobar "))))))
 
 (defadvice pianobar-quit (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 ;;;  emacspeak-pianobar
 
@@ -199,11 +199,11 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
      (emacspeak-pianobar-electric-mode  ; turn it off
       (use-local-map nil)
       (setq emacspeak-pianobar-electric-mode nil)
-      (emacspeak-auditory-icon 'off))
+      (emacspeak-icon 'off))
      (t                                 ;turn it on
       (use-local-map pianobar-key-map)
       (setq emacspeak-pianobar-electric-mode t)
-      (emacspeak-auditory-icon 'on)))
+      (emacspeak-icon 'on)))
     (message "Turned %s pianobar electric mode."
              (if emacspeak-pianobar-electric-mode 'on 'off))))
 
@@ -228,13 +228,13 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
   (cond
    ((eq (current-buffer) (get-buffer pianobar-buffer))
     (bury-buffer)
-    (emacspeak-auditory-icon 'close-object))
+    (emacspeak-icon 'close-object))
    ((get-buffer-window pianobar-buffer)
     (bury-buffer pianobar-buffer)
     (delete-windows-on pianobar-buffer)
-    (emacspeak-auditory-icon 'close-object))
+    (emacspeak-icon 'close-object))
    (t (pop-to-buffer pianobar-buffer)
-      (emacspeak-auditory-icon 'open-object))))
+      (emacspeak-icon 'open-object))))
 
 (defun emacspeak-pianobar-command (key)
   "Invoke Pianobar  commands."

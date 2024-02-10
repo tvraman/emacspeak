@@ -468,17 +468,17 @@ and return a suitable effect structure." name)
 (defadvice sox-open-file(after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 (defadvice sox-refresh (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 (defadvice sox-delete-effect-at-point (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)))
+    (emacspeak-icon 'delete-object)))
 (provide 'emacspeak-sox)
 
 ;;;  end of file

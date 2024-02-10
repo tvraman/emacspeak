@@ -198,7 +198,7 @@ message area.  You can use command
       (setq default-directory directory)
       (ems-with-messages-silenced
        (shell-command command output))
-      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-icon 'open-object)
       (dtk-speak (buffer-string)))))
 
 ;;;  Utility command to run and tabulate shell output
@@ -233,7 +233,7 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
             (emacspeak-table-view-csv-buffer (current-buffer)))
            (t (emacspeak-table-display-table-in-region start end)))
         (error (message "Output could not be tabulated correctly")))
-      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-icon 'open-object)
       (emacspeak-speak-mode-line))))
 
 ;;;  Notifications:
@@ -255,7 +255,7 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
   (cl-declare (special emacspeak-notifications-buffer))
   (unless (buffer-live-p emacspeak-notifications-buffer)
     (setq emacspeak-notifications-buffer (emacspeak--notifications-init)))
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (funcall-interactively #'pop-to-buffer emacspeak-notifications-buffer))
 
 (defconst emacspeak-notifications-max 128
@@ -297,7 +297,7 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
      ((and completions
            (window-live-p (get-buffer-window completions)))
       (with-minibuffer-completions-window
-        (emacspeak-auditory-icon 'help)
+        (emacspeak-icon 'help)
         (dtk-chunk-on-white-space-and-punctuations)
         (next-completion 1)
         (tts-with-punctuations
@@ -453,7 +453,7 @@ Also set the mark at the position where point was."
                     (max 0 (min 100 (prefix-numeric-value percent))))))
      (point-max)))
   (recenter)
-  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-icon 'large-movement)
   (emacspeak-speak-line))
 
 ;;;   indentation:
@@ -750,9 +750,9 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
      ((null arg))
      ((> arg 0) (setq start orig))
      (t (setq end orig)))
-    (when icon (emacspeak-auditory-icon icon))
+    (when icon (emacspeak-icon icon))
     (when emacspeak-show-point
-      (emacspeak-auditory-icon
+      (emacspeak-icon
        (cond
         ((bolp) 'left)
         ((eolp) 'right)
@@ -773,9 +773,9 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
     (when emacspeak-audio-indentation (setq indent (current-indentation)))
     (when (or (invisible-p end)
               (get-text-property start 'emacspeak-hidden-block))
-      (emacspeak-auditory-icon 'ellipses))
+      (emacspeak-icon 'ellipses))
     (when (or display before after)
-      (emacspeak-auditory-icon
+      (emacspeak-icon
        (cond
         (before 'left)
         (after 'right)
@@ -858,7 +858,7 @@ spoken using command \\[emacspeak-speak-overlay-properties]."
      ((or (null result) (= 0 (length result)))
       (message disp))
      (t
-      (emacspeak-auditory-icon icon)
+      (emacspeak-icon icon)
       (dtk-speak result)))))
 
 (defun emacspeak-speak-visual-line ()
@@ -874,8 +874,8 @@ Cues the start of a physical line with auditory icon `left'."
         (line nil)
         (orig (point)))
     (cond
-     ((looking-at "^ *") (emacspeak-auditory-icon 'left))
-     ((looking-at " *$") (emacspeak-auditory-icon 'right)))
+     ((looking-at "^ *") (emacspeak-icon 'left))
+     ((looking-at " *$") (emacspeak-icon 'right)))
     (save-excursion
       (beginning-of-visual-line)
       (setq start (point))
@@ -1050,9 +1050,9 @@ Pronounces character phonetically unless  called with a PREFIX arg."
   (let ((char (following-char))
         (display (get-char-property (point) 'display))
         (icon (get-char-property (point) 'auditory-icon)))
-    (when icon (emacspeak-auditory-icon icon))
+    (when icon (emacspeak-icon icon))
     (when display
-      (emacspeak-auditory-icon 'ellipses)
+      (emacspeak-icon 'ellipses)
       (and (listp display) (message "%s" (car display))))
     (when char
       (cond
@@ -1123,7 +1123,7 @@ Negative prefix arg speaks from start of sexp to point. "
        ((null arg))
        ((> arg 0) (setq start orig))
        ((< arg 0) (setq end orig)))
-      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-icon 'select-object)
       (dtk-speak (buffer-substring start end)))))
 
 (defun emacspeak-speak-page (&optional arg)
@@ -1204,7 +1204,7 @@ Useful to listen to a buffer without switching  contexts."
 (defsubst emacspeak-speak-rest-of-buffer ()
   "Speak remainder of the buffer starting at point"
   (interactive)
-  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-icon 'select-object)
   (emacspeak-speak-buffer 1))
 
 (defun emacspeak-speak-help (&optional arg)
@@ -1215,11 +1215,11 @@ Negative prefix arg speaks from start of buffer to point."
   (let ((help-buffer (get-buffer "*Help*")))
     (cond
      (help-buffer
-      (emacspeak-auditory-icon 'help)
+      (emacspeak-icon 'help)
       (save-current-buffer
         (set-buffer help-buffer)
         (emacspeak-speak-buffer arg)))
-     (t (emacspeak-auditory-icon 'button)
+     (t (emacspeak-icon 'button)
         (dtk-speak "First ask for help")))))
 
 (defun emacspeak-get-current-completion ()
@@ -1301,7 +1301,7 @@ arrived mail."
   (cl-declare (special emacspeak-mail-spool-file))
   (when (and emacspeak-mail-spool-file
              (emacspeak-mail-alert-user-p emacspeak-mail-spool-file))
-    (emacspeak-auditory-icon 'new-mail)))
+    (emacspeak-icon 'new-mail)))
 
 (defcustom emacspeak-mail-alert t
   " If t, emacspeak will alert you about newly arrived mail
@@ -1446,12 +1446,12 @@ Interactive prefix arg speaks buffer info."
     (when
         (or
          (bound-and-true-p outline-minor-mode) (bound-and-true-p folding-mode))
-      (emacspeak-auditory-icon 'ellipses))
+      (emacspeak-icon 'ellipses))
     (when (and visual-line-mode (not global-visual-line-mode)) (sox-chime 2 2))
     (when emacspeak-mail-alert (emacspeak-mail-alert-user))
     (when (and mode-line-process
                (> (length (format-mode-line mode-line-process)) 0))
-      (emacspeak-auditory-icon 'process-active))
+      (emacspeak-icon 'process-active))
     (cond
      ((and header-line-format (not (called-interactively-p 'interactive)))
       (emacspeak-speak-header-line))
@@ -1485,9 +1485,9 @@ Interactive prefix arg speaks buffer info."
 ;;; avoid pathological case
           (unless (and buffer-read-only (buffer-modified-p))
             (when (and buffer-file-name (buffer-modified-p))
-              (emacspeak-auditory-icon 'modified-object))
+              (emacspeak-icon 'modified-object))
             (when buffer-read-only
-              (emacspeak-auditory-icon 'unmodified-object)))
+              (emacspeak-icon 'unmodified-object)))
           (tts-with-punctuations
            'all
            (dtk-speak
@@ -1589,7 +1589,7 @@ Displays name of current buffer.")
   (cond
    (header-line-format
     (let ((window-count (length (window-list))))
-      (emacspeak-auditory-icon 'item)
+      (emacspeak-icon 'item)
       (when (> window-count 1) (emacspeak--sox-multiwindow))
       (dtk-speak (format-mode-line header-line-format))))
    (t
@@ -1606,7 +1606,7 @@ Displays name of current buffer.")
   (if header-line-format
       (setq header-line-format nil)
     (setq header-line-format emacspeak-header-line-format))
-  (emacspeak-auditory-icon (if header-line-format 'on 'off))
+  (emacspeak-icon (if header-line-format 'on 'off))
   (message "Turned %s default header line."
            (if header-line-format 'on 'off)))
 
@@ -1711,7 +1711,7 @@ Timezone is specified using minibuffer completion.
 Second interactive prefix sets clock to new timezone."
   (interactive "P")
   (cl-declare (special emacspeak-speak-time-format))
-  (emacspeak-auditory-icon 'time)
+  (emacspeak-icon 'time)
   (cond
    (world (call-interactively 'emacspeak-speak-world-clock))
    (t
@@ -2060,7 +2060,7 @@ The message is also placed in the kill ring for convenient yanking "
   (interactive)
   (delete-other-windows)
   (recenter 0)
-  (emacspeak-auditory-icon 'scroll)
+  (emacspeak-icon 'scroll)
   (dtk-speak (emacspeak-get-window-contents)))
 
 (defun emacspeak-speak-window-information ()
@@ -2335,7 +2335,7 @@ Argument O specifies overlay."
     (error "Reference buffer not found."))
   (when (called-interactively-p 'interactive)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 (defun emacspeak-completions-move-to-completion-group ()
   "Move to group of choices beginning with character last
@@ -2355,14 +2355,14 @@ char, or dont move. "
               (search-forward input nil t)
               (search-backward input nil t))
       (skip-syntax-forward " ")
-      (emacspeak-auditory-icon 'search-hit))
+      (emacspeak-icon 'search-hit))
     (dtk-speak (emacspeak-get-current-completion))))
 
 (defun emacspeak-completion-setup-hook ()
   "Set things up for emacspeak."
   (with-minibuffer-completions-window 
     (goto-char (point-min))
-    (emacspeak-auditory-icon 'help)))
+    (emacspeak-icon 'help)))
 
 (add-hook 'completion-setup-hook 'emacspeak-completion-setup-hook)
 
@@ -2386,7 +2386,7 @@ char, or dont move. "
 (defun emacspeak-mark-speak-mark-line ()
   "Helper to speak line containing mark."
   (cl-declare (special voice-animate))
-  (emacspeak-auditory-icon 'mark-object)
+  (emacspeak-icon 'mark-object)
   (ems-set-personality-temporarily (point) (1+ (point))
                                    voice-animate
                                    (emacspeak-speak-line)))
@@ -2421,11 +2421,11 @@ See documentation for command run-at-time for details on time-spec."
    #'(lambda (m)
        (dtk-notify-speak m)
        (when emacspeak-use-auditory-icons
-         (emacspeak-auditory-icon 'alarm))
+         (emacspeak-icon 'alarm))
        (sox-tones))
    message)
   (message "Set alarm for %s" time)
-  (emacspeak-auditory-icon 'button))
+  (emacspeak-icon 'button))
 
 ;;;  Directory specific settings
 
@@ -2454,7 +2454,7 @@ directory."
        (when (called-interactively-p 'interactive)
          (message "loaded %s"
                   (expand-file-name emacspeak-speak-directory-settings res)))
-       (emacspeak-auditory-icon 'task-done)))))
+       (emacspeak-icon 'task-done)))))
 
 ;;;  silence:
 
@@ -2531,7 +2531,7 @@ This function is sensitive to calendar mode when prompting."
   "Show bindings under C-h."
   (interactive)
   (describe-bindings "\C-h")
-  (emacspeak-auditory-icon 'help)
+  (emacspeak-icon 'help)
   (with-current-buffer (window-buffer (selected-window))
     (emacspeak-speak-mode-line)))
 
@@ -2641,11 +2641,11 @@ but quickly switch to a window by name."
   (cond
    ((and repeat-in-progress (not emacspeak-repeat-was-active))
     (setq emacspeak-repeat-was-active t)
-    (emacspeak-auditory-icon 'repeat-start))
+    (emacspeak-icon 'repeat-start))
    ((and (not repeat-in-progress)  emacspeak-repeat-was-active)
     (setq emacspeak-repeat-was-active nil)
-    (emacspeak-auditory-icon 'repeat-end))
-   (repeat-in-progress (emacspeak-auditory-icon 'repeat-active))))
+    (emacspeak-icon 'repeat-end))
+   (repeat-in-progress (emacspeak-icon 'repeat-active))))
 
 (defun ems--repeat-sentinel (process _state)
   "Process sentinel to disable repeat. "
@@ -2742,7 +2742,7 @@ p emacspeak-cycle-to-previous-buffer
 "
   (interactive )
   (let ((key (event-basic-type last-command-event)))
-    (emacspeak-auditory-icon 'repeat-active)
+    (emacspeak-icon 'repeat-active)
     (cl-case key
       (?b (call-interactively 'switch-to-buffer))
       (?f (call-interactively 'find-file))
@@ -2761,7 +2761,7 @@ p emacspeak-cycle-to-previous-buffer
           map key
           #'(lambda () (interactive) (emacspeak-buffer-select ))))
        map)
-     t (lambda nil (emacspeak-auditory-icon 'repeat-end))
+     t (lambda nil (emacspeak-icon 'repeat-end))
      "Repeat with %k")))
 
 (provide 'emacspeak-speak)
@@ -2805,7 +2805,7 @@ Use `,' and `.' to continuously decrease/increase `selective-display'.
   (setq selective-display
         (if arg (prefix-numeric-value arg) (current-column)))
   (let ((key (event-basic-type last-command-event)))
-    (emacspeak-auditory-icon 'repeat-start)
+    (emacspeak-icon 'repeat-start)
     (cl-case key
       (?,
        (cl-assert (numberp selective-display) t
@@ -2830,7 +2830,7 @@ Use `,' and `.' to continuously decrease/increase `selective-display'.
             (emacspeak-selective-display selective-display))))
        map)
      t                                  ; continue predicate
-     (lambda nil (emacspeak-auditory-icon 'repeat-end)) ; done action
+     (lambda nil (emacspeak-icon 'repeat-end)) ; done action
      (propertize
       (format "Selective Display: %s" selective-display)
       'personality voice-bolden))))

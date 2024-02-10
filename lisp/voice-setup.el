@@ -230,7 +230,7 @@ Define a voice for it if needed, then return the symbol."
            (set-default sym val)))))
 
 ;;;  new light-weight voice lock
-(declare-function emacspeak-auditory-icon "emacspeak-sounds" (icon))
+(declare-function emacspeak-icon "emacspeak-sounds" (icon))
 
 ;;;###autoload
 (define-minor-mode voice-lock-mode
@@ -239,7 +239,7 @@ Define a voice for it if needed, then return the symbol."
   :keymap nil
   (when (called-interactively-p 'interactive)
     (let ((state (if voice-lock-mode 'on 'off)))
-      (emacspeak-auditory-icon state))))
+      (emacspeak-icon state))))
 
 (defun voice-lock-mode--turn-on ()
   "Turn on Voice Lock mode ."
@@ -253,7 +253,7 @@ Define a voice for it if needed, then return the symbol."
   :group 'voice-lock
   (when (called-interactively-p 'interactive)
     (let ((state (if global-voice-lock-mode 'on 'off)))
-      (emacspeak-auditory-icon state)))
+      (emacspeak-icon state)))
   )
 
 ;; Install ourselves:
@@ -291,12 +291,12 @@ Define a voice for it if needed, then return the symbol."
       (voice-setup-set-voice-for-face f  orig) ; restore orig
       (remhash f voice-setup-local-map)        ; clean cache
       (message "Made face %s audible." f)
-      (emacspeak-auditory-icon 'item))
+      (emacspeak-icon 'item))
      (t
       (voice-setup-set-voice-for-face f  'inaudible) ; update
       (puthash f personality voice-setup-local-map)  ; cache
       (message "Silenced face %s" f)
-      (emacspeak-auditory-icon 'close-object)))))
+      (emacspeak-icon 'close-object)))))
 
 (provide 'voice-setup)
 ;;;  end of file

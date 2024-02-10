@@ -62,7 +62,7 @@
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'button)))
+    (emacspeak-icon 'button)))
 
 (cl-loop
  for f in 
@@ -72,7 +72,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'button)
+       (emacspeak-icon 'button)
        (emacspeak-speak-line)))))
 
 (cl-loop
@@ -87,7 +87,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-icon 'open-object)
        (emacspeak-speak-buffer)))))
 
 (cl-loop
@@ -98,12 +98,12 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 (defadvice clojure-align (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'fill-object)))
+    (emacspeak-icon 'fill-object)))
 
 (cl-loop
  for f in
@@ -114,7 +114,7 @@
      "Provide Auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'select-object)))))
+       (emacspeak-icon 'select-object)))))
 (cl-loop
  for f in
  '(

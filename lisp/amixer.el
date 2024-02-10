@@ -328,7 +328,7 @@ Interactive prefix arg refreshes cache."
      "AlsaCtl" nil amixer-alsactl
      "-f"amixer-alsactl-config-file
      "store")
-    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-icon 'task-done)
     (message "Persisted amixer state to %s."
              amixer-alsactl-config-file)))
 
@@ -354,7 +354,7 @@ Interactive prefix arg `PROMPT' reads percentage as a number"
                amixer-volume-step)))
     (amixer-build-db)
     (dtk-notify-speak (ems--show-current-volume))
-    (emacspeak-auditory-icon 'right)))
+    (emacspeak-icon 'right)))
 
 ;;;###autoload
 (defun amixer-volume-down (&optional prompt)
@@ -371,7 +371,7 @@ Interactive prefix arg `PROMPT' reads percentage as a number"
                  (read-number "Volume Step:")
                amixer-volume-step)))
     (amixer-build-db)
-    (emacspeak-auditory-icon 'left)
+    (emacspeak-icon 'left)
     (dtk-notify-speak (ems--show-current-volume))))
 ;;;###autoload
 (defun amixer-volume-adjust ()
@@ -381,7 +381,7 @@ of 3 and 4 lower or raise volume."
   (interactive )
   (cl-declare (special ems--vol-cmd))
   (let ((key (event-basic-type last-command-event)))
-    (emacspeak-auditory-icon 'repeat-start)
+    (emacspeak-icon 'repeat-start)
     (cl-case key
       (?3 (call-interactively 'amixer-volume-down))
       (?4 (call-interactively 'amixer-volume-up)))
@@ -390,7 +390,7 @@ of 3 and 4 lower or raise volume."
        (dolist (key '("3" "4"))
          (define-key map key (lambda () (interactive) (amixer-volume-adjust ))))
        map)
-     t (lambda nil (emacspeak-auditory-icon 'repeat-end))
+     t (lambda nil (emacspeak-icon 'repeat-end))
      (concat
       (propertize
        (string-trim (shell-command-to-string ems--vol-cmd))

@@ -70,7 +70,7 @@
 (defadvice indium-quit (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (cl-loop
@@ -81,14 +81,14 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done)))))
+       (emacspeak-icon 'task-done)))))
 
 ;;;  Advice indium-chrome.el
 
 (defadvice indium-connect-to-chrome (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 ;;;  Advice indium-debugger.el
 
@@ -121,7 +121,7 @@
     (save-excursion
       (forward-line -1)
       (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'close-object))))
+      (emacspeak-icon 'close-object))))
 
 (cl-loop
  for f in 
@@ -131,7 +131,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 ;;;  Advice indium-scratch.el

@@ -80,7 +80,7 @@
 (defadvice origami-mode (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if origami-mode 'on 'off))
+    (emacspeak-icon (if origami-mode 'on 'off))
     (message "Turned %s origami mode." (if origami-mode 'on 'off))))
 
 (cl-loop
@@ -94,7 +94,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 (cl-loop
@@ -105,7 +105,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'close-object)
+       (emacspeak-icon 'close-object)
        (emacspeak-speak-line)))))
 
 (cl-loop
@@ -118,7 +118,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-icon 'open-object)
        (emacspeak-speak-line)))))
 
 (defun emacspeak-origami-invisible-p ()
@@ -139,7 +139,7 @@
      "speak."
      (when (ems-interactive-p)
        (let ((flag (if  (emacspeak-origami-invisible-p) 'on 'off)))
-         (emacspeak-auditory-icon flag)
+         (emacspeak-icon flag)
          (message "%s nodes." (if flag "Expanded " "Collapsed "))
          (emacspeak-speak-line))))))
 

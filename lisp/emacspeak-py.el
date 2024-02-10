@@ -64,7 +64,7 @@ Provide contextual feedback when closing blocks"
       ad-do-it
       (when ws
         (dtk-notify-speak  (format "Indent %s "ad-return-value))
-        (emacspeak-auditory-icon  'close-object)
+        (emacspeak-icon  'close-object)
         (sit-for 0.2)
         (save-excursion
           (py-beginning-of-block)
@@ -87,40 +87,40 @@ Provide contextual feedback when closing blocks"
 (defadvice py-shell (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice py-clear-queue (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 (defadvice py-execute-region (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 (defadvice py-execute-buffer (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 (defadvice py-goto-exception(after emacspeak pre act comp)
   "Speak line you moved to"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice py-down-exception(after emacspeak pre act comp)
   "Speak line you moved to"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice py-up-exception(after emacspeak pre act comp)
   "Speak line you moved to"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 ;;;   whitespace management and indentation
@@ -133,7 +133,7 @@ Provide contextual feedback when closing blocks"
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'fill-object)))))
+       (emacspeak-icon 'fill-object)))))
 
 (defadvice py-newline-and-indent(after emacspeak pre act comp)
   "Speak line so we know current indentation"
@@ -147,7 +147,7 @@ Provide contextual feedback when closing blocks"
 (defadvice py-shift-region-left (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'left)
+    (emacspeak-icon 'left)
     (dtk-speak
      (format "Left shifted block  containing %s lines"
              (count-lines  (region-beginning)
@@ -164,7 +164,7 @@ Provide contextual feedback when closing blocks"
 (defadvice py-indent-region (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'right)
+    (emacspeak-icon 'right)
     (dtk-speak
      (format "Indented region   containing %s lines"
              (count-lines  (region-beginning)
@@ -284,7 +284,7 @@ Provide contextual feedback when closing blocks"
      "Speak current statement after moving"
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'paragraph)))))
+       (emacspeak-icon 'paragraph)))))
 
 (cl-loop
  for  f in
@@ -308,7 +308,7 @@ Provide contextual feedback when closing blocks"
         (format
          "Marked block containing %s lines"
          (count-lines (region-beginning) (region-end))))
-       (emacspeak-auditory-icon 'mark-object)))))
+       (emacspeak-icon 'mark-object)))))
 
 (cl-loop
  for f in
@@ -335,7 +335,7 @@ Provide contextual feedback when closing blocks"
      (format "Marked block containing %s lines"
              (count-lines (region-beginning)
                           (region-end))))
-    (emacspeak-auditory-icon 'mark-object)))
+    (emacspeak-icon 'mark-object)))
 
 (defadvice py-forward-into-nomenclature(after emacspeak pre act comp)
   "Speak rest of current word"
@@ -360,7 +360,7 @@ Provide contextual feedback when closing blocks"
                  (get-buffer-window (process-buffer (ad-get-arg 0)))))
       (condition-case nil
           (emacspeak-speak-region prior (point))
-        (error (emacspeak-auditory-icon 'scroll)
+        (error (emacspeak-icon 'scroll)
                (dtk-stop 'all))))
     ad-return-value))
 
@@ -385,13 +385,13 @@ Provide contextual feedback when closing blocks"
 (defadvice pydoc (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-rest-of-buffer)))
 
 (defadvice py-help-at-point (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'help)
+    (emacspeak-icon 'help)
     (dtk-stop 'all)
     (emacspeak-speak-buffer)))
 

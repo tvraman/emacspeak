@@ -65,7 +65,7 @@
 This moves them into the Spam folder."
        (interactive)
        (gnus-summary-move-article nil "nnimap+imap.gmail.com:[Gmail]/Spam")
-       (emacspeak-auditory-icon 'task-done))
+       (emacspeak-icon 'task-done))
      (define-key gnus-summary-mode-map "$" 'gmail-report-spam)
 
      ;;}}}

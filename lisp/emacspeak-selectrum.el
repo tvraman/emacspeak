@@ -78,12 +78,12 @@
   (when (ems-interactive-p)
     (when (and ad-return-value (stringp ad-return-value))
       (dtk-speak ad-return-value))
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 (defadvice selectrum-submit-exact-input (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 (defadvice selectrum-insert-current-candidate (around emacspeak pre act comp)
   "speak."
@@ -91,7 +91,7 @@
    ((ems-interactive-p)
     (let ((orig (point)))
       ad-do-it
-      (emacspeak-auditory-icon 'complete)
+      (emacspeak-icon 'complete)
       (emacspeak-speak-region orig (point))))
    (t ad-do-it))
   ad-return-value)
@@ -106,7 +106,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 (cl-loop
@@ -117,7 +117,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-icon 'select-object)
        (emacspeak-speak-line)))))
 
 (provide 'emacspeak-selectrum)

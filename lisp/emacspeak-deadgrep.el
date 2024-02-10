@@ -64,7 +64,7 @@
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon
+    (emacspeak-icon
      (if (get-text-property (1+ (line-end-position)) 'invisible) 'off 'on))))
 
 (defadvice deadgrep (after emacspeak pre act comp)
@@ -80,9 +80,9 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-icon 'select-object)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'open-object)))))
+       (emacspeak-icon 'open-object)))))
 
 (cl-loop
  for f in 
@@ -96,7 +96,7 @@
      "speak."
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
-         (emacspeak-auditory-icon 'large-movement)
+         (emacspeak-icon 'large-movement)
          (emacspeak-speak-line))))))
 
 (provide 'emacspeak-deadgrep)

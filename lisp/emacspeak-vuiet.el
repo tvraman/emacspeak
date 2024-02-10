@@ -53,7 +53,7 @@
 (defadvice vuiet-stop (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 (defadvice vuiet-love-track (after emacspeak pre act comp)
   "speak."
@@ -77,7 +77,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-icon 'open-object)
        (emacspeak-speak-line)))))
 
 (cl-loop
@@ -88,7 +88,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon
+       (emacspeak-icon
         (if vuiet-scrobble-enabled 'on 'off))
        (dtk-speak (format "Turned %s scrobbling"
                           (if vuiet-scrobble-enabled "on" "off")))))))

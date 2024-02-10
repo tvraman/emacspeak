@@ -100,20 +100,20 @@ Tip: Use M-x customize to set ido-max-prospects to a small value
   when using Emacspeak --- I set it to 3.
 The default value of 12 is too high for using ido effectively with speech. "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if ido-mode 'on 'off))
+    (emacspeak-icon (if ido-mode 'on 'off))
     (dtk-speak (format "IDo set to %s" ido-mode))))
 
 (defadvice ido-everywhere (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if ido-everywhere 'on 'off))
+    (emacspeak-icon (if ido-everywhere 'on 'off))
     (dtk-speak
      (format "Turned %s IDo everywhere." (if ido-everywhere " on " " off ")))))
 
 (defadvice ido-toggle-case (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if ido-case-fold 'on 'off))
+    (emacspeak-icon (if ido-case-fold 'on 'off))
     (dtk-speak
      (format "Case %s"
              (if ido-case-fold 'on 'off)))))
@@ -121,7 +121,7 @@ The default value of 12 is too high for using ido effectively with speech. "
 (defadvice ido-toggle-regexp (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if ido-enable-regexp 'on 'off))
+    (emacspeak-icon (if ido-enable-regexp 'on 'off))
     (dtk-speak
      (format "Regexp %s"
              (if ido-enable-regexp 'on 'off)))))
@@ -129,7 +129,7 @@ The default value of 12 is too high for using ido effectively with speech. "
 (defadvice ido-toggle-prefix (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if ido-enable-prefix 'on 'off))
+    (emacspeak-icon (if ido-enable-prefix 'on 'off))
     (dtk-speak
      (format "Prefix %s"
              (if ido-enable-prefix 'on 'off)))))
@@ -138,7 +138,7 @@ The default value of 12 is too high for using ido effectively with speech. "
   "speak."
   (cl-declare (special ido-ignore-files))
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if ido-ignore-files 'on 'off))
+    (emacspeak-icon (if ido-ignore-files 'on 'off))
     (dtk-speak
      (format "File ignoring  %s"
              (if ido-ignore-files
@@ -162,30 +162,30 @@ The default value of 12 is too high for using ido effectively with speech. "
   `(defadvice   ,f(after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-icon 'open-object)
        (emacspeak-speak-mode-line)))))
 
 (defadvice ido-bury-buffer-at-head (after emacspeak pre act comp)
   "Provide auditory icon."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 (defadvice ido-kill-buffer (after emacspeak pre act comp)
   "Provide auditory icon."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice ido-kill-buffer-at-head (after emacspeak pre act comp)
   "Provide auditory icon."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 (defadvice ido-fallback-command (before emacspeak pre act comp)
   "Provide auditory cue to indicate we are closing out the IDO   minibuffer."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'close-object)
+    (emacspeak-icon 'open-object)))
 
 ;;;  define personalities 
 

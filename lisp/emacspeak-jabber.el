@@ -89,7 +89,7 @@ nil
 (defadvice jabber-switch-to-roster-buffer (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 ;;;  silence keepalive
@@ -114,7 +114,7 @@ nil
 (defadvice jabber-activity-switch-to (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
 ;;;  chat buffer:
@@ -122,7 +122,7 @@ nil
 (defadvice jabber-chat-buffer-send (after emacspeak pre act comp)
   "Produce auditory icon."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 ;;;  alerts
 
@@ -134,31 +134,31 @@ nil
                                                comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (message "Sent default presence.")))
 
 (defadvice jabber-send-away-presence (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (message "Set to be away.")))
 
 (defadvice jabber-send-xa-presence (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (message "Set extended  away.")))
 
 (defadvice jabber-go-to-next-jid (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice jabber-go-to-previous-jid (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defun emacspeak-jabber-presence-default-message (&rest _ignore)
@@ -176,7 +176,7 @@ Silently drops alerts on the floor --- Google Talk is too chatty otherwise."
   (cl-declare (special jabber-message-alert-same-buffer))
   (when (or jabber-message-alert-same-buffer
             (not (memq (selected-window) (get-buffer-window-list buffer))))
-    (emacspeak-auditory-icon 'item)
+    (emacspeak-icon 'item)
     (dtk-notify-speak
      (if (jabber-muc-sender-p from)
          (format "Private message from %s in %s"
@@ -196,7 +196,7 @@ Silently drops alerts on the floor --- Google Talk is too chatty otherwise."
   (pop-to-buffer jabber-roster-buffer)
   (goto-char (point-min))
   (forward-line 4)
-  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-icon 'select-object)
   (emacspeak-speak-line))
 
 (defadvice jabber-connect-all (after emacspeak pre act comp)
@@ -215,7 +215,7 @@ Silently drops alerts on the floor --- Google Talk is too chatty otherwise."
 
 (defun emacspeak-jabber-connected ()
   "Function to add to jabber-post-connection-hook."
-  (emacspeak-auditory-icon 'task-done)
+  (emacspeak-icon 'task-done)
   (dtk-notify-say "Connected to jabber."))
 (add-hook 'jabber-post-connect-hook #'emacspeak-jabber-connected)
 
@@ -252,8 +252,8 @@ the kill ring as well."
   (cond
    ((eobp)
     (message "On last message")
-    (emacspeak-auditory-icon 'warn-user))
-   (t(emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'warn-user))
+   (t(emacspeak-icon 'select-object)
      (emacspeak-speak-range))))
 
 (defun emacspeak-jabber-chat-previous-message ()
@@ -271,8 +271,8 @@ the kill ring as well."
   (cond
    ((bobp)
     (message "On first message")
-    (emacspeak-auditory-icon 'warn-user))
-   (t(emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'warn-user))
+   (t(emacspeak-icon 'select-object)
      (emacspeak-speak-range))))
 
 (when (boundp 'jabber-chat-mode-map)

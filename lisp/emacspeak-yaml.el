@@ -71,7 +71,7 @@
 (defadvice yaml-fill-paragraph (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'fill-object)))
+    (emacspeak-icon 'fill-object)))
 
 (defadvice yaml-electric-backspace (around emacspeak pre act comp)
   "speak."

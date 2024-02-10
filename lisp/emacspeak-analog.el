@@ -57,19 +57,19 @@
 (defadvice analog (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-analog-update-edit-keys)
     (emacspeak-speak-mode-line)))
 
 (defadvice analog-quit (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 (defadvice analog-bury-buffer (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
 (cl-loop for command in
@@ -85,7 +85,7 @@
              "speak."
              (when (ems-interactive-p)
                (emacspeak-speak-line)
-               (emacspeak-auditory-icon 'select-object)))))
+               (emacspeak-icon 'select-object)))))
 
 ;;;  voice setup 
 (voice-setup-add-map
@@ -122,7 +122,7 @@ Speak field or char moved to."
     (cond
      (fields (emacspeak-analog-next-field fields)
              (emacspeak-analog-speak-field fields)
-             (emacspeak-auditory-icon 'large-movement))
+             (emacspeak-icon 'large-movement))
      (t (call-interactively 'forward-char)))))
 
 (defun emacspeak-analog-backward-field-or-char ()
@@ -134,7 +134,7 @@ Speak field or char moved to."
     (cond
      (fields (emacspeak-analog-previous-field fields)
              (emacspeak-analog-speak-field fields)
-             (emacspeak-auditory-icon 'large-movement))
+             (emacspeak-icon 'large-movement))
      (t (call-interactively 'backward-char)))))
 
 (defun emacspeak-analog-speak-field (fields)
@@ -183,7 +183,7 @@ Speak field or char moved to."
      ((> end col)
       (beginning-of-line)
       (forward-char end))
-     (t (emacspeak-auditory-icon 'warn-user)))))
+     (t (emacspeak-icon 'warn-user)))))
 
 (defun emacspeak-analog-previous-field (fields)
   "Move to previous field."
@@ -207,7 +207,7 @@ Speak field or char moved to."
   (interactive)
   (let ((fields (emacspeak-analog-get-field-spec)))
     (cond (fields
-           (emacspeak-auditory-icon 'select-object)
+           (emacspeak-icon 'select-object)
            (forward-line -1)
            (emacspeak-analog-speak-field fields))
           (t (call-interactively 'previous-line)))))
@@ -217,7 +217,7 @@ Speak field or char moved to."
   (interactive)
   (let ((fields (emacspeak-analog-get-field-spec)))
     (cond (fields
-           (emacspeak-auditory-icon 'select-object)
+           (emacspeak-icon 'select-object)
            (forward-line 1)
            (emacspeak-analog-speak-field fields))
           (t (call-interactively 'next-line)))))

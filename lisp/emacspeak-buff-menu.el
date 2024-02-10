@@ -99,9 +99,9 @@
                        list-buffers-directory)
                   (setq this-buffer-directory list-buffers-directory))))
                                         ;format and speak the line
-        (when this-buffer-modified-p (emacspeak-auditory-icon 'modified-object))
+        (when this-buffer-modified-p (emacspeak-icon 'modified-object))
         (when this-buffer-read-only
-          (emacspeak-auditory-icon 'unmodified-object))
+          (emacspeak-icon 'unmodified-object))
         (dtk-speak
          (format  "%s a %s  buffer  %s with size  %s"
                   name this-buffer-mode-name
@@ -110,7 +110,7 @@
                               (or file this-buffer-directory))
                     "")
                   this-buffer-size))))
-     (t(emacspeak-auditory-icon 'warn-user)
+     (t(emacspeak-icon 'warn-user)
        (emacspeak-speak-line)))))
 
 (defun emacspeak-list-buffers-next-line (count)
@@ -138,73 +138,73 @@ and set up additional Emacspeak bindings."
     (define-key Buffer-menu-mode-map "n" 'emacspeak-list-buffers-next-line)
     (define-key Buffer-menu-mode-map "p" 'emacspeak-list-buffers-previous-line)
     (emacspeak-list-buffers-speak-buffer-line)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 
 (defadvice buffer-menu (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-icon 'task-done)
     (message "Displayed list of buffers in other window")))
 
 ;;;   buffer manipulation commands 
 (defadvice Buffer-menu-bury (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-list-buffers-speak-buffer-line)))
 
 (defadvice Buffer-menu-delete-backwards (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (emacspeak-list-buffers-speak-buffer-line)))
 
 (defadvice Buffer-menu-delete (after emacspeak pre act comp)
   "Provide spoken and auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (emacspeak-list-buffers-speak-buffer-line)))
 
 (defadvice Buffer-menu-mark (after emacspeak pre act comp)
   "Provide spoken and auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-icon 'mark-object)
     (emacspeak-list-buffers-speak-buffer-line)))
 
 (defadvice Buffer-menu-quit (after emacspeak pre act comp)
   "Speak the modeline of the newly visible buffer."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice Buffer-menu-save (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'save-object)
+    (emacspeak-icon 'save-object)
     (emacspeak-list-buffers-speak-buffer-line)))
 
 (defadvice Buffer-menu-select (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice Buffer-menu-unmark (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'deselect-object)
+    (emacspeak-icon 'deselect-object)
     (emacspeak-list-buffers-speak-buffer-line)))
 
 (defadvice Buffer-menu-backup-unmark (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'deselect-object)
+    (emacspeak-icon 'deselect-object)
     (emacspeak-list-buffers-speak-buffer-line)))
 
 (defadvice Buffer-menu-execute (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 (defadvice Buffer-menu-toggle-read-only (after emacspeak pre act comp)
   "speak"
@@ -216,8 +216,8 @@ and set up additional Emacspeak bindings."
   (when (ems-interactive-p)
     (emacspeak-list-buffers-speak-buffer-line)
     (if (ad-get-arg 0)
-        (emacspeak-auditory-icon 'modified-object)
-      (emacspeak-auditory-icon 'unmodified-object))))
+        (emacspeak-icon 'modified-object)
+      (emacspeak-icon 'unmodified-object))))
 
 (defadvice Buffer-menu-visit-tags-table (before emacspeak pre act comp)
   "speak"
@@ -230,23 +230,23 @@ and set up additional Emacspeak bindings."
   "Announce the newly selected buffer."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 (defadvice Buffer-menu-2-window (after emacspeak pre act comp)
   "Announce the newly selected buffer."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 (defadvice Buffer-menu-this-window (after emacspeak pre act comp)
   "Announce the newly selected buffer."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 (defadvice Buffer-menu-other-window (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (provide 'emacspeak-buff-menu)

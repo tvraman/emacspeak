@@ -70,11 +70,11 @@
 
 (defadvice sp--pair-overlay-create (after emacspeak pre act comp)
   "speak."
-  (emacspeak-auditory-icon 'item))
+  (emacspeak-icon 'item))
 
 (defadvice sp-wrap--initialize (after emacspeak pre act comp)
   "speak."
-  (emacspeak-auditory-icon 'select-object))
+  (emacspeak-icon 'select-object))
 
 ;;;  Navigators And Modifiers:
 
@@ -82,7 +82,7 @@
   "Speak character you're deleting."
   (cond
    ((ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (emacspeak-speak-this-char (preceding-char))
     ad-do-it)
    (t ad-do-it))
@@ -92,7 +92,7 @@
   "Speak character you're deleting."
   (cond
    ((ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (emacspeak-speak-char t)
     ad-do-it)
    (t ad-do-it))
@@ -106,7 +106,7 @@
           (dtk-stop-immediately nil))
       (save-excursion
         (forward-word -1)
-        (emacspeak-auditory-icon 'delete-object)
+        (emacspeak-icon 'delete-object)
         (emacspeak-speak-region (point) start)))))
 
 (cl-loop
@@ -121,7 +121,7 @@
                (end (line-end-position))
                (emacspeak-show-point t))
            ad-do-it
-           (emacspeak-auditory-icon 'large-movement)
+           (emacspeak-icon 'large-movement)
            (cond
             ((>= end (point))
              (emacspeak-speak-region start (point)))
@@ -142,7 +142,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-current-kill)
-       (emacspeak-auditory-icon 'delete-object)))))
+       (emacspeak-icon 'delete-object)))))
 
 (cl-loop
  for f in
@@ -177,7 +177,7 @@
      "speak."
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
-         (emacspeak-auditory-icon 'large-movement)
+         (emacspeak-icon 'large-movement)
          (emacspeak-speak-line))))))
 
 (provide 'emacspeak-smartparens)

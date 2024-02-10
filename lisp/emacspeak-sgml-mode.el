@@ -51,13 +51,13 @@
 (defadvice sgml-skip-tag-forward (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice sgml-skip-tag-backward (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice sgml-slash (after emacspeak pre act comp)
@@ -68,7 +68,7 @@
 (defadvice sgml-delete-tag (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)))
+    (emacspeak-icon 'delete-object)))
 
 (defadvice sgml-name-char (around emacspeak pre act comp)
   "Speak the character you typed"
@@ -84,7 +84,7 @@
 (defadvice sgml-tags-invisible (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'button)
+    (emacspeak-icon 'button)
     (dtk-speak  "Toggled display of tags")))
 
 (provide  'emacspeak-sgml-mode)

@@ -58,33 +58,33 @@
   "Speech enable  by speaking toc entry."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'section)))
+    (emacspeak-icon 'section)))
 
 (defadvice reftex-select-next-heading (after emacspeak pre act
                                              comp)
   "Speech enable  by speaking toc entry."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'section)))
+    (emacspeak-icon 'section)))
 
 (defadvice reftex-toc-previous (after emacspeak pre act
                                       comp)
   "Speech enable  by speaking toc entry."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'item)))
+    (emacspeak-icon 'item)))
 
 (defadvice reftex-toc-next (after emacspeak pre act
                                   comp)
   "Speech enable  by speaking toc entry."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'item)))
+    (emacspeak-icon 'item)))
 
 (defadvice reftex-toc-goto-line (after emacspeak pre act comp)
   "Speech enable  by speaking toc entry."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (recenter 0)
     (cond
      (outline-minor-mode
@@ -95,7 +95,7 @@
 (defadvice reftex-toc-goto-line-and-hide (after emacspeak pre act comp)
   "Speech enable  by speaking toc entry."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (if outline-minor-mode
         (emacspeak-outline-speak-this-heading)
       (emacspeak-speak-line))))
@@ -103,7 +103,7 @@
 (defadvice reftex-toc-view-line (after emacspeak pre act comp)
   "Speech enable  by speaking toc entry."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (other-window 1)
     (recenter 0)
     (other-window 1)
@@ -113,26 +113,26 @@
   "Speech enable  by speaking toc entry."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'item)))
+    (emacspeak-icon 'item)))
 
 (defadvice reftex-select-next (after emacspeak pre act
                                      comp)
   "Speech enable  by speaking toc entry."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 (defadvice reftex-select-accept (after emacspeak pre act
                                        comp)
   "Speak line where we inserted the reference."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-line)))
 
 (defadvice reftex-toc-toggle-follow (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if reftex-toc-follow-mode
+    (emacspeak-icon (if reftex-toc-follow-mode
                                  'on
                                'off))
     (message "Turned %s follow mode. "
@@ -140,7 +140,7 @@
 (defadvice reftex-toc-toggle-labels (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if reftex-toc-include-labels
+    (emacspeak-icon (if reftex-toc-include-labels
                                  'on
                                'off))
     (message "Turned %s labels. "
@@ -149,7 +149,7 @@
 (defadvice reftex-toc-toggle-file-boundary (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if reftex-toc-include-file-boundaries
+    (emacspeak-icon (if reftex-toc-include-file-boundaries
                                  'on
                                'off))
     (message "Turned %s file boundary markers. "
@@ -158,7 +158,7 @@
 (defadvice reftex-toc-toggle-context (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if reftex-toc-include-context
+    (emacspeak-icon (if reftex-toc-include-context
                                  'on
                                'off))
     (message "Turned %s context markers. "
@@ -168,17 +168,17 @@
   "Speech enable  by speaking  entry."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'item)))
+    (emacspeak-icon 'item)))
 
 (defadvice reftex-index-previous (after emacspeak pre act comp)
   "Speech enable  by speaking  entry."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'item)))
+    (emacspeak-icon 'item)))
 (defadvice reftex-index-goto-entry (after emacspeak pre act comp)
   "Speech enable  by speaking index entry."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (recenter 0)
     (cond
      (outline-minor-mode
@@ -189,7 +189,7 @@
 (defadvice reftex-index-goto-entry-and-hide (after emacspeak pre act comp)
   "Speech enable  by speaking toc entry."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (if outline-minor-mode
         (emacspeak-outline-speak-this-heading)
       (emacspeak-speak-line))))
@@ -197,7 +197,7 @@
 (defadvice reftex-index-view-entry (after emacspeak pre act comp)
   "Speech enable  by speaking index entry."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (other-window 1)
     (recenter 0)
     (other-window 1)
@@ -206,7 +206,7 @@
 (defadvice reftex-index-toggle-follow (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if reftex-index-follow-mode
+    (emacspeak-icon (if reftex-index-follow-mode
                                  'on
                                'off))
     (message "Turned %s follow mode. "
@@ -215,7 +215,7 @@
 (defadvice reftex-index-toggle-labels (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if reftex-index-include-labels
+    (emacspeak-icon (if reftex-index-include-labels
                                  'on
                                'off))
     (message "Turned %s labels. "
@@ -224,7 +224,7 @@
 (defadvice reftex-index-toggle-file-boundary (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if reftex-index-include-file-boundaries
+    (emacspeak-icon (if reftex-index-include-file-boundaries
                                  'on
                                'off))
     (message "Turned %s file boundary markers. "
@@ -233,7 +233,7 @@
 (defadvice reftex-index-toggle-context (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if reftex-index-include-context
+    (emacspeak-icon (if reftex-index-include-context
                                  'on
                                'off))
     (message "Turned %s context markers. "
@@ -243,18 +243,18 @@
   "Speech enable index mode."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-icon 'open-object)))
 
 (defadvice reftex-index-quit (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice reftex-index-quit-and-kill (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 ;;;  highlighting 

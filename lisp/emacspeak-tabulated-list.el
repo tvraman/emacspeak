@@ -71,9 +71,9 @@
           (cl-position name tabulated-list-format
                        :test #'string= :key #'car))
          (value (elt (tabulated-list-get-entry)  col)))
-      (when (= 0 col) (emacspeak-auditory-icon 'left))
+      (when (= 0 col) (emacspeak-icon 'left))
       (when (= (1- (length tabulated-list-format)) col)
-        (emacspeak-auditory-icon 'right))
+        (emacspeak-icon 'right))
       (when (listp value) (setq value (car value)))
       (when (zerop (length (string-trim value)))
         (dtk-tone 261.6 150 'force))    ;blank
@@ -89,7 +89,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-objet)
+       (emacspeak-icon 'select-objet)
        (emacspeak-tabulated-list-speak-cell)))))
 
 (defun emacspeak-tabulated-list-next-row ()

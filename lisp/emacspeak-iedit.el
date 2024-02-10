@@ -76,11 +76,11 @@
   "speak."
   (cl-declare (special iedit-mode))
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if iedit-mode 'on 'off))))
+    (emacspeak-icon (if iedit-mode 'on 'off))))
 
 (defadvice iedit-done (after emacspeak pre act comp)
   "speak."
-  (emacspeak-auditory-icon 'close-object)
+  (emacspeak-icon 'close-object)
   (message "IEdit done"))
 
 (cl-loop
@@ -94,7 +94,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 (cl-loop
  for f in
@@ -104,7 +104,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'help)))))
+       (emacspeak-icon 'help)))))
 
 (cl-loop
  for f in
@@ -116,14 +116,14 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done)
+       (emacspeak-icon 'task-done)
        (message "%s"  ,(symbol-name f))))))
 
 (defadvice iedit-show/hide-unmatched-lines (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon
+    (emacspeak-icon
      (if iedit-unmatched-lines-invisible 'on 'off))))
 
 (provide 'emacspeak-iedit)

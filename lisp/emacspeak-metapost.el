@@ -73,20 +73,20 @@
 (defadvice meta-fill-paragraph (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'fill-object)
+    (emacspeak-icon 'fill-object)
     (message "Filled current paragraph")))
 
 ;;;   navigation 
 (defadvice  meta-beginning-of-defun (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice  meta-end-of-defun (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 ;;;   commenting etc
@@ -127,21 +127,21 @@
 (defadvice meta-indent-region (after emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'fill-object)
+    (emacspeak-icon 'fill-object)
     (message "Indented  region containing %s lines"
              (count-lines (point) (mark 'force)))))
 
 (defadvice meta-indent-buffer (after emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'fill-object)
+    (emacspeak-icon 'fill-object)
     (message "Indented  buffer containing %s lines"
              (count-lines (point-min) (point-max 'force)))))
 
 (defadvice meta-mark-defun (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-icon 'mark-object)
     (message "Marked function containing %s lines"
              (count-lines (point)
                           (mark 'force)))))
@@ -149,7 +149,7 @@
 (defadvice meta-indent-defun (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'fill-object)
+    (emacspeak-icon 'fill-object)
     (message "Indented current defun. ")))
 
 (provide 'emacspeak-metapost)

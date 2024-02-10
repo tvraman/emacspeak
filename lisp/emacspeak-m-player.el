@@ -107,7 +107,7 @@
            f
            (cl-struct-slot-value 'ems--media-data f data))))))
     (message "Displayed metadata in other window.")
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 ;;;  define a derived mode for m-player interaction
 (define-derived-mode emacspeak-m-player-mode special-mode
@@ -386,7 +386,7 @@ plays result as a directory." directory)
         (emacspeak-m-player-hotkey-p t)
         (emacspeak-media-shortcuts-directory (expand-file-name directory)))
     (call-interactively #'emacspeak-multimedia)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 (defun emacspeak-media-guess-directory ()
   "Guess default directory.
@@ -505,7 +505,7 @@ If a dynamic playlist exists, just use it."
          (ems--media-data-info ems--media-data)
          (format "%s" output))
         (when emacspeak-m-player-cue-info
-          (emacspeak-auditory-icon 'progress)
+          (emacspeak-icon 'progress)
           (emacspeak-m-player-stream-info)))
       (goto-char (process-mark process))
       (let ((start (point)))
@@ -713,12 +713,12 @@ necessary."
      emacspeak-m-player-custom-filters
      (remove "extrastereo" emacspeak-m-player-custom-filters))
     (message "Effect extrastereo no longer applied to all streams")
-    (emacspeak-auditory-icon 'off))
+    (emacspeak-icon 'off))
    (t
     (cl-pushnew "extrastereo" emacspeak-m-player-custom-filters
                 :test #'string-equal)
     (message "Effect extrastereo  applied to all streams")
-    (emacspeak-auditory-icon 'on))))
+    (emacspeak-icon 'on))))
 
 (defun emacspeak-m-player-get-position ()
   "Return list (position filename length)  to use as an amark. "
@@ -942,19 +942,19 @@ The time position can also be specified as HH:MM:SS."
           (setq emacspeak-m-player-process nil)
           (and (buffer-live-p buffer) (kill-buffer buffer))
           (emacspeak-speak-mode-line)
-          (emacspeak-auditory-icon 'close-object))))))
+          (emacspeak-icon 'close-object))))))
 
 (defun emacspeak-m-player-volume-up ()
   "Volume up."
   (interactive)
   (ems--mp-send "volume 1")
-  (emacspeak-auditory-icon 'right))
+  (emacspeak-icon 'right))
 
 (defun emacspeak-m-player-volume-down ()
   "Volume down."
   (interactive)
   (ems--mp-send "volume -1")
-  (emacspeak-auditory-icon 'left))
+  (emacspeak-icon 'left))
 
 (defvar-local emacspeak-m-player-active-filters nil
   "Active filters.")
@@ -1035,7 +1035,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
         (setq emacspeak-m-player-cue-info
               (not emacspeak-m-player-cue-info))
         (when  emacspeak-m-player-cue-info
-          (emacspeak-auditory-icon
+          (emacspeak-icon
            (if emacspeak-m-player-cue-info 'on 'off))))
       (dtk-speak-and-echo (format "%s" (or info  "No Stream Info"))))))
 
@@ -1169,7 +1169,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   (setq emacspeak-m-player-active-filters nil)
   (when (process-live-p emacspeak-m-player-process)
     (ems--mp-send "af_clr")
-    (emacspeak-auditory-icon 'delete-object)))
+    (emacspeak-icon 'delete-object)))
 
 (defun emacspeak-m-player-customize ()
   "Use Customize to set MPlayer options."
@@ -1192,7 +1192,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
         (cl-remove-if
          #'(lambda(u) (string= u url))
          emacspeak-m-player-media-history))
-  (emacspeak-auditory-icon 'delete-object)
+  (emacspeak-icon 'delete-object)
   (kill-buffer)
   (call-interactively 'emacspeak-m-player-browse-history))
 
@@ -1242,7 +1242,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
             (point-min) (point-max)
             'keymap  emacspeak-m-player-history-map)
            (pop browse-url-of-file-hook)
-           (emacspeak-auditory-icon 'open-object)
+           (emacspeak-icon 'open-object)
            (emacspeak-speak-line))))
     (call-interactively #'browse-url-of-buffer)))
 
@@ -1374,7 +1374,7 @@ arg `reset' starts with all filters set to 0."
     (emacspeak-m-player-eq-controls
      (if reset  (make-vector 10 0)
        emacspeak-m-player-equalizer))
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (push "equalizer" emacspeak-m-player-active-filters))
    (t (message "No stream playing at present."))))
 
@@ -1520,7 +1520,7 @@ flat classical club dance full-bass full-bass-and-treble
      (and (integerp vol-step) (< 0 vol-step) (< vol-step 10))
      nil "Volume step should be between 1 and 9")
     (emacspeak-m-player-volume-change (* 11 vol-step))
-    (emacspeak-auditory-icon 'button)))
+    (emacspeak-icon 'button)))
 
 (cl-loop
  for i from 1 to 9 do
@@ -1776,7 +1776,7 @@ As the default, use current position."
     (ems--mp-send "af_clr")
     (ems--mp-send
      (format "af_add %s" filter))
-    (emacspeak-auditory-icon 'button)))
+    (emacspeak-icon 'button)))
 
 ;;;  Play RSS Stream:
 
@@ -1831,7 +1831,7 @@ to play  tracks."
     (put-text-property
      (point-min) (point-max)
      'keymap  emacspeak-locate-media-map)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (rename-buffer (format "Media  matching %s" pattern))
     (emacspeak-speak-mode-line)))
 
@@ -1853,7 +1853,7 @@ Optional interactive prefix arg prompts for name to use for  player."
          "Persisted-M-Player*")
        'unique))
     (when (called-interactively-p 'interactive)
-      (emacspeak-auditory-icon 'task-done)
+      (emacspeak-icon 'task-done)
       (dtk-notify-say
        "persisted current process. You can now start another player."))))
 
@@ -1871,7 +1871,7 @@ Check first if current buffer is in emacspeak-m-player-mode."
      ((process-live-p proc)
       (setq emacspeak-m-player-process proc)
       (set-default 'emacspeak-m-player-process proc)
-      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-icon 'open-object)
       (message "Restored  player process."))
      (t (error "No live player here.")))))
 
@@ -1965,7 +1965,7 @@ our pre-defined filters if appropriate."
          (read (cl-first (emacspeak-m-player-get-position)))))
   (when  (called-interactively-p 'interactive)
     (message "Start: %s" clip-start)
-    (emacspeak-auditory-icon 'mark-object)))
+    (emacspeak-icon 'mark-object)))
 
 (defun emacspeak-m-player-set-clip-end    ()
   "Set end of clip mark."
@@ -1977,7 +1977,7 @@ our pre-defined filters if appropriate."
          (read (cl-first (emacspeak-m-player-get-position)))))
   (when  (called-interactively-p 'interactive)
     (message "End: %s" clip-end)
-    (emacspeak-auditory-icon 'mark-object)))
+    (emacspeak-icon 'mark-object)))
 
 (defun emacspeak-m-player-write-clip ()
   "Split selected range using SoX"

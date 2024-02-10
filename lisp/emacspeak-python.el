@@ -56,7 +56,7 @@
 (defadvice python-check (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 (cl-loop
  for f in
  '(
@@ -68,14 +68,14 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak"
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done)))))
+       (emacspeak-icon 'task-done)))))
 
 ;;;   whitespace management and indentation
 (defadvice python-indent-dedent-line (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'right)))
+    (emacspeak-icon 'right)))
 
 (defadvice  python-indent-dedent-line-backspace (around emacspeak pre act comp)
   "Speak character you're deleting."
@@ -92,12 +92,12 @@
 (defadvice python-fill-paragraph (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'fill-object)))
+    (emacspeak-icon 'fill-object)))
 
 (defadvice python-indent-shift-left (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'left)
+    (emacspeak-icon 'left)
     (dtk-speak
      (format "Left shifted block  containing %s lines"
              (count-lines  (region-beginning)
@@ -112,7 +112,7 @@
 (defadvice python-indent-region (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'right)
+    (emacspeak-icon 'right)
     (dtk-speak
      (format "Indented region   containing %s lines"
              (count-lines  (region-beginning)
@@ -122,7 +122,7 @@
 (defadvice python-mark-defun (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-icon 'mark-object)
     (message "Marked function containing %s lines"
              (count-lines (point) (mark 'force)))))
 
@@ -145,7 +145,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'paragraph)))))
+       (emacspeak-icon 'paragraph)))))
 
 (provide 'emacspeak-python)
 ;;;  end of file

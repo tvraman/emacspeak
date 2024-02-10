@@ -57,7 +57,7 @@
 (defadvice sqlplus-execute-command (after emacspeak pre act comp)
   "speak and place point at the start of the output."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'scroll)
+    (emacspeak-icon 'scroll)
     (sqlplus-back-command 2)
     (forward-line 1)
     (emacspeak-speak-line)))
@@ -65,7 +65,7 @@
 (defadvice sqlplus-back-command (after emacspeak pre act comp)
   "Move prompt appropriately,  and speak the line."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (forward-line 1)
     (emacspeak-speak-line)))
 
@@ -73,29 +73,29 @@
                                           comp)
   "Move prompt appropriately,  and speak the line."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (forward-line 1)
     (emacspeak-speak-line)))
 
 (defadvice sqlplus-next-command (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-line)))
 
 (defadvice sqlplus-previous-command (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-speak-line)))
 
 (defadvice sql-send-region (around emacspeak pre act comp)
   "speak."
   (cond
    ((ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     ad-do-it
-    (emacspeak-auditory-icon 'mark-object))
+    (emacspeak-icon 'mark-object))
    (t ad-do-it))
   ad-return-value)
 
@@ -103,9 +103,9 @@
   "speak."
   (cond
    ((ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     ad-do-it
-    (emacspeak-auditory-icon 'mark-object))
+    (emacspeak-icon 'mark-object))
    (t ad-do-it))
   ad-return-value)
 

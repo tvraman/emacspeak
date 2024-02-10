@@ -119,19 +119,19 @@
   `(defadvice ,f (around emacspeak pre act comp)
      "Icon."
      ad-do-it
-     (when (ems-interactive-p) (emacspeak-auditory-icon 'yank-object))
+     (when (ems-interactive-p) (emacspeak-icon 'yank-object))
      ad-return-value)))
 
 (defadvice eat-reload (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-icon 'task-done)
     (dtk-speak "Reloaded Eat")))
 
 (defadvice eat-reset (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-icon 'task-done)
     (dtk-speak "Reset Eat")))
 
 (cl-loop
@@ -147,13 +147,13 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'button)
+       (emacspeak-icon 'button)
        (message "%s " ,(symbol-name f))))))
 
 (defadvice eat (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 ;;; Speech-Enable Terminal Emulation:

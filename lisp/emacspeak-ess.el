@@ -84,20 +84,20 @@ Cue electric insertion with a tone."
           `(defadvice ,f (after emacspeak pre act comp)
              "Produce auditory feedback."
              (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'large-movement)
+               (emacspeak-icon 'large-movement)
                (emacspeak-speak-line)))))
 
 (defadvice ess-mark-function (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (message "Marked function containing %s lines."
              (count-lines (point) (mark)))))
 
 (defadvice ess-indent-exp  (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'fill-object)
+    (emacspeak-icon 'fill-object)
     (message "Indented current s expression ")))
 
 ;;;  Evaluators
@@ -118,14 +118,14 @@ Cue electric insertion with a tone."
           (defadvice ,f (after emacspeak pre act comp)
             "speak."
             (when (ems-interactive-p)
-              (emacspeak-auditory-icon 'select-object)))))
+              (emacspeak-icon 'select-object)))))
 
 ;;;  Switchers
 (defadvice ess-display-help-on-object(after emacspeak pre act
                                             comp)
   "Announce help."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'help)
+    (emacspeak-icon 'help)
     (message "Displayed help in other window.")))
 (cl-loop for f in
          '(
@@ -135,7 +135,7 @@ Cue electric insertion with a tone."
           `(defadvice ,f (after emacspeak pre act comp)
              "speak."
              (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'select-object)
+               (emacspeak-icon 'select-object)
                (emacspeak-speak-mode-line)))))
 
 ;;;  set up programming mode:

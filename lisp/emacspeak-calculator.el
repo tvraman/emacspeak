@@ -67,7 +67,7 @@
 (defadvice calculator (after emacspeak pre act comp)
   "Speech enable calculator."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (message "Welcome to the pocket calculator.")))
 
 (defadvice calculator-digit (around emacspeak pre act comp)
@@ -95,7 +95,7 @@
   (cond
    ((ems-interactive-p)
     ad-do-it
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-calculator-summarize))
    (t ad-do-it))
   ad-return-value)
@@ -133,7 +133,7 @@
   (cond
    ((ems-interactive-p)
     ad-do-it
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-calculator-summarize))
    (t ad-do-it))
   ad-return-value)
@@ -143,7 +143,7 @@
   (cond
    ((ems-interactive-p)
     ad-do-it
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-calculator-summarize))
    (t ad-do-it))
   ad-return-value)
@@ -152,20 +152,20 @@
                                           comp)
   "Provide speech feedback"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'save-object)
+    (emacspeak-icon 'save-object)
     (emacspeak-calculator-summarize)))
 
 (defadvice calculator-clear-saved (after emacspeak pre act
                                          comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (emacspeak-calculator-summarize)))
 
 (defadvice calculator-enter (after emacspeak pre act comp)
   "Provide speech feedback"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (emacspeak-calculator-summarize)))
 
 (defadvice calculator-backspace (around emacspeak pre act comp)
@@ -182,33 +182,33 @@
                                    comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (emacspeak-calculator-summarize)))
 (defadvice calculator-copy (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (emacspeak-speak-current-kill 1)))
 
 (defadvice calculator-paste (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'yank-object)))
+    (emacspeak-icon 'yank-object)))
 
 (defadvice calculator-get-register (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'yank-object)
+    (emacspeak-icon 'yank-object)
     (emacspeak-calculator-summarize)))
 (defadvice calculator-quit (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 (defadvice calculator-save-and-quit (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice calculator-update-display (after emacspeak pre

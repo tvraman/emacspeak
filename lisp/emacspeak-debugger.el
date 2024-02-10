@@ -54,7 +54,7 @@
 (defadvice debugger-continue (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-icon 'task-done)))
 
 (cl-loop
  for f in 
@@ -64,7 +64,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 (defadvice debugger-eval-expression (after emacspeak pre act comp)
@@ -79,7 +79,7 @@
 (defadvice debugger-quit (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 (provide 'emacspeak-debugger)
 ;;;  end of file

@@ -89,7 +89,7 @@
   "Emacspeak front-end for Company."
   (cl-case command
     (pre-command nil)
-    (post-command (emacspeak-auditory-icon 'help)
+    (post-command (emacspeak-icon 'help)
                   (emacspeak-company-speak-this))
     (hide nil)))
 
@@ -98,7 +98,7 @@
 (defadvice company-complete-selection (before emacspeak pre act comp)
   "Speak the selection."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (dtk-speak (ems-company-current))))
 (defadvice company-complete-number (after emacspeak pre act com)
   "Speak what we completed."
@@ -110,7 +110,7 @@
   (let* ((selected (nth company-selection company-candidates))
          (doc-buffer (or (company-call-backend 'doc-buffer selected)
                          (error "No documentation available"))))
-                                        ;(emacspeak-auditory-icon 'help)
+                                        ;(emacspeak-icon 'help)
     (with-current-buffer doc-buffer (dtk-speak (buffer-string)))))
 
 ;;;  Company Setup For Emacspeak:
@@ -122,10 +122,10 @@
     (cl-pushnew 'emacspeak-company-frontend company-frontends))
   (add-hook
    'company-completion-started-hook
-   #'(lambda (&rest _ignore) (emacspeak-auditory-icon 'open-object)))
+   #'(lambda (&rest _ignore) (emacspeak-icon 'open-object)))
   (add-hook
    'company-completion-finished-hook
-   #'(lambda (&rest _ignore) (emacspeak-auditory-icon 'close-object))))
+   #'(lambda (&rest _ignore) (emacspeak-icon 'close-object))))
 
 (eval-after-load "company" #'emacspeak-company-setup)
 (provide 'emacspeak-company)

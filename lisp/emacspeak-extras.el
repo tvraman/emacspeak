@@ -295,7 +295,7 @@ Interactive  arguments specify filename pattern and search pattern."
    (format
     "find . -type f -name '%s' -print0 | xargs -0 -e grep -n -e '%s'"
     glob pattern))
-  (emacspeak-auditory-icon 'task-done))
+  (emacspeak-icon 'task-done))
 
 ;;;  fix text that has gotten read-only accidentally
 
@@ -399,7 +399,7 @@ annotation is inserted into the working buffer when complete."
         (insert annotation)
         (insert "\n"))
       (switch-to-buffer parent-buffer))
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 ;;;   launch Curl
 

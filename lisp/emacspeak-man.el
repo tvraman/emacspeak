@@ -78,60 +78,60 @@ Also provide an auditory icon"
           ("*Subsections*" "^   \\([A-Z].*\\)" 1)))
   (dtk-set-punctuations 'all)
   (emacspeak-pronounce-refresh-pronunciations)
-  (emacspeak-auditory-icon 'help))
+  (emacspeak-icon 'help))
 
 (defadvice   Man-goto-section  (after emacspeak pre act comp)
   "Speak the line"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'section)
+    (emacspeak-icon 'section)
     (emacspeak-speak-line)))
 
 (defadvice   Man-goto-page  (after emacspeak pre act comp)
   "Speak the line"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice   Man-next-manpage  (after emacspeak pre act comp)
   "Speak the line"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice   Man-previous-manpage  (after emacspeak pre act comp)
   "Speak the line"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice Man-next-section (after emacspeak pre act comp)
   "Speak the line"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'section)
+    (emacspeak-icon 'section)
     (emacspeak-speak-line)))
 
 (defadvice Man-previous-section (after emacspeak pre act comp)
   "Speak the line"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'section)
+    (emacspeak-icon 'section)
     (emacspeak-speak-line)))
 
 (defadvice Man-goto-see-also-section (after emacspeak pre act comp)
   "Speak the line"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice Man-quit (after emacspeak pre act comp)
   "Announce buffer that is current"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice Man-kill (after emacspeak pre act comp)
   "Announce buffer that is current"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice man (after emacspeak pre act comp)
@@ -152,7 +152,7 @@ Also provide an auditory icon"
             (Man-next-section 1)
             (setq end (point)))
         (error (setq end (point-max))))
-      (emacspeak-auditory-icon 'section)
+      (emacspeak-icon 'section)
       (emacspeak-speak-region start end))))
 
 (defun emacspeak-man-browse-man-page ()

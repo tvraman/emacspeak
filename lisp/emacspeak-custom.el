@@ -55,51 +55,51 @@
 (defadvice Custom-reset-current (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'item)
+    (emacspeak-icon 'item)
     (dtk-speak "Reset current")))
 
 (defadvice Custom-reset-saved(after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'unmodified-object)
+    (emacspeak-icon 'unmodified-object)
     (dtk-speak "Reset to saved")))
 
 (defadvice Custom-reset-standard (after emacspeak act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (dtk-speak "Erase customization")))
 
 (defadvice Custom-set (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'button)
+    (emacspeak-icon 'button)
     (dtk-speak "Set for current session")))
 
 (defadvice Custom-save (around emacspeak pre act comp)
   "Silence messages and produce auditory feedback."
   ad-do-it
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'save-object)
+    (emacspeak-icon 'save-object)
     (dtk-speak "Set and saved"))
   ad-return-value)
 
 (defadvice Custom-buffer-done (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-line)))
 
 (defadvice customize-save-customized (after emacspeak pre act comp)
   "speak. "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'save-object)
+    (emacspeak-icon 'save-object)
     (message "Saved customizations.")))
 
 (defadvice custom-save-all (after emacspeak pre act comp)
   "speak. "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'save-object)
+    (emacspeak-icon 'save-object)
     (message "Saved customizations.")))
 
 (defadvice customize-save-customized (around emacspeak pre act comp)
@@ -109,34 +109,34 @@
 (defadvice custom-set (after emacspeak pre act comp)
   "speak. "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-icon 'mark-object)
     (message "Set all updates.")))
 
 (defadvice customize (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-custom-goto-group)
     (emacspeak-speak-line)))
 
 (defadvice customize-group (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-custom-goto-group)
     (emacspeak-speak-line)))
 
 (defadvice customize-browse (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice customize-option (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (let ((symbol (ad-get-arg 0)))
-      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-icon 'open-object)
       (search-forward (custom-unlispify-tag-name symbol))
       (forward-line 0)
       (emacspeak-speak-line))))
@@ -144,7 +144,7 @@
 (defadvice customize-apropos (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (forward-line 0)
     (emacspeak-speak-line)))
 
@@ -152,7 +152,7 @@
   "speak"
   (when (ems-interactive-p)
     (let ((symbol (ad-get-arg 0)))
-      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-icon 'open-object)
       (search-forward (custom-unlispify-tag-name symbol))
       (forward-line 0)
       (emacspeak-speak-line))))
@@ -160,13 +160,13 @@
 (defadvice Custom-goto-parent (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice Custom-newline (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'button)))
+    (emacspeak-icon 'button)))
 
 ;;;  custom hook
 
@@ -219,7 +219,7 @@
     (goto-char (point-min))
     (re-search-forward emacspeak-custom-group-regexp
                        nil t)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defvar emacspeak-custom-toolbar-regexp
@@ -234,7 +234,7 @@
     (goto-char (point-min))
     (re-search-forward emacspeak-custom-toolbar-regexp nil
                        t)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 ;;;   bind emacspeak commands 

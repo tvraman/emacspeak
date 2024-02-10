@@ -191,7 +191,7 @@
   (cl-declare (special lispy-mode smartparens-mode))
   (lispy-mode 'toggle)
   (smartparens-mode 'toggle)
-  (emacspeak-auditory-icon 'button)
+  (emacspeak-icon 'button)
   (message "Now using %s"
            (cond
             (lispy-mode "Lispy")
@@ -275,7 +275,7 @@ _p_ emacspeak-muggles-lispy-or-sp:
      (ido-completing-read
       "Yank what? " (mapcar 'substring-no-properties kill-ring)))
     (when (called-interactively-p 'interactive)
-      (emacspeak-auditory-icon 'yank-object)
+      (emacspeak-icon 'yank-object)
       (emacspeak-speak-region orig (point)))))
 
 (global-set-key (kbd "M-C-y") 'emacspeak-muggles-ido-yank)

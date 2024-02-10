@@ -63,7 +63,7 @@
 (defadvice xkcd-kill-buffer (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defvar xkcd-transcript nil
@@ -91,7 +91,7 @@
                  "Not available yet."
                xkcd-transcript)))
     (goto-char (point-min))
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-buffer)))
 ;;;  Advice browse-url-default-browser:
 

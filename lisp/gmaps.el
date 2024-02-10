@@ -132,7 +132,7 @@
 (defvar gmaps-locations-file
   (expand-file-name "gmaps-locations" emacspeak-user-directory)
   "File where we save Locations.")
-(declare-function emacspeak-auditory-icon "emacspeak-sounds" (icon))
+(declare-function emacspeak-icon "emacspeak-sounds" (icon))
 
 (defun gmaps-locations-save ()
   "Save GMaps Locations."
@@ -152,7 +152,7 @@
     (when (called-interactively-p 'interactive)
       (message "Saved GMaps Locations."))
     (when (featurep 'emacspeak)
-      (emacspeak-auditory-icon 'save-object))))
+      (emacspeak-icon 'save-object))))
 
 ;;;  Maps Geo-Coding and Reverse Geo-Coding:
 
@@ -959,7 +959,7 @@ Place details need to have been expanded first."
        (insert "</ol>")
        (g-html-string  (buffer-string))))
     (set-mark (point))
-    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-icon 'task-done)
     (goto-char start)
     (message (format "Inserted %d reviews"  (length reviews)))))
 

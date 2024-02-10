@@ -320,7 +320,7 @@ See \\{emacspeak-ocr-mode-map}.
   "Customize OCR settings."
   (interactive)
   (customize-group 'emacspeak-ocr)
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (emacspeak-speak-mode-line))
 
 (defun emacspeak-ocr-default-name ()
@@ -350,7 +350,7 @@ For detailed help, invoke command emacspeak-ocr bound to
         (cd emacspeak-ocr-working-directory))
       (switch-to-buffer buffer)
       (setq buffer-read-only t)
-      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-icon 'open-object)
       (setq emacspeak-ocr-document-name (emacspeak-ocr-default-name))
       (emacspeak-speak-mode-line))))
 
@@ -374,7 +374,7 @@ Pick a short but meaningful name."
    (format "*%s-ocr*" name)
    'unique)
   (emacspeak-ocr-update-mode-line)
-  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-icon 'select-object)
   (emacspeak-speak-mode-line))
 
 (defun emacspeak-ocr-scan-image ()
@@ -473,7 +473,7 @@ The scanned image is converted to JPEG."
        (point-min)
        (point-max)
        (emacspeak-ocr-get-text-name))
-      (emacspeak-auditory-icon 'save-object))))
+      (emacspeak-icon 'save-object))))
 
 (defun emacspeak-ocr-save-current-page ()
   "Writes out recognized text from current page
@@ -493,7 +493,7 @@ to an appropriately named file."
          (aref emacspeak-ocr-page-positions
                (1+ emacspeak-ocr-current-page-number)))
        (emacspeak-ocr-get-page-name))
-      (emacspeak-auditory-icon 'save-object))))
+      (emacspeak-icon 'save-object))))
 
 (defun emacspeak-ocr-process-sentinel  (_process _state)
   "Alert user when OCR is complete."
@@ -502,7 +502,7 @@ to an appropriately named file."
                        emacspeak-ocr-current-page-number))
   (setq emacspeak-ocr-current-page-number
         emacspeak-ocr-last-page-number)
-  (emacspeak-auditory-icon 'task-done)
+  (emacspeak-icon 'task-done)
   (goto-char (aref emacspeak-ocr-page-positions
                    emacspeak-ocr-current-page-number))
   (emacspeak-ocr-save-current-page)
@@ -529,7 +529,7 @@ Prompts for image file if file corresponding to the expected
            (expand-file-name 
             (read-file-name "Image file to recognize: ")))))
     (goto-char (point-max))
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (setq emacspeak-ocr-last-page-number
           (1+ emacspeak-ocr-last-page-number))
     (aset emacspeak-ocr-page-positions
@@ -577,7 +577,7 @@ corresponding to the expected `current page' is not found."
            (expand-file-name 
             (read-file-name "Image file to recognize: ")))))
     (goto-char (point-max))
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (setq emacspeak-ocr-last-page-number
           (1+ emacspeak-ocr-last-page-number))
     (aset emacspeak-ocr-page-positions
@@ -615,7 +615,7 @@ correctly by themselves."
   (cl-declare (special emacspeak-ocr-working-directory))
   (switch-to-buffer
    (dired-noselect emacspeak-ocr-working-directory))
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (emacspeak-speak-mode-line))
 
 (defun emacspeak-ocr-forward-page (&optional _count-ignored)
@@ -631,7 +631,7 @@ correctly by themselves."
        emacspeak-ocr-current-page-number)
     (goto-char
      (point-max))
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (message "This is the last page."))
    (t (setq emacspeak-ocr-current-page-number
             (1+ emacspeak-ocr-current-page-number))
@@ -639,7 +639,7 @@ correctly by themselves."
                        emacspeak-ocr-current-page-number))
       (emacspeak-ocr-update-mode-line)
       (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'large-movement))))
+      (emacspeak-icon 'large-movement))))
 
 (defun emacspeak-ocr-backward-page (&optional _count-ignored)
   "Like backward page, but tracks page number of current document."
@@ -654,7 +654,7 @@ correctly by themselves."
     (goto-char
      (aref emacspeak-ocr-page-positions
            emacspeak-ocr-current-page-number))
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (message "This is the first page."))
    (t (setq emacspeak-ocr-current-page-number
             (1- emacspeak-ocr-current-page-number))
@@ -662,7 +662,7 @@ correctly by themselves."
       (goto-char (aref emacspeak-ocr-page-positions
                        emacspeak-ocr-current-page-number))
       (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'large-movement))))
+      (emacspeak-icon 'large-movement))))
 
 (defun emacspeak-ocr-goto-page (page)
   "Move to specified page."
@@ -670,7 +670,7 @@ correctly by themselves."
   (goto-char
    (aref emacspeak-ocr-page-positions page))
   (emacspeak-ocr-update-mode-line)
-  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-icon 'large-movement)
   (emacspeak-speak-line)
   )
 

@@ -74,7 +74,7 @@
     :rows *2048-rows*
     :cols *2048-columns*)
    emacspeak-2048-game-stack)
-  (emacspeak-auditory-icon 'mark-object)
+  (emacspeak-icon 'mark-object)
   (message "Saved state."))
 
 (defun emacspeak-2048-pop-state ()
@@ -92,7 +92,7 @@
        *2048-rows* (emacspeak-2048-game-state-rows state)
        *2048-columns* (emacspeak-2048-game-state-cols state))
       (2048-print-board)
-      (emacspeak-auditory-icon 'yank-object)
+      (emacspeak-icon 'yank-object)
       (message "Popped: Score is now %s" *2048-score*)))))
 
 (defun emacspeak-2048-prune-stack (drop)
@@ -111,7 +111,7 @@
                  (- (length emacspeak-2048-game-stack) drop)))
   (message "Stack is now %s deep"
            (length emacspeak-2048-game-stack))
-  (emacspeak-auditory-icon 'delete-object))
+  (emacspeak-icon 'delete-object))
 
 ;;;  Export And Import Games:
 
@@ -137,7 +137,7 @@ Note that the file is overwritten silently."
       (pp emacspeak-2048-game-stack (current-buffer))
       (insert ")\n")
       (write-file file)
-      (emacspeak-auditory-icon 'save-object)
+      (emacspeak-icon 'save-object)
       (message "Exported game to %s." file))))
 
 (defun emacspeak-2048-import (&optional prompt)
@@ -153,7 +153,7 @@ Optional interactive prefix arg prompts for a filename."
      for i in
      '(4096 8192 16384 32768 65536 131072) do
      (2048-init-tile i))
-    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-icon 'task-done)
     (message "Imported game %s." file)))
 
 ;;;  Adding rows and columns:
@@ -182,7 +182,7 @@ Optional interactive prefix arg prompts for a filename."
      for   i from 0 to (1- (length *2048-board*)) do
      (aset  *2048-board* i  (aref board i))
      (2048-print-board))
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (message "Dropped row.")))
 
 (defun emacspeak-2048-add-column ()
@@ -220,7 +220,7 @@ Optional interactive prefix arg prompts for a filename."
        (cl-incf bound)
        (aset  *2048-board* i  (aref board i)))))
     (2048-print-board))
-  (emacspeak-auditory-icon 'delete-object)
+  (emacspeak-icon 'delete-object)
   (message "Dropped column."))
 (defun emacspeak-2048-board-reset ()
   "Reset board to default size."
@@ -258,15 +258,15 @@ Optional interactive prefix arg prompts for a filename."
      (when (ems-interactive-p)
        (cond
         ((cl-some #'identity *2048-combines-this-move*)
-         (emacspeak-auditory-icon 'item))
-        (t (emacspeak-auditory-icon 'close-object)))
+         (emacspeak-icon 'item))
+        (t (emacspeak-icon 'close-object)))
        (emacspeak-2048-speak-board)
        (cond
-        ((2048-game-was-won) (emacspeak-auditory-icon 'task-done))
-        ((2048-game-was-lost) (emacspeak-auditory-icon 'alarm)))))))
+        ((2048-game-was-won) (emacspeak-icon 'task-done))
+        ((2048-game-was-lost) (emacspeak-icon 'alarm)))))))
 (defadvice 2048-insert-random-cell (after emacspeak pre act comp)
   "Provide auditory icon"
-  (emacspeak-auditory-icon 'item))
+  (emacspeak-icon 'item))
 
 (defun emacspeak-2048-score ()
   "Show total on board."
@@ -304,7 +304,7 @@ Optional interactive prefix arg prompts for a filename."
    (+ dtk-speech-rate-base
       (* dtk-speech-rate-step  3)))
   (dtk-set-punctuations 'some)
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (emacspeak-pronounce-define-local-pronunciation "0" "o")
   (emacspeak-2048-speak-board))
 (cl-declaim (special-display-p 2048-mode-hook))

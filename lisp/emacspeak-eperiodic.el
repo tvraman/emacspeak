@@ -118,7 +118,7 @@
                       'face 'eperiodic-header-face))
   (forward-line 2)
   (emacspeak-speak-line)
-  (emacspeak-auditory-icon 'large-movement))
+  (emacspeak-icon 'large-movement))
 (cl-declaim (special eperiodic-mode-map))
 (when (boundp 'eperiodic-mode-map)
   (define-key eperiodic-mode-map " " 'emacspeak-eperiodic-speak-current-element)
@@ -152,28 +152,28 @@
   "speak."
   (when  (ems-interactive-p)
     (emacspeak-eperiodic-speak-current-element)
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-icon 'large-movement)))
 
 (defadvice eperiodic-previous-element (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (dtk-speak (emacspeak-eperiodic-name-element-at-point))
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-icon 'large-movement)))
 
 (defadvice eperiodic-next-element (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (dtk-speak (emacspeak-eperiodic-name-element-at-point))
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-icon 'large-movement)))
 (defadvice eperiodic (after emacspeak pre act comp)
   "Speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
 (defadvice eperiodic-move (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 (defadvice eperiodic-show-element-info (after emacspeak pre act comp)
   "Speak displayed info."
@@ -188,13 +188,13 @@
 (defadvice eperiodic-bury-buffer (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice eperiodic-cycle-view (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (message "View %s"
              eperiodic-colour-element-function)))
 

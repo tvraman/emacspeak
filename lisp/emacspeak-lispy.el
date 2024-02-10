@@ -121,11 +121,11 @@ Indicate  no movement if we did not move."
          (cond
           ((eq orig (point))
            (dtk-notify-speak "Did not move")
-           (emacspeak-auditory-icon 'tick-tick))
+           (emacspeak-icon 'tick-tick))
           ((= ?\) (char-syntax (preceding-char)))
-           (emacspeak-auditory-icon 'select-object)
+           (emacspeak-icon 'select-object)
            (emacspeak-speak-line))
-          (t (emacspeak-auditory-icon 'select-object)
+          (t (emacspeak-icon 'select-object)
              (emacspeak-speak-sexp)))))
       (t ad-do-it))
      ad-return-value)))
@@ -134,13 +134,13 @@ Indicate  no movement if we did not move."
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'left)))
+    (emacspeak-icon 'left)))
 
 (defadvice lispy-move-beginning-of-line (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'right)))
+    (emacspeak-icon 'right)))
 
 ;;; Advice Insertions:
 
@@ -148,12 +148,12 @@ Indicate  no movement if we did not move."
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-sexp)
-    (emacspeak-auditory-icon 'yank-object)))
+    (emacspeak-icon 'yank-object)))
 
 (defadvice lispy-comment (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-icon 'select-object)
     (cond
      ((use-region-p)(emacspeak-speak-region (region-beginning) (region-end)))
      (t (emacspeak-speak-line)))))
@@ -190,7 +190,7 @@ Indicate  no movement if we did not move."
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'item)
+       (emacspeak-icon 'item)
        (save-excursion
          (forward-char 1)
          (emacspeak-speak-sexp))))))
@@ -209,7 +209,7 @@ Indicate  no movement if we did not move."
      "speak line with show-point turned on."
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
-         (emacspeak-auditory-icon 'select-object)
+         (emacspeak-icon 'select-object)
          (emacspeak-speak-line))))))
 
 ;;; Advice Marking:
@@ -222,20 +222,20 @@ Indicate  no movement if we did not move."
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'mark-object)
+       (emacspeak-icon 'mark-object)
        (emacspeak-speak-region (region-beginning) (region-end))))))
 
 (defadvice lispy-mark-symbol (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-icon 'mark-object)
     (emacspeak-speak-region  (region-beginning) (region-end))))
 
 ;;; Advice WhiteSpace Manipulation:
 (defadvice lispy-fill (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'fill-object)
+    (emacspeak-icon 'fill-object)
     (emacspeak-speak-line)))
 
 (cl-loop
@@ -252,15 +252,15 @@ Indicate  no movement if we did not move."
 (defadvice lispy-tab (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'fill-object)
-    (when (buffer-modified-p) (emacspeak-auditory-icon 'modified-object))
+    (emacspeak-icon 'fill-object)
+    (when (buffer-modified-p) (emacspeak-icon 'modified-object))
     (emacspeak-speak-line)))
 
 ;;; Advice Kill/Yank:
 (defadvice lispy-new-copy (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-icon 'mark-object)
     (message "region containing %s chars copied to kill ring "
              (length (current-kill 0)))))
 
@@ -273,20 +273,20 @@ Indicate  no movement if we did not move."
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'delete-object)
+       (emacspeak-icon 'delete-object)
        (dtk-speak (current-kill 0 nil))))))
 
 (defadvice lispy-yank (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'yank-object)
+    (emacspeak-icon 'yank-object)
     (emacspeak-speak-region (region-beginning) (region-end))))
 
 (defadvice lispy-delete-backward(around emacspeak pre act comp)
   "speak."
   (cond
    ((ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (emacspeak-speak-this-char (preceding-char))
     ad-do-it)
    (t ad-do-it)))
@@ -310,12 +310,12 @@ Indicate  no movement if we did not move."
        (buffer-live-p (get-buffer "*lispy-help*"))
        (window-live-p (get-buffer-window "*lispy-help*")))
     (with-current-buffer  "*lispy-help*"
-      (emacspeak-auditory-icon 'help)
+      (emacspeak-icon 'help)
       (emacspeak-speak-buffer))))
 
 (defadvice lispy--show (before emacspeak   pre act comp)
   "speak."
-  (emacspeak-auditory-icon 'help)
+  (emacspeak-icon 'help)
   (dtk-speak (ad-get-arg 0)))
 
 ;;; Advice Outliner:
@@ -323,7 +323,7 @@ Indicate  no movement if we did not move."
 (defadvice lispy-narrow (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-icon 'mark-object)
     (message "Narrowed editing region to %s lines"
              (count-lines (region-beginning)
                           (region-end)))))
@@ -331,7 +331,7 @@ Indicate  no movement if we did not move."
 (defadvice lispy-widen (after emacspeak pre act comp)
   "Announce yourself."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (message "You can now edit the entire buffer ")))
 
 (cl-loop

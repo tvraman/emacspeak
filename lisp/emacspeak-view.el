@@ -63,7 +63,7 @@
   (interactive)
   (recenter 0)
   (emacspeak-speak-line)
-  (emacspeak-auditory-icon 'select-object))
+  (emacspeak-icon 'select-object))
 
 ;;;  Advise additional interactive commands:
 (defadvice view-file (after emacspeak pre act comp)
@@ -75,7 +75,7 @@
   "Announce what happened"
   (cl-declare (special view-mode-map))
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-speak-load-directory-settings)
     (outline-minor-mode 1)
     (if view-mode
@@ -94,7 +94,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'close-object)
+       (emacspeak-icon 'close-object)
        (emacspeak-speak-mode-line)))))
 
 (cl-loop
@@ -110,13 +110,13 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Speech-enabled by Emacspeak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-icon 'open-object)
        (emacspeak-speak-mode-line)))))
 
 (defadvice View-exit (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice View-leave (after emacspeak pre act comp)
@@ -129,58 +129,58 @@
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line))
-    (emacspeak-auditory-icon 'search-hit)))
+    (emacspeak-icon 'search-hit)))
 
 (defadvice View-search-regexp-backward (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line))
-    (emacspeak-auditory-icon 'search-hit)))
+    (emacspeak-icon 'search-hit)))
 
 (defadvice View-search-last-regexp-forward (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line))
-    (emacspeak-auditory-icon 'search-hit)))
+    (emacspeak-icon 'search-hit)))
 
 (defadvice View-search-last-regexp-backward (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line))
-    (emacspeak-auditory-icon 'search-hit)))
+    (emacspeak-icon 'search-hit)))
 
 (defadvice view-exit (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice View-scroll-one-more-line (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'scroll)
+    (emacspeak-icon 'scroll)
     (emacspeak-speak-line)))
 
 (defadvice View-scroll-line-forward (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'scroll)
+    (emacspeak-icon 'scroll)
     (emacspeak-speak-line)))
 
 (defadvice View-scroll-line-backward (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'scroll)
+    (emacspeak-icon 'scroll)
     (emacspeak-speak-line)))
 (defadvice View-scroll-page-forward-set-page-size
     (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (let ((start (point)))
-      (emacspeak-auditory-icon 'scroll)
+      (emacspeak-icon 'scroll)
       (dtk-speak (emacspeak-get-window-contents)))))
 
 (defadvice View-scroll-page-backward-set-page-size
@@ -188,7 +188,7 @@
   "speak"
   (when (ems-interactive-p)
     (let ((start (point)))
-      (emacspeak-auditory-icon 'scroll)
+      (emacspeak-icon 'scroll)
       (dtk-speak (emacspeak-get-window-contents)))))
 
 (defadvice View-scroll-half-page-forward (around emacspeak pre act comp)
@@ -197,7 +197,7 @@
    ((ems-interactive-p)
     (let ((start (point)))
       ad-do-it
-      (emacspeak-auditory-icon 'scroll)
+      (emacspeak-icon 'scroll)
       (save-excursion
         (end-of-line)
         (dtk-speak
@@ -211,7 +211,7 @@
    ((ems-interactive-p)
     (let ((start (point)))
       ad-do-it
-      (emacspeak-auditory-icon 'scroll)
+      (emacspeak-icon 'scroll)
       (save-excursion
         (end-of-line)
         (dtk-speak
@@ -225,7 +225,7 @@
   "speak"
   (when (ems-interactive-p)
     (let ((start (point)))
-      (emacspeak-auditory-icon 'scroll)
+      (emacspeak-icon 'scroll)
       (save-excursion
         (forward-line (window-height))
         (emacspeak-speak-region start (point))))))
@@ -233,7 +233,7 @@
 (defadvice View-scroll-lines-forward (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'scroll)
+    (emacspeak-icon 'scroll)
     (dtk-speak (emacspeak-get-window-contents))))
 
 (defadvice View-scroll-lines-backward (around  emacspeak pre act comp)
@@ -244,9 +244,9 @@
       ad-do-it
       (cond
        ((not (eq buffer (current-buffer))) ;we exited view mode 
-        (emacspeak-auditory-icon 'close-object)
+        (emacspeak-icon 'close-object)
         (emacspeak-speak-mode-line))
-       (t (emacspeak-auditory-icon 'scroll)
+       (t (emacspeak-icon 'scroll)
           (dtk-speak (emacspeak-get-window-contents))))))
    (t ad-do-it))
   ad-return-value)
@@ -254,7 +254,7 @@
 (defadvice View-back-to-mark (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line))))
 
@@ -266,38 +266,38 @@
                    (ad-get-arg 0))))
       (put-text-property 0 (length line-number)
                          'personality voice-annotate line-number)
-      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-icon 'large-movement)
       (dtk-speak
        (concat line-number (ems--this-line))))))
 (defadvice View-scroll-to-buffer-end (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-icon 'large-movement)))
 
 (defadvice View-goto-percent (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'scroll)
+    (emacspeak-icon 'scroll)
     (dtk-speak (emacspeak-get-window-contents))))
 
 (defadvice View-revert-buffer-scroll-page-forward
     (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'scroll)
+    (emacspeak-icon 'scroll)
     (dtk-speak (emacspeak-get-window-contents))))
 
 (defadvice View-scroll-page-forward (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'scroll)
+    (emacspeak-icon 'scroll)
     (dtk-speak (emacspeak-get-window-contents))))
 
 (defadvice View-scroll-page-backward (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'scroll)
+    (emacspeak-icon 'scroll)
     (dtk-speak (emacspeak-get-window-contents))))
 
 ;;;  bind convenience keys

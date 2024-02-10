@@ -88,7 +88,7 @@ node -- speak the entire node."
 (defun emacspeak-info-visit-node()
   "Apply requested action upon visiting a node."
   (cl-declare (special emacspeak-info-select-node-speak-chunk))
-  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-icon 'open-object)
   (cond
    ((eq emacspeak-info-select-node-speak-chunk 'screenfull)
     (emacspeak-info-speak-current-window))
@@ -118,13 +118,13 @@ emacspeak-info-select-node-speak-chunk"
 (defadvice Info-search (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'search-hit)
+    (emacspeak-icon 'search-hit)
     (emacspeak-speak-line)))
 
 (defadvice Info-scroll-up (after emacspeak pre act comp)
   "Speak the screenful."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'scroll)
+    (emacspeak-icon 'scroll)
     (let ((start  (point))
           (window (get-buffer-window (current-buffer))))
       (save-excursion
@@ -134,7 +134,7 @@ emacspeak-info-select-node-speak-chunk"
 (defadvice Info-scroll-down (after emacspeak pre act comp)
   "Speak the screenful."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'scroll)
+    (emacspeak-icon 'scroll)
     (let ((start  (point))
           (window (get-buffer-window (current-buffer))))
       (save-excursion
@@ -146,19 +146,19 @@ emacspeak-info-select-node-speak-chunk"
 and then cue the next selected buffer."
   (when (ems-interactive-p)
     (dtk-stop 'all)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice Info-next-reference (after emacspeak pre act comp)
   "Speak the line. "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice Info-prev-reference (after emacspeak pre act comp)
   "Speak the line. "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-icon 'large-movement)
     (emacspeak-speak-line)))
 
 ;;;###autoload
@@ -201,7 +201,7 @@ node-spec."
      (target
       (goto-char target)
       (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'large-movement))
+      (emacspeak-icon 'large-movement))
      (t (message "No more sections in this node")))))
 
 (defun emacspeak-info-previous-section ()
@@ -220,7 +220,7 @@ node-spec."
      (target
       (goto-char target)
       (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'large-movement))
+      (emacspeak-icon 'large-movement))
      (t (message "No previous section in   this node")))))
 
 ;;;  Speak header line if hidden

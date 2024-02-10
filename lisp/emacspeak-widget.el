@@ -206,8 +206,8 @@ Returns a string with appropriate personality."
          (help-echo (emacspeak-widget-help-echo widget))
          (label (emacspeak-widget-label widget)))
     (if value
-        (emacspeak-auditory-icon 'open-object)
-      (emacspeak-auditory-icon 'close-object))
+        (emacspeak-icon 'open-object)
+      (emacspeak-icon 'close-object))
     (concat
      label
      (or  help-echo
@@ -488,7 +488,7 @@ Returns a string with appropriate personality."
    ((ems-interactive-p)
     (let ((widget (widget-at (point))))
       ad-do-it
-      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-icon 'select-object)
       (message "Moved to start of text field %s"
                (if widget
                    (widget-value widget)
@@ -502,7 +502,7 @@ Returns a string with appropriate personality."
    ((ems-interactive-p)
     (let ((widget (widget-at (point))))
       ad-do-it
-      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-icon 'select-object)
       (message "Moved to end of text field %s"
                (if widget
                    (widget-value widget)
@@ -513,19 +513,19 @@ Returns a string with appropriate personality."
 (defadvice widget-forward (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'item)
+    (emacspeak-icon 'item)
     (emacspeak-widget-summarize (widget-at  (point)))))
 
 (defadvice widget-backward (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'item)
+    (emacspeak-icon 'item)
     (emacspeak-widget-summarize (widget-at (point)))))
 
 (defadvice widget-kill-line (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (emacspeak-speak-current-kill 0)
     (dtk-tone-deletion)))
 
@@ -544,14 +544,14 @@ Returns a string with appropriate personality."
          ((and (eq major-mode 'eww-mode)
                (bound-and-true-p emacspeak-we-url-executor)
                (functionp emacspeak-we-url-executor))
-          (emacspeak-auditory-icon 'button)
+          (emacspeak-icon 'button)
           (call-interactively 'emacspeak-we-url-expand-and-execute))
          (t ad-do-it
             (cond
              ((= old-position (point))  ;did not move
-              (emacspeak-auditory-icon 'button)
+              (emacspeak-icon 'button)
               (emacspeak-widget-summarize (widget-at pos)))
-             (t  (emacspeak-auditory-icon 'large-movement)
+             (t  (emacspeak-icon 'large-movement)
                  (or (emacspeak-widget-summarize (widget-at (point)))
                      (emacspeak-speak-line))))))))
      (t ad-do-it))

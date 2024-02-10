@@ -63,7 +63,7 @@
   "speak."
   (let* ((orig-point (point)))
     ad-do-it
-    (emacspeak-auditory-icon 'complete)
+    (emacspeak-icon 'complete)
     (emacspeak-speak-region orig-point (point)))
   ad-return-value)
 
@@ -87,7 +87,7 @@
       (when (or (equal vertico--index emacspeak-vertico--prev-index)
                 (and (not (equal vertico--index -1))
                      (equal emacspeak-vertico--prev-index -1)))
-        (emacspeak-auditory-icon 'select-object)))
+        (emacspeak-icon 'select-object)))
     (when to-speak
       (dtk-speak to-speak))
     (setq-local
@@ -109,7 +109,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon ',icon)))))
+       (emacspeak-icon ',icon)))))
 
 (provide 'emacspeak-vertico)
 ;;;  end of file

@@ -69,26 +69,26 @@
 (defadvice LaTeX-fill-paragraph (after emacspeak pre act  comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'fill-object)))
+    (emacspeak-icon 'fill-object)))
 
 (defadvice LaTeX-mark-section (after emacspeak pre act comp)
   "Speak the first line. 
 Also provide an auditory icon. "
   (when (ems-interactive-p) 
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'mark-object)))
+    (emacspeak-icon 'mark-object)))
 
 (defadvice LaTeX-mark-environment (after emacspeak pre act comp)
   "Speak the first line. 
 Also provide an auditory icon. "
   (when (ems-interactive-p) 
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'mark-object)))
+    (emacspeak-icon 'mark-object)))
 
 (defadvice LaTeX-format-paragraph (after emacspeak pre act comp)
   "speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'fill-object)
+    (emacspeak-icon 'fill-object)
     (message "Filled current paragraph")))
 (defadvice LaTeX-format-region (around emacspeak pre act comp)
   "Ask for confirmation.
@@ -97,7 +97,7 @@ speak after formatting region"
    ((and (ems-interactive-p)
          (y-or-n-p "Really format region? "))
     ad-do-it
-    (emacspeak-auditory-icon 'fill-object)
+    (emacspeak-icon 'fill-object)
     (message "Reformatted region"))
    ((not (ems-interactive-p)) ad-do-it))
   ad-return-value)
@@ -117,7 +117,7 @@ speak after formatting region"
 (defadvice LaTeX-close-environment (after emacspeak pre act comp)
   "Speak the inserted line. "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (emacspeak-read-previous-line)))
 
 (cl-loop
@@ -151,7 +151,7 @@ speak after formatting region"
   "speak, by speaking
 the opening line of the newly inserted environment. "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (emacspeak-read-previous-line)))
 
 (defadvice TeX-insert-macro (around  emacspeak pre act comp)
@@ -166,32 +166,32 @@ the opening line of the newly inserted environment. "
   "Provide spoken and auditory feedback. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 (defadvice TeX-un-comment (after emacspeak pre act comp)
   "Provide spoken and auditory feedback. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 (defadvice TeX-un-comment-region (after emacspeak pre act comp)
   "Provide spoken and auditory feedback. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 (defadvice TeX-comment-paragraph (after emacspeak pre act comp)
   "Provide spoken and auditory feedback. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-icon 'select-object)))
 
 ;;;   Debugging tex
 
 (defadvice TeX-next-error (after emacspeak pre act comp)
   "Speak the error line. "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'item)
+    (emacspeak-icon 'item)
     (emacspeak-speak-line)))
 
 ;;;   Hooks

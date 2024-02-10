@@ -69,7 +69,7 @@
 (defadvice folding-mode (after emacspeak pre act comp)
   "Speak"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'button)
+    (emacspeak-icon 'button)
     (emacspeak-speak-mode-line)))
 
 (cl-loop
@@ -82,7 +82,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Produce an auditory icon and then speak the line. "
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'button)
+       (emacspeak-icon 'button)
        (emacspeak-speak-line)))))
 
 (cl-loop
@@ -96,7 +96,7 @@
      "Produce an auditory icon.
 Then speak the folded line."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon'close-object)
+       (emacspeak-icon'close-object)
        (emacspeak-speak-line)))))
 
 (cl-loop
@@ -110,13 +110,13 @@ Then speak the folded line."
      "Produce an auditory icon.
 Then speak the  line."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon'open-object)
+       (emacspeak-icon'open-object)
        (emacspeak-speak-line)))))
 
 (defadvice folding-fold-region (after emacspeak pre act comp)
   "Produce an auditory icon. "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (message "Specify a meaningful name for the new fold ")))
 
 (cl-loop
@@ -127,7 +127,7 @@ Then speak the  line."
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 ;;;  Fix keymap:

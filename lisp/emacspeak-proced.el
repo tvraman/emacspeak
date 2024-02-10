@@ -182,7 +182,7 @@
       (goto-char
        (+ (line-beginning-position)
           (emacspeak-proced-field-start (car tabs))))
-      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-icon 'large-movement)
       (when (called-interactively-p 'interactive)
         (emacspeak-proced-speak-this-field))))))
 
@@ -205,7 +205,7 @@
        (+ (line-beginning-position)
           (emacspeak-proced-field-start target)))
       (when (called-interactively-p 'interactive)
-        (emacspeak-auditory-icon 'large-movement)
+        (emacspeak-icon 'large-movement)
         (emacspeak-proced-speak-this-field))))))
 
 (defun emacspeak-proced-speak-field (field-name)
@@ -285,26 +285,26 @@
 (defadvice proced-mark (before emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-icon 'mark-object)
     (emacspeak-proced-speak-this-field)))
 
 (defadvice proced-unmark (before emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'deselect-object)
+    (emacspeak-icon 'deselect-object)
     (emacspeak-proced-speak-this-field)))
 
 (defadvice proced-mark-all (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (message "Marked all processes. ")
-    (emacspeak-auditory-icon 'mark-object)))
+    (emacspeak-icon 'mark-object)))
 
 (defadvice proced-unmark-all (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (message "Removed all marks. ")
-    (emacspeak-auditory-icon 'deselect-object)))
+    (emacspeak-icon 'deselect-object)))
 
 (cl-loop
  for f in
@@ -318,7 +318,7 @@
        (emacspeak-proced-update-fields)
        (emacspeak-proced-update-process-cache)
        (when (ems-interactive-p)
-         (emacspeak-auditory-icon 'open-object)
+         (emacspeak-icon 'open-object)
          (funcall-interactively #'emacspeak-speak-mode-line))))))
 
 (cl-loop
@@ -333,7 +333,7 @@
      "Provide auditory feedbak."
      (when (ems-interactive-p)
        (emacspeak-proced-speak-this-field)
-       (emacspeak-auditory-icon 'task-done)))))
+       (emacspeak-icon 'task-done)))))
 
 ;;;  additional commands:
 

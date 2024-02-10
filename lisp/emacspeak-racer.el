@@ -66,14 +66,14 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 (defadvice racer-describe (after emacspeak pre act comp)
   "speak."
   (when (and  (ems-interactive-p)
               (buffer-live-p (get-buffer "*Racer Help*")))
-    (emacspeak-auditory-icon 'help-object)
+    (emacspeak-icon 'help-object)
     (with-current-buffer "*Racer Help*" (emacspeak-speak-buffer))))
 
 (provide 'emacspeak-racer)

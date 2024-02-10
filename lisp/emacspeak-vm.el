@@ -207,11 +207,11 @@ Note that some badly formed mime messages  cause trouble."
       (cond
        ((and self-p
              (= 0 self-p)) ;mail to me and others
-        (emacspeak-auditory-icon 'item))
+        (emacspeak-icon 'item))
        (self-p                          ;mail to others including me
-        (emacspeak-auditory-icon 'mark-object))
+        (emacspeak-icon 'mark-object))
        (t                            ;got it because of a mailing list
-        (emacspeak-auditory-icon 'select-object))))))
+        (emacspeak-icon 'select-object))))))
 
 (defun emacspeak-vm-speak-labels ()
   "Speak a message's labels"
@@ -270,7 +270,7 @@ that has been forwarded multiple times."
   "Produce auditory feedback.
 Then speak the screenful. "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'scroll)
+    (emacspeak-icon 'scroll)
     (save-excursion
       (let ((start  (point))
             (window (get-buffer-window (current-buffer))))
@@ -281,7 +281,7 @@ Then speak the screenful. "
   "Produce auditory feedback.
 Then speak the screenful. "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'scroll)
+    (emacspeak-icon 'scroll)
     (save-excursion
       (let ((start  (point))
             (window (get-buffer-window (current-buffer))))
@@ -297,7 +297,7 @@ Then speak the screenful. "
 (defadvice vm-delete-message (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (message "Message discarded.")))
 
 (defadvice vm-undelete-message (after emacspeak pre act comp)
@@ -308,7 +308,7 @@ Then speak the screenful. "
 (defadvice vm-kill-subject (after emacspeak pre act comp)
   "speak. "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-icon 'delete-object)
     (call-interactively 'vm-next-message)))
 
 ;;;   Sending mail:
@@ -317,7 +317,7 @@ Then speak the screenful. "
   "Provide aural feedback."
   (cond
    ((ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (message "Forwarding message")
     ad-do-it
     (emacspeak-speak-line)
@@ -360,12 +360,12 @@ Then speak the screenful. "
   "Provide auditory context"
   (when  (ems-interactive-p)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 (defadvice vm-mail-send-and-exit (after emacspeak pre act comp)
   "Provide auditory context"
   (when  (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-icon 'close-object)))
 
 (cl-loop
  for f in
@@ -384,7 +384,7 @@ Then speak the screenful. "
 (defadvice vm-quit (after emacspeak pre act comp)
   "Provide an auditory icon if requested"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-icon 'close-object)
     (with-current-buffer (window-buffer (selected-window))
       (emacspeak-speak-mode-line))))
 
@@ -398,7 +398,7 @@ Then speak the screenful. "
   (vm-delete-message
    (read vm-ml-highest-message-number))
   (message "All messages have been marked as deleted.")
-  (emacspeak-auditory-icon 'delete-object))
+  (emacspeak-icon 'delete-object))
 
 ;;;   Keybindings:
 (when (boundp 'vm-mode-map)
@@ -432,9 +432,9 @@ Then speak the screenful. "
       ad-do-it
       (cond
        ((not (= orig (point)))
-        (emacspeak-auditory-icon 'search-hit)
+        (emacspeak-icon 'search-hit)
         (emacspeak-speak-line))
-       (t (emacspeak-auditory-icon 'search-miss)))))
+       (t (emacspeak-icon 'search-miss)))))
    (t ad-do-it))
   ad-return-value)
 
@@ -447,9 +447,9 @@ Then speak the screenful. "
       ad-do-it
       (cond
        ((not (= orig (point)))
-        (emacspeak-auditory-icon 'search-hit)
+        (emacspeak-icon 'search-hit)
         (emacspeak-speak-line))
-       (t (emacspeak-auditory-icon 'search-miss)))))
+       (t (emacspeak-icon 'search-miss)))))
    (t ad-do-it))
   ad-return-value)
 
@@ -488,7 +488,7 @@ Leave point at front of decoded attachment."
   "Speak the prompt"
   (let ((prompt (ad-get-arg 0))
         (confirm (ad-get-arg 1)))
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-icon 'open-object)
     (dtk-speak
      (format "%s %s"
              prompt
