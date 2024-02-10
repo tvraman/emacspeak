@@ -432,9 +432,8 @@ commands and options for details."
    '(emacspeak-speak-show-volume (:eval (ems--show-current-volume))))
   (setenv "EMACSPEAK_DIR" emacspeak-directory)
   (message emacspeak-startup-message)
-  
-  (when   emacspeak-play-startup-icon (emacspeak-prompt 'emacspeak))
-  (emacspeak-easter-egg))
+  (when   emacspeak-play-startup-icon (emacspeak-prompt 'emacspeak)
+          (emacspeak-easter-egg)))
 
 (provide 'emacspeak)
 ;;; Orca For Lock Screen:
