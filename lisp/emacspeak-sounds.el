@@ -100,14 +100,25 @@
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
-;;;   state of auditory icons
+;;;   Auditory Icons:
 
 (defvar-local emacspeak-use-auditory-icons t
   "Control auditory icons.
 Use `emacspeak-toggle-auditory-icons' bound to
 \\[emacspeak-toggle-auditory-icons].")
 
-;;;   setup play function
+(defun emacspeak-toggle-auditory-icons (&optional prefix)
+  "Toggle use of auditory icons.
+Optional interactive PREFIX arg toggles global value."
+  (interactive "P")
+  (cl-declare (special emacspeak-use-auditory-icons))
+  (setq  emacspeak-use-auditory-icons (not emacspeak-use-auditory-icons))
+   (when prefix (setq-default emacspeak-use-auditory-icons emacspeak-use-auditory-icons))
+  (message "Turned %s auditory icons %s"
+           (if emacspeak-use-auditory-icons  'on 'off)
+           (if prefix "" "locally"))
+  (when emacspeak-use-auditory-icons (emacspeak-icon 'on)))
+
 
 ;;;###autoload
 (defun emacspeak-icon (icon)
@@ -116,7 +127,7 @@ Use `emacspeak-toggle-auditory-icons' bound to
   (when emacspeak-use-auditory-icons
     (if   (null emacspeak-play-program) ; serve icon
         (emacspeak-serve-icon icon)
-        (emacspeak-play-icon icon))))
+      (emacspeak-play-icon icon))))
 
 ;;; Sounds Cache:
 
@@ -157,7 +168,7 @@ icon-name as string."
 
 ;; Called when  selecting themes.
 (defun emacspeak-sounds-cache-rebuild (theme)
-  "Rebuild sound cache for theme."
+  "Rebuild sound cache for theme, a directory containing sound files."
   (when (file-exists-p theme)
     (cl-loop
      for f in (directory-files theme 'full "\\.ogg$")
@@ -215,7 +226,8 @@ None: For systems that rely on the speech server playing the icon."
 (defun emacspeak-queue-icon (icon)
   "Queue auditory icon ICON.
 Used by TTS layer to play icons that are found as text property
-`auditory-icon' on text being spoken"
+`auditory-icon' on text being spoken.
+This is a private function and  might go away."
   (cl-declare (special dtk-speaker-process))
   (process-send-string
    dtk-speaker-process
@@ -232,7 +244,9 @@ Used by TTS layer to play icons that are found as text property
 ;;;   Play an icon
 (defvar emacspeak-play-args nil
   "Arguments passed to play program.")
+
 ;; Should never be called if local player not available
+;; emacspeak-play-args is set when emacspeak-play-program is selected.
 
 (defun emacspeak-play-icon (icon)
   "Produce auditory icon ICON using a local player.
@@ -241,22 +255,12 @@ Mac, Linux without Pipewire/Pulse: play from sox."
   (cl-declare (special emacspeak-play-program emacspeak-play-args))
   (let ((process-connection-type nil))
     (start-process
-     emacspeak-play-program nil emacspeak-play-program
+     "Player" nil emacspeak-play-program
      emacspeak-play-args (emacspeak-sounds-resource icon))))
 
-;;;   toggle auditory icons
 
-(defun emacspeak-toggle-auditory-icons (&optional prefix)
-  "Toggle use of auditory icons.
-Optional interactive PREFIX arg toggles global value."
-  (interactive "P")
-  (cl-declare (special emacspeak-use-auditory-icons))
-  (setq  emacspeak-use-auditory-icons (not emacspeak-use-auditory-icons))
-   (when prefix (setq-default emacspeak-use-auditory-icons emacspeak-use-auditory-icons))
-  (message "Turned %s auditory icons %s"
-           (if emacspeak-use-auditory-icons  'on 'off)
-           (if prefix "" "locally"))
-  (when emacspeak-use-auditory-icons (emacspeak-icon 'on)))
+
+
 
 ;;;  emacspeak-prompts:
 
@@ -273,7 +277,5 @@ Optional interactive PREFIX arg toggles global value."
    (emacspeak-sounds-cache-put
     (intern (file-name-sans-extension (file-name-nondirectory f)))
     f)))
-
-
 
 (provide  'emacspeak-sounds)
