@@ -1,6 +1,0 @@
-#!/bin/sh
-# Play prompt  from outside Emacs
-#Usage emprompt <prompt-name>
-l="$@"
-pidof -q `which emacs` &&\
- emacsclient -n -e "(emacspeak-prompt '$l)"  2>&1 > /dev/null
