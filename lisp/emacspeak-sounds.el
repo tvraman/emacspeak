@@ -215,14 +215,15 @@ None: For systems that rely on the speech server playing the icon."
   #'(lambda(sym val)
       (set-default sym val)
       (cond
+       ((null val) (setq ems--play-args nil))
        ((string= emacspeak-pactl val)
-        (setq emacspeak-play-args "play-sample"))
+        (setq ems--play-args "play-sample"))
        ((or  (string= "/usr/bin/play" val)
              (string= "/usr/local/bin/play" val))
-        (setq emacspeak-play-args "-q"))))
+        (setq ems--play-args "-q"))))
   :group 'emacspeak)
-
-;;;   queue an auditory icon
+;;; Implementation: emacspeak-icon methods
+;;;;   queue an auditory icon
 (defun emacspeak-queue-icon (icon)
   "Queue auditory icon ICON.
 Used by TTS layer to play icons that are found as text property
@@ -233,7 +234,7 @@ This is a private function and  might go away."
    dtk-speaker-process
    (format "a %s\n" (emacspeak-sounds-resource icon))))
 
-;;;   serve an auditory icon
+;;;;   serve an auditory icon
 (defun emacspeak-serve-icon (icon)
   "Serve auditory icon ICON."
   (cl-declare (special dtk-speaker-process))
@@ -241,22 +242,22 @@ This is a private function and  might go away."
    dtk-speaker-process
    (format "p %s\n" (emacspeak-sounds-resource icon))))
 
-;;;   Play an icon
-(defvar emacspeak-play-args nil
+;;;;   Play an icon
+(defvar ems--play-args nil
   "Arguments passed to play program.")
 
 ;; Should never be called if local player not available
-;; emacspeak-play-args is set when emacspeak-play-program is selected.
+;; ems--play-args is set when emacspeak-play-program is selected.
 
 (defun emacspeak-play-icon (icon)
   "Produce auditory icon ICON using a local player.
 Linux: Pipewire and Pulse: pactl.
 Mac, Linux without Pipewire/Pulse: play from sox."
-  (cl-declare (special emacspeak-play-program emacspeak-play-args))
+  (cl-declare (special emacspeak-play-program ems--play-args))
   (let ((process-connection-type nil))
     (start-process
      "Player" nil emacspeak-play-program
-     emacspeak-play-args (emacspeak-sounds-resource icon))))
+     ems--play-args (emacspeak-sounds-resource icon))))
 
 
 
