@@ -3,4 +3,4 @@
 #Usage emsicon<icon>
 l="$@"
 pidof -q `which emacs` && \
-emacsclient -n -e "(emacspeak-auditory-icon '$l)"   2>&1 > /dev/null
+emacsclient -n -e "(emacspeak-icon '$l)"   2>&1 > /dev/null
