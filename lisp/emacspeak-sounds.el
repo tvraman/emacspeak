@@ -270,12 +270,6 @@ Mac, Linux without Pipewire/Pulse: play from sox."
 
 (defun emacspeak-sounds-cache-prompts ()
   "Populate sounds cache with prompts"
-  (cl-loop
-   for f in
-   (directory-files emacspeak-prompts-dir 'full "\\.ogg$")
-   do
-   (emacspeak-sounds-cache-put
-    (intern (file-name-sans-extension (file-name-nondirectory f)))
-    f)))
+  (emacspeak-sounds-cache-rebuild emacspeak-prompts-dir))
 
 (provide  'emacspeak-sounds)
