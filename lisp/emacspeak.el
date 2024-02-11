@@ -438,22 +438,7 @@ commands and options for details."
           (emacspeak-easter-egg)))
 
 (provide 'emacspeak)
-;;; Orca For Lock Screen:
 
-;; Orca Toggle:
-;; Easily start/stop orca for use with lock-screen, Chrome etc.
-
-(defvar emacspeak-orca-handle nil
-  "Orca process handle")
-;;;###autoload
-(defun emacspeak-orca-toggle ()
-  "Toggle state of orca."
-  (interactive)
-  (cl-declare (special emacspeak-orca-handle))
-  (cond
-   (emacspeak-orca-handle (delete-process emacspeak-orca-handle)
-                          (setq emacspeak-orca-handle  nil))
-   (t (setq emacspeak-orca-handle (start-process "Orca"nil "orca")))))
 ;;;  end of file
 
 ;;; emacspeak.el ends here
