@@ -763,7 +763,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.241 URL Templates
 ====================
 
-This section documents a total of 62 URL Templates.
+This section documents a total of 63 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u’.  This command
@@ -804,165 +804,168 @@ following steps:
   10. bbc sounds
 
      Search BBC Sounds
-  11. bing news
+  11. bbc world service schedule
+
+     BBC R4 Schedule
+  12. bing news
 
      Bing News results as RSS feed.
-  12. business headlines from cnn
+  13. business headlines from cnn
 
      Money Headlines From CNN
-  13. cbs radio streams from streamtheworld
+  14. cbs radio streams from streamtheworld
 
      Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  14. cnbc quotes
+  15. cnbc quotes
 
      Stock portfolio via CNBC
-  15. cnbc ticker
+  16. cnbc ticker
 
      Stock Quote via CNBC
-  16. cnn headlines
+  17. cnn headlines
 
      News Headlines From CNN
-  17. cnn money
+  18. cnn money
 
      CNN Money
-  18. cricinfo print
+  19. cricinfo print
 
      Printer friendly link on Cricinfo
-  19. dictionary lookup
+  20. dictionary lookup
 
      Dictionary Lookup
-  20. emacspeak search via google
+  21. emacspeak search via google
 
      Search Emacspeak Site
-  21. espn cricinfo search
+  22. espn cricinfo search
 
      Cricinfo Search Using Google
-  22. finance google
+  23. finance google
 
      Lookup ticker on Google Finance.
-  23. finance summary from google
+  24. finance summary from google
 
      Display top stocks from Google Finance.
-  24. freesound
+  25. freesound
 
      Search FreeSound.
-  25. google news search
+  26. google news search
 
      Search Google news.
-  26. google scholar
+  27. google scholar
 
      Google Scholar Search
-  27. google trends
+  28. google trends
 
      Google Trends
-  28. google weather
+  29. google weather
 
      Light-weight Google weather.
-  29. guardian rss feeds directory
+  30. guardian rss feeds directory
 
      Guardian Feeds Directory
-  30. hacker news frontpage
+  31. hacker news frontpage
 
      Display Hacker News Front Page
-  31. hacker news search
+  32. hacker news search
 
      Display Hacker News Front Page
-  32. hoogle haskell api search
+  33. hoogle haskell api search
 
      Haskell API Search against a local server.
-  33. html google news search
+  34. html google news search
 
      Search Google news.
-  34. microsoft search
+  35. microsoft search
 
      Bing results as RSS feed.
-  35. nba standings
+  36. nba standings
 
      Display NBA standings.
-  36. nls bard bookshelf
+  37. nls bard bookshelf
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  37. nls bard popular
+  38. nls bard popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  38. nls bard recent
+  39. nls bard recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  39. nls bard search
+  40. nls bard search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  40. npr
+  41. npr
 
      Open NPR home , then display the alternative links to access RSS
      feeds.
-  41. online radiotime browser
+  42. online radiotime browser
 
      RadioTime Entry point.
-  42. online radiotime search
+  43. online radiotime search
 
      RadioTime Search
-  43. openlibrary
+  44. openlibrary
 
      Open Library Search
-  44. player fm bbc rss feeds
+  45. player fm bbc rss feeds
 
      Player FM BBC RSS Feeds
-  45. radiotime categories
+  46. radiotime categories
 
      RadioTime Categories
-  46. reddit at point
+  47. reddit at point
 
      Open RSS Feed for Reddit URL under point.
-  47. reddit by topic
+  48. reddit by topic
 
      Open RSS Feed for Reddit Topic.
-  48. reddit front page
+  49. reddit front page
 
      Open Feed for Reddit Front Page.
-  49. reddit search
+  50. reddit search
 
      Reddit Search Results Feed.
-  50. sourceforge browse mirrors
+  51. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  51. sourceforge download
+  52. sourceforge download
 
      Download specified file.
-  52. sourceforge project
+  53. sourceforge project
 
      Open specified project page at SourceForge.
-  53. tech news from cnet
+  54. tech news from cnet
 
      Display tech news from CNET
-  54. tinyurl
+  55. tinyurl
 
-  55. tunein radio
+  56. tunein radio
 
      Translate StreamId to playable stream.
-  56. w3c irc logs
+  57. w3c irc logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  57. w3c lists
+  58. w3c lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  58. washington post
+  59. washington post
 
      Washington Post Contents
-  59. wiki data search
+  60. wiki data search
 
      Search WikiData.
-  60. wikipedia at point
+  61. wikipedia at point
 
      Extract body content from Wikipedia link at point
-  61. wordnet search
+  62. wordnet search
 
      Look up term in WordNet.
-  62. yahoo rssnews
+  63. yahoo rssnews
 
      News From Yahoo As RSS.
 

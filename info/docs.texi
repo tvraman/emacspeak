@@ -20646,7 +20646,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 62 URL Templates.
+This section documents a total of 63 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -20682,7 +20682,9 @@ BBC Radio 4 Extra Schedule@item @b{bbc r4 schedule }
 
 BBC R4 Schedule@item @b{bbc sounds}
 
-Search BBC Sounds@item @b{bing news}
+Search BBC Sounds@item @b{bbc world service  schedule }
+
+BBC R4 Schedule@item @b{bing news}
 
 Bing News results as RSS feed.@item @b{business headlines from cnn}
 
