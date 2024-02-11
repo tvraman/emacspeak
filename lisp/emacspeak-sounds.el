@@ -227,6 +227,18 @@ None: For systems that rely on the speech server playing the icon."
              (string= "/usr/local/bin/play" val))
         (setq ems--play-args "-q"))))
   :group 'emacspeak)
+
+;;;  emacspeak-prompts:
+
+(defvar emacspeak-prompts-dir
+  (expand-file-name "prompts" emacspeak-sounds-dir)
+  "Where pre-defined prompt files are located.")
+
+(defun emacspeak-sounds-cache-prompts ()
+  "Populate sounds cache with prompts"
+  (emacspeak-sounds-cache-rebuild emacspeak-prompts-dir))
+
+
 ;;; Implementation: emacspeak-icon methods
 ;;;;   queue an auditory icon
 (defun emacspeak-queue-icon (icon)
@@ -261,15 +273,4 @@ Mac, Linux without Pipewire/Pulse: play from sox."
     (start-process
      "Player" nil emacspeak-play-program
      ems--play-args (emacspeak-sounds-resource icon))))
-
-;;;  emacspeak-prompts:
-
-(defvar emacspeak-prompts-dir
-  (expand-file-name "prompts" emacspeak-sounds-dir)
-  "Where pre-defined prompt files are located.")
-
-(defun emacspeak-sounds-cache-prompts ()
-  "Populate sounds cache with prompts"
-  (emacspeak-sounds-cache-rebuild emacspeak-prompts-dir))
-
 (provide  'emacspeak-sounds)
