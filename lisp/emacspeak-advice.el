@@ -864,16 +864,18 @@ When on a close delimiter, speak matching delimiter after a small delay. "
                        ems--lazy-error-time))
   (let ((m (error-message-string data))
         (fn (if caller (symbol-name caller) "")))
-    (when
+    (when ; speak conditionally
         (and
-         (<  (/ echo-keystrokes 20)
-             (float-time (time-subtract (current-time) ems--lazy-msg-time))))
+         (not (string= ems--last-error-msg m)) ; dont repeat
+         (< echo-keystrokes ; rate limit 
+            (float-time (time-subtract (current-time) ems--lazy-msg-time))))
       (setq ems--last-error-msg m
-            ems--lazy-error-time (current-time) )
+            ems--lazy-error-time (current-time))
       (emacspeak-icon 'warn-user)
       (dtk-speak-and-echo
        (concat
-        (propertize (if (string-match "^ad-Advice" fn) (substring fn 10) fn)
+        (propertize
+         (if (string-match "^ad-Advice" fn) (substring fn 10) fn)
                     'personality voice-bolden)
         m )))))
 
