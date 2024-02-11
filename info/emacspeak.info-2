@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 10, 2024.
+last updated on February 11, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -4489,8 +4489,8 @@ also defines sound themes for auditory icons.
           the accompanying spoken feedback.
    • This module provides a mapping between names in the elisp world and
      actual sound files.
-   • icon names are symbols; sound files are strings that
-     fully-qualified file-names.
+   • icon names are symbols, sound files are strings -- fully-qualified
+     file-names.
    • Modules that use auditory icons use icon names and not actual file
      names.
    • Icons are played either using a local player, or by sending
@@ -4520,8 +4520,8 @@ auditory icons over the years:
      palette.
   5. The included themes have been optimized over years of use and are
      primarily tuned for using with headphones.
-   If ‘emacspeak-play-program’ is set to ‘nil’ we serve icons, otherwise
-play them using a local player.
+   If ‘emacspeak-play-program’ is set to ‘nil’, we serve icons,
+otherwise play them using a local player.
 
 12.179.3 Emacspeak-Sounds Commands
 ----------------------------------

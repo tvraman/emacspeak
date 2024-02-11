@@ -1219,22 +1219,6 @@ Emacspeak modules as each package is loaded.
 @item  It implements function emacspeak which loads the rest of the system.
 @end itemize
 
-@subsection Emacspeak Commands
-
-@subsubsection emacspeak-orca-toggle
-@deffn {Command} emacspeak-orca-toggle   
-@table @kbd
-@item s-o
-@kindex s-o
-@end table
-
-@findex emacspeak-orca-toggle
-
-@format
-Toggle state of orca.
-@end format
-@end deffn
-
 @subsection emacspeak Options
 
 @defvar {User Option} emacspeak-soundscapes
@@ -3135,6 +3119,20 @@ already disabled.
 
 @format
 Enable integration with UPower. Does nothing if already enabled.
+@end format
+@end deffn
+
+@subsubsection emacspeak-orca-toggle
+@deffn {Command} emacspeak-orca-toggle   
+@table @kbd
+@item s-o
+@kindex s-o
+@end table
+
+@findex emacspeak-orca-toggle
+
+@format
+Toggle state of orca.
 @end format
 @end deffn
 
@@ -12009,7 +12007,8 @@ the accompanying spoken feedback.
 @end enumerate
 @item This module provides  a mapping between names in the elisp
 world and actual sound files.
-@item icon names are symbols; sound files  are strings that fully-qualified file-names.
+@item icon names are symbols,
+sound files  are strings ---  fully-qualified file-names.
 @item Modules that  use auditory icons
  use icon names and not  actual file names.
 @item Icons are played either using a local player, or by sending
@@ -12039,7 +12038,8 @@ colors from  a color palette.
 @item The included themes have been optimized over years of use and
 are primarily tuned for using with headphones.
 @end enumerate
-If @code{emacspeak-play-program} is set to @code{nil} we serve icons, otherwise play
+If @code{emacspeak-play-program} is set to @code{nil},
+we serve icons, otherwise play
 them using a local player.
 
 @subsection Emacspeak-Sounds Commands
