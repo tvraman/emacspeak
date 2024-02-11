@@ -395,11 +395,11 @@ Use Emacs as you normally would, emacspeak provides
 for having parts of the current buffer, the mode-line etc to be
 spoken.
 
-With prefix C-e:
+With prefix \\`C-e'
 
 \\{emacspeak-keymap}
 
-With prefix C-e d:
+With prefix \\`C-e d'
 
 
 \\{emacspeak-dtk-submap}
