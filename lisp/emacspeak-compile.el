@@ -42,7 +42,7 @@
 ;; This module makes compiling code from inside Emacs speech friendly.
 ;;; Code:
 
-;;;  Required modules
+;;  Required modules: 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
