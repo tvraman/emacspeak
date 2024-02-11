@@ -395,11 +395,14 @@ Use Emacs as you normally would, emacspeak provides
 for having parts of the current buffer, the mode-line etc to be
 spoken.
 
- Emacspeak commands use \\[emacspeak-keymap] as a prefix
-key.  You can configure TTS  with
-\\[emacspeak-dtk-submap] as a prefix.
+With prefix C-e:
 
 \\{emacspeak-keymap}
+
+With prefix C-e d:
+
+
+\\{emacspeak-dtk-submap}
 
 Emacspeak provides a set of additional keymaps to give easy access to
 its extensive facilities.
