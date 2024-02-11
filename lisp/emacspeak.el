@@ -390,10 +390,9 @@ This cannot be set via custom; set this in your startup file before
 ;;;###autoload
 (defun emacspeak()
   "Start the Emacspeak Audio Desktop.
-Use Emacs as you normally would, emacspeak provides
- spoken feedback.  Emacspeak also provides commands
-for having parts of the current buffer, the mode-line etc to be
-spoken.
+Use Emacs as you normally would, emacspeak provides spoken feedback.
+Emacspeak also provides commands for having parts of the current buffer,
+the mode-line etc to be spoken.
 
 With prefix \\`C-e'
 
@@ -418,6 +417,7 @@ Press C-, to access keybindings in emacspeak-alt-keymap:
 
 See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."
+  (setenv "EMACSPEAK_DIR" emacspeak-directory)
   (dtk-initialize)
   (setq ring-bell-function #'(lambda nil (emacspeak-icon 'warn-user)))
   (emacspeak-sounds-select-theme emacspeak-sounds-current-theme)
@@ -433,7 +433,6 @@ commands and options for details."
     (add-to-list
      'minor-mode-alist
      '(emacspeak-speak-show-volume (:eval (ems--show-current-volume)))))
-  (setenv "EMACSPEAK_DIR" emacspeak-directory)
   (message emacspeak-startup-message)
   (when   emacspeak-play-startup-icon (emacspeak-icon 'emacspeak)
           (emacspeak-easter-egg)))
