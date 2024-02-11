@@ -8,9 +8,8 @@ This directory contains useful Bash functions and Bash scripts.
   - emcloud ::  Have Emacspeak connect to a remote TTS server.
   - emlock  ::  Lock screen via a DBus  call
   - emnotify ::  Notify  from outside Emacs.
-  - emplay :: Hand-off stream URL to Emacspeak MPlayer.
+  - emplayer :: Hand-off stream URL to Emacspeak MPlayer.
   - emsay :: Use  Emacspeak  to speak a string from outside Emacs.
-  - emprompt  : Play a named prompt from outside.: 
   - emstatus  ::  Call speak mode line from outside Emacs
   - emstop :: Silence Emacspeak from outside Emacs.
   - esr ::Emergency reader using espeak  
