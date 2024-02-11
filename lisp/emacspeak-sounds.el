@@ -35,7 +35,7 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 ;;; Commentary:
-;; This module provides the interface for generating auditory icons. 
+;; This module provides the interface for generating auditory icons.
 ;;  It also defines sound themes for auditory icons.
 ;; @subsection Design goal:
 ;;
@@ -115,13 +115,12 @@ Optional interactive PREFIX arg toggles global value."
   (interactive "P")
   (cl-declare (special emacspeak-use-auditory-icons))
   (setq  emacspeak-use-auditory-icons (not emacspeak-use-auditory-icons))
-   (when prefix
-     (setq-default emacspeak-use-auditory-icons emacspeak-use-auditory-icons))
+  (when prefix
+    (setq-default emacspeak-use-auditory-icons emacspeak-use-auditory-icons))
   (message "Turned %s auditory icons %s"
            (if emacspeak-use-auditory-icons  'on 'off)
            (if prefix "" "locally"))
   (when emacspeak-use-auditory-icons (emacspeak-icon 'on)))
-
 
 ;;;###autoload
 (defun emacspeak-icon (icon)
@@ -155,9 +154,9 @@ icon-name as string."
   (cl-declare (special emacspeak-sounds-cache))
   (let ((f (emacspeak-sounds-cache-get icon)))
     (cl-assert  f  t "Icon does not exist.")
-    (cond 
+    (cond
      ((and  emacspeak-play-program      ; avoid nil nil comparison
-            (string= emacspeak-play-program emacspeak-pactl)) ; pactl -> icon  
+            (string= emacspeak-play-program emacspeak-pactl)) ; pactl -> icon
       (symbol-name icon))
      (t  f))))
 
@@ -202,6 +201,9 @@ icon-name as string."
 
 ;; need to use explicit pathnames ---
 ;; can't use our predefined constants such as emacspeak-pactl here.
+(defvar ems--play-args nil
+  "Arguments passed to play program.
+Automatically Set when the player is selected, do not set by hand.")
 
 (defcustom emacspeak-play-program
   (or emacspeak-pactl sox-play)
@@ -246,8 +248,6 @@ This is a private function and  might go away."
    (format "p %s\n" (emacspeak-sounds-resource icon))))
 
 ;;;;   Play an icon
-(defvar ems--play-args nil
-  "Arguments passed to play program.")
 
 ;; Should never be called if local player not available
 ;; ems--play-args is set when emacspeak-play-program is selected.
@@ -261,10 +261,6 @@ Mac, Linux without Pipewire/Pulse: play from sox."
     (start-process
      "Player" nil emacspeak-play-program
      ems--play-args (emacspeak-sounds-resource icon))))
-
-
-
-
 
 ;;;  emacspeak-prompts:
 
