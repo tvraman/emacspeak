@@ -62,7 +62,8 @@
 ;; @end enumerate
 ;; @item This module provides  a mapping between names in the elisp
 ;; world and actual sound files.
-;; @item icon names are symbols; sound files  are strings that fully-qualified file-names.
+;; @item icon names are symbols,
+;; sound files  are strings ---  fully-qualified file-names.
 ;; @item Modules that  use auditory icons
 ;;  use icon names and not  actual file names.
 ;; @item Icons are played either using a local player, or by sending
@@ -92,7 +93,8 @@
 ;; @item The included themes have been optimized over years of use and
 ;; are primarily tuned for using with headphones.
 ;; @end enumerate
-;; If @code{emacspeak-play-program} is set to @code{nil} we serve icons, otherwise play
+;; If @code{emacspeak-play-program} is set to @code{nil},
+;; we serve icons, otherwise play
 ;;them using a local player.
 ;;; Code:
 ;;  required modules
@@ -113,7 +115,8 @@ Optional interactive PREFIX arg toggles global value."
   (interactive "P")
   (cl-declare (special emacspeak-use-auditory-icons))
   (setq  emacspeak-use-auditory-icons (not emacspeak-use-auditory-icons))
-   (when prefix (setq-default emacspeak-use-auditory-icons emacspeak-use-auditory-icons))
+   (when prefix
+     (setq-default emacspeak-use-auditory-icons emacspeak-use-auditory-icons))
   (message "Turned %s auditory icons %s"
            (if emacspeak-use-auditory-icons  'on 'off)
            (if prefix "" "locally"))
