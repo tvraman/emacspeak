@@ -268,7 +268,7 @@ This is a private function and  might go away."
 (defun emacspeak-play-icon (icon)
   "Produce auditory icon ICON using a local player.
 Linux: Pipewire and Pulse: pactl.
-Mac, Linux without Pipewire/Pulse: play from sox."
+without Pipewire/Pulse: play from sox."
   (cl-declare (special emacspeak-play-program ems--play-args))
   (let ((process-connection-type nil))
     (start-process
