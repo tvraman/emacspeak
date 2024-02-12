@@ -146,7 +146,8 @@ Value is a string, a fully qualified filename. ")
 (defsubst emacspeak-sounds-cache-get (sound )
   "Return file that is mapped to sound."
   (cl-declare (special emacspeak-sounds-cache))
-  (gethash sound emacspeak-sounds-cache))
+  (gethash sound emacspeak-sounds-cache
+           (gethash 'button emacspeak-sounds-cache)))
 
 (defun emacspeak-sounds-resource (icon)
   "Return  resource, either a fully qualified file name or a
