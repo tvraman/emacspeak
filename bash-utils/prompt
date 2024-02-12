@@ -1,6 +1,5 @@
 # Set up prompts for bash: -*- mode: sh -*-
 export PROMPT_COMMAND=prompt
-EBA=${EMACSPEAK_DIR}/bash-utils
 
 function prompt () {
   case "$?" in
