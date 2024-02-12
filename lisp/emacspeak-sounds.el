@@ -154,11 +154,10 @@ Value is a string, a fully qualified filename. ")
 icon-name as string."
   (cl-declare (special emacspeak-sounds-cache))
   (let ((f (emacspeak-sounds-cache-get icon)))
-    (cl-assert  f  t "Icon does not exist.")
-    (cond
+    (cond ;todo: fix default 
      ((and  emacspeak-play-program      ; avoid nil nil comparison
             (string= emacspeak-play-program emacspeak-pactl)) ; pactl -> icon
-      (symbol-name icon))
+      (symbol-name icon)) ; should be button if not found
      (t  f))))
 
 ;;;Sound themes
@@ -258,7 +257,7 @@ This is a private function and  might go away."
   (cl-declare (special dtk-speaker-process))
   (process-send-string
    dtk-speaker-process
-   (format "p %s\n" (emacspeak-sounds-resource icon))))
+   (format "p %s\n" (emacspeak-sounds-cache-get icon))))
 
 ;;;;   Play an icon
 
@@ -274,4 +273,5 @@ Mac, Linux without Pipewire/Pulse: play from sox."
     (start-process
      "Player" nil emacspeak-play-program
      ems--play-args (emacspeak-sounds-resource icon))))
+
 (provide  'emacspeak-sounds)
