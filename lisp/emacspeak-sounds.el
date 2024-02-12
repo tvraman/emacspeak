@@ -177,7 +177,7 @@ icon-name as string."
      for f in (directory-files theme 'full "\\.ogg$")
      do
      (emacspeak-sounds-cache-put
-      (string-trim (shell-command-to-string (format "basename %s .ogg" f)))
+      (intern (string-trim (shell-command-to-string (format "basename %s .ogg" f))))
       f))))
 
 ;;;###autoload
