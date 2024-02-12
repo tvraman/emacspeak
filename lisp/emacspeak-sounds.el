@@ -220,11 +220,11 @@ None: For systems that rely on the speech server playing the icon."
   :set
   #'(lambda(sym val)
       (set-default sym val)
-      (cond
-       ((null val) (setq ems--play-args nil))
-       ((string= emacspeak-pactl val)
+      (cond; only 3 valid states:
+       ((null val) (setq ems--play-args nil)) ; serve icons
+       ((string= emacspeak-pactl val); pactl: play-sample
         (setq ems--play-args "play-sample"))
-       ((or  (string= "/usr/bin/play" val)
+       ((or  (string= "/usr/bin/play" val); sox-play: play file
              (string= "/usr/local/bin/play" val))
         (setq ems--play-args "-q"))))
   :group 'emacspeak)
