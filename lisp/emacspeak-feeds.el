@@ -244,9 +244,7 @@ feeds."
 ;;;###autoload
 (defun emacspeak-feeds-rss-display (feed-url)
   "Display RSS feed."
-  (interactive
-   (list
-    (emacspeak-eww-read-url)))
+  (interactive (list (emacspeak-eww-read-url)))
   (cl-declare (special emacspeak-rss-xsl))
   (emacspeak-icon 'open-object)
   (emacspeak-feeds-feed-display feed-url emacspeak-rss-xsl 'speak))
