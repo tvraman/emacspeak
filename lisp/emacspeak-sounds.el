@@ -154,11 +154,12 @@ Value is a string, a fully qualified filename. ")
 icon-name as string."
   (cl-declare (special emacspeak-sounds-cache))
   (let ((f (emacspeak-sounds-cache-get icon)))
-    (cond ;todo: fix default 
-     ((and  emacspeak-play-program      ; avoid nil nil comparison
-            (string= emacspeak-play-program emacspeak-pactl)) ; pactl -> icon
-      (symbol-name icon)) ; should be button if not found
-     (t  f))))
+    (cond                                 
+     ((null emacspeak-play-program) f) 
+     ((string= emacspeak-play-program emacspeak-pactl) ; pactl->sample-name
+      (symbol-name icon))
+     (t ; sox-play -> filename
+      f))))
 
 ;;;Sound themes
 
