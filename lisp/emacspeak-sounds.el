@@ -191,8 +191,7 @@ icon-name as string."
   (cl-declare (special emacspeak-play-program emacspeak-sounds-dir))
   (emacspeak-sounds-cache-rebuild theme)
   (when (and emacspeak-play-program   ; avoid nil nil comparison
-             (string= emacspeak-play-program emacspeak-pactl)
-             (not (string-match "cloud" dtk-program))) ; upload samples
+             (string= emacspeak-play-program emacspeak-pactl)) ; upload samples
     (cl-loop
      for key being the hash-keys of emacspeak-sounds-cache do
      (shell-command
