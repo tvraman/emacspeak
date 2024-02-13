@@ -372,7 +372,7 @@ This cannot be set via custom; set this in your startup file before
                (format-time-string "%m-%d") (format-time-string "04-25")))
       (start-process "ogg" nil sox-play f))))
 
-(defvar emacspeak-startup-message
+(defvar emacspeak-startup
   (eval-when-compile
     (format
      "  Press %s to get an   overview of emacspeak  %s. \
@@ -433,7 +433,7 @@ commands and options for details."
     (add-to-list
      'minor-mode-alist
      '(emacspeak-speak-show-volume (:eval (ems--show-current-volume)))))
-  (message emacspeak-startup-message)
+  (message emacspeak-startup)
   (when   emacspeak-play-startup-icon (emacspeak-icon 'emacspeak)
           (emacspeak-easter-egg)))
 
