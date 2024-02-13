@@ -177,8 +177,18 @@ icon-name as string."
      for f in (directory-files theme 'full "\\.ogg$")
      do
      (emacspeak-sounds-cache-put
-      (intern (string-trim (shell-command-to-string (format "basename %s .ogg" f))))
+      (intern
+       (string-trim (shell-command-to-string (format "basename %s .ogg" f))))
       f))))
+(defsubst ems--upload-pulse-samples ()
+  "Upload samples to Pulse if not loaded"
+  (let ((state (shell-command (format "pactl play-sample item"))))
+    (unless (zerop state)
+      (cl-loop
+       for key being the hash-keys of emacspeak-sounds-cache do
+       (shell-command
+        (format "%s upload-sample %s %s"
+                emacspeak-pactl (gethash key emacspeak-sounds-cache) key))))))
 
 ;;;###autoload
 (defun emacspeak-sounds-select-theme  ( theme)
@@ -190,13 +200,9 @@ icon-name as string."
      emacspeak-sounds-dir)))
   (cl-declare (special emacspeak-play-program emacspeak-sounds-dir))
   (emacspeak-sounds-cache-rebuild theme)
-  (when (and emacspeak-play-program   ; avoid nil nil comparison
+  (when (and emacspeak-play-program     ; avoid nil nil comparison
              (string= emacspeak-play-program emacspeak-pactl)) ; upload samples
-    (cl-loop
-     for key being the hash-keys of emacspeak-sounds-cache do
-     (shell-command
-      (format "%s upload-sample %s %s"
-              emacspeak-pactl (gethash key emacspeak-sounds-cache) key))))
+    (ems--upload-pulse-samples))
   (setq emacspeak-sounds-current-theme theme)
   (emacspeak-icon 'button))
 
