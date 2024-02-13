@@ -182,13 +182,11 @@ icon-name as string."
       f))))
 (defsubst ems--upload-pulse-samples ()
   "Upload samples to Pulse if not loaded"
-  (let ((state (shell-command (format "pactl play-sample item"))))
-    (unless (zerop state)
-      (cl-loop
-       for key being the hash-keys of emacspeak-sounds-cache do
-       (shell-command
-        (format "%s upload-sample %s %s"
-                emacspeak-pactl (gethash key emacspeak-sounds-cache) key))))))
+  (cl-loop
+   for key being the hash-keys of emacspeak-sounds-cache do
+   (shell-command
+    (format "%s upload-sample %s %s"
+            emacspeak-pactl (gethash key emacspeak-sounds-cache) key))))
 
 ;;;###autoload
 (defun emacspeak-sounds-select-theme  ( theme)
@@ -201,7 +199,9 @@ icon-name as string."
   (cl-declare (special emacspeak-play-program emacspeak-sounds-dir))
   (emacspeak-sounds-cache-rebuild theme)
   (when (and emacspeak-play-program     ; avoid nil nil comparison
-             (string= emacspeak-play-program emacspeak-pactl)) ; upload samples
+             (string= emacspeak-play-program emacspeak-pactl)
+             (not (zerop ; test samples
+                   (shell-command (format "pactl play-sample item"))))) 
     (ems--upload-pulse-samples))
   (setq emacspeak-sounds-current-theme theme)
   (emacspeak-icon 'button))

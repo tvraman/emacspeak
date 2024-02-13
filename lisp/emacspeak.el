@@ -423,7 +423,7 @@ commands and options for details."
   (emacspeak-sounds-cache-prompts)
   (emacspeak-sounds-select-theme emacspeak-sounds-current-theme)
   (emacspeak-pronounce-load-dictionaries)
-  (ems--fastload "emacspeak-advice")
+  (make-thread #'(lambda nil  (ems--fastload "emacspeak-advice")))
   (emacspeak-setup-programming-modes)
   (make-thread #'emacspeak-prepare-emacs)
   (setq line-number-mode nil column-number-mode nil)
