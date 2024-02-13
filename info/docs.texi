@@ -140,7 +140,6 @@
 * emacspeak-ocr::ocr Front-end desktop.
 * emacspeak-org::Speech-enable org.
 * emacspeak-orgalist::Speech-enable ORGALIST.
-* emacspeak-origami::Speech-enable ORIGAMI.
 * emacspeak-outline::Speech enable Outline.
 * emacspeak-package::Speech-enable PACKAGE.
 * emacspeak-paradox::Speech-enable PARADOX.
@@ -11049,12 +11048,6 @@ emacspeak-org-table-speak-current-element
 @section emacspeak-orgalist
 
 Speech-enable orgalist --- create org-like lists everywhere.
-
-@node emacspeak-origami
-@section emacspeak-origami
-
-ORIGAMI ==  One More Flexible Folding Mechanism
-This module speech-enables origami-mode.
 
 @node emacspeak-outline
 @section emacspeak-outline

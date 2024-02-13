@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 12, 2024.
+last updated on February 13, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3099,7 +3099,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-z-keymap,  Prev:
 * emacspeak-ocr::ocr Front-end desktop.
 * emacspeak-org::Speech-enable org.
 * emacspeak-orgalist::Speech-enable ORGALIST.
-* emacspeak-origami::Speech-enable ORIGAMI.
 * emacspeak-outline::Speech enable Outline.
 * emacspeak-package::Speech-enable PACKAGE.
 * emacspeak-paradox::Speech-enable PARADOX.
@@ -3380,7 +3379,6 @@ thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 * emacspeak-ocr::
 * emacspeak-org::
 * emacspeak-orgalist::
-* emacspeak-origami::
 * emacspeak-outline::
 * emacspeak-package::
 * emacspeak-paradox::
