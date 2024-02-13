@@ -207,7 +207,6 @@ emacspeak-nxml.elc \
 emacspeak-ocr.elc \
 emacspeak-org.elc \
 emacspeak-orgalist.elc \
-emacspeak-origami.elc \
 emacspeak-outline.elc \
 emacspeak-package.elc \
 emacspeak-paradox.elc \
