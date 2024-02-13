@@ -199,13 +199,15 @@ icon-name as string."
      emacspeak-sounds-dir)))
   (cl-declare (special emacspeak-play-program emacspeak-sounds-dir))
   (emacspeak-sounds-cache-rebuild theme)
-  (when (and emacspeak-play-program     ; avoid nil nil comparison
-             (string= emacspeak-play-program emacspeak-pactl)
-             (not (zerop ; test samples
-                   (shell-command (format "pactl play-sample item"))))) 
+  (when
+      (and
+       emacspeak-play-program           ; avoid nil nil comparison
+       (string= emacspeak-play-program emacspeak-pactl)
+       (not
+        (= 0 (call-process emacspeak-pactl nil nil nil "play-sample" "on")))) 
     (ems--upload-pulse-samples))
-  (setq emacspeak-sounds-current-theme theme)
-  (emacspeak-icon 'button))
+       (setq emacspeak-sounds-current-theme theme)
+       (emacspeak-icon 'button))
 
 ;; need to use explicit pathnames ---
 ;; can't use our predefined constants such as emacspeak-pactl here.
