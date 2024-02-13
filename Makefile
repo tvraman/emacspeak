@@ -89,7 +89,7 @@ all: emacspeak
 q:
 	make clean
 	make config 
-	make
+	make -j 4
 	@cd lisp && make muggles $(MAKEFLAGS)
 	@cd lisp && make extra-muggles $(MAKEFLAGS)
 	@test -d tvr && cd	 tvr && make $(MAKEFLAGS)

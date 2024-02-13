@@ -178,7 +178,8 @@ icon-name as string."
      do
      (emacspeak-sounds-cache-put
       (intern
-       (string-trim (shell-command-to-string (format "basename %s .ogg" f))))
+       (string-trim
+        (shell-command-to-string (format "basename %s .ogg 2>/dev/null" f))))
       f))))
 (defsubst ems--upload-pulse-samples ()
   "Upload samples to Pulse"
