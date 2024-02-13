@@ -181,7 +181,7 @@ icon-name as string."
        (string-trim (shell-command-to-string (format "basename %s .ogg" f))))
       f))))
 (defsubst ems--upload-pulse-samples ()
-  "Upload samples to Pulse if not loaded"
+  "Upload samples to Pulse"
   (cl-loop
    for key being the hash-keys of emacspeak-sounds-cache do
    (shell-command
