@@ -60,8 +60,7 @@ Produce timing information as the last step."
 ;; Emacs @HEAD is broken:
 (defvar font-lock-reference-face 'font-lock-constant-face)
 (advice-add 'system-users :override #'(lambda () (list user-real-login-name)))
-;(defadvice shell-command (before trace pre act comp)
-  ;(message "%s" (ad-get-arg 0) ))
+;(defadvice shell-command (before o pre act comp) (message "%s" (ad-get-arg 0)))
 
 ;;;  tvr-shell-bind-keys:
 
