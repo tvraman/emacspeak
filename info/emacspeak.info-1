@@ -5681,8 +5681,6 @@ settings.  Function ‘emacspeak-company-frontend’ handles providing
 spoken feedback, and leaves it to other frontends on COMPANY-FRONTENDS
 to generate their own feedback.
 
-   Required modules:
-
 
 File: emacspeak.info,  Node: emacspeak-compile,  Next: emacspeak-cperl,  Prev: emacspeak-company,  Up: Emacspeak Commands And Options
 

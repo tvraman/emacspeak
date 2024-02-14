@@ -2969,8 +2969,6 @@ along with other custom settings. Function
 feedback, and leaves it to other frontends on
 @var{company-frontends}   to generate their own feedback.
 
-  Required modules:
-
 @node emacspeak-compile
 @section emacspeak-compile
 
