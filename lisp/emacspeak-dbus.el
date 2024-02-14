@@ -63,6 +63,7 @@
 ;; @end itemize
 ;; Add calls to the desired functions from the above list
 ;; to the emacs startup file after  this module has been loaded.
+;; To enable all of them, add (emacspeak-dbus-setup).
 ;; See relevant hooks for customizing behavior.
 ;; Note that each of the  sleep/wake-up, UDisks2   and network/up-down
 ;; can be separately enabled/disabled, and the actions customized
