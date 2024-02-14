@@ -4,5 +4,5 @@ cd $(dirname $0)
 
 for i in *.ogg 
 do
-    pactl remove-sample `basename $i .ogg`
+    pactl remove-sample $(basename $i .ogg)
 done
