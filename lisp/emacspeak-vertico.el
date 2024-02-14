@@ -33,7 +33,7 @@
 ;; This module speech-enables Vertico's UI
 
 ;;; Code:
-;;;   Required modules
+;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))

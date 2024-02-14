@@ -43,7 +43,7 @@
 ;; You can install package EIN via mELPA
 ;; This module speech-enables EIN
 
-;;;   Required modules
+;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))

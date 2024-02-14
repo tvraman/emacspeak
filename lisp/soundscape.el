@@ -89,7 +89,7 @@
 ;; first scape.  soundscape 1 2 3 Will turn on first three scapes.
 ;; soundscape 0 Turns on null soundscape to give silence.
 
-;;;   Required modules
+;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))

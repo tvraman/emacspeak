@@ -42,7 +42,7 @@
 ;; MARKDOWN ==  Light-weight markup.
 ;; This module speech-enables markdown.el
 
-;;;   Required modules
+;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))

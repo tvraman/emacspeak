@@ -43,7 +43,7 @@
 ;; This is part of Emacs 25.
 ;; This module speech-enables xref
 
-;;;   Required modules
+;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))

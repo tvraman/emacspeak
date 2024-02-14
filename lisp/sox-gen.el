@@ -109,7 +109,7 @@
 ;; 
 ;;; Code:
 
-;;;   Required modules
+;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (require 'dtk-speak)

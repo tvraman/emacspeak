@@ -41,7 +41,7 @@
 ;; Let's see if we can rescue the Content-Oriented Web 
 ;;; Code:
 
-;;;   Required modules
+;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))

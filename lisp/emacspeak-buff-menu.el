@@ -42,7 +42,7 @@
 ;; Speech-enable buffer-menus.
 ;;; Code:
 
-;;;   Required modules
+;;   Required modules
 
 ;;; Code:
 

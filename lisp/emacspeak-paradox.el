@@ -43,7 +43,7 @@
 ;; Manage Emacs packages.
 ;; This module speech-enables paradox.el with a few convenience commands.
 
-;;;   Required modules
+;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))

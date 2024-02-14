@@ -54,7 +54,7 @@
 ;; IMap search operators, GMail search extensions.
 ;;; Code:
 
-;;;   Required modules
+;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
 (require 'emacspeak-preamble)

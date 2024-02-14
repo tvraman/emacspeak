@@ -44,7 +44,7 @@
 ;; Written to discover what type of feedback one needs for  this
 ;; task.
 
-;;;   Required modules
+;;   Required modules
 ;;; Code:
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
