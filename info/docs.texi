@@ -1624,7 +1624,7 @@ that is included in the debian-el package
 and provides a major mode for editing
 APT's sources.list file.
 
-  Required modules
+  Required modules:
 
 @node emacspeak-arc
 @section emacspeak-arc
@@ -2969,7 +2969,7 @@ along with other custom settings. Function
 feedback, and leaves it to other frontends on
 @var{company-frontends}   to generate their own feedback.
 
-  Required modules
+  Required modules:
 
 @node emacspeak-compile
 @section emacspeak-compile
@@ -3181,7 +3181,7 @@ server at dict.org:2628
 @section emacspeak-diff-mode
 
 DIFF-MODE  support.
-  Required modules
+  Required modules:
 
 @node emacspeak-dired
 @section emacspeak-dired
@@ -3671,7 +3671,7 @@ EIN ==  Emacs IPython Notebook
 You can install package EIN via mELPA
 This module speech-enables EIN
 
-  Required modules
+  Required modules:
 
 @subsection Emacspeak-Ein Commands
 
@@ -3691,7 +3691,7 @@ ELFEED ==  Feed Reader for Emacs.
 Install from elpa
 M-x package-install  elfeed
 
-  Required modules
+  Required modules:
 
 @subsection Emacspeak-Elfeed Commands
 
@@ -4786,7 +4786,7 @@ This module speech-enables EShell
 ESS == Emacs Speaks Statistics
 This module makes ESS speak.
 
-  Required modules
+  Required modules:
 
 @node emacspeak-etable
 @section emacspeak-etable
@@ -7347,7 +7347,7 @@ all
 @section emacspeak-go-mode
 
 GO-MODE ==  Go Language support in emacs
-  Required modules
+  Required modules:
 
 @node emacspeak-gomoku
 @section emacspeak-gomoku
@@ -8131,7 +8131,7 @@ JS2-mode http://js2-mode.googlecode.com/svn/trunk
 is a new, powerful Emacs mode for working with JavaScript.
 This module speech-enables js2.
 
-  Required modules
+  Required modules:
 
 @node emacspeak-keymap
 @section emacspeak-keymap
@@ -9649,7 +9649,7 @@ Default Value:
 MAGIT ==  Git interface in Emacs
 git clone git://github.com/magit/magit.git
 
-  Required modules
+  Required modules:
 
 @node emacspeak-make-mode
 @section emacspeak-make-mode
@@ -9687,7 +9687,7 @@ Speak current section
 MARKDOWN ==  Light-weight markup.
 This module speech-enables markdown.el
 
-  Required modules
+  Required modules:
 
 @node emacspeak-maths
 @section emacspeak-maths
@@ -10346,7 +10346,7 @@ The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
 @section emacspeak-muse
 
 Speech enable Muse
-  Required modules
+  Required modules:
 
 @node emacspeak-net-utils
 @section emacspeak-net-utils
@@ -11111,7 +11111,7 @@ PACKAGE == package.el
 Manage Emacs packages.
 This module speech-enables package.el with a few convenience commands.
 
-  Required modules
+  Required modules:
 
 @subsection Emacspeak-Package Commands
 
@@ -11149,7 +11149,7 @@ PARADOX == paradox.el Improved package management interface
 Manage Emacs packages.
 This module speech-enables paradox.el with a few convenience commands.
 
-  Required modules
+  Required modules:
 
 @subsection Emacspeak-Paradox Commands
 
@@ -11324,7 +11324,7 @@ PROCED ==  Process Editor
 A new Task Manager for Emacs.
 Proced is part of emacs 23.
 
-  Required modules
+  Required modules:
 
 @subsection Emacspeak-Proced Commands
 
@@ -13915,7 +13915,7 @@ Playing SuDoku using speech output.
 Written to discover what type of feedback one needs for  this
 task.
 
-  Required modules
+  Required modules:
 
 @subsection Emacspeak-Sudoku Commands
 
@@ -18316,7 +18316,7 @@ View XKCD comics in Emacs.
 Speech enables package xkcd
 Augments it by displaying the alt text and the transcript.
 
-  Required modules
+  Required modules:
 
 @subsection Emacspeak-Xkcd Commands
 
@@ -18336,7 +18336,7 @@ XREF ==  Cross-references in source code.
 This is part of Emacs 25.
 This module speech-enables xref
 
-  Required modules
+  Required modules:
 
 @node emacspeak-xslt
 @section emacspeak-xslt

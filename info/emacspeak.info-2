@@ -464,7 +464,7 @@ File: emacspeak.info,  Node: emacspeak-go-mode,  Next: emacspeak-gomoku,  Prev: 
 12.92 emacspeak-go-mode
 =======================
 
-GO-MODE == Go Language support in emacs Required modules
+GO-MODE == Go Language support in emacs Required modules:
 
 
 File: emacspeak.info,  Node: emacspeak-gomoku,  Next: emacspeak-google,  Prev: emacspeak-go-mode,  Up: Emacspeak Commands And Options
@@ -1138,7 +1138,7 @@ File: emacspeak.info,  Node: emacspeak-js2,  Next: emacspeak-keymap,  Prev: emac
 JS2-mode http://js2-mode.googlecode.com/svn/trunk is a new, powerful
 Emacs mode for working with JavaScript.  This module speech-enables js2.
 
-   Required modules
+   Required modules:
 
 
 File: emacspeak.info,  Node: emacspeak-keymap,  Next: emacspeak-kmacro,  Prev: emacspeak-js2,  Up: Emacspeak Commands And Options
@@ -2382,7 +2382,7 @@ File: emacspeak.info,  Node: emacspeak-magit,  Next: emacspeak-make-mode,  Prev:
 MAGIT == Git interface in Emacs git clone
 git://github.com/magit/magit.git
 
-   Required modules
+   Required modules:
 
 
 File: emacspeak.info,  Node: emacspeak-make-mode,  Next: emacspeak-man,  Prev: emacspeak-magit,  Up: Emacspeak Commands And Options
@@ -2425,7 +2425,7 @@ File: emacspeak.info,  Node: emacspeak-markdown,  Next: emacspeak-maths,  Prev: 
 
 MARKDOWN == Light-weight markup.  This module speech-enables markdown.el
 
-   Required modules
+   Required modules:
 
 
 File: emacspeak.info,  Node: emacspeak-maths,  Next: emacspeak-message,  Prev: emacspeak-markdown,  Up: Emacspeak Commands And Options
@@ -2994,7 +2994,7 @@ File: emacspeak.info,  Node: emacspeak-muse,  Next: emacspeak-net-utils,  Prev: 
 12.132 emacspeak-muse
 =====================
 
-Speech enable Muse Required modules
+Speech enable Muse Required modules:
 
 
 File: emacspeak.info,  Node: emacspeak-net-utils,  Next: emacspeak-newsticker,  Prev: emacspeak-muse,  Up: Emacspeak Commands And Options
@@ -3615,7 +3615,7 @@ File: emacspeak.info,  Node: emacspeak-package,  Next: emacspeak-paradox,  Prev:
 PACKAGE == package.el Manage Emacs packages.  This module speech-enables
 package.el with a few convenience commands.
 
-   Required modules
+   Required modules:
 
 12.142.1 Emacspeak-Package Commands
 -----------------------------------
@@ -3651,7 +3651,7 @@ PARADOX == paradox.el Improved package management interface Manage Emacs
 packages.  This module speech-enables paradox.el with a few convenience
 commands.
 
-   Required modules
+   Required modules:
 
 12.143.1 Emacspeak-Paradox Commands
 -----------------------------------
@@ -3815,7 +3815,7 @@ File: emacspeak.info,  Node: emacspeak-proced,  Next: emacspeak-project,  Prev: 
 PROCED == Process Editor A new Task Manager for Emacs.  Proced is part
 of emacs 23.
 
-   Required modules
+   Required modules:
 
 12.149.1 Emacspeak-Proced Commands
 ----------------------------------
@@ -5825,7 +5825,7 @@ File: emacspeak.info,  Node: emacspeak-sudoku,  Next: emacspeak-supercite,  Prev
 Playing SuDoku using speech output.  Written to discover what type of
 feedback one needs for this task.
 
-   Required modules
+   Required modules:
 
 12.182.1 Emacspeak-Sudoku Commands
 ----------------------------------
@@ -9174,7 +9174,7 @@ File: emacspeak.info,  Node: emacspeak-xkcd,  Next: emacspeak-xref,  Prev: emacs
 XKCD == XKCD In Emacs View XKCD comics in Emacs.  Speech enables package
 xkcd Augments it by displaying the alt text and the transcript.
 
-   Required modules
+   Required modules:
 
 12.217.1 Emacspeak-Xkcd Commands
 --------------------------------
@@ -9195,7 +9195,7 @@ File: emacspeak.info,  Node: emacspeak-xref,  Next: emacspeak-xslt,  Prev: emacs
 XREF == Cross-references in source code.  This is part of Emacs 25.
 This module speech-enables xref
 
-   Required modules
+   Required modules:
 
 
 File: emacspeak.info,  Node: emacspeak-xslt,  Next: emacspeak-yaml,  Prev: emacspeak-xref,  Up: Emacspeak Commands And Options

@@ -4504,7 +4504,7 @@ This module speech-enables apt-sources.el that is included in the
 debian-el package and provides a major mode for editing APT's
 sources.list file.
 
-   Required modules
+   Required modules:
 
 
 File: emacspeak.info,  Node: emacspeak-arc,  Next: emacspeak-auctex,  Prev: emacspeak-apt-sources,  Up: Emacspeak Commands And Options
@@ -5681,7 +5681,7 @@ settings.  Function ‘emacspeak-company-frontend’ handles providing
 spoken feedback, and leaves it to other frontends on COMPANY-FRONTENDS
 to generate their own feedback.
 
-   Required modules
+   Required modules:
 
 
 File: emacspeak.info,  Node: emacspeak-compile,  Next: emacspeak-cperl,  Prev: emacspeak-company,  Up: Emacspeak Commands And Options
@@ -5892,7 +5892,7 @@ File: emacspeak.info,  Node: emacspeak-diff-mode,  Next: emacspeak-dired,  Prev:
 12.45 emacspeak-diff-mode
 =========================
 
-DIFF-MODE support.  Required modules
+DIFF-MODE support.  Required modules:
 
 
 File: emacspeak.info,  Node: emacspeak-dired,  Next: emacspeak-dismal,  Prev: emacspeak-diff-mode,  Up: Emacspeak Commands And Options
@@ -6315,7 +6315,7 @@ File: emacspeak.info,  Node: emacspeak-ein,  Next: emacspeak-elfeed,  Prev: emac
 EIN == Emacs IPython Notebook You can install package EIN via mELPA This
 module speech-enables EIN
 
-   Required modules
+   Required modules:
 
 12.53.1 Emacspeak-Ein Commands
 ------------------------------
@@ -6336,7 +6336,7 @@ File: emacspeak.info,  Node: emacspeak-elfeed,  Next: emacspeak-elisp-refs,  Pre
 ELFEED == Feed Reader for Emacs.  Install from elpa M-x package-install
 elfeed
 
-   Required modules
+   Required modules:
 
 12.54.1 Emacspeak-Elfeed Commands
 ---------------------------------
@@ -7279,7 +7279,7 @@ File: emacspeak.info,  Node: emacspeak-ess,  Next: emacspeak-etable,  Prev: emac
 
 ESS == Emacs Speaks Statistics This module makes ESS speak.
 
-   Required modules
+   Required modules:
 
 
 File: emacspeak.info,  Node: emacspeak-etable,  Next: emacspeak-eterm,  Prev: emacspeak-ess,  Up: Emacspeak Commands And Options
