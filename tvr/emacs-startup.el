@@ -93,12 +93,11 @@ Produce timing information as the last step."
 Configure dbus and set up tabs.
 Reset gc-cons-threshold to a smaller value  and play
 startup sound."
-  (cl-declare (special emacspeak-sounds-dir))
   (emacspeak-dbus-setup)
   (setq gc-cons-threshold 64000000)
-  (emacspeak-icon 'tvr-emacs)
   (tvr-tabs)
   (switch-to-buffer "Home")
+  (emacspeak-icon 'tvr-emacs)
   (message
    "<Emacs started for %s in %.2f  seconds with %s gcs (%.2f seconds)>"
    user-login-name (read (emacs-init-time)) gcs-done gc-elapsed))
