@@ -80,10 +80,7 @@
 (require 'emacspeak-nm "emacspeak-nm" 'no-error)
 
 ;;;  Forward Declarations:
-(declare-function jabber-connect-all "jabber-core" (&optional arg))
-(declare-function jabber-disconnect "jabber-core" (&optional arg))
-(declare-function twittering-start "ext:twittering-mode" nil)
-(declare-function twittering-stop "twittering-mode" nil)
+
 (declare-function soundscape-restart "soundscape" (&optional device))
 
 ;;;  ScreenSaver Mode:
