@@ -167,11 +167,7 @@ Stop apps that use the network."
           "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
           "org.gnome.ScreenSaver" "GetActive")
        (error
-        (progn
-          (shell-command
-           "pidof gnome-screensaver \
- && kill -9 `pidof gnome-screensaver` 2>&1 > /dev/null")
-          (start-process "screen-saver" nil "gnome-screensaver"))))
+        (start-process "screen-saver" nil "gnome-screensaver")))
      t)))
 
 (defvar emacspeak-dbus-sleep-registration nil
