@@ -236,15 +236,14 @@ already disabled."
   (interactive)
   (cl-declare (special emacspeak-orca-handle))
   (cond
-   (emacspeak-orca-handle (delete-process emacspeak-orca-handle)
-                          (setq emacspeak-orca-handle  nil))
+   (emacspeak-orca-handle
+    (delete-process emacspeak-orca-handle)
+    (setq emacspeak-orca-handle  nil))
    (t (setq emacspeak-orca-handle (start-process "Orca"nil "orca")))))
-
-
 
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
-  (cl-declare (special amixer-alsactl-config-file tts-notification-device))
+  (cl-declare (special amixer-alsactl-config-file ))
   (ems-with-messages-silenced
    (tts-restart)
    (emacspeak-icon 'waking-up)
@@ -369,7 +368,7 @@ already disabled."
 
 (global-set-key (kbd "C-, C-d") 'emacspeak-dbus-lock-screen)
 
-;;;  Watch Screensaver:
+;;;  Watch Screen Lock:
 
 (defvar emacspeak-dbus-screen-lock-handle nil
   "Handle to DBus signal registration for watching screenlock.")
