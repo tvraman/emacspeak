@@ -50,6 +50,7 @@
 ;; @code{emacspeak-company-frontend} handles providing spoken
 ;; feedback, and leaves it to other frontends on
 ;; @var{company-frontends}   to generate their own feedback.
+;;; Code:
 
 ;;   Required modules:
 
