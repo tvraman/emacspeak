@@ -218,9 +218,7 @@ already disabled."
   (let ((dtk-quiet t))
     (ems-with-messages-silenced
      (emacspeak-dbus-screensaver-check)
-     (save-some-buffers t)
-     (start-process "fuser" nil  "fuser"
-                    "-k" "/dev/snd/*"))))
+     (save-some-buffers t))))
 
 (add-hook  'emacspeak-dbus-sleep-hook#'emacspeak-dbus-sleep)
 ;;; Orca For Lock Screen:
