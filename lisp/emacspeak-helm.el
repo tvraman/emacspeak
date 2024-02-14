@@ -45,7 +45,7 @@
 
 ;;; Code:
 
-;;   Required modules
+;;   Required modules:
 
 (eval-when-compile (require 'cl-lib))
 (require 'emacspeak-google)

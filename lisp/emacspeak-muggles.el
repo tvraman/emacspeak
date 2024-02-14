@@ -76,7 +76,7 @@
 
 ;;; Code:
 
-;;   Required modules
+;;   Required modules:
 
 (eval-when-compile (require 'cl-lib)
                    (setq byte-compile-warnings '(not docstrings)))

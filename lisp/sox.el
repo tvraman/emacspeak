@@ -54,7 +54,7 @@
 ;; This module can be used independent of Emacspeak.
 ;;; Code:
 
-;;   Required modules
+;;   Required modules:
 
 (eval-when-compile (require 'cl-lib))
 (eval-when-compile (require 'derived))

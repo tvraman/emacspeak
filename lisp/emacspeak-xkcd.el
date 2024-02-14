@@ -44,7 +44,7 @@
 ;; Speech enables package xkcd
 ;; Augments it by displaying the alt text and the transcript.
 
-;;   Required modules
+;;   Required modules:
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))

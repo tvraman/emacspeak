@@ -41,7 +41,7 @@
 ;;; Commentary:
 ;; Speech enable Muse
 
-;;   Required modules
+;;   Required modules:
 
 ;;; Code:
 

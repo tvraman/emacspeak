@@ -86,7 +86,7 @@
 
 ;;; Code:
 
-;;   Required modules
+;;   Required modules:
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (eval-when-compile (require 'cl-lib))

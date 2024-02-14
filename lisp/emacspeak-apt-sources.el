@@ -48,7 +48,7 @@
 ;; and provides a major mode for editing
 ;; APT's sources.list file.
 
-;;   Required modules
+;;   Required modules:
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 

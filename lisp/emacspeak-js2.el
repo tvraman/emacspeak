@@ -43,7 +43,7 @@
 ;; is a new, powerful Emacs mode for working with JavaScript.
 ;; This module speech-enables js2.
 
-;;   Required modules
+;;   Required modules:
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
