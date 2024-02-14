@@ -70,6 +70,7 @@
 ;; via appropriately named hook functions.
 ;; 
 ;;; Code:
+
 ;;   Required modules
 
 (eval-when-compile (require 'cl-lib))
