@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 13, 2024.
+last updated on February 14, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -5761,8 +5761,9 @@ This module provides integration via DBus for the following:
      C-d’ to lock the screen using DBus.  Note: this key-binding is
      available only if this module is loaded.
    Add calls to the desired functions from the above list to the emacs
-startup file after this module has been loaded.  See relevant hooks for
-customizing behavior.  Note that each of the sleep/wake-up, UDisks2 and
+startup file after this module has been loaded.  To enable all of them,
+add (emacspeak-dbus-setup).  See relevant hooks for customizing
+behavior.  Note that each of the sleep/wake-up, UDisks2 and
 network/up-down can be separately enabled/disabled, and the actions
 customized via appropriately named hook functions.
 
