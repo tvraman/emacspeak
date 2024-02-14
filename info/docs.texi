@@ -3052,8 +3052,6 @@ Note that each of the  sleep/wake-up, UDisks2   and network/up-down
 can be separately enabled/disabled, and the actions customized
 via appropriately named hook functions.
 
-  Required modules
-
 @subsection Emacspeak-Dbus Commands
 
 @subsubsection emacspeak-dbus-lock-screen
