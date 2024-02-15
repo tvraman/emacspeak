@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
- -o task-done.wav
+ -o task-done.ogg
 </CsOptions>
 <CsInstruments>
 

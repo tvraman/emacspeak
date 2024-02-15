@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--o complete.wav
+-o complete.ogg
 </CsOptions>
 <CsInstruments>
 sr = 44100

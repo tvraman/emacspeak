@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--o alarm.wav
+-o alarm.ogg
 </CsOptions>
 <CsInstruments>
 sr		=		44100

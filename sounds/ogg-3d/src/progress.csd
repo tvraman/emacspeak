@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--o progress.wav
+-o progress.ogg
 </CsOptions>
 <CsInstruments>
 

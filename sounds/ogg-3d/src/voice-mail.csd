@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--o voice-mail.wav
+-o voice-mail.ogg
 </CsOptions>
 <CsInstruments>
 ;THIS ORCHESTRA IS AN ATTEMPT AT REALISING PITCH AND ONSET-TIME

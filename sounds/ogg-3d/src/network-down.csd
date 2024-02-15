@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--o network-down.wav
+-o network-down.ogg
 </CsOptions>
 <CsInstruments>
 

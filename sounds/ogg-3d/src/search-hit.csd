@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--o search-hit.wav
+-o search-hit.ogg
 </CsOptions>
 <CsInstruments>
 

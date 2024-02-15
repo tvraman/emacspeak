@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--o close-object.wav
+-o close-object.ogg
 </CsOptions>
 <CsInstruments>
 ;rene.nyffenegger@adp-gmbh.ch

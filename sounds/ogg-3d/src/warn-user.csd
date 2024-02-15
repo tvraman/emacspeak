@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--o warn-user.wav
+-o warn-user.ogg
 </CsOptions>
 <CsInstruments>
 sr    =   44100

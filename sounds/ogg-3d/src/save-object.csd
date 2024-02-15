@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--o save-object.wav
+-o save-object.ogg
 </CsOptions>
 <CsInstruments>sr = 44100
 ksmps = 10

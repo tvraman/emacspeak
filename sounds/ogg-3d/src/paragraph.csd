@@ -1,7 +1,7 @@
 <CsoundSynthesizer>
 
 <CsOptions>
--o paragraph.wav
+-o paragraph.ogg
 </CsOptions>
 
 <CsInstruments>
@@ -40,7 +40,7 @@ aright =ar1+ar2+ar3
 ; toot04.sco
 ;===========
 
-f1   0    4096 10 1      ; sine wave
+f1   0    4096 10 1      ; sine ogge
 
 ;ins strt dur  amp  freq      attack    release
 ;i4   0    1    90   8.04      0.1       0.7

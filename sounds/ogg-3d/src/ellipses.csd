@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
-  -o ellipses.wav
+  -o ellipses.ogg
 </CsOptions>
 <CsInstruments>
 sr		=		44100

@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--o fill-object.wav
+-o fill-object.ogg
 </CsOptions>
 <CsInstruments>
 ;THIS ORCHESTRA IS AN ATTEMPT AT REALISING PITCH AND ONSET-TIME

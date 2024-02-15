@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--o      yank-object.wav
+-o      yank-object.ogg
 </CsOptions>
 <CsInstruments>
 

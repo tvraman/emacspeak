@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <C  sOptions>
--o search-miss.wav
+-o search-miss.ogg
 </CsOptions>
 <CsInstruments>
 sr		=		44100

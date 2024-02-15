@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--o repeat-end.wav
+-o repeat-end.ogg
 </CsOptions>
 <CsInstruments>
 sr = 44100

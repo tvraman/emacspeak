@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--o mark-object.wav
+-o mark-object.ogg
 </CsOptions>
 <CsInstruments>
 

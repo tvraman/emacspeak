@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--o deselect-object.wav
+-o deselect-object.ogg
 </CsOptions>
 <CsInstruments>
 sr		=		44100

@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--odac  delete-object.wav
+-odac  delete-object.ogg
 </CsOptions>
 <CsInstruments>
 sr = 44100

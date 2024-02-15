@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
- -o repeat-active.wav
+ -o repeat-active.ogg
 </CsOptions>
 <CsInstruments>
 

@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--o      time.wav
+-o      time.ogg
 </CsOptions>
 <CsInstruments>
 

@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--o left.wav
+-o left.ogg
 </CsOptions>
 <CsInstruments>
 

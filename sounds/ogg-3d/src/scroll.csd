@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--o scroll.wav 
+-o scroll.ogg 
 </CsOptions>
 <CsInstruments>
 sr = 44100

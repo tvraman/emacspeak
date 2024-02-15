@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
- -o process-active.wav
+ -o process-active.ogg
 </CsOptions>
 <CsInstruments>
 
