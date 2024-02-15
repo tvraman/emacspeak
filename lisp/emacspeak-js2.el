@@ -42,6 +42,8 @@
 ;; JS2-mode http://js2-mode.googlecode.com/svn/trunk
 ;; is a new, powerful Emacs mode for working with JavaScript.
 ;; This module speech-enables js2.
+;;; Code:
+
 
 ;;   Required modules:
 

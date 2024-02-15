@@ -41,6 +41,7 @@
 ;;; Commentary:
 ;; ESS == Emacs Speaks Statistics
 ;; This module makes ESS speak.
+;;; Code:
 
 ;;   Required modules:
 

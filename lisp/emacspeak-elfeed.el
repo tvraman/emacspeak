@@ -44,6 +44,7 @@
 ;; M-x package-install  elfeed
 
 ;;   Required modules:
+;;; Code:
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))

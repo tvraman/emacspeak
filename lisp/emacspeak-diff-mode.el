@@ -40,6 +40,7 @@
 
 ;;; Commentary:
 ;; DIFF-MODE  support.
+;;; Code:
 
 ;;   Required modules:
 

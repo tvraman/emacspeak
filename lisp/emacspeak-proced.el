@@ -44,6 +44,7 @@
 ;; Proced is part of emacs 23.
 
 ;;   Required modules:
+;;; Code:
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))

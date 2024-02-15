@@ -41,6 +41,8 @@
 ;;; Commentary:
 ;; GO-MODE ==  Go Language support in emacs
 
+;;; Code:
+
 ;;   Required modules:
 
 (eval-when-compile (require 'cl-lib))
