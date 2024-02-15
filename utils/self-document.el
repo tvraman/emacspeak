@@ -197,10 +197,10 @@
 (defun sd-get-commentary (name)
   "Get commentary for named module"
   (let* ((lib (locate-library name))
-         (lmc (lm-commentary
-               (if (string-match ".el$" lib)
-                   lib
-                 (substring lib 0 -1)))))
+         (f (if (string-match ".el$" lib) lib (substring lib 0 -1)))
+         (lmc (lm-commentary f)))
+    (unless (zerop (call-process "grep" f nil nil ";;; Code:"))
+      (message "%s missing Code: tag" f))
     (if lmc
         (setq lmc (sd-cleanup-commentary lmc)))))
 
@@ -406,28 +406,28 @@
            #'string-lessp))
     (with-current-buffer output
       (erase-buffer)
-      (let ((texinfo-mode-hook  nil)))
-      (insert "@c Auto-generated, do not hand-edit.\n")
-      (insert
-       (format
-        "@node Emacspeak Commands And Options \n
+      (let ((texinfo-mode-hook  nil))
+        (insert "@c Auto-generated, do not hand-edit.\n")
+        (insert
+         (format
+          "@node Emacspeak Commands And Options \n
 @chapter Emacspeak Commands And Options \n\n
 @include intro-docs.texi\n\n
 This chapter documents a total of %d commands and %d options.\n\n"
-        self-document-command-count self-document-option-count ))
-      (cl-loop
-       for k in keys do
-       (self-document-module (gethash k self-document-map)))
-      (emacspeak-url-template-generate-texinfo-documentation (current-buffer))
-      (texinfo-all-menus-update)
-      (self-document-update-menu-entries)
-      (flush-lines "^Commentary: *$" (point-min) (point-max))
-      (self-document-fix-fn-key)
-      (self-document-fix-bs)
-      (shell-command-on-region          ; squeeze blanks
-       (point-min) (point-max)
-       "cat -s" (current-buffer) 'replace)
-      (save-buffer))))
+          self-document-command-count self-document-option-count ))
+        (cl-loop
+         for k in keys do
+         (self-document-module (gethash k self-document-map)))
+        (emacspeak-url-template-generate-texinfo-documentation (current-buffer))
+        (texinfo-all-menus-update)
+        (self-document-update-menu-entries)
+        (flush-lines "^Commentary: *$" (point-min) (point-max))
+        (self-document-fix-fn-key)
+        (self-document-fix-bs)
+        (shell-command-on-region        ; squeeze blanks
+         (point-min) (point-max)
+         "cat -s" (current-buffer) 'replace)
+        (save-buffer)))))
 
  
 ;;;  Document all keybindings:
