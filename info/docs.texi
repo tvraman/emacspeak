@@ -247,7 +247,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1156 commands and 146 options.
+This chapter documents a total of 1156 commands and 145 options.
 
 @node amixer
 @section amixer
@@ -255,7 +255,7 @@ This chapter documents a total of 1156 commands and 146 options.
 Provide an emacs front-end to amixer,
 the sound mixer in ALSA that is used to configure the audio device.
 
-The main entry point is command @code{emacspeak-audio-setup} bound
+The main entry point is command @code{amixer} bound
 to @kbd{C-e)}. When called for the first time, this command
 builds up a database of available controls on the default audio
 device. These control names are then available for completion in
@@ -360,20 +360,6 @@ Interactive prefix arg ‘PROMPT’ reads percentage as a number
 @end deffn
 
 @subsection amixer Options
-
-@defvar {User Option} amixer-device
-@verbatim
-ALSA Control Device.
-@end verbatim
-
-Default Value: 
-@verbatim
-
-"default"
-
-@end verbatim
-
-@end defvar
 
 @defvar {User Option} amixer-volume-step
 @verbatim

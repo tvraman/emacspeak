@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 15, 2024.
+last updated on February 16, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3235,7 +3235,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1156 commands and 146 options.
+   This chapter documents a total of 1156 commands and 145 options.
 
 * Menu:
 
@@ -3488,13 +3488,13 @@ File: emacspeak.info,  Node: amixer,  Next: dectalk-voices,  Up: Emacspeak Comma
 Provide an emacs front-end to amixer, the sound mixer in ALSA that is
 used to configure the audio device.
 
-   The main entry point is command ‘emacspeak-audio-setup’ bound to
-‘C-e)’.  When called for the first time, this command builds up a
-database of available controls on the default audio device.  These
-control names are then available for completion in the minibuffer.  Pick
-a desired control, e.g., "master playback volume", and this displays a
-prompt with the current value.  Enter the new value and press <RETURN>.
-To reset all controls to their default values, Press ‘C-j’.
+   The main entry point is command ‘amixer’ bound to ‘C-e)’.  When
+called for the first time, this command builds up a database of
+available controls on the default audio device.  These control names are
+then available for completion in the minibuffer.  Pick a desired
+control, e.g., "master playback volume", and this displays a prompt with
+the current value.  Enter the new value and press <RETURN>.  To reset
+all controls to their default values, Press ‘C-j’.
 
 12.1.1 Amixer Commands
 ----------------------
@@ -3563,14 +3563,6 @@ To reset all controls to their default values, Press ‘C-j’.
 
 12.1.2 amixer Options
 ---------------------
-
- -- Variable: User Option amixer-device
-     ALSA Control Device.
-
-     Default Value:
-     
-     "default"
-     
 
  -- Variable: User Option amixer-volume-step
      Step-size for volume change.
