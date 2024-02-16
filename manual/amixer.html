@@ -54,8 +54,9 @@
     <h3 class="section" id="amixer-1"><span>12.1 amixer <a class=
     "copiable-link" href="#amixer-1">¶</a></span></h3>
     <p>Provide an emacs front-end to amixer, the sound mixer in
-    ALSA that is used to configure the audio device.</p>
-    <p>The main entry point is command <code class=
+    ALSA that is used to configure the audio device. Note that
+    <code class="code">amixer</code> also works on pipewire-based
+    systems. The main entry point is command <code class=
     "code">amixer</code> bound to <kbd class="kbd">C-e)</kbd>. When
     called for the first time, this command builds up a database of
     available controls on the default audio device. These control
