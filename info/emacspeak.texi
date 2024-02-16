@@ -64,4 +64,14 @@ and  was last updated on @today{}.
 @chapter Key Index
 @printindex ky
 
+
+
+@node Function Index
+@printindex fn
+
+@node Variable Index
+@unnumbered Variable Index
+@printindex vr
+
+
 @bye

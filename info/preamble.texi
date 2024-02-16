@@ -26,7 +26,8 @@ The manual is divided into the following chapters:
 * Acknowledgments: Acknowledgments.
 
 Indices:
-
 * Concept Index: Concept Index.
 * Key Index: Key Index.
+* Function Index: Function Index.
+* Variable Index: Variable Index.
 @end  menu
