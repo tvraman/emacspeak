@@ -26,7 +26,7 @@
 ;;; Commentary:
 ;; Provide an emacs front-end to amixer,
 ;; the sound mixer in ALSA that is used to configure the audio device.
-;;
+;; Note that @code{amixer} also works on pipewire-based systems.
 ;; The main entry point is command @code{amixer} bound
 ;; to @kbd{C-e)}. When called for the first time, this command
 ;; builds up a database of available controls on the default audio
