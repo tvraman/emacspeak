@@ -247,7 +247,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1156 commands and 145 options.
+This chapter documents a total of 1156 commands and 141 options.
 
 @node amixer
 @section amixer
@@ -7860,22 +7860,6 @@ dynamically updating set of choices?  current strategy is to walk
 the list using c-s and c-r as provided by ido Set number matches
 shown (ido-max-prospects) to 3 using Custom so you dont hear the
 entire list.
-
-@subsection emacspeak-ido Options
-
-@defvar {User Option} emacspeak-ido-typing-delay
-@verbatim
-How long we wait before speaking completions.
-@end verbatim
-
-Default Value: 
-@verbatim
-
-0.15
-
-@end verbatim
-
-@end defvar
 
 @node emacspeak-iedit
 @section emacspeak-iedit
@@ -18843,38 +18827,10 @@ Used by modules like gphoto, gblogger etc.
 
 @subsection g-utils Options
 
-@defvar {User Option} g-atom-view-xsl
-@verbatim
-XSLT transform to convert Atom feed to HTML.
-@end verbatim
-
-Default Value: 
-@verbatim
-
-"/home/raman/emacs/lisp/emacspeak/xsl/atom-view.xsl"
-
-@end verbatim
-
-@end defvar
-
 @defvar {User Option} g-cookie-jar
 @verbatim
 Cookie jar used for Google services.
 Customize this to live on your local disk.
-@end verbatim
-
-Default Value: 
-@verbatim
-
-nil
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} g-curl-debug
-@verbatim
-Set to T to see Curl stderr output.
 @end verbatim
 
 Default Value: 
@@ -18895,20 +18851,6 @@ Default Value:
 @verbatim
 
 "--http1.0 --compressed --silent --location --location-trusted --max-time 4 --connect-timeout 1"
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} g-xslt-program
-@verbatim
-XSLT Processor.
-@end verbatim
-
-Default Value: 
-@verbatim
-
-"xsltproc"
 
 @end verbatim
 

@@ -922,17 +922,6 @@ updating set of choices?  current strategy is to walk the list using c-s
 and c-r as provided by ido Set number matches shown (ido-max-prospects)
 to 3 using Custom so you dont hear the entire list.
 
-12.104.1 emacspeak-ido Options
-------------------------------
-
- -- Variable: User Option emacspeak-ido-typing-delay
-     How long we wait before speaking completions.
-
-     Default Value:
-     
-     0.15
-     
-
 
 File: emacspeak.info,  Node: emacspeak-iedit,  Next: emacspeak-indium,  Prev: emacspeak-ido,  Up: Emacspeak Commands And Options
 
@@ -9673,25 +9662,9 @@ gblogger etc.
 12.223.1 g-utils Options
 ------------------------
 
- -- Variable: User Option g-atom-view-xsl
-     XSLT transform to convert Atom feed to HTML.
-
-     Default Value:
-     
-     "/home/raman/emacs/lisp/emacspeak/xsl/atom-view.xsl"
-     
-
  -- Variable: User Option g-cookie-jar
      Cookie jar used for Google services.
      Customize this to live on your local disk.
-
-     Default Value:
-     
-     nil
-     
-
- -- Variable: User Option g-curl-debug
-     Set to T to see Curl stderr output.
 
      Default Value:
      
@@ -9704,14 +9677,6 @@ gblogger etc.
      Default Value:
      
      "--http1.0 --compressed --silent --location --location-trusted --max-time 4 --connect-timeout 1"
-     
-
- -- Variable: User Option g-xslt-program
-     XSLT Processor.
-
-     Default Value:
-     
-     "xsltproc"
      
 
 
