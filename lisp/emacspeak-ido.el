@@ -69,10 +69,8 @@
   "IDO Completions On The emacspeak Audio Desktop."
   :group  'emacspeak)
 
-(defcustom emacspeak-ido-typing-delay 0.15
-  "How long we wait before speaking completions."
-  :type 'float 
-  :group 'emacspeak-ido)
+(defvar emacspeak-ido-typing-delay 0.15
+  "How long we wait before speaking completions.")
 
 (defadvice ido-exhibit (after emacspeak pre act comp)
   "Speak ido minibuffer intelligently."

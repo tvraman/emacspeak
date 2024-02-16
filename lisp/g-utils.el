@@ -64,14 +64,6 @@
 (defvar g-scratch-buffer" *g scratch*"
   "Scratch buffer we do authentication work.")
 
-(defcustom g-atom-view-xsl
-  (eval-when-compile
-    (require 'emacspeak-xslt)
-    (emacspeak-xslt-get "atom-view.xsl"))
-  "XSLT transform to convert Atom feed to HTML."
-  :type 'string
-  :group 'g)
-
 (defcustom g-curl-options
   (concat "--http1.0 --compressed --silent --location --location-trusted "
           "--max-time 4 --connect-timeout 1")
@@ -82,11 +74,6 @@
 (defvar g-html-handler 'browse-url-of-buffer
   "Function that processes HTML.
 Receives buffer containing HTML as its argument.")
-
-(defcustom g-xslt-program "xsltproc"
-  "XSLT Processor."
-  :type 'string
-  :group 'g)
 
 (defcustom g-cookie-jar
   nil
@@ -122,10 +109,7 @@ Customize this to live on your local disk."
                   (g-cookie-jar) (g-cookie-jar))))
   g-cookie-options)
 
-(defcustom g-curl-debug nil
-  "Set to T to see Curl stderr output."
-  :type 'boolean
-  :group 'g)
+(defvar g-curl-debug nil "Set to T to see Curl stderr output.")
 
 ;;;   buffer bytes rather than buffer size
 
@@ -164,10 +148,10 @@ Customize this to live on your local disk."
 
 (defun g-xsl-transform-region (start end xsl)
   "Replace region by result of transforming via XSL."
-  (cl-declare (special g-xslt-program))
+  (cl-declare (special emacspeak-xslt))
   (call-process-region
    start end
-   g-xslt-program
+   emacspeak-xslt
    t t nil
    xsl
    "-"))
@@ -298,7 +282,7 @@ references, poor-man's xpath."
   "Display result retrieved by command using specified style.
 Typically, content is pulled using Curl , converted to HTML using style  and
   previewed via `g-html-handler'."
-  (cl-declare (special g-xslt-program g-html-handler))
+  (cl-declare (special emacspeak-xslt g-html-handler))
   (g-using-scratch
    (call-process shell-file-name nil t
                  nil shell-command-switch
@@ -311,7 +295,7 @@ Typically, content is pulled using Curl , converted to HTML using style  and
   "Display XML string  using specified style.
 XML string is transformed via style
   and previewed via `g-html-handler'."
-  (cl-declare (special g-xslt-program g-html-handler))
+  (cl-declare (special emacspeak-xslt g-html-handler))
   (g-using-scratch
    (insert string)
    (when style
@@ -322,7 +306,7 @@ XML string is transformed via style
   "Display XML buffer  using specified style.
 XML  is transformed via style
   and previewed via `g-html-handler'."
-  (cl-declare (special g-xslt-program g-html-handler))
+  (cl-declare (special emacspeak-xslt g-html-handler))
   (with-current-buffer buffer
     (when style
       (g-xsl-transform-region (point-min) (point-max) style))
