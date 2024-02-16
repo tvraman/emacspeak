@@ -51,12 +51,6 @@
 ;; forward decl:
 (defvar emacspeak-speak-messages)
 
-;;;  Custom:
-
-(defcustom amixer-device "default"
-  "ALSA Control Device."
-  :type 'string
-  :group 'amixer)
 
 (defconst amixer-alsactl  (executable-find "alsactl")
   "AlsaCtl program")
@@ -76,15 +70,13 @@
 
 (defun amixer-populate-settings (control)
   "Populate control with its settings information."
-  (cl-declare (special  amixer-device))
   (let ((fields nil)
         (emacspeak-speak-messages nil)
         (slots nil)
         (current nil))
     (with-temp-buffer
       (shell-command
-       (format "amixer --device %s cget numid=%s"
-               amixer-device
+       (format "amixer cget numid=%s"
                (amixer-control-numid (cdr control)))
        (current-buffer))
       (goto-char (point-min))
@@ -122,7 +114,7 @@
 
 (defun amixer-build-db ()
   "Create a database of amixer controls and their settings."
-  (cl-declare (special amixer-db amixer-device emacspeak-amixer))
+  (cl-declare (special amixer-db  emacspeak-amixer))
   (unless emacspeak-amixer (error "You dont have a standard amixer."))
   (let (
         (message-log-max nil)
@@ -133,8 +125,7 @@
     (with-temp-buffer
       (shell-command
        (format
-        "amixer --device %s controls | sed -e s/\\'//g"
-        amixer-device)
+        "amixer controls | sed -e s/\\'//g")
        (current-buffer))
       (goto-char (point-min))
       (while (not (eobp))
@@ -170,14 +161,13 @@
 
 (defun amixer-get-enumerated-values(control)
   "Return list of enumerated values."
-  (cl-declare (special amixer-device))
   (let ((values nil)
         (emacspeak-speak-messages nil))
     (with-temp-buffer
       (shell-command
        (format
-        "amixer -devicec %s   cget numid=%s | grep Item | sed -e s/\\'//g"
-        amixer-device
+        "amixer    cget numid=%s | grep Item | sed -e s/\\'//g"
+        
         (amixer-control-numid control))
        (current-buffer))
       (goto-char (point-min))
@@ -276,7 +266,6 @@ Interactive prefix arg refreshes cache."
        update)
       (start-process
        "AMixer" "*Debug*"  emacspeak-amixer
-       "--device" amixer-device
        "cset"
        (format "numid=%s" (amixer-control-numid control))
        update)
