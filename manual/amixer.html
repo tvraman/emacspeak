@@ -56,15 +56,14 @@
     <p>Provide an emacs front-end to amixer, the sound mixer in
     ALSA that is used to configure the audio device.</p>
     <p>The main entry point is command <code class=
-    "code">emacspeak-audio-setup</code> bound to <kbd class=
-    "kbd">C-e)</kbd>. When called for the first time, this command
-    builds up a database of available controls on the default audio
-    device. These control names are then available for completion
-    in the minibuffer. Pick a desired control, e.g., "master
-    playback volume", and this displays a prompt with the current
-    value. Enter the new value and press &lt;RETURN&gt;. To reset
-    all controls to their default values, Press <kbd class=
-    "kbd">C-j</kbd>.</p>
+    "code">amixer</code> bound to <kbd class="kbd">C-e)</kbd>. When
+    called for the first time, this command builds up a database of
+    available controls on the default audio device. These control
+    names are then available for completion in the minibuffer. Pick
+    a desired control, e.g., "master playback volume", and this
+    displays a prompt with the current value. Enter the new value
+    and press &lt;RETURN&gt;. To reset all controls to their
+    default values, Press <kbd class="kbd">C-j</kbd>.</p>
     <ul class="mini-toc">
       <li>
         <a href="#Amixer-Commands" accesskey="1">Amixer
@@ -300,26 +299,8 @@ Interactive prefix arg ‘PROMPT’ reads percentage as a number
         "index-User-Option"><span class=
         "category-def">Variable:</span> <span><strong class=
         "def-name">User Option</strong> <var class=
-        "def-var-arguments">amixer-device</var> <a class=
-        "copiable-link" href="#index-User-Option">¶</a></span></dt>
-        <dd>
-          <pre class="verbatim">ALSA Control Device.
-</pre>
-          <p>Default Value:</p>
-          <pre class="verbatim">
-"default"
-
-</pre>
-        </dd>
-      </dl>
-      <dl class="first-defvr first-defvar-alias-first-defvr">
-        <dt class="defvr defvar-alias-defvr" id=
-        "index-User-Option-1"><span class=
-        "category-def">Variable:</span> <span><strong class=
-        "def-name">User Option</strong> <var class=
         "def-var-arguments">amixer-volume-step</var> <a class=
-        "copiable-link" href=
-        "#index-User-Option-1">¶</a></span></dt>
+        "copiable-link" href="#index-User-Option">¶</a></span></dt>
         <dd>
           <pre class="verbatim">Step-size for volume change.
 </pre>
