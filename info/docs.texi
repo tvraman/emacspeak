@@ -247,7 +247,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1156 commands and 141 options.
+This chapter documents a total of 1157 commands and 141 options.
 
 @node amixer
 @section amixer
@@ -3823,6 +3823,20 @@ Play file using mpv.
 Interactive prefix arg plays on left ear using alsa.
 
 (fn FILE &optional LEFT)
+@end format
+@end deffn
+
+@subsubsection emacspeak-empv-play-last
+@deffn {Command} emacspeak-empv-play-last   
+@table @kbd
+@item C-e y l
+@kindex C-e y l
+@end table
+
+@findex emacspeak-empv-play-last
+
+@format
+Play most recently played URL.
 @end format
 @end deffn
 
@@ -8325,6 +8339,7 @@ Default Value:
 @verbatim
 
 (("a" emacspeak-xslt-view-atom-file)
+ ("l" emacspeak-empv-play-last)
  ("p" emacspeak-pianobar)
  ("r" emacspeak-xslt-view-rss-file)
  ("x" emacspeak-xslt-view-file)

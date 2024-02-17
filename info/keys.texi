@@ -283,6 +283,7 @@
 
 @table @kbd
 @item a  emacspeak-xslt-view-atom-file
+@item l  emacspeak-empv-play-last
 @item p  emacspeak-pianobar
 @item r  emacspeak-xslt-view-rss-file
 @item x  emacspeak-xslt-view-file

@@ -1323,6 +1323,7 @@ found on laptops is denoted <fn>
      Default Value:
      
      (("a" emacspeak-xslt-view-atom-file)
+      ("l" emacspeak-empv-play-last)
       ("p" emacspeak-pianobar)
       ("r" emacspeak-xslt-view-rss-file)
       ("x" emacspeak-xslt-view-file)

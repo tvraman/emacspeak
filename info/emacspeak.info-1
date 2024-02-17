@@ -2935,6 +2935,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-y-keymap,  Next:
 ================================================
 
 ‘a emacspeak-xslt-view-atom-file’
+‘l emacspeak-empv-play-last’
 ‘p emacspeak-pianobar’
 ‘r emacspeak-xslt-view-rss-file’
 ‘x emacspeak-xslt-view-file’
@@ -3235,7 +3236,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1156 commands and 141 options.
+   This chapter documents a total of 1157 commands and 141 options.
 
 * Menu:
 
@@ -6468,7 +6469,15 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 
      (fn FILE &optional LEFT)
 
-12.60.1.6 emacspeak-empv-play-local
+12.60.1.6 emacspeak-empv-play-last
+..................................
+
+ -- Command: emacspeak-empv-play-last
+     ‘C-e y l’
+
+     Play most recently played URL.
+
+12.60.1.7 emacspeak-empv-play-local
 ...................................
 
  -- Command: emacspeak-empv-play-local (file)
@@ -6478,7 +6487,7 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 
      (fn FILE)
 
-12.60.1.7 emacspeak-empv-play-url
+12.60.1.8 emacspeak-empv-play-url
 .................................
 
  -- Command: emacspeak-empv-play-url (url &optional left)
@@ -6489,7 +6498,7 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 
      (fn URL &optional LEFT)
 
-12.60.1.8 emacspeak-empv-relative-seek
+12.60.1.9 emacspeak-empv-relative-seek
 ......................................
 
  -- Command: emacspeak-empv-relative-seek (target)
@@ -6498,14 +6507,14 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 
      (fn TARGET)
 
-12.60.1.9 emacspeak-empv-toggle-custom
-......................................
+12.60.1.10 emacspeak-empv-toggle-custom
+.......................................
 
  -- Command: emacspeak-empv-toggle-custom
 
      Toggle our custom filters.
 
-12.60.1.10 emacspeak-empv-toggle-filter
+12.60.1.11 emacspeak-empv-toggle-filter
 .......................................
 
  -- Command: emacspeak-empv-toggle-filter (filter)
@@ -6515,7 +6524,7 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 
      (fn FILTER)
 
-12.60.1.11 emacspeak-empv-yt-download
+12.60.1.12 emacspeak-empv-yt-download
 .....................................
 
  -- Command: emacspeak-empv-yt-download
