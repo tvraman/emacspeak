@@ -109,6 +109,7 @@ Use Custom to customize where possible. "
                custom-file global-mode-string outline-minor-mode-prefix
                outline-mode-prefix-map emacspeak-directory))
   (setenv "PULSE_SINK" "effect_input.spatializer") ; for mplayer
+  (load-theme 'ef-maris-dark t)
   (load-library "aster")
   ;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
@@ -169,7 +170,6 @@ Use Custom to customize where possible. "
        abbrev-mode auto-correct-mode)))
   (setq  global-mode-string '("" display-time-string battery-mode-line-string))
   (bash-completion-setup)
-  (load-theme 'ef-maris-dark t)
   (load-library "llm-prepare"))
 
 (defun tvr-after-init ()
