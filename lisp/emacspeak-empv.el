@@ -112,6 +112,13 @@ Interactive prefix arg plays on left ear using Alsa. "
     (when left (push "--audio-channels=fl" empv-mpv-args))
     (empv-play url)))
 
+
+(defun emacspeak-empv-play-last ()
+  "Play most recently played URL."
+  (interactive)
+  (cl-declare (special emacspeak-empv-history))
+  (empv-play (cl-first emacspeak-empv-history)))
+
 (declare-function emacspeak-media-local-resource "emacspeak-empv" t)
 (declare-function emacspeak-media-read-resource
                   "emacspeak-m-player" (&optional prefix))
