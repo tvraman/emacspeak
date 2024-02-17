@@ -827,7 +827,7 @@ are available are cued by an auditory icon on the header line."
      "speak"
      (when (ems-interactive-p)
        (emacspeak-icon 'open-object)
-       (dtk-speak (emacspeak-eww-current-title))))))
+       (emacspeak-speak-mode-line)))))
 
 (defvar-local emacspeak-eww-style nil
   "Record if we applied an  xsl style in this buffer.")
