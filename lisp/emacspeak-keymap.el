@@ -549,7 +549,7 @@
     ("C-b" eww-list-bookmarks)
     ("C-d" dictionary-search)
     ("C-e" eshell)
-    ("C-j" journalctl-transient)
+    ("C-j" journalctl)
     ("C-l" emacspeak-librivox)
     ("C-t" emacspeak-wizards-tramp-open-location)
     ("DEL" emacspeak-wizards-snarf-sexp)
