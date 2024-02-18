@@ -2792,7 +2792,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
 ‘C-d dictionary-search’
 ‘C-e eshell’
 ‘TAB hippie-expand’
-‘C-j journalctl-transient’
+‘C-j journalctl’
 ‘C-l emacspeak-librivox’
 ‘C-t emacspeak-wizards-tramp-open-location’
 ‘a emacspeak-amark-browse’
