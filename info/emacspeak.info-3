@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 16, 2024.
+last updated on February 18, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -2376,7 +2376,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
                                                              (line   52)
 * C-e .:                                 emacspeak-speak.    (line   37)
 * C-e ':                                 emacspeak-empv.     (line   48)
-* C-e ":                                 emacspeak-empv.     (line   67)
+* C-e ":                                 emacspeak-empv.     (line   69)
 * C-e (:                                 amixer.             (line   24)
 * C-e ):                                 emacspeak-sounds.   (line   74)
 * C-e [:                                 Reading.            (line  121)
@@ -2694,7 +2694,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e y p:                               emacspeak-pianobar. (line   46)
 * C-e y r:                               emacspeak-xslt.     (line   57)
 * C-e y x:                               emacspeak-xslt.     (line   37)
-* C-e y y:                               emacspeak-empv.     (line   77)
+* C-e y y:                               emacspeak-empv.     (line   79)
 * C-e z b:                               emacspeak-wizards.  (line 1056)
 * C-e z e:                               emacspeak-wizards.  (line  509)
 * C-e z l:                               emacspeak-m-player. (line  366)
@@ -3385,18 +3385,18 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-empv-play-file <1>:          emacspeak-empv.     (line   49)
 * emacspeak-empv-play-last:              emacspeak-empv.     (line   57)
 * emacspeak-empv-play-last <1>:          emacspeak-empv.     (line   60)
-* emacspeak-empv-play-local:             emacspeak-empv.     (line   65)
-* emacspeak-empv-play-local <1>:         emacspeak-empv.     (line   68)
-* emacspeak-empv-play-url:               emacspeak-empv.     (line   75)
-* emacspeak-empv-play-url <1>:           emacspeak-empv.     (line   78)
-* emacspeak-empv-relative-seek:          emacspeak-empv.     (line   86)
-* emacspeak-empv-relative-seek <1>:      emacspeak-empv.     (line   87)
-* emacspeak-empv-toggle-custom:          emacspeak-empv.     (line   95)
-* emacspeak-empv-toggle-custom <1>:      emacspeak-empv.     (line   96)
-* emacspeak-empv-toggle-filter:          emacspeak-empv.     (line  102)
-* emacspeak-empv-toggle-filter <1>:      emacspeak-empv.     (line  103)
-* emacspeak-empv-yt-download:            emacspeak-empv.     (line  112)
-* emacspeak-empv-yt-download <1>:        emacspeak-empv.     (line  113)
+* emacspeak-empv-play-local:             emacspeak-empv.     (line   67)
+* emacspeak-empv-play-local <1>:         emacspeak-empv.     (line   70)
+* emacspeak-empv-play-url:               emacspeak-empv.     (line   77)
+* emacspeak-empv-play-url <1>:           emacspeak-empv.     (line   80)
+* emacspeak-empv-relative-seek:          emacspeak-empv.     (line   88)
+* emacspeak-empv-relative-seek <1>:      emacspeak-empv.     (line   89)
+* emacspeak-empv-toggle-custom:          emacspeak-empv.     (line   97)
+* emacspeak-empv-toggle-custom <1>:      emacspeak-empv.     (line   98)
+* emacspeak-empv-toggle-filter:          emacspeak-empv.     (line  104)
+* emacspeak-empv-toggle-filter <1>:      emacspeak-empv.     (line  105)
+* emacspeak-empv-yt-download:            emacspeak-empv.     (line  114)
+* emacspeak-empv-yt-download <1>:        emacspeak-empv.     (line  115)
 * emacspeak-enriched-voiceify-faces:     emacspeak-enriched. (line   14)
 * emacspeak-enriched-voiceify-faces <1>: emacspeak-enriched. (line   15)
 * emacspeak-eperiodic-goto-property-section: emacspeak-eperiodic.

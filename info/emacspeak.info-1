@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 16, 2024.
+last updated on February 18, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2792,7 +2792,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
 ‘C-d dictionary-search’
 ‘C-e eshell’
 ‘TAB hippie-expand’
-‘C-j journalctl’
+‘C-j journalctl-transient’
 ‘C-l emacspeak-librivox’
 ‘C-t emacspeak-wizards-tramp-open-location’
 ‘a emacspeak-amark-browse’
@@ -6472,10 +6472,12 @@ EMPV == Another Emacs Media Player Provides better Youtube integration
 12.60.1.6 emacspeak-empv-play-last
 ..................................
 
- -- Command: emacspeak-empv-play-last
+ -- Command: emacspeak-empv-play-last (&optional left)
      ‘C-e y l’
 
      Play most recently played URL.
+
+     (fn &optional LEFT)
 
 12.60.1.7 emacspeak-empv-play-local
 ...................................

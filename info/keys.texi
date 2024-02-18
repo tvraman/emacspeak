@@ -146,7 +146,7 @@
 @item C-d  dictionary-search
 @item C-e  eshell
 @item TAB  hippie-expand
-@item C-j  journalctl
+@item C-j  journalctl-transient
 @item C-l  emacspeak-librivox
 @item C-t  emacspeak-wizards-tramp-open-location
 @item a  emacspeak-amark-browse
