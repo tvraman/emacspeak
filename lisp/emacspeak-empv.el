@@ -174,6 +174,22 @@ Interactive prefix arg plays on left ear using alsa."
     (emacspeak-icon 'button)
     (call-interactively 'empv-display-current)))
 
+(defun emacspeak-empv-backward-minute (&optional count)
+  "Move back  count  minutes."
+  (interactive "P")
+  (setq count (if count (read-number "Count:") 1))
+  (empv-seek (* count -60))
+  (when (called-interactively-p 'interactive)
+    (emacspeak-icon 'button)))
+
+(defun emacspeak-empv-forward-minute (&optional count)
+  "Move forward count  minutes."
+  (interactive "P")
+  (setq count (if count (read-number "Count:") 1))  
+  (empv-seek (* count 60))
+  (when (called-interactively-p 'interactive)
+    (emacspeak-icon 'button)))
+
 (defun emacspeak-empv-absolute-seek (target)
   "Absolute seek in seconds,see `empv-seek'"
   (interactive "nTarget:")
@@ -198,7 +214,6 @@ Interactive prefix arg plays on left ear using alsa."
   (global-set-key (kbd "C-e C-;") empv-map)
   (global-set-key (kbd "C-' v") empv-map)
   (global-set-key (kbd "C-' ;") empv-map)
-  
   (cl-loop
    for b in
    '(
@@ -217,6 +232,8 @@ Interactive prefix arg plays on left ear using alsa."
      ("k" empv-exit)
      ("r" emacspeak-empv-relative-seek)
      ("s" emacspeak-empv-absolute-seek)
+     ("M" emacspeak-empv-backward-minute)
+     ("m" emacspeak-empv-forward-minute)
      ("u" emacspeak-empv-accumulate-to-register)
      ("v" empv-set-volume)
      ("y" emacspeak-empv-yt-download))
