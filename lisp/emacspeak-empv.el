@@ -168,10 +168,10 @@ Interactive prefix arg plays on left ear using alsa."
 (defun emacspeak-empv-time-pos ()
   "Speak time and percent position."
   (interactive)
-  (empv--let-properties '(time-pos percent-pos}%)
-    (message "%s %s%%"
+  (empv--let-properties '(time-pos percent-pos)
+    (message "%s %.2d%%"
              (ems--format-clock (or .time-pos 0))
-             .percent-pos)))
+              (or .percent-pos 0))))
 
 (defun emacspeak-empv-relative-seek (target)
   "Relative seek in seconds,see `empv-seek'"
