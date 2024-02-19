@@ -165,14 +165,18 @@ Interactive prefix arg plays on left ear using alsa."
   (emacspeak-eww-yt-dl (empv-youtube-results--current-video-url)))
 
 ;;; Seekers:
+(defun emacspeak-empv-time-pos ()
+  "Speak time position."
+  (interactive)
+  (empv--let-properties '(time-pos)
+    (message "%s" (ems--format-clock (or .time-pos 0)))))
 
 (defun emacspeak-empv-relative-seek (target)
   "Relative seek in seconds,see `empv-seek'"
   (interactive "nTarget:")
   (empv-seek target)
   (when (called-interactively-p 'interactive)
-    (empv--let-properties '(time-pos)
-      (message (format "%s" (empv--format-clock (or .time-pos 0))) .time-pos))
+    (call-interactively 'emacspeak-empv-time-pos)
     (emacspeak-icon 'large-movement)))
 
 (defun emacspeak-empv-backward-minute (&optional count)
@@ -181,8 +185,7 @@ Interactive prefix arg plays on left ear using alsa."
   (or count (setq count 1))
   (empv-seek (* count -60))
   (when (called-interactively-p 'interactive)
-    (empv--let-properties '(time-pos)
-      (message "%s" (ems--format-clock (or .time-pos 0))))
+    (call-interactively 'emacspeak-empv-time-pos)
     (emacspeak-icon 'large-movement)))
 
 (defun emacspeak-empv-forward-minute (&optional count)
@@ -191,8 +194,7 @@ Interactive prefix arg plays on left ear using alsa."
   (or count (setq count 1))
   (empv-seek (* count 60))
   (when (called-interactively-p 'interactive)
-    (empv--let-properties '(time-pos)
-      (message "%s" (ems--format-clock (or .time-pos 0))))
+    (call-interactively 'emacspeak-empv-time-pos)
     (emacspeak-icon 'large-movement)))
 
 (defun emacspeak-empv-absolute-seek (target)
@@ -200,8 +202,7 @@ Interactive prefix arg plays on left ear using alsa."
   (interactive "nTarget:")
   (empv-seek target '("absolute"))
   (when (called-interactively-p 'interactive)
-    (empv--let-properties '(time-pos)
-      (message (format "%s" (empv--format-clock (or .time-pos 0))) .time-pos))
+    (call-interactively 'emacspeak-empv-time-pos)
     (emacspeak-icon 'large-movement)))
 
 (defun emacspeak-empv-percentage-seek (target)
@@ -209,8 +210,8 @@ Interactive prefix arg plays on left ear using alsa."
   (interactive "nTarget:")
   (empv-seek target '("absolute-percent"))
   (when (called-interactively-p 'interactive)
-    (emacspeak-icon 'button)
-    (call-interactively 'empv-display-current)))
+    (call-interactively 'emacspeak-empv-time-pos)
+    (emacspeak-icon 'button)))
 
 ;;; Setup:
 
@@ -223,26 +224,28 @@ Interactive prefix arg plays on left ear using alsa."
   (cl-loop
    for b in
    '(
-     ("%" emacspeak-empv-percentage-seek)
-     ("'" empv-current-loop-on)
-     ("/" empv-seek)
-     (";" emacspeak-empv-toggle-filter)
-     ("DEL" emacspeak-empv-clear-filter)
-     ("." emacspeak-empv-toggle-custom)
-     ("0" empv-volume-up)
-     ("9" empv-volume-down)
-     ("C-j" empv-youtube-results-play-current)
-     ("RET" empv-youtube-tabulated)
-     ("SPC" empv-toggle)
-     ("x" empv-exit)
-     ("k" empv-exit)
-     ("r" emacspeak-empv-relative-seek)
-     ("s" emacspeak-empv-absolute-seek)
-     ("M" emacspeak-empv-backward-minute)
-     ("m" emacspeak-empv-forward-minute)
-     ("u" emacspeak-empv-accumulate-to-register)
-     ("v" empv-set-volume)
-     ("y" emacspeak-empv-yt-download))
+  ("'" empv-current-loop-on)
+  ("." emacspeak-empv-toggle-custom)
+  ("/" empv-seek)
+  ("0" empv-volume-up)
+  ("9" empv-volume-down)
+  (";" emacspeak-empv-toggle-filter)
+  ("=" emacspeak-empv-time-pos)
+  ("C-j" empv-youtube-results-play-current)
+  ("DEL" emacspeak-empv-clear-filter)
+  ("M" emacspeak-empv-backward-minute)
+  ("RET" empv-youtube-tabulated)
+  ("SPC" empv-toggle)
+  ("k" empv-exit)
+  ("m" emacspeak-empv-forward-minute)
+  ("r" emacspeak-empv-relative-seek)
+  ("s" emacspeak-empv-absolute-seek)
+  ("u" emacspeak-empv-accumulate-to-register)
+  ("v" empv-set-volume)
+  ("x" empv-exit)
+  ("y" emacspeak-empv-yt-download)
+("%" emacspeak-empv-percentage-seek)
+  )
    do
    (emacspeak-keymap-update empv-map b)
    (emacspeak-keymap-update empv-youtube-results-mode-map b))
