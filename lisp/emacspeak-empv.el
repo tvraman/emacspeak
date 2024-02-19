@@ -177,6 +177,7 @@ Interactive prefix arg plays on left ear using alsa."
 (defun emacspeak-empv-backward-minute (&optional count)
   "Move back  count  minutes."
   (interactive "P")
+  (cl-declare (special empv-display-current-format))
   (let  (( empv-display-current-format "#{time-pos}"))
     (setq count (if count (read-number "Count:") 1))
     (empv-seek (* count -60))
@@ -187,6 +188,7 @@ Interactive prefix arg plays on left ear using alsa."
 (defun emacspeak-empv-forward-minute (&optional count)
   "Move forward count  minutes."
   (interactive "P")
+  (cl-declare (special empv-display-current-format))
   (let (( empv-display-current-format "#{time-pos}"))
     (setq count (if count (read-number "Count:") 1))
     (empv-seek (* count 60))
