@@ -169,7 +169,7 @@ Interactive prefix arg plays on left ear using alsa."
   "Speak time and percent position."
   (interactive)
   (empv--let-properties '(time-pos percent-pos}%)
-    (message "%s: %s%%"
+    (message "%s %s%%"
              (ems--format-clock (or .time-pos 0))
              .percent-pos)))
 
