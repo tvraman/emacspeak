@@ -177,18 +177,22 @@ Interactive prefix arg plays on left ear using alsa."
 (defun emacspeak-empv-backward-minute (&optional count)
   "Move back  count  minutes."
   (interactive "P")
-  (setq count (if count (read-number "Count:") 1))
-  (empv-seek (* count -60))
-  (when (called-interactively-p 'interactive)
-    (emacspeak-icon 'button)))
+  (let  (( empv-display-current-format "#{time-pos}"))
+    (setq count (if count (read-number "Count:") 1))
+    (empv-seek (* count -60))
+    (when (called-interactively-p 'interactive)
+      (funcall-interactively #'empv-display-current nil)
+      (emacspeak-icon 'button))))
 
 (defun emacspeak-empv-forward-minute (&optional count)
   "Move forward count  minutes."
   (interactive "P")
-  (setq count (if count (read-number "Count:") 1))  
-  (empv-seek (* count 60))
-  (when (called-interactively-p 'interactive)
-    (emacspeak-icon 'button)))
+  (let (( empv-display-current-format "#{time-pos}"))
+    (setq count (if count (read-number "Count:") 1))
+    (empv-seek (* count 60))
+    (when (called-interactively-p 'interactive)
+      (funcall-interactively #'empv-display-current nil)
+      (emacspeak-icon 'button))))
 
 (defun emacspeak-empv-absolute-seek (target)
   "Absolute seek in seconds,see `empv-seek'"
