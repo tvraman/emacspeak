@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 18, 2024.
+last updated on February 19, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -3395,12 +3395,14 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-empv-play-url <1>:           emacspeak-empv.     (line   98)
 * emacspeak-empv-relative-seek:          emacspeak-empv.     (line  106)
 * emacspeak-empv-relative-seek <1>:      emacspeak-empv.     (line  107)
-* emacspeak-empv-toggle-custom:          emacspeak-empv.     (line  115)
-* emacspeak-empv-toggle-custom <1>:      emacspeak-empv.     (line  116)
-* emacspeak-empv-toggle-filter:          emacspeak-empv.     (line  122)
-* emacspeak-empv-toggle-filter <1>:      emacspeak-empv.     (line  123)
-* emacspeak-empv-yt-download:            emacspeak-empv.     (line  132)
-* emacspeak-empv-yt-download <1>:        emacspeak-empv.     (line  133)
+* emacspeak-empv-time-pos:               emacspeak-empv.     (line  115)
+* emacspeak-empv-time-pos <1>:           emacspeak-empv.     (line  116)
+* emacspeak-empv-toggle-custom:          emacspeak-empv.     (line  122)
+* emacspeak-empv-toggle-custom <1>:      emacspeak-empv.     (line  123)
+* emacspeak-empv-toggle-filter:          emacspeak-empv.     (line  129)
+* emacspeak-empv-toggle-filter <1>:      emacspeak-empv.     (line  130)
+* emacspeak-empv-yt-download:            emacspeak-empv.     (line  139)
+* emacspeak-empv-yt-download <1>:        emacspeak-empv.     (line  140)
 * emacspeak-enriched-voiceify-faces:     emacspeak-enriched. (line   14)
 * emacspeak-enriched-voiceify-faces <1>: emacspeak-enriched. (line   15)
 * emacspeak-eperiodic-goto-property-section: emacspeak-eperiodic.
