@@ -176,8 +176,8 @@ Interactive prefix arg plays on left ear using alsa."
 
 (defun emacspeak-empv-backward-minute (&optional count)
   "Move back  count  minutes."
-  (interactive "P")
-  (setq count (if count (read-number "Count:") 1))
+  (interactive "p")
+  (or count (setq count 1))
   (empv-seek (* count -60))
   (when (called-interactively-p 'interactive)
     (empv--let-properties '(time-pos)
@@ -186,8 +186,8 @@ Interactive prefix arg plays on left ear using alsa."
 
 (defun emacspeak-empv-forward-minute (&optional count)
   "Move forward count  minutes."
-  (interactive "P")
-  (setq count (if count (read-number "Count:") 1))
+  (interactive "p")
+  (or count (setq count 1))
   (empv-seek (* count 60))
   (when (called-interactively-p 'interactive)
     (empv--let-properties '(time-pos)
