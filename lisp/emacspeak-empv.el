@@ -171,8 +171,9 @@ Interactive prefix arg plays on left ear using alsa."
   (interactive "nTarget:")
   (empv-seek target)
   (when (called-interactively-p 'interactive)
-    (emacspeak-icon 'button)
-    (call-interactively 'empv-display-current)))
+    (empv--let-properties '(time-pos)
+      (message (format "%s" (empv--format-clock (or .time-pos 0))) .time-pos))
+    (emacspeak-icon 'large-movement)))
 
 (defun emacspeak-empv-backward-minute (&optional count)
   "Move back  count  minutes."
@@ -199,8 +200,9 @@ Interactive prefix arg plays on left ear using alsa."
   (interactive "nTarget:")
   (empv-seek target '("absolute"))
   (when (called-interactively-p 'interactive)
-    (emacspeak-icon 'button)
-    (call-interactively 'empv-display-current)))
+    (empv--let-properties '(time-pos)
+      (message (format "%s" (empv--format-clock (or .time-pos 0))) .time-pos))
+    (emacspeak-icon 'large-movement)))
 
 (defun emacspeak-empv-percentage-seek (target)
   "Percentage seek in seconds,see `empv-seek'"
@@ -254,7 +256,7 @@ Interactive prefix arg plays on left ear using alsa."
 
 (defvar emacspeak-empv-filter-history nil
   "History of filters used.")
-(defconst emacspeak-empv-filters 
+(defconst emacspeak-empv-filters
   '(
     "asubboost" "bs2b" "bs2b=cmoy" "bs2b=jmeier"
     "extrastereo" "extrastereo=1.5" "haas" "headphone"
@@ -303,7 +305,6 @@ The default value is suitable for classical instrumental music."
 (provide 'emacspeak-empv)
 ;;;  end of file
 
-                                        ; 
-                                        ; 
-                                        ; 
-
+                                        ;
+                                        ;
+                                        ;
