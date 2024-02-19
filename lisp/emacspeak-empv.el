@@ -181,7 +181,7 @@ Interactive prefix arg plays on left ear using alsa."
   (empv-seek (* count -60))
   (when (called-interactively-p 'interactive)
     (empv--let-properties '(time-pos)
-      (message "time-pos is %s" .time-pos))
+      (message (format "%s" (empv--format-clock (or .time-pos 0))) .time-pos))
     (emacspeak-icon 'large-movement)))
 
 (defun emacspeak-empv-forward-minute (&optional count)
@@ -191,7 +191,7 @@ Interactive prefix arg plays on left ear using alsa."
   (empv-seek (* count 60))
   (when (called-interactively-p 'interactive)
     (empv--let-properties '(time-pos)
-      (message "time-pos is %s" .time-pos))
+      (message (format "%s" (empv--format-clock (or .time-pos 0))) .time-pos))
     (emacspeak-icon 'large-movement)))
 
 (defun emacspeak-empv-absolute-seek (target)
