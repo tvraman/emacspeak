@@ -7,9 +7,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;;  $Revision: 4532 $ |
-;;; Location https://github.com/tvraman/emacspeak
-;;;
+;; Location https://github.com/tvraman/emacspeak
 
 ;;;   Copyright:
 
@@ -34,11 +32,10 @@
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 ;;; Commentary:
-;;; EMPV ==  Another Emacs Media Player
+;; EMPV ==  Emacs Front-End To mpv --- the GNU media player
 ;; Provides better Youtube integration
 ;;; Code:
 
@@ -57,10 +54,11 @@
 
 (cl-loop
  for f in
- '(aempv-current-loop-off empv-current-loop-on
-                          empv-toggle empv-pause
-                          empv-file-loop-off empv-file-loop-on
-                          empv-playlist-loop-off empv-playlist-loop-on) do
+ '(
+   aempv-current-loop-off empv-current-loop-on
+   empv-toggle empv-pause
+   empv-file-loop-off empv-file-loop-on
+   empv-playlist-loop-off empv-playlist-loop-on) do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
@@ -69,7 +67,7 @@
        (emacspeak-icon 'button)))))
 
 (defadvice empv-exit (after emacspeak pre act comp)
-  "speak."
+  "Icon."
   (when (ems-interactive-p)
     (dtk-stop 'all)
     (emacspeak-icon 'close-object)
@@ -78,12 +76,9 @@
 (defadvice empv-youtube-tabulated (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-
     (emacspeak-speak-mode-line)))
 
 ;;; Additional Commands:
-
-;;; Commands:
 
 (defvar emacspeak-empv-history nil
   "Youtube history for EMpv.")
@@ -94,19 +89,16 @@
 ;;;###autoload
 (defun emacspeak-empv-play-url (url &optional left)
   "Play URL using mpv.
-Interactive prefix arg plays on left ear using Alsa. "
+Interactive prefix arg plays on left ear. "
   (interactive (list (emacspeak-eww-read-url 'emacspeak-empv-history)
                      current-prefix-arg))
   (cl-declare (special emacspeak-empv-history-max
-                       emacspeak-empv-history
-                       empv-mpv-args))
-  (require 'empv)
+                       emacspeak-empv-history empv-mpv-args))
   (when
       (and url (stringp url)
            (string-prefix-p (emacspeak-google-result-url-prefix) url))
     (setq url  (emacspeak-google-canonicalize-result-url url)))
-  (add-to-history 'emacspeak-empv-history url
-                  emacspeak-empv-history-max)
+  (add-to-history 'emacspeak-empv-history url emacspeak-empv-history-max)
   (let* ((args (copy-sequence empv-mpv-args))
          (empv-mpv-args args))
     (when left (push "--audio-channels=fl" empv-mpv-args))
@@ -129,10 +121,9 @@ Interactive prefix arg plays on left ear using alsa."
   (interactive(list (emacspeak-media-read-resource)
                     current-prefix-arg))
   (cl-declare (special empv-mpv-args))
-  (require 'empv)
   (let* ((args (copy-sequence empv-mpv-args))
          (empv-mpv-args args))
-    (when left (push "--audio-channels=fl,fr" empv-mpv-args))
+    (when left (push "--audio-channels=fl" empv-mpv-args))
     (empv-play file)))
 
 (put 'emacspeak-empv-play-file 'repeat-map 'empv-map)
@@ -269,7 +260,7 @@ Interactive prefix arg plays on left ear using alsa."
     )
   "Table of MPV filters.")
 
-;;; Experimental: Toggling Filters
+;;;  Toggling Filters
 (defun emacspeak-empv-toggle-filter (filter)
   "Toggle Filter.
 Filter is of the  form name=arg-1:arg-2:..."
