@@ -647,7 +647,7 @@ b Browse
 (defun emacspeak-bookshare-bookshare-handler (response)
   "Handle Bookshare response."
   (unless (eq (dom-tag response) 'bookshare)
-    (error
+    (message
      "Got %s: Does not look like a Bookshare response."
      (dom-tag response)))
   (mapc #'emacspeak-bookshare-apply-handler (dom-children response)))
