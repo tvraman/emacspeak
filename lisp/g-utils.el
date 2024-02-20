@@ -248,8 +248,8 @@ references, poor-man's xpath."
   (declare (indent 1) (debug t))
   `(let ((buffer (get-buffer-create g-scratch-buffer))
          (default-process-coding-system (cons 'utf-8 'utf-8))
-         (coding-system-for-read 'binary)
-         (coding-system-for-write 'binary)
+         ;(coding-system-for-read 'binary)
+         ;(coding-system-for-write 'binary)
          (buffer-undo-list t))
      (with-current-buffer buffer 
        (kill-all-local-variables)
