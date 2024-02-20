@@ -142,7 +142,7 @@
   "Records current directory of media being played.
 This is set to nil when playing Internet  streams.")
 
-(defsubst ems--seconds-string-to-duration (sec)
+(defsubst ems--seconds-to-duration (sec)
   "Return seconds formatted as time if valid, otherwise return as is."
   (let ((v (car  (read-from-string sec))))
     (cond
@@ -177,9 +177,9 @@ This is set to nil when playing Internet  streams.")
        (when info
          (concat
           (propertize "Position:  " 'pause 90)
-          (ems--seconds-string-to-duration (cl-first info))
+          (ems--seconds-to-duration (cl-first info))
           (propertize " of " 'personality voice-smoothen-extra)
-          (ems--seconds-string-to-duration (cl-third info))
+          (ems--seconds-to-duration (cl-third info))
           (propertize " in " 'personality voice-smoothen-extra)
           (cl-second info)))))
     (t (format "Process MPlayer not running.")))))
