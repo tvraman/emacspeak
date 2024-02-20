@@ -1719,6 +1719,32 @@ Second interactive prefix sets clock to new timezone."
                                (current-time) (getenv "TZ"))))
       (dtk-notify-say time-string)))))
 
+(defsubst ems--seconds-to-duration (sec)
+  "Return seconds formatted as time if valid, otherwise return as is."
+  (let ((v (car  (read-from-string sec))))
+    (cond
+     ((and (numberp v) (not (cl-minusp v)))
+      (format-seconds "%.2h:%.2m:%.2s%z" v))
+     (t sec))))
+
+(defsubst ems--duration-to-seconds (d)
+  "Convert hh:mm:ss to seconds."
+  (let*
+      ((sign (string-match "^-" d))
+       (v
+        (mapcar
+         #'car
+         (mapcar
+          #'read-from-string
+          (split-string (if sign (substring d 1) d) ":")))))
+    (* (if sign -1 1)
+       (+
+        (* 3600 (cl-first v))
+        (* 60 (cl-second v))
+        (cl-third v)))))
+
+
+
 (defsubst ems--format-clock (s)
   "Seconds -> mm:ss"
   (format "%02d:%02d" (floor (/ s 60)) (% (floor s) 60)))

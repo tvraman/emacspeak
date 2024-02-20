@@ -142,30 +142,6 @@
   "Records current directory of media being played.
 This is set to nil when playing Internet  streams.")
 
-(defsubst ems--seconds-to-duration (sec)
-  "Return seconds formatted as time if valid, otherwise return as is."
-  (let ((v (car  (read-from-string sec))))
-    (cond
-     ((and (numberp v) (not (cl-minusp v)))
-      (format-seconds "%.2h:%.2m:%.2s%z" v))
-     (t sec))))
-
-(defsubst ems--duration-to-seconds (d)
-  "Convert hh:mm:ss to seconds."
-  (let*
-      ((sign (string-match "^-" d))
-       (v
-        (mapcar
-         #'car
-         (mapcar
-          #'read-from-string
-          (split-string (if sign (substring d 1) d) ":")))))
-    (* (if sign -1 1)
-       (+
-        (* 3600 (cl-first v))
-        (* 60 (cl-second v))
-        (cl-third v)))))
-
 (defun emacspeak-m-player-mode-line ()
   "Mode-line for M-Player buffers."
   (interactive)
