@@ -248,8 +248,6 @@ references, poor-man's xpath."
   (declare (indent 1) (debug t))
   `(let ((buffer (get-buffer-create g-scratch-buffer))
          (default-process-coding-system (cons 'utf-8 'utf-8))
-         ;(coding-system-for-read 'binary)
-         ;(coding-system-for-write 'binary)
          (buffer-undo-list t))
      (with-current-buffer buffer 
        (kill-all-local-variables)
@@ -287,17 +285,6 @@ Typically, content is pulled using Curl , converted to HTML using style  and
    (call-process shell-file-name nil t
                  nil shell-command-switch
                  command)
-   (when style
-     (g-xsl-transform-region (point-min) (point-max) style))
-   (funcall g-html-handler (current-buffer))))
-
-(defun g-display-xml-string (string style)
-  "Display XML string  using specified style.
-XML string is transformed via style
-  and previewed via `g-html-handler'."
-  (cl-declare (special emacspeak-xslt g-html-handler))
-  (g-using-scratch
-   (insert string)
    (when style
      (g-xsl-transform-region (point-min) (point-max) style))
    (funcall g-html-handler (current-buffer))))
