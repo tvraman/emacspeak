@@ -85,16 +85,13 @@
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'emacspeak-xslt)
 (eval-when-compile (require 'derived)
                    (require 'g-utils))
 (require 'dom)
 (require 'xml)
 (declare-function auth-source-search "auth-source" (&rest rest))
-(declare-function dired-get-filename "dired" (&optional localp
-                                                        no-error-if-not-filep))
-(declare-function emacspeak-xslt-get "emacspeak-xslt" (arg1))
-(declare-function emacspeak-xslt-params-from-xpath "emacspeak-bookshare" t)
-
+(declare-function dired-get-filename "dired" (&optional localp no-error))
 ;;;  Customizations
 
 (defgroup emacspeak-bookshare nil
@@ -144,7 +141,7 @@ This is used by the various Bookshare view commands to display
    (xml-substitute-numeric-entities
     (dom-text (dom-by-tag dom tag)))))
 
-(defun emacspeak-bookshare-assert ()
+(defsubst emacspeak-bookshare-assert ()
   "Error out if not in Bookshare mode."
   (unless (eq major-mode 'emacspeak-bookshare-mode)
     (error "Not in Bookshare Interaction.")))
@@ -273,8 +270,7 @@ Optional argument `no-auth' says we dont need a user auth."
   (emacspeak-bookshare-get-result
    (format
     "%s %s %s  %s 2>/dev/null"
-    emacspeak-curl
-    emacspeak-bookshare-curl-options
+    emacspeak-curl emacspeak-bookshare-curl-options
     (if no-auth "" (emacspeak-bookshare-user-password))
     emacspeak-bookshare-last-action-uri)))
 
@@ -286,8 +282,7 @@ Optional argument `no-auth' says we dont need a user auth."
         (emacspeak-bookshare-page-rest-endpoint))
   (emacspeak-bookshare-get-result
    (format "%s %s %s  %s 2>/dev/null"
-           emacspeak-curl
-           emacspeak-bookshare-curl-options
+           emacspeak-curl emacspeak-bookshare-curl-options
            (emacspeak-bookshare-user-password)
            emacspeak-bookshare-last-action-uri)))
 
@@ -322,8 +317,6 @@ Optional argument `no-auth' says we dont need a user auth."
 
 (defvar emacspeak-bookshare-categories nil
   "Cached list of categories.")
-
-;; temporary definition
 
 (defun emacspeak-bookshare-categories ()
   "Return memoized list of categories."
@@ -647,8 +640,7 @@ b Browse
 (defun emacspeak-bookshare-bookshare-handler (response)
   "Handle Bookshare response."
   (unless (eq (dom-tag response) 'bookshare)
-    (message "Got %s: Expected <bookshare>." (dom-tag response)))
-  (message "Found %s children" (length (dom-children response)))
+    (error "Got %s: Expected <bookshare>" (dom-tag response)))
   (mapc #'emacspeak-bookshare-apply-handler (dom-children response)))
 
 (cl--defalias 'emacspeak-bookshare-version-handler 'ignore)
@@ -811,17 +803,13 @@ b Browse
      (format "Available: %s"
              (mapconcat #'dom-text available " ")))))
 
-;;;   Property Accessors:
-
 ;;;  Generate Declarations:
 (declare-function emacspeak-bookshare-get-author    "emacspeak-bookshare" nil)
-
 (declare-function emacspeak-bookshare-get-title    "emacspeak-bookshare" nil)
 (declare-function emacspeak-bookshare-get-id    "emacspeak-bookshare" nil)
 (declare-function emacspeak-bookshare-get-metadata    "emacspeak-bookshare" nil)
 (declare-function emacspeak-bookshare-get-target    "emacspeak-bookshare" nil)
-(declare-function emacspeak-bookshare-get-directory
-                  "emacspeak-bookshare" nil)
+(declare-function emacspeak-bookshare-get-directory "emacspeak-bookshare" nil)
 
 ;;  
 (cl-loop for p in
@@ -903,7 +891,7 @@ b Browse
          (response (call-interactively (emacspeak-bookshare-action-get key))))
     (insert "\n\f\n")
     (setq start (point))
-    (emacspeak-bookshare-bookshare-handler response)
+    (emacspeak-bookshare-bookshare-handler response);  recursive descent 
     (goto-char start)
     (emacspeak-icon 'task-done)
     (emacspeak-speak-line)))
