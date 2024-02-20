@@ -803,6 +803,7 @@ b Browse
      (format "Available: %s"
              (mapconcat #'dom-text available " ")))))
 
+
 ;;;  Generate Declarations:
 (declare-function emacspeak-bookshare-get-author    "emacspeak-bookshare" nil)
 (declare-function emacspeak-bookshare-get-title    "emacspeak-bookshare" nil)
@@ -879,6 +880,11 @@ b Browse
       (switch-to-buffer emacspeak-bookshare-interaction-buffer)))
     (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)))
+;; All actions such as searches are handled here.
+;; This is also the 
+;; top-level entry point for parsing the response.
+;; We expect the response to be in a bookshare element.
+;; We initiate the recursive descent parse in the function below.
 
 (defun emacspeak-bookshare-action  ()
   "Call action specified by  invoking key."
@@ -891,7 +897,7 @@ b Browse
          (response (call-interactively (emacspeak-bookshare-action-get key))))
     (insert "\n\f\n")
     (setq start (point))
-    (emacspeak-bookshare-bookshare-handler response);  recursive descent 
+    (emacspeak-bookshare-bookshare-handler response) ;  recursive descent 
     (goto-char start)
     (emacspeak-icon 'task-done)
     (emacspeak-speak-line)))
