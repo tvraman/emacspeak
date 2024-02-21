@@ -87,30 +87,33 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'derived)
-(eval-when-compile (require 'transient nil 'noerror))
+(eval-when-compile (require 'transient))
 
 ;;; Map Faces:
 
 (voice-setup-add-map
  '(
-   (transient-separator  'inaudible)
+   (transient-active-infix voice-animate)
+   (transient-amaranth voice-animate)
    (transient-argument voice-animate)
+   (transient-blue voice-lighten)
    (transient-disabled-suffix inaudible)
    (transient-enabled-suffix voice-brighten)
    (transient-heading voice-lighten)
+   (transient-higher-level voice-brighten)
    (transient-inactive-argument inaudible)
    (transient-inactive-value inaudible)
    (transient-key voice-animate)
    (transient-mismatched-key voice-monotone-extra)
    (transient-nonstandard-key voice-monotone-extra)
+   (transient-pink voice-bolden-medium)
+   (transient-red voice-bolden)
+   (transient-separator  'inaudible)
+   (transient-teal voice-lighten-medium)
    (transient-unreachable voice-monotone-extra)
    (transient-unreachable-key voice-monotone-extra)
    (transient-value voice-brighten)
-   (transient-red voice-bolden)
-   (transient-blue voice-lighten)
-   (transient-amaranth voice-animate)
-   (transient-pink voice-bolden-medium)
-   (transient-teal voice-lighten-medium)))
+   ))
 
 ;;;  Advice Interactive Commands:
 
