@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 19, 2024.
+last updated on February 21, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -2375,8 +2375,8 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e ?:                                 emacspeak-websearch.
                                                              (line   52)
 * C-e .:                                 emacspeak-speak.    (line   37)
-* C-e ':                                 emacspeak-empv.     (line   66)
-* C-e ":                                 emacspeak-empv.     (line   87)
+* C-e ':                                 emacspeak-empv.     (line   67)
+* C-e ":                                 emacspeak-empv.     (line   88)
 * C-e (:                                 amixer.             (line   24)
 * C-e ):                                 emacspeak-sounds.   (line   74)
 * C-e [:                                 Reading.            (line  121)
@@ -2690,11 +2690,11 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e x v:                               emacspeak-wizards.  (line 1030)
 * C-e x w:                               emacspeak-wizards.  (line  713)
 * C-e y a:                               emacspeak-xslt.     (line   27)
-* C-e y l:                               emacspeak-empv.     (line   77)
+* C-e y l:                               emacspeak-empv.     (line   78)
 * C-e y p:                               emacspeak-pianobar. (line   46)
 * C-e y r:                               emacspeak-xslt.     (line   57)
 * C-e y x:                               emacspeak-xslt.     (line   37)
-* C-e y y:                               emacspeak-empv.     (line   97)
+* C-e y y:                               emacspeak-empv.     (line   98)
 * C-e z b:                               emacspeak-wizards.  (line 1056)
 * C-e z e:                               emacspeak-wizards.  (line  509)
 * C-e z l:                               emacspeak-m-player. (line  366)
@@ -3373,36 +3373,36 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
                                                              (line   46)
 * emacspeak-emms-speak-current-track:    emacspeak-emms.     (line   17)
 * emacspeak-emms-speak-current-track <1>: emacspeak-emms.    (line   18)
-* emacspeak-empv-absolute-seek:          emacspeak-empv.     (line   14)
-* emacspeak-empv-absolute-seek <1>:      emacspeak-empv.     (line   15)
-* emacspeak-empv-accumulate-to-register: emacspeak-empv.     (line   23)
-* emacspeak-empv-accumulate-to-register <1>: emacspeak-empv. (line   24)
-* emacspeak-empv-backward-minute:        emacspeak-empv.     (line   30)
-* emacspeak-empv-backward-minute <1>:    emacspeak-empv.     (line   31)
-* emacspeak-empv-clear-filter:           emacspeak-empv.     (line   39)
-* emacspeak-empv-clear-filter <1>:       emacspeak-empv.     (line   40)
-* emacspeak-empv-forward-minute:         emacspeak-empv.     (line   46)
-* emacspeak-empv-forward-minute <1>:     emacspeak-empv.     (line   47)
-* emacspeak-empv-percentage-seek:        emacspeak-empv.     (line   55)
-* emacspeak-empv-percentage-seek <1>:    emacspeak-empv.     (line   56)
-* emacspeak-empv-play-file:              emacspeak-empv.     (line   64)
-* emacspeak-empv-play-file <1>:          emacspeak-empv.     (line   67)
-* emacspeak-empv-play-last:              emacspeak-empv.     (line   75)
-* emacspeak-empv-play-last <1>:          emacspeak-empv.     (line   78)
-* emacspeak-empv-play-local:             emacspeak-empv.     (line   85)
-* emacspeak-empv-play-local <1>:         emacspeak-empv.     (line   88)
-* emacspeak-empv-play-url:               emacspeak-empv.     (line   95)
-* emacspeak-empv-play-url <1>:           emacspeak-empv.     (line   98)
-* emacspeak-empv-relative-seek:          emacspeak-empv.     (line  106)
-* emacspeak-empv-relative-seek <1>:      emacspeak-empv.     (line  107)
-* emacspeak-empv-time-pos:               emacspeak-empv.     (line  115)
-* emacspeak-empv-time-pos <1>:           emacspeak-empv.     (line  116)
-* emacspeak-empv-toggle-custom:          emacspeak-empv.     (line  122)
-* emacspeak-empv-toggle-custom <1>:      emacspeak-empv.     (line  123)
-* emacspeak-empv-toggle-filter:          emacspeak-empv.     (line  129)
-* emacspeak-empv-toggle-filter <1>:      emacspeak-empv.     (line  130)
-* emacspeak-empv-yt-download:            emacspeak-empv.     (line  139)
-* emacspeak-empv-yt-download <1>:        emacspeak-empv.     (line  140)
+* emacspeak-empv-absolute-seek:          emacspeak-empv.     (line   15)
+* emacspeak-empv-absolute-seek <1>:      emacspeak-empv.     (line   16)
+* emacspeak-empv-accumulate-to-register: emacspeak-empv.     (line   24)
+* emacspeak-empv-accumulate-to-register <1>: emacspeak-empv. (line   25)
+* emacspeak-empv-backward-minute:        emacspeak-empv.     (line   31)
+* emacspeak-empv-backward-minute <1>:    emacspeak-empv.     (line   32)
+* emacspeak-empv-clear-filter:           emacspeak-empv.     (line   40)
+* emacspeak-empv-clear-filter <1>:       emacspeak-empv.     (line   41)
+* emacspeak-empv-forward-minute:         emacspeak-empv.     (line   47)
+* emacspeak-empv-forward-minute <1>:     emacspeak-empv.     (line   48)
+* emacspeak-empv-percentage-seek:        emacspeak-empv.     (line   56)
+* emacspeak-empv-percentage-seek <1>:    emacspeak-empv.     (line   57)
+* emacspeak-empv-play-file:              emacspeak-empv.     (line   65)
+* emacspeak-empv-play-file <1>:          emacspeak-empv.     (line   68)
+* emacspeak-empv-play-last:              emacspeak-empv.     (line   76)
+* emacspeak-empv-play-last <1>:          emacspeak-empv.     (line   79)
+* emacspeak-empv-play-local:             emacspeak-empv.     (line   86)
+* emacspeak-empv-play-local <1>:         emacspeak-empv.     (line   89)
+* emacspeak-empv-play-url:               emacspeak-empv.     (line   96)
+* emacspeak-empv-play-url <1>:           emacspeak-empv.     (line   99)
+* emacspeak-empv-relative-seek:          emacspeak-empv.     (line  107)
+* emacspeak-empv-relative-seek <1>:      emacspeak-empv.     (line  108)
+* emacspeak-empv-time-pos:               emacspeak-empv.     (line  116)
+* emacspeak-empv-time-pos <1>:           emacspeak-empv.     (line  117)
+* emacspeak-empv-toggle-custom:          emacspeak-empv.     (line  123)
+* emacspeak-empv-toggle-custom <1>:      emacspeak-empv.     (line  124)
+* emacspeak-empv-toggle-filter:          emacspeak-empv.     (line  130)
+* emacspeak-empv-toggle-filter <1>:      emacspeak-empv.     (line  131)
+* emacspeak-empv-yt-download:            emacspeak-empv.     (line  140)
+* emacspeak-empv-yt-download <1>:        emacspeak-empv.     (line  141)
 * emacspeak-enriched-voiceify-faces:     emacspeak-enriched. (line   14)
 * emacspeak-enriched-voiceify-faces <1>: emacspeak-enriched. (line   15)
 * emacspeak-eperiodic-goto-property-section: emacspeak-eperiodic.
@@ -5029,17 +5029,17 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-toggle-word-echo <1>:        emacspeak-speak.    (line 1069)
 * emacspeak-toggle-word-echo <2>:        emacspeak-speak.    (line 1072)
 * emacspeak-transient-mode:              emacspeak-transient.
-                                                             (line   55)
-* emacspeak-transient-mode <1>:          emacspeak-transient.
                                                              (line   56)
+* emacspeak-transient-mode <1>:          emacspeak-transient.
+                                                             (line   57)
 * emacspeak-transient-next-section:      emacspeak-transient.
-                                                             (line   67)
-* emacspeak-transient-next-section <1>:  emacspeak-transient.
                                                              (line   68)
+* emacspeak-transient-next-section <1>:  emacspeak-transient.
+                                                             (line   69)
 * emacspeak-transient-previous-section:  emacspeak-transient.
-                                                             (line   74)
-* emacspeak-transient-previous-section <1>: emacspeak-transient.
                                                              (line   75)
+* emacspeak-transient-previous-section <1>: emacspeak-transient.
+                                                             (line   76)
 * emacspeak-treesit-inspect:             emacspeak-treesit.  (line   14)
 * emacspeak-treesit-inspect <1>:         emacspeak-treesit.  (line   15)
 * emacspeak-url-template-fetch:          emacspeak-url-template.
