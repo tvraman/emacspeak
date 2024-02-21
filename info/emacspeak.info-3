@@ -5029,17 +5029,17 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-toggle-word-echo <1>:        emacspeak-speak.    (line 1069)
 * emacspeak-toggle-word-echo <2>:        emacspeak-speak.    (line 1072)
 * emacspeak-transient-mode:              emacspeak-transient.
-                                                             (line   56)
+                                                             (line   55)
 * emacspeak-transient-mode <1>:          emacspeak-transient.
-                                                             (line   57)
+                                                             (line   56)
 * emacspeak-transient-next-section:      emacspeak-transient.
-                                                             (line   68)
+                                                             (line   67)
 * emacspeak-transient-next-section <1>:  emacspeak-transient.
-                                                             (line   69)
+                                                             (line   68)
 * emacspeak-transient-previous-section:  emacspeak-transient.
-                                                             (line   75)
+                                                             (line   74)
 * emacspeak-transient-previous-section <1>: emacspeak-transient.
-                                                             (line   76)
+                                                             (line   75)
 * emacspeak-treesit-inspect:             emacspeak-treesit.  (line   14)
 * emacspeak-treesit-inspect <1>:         emacspeak-treesit.  (line   15)
 * emacspeak-url-template-fetch:          emacspeak-url-template.

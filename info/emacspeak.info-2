@@ -6914,11 +6914,10 @@ move through the buttons with the up/down arrows.
 --------------------------------------------
 
 When executing a command defined via Transient -- e.g.  command
-Magit-dispatch and friends, press ‘C-z’ (transient- Pressing ‘?’ twice
-also triggers this, and works wrks under Emacs-30.suspend) to
-temporarily suspend the currently active transient.  Emacspeak now
-displays a *transient-emacspeak* buffer that displays the contents of
-the most recently displayed transient choices.  Pressing ‘r’ resumes the
+Magit-dispatch and friends, ‘?’ twice to suspend the transient -- this
+calls 2‘transient-suspend’.  Emacspeak now displays a
+*transient-emacspeak* buffer that displays the contents of the most
+recently displayed transient choices.  Pressing ‘r’ resumes the
 transient; Pressing ‘C-q’ quits the transient.
 
 12.197.4 Emacspeak-Transient Commands

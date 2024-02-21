@@ -73,9 +73,9 @@
 ;; @subsection Browsing Contents Of transient--show
 ;; 
 ;; When executing a command defined via Transient --- e.g. command
-;; Magit-dispatch and friends, press @kbd {C-z} (transient- Pressing
-;; @code{?} twice also triggers this, and works wrks  under Emacs-30.suspend) to
-;; temporarily suspend   the currently active transient. Emacspeak now
+;; Magit-dispatch and friends, 
+;; @code{?} twice to suspend the transient   --- this calls
+;; 2@code{transient-suspend}. Emacspeak now
 ;; displays a  *transient-emacspeak* buffer that displays the contents of the
 ;; most recently displayed transient choices. Pressing @kbd {r} resumes
 ;; the transient; Pressing @kbd{C-q} quits the transient.
