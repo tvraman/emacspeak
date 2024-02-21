@@ -121,15 +121,13 @@
       transient–show <a class="copiable-link" href=
       "#Browsing-Contents-Of-transient_002d_002dshow">¶</a></span></h4>
       <p>When executing a command defined via Transient — e.g.
-      command Magit-dispatch and friends, press <kbd class=
-      "kbd">C-z</kbd> (transient- Pressing <code class=
-      "code">?</code> twice also triggers this, and works wrks
-      under Emacs-30.suspend) to temporarily suspend the currently
-      active transient. Emacspeak now displays a
-      *transient-emacspeak* buffer that displays the contents of
-      the most recently displayed transient choices. Pressing
-      <kbd class="kbd">r</kbd> resumes the transient; Pressing
-      <kbd class="kbd">C-q</kbd> quits the transient.</p>
+      command Magit-dispatch and friends, <code class=
+      "code">?</code> twice to suspend the transient — this calls
+      2<code class="code">transient-suspend</code>. Emacspeak now
+      displays a *transient-emacspeak* buffer that displays the
+      contents of the most recently displayed transient choices.
+      Pressing <kbd class="kbd">r</kbd> resumes the transient;
+      Pressing <kbd class="kbd">C-q</kbd> quits the transient.</p>
     </div>
     <div class="subsection-level-extent" id=
     "Emacspeak_002dTransient-Commands">
