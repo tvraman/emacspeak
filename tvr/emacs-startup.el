@@ -170,8 +170,6 @@ Use Custom to customize where possible. "
        abbrev-mode auto-correct-mode)))
   (setq  global-mode-string '("" display-time-string battery-mode-line-string))
   (bash-completion-setup)
-  (require 'cc-isearch-menu)
-  (define-key isearch-mode-map (kbd "<f2>") 'cc-isearch-menu-transient)
   (load-library "llm-prepare"))
 
 (defun tvr-after-init ()
