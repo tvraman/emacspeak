@@ -2007,12 +2007,7 @@ Produce an auditory icon if possible."
 (defadvice isearch-occur (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-icon 'open-object)
-    (dtk-speak "Opened occur results")))
-
-(when (locate-library "cc-isearch-menu")
-  (require 'cc-isearch-menu)
-(define-key isearch-mode-map (kbd "<f2>") 'cc-isearch-menu-transient))
+    (emacspeak-icon 'open-object)))
 
 ;;;  marking objects produces auditory icons
 
