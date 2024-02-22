@@ -4,7 +4,7 @@
 
 (require 'ellama)
 (require 'llm-gemini)
-(require 'gptel "gptel" 'no-error)
+(require 'gptel)
 
 ;;; Ellama:
 (setopt
@@ -23,7 +23,11 @@
 ;;; gptel:
 (setopt
  gptel-backend
- (gptel-make-gemini
-     "Gemini"
+ (gptel-make-gemini "Gemini"
    :key(auth-source-pass-get 'secret "ai.google" )
    :stream t))
+
+
+(setq gptel-gemma
+      (gptel-make-ollama "gemma"
+          :models "gemma:2b" :stream t))
