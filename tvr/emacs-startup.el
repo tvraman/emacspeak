@@ -20,7 +20,6 @@
 ;;        - Loads all-prepare.el described above.
 ;;        - Load the custom settings file.
 ;;        - Starts up things like the emacs server.
-;;        - Some of these tasks are done on a separate thread using make-thread.
 ;;        - The work of loading files etc., is done within macro tvr-time-load
 ;;        which sets up an efficient environment for loading files and
 ;;        helps in profiling.
