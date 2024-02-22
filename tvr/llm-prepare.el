@@ -11,6 +11,12 @@
  ellama-provider
  (make-llm-gemini :key (auth-source-pass-get 'secret "ai.google" )))
 
+(setopt
+ ellama-providers
+ '(("gemma" .
+    (make-llm-ollama
+     :chat-model "gemma:7b" :embedding-model "gemma:7b"))))
+
 (setq ellama-assistant-nick "Gemini")
 (global-set-key (kbd "C-; ," ) 'ellama-chat)
 
