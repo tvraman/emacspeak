@@ -96,7 +96,11 @@ the Emacspeak desktop.")
 
 (with-eval-after-load "gptel"
   (cl-declare (special gptel-post-response-functions))
-  (cl-pushnew  'emacspeak-speak-region gptel-post-response-functions))
+  (setopt gptel-post-stream-hook
+          #'(lambda nil (emacspeak-icon 'tick-tick)))
+  
+  (setopt gptel-post-response-functions
+          (cl-pushnew  'emacspeak-speak-region gptel-post-response-functions)))
 
 ;;;  Setup package extensions
 (defvar emacspeak-packages-to-prepare
