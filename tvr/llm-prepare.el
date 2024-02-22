@@ -30,4 +30,4 @@
 
 (setq gptel-gemma
       (gptel-make-ollama "gemma"
-          :models "gemma:2b" :stream t))
+        :models '("gemma:2b") :stream t))
