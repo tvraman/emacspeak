@@ -201,8 +201,7 @@ icon-name as string."
   (when
       (and
        emacspeak-play-program           ; avoid nil nil comparison
-       (string= emacspeak-play-program emacspeak-pactl)
-       (= 1 (call-process emacspeak-pactl nil nil nil "play-sample" "on"))) 
+       (string= emacspeak-play-program emacspeak-pactl)) 
     (ems--upload-pulse-samples))
   (setq emacspeak-sounds-current-theme theme)
   (emacspeak-icon 'button))
