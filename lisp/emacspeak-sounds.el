@@ -194,7 +194,7 @@ icon-name as string."
   (interactive
    (list
     (expand-file-name
-     (completing-read "Theme: " '("ogg-3c" "ogg-chimes") nil 'must-match)
+     (completing-read "Theme: " '("ogg-3d" "ogg-chimes") nil 'must-match)
      emacspeak-sounds-dir)))
   (cl-declare (special emacspeak-play-program emacspeak-sounds-dir))
   (emacspeak-sounds-cache-rebuild theme)
