@@ -28,6 +28,6 @@
    (gptel-make-gemini "Gemini"
      :key(auth-source-pass-get 'secret "ai.google" )
      :stream t))
-  (setq gptel-backend                   ; gemma
+  (setopt gptel-backend                   ; gemma
         (gptel-make-ollama "gemma"
           :models '("gemma:2b") :stream t)))
