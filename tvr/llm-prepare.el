@@ -21,7 +21,7 @@
 (global-set-key (kbd "C-; ," ) 'ellama-chat)
 
 ;;; gptel:
-(when (zerop (length (string-trim (shell-command-to-string "pidof ollama"))))
+(if (zerop (length (string-trim (shell-command-to-string "pidof ollama"))))
                                         ; remote  model
   (setopt
    gptel-backend
