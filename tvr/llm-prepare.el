@@ -21,13 +21,13 @@
 (global-set-key (kbd "C-; ," ) 'ellama-chat)
 
 ;;; gptel:
-(setopt
- gptel-backend
- (gptel-make-gemini "Gemini"
-   :key(auth-source-pass-get 'secret "ai.google" )
-   :stream t))
-
-
-(setq gptel-gemma
-      (gptel-make-ollama "gemma"
-        :models '("gemma:2b") :stream t))
+(when (zerop (length (shell-command-to-string "pidof ollama")))
+                                        ; remote  model
+  (setopt
+   gptel-backend
+   (gptel-make-gemini "Gemini"
+     :key(auth-source-pass-get 'secret "ai.google" )
+     :stream t))
+  (setq gptel-backend                   ; gemma
+        (gptel-make-ollama "gemma"
+          :models '("gemma:2b") :stream t)))
