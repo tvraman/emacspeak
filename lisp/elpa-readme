@@ -39,7 +39,7 @@ the inter-dependencies among some of the core Emacs modules.
     (emacspeak-sounds-define-theme-if-necessary): Make sure
     `ems--fastload` exists.
 
-    * sounds/*/define-theme.el: Require `emacspeak-sounds`.
+    
 
     * lisp/sox-gen.el: Require `dtk-speak`.
 
