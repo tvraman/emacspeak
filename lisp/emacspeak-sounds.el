@@ -202,7 +202,7 @@ icon-name as string."
       (and
        emacspeak-play-program           ; avoid nil nil comparison
        (string= emacspeak-play-program emacspeak-pactl)
-       (not (string-match "ogg-chimes" emacspeak-sounds-current-theme))) 
+       (called-interactively-p 'interactive)) 
     (ems--upload-pulse-samples))
   (setq emacspeak-sounds-current-theme theme)
   (emacspeak-icon 'button))
