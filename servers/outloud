@@ -388,10 +388,6 @@ synth "`vs$rate "
 
 proc clean {element} {
     global queue tts
-#Experimental: single letter caps 
-    regsub -all --  { [B-HJ-Z] } $element { cap \0 } element
-    regsub -all --  {^[B-HJ-Z] } $element { cap \0 } element
-    regsub -all --  { [B-HJ-Z]$} $element {cap \0 } element
     if {[string match all $tts(punctuations)] } {
         regsub -all --  {\*} $element { `00 star } element
         regsub -all --  {-} $element { `00 dash } element
