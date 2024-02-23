@@ -141,6 +141,7 @@ mac for MAC TTS (default on Mac)")
 ;;;  sync
 
 (defsubst dtk-interp-sync ()
+  "Synchronize speech state with running server"
   (cl-declare (special
                dtk-speaker-process dtk-caps
                dtk-punctuation-mode dtk-speech-rate dtk-split-caps))
