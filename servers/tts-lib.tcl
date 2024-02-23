@@ -36,9 +36,9 @@
 #
 
 #}}}
-#{{{ tts_caps_beep
+#{{{ tts_caps
 
-proc tts_caps_beep {flag} {
+proc tts_caps {flag} {
     global tts 
     set tts(caps_beep) $flag
     return ""
@@ -48,10 +48,10 @@ proc tts_caps_beep {flag} {
 #}}}
 
 #{{{ sync state 
-proc tts_sync_state {punct  splitcaps capsbeep rate } {
+proc tts_sync_state {punct  splitcaps caps rate } {
     tts_set_punctuations  $punct
     tts_split_caps   $splitcaps
-    tts_caps_beep $capsbeep
+    tts_caps $caps
     tts_set_speech_rate  $rate
 } 
 #}}}
