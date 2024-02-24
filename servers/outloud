@@ -399,6 +399,7 @@ proc clean {element} {
         regsub -all -- {\$} $element { dollar } element; # 
         regsub -all {[[:punct:]]} $element { \0 } element
     } else {
+        regsub -all  {\yI'm\y} $element { I `00 am } element
         regsub -all  {[*&()\"]} $element  {}   element
         regsub -all { ?\-([[:digit:],]+\.[[:digit:]]+)} $element \
             { minus `p3 \1 } element
