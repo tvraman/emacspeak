@@ -52,14 +52,6 @@
   :group 'message
   :prefix "emacspeak-message-")
 
-(defcustom emacspeak-message-punctuation-mode  'all
-  "Pronunciation mode to use for message buffers."
-  :type '(choice
-          (const  :tag "Ignore" nil)
-          (const  :tag "some" some)
-          (const  :tag "all" all))
-  :group 'emacspeak-message)
-
 ;;;  voice mapping
 
 (voice-setup-add-map
@@ -219,12 +211,7 @@
     (message "newline and reformat")))
 
 (add-hook 'message-mode-hook
-          (lambda ()
-            (dtk-set-punctuations emacspeak-message-punctuation-mode)
-            (emacspeak-pronounce-refresh-pronunciations)
-            (emacspeak-icon 'open-object)
-            (message "Starting message %s ... done"
-                     (buffer-name))))
+          #'emacspeak-pronounce-refresh-pronunciations)
 
 (provide  'emacspeak-message)
 

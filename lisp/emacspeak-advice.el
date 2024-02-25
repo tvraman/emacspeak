@@ -2813,6 +2813,13 @@ Produce an auditory icon if possible."
      "speak."
      (when (ems-interactive-p)
        (emacspeak-speak-char t )))))
+;;; Compose Mail:
+
+(defadvice compose-mail (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-icon 'open-object)
+    (emacspeak-speak-line)))
 
 ;;; Speaking Spaces:
 
