@@ -2283,9 +2283,10 @@ Produce an auditory icon if possible."
         (caps-regexp "\\b[A-Z]\\b")
         (hyper-regexp "C-x @ h")
         (alt-regexp "C-x @ a")
-        (super-regexp "C-x @ s"))
+        (super-regexp "C-x @ s")
+        (buffer-undo-list t))
     (with-temp-buffer
-      (setq buffer-undo-list t)
+      
       (setq case-fold-search nil)
       (erase-buffer)
       (insert desc)

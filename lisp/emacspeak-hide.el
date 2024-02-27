@@ -367,7 +367,7 @@ buffer to be hidden or exposed."
         (setq block (concat "^"
                             (regexp-quote block-prefix)))
         (set-buffer scratch-buffer)
-        (setq buffer-undo-list t)
+        (setq-local buffer-undo-list t)
         (with-silent-modifications
           (erase-buffer)
           (insert contents)

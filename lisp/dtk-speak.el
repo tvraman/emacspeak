@@ -1703,7 +1703,7 @@ unless   `dtk-quiet' is set to t. "
           (mode dtk-punctuation-mode)
           (voice-lock voice-lock-mode)) ; done snapshotting
       (with-current-buffer dtk-scratch-buffer
-        (setq buffer-undo-list t)
+        (setq-local buffer-undo-list t)
         (erase-buffer)
         (when (eq orig-mode 'org-mode)
           (setq org-link-descriptive links-desc)
@@ -1792,7 +1792,7 @@ grouping"
         (inhibit-read-only t))
     (save-current-buffer
       (set-buffer dtk-scratch-buffer)
-      (setq buffer-undo-list t)
+      (setq-local buffer-undo-list t)
       (erase-buffer)
       (cl-loop
        for element in text do

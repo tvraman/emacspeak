@@ -121,11 +121,13 @@ Optional interactive PREFIX arg toggles global value."
   (cl-declare (special emacspeak-use-auditory-icons))
   (setq  emacspeak-use-auditory-icons (not emacspeak-use-auditory-icons))
   (when prefix
-    (setq-default emacspeak-use-auditory-icons emacspeak-use-auditory-icons))
-  (message "Turned %s auditory icons %s"
-           (if emacspeak-use-auditory-icons  'on 'off)
-           (if prefix "" "locally"))
-  (when emacspeak-use-auditory-icons (emacspeak-icon 'on)))
+    (setq-default emacspeak-use-auditory-icons
+                  emacspeak-use-auditory-icons))
+  (when (called-interactively-p 'interactive)
+    (message "Turned %s auditory icons %s"
+             (if emacspeak-use-auditory-icons  'on 'off)
+             (if prefix "" "locally"))
+    (when emacspeak-use-auditory-icons (emacspeak-icon 'on))))
 
 ;;;###autoload
 (defun emacspeak-icon (icon)

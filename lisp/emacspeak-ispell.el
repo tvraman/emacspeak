@@ -90,7 +90,7 @@ many available corrections."
             (line-beginning-position) (line-end-position))))
     (with-temp-buffer
       (setq voice-lock-mode t)
-      (setq buffer-undo-list t)
+      (setq-local buffer-undo-list t)
       (dtk-set-punctuations 'all)
       (insert line)
       (cond

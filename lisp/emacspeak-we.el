@@ -475,7 +475,7 @@ Tables are specified by containing  match pattern
   (let ((values nil)
         (content (clone-buffer)))
     (with-current-buffer content
-      (setq buffer-undo-list t)
+      (setq-local buffer-undo-list t)
       (emacspeak-xslt-run
        (emacspeak-xslt-get "class-values.xsl")
        (point-min) (point-max))
@@ -502,7 +502,7 @@ Tables are specified by containing  match pattern
   (let ((values nil)
         (content (clone-buffer)))
     (with-current-buffer content
-      (setq buffer-undo-list t)
+      (setq-local buffer-undo-list t)
       (emacspeak-xslt-run
        (emacspeak-xslt-get "id-values.xsl")
        (point-min) (point-max))
@@ -526,7 +526,7 @@ Tables are specified by containing  match pattern
   (let ((values nil)
         (content (clone-buffer)))
     (with-current-buffer content
-      (setq buffer-undo-list t)
+      (setq-local buffer-undo-list t)
       (emacspeak-xslt-run
        (emacspeak-xslt-get "role-values.xsl")
        (point-min) (point-max))

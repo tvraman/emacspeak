@@ -115,7 +115,7 @@
   "Major mode for m-player interaction. \n\n
 \\{emacspeak-m-player-mode-map}"
   (progn
-    (setq ems--media-data (make-ems--media-data)
+    (setq-local ems--media-data (make-ems--media-data)
           buffer-undo-list t
           buffer-read-only nil)))
 
@@ -578,7 +578,7 @@ dynamic playlist. "
              (file-list (nconc options file-list))
              (t
               (nconc options (list resource)))))
-      (setq buffer-undo-list t)
+      (setq-local buffer-undo-list t)
       (setq emacspeak-m-player-process
             (apply
              #'start-process "MPLayer" buffer

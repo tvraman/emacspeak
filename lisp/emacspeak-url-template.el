@@ -174,7 +174,7 @@ dont-url-encode if true then url arguments are not url-encoded "
         (buffer (find-file-noselect
                  (expand-file-name file emacspeak-user-directory))))
     (with-current-buffer buffer
-      (setq buffer-undo-list t)
+      (setq-local buffer-undo-list t)
       (erase-buffer)
       (cl-loop
        for key being the hash-keys of emacspeak-url-template-table do

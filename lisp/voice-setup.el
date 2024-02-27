@@ -278,7 +278,7 @@ Define a voice for it if needed, then return the symbol."
 
 ;;;###autoload
 (defun voice-setup-toggle-silence-personality ()
-  "Toggle audibility of personality under point  . "
+  "Toggle audibility of personality under point  . "
   (interactive)
   (cl-declare (special voice-setup-local-map))
   (let* ((face (get-text-property (point) 'face))

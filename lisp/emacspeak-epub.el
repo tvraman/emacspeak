@@ -205,7 +205,7 @@
   "Return DOM from specified file in epub archive."
   (cl-declare (special emacspeak-epub-unzip))
   (with-temp-buffer
-    (setq buffer-undo-list t)
+    (setq-local buffer-undo-list t)
     (shell-command
      (format
       "%s -c -qq %s %s "
@@ -244,7 +244,7 @@
     (error "Element not found in EPub. "))
   (let ((buffer (get-buffer-create emacspeak-epub-scratch)))
     (with-current-buffer buffer
-      (setq buffer-undo-list t)
+      (setq-local buffer-undo-list t)
       (erase-buffer)
       (call-process emacspeak-epub-unzip
                     nil t nil
@@ -524,7 +524,7 @@ Optional interactive prefix arg author-first prints author at the
   "An EPub Front-end.
 Letters do not insert themselves; instead, they are commands.
 \\{emacspeak-epub-mode-map}"
-  (setq buffer-undo-list t)
+  (setq-local buffer-undo-list t)
   (setq header-line-format
         (propertize "EPub Bookshelf" 'face 'bold))
   (goto-char (point-min))
@@ -759,7 +759,7 @@ No book files are deleted."
         (print-level nil))
     (save-current-buffer
       (set-buffer buff)
-      (setq buffer-undo-list t)
+      (setq-local buffer-undo-list t)
       (erase-buffer)
       (print  emacspeak-epub-db  buff)
       (save-buffer buff)
@@ -875,7 +875,7 @@ in the epub file."
      do
      (setq dom (emacspeak-epub-dom-from-archive epub-file f))
      (with-current-buffer eww-epub
-       (setq buffer-undo-list t)
+       (setq-local buffer-undo-list t)
        (shr-insert-document (dom-by-tag dom 'body))))
     (with-current-buffer eww-epub
       (eww-mode)
@@ -1100,7 +1100,7 @@ Searches for matches in both  Title and Author."
         (calibre (get-buffer-create " *Calibre Results *")))
     (with-current-buffer  calibre
       (erase-buffer)
-      (setq buffer-undo-list t)
+      (setq-local buffer-undo-list t)
       (shell-command
        (format
         "%s -list -separator '@@' %s \"%s\" 2>/dev/null"
@@ -1198,7 +1198,7 @@ Searches for matches in both  Title and Author."
 Letters do not insert themselves; instead, they are commands.
 \\<emacspeak-calibre-mode-map>
 \\{emacspeak-calibre-mode-map}"
-  (setq buffer-undo-list t)
+  (setq-local buffer-undo-list t)
   (setq header-line-format
         (propertize "Calibre Results" 'face 'bold))
   (goto-char (point-min))
@@ -1228,7 +1228,7 @@ Letters do not insert themselves; instead, they are commands.
         (start nil))
     (with-current-buffer buffer
       (erase-buffer)
-      (setq buffer-undo-list t)
+      (setq-local buffer-undo-list t)
       (goto-char (point-min))
       (insert "Calibre Results\n\n")
       (cl-loop

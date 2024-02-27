@@ -873,8 +873,8 @@ b Browse
      (t
       (with-current-buffer
           (get-buffer-create emacspeak-bookshare-interaction-buffer)
+        (setq-local buffer-undo-list t)
         (erase-buffer)
-        (setq buffer-undo-list t)
         (setq buffer-read-only t)
         (emacspeak-bookshare-mode))
       (switch-to-buffer emacspeak-bookshare-interaction-buffer)))
@@ -1275,7 +1275,7 @@ Useful for fulltext search in a book."
               (cl-first (directory-files directory 'full "\\.xml\\'")))
              emacspeak-bookshare-html-to-text-command))
       (erase-buffer)
-      (setq buffer-undo-list t)
+      (setq-local buffer-undo-list t)
       (shell-command command (current-buffer) nil)
       (setq buffer-read-only t)
       (goto-char (point-min)))
@@ -1313,7 +1313,7 @@ Useful for fulltext search in a book."
              (shell-quote-argument
               (cl-first (directory-files directory 'full "\\.xml\\'")))))
       (erase-buffer)
-      (setq buffer-undo-list t)
+      (setq-local buffer-undo-list t)
       (shell-command command (current-buffer) nil)
       (add-hook
        'emacspeak-eww-post-process-hook
