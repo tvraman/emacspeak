@@ -911,6 +911,24 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 
 ;;;  advice various input functions to speak:
 
+;; read-password--hide-password
+(defadvice read-passwd--hide-password (after emacspeak pre act comp)
+  "Icon."
+  (dtk-notify-say
+   (if read-passwd--hide-password
+       "dot"
+     (if (characterp last-input-event)
+         (format "%c" last-input-event)
+       "dot")))
+  (emacspeak-icon 'repeat-active))
+
+(defadvice read-passwd-toggle-visibility (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p) ; we see old value 
+    (emacspeak-icon (if read-passwd--hide-password 'off 'on))))
+
+
+
 (defadvice read-passwd (before emacspeak pre act comp)
   "speak."
   (emacspeak-icon 'open-object)
@@ -948,11 +966,6 @@ When on a close delimiter, speak matching delimiter after a small delay. "
     (ems--log-message m)
     (tts-with-punctuations 'all (dtk-speak m))))
 
-;; read-password--hide-password
-(defadvice read-password--hide-password (after emacspeak pre act comp)
-  "Icon."
-  (dtk-notify-say "dot")
-  (emacspeak-icon 'repeat-active))
 
 ;;;  advice completion functions to speak:
 
