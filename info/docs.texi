@@ -247,7 +247,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1160 commands and 135 options.
+This chapter documents a total of 1160 commands and 134 options.
 
 @node amixer
 @section amixer
@@ -10796,20 +10796,6 @@ Default Value:
 @verbatim
 
 "cjpeg"
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} emacspeak-ocr-scan-image
-@verbatim
-Name of image acquisition program.
-@end verbatim
-
-Default Value: 
-@verbatim
-
-"scanimage"
 
 @end verbatim
 

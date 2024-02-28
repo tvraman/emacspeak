@@ -3364,14 +3364,6 @@ an OCR engine that can take acquired images and produce text.
      "cjpeg"
      
 
- -- Variable: User Option emacspeak-ocr-scan-image
-     Name of image acquisition program.
-
-     Default Value:
-     
-     "scanimage"
-     
-
  -- Variable: User Option emacspeak-ocr-scan-image-options
      Command line options to pass to image acquisition program.
 
