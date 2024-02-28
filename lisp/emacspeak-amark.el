@@ -120,7 +120,7 @@ given name, it is updated with path and position."
         (buff (find-file-noselect (expand-file-name emacspeak-amark-file))))
     (with-current-buffer buff
       (set (make-local-variable 'backup-inhibited) t)
-      (setq-local buffer-undo-list t)
+      (setq buffer-undo-list  t)
       (erase-buffer)
       (prin1 l (current-buffer))
       (save-buffer)
@@ -246,7 +246,7 @@ Maps command \\[emacspeak-m-player] across elements of the amarks
       (local-set-key "." 'emacspeak-amark-list-play)
       (local-set-key "n" 'forward-button)
       (erase-buffer)
-      (setq-local buffer-undo-list t)
+      (setq buffer-undo-list  t)
       (cl-loop
        for m in amarks do
        (insert-text-button

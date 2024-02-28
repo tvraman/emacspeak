@@ -2215,7 +2215,7 @@ via command `org-insert-link' bound to \\[org-insert-link]."
     (with-current-buffer buffer
       (emacspeak-eww-marks-mode)
       (erase-buffer)
-      (setq-local buffer-undo-list t)
+      (setq buffer-undo-list  t)
       (cl-loop
        for k being the hash-keys of emacspeak-eww-marks do
        (insert-text-button

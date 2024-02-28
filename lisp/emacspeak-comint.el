@@ -122,7 +122,7 @@ Interactive PREFIX arg means toggle the global default value. ")
                emacspeak-pronounce-sha-checksum-pattern
                emacspeak-pronounce-date-mm-dd-yyyy-pattern
                header-line-format emacspeak-use-header-line))
-  (setq-local buffer-undo-list t)
+  (setq buffer-undo-list  t)
   (define-key comint-mode-map "\C-o" 'switch-to-completions)
   (when emacspeak-use-header-line
     (setq

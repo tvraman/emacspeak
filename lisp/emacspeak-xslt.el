@@ -214,7 +214,7 @@ and return the results in a newly created buffer. "
     (with-current-buffer result 
       (kill-all-local-variables)
       (erase-buffer)
-      (setq-local buffer-undo-list t)
+      (setq buffer-undo-list  t)
       (let ((coding-system-for-write 'utf-8)
             (coding-system-for-read 'utf-8)
             (buffer-file-coding-system 'utf-8))

@@ -1470,7 +1470,7 @@ interactive prompt."
         (eval-expression-print-level nil)
         (result (eval form)))
     (with-current-buffer buffer
-      (setq-local buffer-undo-list t)
+      (setq buffer-undo-list  t)
       (erase-buffer)
       (condition-case nil
           (cl-prettyprint result)

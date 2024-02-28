@@ -93,7 +93,7 @@
           (mode dtk-punctuation-mode)
           (voice-lock voice-lock-mode))
       (with-current-buffer tts-scratch-buffer
-        (setq-local buffer-undo-list t)
+        (setq buffer-undo-list  t)
         (erase-buffer)
         ;; inherit environment
         (setq

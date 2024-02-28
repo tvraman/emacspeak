@@ -578,7 +578,7 @@ dynamic playlist. "
              (file-list (nconc options file-list))
              (t
               (nconc options (list resource)))))
-      (setq-local buffer-undo-list t)
+      (setq buffer-undo-list  t)
       (setq emacspeak-m-player-process
             (apply
              #'start-process "MPLayer" buffer

@@ -302,7 +302,7 @@ Parameter `key' is the API  key."
   "A Google Maps front-end for the Emacspeak desktop."
   (let ((start (point))
         (inhibit-read-only t))
-    (setq-local buffer-undo-list t)
+    (setq buffer-undo-list  t)
     (goto-char (point-min))
     (insert "Google Maps Interaction")
     (put-text-property start (point) 'face font-lock-doc-face)

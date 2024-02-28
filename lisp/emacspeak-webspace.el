@@ -290,7 +290,7 @@ Updated headlines found in emacspeak-webspace-headlines."
     (error "No cached headlines in this Emacs session."))
   (with-current-buffer
       (get-buffer-create emacspeak-webspace-headlines-buffer)
-    (setq-local buffer-undo-list t)
+    (setq buffer-undo-list  t)
     (let ((inhibit-read-only t))
       (erase-buffer)
       (goto-char (point-min))
