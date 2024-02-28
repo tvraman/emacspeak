@@ -108,11 +108,6 @@
   "Control auditory icons.
 Use `emacspeak-toggle-auditory-icons' bound to
 \\[emacspeak-toggle-auditory-icons].")
-(add-hook
- 'kill-emacs-hook
- #'(lambda nil
-     (when emacspeak-use-auditory-icons
-       (emacspeak-toggle-auditory-icons))))
 
 (defun emacspeak-toggle-auditory-icons (&optional prefix)
   "Toggle use of auditory icons.
