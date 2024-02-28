@@ -101,12 +101,10 @@
 
 ;;;   line, Word and Character echo
 
-(defcustom emacspeak-line-echo nil
+(defvar-local emacspeak-line-echo nil
   "If t, then emacspeak echoes lines as you type.
 You can use \\[emacspeak-toggle-line-echo] to set this
-option."
-  :group 'emacspeak
-  :type 'boolean)
+option.")
 
 (ems-generate-switcher 'emacspeak-toggle-line-echo
                        'emacspeak-line-echo
@@ -114,12 +112,10 @@ option."
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 
-(defcustom emacspeak-word-echo t
+(defvar-local emacspeak-word-echo t
   "If t, then emacspeak echoes words as you type.
 You can use \\[emacspeak-toggle-word-echo] to toggle this
-option."
-  :group 'emacspeak
-  :type 'boolean)
+option.")
 
 (ems-generate-switcher 'emacspeak-toggle-word-echo
                        'emacspeak-word-echo
@@ -127,13 +123,11 @@ option."
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 
-(defcustom emacspeak-character-echo t
+(defvar-local emacspeak-character-echo t
   "If t, then emacspeak echoes characters  as you type.
 You can
 use \\[emacspeak-toggle-character-echo] to toggle this
-setting."
-  :group 'emacspeak
-  :type 'boolean)
+setting.")
 
 (ems-generate-switcher 'emacspeak-toggle-character-echo
                        'emacspeak-character-echo
