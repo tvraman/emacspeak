@@ -890,8 +890,7 @@ this pattern if previously added.    "
        (prefix
         (setq-default ,switch (not ,switch))
         (setq ,switch (default-value ',switch)))
-       (t (make-local-variable ',switch)
-          (setq ,switch (not ,switch))))
+       (t (setq ,switch (not ,switch))))
       (dtk-interp-sync)
       (when (called-interactively-p 'interactive)
         (emacspeak-icon (if ,switch 'on 'off))
