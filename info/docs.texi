@@ -247,7 +247,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1160 commands and 141 options.
+This chapter documents a total of 1160 commands and 139 options.
 
 @node amixer
 @section amixer
@@ -9897,22 +9897,6 @@ Move up in current Math expression. (auto-generated)
 
 advice for posting message commands
 
-@subsection emacspeak-message Options
-
-@defvar {User Option} emacspeak-message-punctuation-mode
-@verbatim
-Pronunciation mode to use for message buffers.
-@end verbatim
-
-Default Value: 
-@verbatim
-
-all
-
-@end verbatim
-
-@end defvar
-
 @node emacspeak-metapost
 @section emacspeak-metapost
 
@@ -13779,24 +13763,6 @@ Default Value:
 @verbatim
 
 "/home/raman/.emacspeak/.filters"
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} emacspeak-speak-messages
-@verbatim
-Option indicating if messages are spoken.  If nil,
-emacspeak will not speak messages as they are echoed to the
-message area.  You can use command
-‘emacspeak-toggle-speak-messages’ bound to
-C-e C-M-q.
-@end verbatim
-
-Default Value: 
-@verbatim
-
-t
 
 @end verbatim
 
@@ -20499,7 +20465,7 @@ Turn on Voice Lock mode .
 @findex voice-setup-toggle-silence-personality
 
 @format
-Toggle audibility of personality under point  . 
+Toggle audibility of personality under point  . 
 @end format
 @end deffn
 

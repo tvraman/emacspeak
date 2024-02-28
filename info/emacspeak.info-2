@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 21, 2024.
+last updated on February 27, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -2599,17 +2599,6 @@ File: emacspeak.info,  Node: emacspeak-message,  Next: emacspeak-metapost,  Prev
 ========================
 
 advice for posting message commands
-
-12.125.1 emacspeak-message Options
-----------------------------------
-
- -- Variable: User Option emacspeak-message-punctuation-mode
-     Pronunciation mode to use for message buffers.
-
-     Default Value:
-     
-     all
-     
 
 
 File: emacspeak.info,  Node: emacspeak-metapost,  Next: emacspeak-midge,  Prev: emacspeak-message,  Up: Emacspeak Commands And Options
@@ -5714,18 +5703,6 @@ of emacspeak from becoming dependent on the speech server modules
      Default Value:
      
      "/home/raman/.emacspeak/.filters"
-     
-
- -- Variable: User Option emacspeak-speak-messages
-     Option indicating if messages are spoken.  If nil,
-     emacspeak will not speak messages as they are echoed to the
-     message area.  You can use command
-     ‘emacspeak-toggle-speak-messages’ bound to
-     C-e C-M-q.
-
-     Default Value:
-     
-     t
      
 
  -- Variable: User Option emacspeak-speak-time-brief-format

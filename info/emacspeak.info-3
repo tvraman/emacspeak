@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 21, 2024.
+last updated on February 27, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -682,7 +682,7 @@ from other modules.
 
  -- Command: voice-setup-toggle-silence-personality
 
-     Toggle audibility of personality under point  .
+     Toggle audibility of personality under point  .
 
 12.237.3 voice-setup Options
 ----------------------------
