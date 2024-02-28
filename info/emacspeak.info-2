@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 27, 2024.
+last updated on February 28, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -1307,7 +1307,7 @@ found on laptops is denoted <fn>
       ("i" ibuffer)
       ("m" mspools-show)
       ("o" emacspeak-wizards-occur-header-lines)
-      ("p" paradox-list-packages)
+      ("p" list-packages)
       ("t" emacspeak-speak-telephone-directory)
       ("u" emacspeak-wizards-units)
       ("v" emacspeak-wizards-vc-viewer)
@@ -5637,27 +5637,6 @@ of emacspeak from becoming dependent on the speech server modules
      nil
      
 
- -- Variable: User Option emacspeak-character-echo
-     If t, then emacspeak echoes characters  as you type.
-     You can
-     use C-e d k to toggle this
-     setting.
-
-     Default Value:
-     
-     t
-     
-
- -- Variable: User Option emacspeak-line-echo
-     If t, then emacspeak echoes lines as you type.
-     You can use C-e d l to set this
-     option.
-
-     Default Value:
-     
-     nil
-     
-
  -- Variable: User Option emacspeak-mail-alert
       If t, emacspeak will alert you about newly arrived mail
      with an auditory icon when
@@ -5729,16 +5708,6 @@ of emacspeak from becoming dependent on the speech server modules
      Default Value:
      
      "/usr/share/zoneinfo/"
-     
-
- -- Variable: User Option emacspeak-word-echo
-     If t, then emacspeak echoes words as you type.
-     You can use C-e d w to toggle this
-     option.
-
-     Default Value:
-     
-     t
      
 
 
@@ -9647,14 +9616,6 @@ gblogger etc.
      Default Value:
      
      nil
-     
-
- -- Variable: User Option g-curl-options
-     Common options to pass to all Curl invocations.
-
-     Default Value:
-     
-     "--http1.0 --compressed --silent --location --location-trusted --max-time 4 --connect-timeout 1"
      
 
 

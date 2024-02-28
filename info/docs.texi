@@ -247,7 +247,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1160 commands and 139 options.
+This chapter documents a total of 1160 commands and 135 options.
 
 @node amixer
 @section amixer
@@ -8350,7 +8350,7 @@ Default Value:
  ("i" ibuffer)
  ("m" mspools-show)
  ("o" emacspeak-wizards-occur-header-lines)
- ("p" paradox-list-packages)
+ ("p" list-packages)
  ("t" emacspeak-speak-telephone-directory)
  ("u" emacspeak-wizards-units)
  ("v" emacspeak-wizards-vc-viewer)
@@ -13658,39 +13658,6 @@ nil
 
 @end defvar
 
-@defvar {User Option} emacspeak-character-echo
-@verbatim
-If t, then emacspeak echoes characters  as you type.
-You can
-use C-e d k to toggle this
-setting.
-@end verbatim
-
-Default Value: 
-@verbatim
-
-t
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} emacspeak-line-echo
-@verbatim
-If t, then emacspeak echoes lines as you type.
-You can use C-e d l to set this
-option.
-@end verbatim
-
-Default Value: 
-@verbatim
-
-nil
-
-@end verbatim
-
-@end defvar
-
 @defvar {User Option} emacspeak-mail-alert
 @verbatim
  If t, emacspeak will alert you about newly arrived mail
@@ -13807,22 +13774,6 @@ Default Value:
 @verbatim
 
 "/usr/share/zoneinfo/"
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} emacspeak-word-echo
-@verbatim
-If t, then emacspeak echoes words as you type.
-You can use C-e d w to toggle this
-option.
-@end verbatim
-
-Default Value: 
-@verbatim
-
-t
 
 @end verbatim
 
@@ -18852,20 +18803,6 @@ Default Value:
 @verbatim
 
 nil
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} g-curl-options
-@verbatim
-Common options to pass to all Curl invocations.
-@end verbatim
-
-Default Value: 
-@verbatim
-
-"--http1.0 --compressed --silent --location --location-trusted --max-time 4 --connect-timeout 1"
 
 @end verbatim
 
