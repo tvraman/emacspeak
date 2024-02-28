@@ -1,0 +1,57 @@
+# For this script to run you must set some secret values in github.
+# The below use the `gh` command line utility to set them.
+
+# Notes:
+# These will default to the current repo if you don't pass -R "owner/repo"
+
+# Required:
+# 1. gh secret set TO -b "Joe Smith <foo@bar.com>" 
+# 2. gh secret set FROM -b "Luke Skywalker <luke@skywalker.com>" 
+# 3. gh secret set SMTP_HOST -b "smtp.fastmail.com" 
+# 4. gh secret set SMTP_USERNAME -b "username@host.com" 
+# 5. gh secret set SMTP_PASSWORD -b "secretpassword" 
+
+# Optional:
+# A. gh secret set SMTP_PORT -b "465" - defaults to 465
+# B. gh secret set SMTP_SECURE -b "true" - defaults to true
+# C. gh secret set REPLY_TO -b "Joe Replyto <foo@fake.com>" - defaults to the FROM value
+
+# There are more settings you can find at:
+#   https://github.com/marketplace/actions/send-email
+
+on:
+  issues:
+    types: [opened, edited, closed, reopened] 
+
+jobs:
+  issue-updates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Issue Email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{secrets.SMTP_HOST}}
+          server_port: ${{secrets.SMTP_PORT || '465'}}
+          secure: ${{secrets.SMTP_SECURE || 'true'}}
+          username: ${{secrets.SMTP_USERNAME}}
+          password: ${{secrets.SMTP_PASSWORD}}
+          convert_markdown: false
+          # nodemailerlog: true
+          # nodemailerdebug: true
+
+          to: ${{ secrets.TO }}
+          from: ${{ secrets.FROM }}
+          reply_to: ${{ secrets.REPLY_TO || secrets.FROM }}
+          subject: "GitHub Issue: ${{ github.event.issue.title }} - ${{ github.event.action }}"
+          body: |
+            ${{ github.event.issue.title }} - ${{ github.event.action }}
+
+            ${{ github.event.issue.body }}
+
+            ----
+
+            Issue Number: #${{ github.event.issue.number }}
+
+            Updated By: @${{ github.event.sender.login }}
+
+            Issue URL: ${{ github.event.issue.html_url }}
