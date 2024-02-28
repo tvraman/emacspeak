@@ -422,7 +422,7 @@ commands and options for details."
   (setenv "EMACSPEAK_DIR" emacspeak-directory)
   (add-hook ; silence messages when quitting
    'kill-emacs-hook
-   #'(lambda nil (setq emacspeak-speak-messages nil))
+   #'(lambda nil (setq-default emacspeak-speak-messages nil))
    -10)
   (dtk-initialize)
   (setq ring-bell-function #'(lambda nil (emacspeak-icon 'warn-user)))

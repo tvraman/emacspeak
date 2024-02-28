@@ -174,14 +174,12 @@ Speech flushes as you type."
 
 ;;;  Shell Command Helper:
 
-(defcustom emacspeak-speak-messages t
+(defvar-local emacspeak-speak-messages t
   "Option indicating if messages are spoken.  If nil,
 emacspeak will not speak messages as they are echoed to the
 message area.  You can use command
 `emacspeak-toggle-speak-messages' bound to
-\\[emacspeak-toggle-speak-messages]."
-  :group 'emacspeak
-  :type 'boolean)
+\\[emacspeak-toggle-speak-messages].")
 
 ;; Emacspeak silences messages from shell-command when called
 ;; non-interactively.  This replacement is used within Emacspeak to
