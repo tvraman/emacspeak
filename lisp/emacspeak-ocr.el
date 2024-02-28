@@ -68,10 +68,8 @@ OCR engine for optical character recognition."
   :group 'emacspeak
   :prefix "emacspeak-ocr-")
 
-(defcustom emacspeak-ocr-scan-image "scanimage"
-  "Name of image acquisition program."
-  :type 'string 
-  :group 'emacspeak-ocr)
+(defvar emacspeak-ocr-scan-image (executable-find "scanimage")
+  "Name of image acquisition program.")
 
 (defcustom emacspeak-ocr-scan-image-options 
   "--resolution 300 --mode lineart --format=tiff"
