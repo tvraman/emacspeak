@@ -64,12 +64,10 @@
 (defvar g-scratch-buffer" *g scratch*"
   "Scratch buffer we do authentication work.")
 
-(defcustom g-curl-options
+(defvar g-curl-options
   (concat "--http1.0 --compressed --silent --location --location-trusted "
           "--max-time 4 --connect-timeout 1")
-  "Common options to pass to all Curl invocations."
-  :type 'string
-  :group 'g)
+  "Common options to pass to all Curl invocations.")
 
 (defvar g-html-handler 'browse-url-of-buffer
   "Function that processes HTML.
