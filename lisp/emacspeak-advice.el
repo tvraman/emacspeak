@@ -2849,6 +2849,14 @@ Produce an auditory icon if possible."
     (emacspeak-speak-line)
     (emacspeak-speak-spaces)))
 
+;;; psession:
+(with-eval-after-load
+    "psession"
+  (defadvice psession--dump-object-to-file-save-alist
+      (around emacspeak pre act comp)
+    "Silence."
+    (ems-with-messages-silenced ad-do-it)))
+
 (provide 'emacspeak-advice)
 
 ;;;  end of file
