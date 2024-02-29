@@ -247,7 +247,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1160 commands and 134 options.
+This chapter documents a total of 1160 commands and 133 options.
 
 @node amixer
 @section amixer
@@ -9621,20 +9621,6 @@ Default Value:
 @verbatim
 
 nil
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} emacspeak-mplayer
-@verbatim
-Media player program.
-@end verbatim
-
-Default Value: 
-@verbatim
-
-"/usr/local/bin/mplayer"
 
 @end verbatim
 

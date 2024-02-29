@@ -2353,14 +2353,6 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      nil
      
 
- -- Variable: User Option emacspeak-mplayer
-     Media player program.
-
-     Default Value:
-     
-     "/usr/local/bin/mplayer"
-     
-
 
 File: emacspeak.info,  Node: emacspeak-magit,  Next: emacspeak-make-mode,  Prev: emacspeak-m-player,  Up: Emacspeak Commands And Options
 
