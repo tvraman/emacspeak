@@ -1537,18 +1537,15 @@ Auditory highlight indicates position of point."
  '(newline newline-and-indent electric-newline-and-maybe-indent)
  do
  (eval
-  `(defadvice ,f (around emacspeak pre act comp)
+  `(defadvice ,f (after emacspeak pre act comp)
      "Speak the previous line if line echo is on.
 See command \\[emacspeak-toggle-line-echo]. Otherwise cue the user to
 the newly created  line."
      (cl-declare (special emacspeak-line-echo))
-     (cond
-      ((ems-interactive-p)
-       (cond
-        (emacspeak-line-echo (emacspeak-speak-line))
-        (t (dtk-tone 225 75 'force)))))
-     ad-do-it
-     ad-return-value)))
+     (when (ems-interactive-p)
+       (if emacspeak-line-echo
+           (emacspeak-read-previous-line)
+         (dtk-tone 225 75 'force))))))
 
 (cl-loop
  for f in
