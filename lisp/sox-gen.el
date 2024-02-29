@@ -119,10 +119,6 @@
 
 (defvar sox-gen-p sox-sox "Is sox available?")
 
-;;;  SoX Command Generator:
-(defconst sox-play (executable-find "play")
-  "Location of play from SoX.")
-
 (defun sox-gen-cmd (cmd)
   "Play specified command."
   (cl-declare (special sox-play sox-gen-p))
