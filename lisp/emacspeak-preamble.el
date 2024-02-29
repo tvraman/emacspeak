@@ -71,7 +71,8 @@ executable")
 
 ;; mpv:
 (defconst emacspeak-mpv (executable-find "mpv") "MPV executable")
-
+;; mplayer:
+(defconst emacspeak-mplayer (executable-find "mplayer") "mplayer executable")
 ;; xsltproc
 (defconst emacspeak-xslt (executable-find "xsltproc") "xslt engine")
 

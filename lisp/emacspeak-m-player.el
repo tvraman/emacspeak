@@ -224,13 +224,6 @@ Reset immediately after being used.")
   "Emacspeak media player."
   :group 'emacspeak)
 
-;;;###autoload
-(defcustom emacspeak-mplayer
-  (executable-find "mplayer")
-  "Media player program."
-  :type 'string
-  :group 'emacspeak-m-player)
-
 (defvar emacspeak-m-player-openal-options
   '("-ao" "openal")
   "Options to use openal  --- this gives us hrtf etc..")
