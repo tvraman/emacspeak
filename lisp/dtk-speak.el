@@ -254,7 +254,7 @@ mac for MAC TTS (default on Mac)")
   "Flag indicating whether to use split caps.
  Use   `dtk-toggle-split-caps'bound to \\[dtk-toggle-split-caps].")
 
-(defcustom dtk-cleanup-repeats
+(defvar dtk-cleanup-repeats
   (list
    ". " "." "_" "-" "=" "/" "+" "*" ":" ";" "%"
    "\\/" "/\\" "{" "}" "~" "$" ")" "#" "<>" "^" "<" ">")
@@ -264,9 +264,7 @@ Use `dtk-add-cleanup-pattern'
 
 More than 3 consecutive occurrences
 of a  pattern   is
-replaced with a repeat count. "
-  :type '(repeat (string :tag "pattern"))
-  :group 'tts)
+replaced with a repeat count. ")
 
 ;;;   internal variables
 
