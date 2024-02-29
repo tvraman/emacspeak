@@ -437,11 +437,15 @@ If a dynamic playlist exists, just use it."
      (t ; not hotkey, not dynamic playlist
       (let ((completion-ignore-case t)
             (read-file-name-completion-ignore-case t)
+            (filename
+             (when (memq major-mode '(dired-mode locate-mode))
+               (dired-get-filename 'local 'no-error)))
             (dir (emacspeak-media-guess-directory)))
-        (expand-file-name
-         (completing-read
-          "Media: "
-          (directory-files-recursively dir emacspeak-media-extensions))))))))
+        (or filename 
+            (expand-file-name
+             (completing-read
+              "Media: "
+              (directory-files-recursively dir emacspeak-media-extensions)))))))))
 
 (defun emacspeak-m-player-data-refresh ()
   "Populate metadata fields from current  stream."
