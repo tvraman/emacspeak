@@ -5636,14 +5636,6 @@ of emacspeak from becoming dependent on the speech server modules
      (emacspeak-m-player-pause-or-resume emacspeak-emms-pause-or-resume)
      
 
- -- Variable: User Option emacspeak-speak-filter-persistent-store
-     File where emacspeak filters are persisted.
-
-     Default Value:
-     
-     "/home/raman/.emacspeak/.filters"
-     
-
  -- Variable: User Option emacspeak-speak-time-brief-format
      Format for time in brief.
 

@@ -247,7 +247,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1160 commands and 130 options.
+This chapter documents a total of 1160 commands and 129 options.
 
 @node amixer
 @section amixer
@@ -13618,20 +13618,6 @@ Default Value:
 @verbatim
 
 (emacspeak-m-player-pause-or-resume emacspeak-emms-pause-or-resume)
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} emacspeak-speak-filter-persistent-store
-@verbatim
-File where emacspeak filters are persisted.
-@end verbatim
-
-Default Value: 
-@verbatim
-
-"/home/raman/.emacspeak/.filters"
 
 @end verbatim
 
