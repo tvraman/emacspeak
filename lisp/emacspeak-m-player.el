@@ -439,7 +439,14 @@ If a dynamic playlist exists, just use it."
              (when (memq major-mode '(dired-mode locate-mode))
                (dired-get-filename 'local 'no-error)))
             (dir (emacspeak-media-guess-directory)))
-        (expand-file-name  (read-file-name "Media: " dir filename t)))))))
+        (expand-file-name
+         (read-file-name
+          "Media: " dir filename t
+          nil
+          #'(lambda (f)
+              (or
+               (file-directory-p f)
+                  (string-match emacspeak-media-extensions f))))))))))
 
 (defun emacspeak-m-player-data-refresh ()
   "Populate metadata fields from current  stream."
