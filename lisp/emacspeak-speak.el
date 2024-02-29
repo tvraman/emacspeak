@@ -512,12 +512,9 @@ current local  value to the result.")
 '%s
 emacspeak-speak-filter-table)\n" k v)))
 
-(defcustom emacspeak-speak-filter-persistent-store
-  (expand-file-name ".filters"
-                    emacspeak-user-directory)
-  "File where emacspeak filters are persisted."
-  :type 'file
-  :group 'emacspeak)
+(defvar emacspeak-speak-filter-persistent-store
+  (expand-file-name ".filters" emacspeak-user-directory)
+  "File where emacspeak filters are persisted.")
 
 (defvar emacspeak-speak-filters-loaded-p nil
   "Records if we    have loaded filters in this session.")
