@@ -3236,7 +3236,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1160 commands and 129 options.
+   This chapter documents a total of 1160 commands and 128 options.
 
 * Menu:
 
@@ -3978,41 +3978,6 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      Default Value:
      
      #("cap" 0 3 (personality acss-p3-s1-r3))
-     
-
- -- Variable: User Option dtk-cleanup-repeats
-     List of repeating patterns to clean up.
-     Use ‘dtk-add-cleanup-pattern’
-      bound to C-e d a  to add  patterns.
-     
-     More than 3 consecutive occurrences
-     of a  pattern   is
-     replaced with a repeat count. 
-
-     Default Value:
-     
-     (". " "."
-      "_"
-      "-"
-      "="
-      "/"
-      "+"
-      "*"
-      ":"
-      ";"
-      "%"
-      "\\/"
-      "/\\"
-      "{"
-      "}"
-      "~"
-      "$"
-      ")"
-      "#"
-      "<>"
-      "^"
-      "<"
-      ">")
      
 
  -- Variable: User Option dtk-cloud-server
