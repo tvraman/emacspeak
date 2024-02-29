@@ -361,9 +361,10 @@ plays result as a directory." directory)
   "Guess default directory.
 If default directory matches emacspeak-media-directory-regexp,
 use it.  If default directory contains media files, then use it.
-Otherwise use emacspeak-media-directory as the fallback."
+If default directory contains directory emacspeak-media --- then use it.
+Otherwise use emacspeak-media-shortcuts-directory as the fallback."
   (cl-declare (special emacspeak-media-directory-regexp
-                       emacspeak-m-player-hotkey-p))
+                       emacspeak-media emacspeak-m-player-hotkey-p))
   (let ((case-fold-search t))
     (cond
      ((or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode)) nil)
@@ -372,6 +373,7 @@ Otherwise use emacspeak-media-directory as the fallback."
        (string-match emacspeak-media-directory-regexp default-directory)
        (directory-files default-directory   nil emacspeak-media-extensions))
       default-directory)
+     ((file-in-directory-p emacspeak-media default-directory) emacspeak-media)
      (t   emacspeak-media-shortcuts-directory))))
 
 ;;;###autoload
@@ -435,17 +437,11 @@ If a dynamic playlist exists, just use it."
      (t ; not hotkey, not dynamic playlist
       (let ((completion-ignore-case t)
             (read-file-name-completion-ignore-case t)
-            (filename
-             (when (memq major-mode '(dired-mode locate-mode))
-               (dired-get-filename 'local 'no-error)))
             (dir (emacspeak-media-guess-directory)))
         (expand-file-name
-         (read-file-name
-          "Media: " dir filename t nil
-          #'(lambda (f)
-              (or
-               (file-directory-p f)
-                  (string-match emacspeak-media-extensions f))))))))))
+         (completing-read
+          "Media: "
+          (directory-files-recursively dir emacspeak-media-extensions))))))))
 
 (defun emacspeak-m-player-data-refresh ()
   "Populate metadata fields from current  stream."
