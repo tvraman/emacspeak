@@ -2185,9 +2185,11 @@ Produce an auditory icon if possible."
       (add-hook 'minibuffer-exit-hook #'emacspeak-minibuffer-exit-hook))
     (emacspeak-pronounce-toggle-use-of-dictionaries t)
     (emacspeak-icon 'open-object)
-    (emacspeak-pronounce-add-local-entry "(yes or no) " "
-y/n ")
+    (emacspeak-pronounce-add-local-entry "(yes or no) " " y/n ")
     (emacspeak-pronounce-add-local-entry default-directory "")
+    (emacspeak-pronounce-add-local-entry emacspeak-media-shortcuts
+                                         "Media: ")
+    (emacspeak-pronounce-add-local-entry emacspeak-directory "emacspeak:")
     (when minibuffer-default (emacspeak-icon 'help))
     (tts-with-punctuations
         'all
