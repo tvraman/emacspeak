@@ -62,7 +62,11 @@
 ;; wpctl:
 (defconst emacspeak-wpctl (executable-find "wpctl") "wpctl
 executable")
+;; local media dir
+(defconst emacspeak-media (getenv "XDG_MUSIC_DIR")
+  "Local media directory.")
 
+(defconst emacspeak-media-extensions )
 ;; curl:
 (defconst emacspeak-curl (executable-find "curl") "Curl.")
 

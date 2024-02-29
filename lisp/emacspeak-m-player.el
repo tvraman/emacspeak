@@ -429,10 +429,10 @@ rather than completing over all subfiles."
 If a dynamic playlist exists, just use it."
   (cl-declare (special emacspeak-media-dynamic-playlist
                        emacspeak-m-player-hotkey-p))
-  (unless emacspeak-media-dynamic-playlist
+  (unless emacspeak-media-dynamic-playlist ; do nothing if dynamic playlist
     (cond
      (emacspeak-m-player-hotkey-p (emacspeak-media-local-resource prefix))
-     (t
+     (t ; not hotkey, not dynamic playlist
       (let ((completion-ignore-case t)
             (read-file-name-completion-ignore-case t)
             (filename
@@ -441,8 +441,7 @@ If a dynamic playlist exists, just use it."
             (dir (emacspeak-media-guess-directory)))
         (expand-file-name
          (read-file-name
-          "Media: " dir filename t
-          nil
+          "Media: " dir filename t nil
           #'(lambda (f)
               (or
                (file-directory-p f)
