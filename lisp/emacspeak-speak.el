@@ -450,13 +450,10 @@ Also set the mark at the position where point was."
 
 ;;;   indentation:
 
-(defcustom emacspeak-audio-indentation nil
+(defvar-local emacspeak-audio-indentation nil
   "Option indicating if line indentation is cued.
-You can use  command `emacspeak-toggle-audio-indentation' bound
-to \\[emacspeak-toggle-audio-indentation] to toggle this
-setting."
-  :group 'emacspeak
-  :type 'boolean)
+You can use command `emacspeak-toggle-audio-indentation' bound to
+\\[emacspeak-toggle-audio-indentation] to toggle this setting.")
 
 (make-variable-buffer-local 'emacspeak-audio-indentation)
 
@@ -1294,15 +1291,13 @@ arrived mail."
              (emacspeak-mail-alert-user-p emacspeak-mail-spool-file))
     (emacspeak-icon 'new-mail)))
 
-(defcustom emacspeak-mail-alert t
+(defvar-local emacspeak-mail-alert t
   " If t, emacspeak will alert you about newly arrived mail
 with an auditory icon when
 displaying the mode line.
 You can use command
 `emacspeak-toggle-mail-alert' bound to
-\\[emacspeak-toggle-mail-alert] to set this option. "
-  :group 'emacspeak
-  :type 'boolean)
+\\[emacspeak-toggle-mail-alert] to set this option. ")
 
 (ems-generate-switcher 'emacspeak-toggle-mail-alert
                        'emacspeak-mail-alert
@@ -1655,11 +1650,9 @@ See the documentation for function
   :group 'emacspeak
   :type 'string)
 
-(defcustom emacspeak-speak-zoneinfo-directory
+(defvar emacspeak-speak-zoneinfo-directory
   "/usr/share/zoneinfo/"
-  "Directory containing timezone data."
-  :type 'directory
-  :group 'emacspeak)
+  "Directory containing timezone data.")
 
 (defun emacspeak-speak-world-clock (zone &optional set)
   "Display current date and time  for specified zone.
