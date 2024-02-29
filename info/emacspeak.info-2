@@ -5610,30 +5610,6 @@ of emacspeak from becoming dependent on the speech server modules
 12.178.2 emacspeak-speak Options
 --------------------------------
 
- -- Variable: User Option emacspeak-audio-indentation
-     Option indicating if line indentation is cued.
-     You can use  command ‘emacspeak-toggle-audio-indentation’ bound
-     to C-e d i to toggle this
-     setting.
-
-     Default Value:
-     
-     nil
-     
-
- -- Variable: User Option emacspeak-mail-alert
-      If t, emacspeak will alert you about newly arrived mail
-     with an auditory icon when
-     displaying the mode line.
-     You can use command
-     ‘emacspeak-toggle-mail-alert’ bound to
-     C-e M-m to set this option. 
-
-     Default Value:
-     
-     t
-     
-
  -- Variable: User Option emacspeak-mail-alert-interval
      Interval in seconds between mail alerts for the same pending
        message.
@@ -5684,14 +5660,6 @@ of emacspeak from becoming dependent on the speech server modules
      Default Value:
      
      "%l %M%p on %A %B %_e"
-     
-
- -- Variable: User Option emacspeak-speak-zoneinfo-directory
-     Directory containing timezone data.
-
-     Default Value:
-     
-     "/usr/share/zoneinfo/"
      
 
 
@@ -8945,7 +8913,19 @@ Contains various wizards for the Emacspeak desktop.
 
      Toggle pronunciation of yyyymmdd  dates.
 
-12.214.1.95 emacspeak-wizards-tune-in-radio-browse
+12.214.1.95 emacspeak-wizards-tramp-open-location
+.................................................
+
+ -- Command: emacspeak-wizards-tramp-open-location (name)
+     ‘C-; C-t’
+     ‘C-x @ h C-t’
+
+     Open specified tramp location.
+     Location is specified by name.
+
+     (fn NAME)
+
+12.214.1.96 emacspeak-wizards-tune-in-radio-browse
 ..................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-browse (&optional category)
@@ -8957,7 +8937,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional CATEGORY)
 
-12.214.1.96 emacspeak-wizards-tune-in-radio-search
+12.214.1.97 emacspeak-wizards-tune-in-radio-search
 ..................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-search
@@ -8966,7 +8946,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Search Tune-In Radio.
 
-12.214.1.97 emacspeak-wizards-units
+12.214.1.98 emacspeak-wizards-units
 ...................................
 
  -- Command: emacspeak-wizards-units
@@ -8974,15 +8954,15 @@ Contains various wizards for the Emacspeak desktop.
 
      Run units.
 
-12.214.1.98 emacspeak-wizards-vc-n
+12.214.1.99 emacspeak-wizards-vc-n
 ..................................
 
  -- Command: emacspeak-wizards-vc-n
 
      Accelerator for VC viewer.
 
-12.214.1.99 emacspeak-wizards-vc-view-mode
-..........................................
+12.214.1.100 emacspeak-wizards-vc-view-mode
+...........................................
 
  -- Command: emacspeak-wizards-vc-view-mode
 
@@ -8996,7 +8976,7 @@ Contains various wizards for the Emacspeak desktop.
      run, this mode runs the hook ‘emacspeak-wizards-vc-view-mode-hook’, as
      the final or penultimate step during initialization.
 
-12.214.1.100 emacspeak-wizards-vc-viewer
+12.214.1.101 emacspeak-wizards-vc-viewer
 ........................................
 
  -- Command: emacspeak-wizards-vc-viewer (console)
@@ -9006,21 +8986,21 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn CONSOLE)
 
-12.214.1.101 emacspeak-wizards-vc-viewer-refresh
+12.214.1.102 emacspeak-wizards-vc-viewer-refresh
 ................................................
 
  -- Command: emacspeak-wizards-vc-viewer-refresh
 
      Refresh view of VC we’re viewing.
 
-12.214.1.102 emacspeak-wizards-view-buffers-filtered-by-m-player-mode
+12.214.1.103 emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 .....................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 
      Buffer menu filtered by  m-player mode.
 
-12.214.1.103 emacspeak-wizards-view-buffers-filtered-by-this-mode
+12.214.1.104 emacspeak-wizards-view-buffers-filtered-by-this-mode
 .................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-this-mode
@@ -9073,6 +9053,17 @@ Contains various wizards for the Emacspeak desktop.
      Default Value:
      
      ""
+     
+
+ -- Variable: User Option emacspeak-wizards-tramp-locations
+     Tramp locations used by Emacspeak tramp wizard.
+     Locations added here via custom can be opened using command
+     emacspeak-wizards-tramp-open-location
+     bound to C-x @@ h C-t.
+
+     Default Value:
+     
+     nil
      
 
 

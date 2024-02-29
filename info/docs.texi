@@ -247,7 +247,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1160 commands and 133 options.
+This chapter documents a total of 1160 commands and 130 options.
 
 @node amixer
 @section amixer
@@ -6772,23 +6772,6 @@ Display a buffer with sample text in the defined voices.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-tramp-open-location
-@deffn {Command} emacspeak-wizards-tramp-open-location  (name)
-@table @kbd
-@item C-; C-t
-@kindex C-; C-t
-@item C-x @@ h C-t
-@kindex C-x @@ h C-t
-@end table
-
-@findex emacspeak-wizards-tramp-open-location
-
-@format
-Open specified tramp location.
-Location is specified by name.
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-voice-sampler
 @deffn {Command} emacspeak-wizards-voice-sampler  (personality)
 @findex emacspeak-wizards-voice-sampler
@@ -6825,23 +6808,6 @@ Default Value:
 @verbatim
 
 "/home/raman/.curl-cookies"
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} emacspeak-wizards-tramp-locations
-@verbatim
-Tramp locations used by Emacspeak tramp wizard.
-Locations added here via custom can be opened using command
-emacspeak-wizards-tramp-open-location
-bound to C-x @@ h C-t.
-@end verbatim
-
-Default Value: 
-@verbatim
-
-nil
 
 @end verbatim
 
@@ -13613,42 +13579,6 @@ Send this command to the TTS directly.
 
 @subsection emacspeak-speak Options
 
-@defvar {User Option} emacspeak-audio-indentation
-@verbatim
-Option indicating if line indentation is cued.
-You can use  command ‘emacspeak-toggle-audio-indentation’ bound
-to C-e d i to toggle this
-setting.
-@end verbatim
-
-Default Value: 
-@verbatim
-
-nil
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} emacspeak-mail-alert
-@verbatim
- If t, emacspeak will alert you about newly arrived mail
-with an auditory icon when
-displaying the mode line.
-You can use command
-‘emacspeak-toggle-mail-alert’ bound to
-C-e M-m to set this option. 
-@end verbatim
-
-Default Value: 
-@verbatim
-
-t
-
-@end verbatim
-
-@end defvar
-
 @defvar {User Option} emacspeak-mail-alert-interval
 @verbatim
 Interval in seconds between mail alerts for the same pending
@@ -13732,20 +13662,6 @@ Default Value:
 @verbatim
 
 "%l %M%p on %A %B %_e"
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} emacspeak-speak-zoneinfo-directory
-@verbatim
-Directory containing timezone data.
-@end verbatim
-
-Default Value: 
-@verbatim
-
-"/usr/share/zoneinfo/"
 
 @end verbatim
 
@@ -17987,6 +17903,25 @@ Toggle pronunciation of yyyymmdd  dates.
 @end format
 @end deffn
 
+@subsubsection emacspeak-wizards-tramp-open-location
+@deffn {Command} emacspeak-wizards-tramp-open-location  (name)
+@table @kbd
+@item C-; C-t
+@kindex C-; C-t
+@item C-x @@ h C-t
+@kindex C-x @@ h C-t
+@end table
+
+@findex emacspeak-wizards-tramp-open-location
+
+@format
+Open specified tramp location.
+Location is specified by name.
+
+(fn NAME)
+@end format
+@end deffn
+
 @subsubsection emacspeak-wizards-tune-in-radio-browse
 @deffn {Command} emacspeak-wizards-tune-in-radio-browse  (&optional category)
 @table @kbd
@@ -18184,6 +18119,23 @@ Default Value:
 @verbatim
 
 ""
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} emacspeak-wizards-tramp-locations
+@verbatim
+Tramp locations used by Emacspeak tramp wizard.
+Locations added here via custom can be opened using command
+emacspeak-wizards-tramp-open-location
+bound to C-x @@ h C-t.
+@end verbatim
+
+Default Value: 
+@verbatim
+
+nil
 
 @end verbatim
 

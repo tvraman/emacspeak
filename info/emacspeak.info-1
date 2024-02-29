@@ -3236,7 +3236,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1160 commands and 133 options.
+   This chapter documents a total of 1160 commands and 130 options.
 
 * Menu:
 
@@ -8921,17 +8921,7 @@ Infrequently used wizards archived for posterity.
 
      Display a buffer with sample text in the defined voices.
 
-12.75.1.15 emacspeak-wizards-tramp-open-location
-................................................
-
- -- Command: emacspeak-wizards-tramp-open-location (name)
-     ‘C-; C-t’
-     ‘C-x @ h C-t’
-
-     Open specified tramp location.
-     Location is specified by name.
-
-12.75.1.16 emacspeak-wizards-voice-sampler
+12.75.1.15 emacspeak-wizards-voice-sampler
 ..........................................
 
  -- Command: emacspeak-wizards-voice-sampler (personality)
@@ -8957,16 +8947,5 @@ Infrequently used wizards archived for posterity.
      Default Value:
      
      "/home/raman/.curl-cookies"
-     
-
- -- Variable: User Option emacspeak-wizards-tramp-locations
-     Tramp locations used by Emacspeak tramp wizard.
-     Locations added here via custom can be opened using command
-     emacspeak-wizards-tramp-open-location
-     bound to C-x @@ h C-t.
-
-     Default Value:
-     
-     nil
      
 
