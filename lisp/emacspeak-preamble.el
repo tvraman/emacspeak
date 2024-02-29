@@ -66,7 +66,19 @@ executable")
 (defconst emacspeak-media (getenv "XDG_MUSIC_DIR")
   "Local media directory.")
 
-(defconst emacspeak-media-extensions )
+(defconst emacspeak-media-extensions
+  (eval-when-compile
+    (let
+        ((ext
+          '("m3u" "pls"                 ; incorporate playlist ext
+            "flac" "m4a" "m4b"
+            "aiff" "aac" "opus" "mkv"
+            "ogv" "oga" "ogg" "mp3"  "mp4" "webm" "wav")))
+      (concat
+       "\\."
+       (regexp-opt ext)
+       "$")))
+  "Media Extensions.")
 ;; curl:
 (defconst emacspeak-curl (executable-find "curl") "Curl.")
 
