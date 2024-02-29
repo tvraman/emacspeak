@@ -1060,7 +1060,7 @@ dates.")
     (emacspeak-pronounce-remove-buffer-local-dictionary-entry
      emacspeak-pronounce-date-mm-dd-yyyy-pattern))
    (t (setq emacspeak-wizards-mm-dd-yyyy-date-pronounce t)
-      (emacspeak-pronounce-add-buffer-local-dictionary-entry
+      (emacspeak-pronounce-add-local-dictionary-entry
        emacspeak-pronounce-date-mm-dd-yyyy-pattern
        (cons #'re-search-forward
              'emacspeak-pronounce-mm-dd-yyyy-date))))
@@ -1084,7 +1084,7 @@ dates.")
     (emacspeak-pronounce-remove-buffer-local-dictionary-entry
      emacspeak-pronounce-date-yyyy-mm-dd-pattern))
    (t (setq emacspeak-wizards-yyyy-mm-dd-date-pronounce t)
-      (emacspeak-pronounce-add-buffer-local-dictionary-entry
+      (emacspeak-pronounce-add-local-dictionary-entry
        emacspeak-pronounce-date-yyyy-mm-dd-pattern
        (cons #'re-search-forward
              'emacspeak-pronounce-yyyy-mm-dd-date))))
@@ -1108,7 +1108,7 @@ dates.")
     (emacspeak-pronounce-remove-buffer-local-dictionary-entry
      emacspeak-pronounce-date-yyyymmdd-pattern))
    (t (setq emacspeak-wizards-yyyymmdd-date-pronounce t)
-      (emacspeak-pronounce-add-buffer-local-dictionary-entry
+      (emacspeak-pronounce-add-local-dictionary-entry
        emacspeak-pronounce-date-yyyymmdd-pattern
        (cons 're-search-forward
              'emacspeak-pronounce-yyyymmdd-date))))

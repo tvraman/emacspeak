@@ -135,7 +135,7 @@ the match  being passed to the func which returns  the new pronunciation."
              emacspeak-pronounce-pronunciation-table)
     (remhash string emacspeak-pronounce-pronunciation-table)))
 
-(defun emacspeak-pronounce-add-buffer-local-dictionary-entry
+(defun emacspeak-pronounce-add-local-dictionary-entry
     (string pronunciation)
   "Add  pronunciation for current buffer. "
   (cl-declare (special emacspeak-pronounce-pronunciation-table))
@@ -397,7 +397,7 @@ Argument `pron' specifies the new pronunciation. "
     (emacspeak-pronounce-read-term 'buffer)
     (read-from-minibuffer
      (format "Pronounce as: "))))
-  (emacspeak-pronounce-add-buffer-local-dictionary-entry
+  (emacspeak-pronounce-add-local-dictionary-entry
    word pron))
 
 (defun emacspeak-pronounce-get-key ()
@@ -461,7 +461,7 @@ First loads any persistent dictionaries if not already loaded."
        (cdr key-pair) word pronunciation)
       (emacspeak-pronounce-refresh-pronunciations))
     (when (eq (car key-pair) 'buffer)
-      (emacspeak-pronounce-add-buffer-local-dictionary-entry
+      (emacspeak-pronounce-add-local-dictionary-entry
        word pronunciation))))
 
 (defun emacspeak-pronounce-define-pronunciation ()
@@ -486,7 +486,7 @@ First loads any persistent dictionaries if not already loaded."
        (cdr key-pair) word pronunciation)
       (emacspeak-pronounce-refresh-pronunciations))
     (when (eq (car key-pair) 'buffer)
-      (emacspeak-pronounce-add-buffer-local-dictionary-entry
+      (emacspeak-pronounce-add-local-dictionary-entry
        word pronunciation))))
 
 ;;;  Turning dictionaries on and off on a per buffer basis

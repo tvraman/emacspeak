@@ -449,7 +449,7 @@ with duplicates removed when saving as a list of string."
  "http://news.yahoo.com/rss"
  nil
  #'(lambda ()
-     (emacspeak-pronounce-add-buffer-local-dictionary-entry
+     (emacspeak-pronounce-add-local-dictionary-entry
       "http://rss.news.yahoo.com/rss/" ""))
  "News  From Yahoo As RSS."
  #'emacspeak-feeds-rss-display)

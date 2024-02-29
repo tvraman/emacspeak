@@ -2183,12 +2183,12 @@ Produce an auditory icon if possible."
   (let ((inhibit-field-text-motion t))
     (unless (memq 'emacspeak-minibuffer-exit-hook minibuffer-exit-hook)
       (add-hook 'minibuffer-exit-hook #'emacspeak-minibuffer-exit-hook))
-    (emacspeak-icon 'open-object)
-    (emacspeak-pronounce-add-buffer-local-dictionary-entry
-     "(yes or no) " " y/n ")
     (emacspeak-pronounce-toggle-use-of-dictionaries t)
+    (emacspeak-icon 'open-object)
+    (emacspeak-pronounce-add-local-dictionary-entry
+     "(yes or no) " " y/n ")
     (when minibuffer-default (emacspeak-icon 'help))
-    (emacspeak-pronounce-add-buffer-local-dictionary-entry
+    (emacspeak-pronounce-add-local-dictionary-entry
      default-directory "")
     (tts-with-punctuations
      'all
