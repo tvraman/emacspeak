@@ -163,7 +163,7 @@ Optional interactive prefix  arg defines a pronunciation that
     (error "Not in an ERC buffer."))
   (cl-pushnew name emacspeak-erc-people-to-monitor :test #'string-equal)
   (when quiten-pronunciation
-    (emacspeak-pronounce-add-local-dictionary-entry name ""))
+    (emacspeak-pronounce-add-local-entry name ""))
   (emacspeak-icon 'select-object)
   (message "monitoring %s"
            (mapconcat #'identity 
@@ -337,31 +337,31 @@ set the current local value to the result.")
 (defun emacspeak-erc-setup-cricket-rules ()
   "Set up #cricket channels."
   (interactive)
-  (emacspeak-pronounce-add-local-dictionary-entry
+  (emacspeak-pronounce-add-local-entry
    "km/h," " kays, ")
-  (emacspeak-pronounce-add-local-dictionary-entry
+  (emacspeak-pronounce-add-local-entry
    emacspeak-erc-cricket-bowling-figures-pattern
    (cons 're-search-forward
          'emacspeak-erc-cricket-convert-bowling-figures))
-  (emacspeak-pronounce-add-local-dictionary-entry
+  (emacspeak-pronounce-add-local-entry
    emacspeak-erc-cricket-4-6-pattern
    (cons 're-search-forward
          'emacspeak-erc-cricket-convert-4-6-pattern))
-  (emacspeak-pronounce-add-local-dictionary-entry
+  (emacspeak-pronounce-add-local-entry
    " [0-9]+nb"
    (cons
     're-search-forward
     #'(lambda (pattern)
         (format "%s no balls "
                 (substring pattern 0 -2)))))
-  (emacspeak-pronounce-add-local-dictionary-entry
+  (emacspeak-pronounce-add-local-entry
    "[0-9]+b"
    (cons
     're-search-forward
     #'(lambda (pattern)
         (format "%s balls "
                 (substring pattern 0 -1)))))
-  (emacspeak-pronounce-add-local-dictionary-entry
+  (emacspeak-pronounce-add-local-entry
    " [0-9]+w "
    (cons
     're-search-forward

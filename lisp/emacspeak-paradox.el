@@ -93,7 +93,7 @@
   "Emacspeak setup hook for paradox-mode."
   (cl-declare (special paradox-menu-mode-map))
   (define-key paradox-menu-mode-map " " 'emacspeak-paradox-summarize-line)
-  (emacspeak-pronounce-add-local-dictionary-entry
+  (emacspeak-pronounce-add-local-entry
    emacspeak-pronounce-date-yyyymmdd-pattern
    (cons 're-search-forward 'emacspeak-pronounce-yyyymmdd-date))
   (emacspeak-icon 'open-object)
