@@ -46,7 +46,7 @@
 ;; the list using c-s and c-r as provided by ido Set number matches
 ;; shown (ido-max-prospects) to 2 or 3 using Custom so you dont hear the
 ;; entire list.
-
+;; See @url{https://emacspeak.blogspot.com/2018/06/effective-suggest-and-complete-in-eyes.html}.
 ;;; Code:
 
 

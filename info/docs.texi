@@ -7830,6 +7830,7 @@ dynamically updating set of choices?  current strategy is to walk
 the list using c-s and c-r as provided by ido Set number matches
 shown (ido-max-prospects) to 2 or 3 using Custom so you dont hear the
 entire list.
+See @url{https://emacspeak.blogspot.com/2018/06/effective-suggest-and-complete-in-eyes.html}.
 
 @node emacspeak-iedit
 @section emacspeak-iedit
@@ -10077,11 +10078,6 @@ Toggle between lispy and smartparens.
 
 @subsubsection emacspeak-muggles-maths-navigator/body
 @deffn {Command} emacspeak-muggles-maths-navigator/body   
-@table @kbd
-@item s-SPC
-@kindex s-SPC
-@end table
-
 @findex emacspeak-muggles-maths-navigator/body
 
 @format

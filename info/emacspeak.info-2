@@ -920,7 +920,8 @@ value-add provided by package ido.el is visual feedback.  Speech UI
 Challenge: What is the most efficient means of conveying a dynamically
 updating set of choices?  current strategy is to walk the list using c-s
 and c-r as provided by ido Set number matches shown (ido-max-prospects)
-to 2 or 3 using Custom so you dont hear the entire list.
+to 2 or 3 using Custom so you dont hear the entire list.  See
+<https://emacspeak.blogspot.com/2018/06/effective-suggest-and-complete-in-eyes.html>.
 
 
 File: emacspeak.info,  Node: emacspeak-iedit,  Next: emacspeak-indium,  Prev: emacspeak-ido,  Up: Emacspeak Commands And Options
@@ -2832,7 +2833,6 @@ binds ‘s’ to this command.
 .................................................
 
  -- Command: emacspeak-muggles-maths-navigator/body
-     ‘s-SPC’
 
      Call the body in the "emacspeak-muggles-maths-navigator" hydra.
 
