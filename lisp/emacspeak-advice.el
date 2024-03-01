@@ -2178,7 +2178,6 @@ Produce an auditory icon if possible."
 (cl-declaim (special emacspeak-media-shortcuts))
 (defvar emacspeak-minibuffer-dictionary
   (let ((table (make-hash-table)))
-    (puthash "(yes or no) " " y/n " table)
     (puthash emacspeak-media-shortcuts "Media: " table)
     (puthash emacspeak-directory "emacspeak:" table)
     table)
