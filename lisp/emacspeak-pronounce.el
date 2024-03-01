@@ -129,14 +129,13 @@ the match  being passed to the func which returns  the new pronunciation."
        key
        (list (cons string pronunciation)))))))
 
-(defun emacspeak-pronounce-remove-buffer-local-dictionary-entry (string)
+(defun emacspeak-pronounce-remove-local-entry (string)
   "Remove buffer-specificpronunciation."
   (when (and (boundp 'emacspeak-pronounce-pronunciation-table)
              emacspeak-pronounce-pronunciation-table)
     (remhash string emacspeak-pronounce-pronunciation-table)))
 
-(defun emacspeak-pronounce-add-local-entry
-    (string pronunciation)
+(defun emacspeak-pronounce-add-local-entry (string pronunciation)
   "Add  pronunciation for current buffer. "
   (cl-declare (special emacspeak-pronounce-pronunciation-table))
   (cond

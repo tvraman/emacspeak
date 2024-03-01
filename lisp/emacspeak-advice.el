@@ -2175,10 +2175,12 @@ Produce an auditory icon if possible."
 (add-hook 'text-mode-hook #'emacspeak-speak-adjust-clause-boundaries)
 
 ;;;  setup minibuffer hooks:
-
+(defvar emacspeak-minibuffer-dictionary (make-hash-table)
+  "Dictionary used in minibuffer")
 (defun emacspeak-minibuffer-setup-hook ()
   "Actions to take when entering the minibuffer with emacspeak running."
-  (cl-declare (special minibuffer-exit-hook minibuffer-default))
+  (cl-declare (special minibuffer-exit-hook minibuffer-default
+                       emacspeak-media-shortcuts))
   (dtk-stop 'all)
   (let ((inhibit-field-text-motion t))
     (unless (memq 'emacspeak-minibuffer-exit-hook minibuffer-exit-hook)
