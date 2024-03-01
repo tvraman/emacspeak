@@ -322,7 +322,7 @@ _p_ emacspeak-muggles-lispy-or-sp:
 ;;;   Speak And Browse Math
 
 (global-set-key
- (kbd "s-SPC")
+ (kbd "s-m")
  (defhydra emacspeak-muggles-maths-navigator
            (:body-pre
             (progn
