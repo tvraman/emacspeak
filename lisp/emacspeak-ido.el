@@ -189,8 +189,8 @@ The default value of 12 is too high for using ido effectively with speech. "
  '(
    (ido-virtual voice-smoothen)
    (ido-first-match voice-bolden)
-   (ido-only-match voice-bolden-extra)
-   (ido-subdir voice-lighten)
+   (ido-only-match voice-lighten)
+   (ido-subdir voice-monotone)
    (ido-indicator voice-brighten)
    (ido-incomplete-regexp voice-monotone-extra)
    (flx-highlight-face voice-animate)))
