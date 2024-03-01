@@ -266,7 +266,7 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
         (delete-region (point-min) (point))))))
 
 (defun emacspeak-log-notification (text)
-  "Log a notification."
+  "Log a notification in our notifications buffer."
   (cl-declare (special emacspeak-notifications-buffer))
   (unless (buffer-live-p emacspeak-notifications-buffer)
     (setq emacspeak-notifications-buffer (emacspeak--notifications-init)))

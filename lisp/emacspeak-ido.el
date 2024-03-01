@@ -78,9 +78,7 @@
       (when  (and ido-matches (sit-for emacspeak-ido-typing-delay))
         (dtk-notify-speak
          (concat
-          (if (bound-and-true-p ido--overlay)
-              (overlay-get ido--overlay 'after-string)
-            (minibuffer-contents))
+            (minibuffer-contents)
           (format " %d choices: "  (length ido-matches))
           (if
               (or (null ido-current-directory)
