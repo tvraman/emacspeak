@@ -63,6 +63,7 @@
 
 (defadvice ido-set-current-directory (before emacspeak pre act comp)
   "Cache previous value of ido-current-directory."
+  (emacspeak-icon 'item)
   (setq emacspeak-ido-cache ido-current-directory))
 
 (defgroup emacspeak-ido nil
@@ -84,8 +85,7 @@
               (or (null ido-current-directory)
                   (string-equal ido-current-directory emacspeak-ido-cache))
               " "
-            (format "In %s"
-                    (abbreviate-file-name ido-current-directory))))))
+            (format "In %s" (abbreviate-file-name ido-current-directory))))))
     (error (dtk-initialize))))
 
 ;;;  speech-enable interactive commands:
