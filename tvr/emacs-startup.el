@@ -32,7 +32,8 @@
 
 (when (file-exists-p tvr-site-lib)
   (push tvr-site-lib load-path)
-  (push (expand-file-name "vm/lisp/" tvr-site-lib) load-path))
+  (push (expand-file-name "vm/lisp/" tvr-site-lib) load-path)
+  (push (expand-file-name "combobulate" tvr-site-lib) load-path))
 
 (defvar tvr-libs "all-prepare"
   "Libraries that need extra setup.")
