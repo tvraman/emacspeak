@@ -44,7 +44,7 @@
 ;; Challenge: What is the most efficient means of conveying a
 ;; dynamically updating set of choices?  current strategy is to walk
 ;; the list using c-s and c-r as provided by ido Set number matches
-;; shown (ido-max-prospects) to 3 using Custom so you dont hear the
+;; shown (ido-max-prospects) to 2 or 3 using Custom so you dont hear the
 ;; entire list.
 
 ;;; Code:
@@ -84,7 +84,7 @@
               (or (null ido-current-directory)
                   (string-equal ido-current-directory emacspeak-ido-cache))
               " "
-            (format "In directory: %s"
+            (format "In %s"
                     (abbreviate-file-name ido-current-directory))))))
     (error (dtk-initialize))))
 
