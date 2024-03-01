@@ -95,10 +95,10 @@
 
 (defun emacspeak-hangman-setup-pronunciations ()
   "Setup pronunciation dictionaries."
-  (cl-declare (special emacspeak-pronounce-pronunciation-table))
+  (cl-declare (special emacspeak-pronounce-table))
   (emacspeak-pronounce-add-dictionary-entry 'hm-mode "_" ".")
-  (when (or (not (boundp 'emacspeak-pronounce-pronunciation-table))
-            (not emacspeak-pronounce-pronunciation-table))
+  (when (or (not (boundp 'emacspeak-pronounce-table))
+            (not emacspeak-pronounce-table))
     (emacspeak-pronounce-toggle-use-of-dictionaries)))
 
 (defadvice hm-self-guess-char (after emacspeak pre act comp)

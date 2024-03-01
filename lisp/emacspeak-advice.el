@@ -2175,23 +2175,27 @@ Produce an auditory icon if possible."
 (add-hook 'text-mode-hook #'emacspeak-speak-adjust-clause-boundaries)
 
 ;;;  setup minibuffer hooks:
-(defvar emacspeak-minibuffer-dictionary (make-hash-table)
-  "Dictionary used in minibuffer")
+(cl-declaim (special emacspeak-media-shortcuts))
+(defvar emacspeak-minibuffer-dictionary
+  (let ((table (make-hash-table)))
+    (puthash "(yes or no) " " y/n " table)
+    (puthash emacspeak-media-shortcuts "Media: " table)
+    (puthash emacspeak-directory "emacspeak:" table)
+    table)
+  "Dictionary used in minibuffer.")
+
 (defun emacspeak-minibuffer-setup-hook ()
   "Actions to take when entering the minibuffer with emacspeak running."
-  (cl-declare (special minibuffer-exit-hook minibuffer-default
-                       emacspeak-media-shortcuts))
+  (cl-declare (special
+               minibuffer-exit-hook minibuffer-default
+               emacspeak-pronounce-table emacspeak-minibuffer-dictionary))
   (dtk-stop 'all)
   (let ((inhibit-field-text-motion t))
     (unless (memq 'emacspeak-minibuffer-exit-hook minibuffer-exit-hook)
       (add-hook 'minibuffer-exit-hook #'emacspeak-minibuffer-exit-hook))
-    (emacspeak-pronounce-toggle-use-of-dictionaries t)
-    (emacspeak-icon 'open-object)
-    (emacspeak-pronounce-add-local-entry "(yes or no) " " y/n ")
+    (setq emacspeak-pronounce-table emacspeak-minibuffer-dictionary)
     (emacspeak-pronounce-add-local-entry default-directory "")
-    (emacspeak-pronounce-add-local-entry emacspeak-media-shortcuts
-                                         "Media: ")
-    (emacspeak-pronounce-add-local-entry emacspeak-directory "emacspeak:")
+    (emacspeak-icon 'open-object)
     (when minibuffer-default (emacspeak-icon 'help))
     (tts-with-punctuations
         'all

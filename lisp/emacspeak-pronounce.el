@@ -131,25 +131,25 @@ the match  being passed to the func which returns  the new pronunciation."
 
 (defun emacspeak-pronounce-remove-local-entry (string)
   "Remove buffer-specificpronunciation."
-  (when (and (boundp 'emacspeak-pronounce-pronunciation-table)
-             emacspeak-pronounce-pronunciation-table)
-    (remhash string emacspeak-pronounce-pronunciation-table)))
+  (when (and (boundp 'emacspeak-pronounce-table)
+             emacspeak-pronounce-table)
+    (remhash string emacspeak-pronounce-table)))
 
 (defun emacspeak-pronounce-add-local-entry (string pronunciation)
   "Add  pronunciation for current buffer. "
-  (cl-declare (special emacspeak-pronounce-pronunciation-table))
+  (cl-declare (special emacspeak-pronounce-table))
   (cond
-   ((not (boundp 'emacspeak-pronounce-pronunciation-table)) ;first time
-    (set (make-local-variable 'emacspeak-pronounce-pronunciation-table)
+   ((not (boundp 'emacspeak-pronounce-table)) ;first time
+    (set (make-local-variable 'emacspeak-pronounce-table)
          (emacspeak-pronounce-compose-pronunciation-table))
     (when (called-interactively-p 'interactive)(emacspeak-icon 'on)))
-   (emacspeak-pronounce-pronunciation-table ;already on --
+   (emacspeak-pronounce-table ;already on --
     (when (called-interactively-p 'interactive)(emacspeak-icon 'on)))
    (t                                   ;turn it on
-    (setq emacspeak-pronounce-pronunciation-table
+    (setq emacspeak-pronounce-table
           (emacspeak-pronounce-compose-pronunciation-table))))
   (puthash string pronunciation
-           emacspeak-pronounce-pronunciation-table)
+           emacspeak-pronounce-table)
   (when (called-interactively-p 'interactive)
     (message "Added local pronunciation in buffer %s"
              (buffer-name))))
@@ -490,46 +490,46 @@ First loads any persistent dictionaries if not already loaded."
 
 ;;;  Turning dictionaries on and off on a per buffer basis
 
-(defvar-local  emacspeak-pronounce-pronunciation-table nil
+(defvar-local  emacspeak-pronounce-table nil
   "AList for buffer pronunciations")
 
-(defun  emacspeak-pronounce-pronunciation-table ()
+(defun  emacspeak-pronounce-table ()
   "Return the pronunciation table."
-  emacspeak-pronounce-pronunciation-table)
+  emacspeak-pronounce-table)
 
 ;;;###autoload
 (defun emacspeak-pronounce-toggle-use-of-dictionaries (&optional state)
   "Toggle  pronunciation dictionaries. "
   (interactive "P")
-  (cl-declare (special emacspeak-pronounce-pronunciation-table))
-  (unless state (setq state (not emacspeak-pronounce-pronunciation-table)))
+  (cl-declare (special emacspeak-pronounce-table))
+  (unless state (setq state (not emacspeak-pronounce-table)))
   (cond
    (state
-    (unless emacspeak-pronounce-pronunciation-table
-      (setq emacspeak-pronounce-pronunciation-table
+    (unless emacspeak-pronounce-table
+      (setq emacspeak-pronounce-table
             (emacspeak-pronounce-compose-pronunciation-table))))
    ((null state)                        ;already on --turn it off
-    (setq emacspeak-pronounce-pronunciation-table nil)))
+    (setq emacspeak-pronounce-table nil)))
   (when (called-interactively-p 'interactive)
     (emacspeak-icon
-     (if emacspeak-pronounce-pronunciation-table 'on 'off))
+     (if emacspeak-pronounce-table 'on 'off))
     (message
      "Pronunciations %s."
-     (if emacspeak-pronounce-pronunciation-table " on " " off "))))
+     (if emacspeak-pronounce-table " on " " off "))))
 
 (defun emacspeak-pronounce-refresh-pronunciations ()
   "Refresh pronunciation table for current buffer. "
   (interactive)
-  (cl-declare (special emacspeak-pronounce-pronunciation-table))
+  (cl-declare (special emacspeak-pronounce-table))
   (cond
-   ((not (boundp 'emacspeak-pronounce-pronunciation-table)) ;first time
-    (set (make-local-variable 'emacspeak-pronounce-pronunciation-table)
+   ((not (boundp 'emacspeak-pronounce-table)) ;first time
+    (set (make-local-variable 'emacspeak-pronounce-table)
          (emacspeak-pronounce-compose-pronunciation-table)))
-   (emacspeak-pronounce-pronunciation-table ;already on --refresh it
-    (setq emacspeak-pronounce-pronunciation-table
+   (emacspeak-pronounce-table ;already on --refresh it
+    (setq emacspeak-pronounce-table
           (emacspeak-pronounce-compose-pronunciation-table)))
    (t                                   ;turn it on
-    (setq emacspeak-pronounce-pronunciation-table
+    (setq emacspeak-pronounce-table
           (emacspeak-pronounce-compose-pronunciation-table))))
   (when (called-interactively-p 'interactive)
     (emacspeak-icon 'on)
@@ -599,7 +599,7 @@ First loads any persistent dictionaries if not already loaded."
 (defun emacspeak-pronounce-edit-generate-pronunciation-editor (key)
   "Edit dictionary for given key"
   (cl-declare (special emacspeak-pronounce-dictionaries))
-  (unless emacspeak-pronounce-pronunciation-table
+  (unless emacspeak-pronounce-table
     (emacspeak-pronounce-toggle-use-of-dictionaries))
   (let ((value (gethash key emacspeak-pronounce-dictionaries))
         (notify (emacspeak-pronounce-edit-generate-callback key))

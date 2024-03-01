@@ -60,7 +60,7 @@
                dtk-quiet dtk-chunk-separator-syntax
                voice-lock-mode dtk-punctuation-mode
                dtk-split-caps dtk-caps
-               emacspeak-pronounce-pronunciation-table
+               emacspeak-pronounce-table
                selective-display))
   ;; Ensure text is a  string.
   (unless (stringp text) (setq text (format "%s" text)))
@@ -79,7 +79,7 @@
           (deactivate-mark nil)
           (invisibility-spec buffer-invisibility-spec)
           (syntax-table (syntax-table))
-          ;; (pronunciation-table emacspeak-pronounce-pronunciation-table)
+          ;; (pronunciation-table emacspeak-pronounce-table)
           (inherit-chunk-separator-syntax dtk-chunk-separator-syntax)
           (inherit-speak-nonprinting-chars dtk-speak-nonprinting-chars)
           (inherit-strip-octals tts-strip-octals)

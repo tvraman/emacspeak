@@ -1657,7 +1657,7 @@ unless   `dtk-quiet' is set to t. "
                inhibit-modification-hooks
                voice-lock-mode dtk-punctuation-mode
                dtk-split-caps
-               emacspeak-pronounce-pronunciation-table
+               emacspeak-pronounce-table
                selective-display))
   ;; ensure text is a  string
   (unless (stringp text) (when text (setq text (format "%s" text))))
@@ -1685,7 +1685,7 @@ unless   `dtk-quiet' is set to t. "
           (inhibit-modification-hooks t)
           (invisibility-spec buffer-invisibility-spec)
           (syntax-table (syntax-table))
-          (pron-table emacspeak-pronounce-pronunciation-table)
+          (pron-table emacspeak-pronounce-table)
           (pron-personality emacspeak-pronounce-personality)
           (chunk-sep dtk-chunk-separator-syntax)
           (inherit-speak-nonprinting-chars dtk-speak-nonprinting-chars)
@@ -1709,7 +1709,7 @@ unless   `dtk-quiet' is set to t. "
         (setq                           ; mirror snapshot
          yank-excluded-properties dtk-yank-excluded-properties
          char-property-alias-alist  char-alias
-         emacspeak-pronounce-pronunciation-table pron-table
+         emacspeak-pronounce-table pron-table
          emacspeak-pronounce-personality pron-personality
          buffer-invisibility-spec invisibility-spec
          dtk-chunk-separator-syntax chunk-sep
