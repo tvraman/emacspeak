@@ -276,7 +276,7 @@ Optional interactive prefix arg prompts for a filename."
 
 ;;;  Setup
 (declare-function
- emacspeak-pronounce-define-local-pronunciation
+ emacspeak-pronounce-add-local-entry
  "emacspeak-pronounce" (word pron))
 
 (defun emacspeak-2048-setup ()
@@ -305,7 +305,7 @@ Optional interactive prefix arg prompts for a filename."
       (* dtk-speech-rate-step  3)))
   (dtk-set-punctuations 'some)
   (emacspeak-icon 'open-object)
-  (emacspeak-pronounce-define-local-pronunciation "0" "o")
+  (emacspeak-pronounce-add-local-entry "0" "o")
   (emacspeak-2048-speak-board))
 (cl-declaim (special-display-p 2048-mode-hook))
 (add-hook '2048-mode-hook 'emacspeak-2048-setup)
