@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 29, 2024.
+last updated on March 1, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3236,7 +3236,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1160 commands and 128 options.
+   This chapter documents a total of 1159 commands and 128 options.
 
 * Menu:
 
@@ -4121,6 +4121,22 @@ the main emacspeak module.  It actually does very little:
      nil
      
 
+ -- Variable: User Option emacspeak-speak-messages-filter
+     List of strings used to filter spoken messages.
+
+     Default Value:
+     
+     ("Decrypting" "psession" "auto saving")
+     
+
+ -- Variable: User Option emacspeak-speak-tooltips
+     Enable to get tooltips spoken.
+
+     Default Value:
+     
+     nil
+     
+
 
 File: emacspeak.info,  Node: emacspeak-2048,  Next: emacspeak-abc-mode,  Prev: emacspeak,  Up: Emacspeak Commands And Options
 
@@ -4264,25 +4280,6 @@ I violate this at present by advising completion.  Note that we needed
 to advice a lot more for Emacs 19 and Emacs 20 than we do for Emacs 21
 and Emacs 22.  As of August 2007, this file is being purged of advice
 forms not needed in Emacs 22.
-
-12.9.1 emacspeak-advice Options
--------------------------------
-
- -- Variable: User Option emacspeak-speak-messages-filter
-     List of strings used to filter spoken messages.
-
-     Default Value:
-     
-     ("Decrypting" "psession" "auto saving")
-     
-
- -- Variable: User Option emacspeak-speak-tooltips
-     Enable to get tooltips spoken.
-
-     Default Value:
-     
-     nil
-     
 
 
 File: emacspeak.info,  Node: emacspeak-amark,  Next: emacspeak-analog,  Prev: emacspeak-advice,  Up: Emacspeak Commands And Options

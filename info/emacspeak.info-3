@@ -12,130 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 29, 2024.
-
-
-File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
-
-12.233 sox
-==========
-
-This module defines a convenient speech-enabled interface for editing
-mp3 and wav files using SoX.
-
-   Launching M-x sox creates a special interaction buffer that provides
-single keystroke commands for editing and applying effects to a selected
-sound file.  For adding mp3 support to sox, do
-
-   sudo apt-get libsox-fmt-mp3 install
-
-   This module provides support for ladspa effects using module
-ladspa.el.  To use ladspa effects with SoX, you need a relatively new
-build of Sox; The stock SoX that is package for Debian/Ubuntu does not
-always work.  This module can be used independent of Emacspeak.
-
-12.233.1 Sox Commands
----------------------
-
-12.233.1.1 sox-add-effect
-.........................
-
- -- Command: sox-add-effect (name)
-
-     Adds  effect at the end of the effect list
-
-     (fn NAME)
-
-12.233.1.2 sox-delete-effect-at-point
-.....................................
-
- -- Command: sox-delete-effect-at-point
-
-     Delete effect at point.
-
-     This function has :around advice: ‘ad-Advice-sox-delete-effect-at-point’.
-
-     (fn)
-
-12.233.1.3 sox-edit-effect-at-point
-...................................
-
- -- Command: sox-edit-effect-at-point
-
-     Edit effect at point.
-
-12.233.1.4 sox-mode
-...................
-
- -- Command: sox-mode
-
-     An audio workbench for the Emacspeak desktop.
-
-     In addition to any hooks its parent mode ‘special-mode’ might have
-     run, this mode runs the hook ‘sox-mode-hook’, as the final or
-     penultimate step during initialization.
-
-
-12.233.1.5 sox-open-file
-........................
-
- -- Command: sox-open-file (snd-file)
-
-     Open specified snd-file on the Audio Workbench.
-
-     This function has :around advice: ‘ad-Advice-sox-open-file’.
-
-     (fn SND-FILE)
-
-12.233.1.6 sox-play
-...................
-
- -- Command: sox-play
-
-     Play sound .
-
-12.233.1.7 sox-refresh
-......................
-
- -- Command: sox-refresh
-
-     Redraw Audio Workbench.
-
-     This function has :around advice: ‘ad-Advice-sox-refresh’.
-
-     (fn)
-
-12.233.1.8 sox-save
-...................
-
- -- Command: sox-save (save-file)
-
-     Save context to  file after prompting.
-
-     (fn SAVE-FILE)
-
-12.233.1.9 sox-set-effect
-.........................
-
- -- Command: sox-set-effect (name)
-
-     Set effect.
-
-     (fn NAME)
-
-12.233.1.10 sox-show-timestamp
-..............................
-
- -- Command: sox-show-timestamp
-
-     Show timestamp   in stream.
-
-12.233.1.11 sox-stop
-....................
-
- -- Command: sox-stop
-
-     Stop currently playing  sound from current context.
+last updated on March 1, 2024.
 
 
 File: emacspeak.info,  Node: sox-gen,  Next: tetris,  Prev: sox,  Up: Emacspeak Commands And Options
@@ -2588,7 +2465,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e M-b:                               emacspeak-speak.    (line  633)
 * C-e M-c:                               emacspeak-wizards.  (line   30)
 * C-e M-d:                               emacspeak-pronounce.
-                                                             (line   67)
+                                                             (line   56)
 * C-e M-e:                               emacspeak-speak.    (line  397)
 * C-e M-h:                               emacspeak-wizards.  (line  202)
 * C-e M-i:                               emacspeak-table-ui. (line   43)
@@ -4401,54 +4278,50 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-proced-speak-that-field <1>: emacspeak-proced.   (line   71)
 * emacspeak-proced-speak-this-field:     emacspeak-proced.   (line   77)
 * emacspeak-proced-speak-this-field <1>: emacspeak-proced.   (line   78)
-* emacspeak-pronounce-clear-dictionaries: emacspeak-pronounce.
+* emacspeak-pronounce-clear:             emacspeak-pronounce.
                                                              (line   29)
-* emacspeak-pronounce-clear-dictionaries <1>: emacspeak-pronounce.
+* emacspeak-pronounce-clear <1>:         emacspeak-pronounce.
                                                              (line   30)
-* emacspeak-pronounce-define-local-pronunciation: emacspeak-pronounce.
-                                                             (line   36)
-* emacspeak-pronounce-define-local-pronunciation <1>: emacspeak-pronounce.
-                                                             (line   37)
 * emacspeak-pronounce-define-pronunciation: emacspeak-pronounce.
-                                                             (line   47)
+                                                             (line   36)
 * emacspeak-pronounce-define-pronunciation <1>: emacspeak-pronounce.
-                                                             (line   48)
+                                                             (line   37)
 * emacspeak-pronounce-define-template-pronunciation: emacspeak-pronounce.
-                                                             (line   56)
+                                                             (line   45)
 * emacspeak-pronounce-define-template-pronunciation <1>: emacspeak-pronounce.
-                                                             (line   57)
+                                                             (line   46)
 * emacspeak-pronounce-dispatch:          emacspeak-pronounce.
-                                                             (line   65)
+                                                             (line   54)
 * emacspeak-pronounce-dispatch <1>:      emacspeak-pronounce.
-                                                             (line   68)
+                                                             (line   57)
 * emacspeak-pronounce-edit-pronunciations: emacspeak-pronounce.
-                                                             (line   73)
+                                                             (line   62)
 * emacspeak-pronounce-edit-pronunciations <1>: emacspeak-pronounce.
-                                                             (line   74)
+                                                             (line   63)
 * emacspeak-pronounce-load-dictionaries: emacspeak-pronounce.
-                                                             (line   83)
+                                                             (line   72)
 * emacspeak-pronounce-load-dictionaries <1>: emacspeak-pronounce.
-                                                             (line   84)
+                                                             (line   73)
 * emacspeak-pronounce-merge-dictionaries: emacspeak-pronounce.
-                                                             (line   94)
+                                                             (line   83)
 * emacspeak-pronounce-merge-dictionaries <1>: emacspeak-pronounce.
-                                                             (line   95)
+                                                             (line   84)
 * emacspeak-pronounce-refresh-pronunciations: emacspeak-pronounce.
-                                                             (line  103)
+                                                             (line   92)
 * emacspeak-pronounce-refresh-pronunciations <1>: emacspeak-pronounce.
-                                                             (line  104)
+                                                             (line   93)
 * emacspeak-pronounce-save-dictionaries: emacspeak-pronounce.
-                                                             (line  110)
+                                                             (line   99)
 * emacspeak-pronounce-save-dictionaries <1>: emacspeak-pronounce.
-                                                             (line  111)
+                                                             (line  100)
 * emacspeak-pronounce-toggle-use-of-dictionaries: emacspeak-pronounce.
-                                                             (line  117)
+                                                             (line  106)
 * emacspeak-pronounce-toggle-use-of-dictionaries <1>: emacspeak-pronounce.
-                                                             (line  119)
+                                                             (line  108)
 * emacspeak-pronounce-toggle-voice:      emacspeak-pronounce.
-                                                             (line  127)
+                                                             (line  116)
 * emacspeak-pronounce-toggle-voice <1>:  emacspeak-pronounce.
-                                                             (line  128)
+                                                             (line  117)
 * emacspeak-read-next-line:              Reading.            (line   49)
 * emacspeak-read-next-line <1>:          emacspeak-speak.    (line  176)
 * emacspeak-read-next-line <2>:          emacspeak-speak.    (line  179)
