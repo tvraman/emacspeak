@@ -83,7 +83,7 @@ String: Return it as is.
         (propertize (nth v fields) 'personality voice-smoothen))
        ((and
          (listp v) (symbolp (nth 0 v)) (fboundp (nth 0 v)))
-        (apply  ; apply func to fields
+        (apply                          ; apply func to fields
          (nth 0 v)
          (cl-loop for k in (cdr v) collect (nth k fields))))
        (t " "))
@@ -353,7 +353,7 @@ Default is emacspeak-pronounce-dictionaries-file."
 
 ;;;  Front end to define pronunciations:
 
-(defvar emacspeak-pronounce-pronunciation-keys
+(defvar emacspeak-pronounce-keys
   '(("buffer" . "buffer")
     ("file" . "file")
     ("directory" . "directory")
@@ -390,13 +390,13 @@ Default is emacspeak-pronounce-dictionaries-file."
 (defun emacspeak-pronounce-get-key ()
   "Collect key from user.
 Returns a pair of the form (key-type . key)."
-  (cl-declare (special emacspeak-pronounce-pronunciation-keys))
+  (cl-declare (special emacspeak-pronounce-keys))
   (let ((key nil)
         (key-type
          (read
           (completing-read
            "Define pronunciation that is specific to: "
-           emacspeak-pronounce-pronunciation-keys nil t))))
+           emacspeak-pronounce-keys nil t))))
     (when (called-interactively-p 'interactive) ;cleanup minibuffer history
       (pop minibuffer-history))
     (cond
