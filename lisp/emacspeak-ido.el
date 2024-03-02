@@ -76,6 +76,7 @@
 (defadvice ido-exhibit (after emacspeak pre act comp)
   "Speak ido minibuffer intelligently."
   (when  (and ido-matches (sit-for emacspeak-ido-typing-delay))
+    (when (> (length ido-matches) ido-max-prospects) (emacspeak-icon 'ellipses))
     (dtk-notify-speak
      (concat
       (minibuffer-contents)
