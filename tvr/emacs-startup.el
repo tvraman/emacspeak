@@ -188,7 +188,7 @@ Use Custom to customize where possible. "
   (emacspeak-wizards-project-shells-initialize))
 
 (declare-function
- emacspeak-pronounce-toggle-use-of-dictionaries
+ emacspeak-pronounce-toggle-dictionaries
  "emacspeak-pronounce" (&optional state))
 
 (defun tvr-text-mode-hook ()
@@ -196,7 +196,7 @@ Use Custom to customize where possible. "
   (cl-declare (special auto-correct-predicate))
   (outline-minor-mode 1)
   (auto-fill-mode)
-  (emacspeak-pronounce-toggle-use-of-dictionaries t)
+  (emacspeak-pronounce-toggle-dictionaries t)
   (setq auto-correct-predicate #'(lambda (&rest _) t))
   ;; company-wordfreq setup:
   (setq-local company-backends '(company-wordfreq))
