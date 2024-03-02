@@ -4313,14 +4313,14 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
                                                              (line   99)
 * emacspeak-pronounce-save-dictionaries <1>: emacspeak-pronounce.
                                                              (line  100)
-* emacspeak-pronounce-toggle-use-of-dictionaries: emacspeak-pronounce.
+* emacspeak-pronounce-toggle-dictionaries: emacspeak-pronounce.
                                                              (line  106)
-* emacspeak-pronounce-toggle-use-of-dictionaries <1>: emacspeak-pronounce.
-                                                             (line  108)
+* emacspeak-pronounce-toggle-dictionaries <1>: emacspeak-pronounce.
+                                                             (line  107)
 * emacspeak-pronounce-toggle-voice:      emacspeak-pronounce.
-                                                             (line  116)
+                                                             (line  115)
 * emacspeak-pronounce-toggle-voice <1>:  emacspeak-pronounce.
-                                                             (line  117)
+                                                             (line  116)
 * emacspeak-read-next-line:              Reading.            (line   49)
 * emacspeak-read-next-line <1>:          emacspeak-speak.    (line  176)
 * emacspeak-read-next-line <2>:          emacspeak-speak.    (line  179)

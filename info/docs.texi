@@ -11419,9 +11419,9 @@ Saves  pronunciation dictionaries.
 @end format
 @end deffn
 
-@subsubsection emacspeak-pronounce-toggle-use-of-dictionaries
-@deffn {Command} emacspeak-pronounce-toggle-use-of-dictionaries  (&optional state)
-@findex emacspeak-pronounce-toggle-use-of-dictionaries
+@subsubsection emacspeak-pronounce-toggle-dictionaries
+@deffn {Command} emacspeak-pronounce-toggle-dictionaries  (&optional state)
+@findex emacspeak-pronounce-toggle-dictionaries
 
 @format
 Toggle  pronunciation dictionaries. 

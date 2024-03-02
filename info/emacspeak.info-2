@@ -3973,11 +3973,10 @@ given file.
 
      Saves  pronunciation dictionaries.
 
-12.151.2.10 emacspeak-pronounce-toggle-use-of-dictionaries
-..........................................................
+12.151.2.10 emacspeak-pronounce-toggle-dictionaries
+...................................................
 
- -- Command: emacspeak-pronounce-toggle-use-of-dictionaries (&optional
-          state)
+ -- Command: emacspeak-pronounce-toggle-dictionaries (&optional state)
 
      Toggle  pronunciation dictionaries.
 
