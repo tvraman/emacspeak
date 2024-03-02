@@ -480,20 +480,14 @@ First loads any persistent dictionaries if not already loaded."
   "Toggle  pronunciation dictionaries. "
   (interactive "P")
   (cl-declare (special emacspeak-pronounce-table))
-  (unless state (setq state (not emacspeak-pronounce-table)))
+  (unless state (setq state (not emacspeak-pronounce-table))) ; toggle
   (cond
    (state
-    (unless emacspeak-pronounce-table
-      (setq emacspeak-pronounce-table
-            (emacspeak-pronounce-compose-table))))
-   ((null state)                        ;already on --turn it off
-    (setq emacspeak-pronounce-table nil)))
+    (setq emacspeak-pronounce-table (emacspeak-pronounce-compose-table)))
+   ((null state) (setq emacspeak-pronounce-table nil)))
   (when (called-interactively-p 'interactive)
-    (emacspeak-icon
-     (if emacspeak-pronounce-table 'on 'off))
-    (message
-     "Pronunciations %s."
-     (if emacspeak-pronounce-table " on " " off "))))
+    (emacspeak-icon (if emacspeak-pronounce-table 'on 'off))
+    (message "Pronunciations %s" (if emacspeak-pronounce-table "on" "off"))))
 
 (defun emacspeak-pronounce-refresh-pronunciations ()
   "Refresh pronunciation table for current buffer. "
