@@ -138,21 +138,11 @@ the match  being passed to the func which returns  the new pronunciation."
 (defun emacspeak-pronounce-add-local-entry (string pronunciation)
   "Add  pronunciation for current buffer. "
   (cl-declare (special emacspeak-pronounce-table))
-  (cond
-   ((not (boundp 'emacspeak-pronounce-table)) ;first time
-    (set (make-local-variable 'emacspeak-pronounce-table)
-         (emacspeak-pronounce-compose-table))
-    (when (called-interactively-p 'interactive)(emacspeak-icon 'on)))
-   (emacspeak-pronounce-table ;already on --
-    (when (called-interactively-p 'interactive)(emacspeak-icon 'on)))
-   (t                                   ;turn it on
-    (setq emacspeak-pronounce-table
-          (emacspeak-pronounce-compose-table))))
-  (puthash string pronunciation
-           emacspeak-pronounce-table)
+  (unless emacspeak-pronounce-table
+    (setq emacspeak-pronounce-table (emacspeak-pronounce-compose-table)))
+  (puthash string pronunciation emacspeak-pronounce-table)
   (when (called-interactively-p 'interactive)
-    (message "Added local pronunciation in buffer %s"
-             (buffer-name))))
+    (message "Added local pronunciation in buffer %s" (buffer-name))))
 
 ;;; mode hierarchy per define-derived-mode:
 
