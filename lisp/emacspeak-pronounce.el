@@ -476,7 +476,7 @@ First loads any persistent dictionaries if not already loaded."
   emacspeak-pronounce-table)
 
 ;;;###autoload
-(defun emacspeak-pronounce-toggle-use-of-dictionaries (&optional state)
+(defun emacspeak-pronounce-toggle-dictionaries (&optional state)
   "Toggle  pronunciation dictionaries. "
   (interactive "P")
   (cl-declare (special emacspeak-pronounce-table))
@@ -578,7 +578,7 @@ First loads any persistent dictionaries if not already loaded."
   "Edit dictionary for given key"
   (cl-declare (special emacspeak-pronounce-dictionaries))
   (unless emacspeak-pronounce-table
-    (emacspeak-pronounce-toggle-use-of-dictionaries))
+    (emacspeak-pronounce-toggle-dictionaries))
   (let ((value (gethash key emacspeak-pronounce-dictionaries))
         (notify (emacspeak-pronounce-edit-generate-callback key))
         (buffer (get-buffer-create (format "*Dict: %s" key)))
@@ -670,7 +670,7 @@ specified pronunciation dictionary key."
       (?r (call-interactively 'emacspeak-pronounce-refresh-pronunciations))
       (?s (call-interactively 'emacspeak-pronounce-save-dictionaries))
       (?t (call-interactively
-           'emacspeak-pronounce-toggle-use-of-dictionaries))
+           'emacspeak-pronounce-toggle-dictionaries))
       (?v (call-interactively 'emacspeak-pronounce-toggle-voice))
       (otherwise (message emacspeak-pronounce-help)))
     (emacspeak-icon 'close-object)))

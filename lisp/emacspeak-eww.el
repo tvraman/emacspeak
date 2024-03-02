@@ -537,7 +537,7 @@
  #'(lambda ()
      (cl-declare (special outline- outline-search-function))
      (outline-minor-mode)
-     (emacspeak-pronounce-toggle-use-of-dictionaries t)))
+     (emacspeak-pronounce-toggle-dictionaries t)))
 
 (defun emacspeak-eww-shr-outline-toggle ()
   "Toggle between shr and native outliner."

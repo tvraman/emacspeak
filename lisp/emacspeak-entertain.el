@@ -99,7 +99,7 @@
   (emacspeak-pronounce-add-dictionary-entry 'hm-mode "_" ".")
   (when (or (not (boundp 'emacspeak-pronounce-table))
             (not emacspeak-pronounce-table))
-    (emacspeak-pronounce-toggle-use-of-dictionaries)))
+    (emacspeak-pronounce-toggle-dictionaries)))
 
 (defadvice hm-self-guess-char (after emacspeak pre act comp)
   "Speak the char."
