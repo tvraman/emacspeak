@@ -120,7 +120,6 @@ Use Custom to customize where possible. "
   (global-set-key (kbd "C-l") ctl-x-map)
   (global-set-key[remap dabbrev-expand] 'hippie-expand)
   (global-set-key (kbd "<insert>") empv-map)
-  (global-set-key (kbd "s-SPC") empv-map)
   (cl-loop ;; global key-bindings
    for key in
    '(
