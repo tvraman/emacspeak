@@ -172,6 +172,13 @@ Interactive prefix arg plays on left ear using alsa."
     (call-interactively 'emacspeak-empv-time-pos)
     (emacspeak-icon 'large-movement)))
 
+(defun emacspeak-empv-absolute-seek (target)
+  "Absolute seek in seconds,see `empv-seek'"
+  (interactive "nTarget:")
+  (empv-seek target '("absolute"))
+  (when (called-interactively-p 'interactive)
+    (call-interactively 'emacspeak-empv-time-pos)
+    (emacspeak-icon 'large-movement)))
 (defun emacspeak-empv-backward-minute (&optional count)
   "Move back  count  minutes."
   (interactive "p")
@@ -190,13 +197,6 @@ Interactive prefix arg plays on left ear using alsa."
     (call-interactively 'emacspeak-empv-time-pos)
     (emacspeak-icon 'large-movement)))
 
-(defun emacspeak-empv-absolute-seek (target)
-  "Absolute seek in seconds,see `empv-seek'"
-  (interactive "nTarget:")
-  (empv-seek target '("absolute"))
-  (when (called-interactively-p 'interactive)
-    (call-interactively 'emacspeak-empv-time-pos)
-    (emacspeak-icon 'large-movement)))
 ;; Generate other navigators:
 
 
@@ -204,25 +204,20 @@ Interactive prefix arg plays on left ear using alsa."
   "Generate time navigator."
   (eval
    `(defun ,(intern  (format "emacspeak-empv-forward-%s" name)) ()
-      ,(format "Move forward by %s seconds" duration )
+      ,(format "Move forward by %s minutes" duration )
       (interactive )
-      (empv-seek  ,duration)
-      (when (called-interactively-p 'interactive)
-        (call-interactively 'emacspeak-empv-time-pos)
-        (emacspeak-icon 'large-movement))))
+      (funcall-interactively 'emacspeak-empv-forward-minute ,duration)))
   (eval
    `(defun ,(intern  (format "emacspeak-empv-backward-%s" name)) ()
-      ,(format "Move backward by %s seconds" duration )
+      ,(format "Move backward by %s minutes" duration )
       (interactive )
-      (empv-seek  ,(- duration))
-      (when (called-interactively-p 'interactive)
-        (call-interactively 'emacspeak-empv-time-pos)
-        (emacspeak-icon 'large-movement))))
-  )
+      (funcall-interactively 'emacspeak-empv-backward-minute
+                             ,duration))))
+
 ;; Use it:
-(ems--empv-gen-nav "5-mins" 300)
-(ems--empv-gen-nav "10-mins" 600)
-(ems--empv-gen-nav "30-mins" 1800)
+(ems--empv-gen-nav "5-minutes" 5)
+(ems--empv-gen-nav "10-minutes" 10)
+(ems--empv-gen-nav "30-minutes" 30)
 
 (defun emacspeak-empv-percentage-seek (target)
   "Percentage seek in seconds,see `empv-seek'"
