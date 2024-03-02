@@ -56,7 +56,7 @@ Produce timing information as the last step."
               gcs-done gc-elapsed)))
 
 ;;;  Fixups:
-
+(setq y-or-n-p-use-read-key t)
 ;; Emacs @HEAD is broken:
 (defvar font-lock-reference-face 'font-lock-constant-face)
 (advice-add 'system-users :override #'(lambda () (list user-real-login-name)))

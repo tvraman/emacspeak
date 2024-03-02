@@ -119,9 +119,7 @@
           buffer-undo-list t
           buffer-read-only nil)))
 
-(defconst  emacspeak-media-shortcuts
-  (expand-file-name "media/radio/" emacspeak-directory)
-  "Directory where we organize   and media shortcuts. ")
+
 
 (defvar emacspeak-m-player-process nil
   "Process handle to m-player.")

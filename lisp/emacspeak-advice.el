@@ -2591,19 +2591,19 @@ Produce an auditory icon if possible."
 
 ;;;  Asking Questions:
 
-(defadvice yes-or-no-p (around emacspeak pre act comp)
-  "Play auditory icon."
-  (emacspeak-icon 'ask-question)
-  ad-do-it
-  (emacspeak-icon (if ad-return-value 'yes-answer 'no-answer ))
-  ad-return-value)
+;; (defadvice yes-or-no-p (around emacspeak pre act comp)
+;;   "Play auditory icon."
+;;   (emacspeak-icon 'ask-question)
+;;   ad-do-it
+;;   (emacspeak-icon (if ad-return-value 'yes-answer 'no-answer ))
+;;   ad-return-value)
 
-(defadvice y-or-n-p (around emacspeak pre act comp)
-  "Play auditory icon."
-  (emacspeak-icon 'ask-short-question)
-  ad-do-it
-  (emacspeak-icon (if ad-return-value 'y-answer 'n-answer))
-  ad-return-value)
+;; (defadvice y-or-n-p (around emacspeak pre act comp)
+;;   "Play auditory icon."
+;;   (emacspeak-icon 'ask-short-question)
+;;   ad-do-it
+;;   (emacspeak-icon (if ad-return-value 'y-answer 'n-answer))
+;;   ad-return-value)
 
 (defadvice ask-user-about-lock (around emacspeak pre act comp)
   "Play auditory icon."

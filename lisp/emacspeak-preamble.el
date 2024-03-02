@@ -54,6 +54,9 @@
 (setq ad-redefinition-action 'accept)
 
 ;;;   Define locations
+(defconst emacspeak-directory
+  (expand-file-name "../" (file-name-directory load-file-name))
+  "emacspeak directory")
 ;; Variable names: emacspeak-<prog> as far as possible
 ;; defconst, not defcustom unless absolutely necessary.
 ;; amixer
@@ -66,6 +69,9 @@ executable")
 (defconst emacspeak-media (getenv "XDG_MUSIC_DIR")
   "Local media directory.")
 
+(defconst  emacspeak-media-shortcuts
+  (expand-file-name "media/radio/" emacspeak-directory)
+  "Directory where we organize   and media shortcuts. ")
 (defconst emacspeak-media-extensions
   (eval-when-compile
     (let
@@ -104,10 +110,8 @@ executable")
 (defconst emacspeak-ytdl (executable-find "youtube-dl") "Youtube DL Executable")
 ;; where we live:
 
-;;;###autoload
-(defconst emacspeak-directory
-  (expand-file-name "../" (file-name-directory load-file-name))
-  "emacspeak directory")
+
+
 
 ;;;###autoload
 (defconst emacspeak-lisp-directory
