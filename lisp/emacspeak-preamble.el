@@ -98,6 +98,9 @@
 ;; local media dir
 (defconst emacspeak-media (getenv "XDG_MUSIC_DIR")
   "Local media directory.")
+(defconst  emacspeak-media-shortcuts
+  (expand-file-name "media/radio/" emacspeak-directory)
+  "Directory where we organize   and media shortcuts. ")
 
 ;;; Executable Variable names:
 ;; emacspeak-<prog> as far as possible
@@ -108,9 +111,7 @@
 ;; wpctl:
 (defconst emacspeak-wpctl (executable-find "wpctl") "wpctl executable")
 
-(defconst  emacspeak-media-shortcuts
-  (expand-file-name "media/radio/" emacspeak-directory)
-  "Directory where we organize   and media shortcuts. ")
+
 (defconst emacspeak-media-extensions
   (eval-when-compile
     (let
