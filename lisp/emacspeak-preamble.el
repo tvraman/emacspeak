@@ -101,17 +101,6 @@
 (defconst  emacspeak-media-shortcuts
   (expand-file-name "media/radio/" emacspeak-directory)
   "Directory where we organize   and media shortcuts. ")
-
-;;; Executable Variable names:
-;; emacspeak-<prog> as far as possible
-
-;; amixer
-(defconst emacspeak-amixer  (executable-find "amixer") "Amixer program")
-
-;; wpctl:
-(defconst emacspeak-wpctl (executable-find "wpctl") "wpctl executable")
-
-
 (defconst emacspeak-media-extensions
   (eval-when-compile
     (let
@@ -125,6 +114,24 @@
        (regexp-opt ext)
        "$")))
   "Media Extensions.")
+
+(defconst  emacspeak-playlist-pattern
+  (eval-when-compile
+    (concat
+     (regexp-opt
+      (list ".m3u" ".asx" ".pls"  ".ram"))
+     "$"))
+  "Playlist pattern.")
+
+;;; Executable Variable names:
+;; emacspeak-<prog> as far as possible
+
+;; amixer
+(defconst emacspeak-amixer  (executable-find "amixer") "Amixer program")
+
+;; wpctl:
+(defconst emacspeak-wpctl (executable-find "wpctl") "wpctl executable")
+
 ;; curl:
 (defconst emacspeak-curl (executable-find "curl") "Curl.")
 
@@ -148,29 +155,6 @@
 
 ;; youtube-dl
 (defconst emacspeak-ytdl (executable-find "youtube-dl") "Youtube DL Executable")
-;; where we live:
-
-(defconst emacspeak-media-extensions
-  (eval-when-compile
-    (let
-        ((ext
-          '("m3u" "pls"                 ; incorporate playlist ext
-            "flac" "m4a" "m4b"
-            "aiff" "aac" "opus" "mkv"
-            "ogv" "oga" "ogg" "mp3"  "mp4" "webm" "wav")))
-      (concat
-       "\\."
-       (regexp-opt ext)
-       "$")))
-  "Media Extensions.")
-
-(defconst  emacspeak-playlist-pattern
-  (eval-when-compile
-    (concat
-     (regexp-opt
-      (list ".m3u" ".asx" ".pls"  ".ram"))
-     "$"))
-  "Playlist pattern.")
 
 ;;   xslt Environment:
 (defsubst emacspeak-xslt-get (style)
