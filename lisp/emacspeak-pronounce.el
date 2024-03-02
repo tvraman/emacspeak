@@ -407,8 +407,7 @@ Returns a pair of the form (key-type . key)."
       (or key (error "No directory associated with current buffer"))
       (setq key (intern key)))
      ((eq key-type 'mode)
-      (setq key
-            major-mode)
+      (setq key major-mode)
       (or key (error "No major mode found for current buffer")))
      (t (error "Cannot define pronunciations with key type %s" key-type)))
     (cons key-type key)))
