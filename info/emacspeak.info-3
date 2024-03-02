@@ -12,7 +12,130 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 1, 2024.
+last updated on March 2, 2024.
+
+
+File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
+
+12.233 sox
+==========
+
+This module defines a convenient speech-enabled interface for editing
+mp3 and wav files using SoX.
+
+   Launching M-x sox creates a special interaction buffer that provides
+single keystroke commands for editing and applying effects to a selected
+sound file.  For adding mp3 support to sox, do
+
+   sudo apt-get libsox-fmt-mp3 install
+
+   This module provides support for ladspa effects using module
+ladspa.el.  To use ladspa effects with SoX, you need a relatively new
+build of Sox; The stock SoX that is package for Debian/Ubuntu does not
+always work.  This module can be used independent of Emacspeak.
+
+12.233.1 Sox Commands
+---------------------
+
+12.233.1.1 sox-add-effect
+.........................
+
+ -- Command: sox-add-effect (name)
+
+     Adds  effect at the end of the effect list
+
+     (fn NAME)
+
+12.233.1.2 sox-delete-effect-at-point
+.....................................
+
+ -- Command: sox-delete-effect-at-point
+
+     Delete effect at point.
+
+     This function has :around advice: ‘ad-Advice-sox-delete-effect-at-point’.
+
+     (fn)
+
+12.233.1.3 sox-edit-effect-at-point
+...................................
+
+ -- Command: sox-edit-effect-at-point
+
+     Edit effect at point.
+
+12.233.1.4 sox-mode
+...................
+
+ -- Command: sox-mode
+
+     An audio workbench for the Emacspeak desktop.
+
+     In addition to any hooks its parent mode ‘special-mode’ might have
+     run, this mode runs the hook ‘sox-mode-hook’, as the final or
+     penultimate step during initialization.
+
+
+12.233.1.5 sox-open-file
+........................
+
+ -- Command: sox-open-file (snd-file)
+
+     Open specified snd-file on the Audio Workbench.
+
+     This function has :around advice: ‘ad-Advice-sox-open-file’.
+
+     (fn SND-FILE)
+
+12.233.1.6 sox-play
+...................
+
+ -- Command: sox-play
+
+     Play sound .
+
+12.233.1.7 sox-refresh
+......................
+
+ -- Command: sox-refresh
+
+     Redraw Audio Workbench.
+
+     This function has :around advice: ‘ad-Advice-sox-refresh’.
+
+     (fn)
+
+12.233.1.8 sox-save
+...................
+
+ -- Command: sox-save (save-file)
+
+     Save context to  file after prompting.
+
+     (fn SAVE-FILE)
+
+12.233.1.9 sox-set-effect
+.........................
+
+ -- Command: sox-set-effect (name)
+
+     Set effect.
+
+     (fn NAME)
+
+12.233.1.10 sox-show-timestamp
+..............................
+
+ -- Command: sox-show-timestamp
+
+     Show timestamp   in stream.
+
+12.233.1.11 sox-stop
+....................
+
+ -- Command: sox-stop
+
+     Stop currently playing  sound from current context.
 
 
 File: emacspeak.info,  Node: sox-gen,  Next: tetris,  Prev: sox,  Up: Emacspeak Commands And Options
@@ -2252,8 +2375,8 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e ?:                                 emacspeak-websearch.
                                                              (line   52)
 * C-e .:                                 emacspeak-speak.    (line   37)
-* C-e ':                                 emacspeak-empv.     (line   67)
-* C-e ":                                 emacspeak-empv.     (line   88)
+* C-e ':                                 emacspeak-empv.     (line  109)
+* C-e ":                                 emacspeak-empv.     (line  130)
 * C-e (:                                 amixer.             (line   24)
 * C-e ):                                 emacspeak-sounds.   (line   74)
 * C-e [:                                 Reading.            (line  121)
@@ -2567,11 +2690,11 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e x v:                               emacspeak-wizards.  (line 1042)
 * C-e x w:                               emacspeak-wizards.  (line  713)
 * C-e y a:                               emacspeak-xslt.     (line   27)
-* C-e y l:                               emacspeak-empv.     (line   78)
+* C-e y l:                               emacspeak-empv.     (line  120)
 * C-e y p:                               emacspeak-pianobar. (line   46)
 * C-e y r:                               emacspeak-xslt.     (line   57)
 * C-e y x:                               emacspeak-xslt.     (line   37)
-* C-e y y:                               emacspeak-empv.     (line   98)
+* C-e y y:                               emacspeak-empv.     (line  140)
 * C-e z b:                               emacspeak-wizards.  (line 1068)
 * C-e z e:                               emacspeak-wizards.  (line  509)
 * C-e z l:                               emacspeak-m-player. (line  366)
@@ -3253,32 +3376,44 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-empv-absolute-seek <1>:      emacspeak-empv.     (line   16)
 * emacspeak-empv-accumulate-to-register: emacspeak-empv.     (line   24)
 * emacspeak-empv-accumulate-to-register <1>: emacspeak-empv. (line   25)
-* emacspeak-empv-backward-minute:        emacspeak-empv.     (line   31)
-* emacspeak-empv-backward-minute <1>:    emacspeak-empv.     (line   32)
-* emacspeak-empv-clear-filter:           emacspeak-empv.     (line   40)
-* emacspeak-empv-clear-filter <1>:       emacspeak-empv.     (line   41)
-* emacspeak-empv-forward-minute:         emacspeak-empv.     (line   47)
-* emacspeak-empv-forward-minute <1>:     emacspeak-empv.     (line   48)
-* emacspeak-empv-percentage-seek:        emacspeak-empv.     (line   56)
-* emacspeak-empv-percentage-seek <1>:    emacspeak-empv.     (line   57)
-* emacspeak-empv-play-file:              emacspeak-empv.     (line   65)
-* emacspeak-empv-play-file <1>:          emacspeak-empv.     (line   68)
-* emacspeak-empv-play-last:              emacspeak-empv.     (line   76)
-* emacspeak-empv-play-last <1>:          emacspeak-empv.     (line   79)
-* emacspeak-empv-play-local:             emacspeak-empv.     (line   86)
-* emacspeak-empv-play-local <1>:         emacspeak-empv.     (line   89)
-* emacspeak-empv-play-url:               emacspeak-empv.     (line   96)
-* emacspeak-empv-play-url <1>:           emacspeak-empv.     (line   99)
-* emacspeak-empv-relative-seek:          emacspeak-empv.     (line  107)
-* emacspeak-empv-relative-seek <1>:      emacspeak-empv.     (line  108)
-* emacspeak-empv-time-pos:               emacspeak-empv.     (line  116)
-* emacspeak-empv-time-pos <1>:           emacspeak-empv.     (line  117)
-* emacspeak-empv-toggle-custom:          emacspeak-empv.     (line  123)
-* emacspeak-empv-toggle-custom <1>:      emacspeak-empv.     (line  124)
-* emacspeak-empv-toggle-filter:          emacspeak-empv.     (line  130)
-* emacspeak-empv-toggle-filter <1>:      emacspeak-empv.     (line  131)
-* emacspeak-empv-yt-download:            emacspeak-empv.     (line  140)
-* emacspeak-empv-yt-download <1>:        emacspeak-empv.     (line  141)
+* emacspeak-empv-backward-10-minutes:    emacspeak-empv.     (line   31)
+* emacspeak-empv-backward-10-minutes <1>: emacspeak-empv.    (line   32)
+* emacspeak-empv-backward-30-minutes:    emacspeak-empv.     (line   38)
+* emacspeak-empv-backward-30-minutes <1>: emacspeak-empv.    (line   39)
+* emacspeak-empv-backward-5-minutes:     emacspeak-empv.     (line   45)
+* emacspeak-empv-backward-5-minutes <1>: emacspeak-empv.     (line   46)
+* emacspeak-empv-backward-minute:        emacspeak-empv.     (line   52)
+* emacspeak-empv-backward-minute <1>:    emacspeak-empv.     (line   53)
+* emacspeak-empv-clear-filter:           emacspeak-empv.     (line   61)
+* emacspeak-empv-clear-filter <1>:       emacspeak-empv.     (line   62)
+* emacspeak-empv-forward-10-minutes:     emacspeak-empv.     (line   68)
+* emacspeak-empv-forward-10-minutes <1>: emacspeak-empv.     (line   69)
+* emacspeak-empv-forward-30-minutes:     emacspeak-empv.     (line   75)
+* emacspeak-empv-forward-30-minutes <1>: emacspeak-empv.     (line   76)
+* emacspeak-empv-forward-5-minutes:      emacspeak-empv.     (line   82)
+* emacspeak-empv-forward-5-minutes <1>:  emacspeak-empv.     (line   83)
+* emacspeak-empv-forward-minute:         emacspeak-empv.     (line   89)
+* emacspeak-empv-forward-minute <1>:     emacspeak-empv.     (line   90)
+* emacspeak-empv-percentage-seek:        emacspeak-empv.     (line   98)
+* emacspeak-empv-percentage-seek <1>:    emacspeak-empv.     (line   99)
+* emacspeak-empv-play-file:              emacspeak-empv.     (line  107)
+* emacspeak-empv-play-file <1>:          emacspeak-empv.     (line  110)
+* emacspeak-empv-play-last:              emacspeak-empv.     (line  118)
+* emacspeak-empv-play-last <1>:          emacspeak-empv.     (line  121)
+* emacspeak-empv-play-local:             emacspeak-empv.     (line  128)
+* emacspeak-empv-play-local <1>:         emacspeak-empv.     (line  131)
+* emacspeak-empv-play-url:               emacspeak-empv.     (line  138)
+* emacspeak-empv-play-url <1>:           emacspeak-empv.     (line  141)
+* emacspeak-empv-relative-seek:          emacspeak-empv.     (line  149)
+* emacspeak-empv-relative-seek <1>:      emacspeak-empv.     (line  150)
+* emacspeak-empv-time-pos:               emacspeak-empv.     (line  158)
+* emacspeak-empv-time-pos <1>:           emacspeak-empv.     (line  159)
+* emacspeak-empv-toggle-custom:          emacspeak-empv.     (line  165)
+* emacspeak-empv-toggle-custom <1>:      emacspeak-empv.     (line  166)
+* emacspeak-empv-toggle-filter:          emacspeak-empv.     (line  172)
+* emacspeak-empv-toggle-filter <1>:      emacspeak-empv.     (line  173)
+* emacspeak-empv-yt-download:            emacspeak-empv.     (line  182)
+* emacspeak-empv-yt-download <1>:        emacspeak-empv.     (line  183)
 * emacspeak-enriched-voiceify-faces:     emacspeak-enriched. (line   14)
 * emacspeak-enriched-voiceify-faces <1>: emacspeak-enriched. (line   15)
 * emacspeak-eperiodic-goto-property-section: emacspeak-eperiodic.

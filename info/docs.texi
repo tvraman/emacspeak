@@ -247,7 +247,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1159 commands and 128 options.
+This chapter documents a total of 1165 commands and 128 options.
 
 @node amixer
 @section amixer
@@ -1178,34 +1178,6 @@ nil
 
 @end defvar
 
-@defvar {User Option} emacspeak-speak-messages-filter
-@verbatim
-List of strings used to filter spoken messages.
-@end verbatim
-
-Default Value: 
-@verbatim
-
-("Decrypting" "psession" "auto saving")
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} emacspeak-speak-tooltips
-@verbatim
-Enable to get tooltips spoken.
-@end verbatim
-
-Default Value: 
-@verbatim
-
-nil
-
-@end verbatim
-
-@end defvar
-
 @node emacspeak-2048
 @section emacspeak-2048
 
@@ -1363,6 +1335,36 @@ Note that we needed to advice a lot more for Emacs 19 and
 Emacs 20 than we do for Emacs 21 and Emacs 22.
 As of August 2007, this file is being purged of advice forms
 not needed in Emacs 22.
+
+@subsection emacspeak-advice Options
+
+@defvar {User Option} emacspeak-speak-messages-filter
+@verbatim
+List of strings used to filter spoken messages.
+@end verbatim
+
+Default Value: 
+@verbatim
+
+("Decrypting" "psession" "auto saving")
+
+@end verbatim
+
+@end defvar
+
+@defvar {User Option} emacspeak-speak-tooltips
+@verbatim
+Enable to get tooltips spoken.
+@end verbatim
+
+Default Value: 
+@verbatim
+
+nil
+
+@end verbatim
+
+@end defvar
 
 @node emacspeak-amark
 @section emacspeak-amark
@@ -3746,6 +3748,33 @@ Accumulate media links to register u
 @end format
 @end deffn
 
+@subsubsection emacspeak-empv-backward-10-minutes
+@deffn {Command} emacspeak-empv-backward-10-minutes   
+@findex emacspeak-empv-backward-10-minutes
+
+@format
+Move backward by 10 minutes
+@end format
+@end deffn
+
+@subsubsection emacspeak-empv-backward-30-minutes
+@deffn {Command} emacspeak-empv-backward-30-minutes   
+@findex emacspeak-empv-backward-30-minutes
+
+@format
+Move backward by 30 minutes
+@end format
+@end deffn
+
+@subsubsection emacspeak-empv-backward-5-minutes
+@deffn {Command} emacspeak-empv-backward-5-minutes   
+@findex emacspeak-empv-backward-5-minutes
+
+@format
+Move backward by 5 minutes
+@end format
+@end deffn
+
 @subsubsection emacspeak-empv-backward-minute
 @deffn {Command} emacspeak-empv-backward-minute  (&optional count)
 @findex emacspeak-empv-backward-minute
@@ -3763,6 +3792,33 @@ Move back  count  minutes.
 
 @format
 Clear all filters. 
+@end format
+@end deffn
+
+@subsubsection emacspeak-empv-forward-10-minutes
+@deffn {Command} emacspeak-empv-forward-10-minutes   
+@findex emacspeak-empv-forward-10-minutes
+
+@format
+Move forward by 10 minutes
+@end format
+@end deffn
+
+@subsubsection emacspeak-empv-forward-30-minutes
+@deffn {Command} emacspeak-empv-forward-30-minutes   
+@findex emacspeak-empv-forward-30-minutes
+
+@format
+Move forward by 30 minutes
+@end format
+@end deffn
+
+@subsubsection emacspeak-empv-forward-5-minutes
+@deffn {Command} emacspeak-empv-forward-5-minutes   
+@findex emacspeak-empv-forward-5-minutes
+
+@format
+Move forward by 5 minutes
 @end format
 @end deffn
 
@@ -11190,6 +11246,7 @@ POPUP ==  popup.el from MELPA
 Module that is preloaded by every emacspeak module.
 1.  Defines key macros.
 2. Defines location-related variables.
+Define locations of executables.;;; Code:
 
 @node emacspeak-proced
 @section emacspeak-proced

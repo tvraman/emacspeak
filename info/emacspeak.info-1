@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 1, 2024.
+last updated on March 2, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3236,7 +3236,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1159 commands and 128 options.
+   This chapter documents a total of 1165 commands and 128 options.
 
 * Menu:
 
@@ -4121,22 +4121,6 @@ the main emacspeak module.  It actually does very little:
      nil
      
 
- -- Variable: User Option emacspeak-speak-messages-filter
-     List of strings used to filter spoken messages.
-
-     Default Value:
-     
-     ("Decrypting" "psession" "auto saving")
-     
-
- -- Variable: User Option emacspeak-speak-tooltips
-     Enable to get tooltips spoken.
-
-     Default Value:
-     
-     nil
-     
-
 
 File: emacspeak.info,  Node: emacspeak-2048,  Next: emacspeak-abc-mode,  Prev: emacspeak,  Up: Emacspeak Commands And Options
 
@@ -4280,6 +4264,25 @@ I violate this at present by advising completion.  Note that we needed
 to advice a lot more for Emacs 19 and Emacs 20 than we do for Emacs 21
 and Emacs 22.  As of August 2007, this file is being purged of advice
 forms not needed in Emacs 22.
+
+12.9.1 emacspeak-advice Options
+-------------------------------
+
+ -- Variable: User Option emacspeak-speak-messages-filter
+     List of strings used to filter spoken messages.
+
+     Default Value:
+     
+     ("Decrypting" "psession" "auto saving")
+     
+
+ -- Variable: User Option emacspeak-speak-tooltips
+     Enable to get tooltips spoken.
+
+     Default Value:
+     
+     nil
+     
 
 
 File: emacspeak.info,  Node: emacspeak-amark,  Next: emacspeak-analog,  Prev: emacspeak-advice,  Up: Emacspeak Commands And Options
@@ -6405,7 +6408,28 @@ Youtube integration
 
      Accumulate media links to register u
 
-12.60.1.3 emacspeak-empv-backward-minute
+12.60.1.3 emacspeak-empv-backward-10-minutes
+............................................
+
+ -- Command: emacspeak-empv-backward-10-minutes
+
+     Move backward by 10 minutes
+
+12.60.1.4 emacspeak-empv-backward-30-minutes
+............................................
+
+ -- Command: emacspeak-empv-backward-30-minutes
+
+     Move backward by 30 minutes
+
+12.60.1.5 emacspeak-empv-backward-5-minutes
+...........................................
+
+ -- Command: emacspeak-empv-backward-5-minutes
+
+     Move backward by 5 minutes
+
+12.60.1.6 emacspeak-empv-backward-minute
 ........................................
 
  -- Command: emacspeak-empv-backward-minute (&optional count)
@@ -6414,15 +6438,36 @@ Youtube integration
 
      (fn &optional COUNT)
 
-12.60.1.4 emacspeak-empv-clear-filter
+12.60.1.7 emacspeak-empv-clear-filter
 .....................................
 
  -- Command: emacspeak-empv-clear-filter
 
      Clear all filters.
 
-12.60.1.5 emacspeak-empv-forward-minute
-.......................................
+12.60.1.8 emacspeak-empv-forward-10-minutes
+...........................................
+
+ -- Command: emacspeak-empv-forward-10-minutes
+
+     Move forward by 10 minutes
+
+12.60.1.9 emacspeak-empv-forward-30-minutes
+...........................................
+
+ -- Command: emacspeak-empv-forward-30-minutes
+
+     Move forward by 30 minutes
+
+12.60.1.10 emacspeak-empv-forward-5-minutes
+...........................................
+
+ -- Command: emacspeak-empv-forward-5-minutes
+
+     Move forward by 5 minutes
+
+12.60.1.11 emacspeak-empv-forward-minute
+........................................
 
  -- Command: emacspeak-empv-forward-minute (&optional count)
 
@@ -6430,8 +6475,8 @@ Youtube integration
 
      (fn &optional COUNT)
 
-12.60.1.6 emacspeak-empv-percentage-seek
-........................................
+12.60.1.12 emacspeak-empv-percentage-seek
+.........................................
 
  -- Command: emacspeak-empv-percentage-seek (target)
 
@@ -6439,8 +6484,8 @@ Youtube integration
 
      (fn TARGET)
 
-12.60.1.7 emacspeak-empv-play-file
-..................................
+12.60.1.13 emacspeak-empv-play-file
+...................................
 
  -- Command: emacspeak-empv-play-file (file &optional left)
      ‘C-e '’
@@ -6450,8 +6495,8 @@ Youtube integration
 
      (fn FILE &optional LEFT)
 
-12.60.1.8 emacspeak-empv-play-last
-..................................
+12.60.1.14 emacspeak-empv-play-last
+...................................
 
  -- Command: emacspeak-empv-play-last (&optional left)
      ‘C-e y l’
@@ -6460,8 +6505,8 @@ Youtube integration
 
      (fn &optional LEFT)
 
-12.60.1.9 emacspeak-empv-play-local
-...................................
+12.60.1.15 emacspeak-empv-play-local
+....................................
 
  -- Command: emacspeak-empv-play-local (file)
      ‘C-e "’
@@ -6470,7 +6515,7 @@ Youtube integration
 
      (fn FILE)
 
-12.60.1.10 emacspeak-empv-play-url
+12.60.1.16 emacspeak-empv-play-url
 ..................................
 
  -- Command: emacspeak-empv-play-url (url &optional left)
@@ -6481,7 +6526,7 @@ Youtube integration
 
      (fn URL &optional LEFT)
 
-12.60.1.11 emacspeak-empv-relative-seek
+12.60.1.17 emacspeak-empv-relative-seek
 .......................................
 
  -- Command: emacspeak-empv-relative-seek (target)
@@ -6490,21 +6535,21 @@ Youtube integration
 
      (fn TARGET)
 
-12.60.1.12 emacspeak-empv-time-pos
+12.60.1.18 emacspeak-empv-time-pos
 ..................................
 
  -- Command: emacspeak-empv-time-pos
 
      Speak time and percent position.
 
-12.60.1.13 emacspeak-empv-toggle-custom
+12.60.1.19 emacspeak-empv-toggle-custom
 .......................................
 
  -- Command: emacspeak-empv-toggle-custom
 
      Toggle our custom filters.
 
-12.60.1.14 emacspeak-empv-toggle-filter
+12.60.1.20 emacspeak-empv-toggle-filter
 .......................................
 
  -- Command: emacspeak-empv-toggle-filter (filter)
@@ -6514,7 +6559,7 @@ Youtube integration
 
      (fn FILTER)
 
-12.60.1.15 emacspeak-empv-yt-download
+12.60.1.21 emacspeak-empv-yt-download
 .....................................
 
  -- Command: emacspeak-empv-yt-download
