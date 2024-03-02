@@ -197,6 +197,32 @@ Interactive prefix arg plays on left ear using alsa."
   (when (called-interactively-p 'interactive)
     (call-interactively 'emacspeak-empv-time-pos)
     (emacspeak-icon 'large-movement)))
+;; Generate other navigators:
+
+
+(defun ems--empv-gen-nav (name duration)
+  "Generate time navigator."
+  (eval
+   `(defun ,(intern  (format "emacspeak-empv-forward-%s" name)) ()
+      ,(format "Move forward by %s seconds" duration )
+      (interactive )
+      (empv-seek  ,duration)
+      (when (called-interactively-p 'interactive)
+        (call-interactively 'emacspeak-empv-time-pos)
+        (emacspeak-icon 'large-movement))))
+  (eval
+   `(defun ,(intern  (format "emacspeak-empv-backward-%s" name)) ()
+      ,(format "Move backward by %s seconds" duration )
+      (interactive )
+      (empv-seek  ,(- duration))
+      (when (called-interactively-p 'interactive)
+        (call-interactively 'emacspeak-empv-time-pos)
+        (emacspeak-icon 'large-movement))))
+  )
+;; Use it:
+(ems--empv-gen-nav "5-mins" 300)
+(ems--empv-gen-nav "10-mins" 600)
+(ems--empv-gen-nav "30-mins" 1800)
 
 (defun emacspeak-empv-percentage-seek (target)
   "Percentage seek in seconds,see `empv-seek'"
