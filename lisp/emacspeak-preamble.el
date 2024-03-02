@@ -57,6 +57,48 @@
 (defconst emacspeak-directory
   (expand-file-name "../" (file-name-directory load-file-name))
   "emacspeak directory")
+;;;###autoload
+(defconst emacspeak-lisp-directory
+  (expand-file-name  "lisp/" emacspeak-directory)
+  "Lisp directory.")
+
+;;;###autoload
+(defconst emacspeak-sounds-dir
+  (expand-file-name  "sounds/" emacspeak-directory)
+  "Auditory icons directory.")
+
+;;;###autoload
+(defconst emacspeak-xslt-directory
+  (expand-file-name "xsl/" emacspeak-directory)
+  "XSLT.")
+
+;;;###autoload
+(defconst emacspeak-etc-directory
+  (expand-file-name  "etc/" emacspeak-directory)
+  "Misc.")
+
+;;;###autoload
+(defconst emacspeak-servers-directory
+  (expand-file-name  "servers/" emacspeak-directory)
+  "Speech servers.")
+
+;;;###autoload
+(defconst emacspeak-info-directory
+  (expand-file-name  "info/" emacspeak-directory)
+  "Info")
+
+;;;###autoload
+(defconst emacspeak-user-directory (expand-file-name "~/.emacspeak/")
+  "Resources.")
+
+(defconst emacspeak-readme-file
+  (expand-file-name "README" emacspeak-directory)
+  "README.")
+
+(defconst emacspeak-icon
+  (expand-file-name "emacspeak.ogg" emacspeak-sounds-dir)
+  "Emacspeak startup icon.")
+
 ;; Variable names: emacspeak-<prog> as far as possible
 ;; defconst, not defcustom unless absolutely necessary.
 ;; amixer
@@ -109,51 +151,6 @@ executable")
 ;; youtube-dl
 (defconst emacspeak-ytdl (executable-find "youtube-dl") "Youtube DL Executable")
 ;; where we live:
-
-
-
-
-;;;###autoload
-(defconst emacspeak-lisp-directory
-  (expand-file-name  "lisp/" emacspeak-directory)
-  "Lisp directory.")
-
-;;;###autoload
-(defconst emacspeak-sounds-dir
-  (expand-file-name  "sounds/" emacspeak-directory)
-  "Auditory icons directory.")
-
-;;;###autoload
-(defconst emacspeak-xslt-directory
-  (expand-file-name "xsl/" emacspeak-directory)
-  "XSLT.")
-
-;;;###autoload
-(defconst emacspeak-etc-directory
-  (expand-file-name  "etc/" emacspeak-directory)
-  "Misc.")
-
-;;;###autoload
-(defconst emacspeak-servers-directory
-  (expand-file-name  "servers/" emacspeak-directory)
-  "Speech servers.")
-
-;;;###autoload
-(defconst emacspeak-info-directory
-  (expand-file-name  "info/" emacspeak-directory)
-  "Info")
-
-;;;###autoload
-(defconst emacspeak-user-directory (expand-file-name "~/.emacspeak/")
-  "Resources.")
-
-(defconst emacspeak-readme-file
-  (expand-file-name "README" emacspeak-directory)
-  "README.")
-
-(defconst emacspeak-icon
-  (expand-file-name "emacspeak.ogg" emacspeak-sounds-dir)
-  "Emacspeak startup icon.")
 
 ;;;###autoload
 (defconst emacspeak-media-extensions
@@ -292,4 +289,3 @@ FN-NAME to our stored value of ems--interactive-fn-name."
     (load file)))
 
 (provide  'emacspeak-preamble)
-
