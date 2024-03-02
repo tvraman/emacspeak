@@ -99,7 +99,7 @@
   (expand-file-name "emacspeak.ogg" emacspeak-sounds-dir)
   "Emacspeak startup icon.")
 
-;; Variable names: emacspeak-<prog> as far as possible
+;;; Variable names: emacspeak-<prog> as far as possible
 ;; defconst, not defcustom unless absolutely necessary.
 ;; amixer
 
@@ -176,7 +176,7 @@ executable")
      "$"))
   "Playlist pattern.")
 
-;;;   xslt Environment:
+;;   xslt Environment:
 (defsubst emacspeak-xslt-get (style)
   "Return  stylesheet path."
   (expand-file-name style emacspeak-xslt-directory))
