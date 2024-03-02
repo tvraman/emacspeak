@@ -922,7 +922,9 @@ updating set of choices?  current strategy is to walk the list using c-s
 and c-r as provided by ido Set number matches shown (ido-max-prospects)
 to 2 or 3 using Custom so you dont hear the entire list.  You can also
 customize IDO-DECORATIONS to taste.  See
-<https://emacspeak.blogspot.com/2018/06/effective-suggest-and-complete-in-eyes.html>.
+<https://emacspeak.blogspot.com/2018/06/effective-suggest-and-complete-in-eyes.html>,
+for an article on how to reason about designing good auditory interfaces
+for these types of situations.
 
 
 File: emacspeak.info,  Node: emacspeak-iedit,  Next: emacspeak-indium,  Prev: emacspeak-ido,  Up: Emacspeak Commands And Options
