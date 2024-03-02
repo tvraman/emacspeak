@@ -40,7 +40,7 @@
 ;; Module that is preloaded by every emacspeak module.
 ;; 1.  Defines key macros.
 ;; 2. Defines location-related variables.
-;;; Code:
+;; Define locations of executables.;;; Code:
 
 ;;;  cl:
 
