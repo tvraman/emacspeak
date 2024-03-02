@@ -54,40 +54,35 @@
 (setq ad-redefinition-action 'accept)
 
 ;;;   Define locations
+
 (defconst emacspeak-directory
   (expand-file-name "../" (file-name-directory load-file-name))
   "emacspeak directory")
-;;;###autoload
+
 (defconst emacspeak-lisp-directory
   (expand-file-name  "lisp/" emacspeak-directory)
   "Lisp directory.")
 
-;;;###autoload
 (defconst emacspeak-sounds-dir
   (expand-file-name  "sounds/" emacspeak-directory)
   "Auditory icons directory.")
 
-;;;###autoload
 (defconst emacspeak-xslt-directory
   (expand-file-name "xsl/" emacspeak-directory)
   "XSLT.")
 
-;;;###autoload
 (defconst emacspeak-etc-directory
   (expand-file-name  "etc/" emacspeak-directory)
   "Misc.")
 
-;;;###autoload
 (defconst emacspeak-servers-directory
   (expand-file-name  "servers/" emacspeak-directory)
   "Speech servers.")
 
-;;;###autoload
 (defconst emacspeak-info-directory
   (expand-file-name  "info/" emacspeak-directory)
   "Info")
 
-;;;###autoload
 (defconst emacspeak-user-directory (expand-file-name "~/.emacspeak/")
   "Resources.")
 
@@ -152,7 +147,6 @@ executable")
 (defconst emacspeak-ytdl (executable-find "youtube-dl") "Youtube DL Executable")
 ;; where we live:
 
-;;;###autoload
 (defconst emacspeak-media-extensions
   (eval-when-compile
     (let
@@ -167,7 +161,6 @@ executable")
        "$")))
   "Media Extensions.")
 
-;;;###autoload
 (defconst  emacspeak-playlist-pattern
   (eval-when-compile
     (concat
