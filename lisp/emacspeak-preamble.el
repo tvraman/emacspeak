@@ -44,8 +44,9 @@
 
 ;;;  cl:
 
-(eval-when-compile (require 'cl-lib)
-                   (require 'subr-x))
+(eval-when-compile
+  (require 'cl-lib)
+  (require 'subr-x))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (cl-pushnew (file-name-directory load-file-name) load-path :test #'string=)
 
