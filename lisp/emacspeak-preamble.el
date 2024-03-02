@@ -181,8 +181,7 @@
              (file-exists-p (expand-file-name ".git" emacspeak-directory)))
         (propertize
          (substring
-          (shell-command-to-string "git show -s --pretty=format:%h
-  HEAD ")
+          (shell-command-to-string "git show -s --pretty=format:%h HEAD ")
           0 7)
          'personality 'acss-s4-r6)
       "")))
@@ -192,6 +191,7 @@
   "Git Revision")
 
 ;;; Pull in core libraries:
+(provide 'emacspeak-preamble) ; avoid recursion
 (mapc
  #'require
  '(
