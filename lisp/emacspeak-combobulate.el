@@ -54,7 +54,7 @@
 
 (voice-setup-add-map 
  '(
-   (combobulate-active-indicator-face voice-animategs)
+   (combobulate-active-indicator-face voice-animated)
    (combobulate-dimmed-indicator-face voice-bolden)
    (combobulate-refactor-highlight-face voice-annotate)
    (combobulate-tree-branch-face voice-lighten)
