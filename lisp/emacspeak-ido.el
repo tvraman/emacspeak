@@ -75,18 +75,16 @@
 
 (defadvice ido-exhibit (after emacspeak pre act comp)
   "Speak ido minibuffer intelligently."
-  (condition-case nil
-      (when  (and ido-matches (sit-for emacspeak-ido-typing-delay))
-        (dtk-notify-speak
-         (concat
-            (minibuffer-contents)
-          (format " %d choices: "  (length ido-matches))
-          (if
-              (or (null ido-current-directory)
-                  (string-equal ido-current-directory emacspeak-ido-cache))
-              " "
-            (format "In %s" (abbreviate-file-name ido-current-directory))))))
-    (error (dtk-initialize))))
+  (when  (and ido-matches (sit-for emacspeak-ido-typing-delay))
+    (dtk-notify-speak
+     (concat
+      (minibuffer-contents)
+      (format " %d choices: "  (length ido-matches))
+      (if
+          (or (null ido-current-directory)
+              (string-equal ido-current-directory emacspeak-ido-cache))
+          " "
+        (format "In %s" (abbreviate-file-name ido-current-directory)))))))
 
 ;;;  speech-enable interactive commands:
 
