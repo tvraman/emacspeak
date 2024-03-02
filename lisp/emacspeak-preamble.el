@@ -54,7 +54,7 @@
 (put 'defadvice 'byte-obsolete-info nil)
 (setq ad-redefinition-action 'accept)
 
-;;;   Define locations
+;;;   Define locations:
 
 (defconst emacspeak-directory
   (expand-file-name "../" (file-name-directory load-file-name))
@@ -95,17 +95,18 @@
   (expand-file-name "emacspeak.ogg" emacspeak-sounds-dir)
   "Emacspeak startup icon.")
 
-;;; Variable names: emacspeak-<prog> as far as possible
-;; defconst, not defcustom unless absolutely necessary.
-;; amixer
-
-(defconst emacspeak-amixer  (executable-find "amixer") "Amixer program")
-;; wpctl:
-(defconst emacspeak-wpctl (executable-find "wpctl") "wpctl
-executable")
 ;; local media dir
 (defconst emacspeak-media (getenv "XDG_MUSIC_DIR")
   "Local media directory.")
+
+;;; Executable Variable names:
+;; emacspeak-<prog> as far as possible
+
+;; amixer
+(defconst emacspeak-amixer  (executable-find "amixer") "Amixer program")
+
+;; wpctl:
+(defconst emacspeak-wpctl (executable-find "wpctl") "wpctl executable")
 
 (defconst  emacspeak-media-shortcuts
   (expand-file-name "media/radio/" emacspeak-directory)
@@ -186,6 +187,7 @@ executable")
 (defconst emacspeak-atom-xsl
   (eval-when-compile  (emacspeak-xslt-get "atom.xsl"))
   "XSL stylesheet used for viewing Atom Feeds.")
+
 ;;; Git Revision:
 (defun emacspeak-get-revision ()
   "Get SHA checksum of current revision that is suitable for spoken output."
