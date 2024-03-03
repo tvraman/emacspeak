@@ -164,39 +164,37 @@ Interactive prefix arg plays on left ear using alsa."
              (ems--format-clock (or .time-pos 0))
               (or .percent-pos 0))))
 
+(defsubst emacspeak-empv-post-nav ()
+  "Post nav action"
+  (when (called-interactively-p 'interactive)
+    (call-interactively 'emacspeak-empv-time-pos)
+    (emacspeak-icon 'large-movement)))
+
 (defun emacspeak-empv-relative-seek (target)
   "Relative seek in seconds,see `empv-seek'"
   (interactive "nTarget:")
   (empv-seek target)
-  (when (called-interactively-p 'interactive)
-    (call-interactively 'emacspeak-empv-time-pos)
-    (emacspeak-icon 'large-movement)))
+  (emacspeak-empv-post-nav))
 
 (defun emacspeak-empv-absolute-seek (target)
   "Absolute seek in seconds,see `empv-seek'"
   (interactive "nTarget:")
   (empv-seek target '("absolute"))
-  (when (called-interactively-p 'interactive)
-    (call-interactively 'emacspeak-empv-time-pos)
-    (emacspeak-icon 'large-movement)))
+  (emacspeak-empv-post-nav))
 
 (defun emacspeak-empv-backward-minute (&optional count)
   "Move back  count  minutes."
   (interactive "p")
   (or count (setq count 1))
   (empv-seek (* count -60))
-  (when (called-interactively-p 'interactive)
-    (call-interactively 'emacspeak-empv-time-pos)
-    (emacspeak-icon 'large-movement)))
+  (emacspeak-empv-post-nav))
 
 (defun emacspeak-empv-forward-minute (&optional count)
   "Move forward count  minutes."
   (interactive "p")
   (or count (setq count 1))
   (empv-seek (* count 60))
-  (when (called-interactively-p 'interactive)
-    (call-interactively 'emacspeak-empv-time-pos)
-    (emacspeak-icon 'large-movement)))
+  (emacspeak-empv-post-nav))
 
 ;; Generate other navigators:
 
