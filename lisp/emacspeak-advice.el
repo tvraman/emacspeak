@@ -1472,7 +1472,7 @@ Indicate change of selection with an auditory icon
     (read-string "Syntax Entry: ")
     current-prefix-arg)))
 
-(defadvice help-follow (after emacspeak pre act comp)
+(defadvice help-xref-button (after emacspeak pre act comp)
   "Speak the ref we moved to."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
