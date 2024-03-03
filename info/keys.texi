@@ -268,7 +268,7 @@
 @item i  ibuffer
 @item m  mspools-show
 @item o  emacspeak-wizards-occur-header-lines
-@item p  list-packages
+@item p  paradox-list-packages
 @item t  emacspeak-speak-telephone-directory
 @item u  emacspeak-wizards-units
 @item v  emacspeak-wizards-vc-viewer

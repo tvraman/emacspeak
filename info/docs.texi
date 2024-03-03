@@ -8418,7 +8418,7 @@ Default Value:
  ("i" ibuffer)
  ("m" mspools-show)
  ("o" emacspeak-wizards-occur-header-lines)
- ("p" list-packages)
+ ("p" paradox-list-packages)
  ("t" emacspeak-speak-telephone-directory)
  ("u" emacspeak-wizards-units)
  ("v" emacspeak-wizards-vc-viewer)
