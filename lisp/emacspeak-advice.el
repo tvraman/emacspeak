@@ -1476,6 +1476,27 @@ Indicate change of selection with an auditory icon
   "Speak the ref we moved to."
   (emacspeak-speak-line)
     (emacspeak-icon 'item))
+(cl-loop
+ for f in 
+ '(help-xref-go-back help-xref-go-forward)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (emacspeak-speak-mode-line))))
+
+(defadvice help-view-source (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-icon 'open-object)))
+
+(defadvice help-customize (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+
 
 ;; Silence help for help
 (defadvice help-window-display-message (around emacspeak pre act comp)
