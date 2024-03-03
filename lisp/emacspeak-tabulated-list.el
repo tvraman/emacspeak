@@ -128,14 +128,11 @@
   (cl-loop
    for b in
    '(
-     ("<left>" tabulated-list-previous-column)
-     ("<right>" tabulated-list-next-column)
      ( "." emacspeak-tabulated-list-speak-cell)
      ("<down>"  emacspeak-tabulated-list-next-row)
-     ("<up>" emacspeak-tabulated-list-previous-row)
-     ( "M-." emacspeak-tabulated-list-speak-cell)
-     ("M-<down>"  emacspeak-tabulated-list-next-row)
-     ("M-<up>" emacspeak-tabulated-list-previous-row))
+     ("<left>" tabulated-list-previous-column)
+     ("<right>" tabulated-list-next-column)
+     ("<up>" emacspeak-tabulated-list-previous-row))
    do
    
    (emacspeak-keymap-update tabulated-list-mode-map b)))
