@@ -168,7 +168,7 @@ Interactive prefix arg plays on left ear using alsa."
   "Post nav action"
   (when (called-interactively-p 'interactive)
     (call-interactively 'emacspeak-empv-time-pos)
-    (emacspeak-icon 'large-movement)))
+    (emacspeak-icon 'tick-tick)))
 
 (defun emacspeak-empv-relative-seek (target)
   "Relative seek in seconds,see `empv-seek'"
