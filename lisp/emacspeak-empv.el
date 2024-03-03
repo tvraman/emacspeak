@@ -179,6 +179,7 @@ Interactive prefix arg plays on left ear using alsa."
   (when (called-interactively-p 'interactive)
     (call-interactively 'emacspeak-empv-time-pos)
     (emacspeak-icon 'large-movement)))
+
 (defun emacspeak-empv-backward-minute (&optional count)
   "Move back  count  minutes."
   (interactive "p")
@@ -212,6 +213,7 @@ Interactive prefix arg plays on left ear using alsa."
       (interactive )
       (funcall-interactively 'emacspeak-empv-backward-minute
                              ,duration))))
+
 
 ;; Use it:
 (mapc #'ems--empv-gen-nav '(5 10 30))
