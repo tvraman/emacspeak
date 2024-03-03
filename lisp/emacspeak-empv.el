@@ -262,8 +262,7 @@ Interactive prefix arg plays on left ear using alsa."
      ("u" emacspeak-empv-accumulate-to-register)
      ("v" empv-set-volume)
      ("x" empv-exit)
-     ("y" emacspeak-empv-yt-download)
-     )
+     ("y" emacspeak-empv-yt-download))
    do
    (emacspeak-keymap-update empv-map b))
   (map-keymap
