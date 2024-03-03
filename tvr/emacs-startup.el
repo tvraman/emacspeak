@@ -170,7 +170,8 @@ Use Custom to customize where possible. "
        abbrev-mode auto-correct-mode)))
   (setq  global-mode-string '("" display-time-string battery-mode-line-string))
   (bash-completion-setup)
-  (load-library "llm-prepare"))
+  (load-library "llm-prepare")
+  (set-frame-parameter nil 'unsplittable t))
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
