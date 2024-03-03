@@ -1483,7 +1483,7 @@ Indicate change of selection with an auditory icon
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
-     (emacspeak-speak-mode-line))))
+     (emacspeak-speak-line))))
 
 (defadvice help-view-source (after emacspeak pre act comp)
   "speak."
