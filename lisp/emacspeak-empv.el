@@ -199,25 +199,22 @@ Interactive prefix arg plays on left ear using alsa."
 
 ;; Generate other navigators:
 
-
-(defun ems--empv-gen-nav (name duration)
+(defun ems--empv-gen-nav (duration)
   "Generate time navigator."
   (eval
-   `(defun ,(intern  (format "emacspeak-empv-forward-%s" name)) ()
+   `(defun ,(intern  (format "emacspeak-empv-forward-%s-minutes" duration)) ()
       ,(format "Move forward by %s minutes" duration )
       (interactive )
       (funcall-interactively 'emacspeak-empv-forward-minute ,duration)))
   (eval
-   `(defun ,(intern  (format "emacspeak-empv-backward-%s" name)) ()
+   `(defun ,(intern  (format "emacspeak-empv-backward-%s-minutes" duration)) ()
       ,(format "Move backward by %s minutes" duration )
       (interactive )
       (funcall-interactively 'emacspeak-empv-backward-minute
                              ,duration))))
 
 ;; Use it:
-(ems--empv-gen-nav "5-minutes" 5)
-(ems--empv-gen-nav "10-minutes" 10)
-(ems--empv-gen-nav "30-minutes" 30)
+(mapc #'ems--empv-gen-nav '(5 10 30))
 
 (defun emacspeak-empv-percentage-seek (target)
   "Percentage seek in seconds,see `empv-seek'"
