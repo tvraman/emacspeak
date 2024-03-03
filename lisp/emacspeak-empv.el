@@ -251,7 +251,6 @@ Interactive prefix arg plays on left ear using alsa."
      ("M" emacspeak-empv-backward-minute)
      ("RET" empv-youtube-tabulated)
      ("SPC" empv-toggle)
-     ("M-." emacspeak-tabulated-list-speak-cell)
      ("m" emacspeak-empv-forward-minute)
      ("r" emacspeak-empv-relative-seek)
      ("s" emacspeak-empv-absolute-seek)
