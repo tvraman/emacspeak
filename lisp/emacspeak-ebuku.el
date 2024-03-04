@@ -66,6 +66,15 @@
   "Advice prompt to speak"
   (interactive (list (read-char "n,l,r,t"))))
 
+(defadvice ebuku-search (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-icon 'task-done)
+    (emacspeak-speak-line)))
+
+(defadvice ebuku--search-helper (before emacspeak pre act comp)
+  "Avoid exclude to speed up interaction.."
+  (ad-set-arg 3 ""))
 (cl-loop
  for f in 
  '(ebuku-previous-bookmark ebuku-next-bookmark)
