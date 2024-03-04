@@ -48,6 +48,7 @@
 * emacspeak-dismal::Speech enable Dismal.
 * emacspeak-dumb-jump::DUMB-JUMP.
 * emacspeak-eat::Speech-enable EAT.
+* emacspeak-ebuku::Speech-enable EBUKU.
 * emacspeak-ecb::speech-enable ECB.
 * emacspeak-ediff::Speech enable  ediff.
 * emacspeak-eglot::Speech-enable EGLOT.
@@ -3500,6 +3501,11 @@ This module speech-enables dumb-jump
 
 EAT ==  Emacs Terminal Emulator
 
+@node emacspeak-ebuku
+@section emacspeak-ebuku
+
+EBUKU ==  Emacs Buku front-end to manage bookmarks.
+
 @node emacspeak-ecb
 @section emacspeak-ecb
 
@@ -3746,11 +3752,6 @@ Absolute seek in seconds,see ‘empv-seek’
 
 @subsubsection emacspeak-empv-accumulate-to-register
 @deffn {Command} emacspeak-empv-accumulate-to-register   
-@table @kbd
-@item s-SPC u
-@kindex s-SPC u
-@end table
-
 @findex emacspeak-empv-accumulate-to-register
 
 @format
