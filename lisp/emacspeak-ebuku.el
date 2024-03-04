@@ -62,30 +62,26 @@
   "Advice prompt to speak"
   (interactive (list (read-char "n,l,r,t"))))
 
-(defadvice ebuku-search (after emacspeak pre act comp)
-  "speak."
-  (when (ems-interactive-p)
-    (emacspeak-icon 'task-done)
-    (emacspeak-speak-line)))
-
 (defadvice ebuku--search-helper (before emacspeak pre act comp)
   "Avoid exclude to speed up interaction.."
   (ad-set-arg 3 ""))
 
 (cl-loop
- for f in 
+ for f in
  '(
    ebuku-search-on-any ebuku-search-on-all
-   ebuku-search-on-reg ebuku-search-on-tag)
+   ebuku-search ebuku-search-on-reg ebuku-search-on-tag)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
+       (emacspeak-icon 'task-done)
        (emacspeak-speak-line)
-       ))))
-
-
+       (save-excursion
+         (forward-line -2)
+         (dtk-notify-say
+          (buffer-substring (line-beginning-position) (line-end-position))))))))
 
 (cl-loop
  for f in
@@ -111,7 +107,7 @@
 
 (cl-declaim (special ebuku-mode-map))
 (cl-loop
- for b in 
+ for b in
  '(
    ("/" ebuku-search-on-any)
    ("l" ebuku-search-on-all)
