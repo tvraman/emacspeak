@@ -40,7 +40,7 @@
 
 ;;; Commentary:
 ;; EIN ==  Emacs IPython Notebook
-;; You can install package EIN via mELPA
+;; You can install package EIN via Melpa
 ;; This module speech-enables EIN
 ;;; Code:
 
