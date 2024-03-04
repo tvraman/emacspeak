@@ -374,6 +374,7 @@
 (defcustom emacspeak-v-keys
   '(
     ("SPC" emacspeak-speak-spaces)
+    ("b" ebuku)
     ("v" view-register)
     )
   "Key bindings for use with C-e v. "
