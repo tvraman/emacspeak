@@ -8,6 +8,10 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 * Emacspeak 60 --- Emacspeak 59 User Visible Changes
 
 This version requires Emacs-29.1 or later.
+* Speech-Enable EBuku
+
+Package ~ebuku.el~ is speech-enabled y module ~emacspeak-ebuku~ --
+this is an Emacs front-end to the ~buku~ bookmark manager.
 
 * Speech-Enabled LLM Front-End
 
