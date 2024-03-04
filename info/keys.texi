@@ -240,6 +240,7 @@
 
 @table @kbd
 @item SPC  emacspeak-speak-spaces
+@item b  ebuku
 @item v  view-register
 @end table
 

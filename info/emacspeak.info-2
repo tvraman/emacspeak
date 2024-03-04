@@ -1272,6 +1272,7 @@ found on laptops is denoted <fn>
      Default Value:
      
      (("SPC" emacspeak-speak-spaces)
+      ("b" ebuku)
       ("v" view-register))
      
 

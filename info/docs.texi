@@ -3605,7 +3605,7 @@ EGLOT ==  LSP Support for emacs
 @section emacspeak-ein
 
 EIN ==  Emacs IPython Notebook
-You can install package EIN via mELPA
+You can install package EIN via Melpa
 This module speech-enables EIN
 
 @subsection Emacspeak-Ein Commands
@@ -8368,6 +8368,7 @@ Default Value:
 @verbatim
 
 (("SPC" emacspeak-speak-spaces)
+ ("b" ebuku)
  ("v" view-register))
 
 @end verbatim

@@ -2890,6 +2890,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-v-keymap,  Next:
 ================================================
 
 ‘SPC emacspeak-speak-spaces’
+‘b ebuku’
 ‘v view-register’
 
 
@@ -6264,7 +6265,7 @@ File: emacspeak.info,  Node: emacspeak-ein,  Next: emacspeak-elfeed,  Prev: emac
 12.53 emacspeak-ein
 ===================
 
-EIN == Emacs IPython Notebook You can install package EIN via mELPA This
+EIN == Emacs IPython Notebook You can install package EIN via Melpa This
 module speech-enables EIN
 
 12.53.1 Emacspeak-Ein Commands
