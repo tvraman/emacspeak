@@ -83,6 +83,18 @@ ebuku-update-bookmarks-cache
 ebuku-update-tags-cache
 )
 
+(defadvice ebuku-search
+    (before emacspeak-auto pre act protect compile)
+  "Automatically defined advice to speak interactive prompts. "
+  (interactive
+   (list
+    #'(lambda ()
+        (emacspeak-auditory-icon 'open-object)
+        (tts-with-punctuations 'all
+          (dtk-speak "a: any, l: all, t: tag, n: keyword, r: regex"))
+        (call-interactively #'(lambda (&rest args)
+             (interactive "c")
+             args) nil)))))
 
 (provide 'emacspeak-ebuku)
 ;;;  end of file
