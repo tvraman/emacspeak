@@ -75,7 +75,12 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-icon 'select-object)
-       (emacspeak-speak-line)))))
+       (emacspeak-read-previous-line)))))
+
+(defadvice ebuku-open-url (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p) (emacspeak-icon 'button)))
+
 
 (defadvice ebuku (after emacspeak pre act comp)
   "speak."
