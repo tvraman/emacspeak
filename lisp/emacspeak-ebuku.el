@@ -59,35 +59,29 @@
 
 ;;;  Interactive Commands:
 
-'(
-  ebuku
-ebuku-add-bookmark
-ebuku-copy-index
-ebuku-copy-title
-ebuku-copy-url
-ebuku-delete-bookmark
-ebuku-edit-bookmark
-ebuku-next-bookmark
-ebuku-open-url
-ebuku-previous-bookmark
-ebuku-refresh
-ebuku-search
-ebuku-search-on-all
-ebuku-search-on-any
-ebuku-search-on-recent
-ebuku-search-on-reg
-ebuku-search-on-tag
-ebuku-show-all
-ebuku-toggle-results-limit
-ebuku-update-bookmarks-cache
-ebuku-update-tags-cache
-)
+;; in fond memory of the past:
+;; See obsolete emacspeak-fix-interactive in our attic.
 
-(defadvice ebuku-search
-    (before emacspeak-auto pre act protect compile)
-  "Automatically defined advice to speak interactive prompts. "
-  (interactive
-   (list (read-key "a l n r t"))))
+(defadvice ebuku-search (before emacspeak pre act pro comp)
+  "Advice prompt to speak"
+  (interactive (list (read-char "n,l,r,t"))))
+
+(cl-loop
+ for f in 
+ '(ebuku-previous-bookmark ebuku-next-bookmark)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-icon 'select-object)
+       (emacspeak-speak-line)))))
+
+(defadvice ebuku (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-speak-mode-line)
+    (emacspeak-icon 'open-object)))
 
 (provide 'emacspeak-ebuku)
 ;;;  end of file
