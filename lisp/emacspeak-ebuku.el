@@ -35,7 +35,7 @@
 
 ;;; Code:
 
-;;;   Required modules
+;;   Required modules
 
 (eval-when-compile  (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -103,6 +103,7 @@
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-icon 'open-object)))
+
 ;;; Additional Keybindings:
 
 (cl-declaim (special ebuku-mode-map))
