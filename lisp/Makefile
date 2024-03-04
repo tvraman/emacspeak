@@ -117,6 +117,7 @@ emacspeak-dired.elc \
 emacspeak-dismal.elc \
 emacspeak-dumb-jump.elc \
 emacspeak-eat.elc \
+emacspeak-ebuku.elc \
 emacspeak-ecb.elc \
 emacspeak-ediff.elc \
 emacspeak-eglot.elc \
