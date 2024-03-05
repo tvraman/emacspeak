@@ -20493,7 +20493,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 63 URL Templates.
+This section documents a total of 64 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -20561,7 +20561,9 @@ Lookup ticker on Google Finance.@item @b{finance summary from google}
 
 Display top stocks  from Google Finance.@item @b{freesound}
 
-Search FreeSound.@item @b{google news search}
+Search FreeSound.@item @b{gita}
+
+Open specific chapter/verse in the Gita @item @b{google news search}
 
 Search Google news.@item @b{google scholar}
 

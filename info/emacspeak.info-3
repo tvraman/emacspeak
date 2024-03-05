@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 4, 2024.
+last updated on March 5, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -763,7 +763,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.240 URL Templates
 ====================
 
-This section documents a total of 63 URL Templates.
+This section documents a total of 64 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u’.  This command
@@ -849,123 +849,126 @@ following steps:
   25. freesound
 
      Search FreeSound.
-  26. google news search
+  26. gita
+
+     Open specific chapter/verse in the Gita
+  27. google news search
 
      Search Google news.
-  27. google scholar
+  28. google scholar
 
      Google Scholar Search
-  28. google trends
+  29. google trends
 
      Google Trends
-  29. google weather
+  30. google weather
 
      Light-weight Google weather.
-  30. guardian rss feeds directory
+  31. guardian rss feeds directory
 
      Guardian Feeds Directory
-  31. hacker news frontpage
+  32. hacker news frontpage
 
      Display Hacker News Front Page
-  32. hacker news search
+  33. hacker news search
 
      Display Hacker News Front Page
-  33. hoogle haskell api search
+  34. hoogle haskell api search
 
      Haskell API Search against a local server.
-  34. html google news search
+  35. html google news search
 
      Search Google news.
-  35. microsoft search
+  36. microsoft search
 
      Bing results as RSS feed.
-  36. nba standings
+  37. nba standings
 
      Display NBA standings.
-  37. nls bard bookshelf
+  38. nls bard bookshelf
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  38. nls bard popular
+  39. nls bard popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  39. nls bard recent
+  40. nls bard recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  40. nls bard search
+  41. nls bard search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  41. npr
+  42. npr
 
      Open NPR home , then display the alternative links to access RSS
      feeds.
-  42. online radiotime browser
+  43. online radiotime browser
 
      RadioTime Entry point.
-  43. online radiotime search
+  44. online radiotime search
 
      RadioTime Search
-  44. openlibrary
+  45. openlibrary
 
      Open Library Search
-  45. player fm bbc rss feeds
+  46. player fm bbc rss feeds
 
      Player FM BBC RSS Feeds
-  46. radiotime categories
+  47. radiotime categories
 
      RadioTime Categories
-  47. reddit at point
+  48. reddit at point
 
      Open RSS Feed for Reddit URL under point.
-  48. reddit by topic
+  49. reddit by topic
 
      Open RSS Feed for Reddit Topic.
-  49. reddit front page
+  50. reddit front page
 
      Open Feed for Reddit Front Page.
-  50. reddit search
+  51. reddit search
 
      Reddit Search Results Feed.
-  51. sourceforge browse mirrors
+  52. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  52. sourceforge download
+  53. sourceforge download
 
      Download specified file.
-  53. sourceforge project
+  54. sourceforge project
 
      Open specified project page at SourceForge.
-  54. tech news from cnet
+  55. tech news from cnet
 
      Display tech news from CNET
-  55. tinyurl
+  56. tinyurl
 
-  56. tunein radio
+  57. tunein radio
 
      Translate StreamId to playable stream.
-  57. w3c irc logs
+  58. w3c irc logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  58. w3c lists
+  59. w3c lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  59. washington post
+  60. washington post
 
      Washington Post Contents
-  60. wiki data search
+  61. wiki data search
 
      Search WikiData.
-  61. wikipedia at point
+  62. wikipedia at point
 
      Extract body content from Wikipedia link at point
-  62. wordnet search
+  63. wordnet search
 
      Look up term in WordNet.
-  63. yahoo rssnews
+  64. yahoo rssnews
 
      News From Yahoo As RSS.
 
