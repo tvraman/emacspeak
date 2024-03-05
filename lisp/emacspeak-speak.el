@@ -293,7 +293,7 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
         (dtk-chunk-on-white-space-and-punctuations)
         (next-completion 1)
         (tts-with-punctuations
-         'all (emacspeak-speak-rest-of-buffer))))
+         'all (emacspeak-speak-windowful))))
      (t (emacspeak-speak-line)))))
 
 ;;;   Macros
@@ -624,11 +624,13 @@ the sense of the filter. "
   (cl-declare (special emacspeak-speak-voice-annotated-paragraphs))
   (let ((inhibit-modification-hooks t)
         (deactivate-mark nil))
-    (when (not emacspeak-speak-voice-annotated-paragraphs)
+    (when (and  (< (abs (- start end )) 10000) (not emacspeak-speak-voice-annotated-paragraphs))
       (save-restriction
         (narrow-to-region start end)
         (emacspeak-speak-voice-annotate-paragraphs)))
-    (dtk-speak (buffer-substring start end))))
+    (if (< (abs (- start end )) 10000)
+             (dtk-speak (buffer-substring start end))
+           (emacspeak-speak-windowful))))
 
 (defun emacspeak-speak-extent (beg end &optional no-case)
   "Speak extent delimited by beg and end.
@@ -1159,7 +1161,7 @@ With prefix ARG, speaks the rest of the buffer from point.
 Negative prefix arg speaks from start of buffer to point. "
   (interactive "P")
   (cl-declare (special emacspeak-speak-voice-annotated-paragraphs))
-  (let () (when (not emacspeak-speak-voice-annotated-paragraphs)
+  (when (and (< (buffer-size) 10000) (not emacspeak-speak-voice-annotated-paragraphs))
             (emacspeak-speak-voice-annotate-paragraphs))
        (when (listp arg) (setq arg (car arg)))
        (dtk-stop 'all)
@@ -1174,7 +1176,9 @@ Negative prefix arg speaks from start of buffer to point. "
                  end (point-max)))
           (t (setq start (point-min)
                    end (point))))
-         (dtk-speak (buffer-substring start end)))))
+         (if (< (abs (- start end )) 10000)
+             (dtk-speak (buffer-substring start end))
+           (emacspeak-speak-windowful))))
 
 (defun emacspeak-speak-other-buffer (buffer)
   "Speak specified buffer.
