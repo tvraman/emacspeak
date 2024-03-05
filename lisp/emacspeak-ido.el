@@ -81,18 +81,16 @@
   (when   ido-matches 
     (when (> (length ido-matches) ido-max-prospects) (emacspeak-icon
                                                       'ellipses))
-    (condition-case nil
-        (dtk-notify-speak
-         (concat
-          (minibuffer-contents)
-          (format " %d choices: "  (length ido-matches))
-          (if
-              (or (null ido-current-directory)
-                  (string-equal ido-current-directory emacspeak-ido-cache))
-              " "
-            (format "In %s" (abbreviate-file-name
-                             ido-current-directory)))))
-      (error (dtk-initialize)))))
+    (dtk-notify-speak
+     (concat
+      (minibuffer-contents)
+      (format " %d choices: "  (length ido-matches))
+      (if
+          (or (null ido-current-directory)
+              (string-equal ido-current-directory emacspeak-ido-cache))
+          " "
+        (format "In %s" (abbreviate-file-name
+                         ido-current-directory)))))))
 
 ;;;  speech-enable interactive commands:
 
