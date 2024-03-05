@@ -559,6 +559,15 @@ name of the list.")
       emacspeak-we-url-executor 'emacspeak-url-template-cnn-content))
  "Money Headlines From CNN")
 
+;;; Gita:
+
+(emacspeak-url-template-define
+ "Gita"
+ "https://www.holy-bhagavad-gita.org/chapter/%s/verse/%s"
+ (list "Chapter" "Verse")
+ 'emacspeak-eww-next-h
+ "Open specific chapter/verse in the Gita ")
+
 ;;;  sourceforge
 
 (emacspeak-url-template-define
