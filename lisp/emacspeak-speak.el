@@ -617,20 +617,23 @@ the sense of the filter. "
   (let ((beg (save-excursion (skip-syntax-backward " ")))
         (end (save-excursion (skip-syntax-forward " "))))
     (dtk-notify-say  (format "%s spaces " (+ (- end beg))))))
+(defvar ems--large-text-size 10000
+  "Upper limit on what we attempt to speak in one shot.")
 
 (defun emacspeak-speak-region (start end)
   "Speak region bounded by start and end. "
   (interactive "r")
-  (cl-declare (special emacspeak-speak-voice-annotated-paragraphs))
+  (cl-declare (special emacspeak-speak-voice-annotated-paragraphs
+                       ems--large-text-size))
   (let ((inhibit-modification-hooks t)
         (deactivate-mark nil))
-    (when (and  (< (abs (- start end )) 10000) (not emacspeak-speak-voice-annotated-paragraphs))
+    (when (and  (< (abs (- start end )) ems--large-text-size) (not emacspeak-speak-voice-annotated-paragraphs))
       (save-restriction
         (narrow-to-region start end)
         (emacspeak-speak-voice-annotate-paragraphs)))
-    (if (< (abs (- start end )) 10000)
-             (dtk-speak (buffer-substring start end))
-           (emacspeak-speak-windowful))))
+    (if (< (abs (- start end )) ems--large-text-size)
+        (dtk-speak (buffer-substring start end))
+      (emacspeak-speak-windowful))))
 
 (defun emacspeak-speak-extent (beg end &optional no-case)
   "Speak extent delimited by beg and end.
@@ -1160,8 +1163,9 @@ Negative prefix arg will read from start of current paragraph to point. "
 With prefix ARG, speaks the rest of the buffer from point.
 Negative prefix arg speaks from start of buffer to point. "
   (interactive "P")
-  (cl-declare (special emacspeak-speak-voice-annotated-paragraphs))
-  (when (and (< (buffer-size) 10000) (not emacspeak-speak-voice-annotated-paragraphs))
+  (cl-declare (special emacspeak-speak-voice-annotated-paragraphs
+                       ems--large-text-size))
+  (when (and (< (buffer-size) ems--large-text-size) (not emacspeak-speak-voice-annotated-paragraphs))
             (emacspeak-speak-voice-annotate-paragraphs))
        (when (listp arg) (setq arg (car arg)))
        (dtk-stop 'all)
@@ -1176,7 +1180,7 @@ Negative prefix arg speaks from start of buffer to point. "
                  end (point-max)))
           (t (setq start (point-min)
                    end (point))))
-         (if (< (abs (- start end )) 10000)
+         (if (< (abs (- start end )) ems--large-text-size)
              (dtk-speak (buffer-substring start end))
            (emacspeak-speak-windowful))))
 
