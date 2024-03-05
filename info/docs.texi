@@ -248,7 +248,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1165 commands and 128 options.
+This chapter documents a total of 1166 commands and 128 options.
 
 @node amixer
 @section amixer
@@ -5659,6 +5659,9 @@ transforms like @code{sort-tables}.
 @subsection Miscellaneous Commands
 
 @table @kbd
+@item ;
+ @command{emacspeak-eww-play-audio}
+When on an audio element, plays audio under point.
 @item  C-RET
 @command {emacspeak-eww-fillin-form-field}
 When on an input field, insert  username/password information
@@ -6229,6 +6232,15 @@ Open EWW marked location.  With optional interactive prefix
 arg ‘delete’, delete that mark instead.
 
 (fn NAME &optional DELETE)
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-play-audio
+@deffn {Command} emacspeak-eww-play-audio   
+@findex emacspeak-eww-play-audio
+
+@format
+Play audio tag at point
 @end format
 @end deffn
 

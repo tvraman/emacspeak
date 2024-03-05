@@ -290,6 +290,9 @@
 ;; @subsection Miscellaneous Commands
 
 ;; @table @kbd
+;; @item ;
+;;  @command{emacspeak-eww-play-audio}
+;; When on an audio element, plays audio under point.
 ;; @item  C-RET
 ;; @command {emacspeak-eww-fillin-form-field}
 ;; When on an input field, insert  username/password information
