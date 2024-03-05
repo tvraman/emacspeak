@@ -1180,12 +1180,20 @@ Note that the Web browser should reset this hook after using it.")
     (setq emacspeak-eww-cache-updated t)))
 
 ;;;  Filter DOM:
+(defvar emacspeak-eww-audio-keymap
+  (let  ((map (make-sparse-keymap)))
+    (define-key map ";" 'emacspeak-eww-play-audio)
+    map)
+  "Keymap used on audio elements.")
 
 (defun emacspeak-eww-tag-audio (dom)
   "Tag audio tag, then render."
+  (cl-declare (special emacspeak-eww-audio-keymap))
   (let ((start (point)))
     (shr-tag-audio dom)
-    (message "audio tagged")
+    (put-text-property
+     start (point)
+     'keymap  emacspeak-eww-audio-keymap)
     (put-text-property start (point) 'audio 'shr-tag)))
 
 (defun emacspeak-eww-tag-article (dom)
