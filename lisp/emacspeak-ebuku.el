@@ -80,8 +80,22 @@
        (emacspeak-speak-line)
        (save-excursion
          (forward-line -2)
-         (dtk-notify-say
-          (buffer-substring (line-beginning-position) (line-end-position))))))))
+         (forward-word 2)
+         (dtk-notify-say (word-at-point)))))))
+
+(defadvice ebuku-show-all (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (dtk-speak "Showing all bookmarks")))
+
+
+(defadvice ebuku-toggle-results-limit (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (message "Results limit: %s" ebuku-results-limit)
+    (emacspeak-icon 'button)))
+
+
 
 (cl-loop
  for f in
