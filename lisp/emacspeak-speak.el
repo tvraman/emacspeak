@@ -1890,15 +1890,15 @@ location of the mark is indicated by an aural highlight. "
 ;;; Face Ranges:
 
 (defun emacspeak-speak-face-browse ()
-  "Use C-f and C-b to browse by current face."
+  "Use C-f and C-b or left/right arrows to browse by current face."
   (interactive )
   (call-interactively #'emacspeak-speak-range)
   (while t
-    (let ((key (read-key-sequence "")))
+    (let ((key (read-key "" t)))
       (cond
-       ((string= key "\C-f")
+       ((memq key '(right 6))
         (funcall-interactively #'emacspeak-speak-face-forward))
-       ((string= key "\C-b")
+       ((memq key '(left 2))
         (funcall-interactively #'emacspeak-speak-face-backward))
        (t (keyboard-quit))))))
 
