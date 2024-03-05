@@ -505,6 +505,7 @@ name of the list.")
     (goto-char (point-min))
     (forward-line 1)
     (emacspeak-icon 'open-object)
+    (setq header-line-format "Portfolio")
     (rename-buffer "Portfolio" 'unique)
     (emacspeak-speak-line)))
 
