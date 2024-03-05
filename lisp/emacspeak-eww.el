@@ -1181,6 +1181,13 @@ Note that the Web browser should reset this hook after using it.")
 
 ;;;  Filter DOM:
 
+(defun emacspeak-eww-tag-audio (dom)
+  "Tag audio tag, then render."
+  (let ((start (point)))
+    (shr-generic dom)
+    (message "audio tagged")
+    (put-text-property start (point) 'audio 'shr-tag)))
+
 (defun emacspeak-eww-tag-article (dom)
   "Tag article, then render."
   (let ((start (point)))
@@ -1207,6 +1214,7 @@ Note that the Web browser should reset this hook after using it.")
 ;;;###autoload
 (defvar emacspeak-eww-shr-renderers
   '((article . emacspeak-eww-tag-article)
+    (audio . emacspeak-eww-tag-audio)
     (title . eww-tag-title)
     (form . eww-tag-form)
     (input . eww-tag-input)
@@ -2604,7 +2612,17 @@ Use for large EBook buffers."
   "Accumulate  URL in register `u'"
   (interactive)
   (emacspeak-accumulate-to-register ?u #'(lambda () (shr-url-at-point nil))))
+;;; Audio element at point:
+
+(defun emacspeak-eww-play-audio ()
+  "Play audio tag at point"
+  (interactive)
+  (let ((url (get-text-property (point ) 'shr-url)))
+    (if url
+        (emacspeak-empv-play-url url)
+      (message "No URL here to play"))))
 
 (provide 'emacspeak-eww)
+
 ;;;  end of file
 
