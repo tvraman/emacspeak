@@ -2628,6 +2628,7 @@ Use for large EBook buffers."
 (defun emacspeak-eww-play-audio ()
   "Play audio tag at point"
   (interactive)
+  (emacspeak-icon 'button)
   (let ((url (get-text-property (point ) 'shr-url)))
     (if url
         (emacspeak-empv-play-url url)
