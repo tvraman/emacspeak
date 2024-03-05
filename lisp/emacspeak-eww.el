@@ -1184,7 +1184,7 @@ Note that the Web browser should reset this hook after using it.")
 (defun emacspeak-eww-tag-audio (dom)
   "Tag audio tag, then render."
   (let ((start (point)))
-    (shr-generic dom)
+    (shr-tag-audio dom)
     (message "audio tagged")
     (put-text-property start (point) 'audio 'shr-tag)))
 
