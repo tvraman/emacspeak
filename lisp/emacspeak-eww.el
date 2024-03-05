@@ -2634,6 +2634,7 @@ Use for large EBook buffers."
         (emacspeak-empv-play-url url)
       (message "No URL here to play"))))
 
+(put 'emacspeak-eww-play-audio 'repeat-map 'empv-map)
 (provide 'emacspeak-eww)
 
 ;;;  end of file
