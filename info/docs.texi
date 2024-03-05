@@ -12693,7 +12693,7 @@ Property search for face at point see M-x text-property-search-backward
 @findex emacspeak-speak-face-browse
 
 @format
-Use C-f and C-b to browse by current face.
+Use C-f and C-b or left/right arrows to browse by current face.
 @end format
 @end deffn
 
