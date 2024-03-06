@@ -617,7 +617,7 @@ the sense of the filter. "
   (let ((beg (save-excursion (skip-syntax-backward " ")))
         (end (save-excursion (skip-syntax-forward " "))))
     (dtk-notify-say  (format "%s spaces " (+ (- end beg))))))
-(defvar ems--large-text-size 10000
+(defvar ems--large-text-size 20000
   "Upper limit on what we attempt to speak in one shot.")
 
 (defun emacspeak-speak-region (start end)
