@@ -1773,6 +1773,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (cl-assert target t "No  audio elements")
     (goto-char target)
     (emacspeak-speak-line)
+    (dtk-notify-speak "Press ; to play")
     (emacspeak-icon 'large-movement)))
 
 (defun emacspeak-eww-previous-audio/video ()
@@ -1784,6 +1785,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (cl-assert target t "No  audio elements")
     (goto-char target)
     (emacspeak-speak-line)
+    (dtk-notify-speak "Press ; to play")
     (emacspeak-icon 'large-movement)))
 
 (defvar emacspeak-eww-el-nav-history nil
