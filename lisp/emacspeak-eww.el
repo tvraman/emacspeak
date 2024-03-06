@@ -637,6 +637,8 @@ Safari/537.36"
    for binding  in
    '(
      ("M-o" org-eww-copy-for-org-mode)
+     ("M-;" emacspeak-eww-previous-audio)
+     (";" emacspeak-eww-next-audio)
      (":" emacspeak-eww-tags-at-point)
      ("\"" emacspeak-eww-reading-settings)
      ("V" eww-view-source)
@@ -1747,6 +1749,24 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (eww-display-dom-filter-helper #'dom-by-role-list  role-list))
 
 ;;;  Element Navigation:
+
+(defun emacspeak-eww-next-audio ()
+  "Next audio element."
+  (interactive)
+  (let ((target (next-single-property-change (point) 'audio)))
+    (cl-assert target t "No  audio elements")
+    (goto-char target)
+    (emacspeak-speak-line)
+    (emacspeak-icon 'large-movement)))
+
+(defun emacspeak-eww-previous-audio ()
+  "Previous audio element."
+  (interactive)
+  (let ((target (previous-single-property-change (point) 'audio)))
+    (cl-assert target t "No  audio elements")
+    (goto-char target)
+    (emacspeak-speak-line)
+    (emacspeak-icon 'large-movement)))
 
 (defvar emacspeak-eww-el-nav-history nil
   "History for element navigation.")
