@@ -181,8 +181,9 @@ Use Custom to customize where possible. "
     (yas--load-snippet-dirs)
     (yas-global-mode 1)
     (diminish 'yas-minor-mode ""))
-  (tvr-customize)
-  (load "emacspeak-muggles")
+  (tvr-time-load
+   (tvr-customize)
+   (load "emacspeak-muggles"))
   (emacspeak-wizards-project-shells-initialize))
 
 (declare-function
@@ -240,6 +241,7 @@ configuration happens via the after-init-hook. "
 (tvr-emacs)
 
 ;;;  Forward Function Declarations:
+(declare-function emacspeak-icon "emacspeak-sounds" (icon))
 
 (declare-function yas--load-snippet-dirs "yasnippet" (&optional nojit))
 (declare-function emacspeak-dbus-setup "emacspeak-dbus" nil)
