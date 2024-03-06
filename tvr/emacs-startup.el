@@ -82,7 +82,7 @@ Produce timing information as the last step."
 
 (defsubst tvr-tabs ()
   "Set up  tab-bar"
-  (tab-bar-rename-tab "Home")
+  (tab-bar-rename-tab "Home") ; home, books 
   (tab-bar-switch-to-tab "Books")
   (tab-bar-switch-to-tab "Home"))
 
@@ -113,7 +113,7 @@ Use Custom to customize where possible. "
   (load-library "aster")
   ;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
-  (mapc                                 ; not a novie:
+  (mapc                                 ; not a novice:
    #'(lambda (f) (put f 'disabled nil))
    '(list-threads narrow-to-page list-timers upcase-region
                   downcase-region  narrow-to-region eval-expression ))
@@ -125,7 +125,6 @@ Use Custom to customize where possible. "
    '(
      (  "C-x r a"  append-to-register)
      ("C-x r p"  prepend-to-register)
-     ("C-x v ." magit-commit-create)
      ("<f3>" bury-buffer)
      ("<f4>" emacspeak-kill-buffer-quietly)
      ("<f2>" set-selective-display)
