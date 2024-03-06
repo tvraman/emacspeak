@@ -71,6 +71,7 @@
   (when (ems-interactive-p)
     (dtk-stop 'all)
     (emacspeak-icon 'close-object)
+    (repeat-exit)
     (emacspeak-speak-mode-line)))
 
 (defadvice empv-youtube-tabulated (after emacspeak pre act comp)
