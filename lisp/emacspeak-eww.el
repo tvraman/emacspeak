@@ -972,15 +972,14 @@ Retain previously set punctuations  mode."
  '(shr-next-link shr-previous-link)
  do
  (eval
-  `(defadvice ,f (around emacspeak pre act comp)
+  `(defadvice ,f (after emacspeak pre act comp)
      "speak."
-     (ems-with-messages-silenced ad-do-it)
      (when (ems-interactive-p)
        (let ((host
               (condition-case nil
                   (url-host
-                   (url-generic-parse-url (funcall
-                                           emacspeak-eww-url-at-point)))
+                   (url-generic-parse-url
+                    (funcall emacspeak-eww-url-at-point)))
                 (error ""))))
          (cond                          ; smarter icon:
           ((or
@@ -1192,21 +1191,28 @@ Note that the Web browser should reset this hook after using it.")
   "Keymap used on audio elements.")
 
 (defun emacspeak-eww-tag-audio (dom)
-  "Tag audio tag, then render."
+  "Tag audio , then render."
   (cl-declare (special emacspeak-eww-audio-keymap))
   (let ((start (point)))
     (shr-tag-audio dom)
-    (put-text-property
+    (add-text-properties
      start (point)
-     'keymap  emacspeak-eww-audio-keymap)
-    (put-text-property start (point) 'audio 'shr-tag)))
-
+     (list
+      'keymap emacspeak-eww-audio-keymap
+      'help-echo "; to play"
+      'audio 'shr-tag))))
 
 (defun emacspeak-eww-tag-video (dom)
   "Tag video tag, then render."
+  (cl-declare (special emacspeak-eww-audio-keymap))
   (let ((start (point)))
     (shr-tag-video dom)
-    (put-text-property start (point) 'video 'shr-tag)))
+    (add-text-properties
+     start (point)
+     (list
+      'keymap emacspeak-eww-audio-keymap
+      'help-echo "; to play"
+      'video 'shr-tag))))
 
 (defun emacspeak-eww-tag-article (dom)
   "Tag article, then render."
