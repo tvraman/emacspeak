@@ -1201,6 +1201,13 @@ Note that the Web browser should reset this hook after using it.")
      'keymap  emacspeak-eww-audio-keymap)
     (put-text-property start (point) 'audio 'shr-tag)))
 
+
+(defun emacspeak-eww-tag-video (dom)
+  "Tag video tag, then render."
+  (let ((start (point)))
+    (shr-tag-video dom)
+    (put-text-property start (point) 'video 'shr-tag)))
+
 (defun emacspeak-eww-tag-article (dom)
   "Tag article, then render."
   (let ((start (point)))
@@ -1229,6 +1236,7 @@ Note that the Web browser should reset this hook after using it.")
   '((article . emacspeak-eww-tag-article)
     (audio . emacspeak-eww-tag-audio)
     (title . eww-tag-title)
+    (video . emacspeak-eww-tag-video)
     (form . eww-tag-form)
     (input . eww-tag-input)
     (textarea . eww-tag-textarea)
