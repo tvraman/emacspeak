@@ -291,7 +291,7 @@
 
 ;; @table @kbd
 ;; @item ;
-;;  @command{emacspeak-eww-play-audio}
+;;  @command{emacspeak-eww-play-audio/video}
 ;; When on an audio element, plays audio under point.
 ;; @item  C-RET
 ;; @command {emacspeak-eww-fillin-form-field}
@@ -637,8 +637,8 @@ Safari/537.36"
    for binding  in
    '(
      ("M-o" org-eww-copy-for-org-mode)
-     ("M-;" emacspeak-eww-previous-audio)
-     (";" emacspeak-eww-next-audio)
+     ("M-;" emacspeak-eww-previous-audio/video)
+     (";" emacspeak-eww-next-audio/video)
      (":" emacspeak-eww-tags-at-point)
      ("\"" emacspeak-eww-reading-settings)
      ("V" eww-view-source)
@@ -1186,7 +1186,7 @@ Note that the Web browser should reset this hook after using it.")
 ;;;  Filter DOM:
 (defvar emacspeak-eww-audio-keymap
   (let  ((map (make-sparse-keymap)))
-    (define-key map ";" 'emacspeak-eww-play-audio)
+    (define-key map ";" 'emacspeak-eww-play-audio/video)
     map)
   "Keymap used on audio elements.")
 
@@ -1764,19 +1764,23 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 
 ;;;  Element Navigation:
 
-(defun emacspeak-eww-next-audio ()
+(defun emacspeak-eww-next-audio/video ()
   "Next audio element."
   (interactive)
-  (let ((target (next-single-property-change (point) 'audio)))
+  (let ((target
+         (or (next-single-property-change (point) 'audio)
+             (next-single-property-change (point) 'video))))
     (cl-assert target t "No  audio elements")
     (goto-char target)
     (emacspeak-speak-line)
     (emacspeak-icon 'large-movement)))
 
-(defun emacspeak-eww-previous-audio ()
+(defun emacspeak-eww-previous-audio/video ()
   "Previous audio element."
   (interactive)
-  (let ((target (previous-single-property-change (point) 'audio)))
+  (let ((target
+         (or (previous-single-property-change (point) 'audio)
+             (previous-single-property-change (point) 'video))))
     (cl-assert target t "No  audio elements")
     (goto-char target)
     (emacspeak-speak-line)
@@ -2659,8 +2663,8 @@ Use for large EBook buffers."
   (emacspeak-accumulate-to-register ?u #'(lambda () (shr-url-at-point nil))))
 ;;; Audio element at point:
 
-(defun emacspeak-eww-play-audio ()
-  "Play audio tag at point"
+(defun emacspeak-eww-play-audio/video ()
+  "Play audio/video tag at point"
   (interactive)
   (emacspeak-icon 'button)
   (let ((url (get-text-property (point ) 'shr-url)))
@@ -2668,7 +2672,7 @@ Use for large EBook buffers."
         (emacspeak-empv-play-url url)
       (message "No URL here to play"))))
 
-(put 'emacspeak-eww-play-audio 'repeat-map 'empv-map)
+(put 'emacspeak-eww-play-audio/video 'repeat-map 'empv-map)
 (provide 'emacspeak-eww)
 
 ;;;  end of file
