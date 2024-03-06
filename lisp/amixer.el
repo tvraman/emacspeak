@@ -349,6 +349,7 @@ Interactive prefix arg `PROMPT' reads percentage as a number"
     (amixer-build-db)
     (emacspeak-icon 'left)
     (dtk-notify-speak (ems--show-current-volume))))
+
 ;;;###autoload
 (defun amixer-volume-adjust ()
   "Adjust volume continuously.

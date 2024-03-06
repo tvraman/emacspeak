@@ -322,8 +322,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
      "Speak the line."
      (when (ems-interactive-p)
        (emacspeak-icon 'large-movement)
-       (dtk-notify-speak (emacspeak-get-current-percentage-verbously))
-       (emacspeak-speak-line)))))
+       (emacspeak-speak-line)
+       (dtk-notify-speak (emacspeak-get-current-percentage-verbously))))))
 
 (cl-loop
  for f in
@@ -759,9 +759,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
       (format
        "%s Press %s to exit"
        msg
-       (if exit
-           (format "%c" exit)
-         "space")))
+       (if exit (format "%c" exit) "space")))
      ad-do-it)))
 
 (defadvice progress-reporter-do-update (around emacspeak pre act comp)
@@ -2221,9 +2219,7 @@ Produce an auditory icon if possible."
       (dtk-notify-speak
        (concat
         (buffer-string)
-        (if (stringp minibuffer-default)
-            minibuffer-default
-          ""))))))
+        (if (stringp minibuffer-default) minibuffer-default ""))))))
 
 (add-hook 'minibuffer-setup-hook 'emacspeak-minibuffer-setup-hook 'at-end)
 

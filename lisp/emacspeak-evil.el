@@ -249,8 +249,8 @@
   (when (ems-interactive-p)
     (emacspeak-icon 'mark-object)
     (let ((emacspeak-show-point t))
-      (dtk-notify-speak (format "Marker %c" (ad-get-arg 0)))
-      (emacspeak-speak-line))))
+      (emacspeak-speak-line)
+      (dtk-notify-speak (format "Marker %c" (ad-get-arg 0))))))
 
 ;;;  Update keymaps:
 

@@ -617,6 +617,7 @@ the sense of the filter. "
   (let ((beg (save-excursion (skip-syntax-backward " ")))
         (end (save-excursion (skip-syntax-forward " "))))
     (dtk-notify-speak  (format "%s spaces " (+ (- end beg))))))
+
 (defvar ems--large-text-size 20000
   "Upper limit on what we attempt to speak in one shot.")
 
@@ -2439,8 +2440,7 @@ See documentation for command run-at-time for details on time-spec."
    time nil
    #'(lambda (m)
        (dtk-notify-speak m)
-       (when emacspeak-use-auditory-icons
-         (emacspeak-icon 'alarm))
+       (when emacspeak-use-auditory-icons (emacspeak-icon 'alarm))
        (sox-tones))
    message)
   (message "Set alarm for %s" time)
