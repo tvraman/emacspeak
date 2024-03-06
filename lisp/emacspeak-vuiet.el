@@ -58,12 +58,12 @@
 (defadvice vuiet-love-track (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (dtk-notify-say "loved track")))
+    (dtk-notify-speak "loved track")))
 
 (defadvice vuiet-unlove-track (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (dtk-notify-say "UnLoved track")))
+    (dtk-notify-speak "UnLoved track")))
 
 (cl-loop
  for f in 
@@ -101,7 +101,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (dtk-notify-say
+       (dtk-notify-speak
         (format "Volume %s" (vuiet-player-volume)))))))
 
 ;;; Additional Commands:
@@ -111,7 +111,7 @@
   (cl-declare (special mode-line-misc-info))
   (cond
    ((null mode-line-misc-info)
-    (dtk-notify-say "Nothing playing on vuiet?") )
+    (dtk-notify-speak "Nothing playing on vuiet?") )
    (t
     (dtk-notify-speak (mapconcat #'identity mode-line-misc-info " ")))))
 

@@ -431,7 +431,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
      (when (ems-interactive-p)
        (emacspeak-icon 'scroll)
        (dtk-speak (emacspeak-get-window-contents))
-       (dtk-notify-say
+       (dtk-notify-speak
         (propertize
          (format "%s " (emacspeak-get-current-percentage-into-buffer))
          'personality voice-smoothen))))))
@@ -674,7 +674,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 (defadvice read-event (before emacspeak pre act comp)
   "Speak prompt."
   (when  (ad-get-arg 0)
-    (dtk-notify-say (ad-get-arg 0))))
+    (dtk-notify-speak (ad-get-arg 0))))
 
 (defadvice read-multiple-choice (before emacspeak pre act comp)
   "speak."
@@ -914,7 +914,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 ;; read-password--hide-password
 (defadvice read-passwd--hide-password (after emacspeak pre act comp)
   "Icon."
-  (dtk-notify-say
+  (dtk-notify-speak
    (if read-passwd--hide-password
        "dot"
      (if (characterp last-input-event)
@@ -2834,7 +2834,7 @@ Produce an auditory icon if possible."
   "speak."
   (cl-declare (special rectangle-mark-mode))
   (when (ems-interactive-p)
-    (dtk-notify-say
+    (dtk-notify-speak
      (format "Turned %s rectangle mark mode"
              (if rectangle-mark-mode "on" "off")))
     (emacspeak-icon (if rectangle-mark-mode 'on 'off))))

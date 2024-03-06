@@ -81,7 +81,7 @@
        (save-excursion
          (forward-line -2)
          (forward-word 2)
-         (dtk-notify-say (word-at-point)))))))
+         (dtk-notify-speak (word-at-point)))))))
 
 (defadvice ebuku-show-all (after emacspeak pre act comp)
   "speak."

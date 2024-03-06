@@ -216,7 +216,7 @@ Silently drops alerts on the floor --- Google Talk is too chatty otherwise."
 (defun emacspeak-jabber-connected ()
   "Function to add to jabber-post-connection-hook."
   (emacspeak-icon 'task-done)
-  (dtk-notify-say "Connected to jabber."))
+  (dtk-notify-speak "Connected to jabber."))
 (add-hook 'jabber-post-connect-hook #'emacspeak-jabber-connected)
 
 ;;;  Pronunciations

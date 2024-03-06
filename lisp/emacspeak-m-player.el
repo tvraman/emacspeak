@@ -1828,7 +1828,7 @@ Optional interactive prefix arg prompts for name to use for  player."
        'unique))
     (when (called-interactively-p 'interactive)
       (emacspeak-icon 'task-done)
-      (dtk-notify-say
+      (dtk-notify-speak
        "persisted current process. You can now start another player."))))
 
 (defun emacspeak-m-player-restore-process ()

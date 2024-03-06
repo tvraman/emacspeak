@@ -152,7 +152,7 @@ Speech flushes as you type."
     (let ((display (get-char-property (1- (point)) 'display)))
       (dtk-stop 'all)
       (cond
-       ((stringp display) (dtk-say display))
+       ((stringp display) (dtk-speak display))
        ((and emacspeak-word-echo
              (= (char-syntax last-command-event)32))
         (save-excursion
@@ -616,7 +616,7 @@ the sense of the filter. "
   (interactive)
   (let ((beg (save-excursion (skip-syntax-backward " ")))
         (end (save-excursion (skip-syntax-forward " "))))
-    (dtk-notify-say  (format "%s spaces " (+ (- end beg))))))
+    (dtk-notify-speak  (format "%s spaces " (+ (- end beg))))))
 (defvar ems--large-text-size 20000
   "Upper limit on what we attempt to speak in one shot.")
 
@@ -1689,7 +1689,7 @@ Optional second arg `set' sets the TZ environment variable as well."
   "Time in brief"
   (interactive)
   (cl-declare (special emacspeak-speak-time-brief-format))
-  (dtk-say
+  (dtk-speak
    (format-time-string emacspeak-speak-time-brief-format)))
 
 (defun emacspeak-speak-time (&optional world)
@@ -1707,7 +1707,7 @@ Second interactive prefix sets clock to new timezone."
     (let ((time-string
            (format-time-string emacspeak-speak-time-format
                                (current-time) (getenv "TZ"))))
-      (dtk-notify-say time-string)))))
+      (dtk-notify-speak time-string)))))
 
 (defsubst ems--seconds-to-duration (sec)
   "Return seconds formatted as time if valid, otherwise return as is."

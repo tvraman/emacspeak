@@ -627,14 +627,14 @@ If optional arg property is not supplied, read it interactively. "
 (defun emacspeak-skip-space-forwar ()
   "Skip forward across blanks."
   (interactive)
-  (dtk-notify-say  (skip-syntax-forward " "))
+  (dtk-notify-speak  (skip-syntax-forward " "))
   (emacspeak-speak-char t))
 
 ;;;###autoload
 (defun emacspeak-skip-space-backward ()
   "Skip back across blanks."
   (interactive)
-  (dtk-notify-say  (skip-syntax-backward " "))
+  (dtk-notify-speak  (skip-syntax-backward " "))
   (emacspeak-speak-preceding-char))
 
 ;;;  ansi term

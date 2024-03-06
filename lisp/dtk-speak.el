@@ -1820,25 +1820,6 @@ grouping"
   (unless dtk-quiet
     (when (process-live-p dtk-speaker-process)
       (dtk-interp-letter letter))))
-
-(defun dtk-say (words)
-  "Say these WORDS."
-  (cl-declare (special dtk-speaker-process dtk-stop-immediately
-                       dtk-quiet))
-                                        ; ensure words is a  string
-  (unless (stringp words) (setq words (format "%s" words)))
-  ;; I won't talk if you dont want me to
-  (unless
-      (or dtk-quiet (string-equal words ""))
-    (or (eq 'run (process-status dtk-speaker-process))
-        (eq 'open (process-status dtk-speaker-process))
-        (dtk-initialize))
-    (when (process-live-p dtk-speaker-process)
-      (when dtk-stop-immediately
-        (when (process-live-p dtk-notify-process) (dtk-notify-stop))
-        (dtk-stop))
-      (dtk-interp-say words))))
-
 ;;;  Notify:
 
 (defun dtk-notify-process ()
@@ -1876,18 +1857,6 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
    ((dtk-notify-process)                ; we have a live notifier
     (dtk-notify-apply #'dtk-speak text))
    (t (dtk-speak text)))
-  text)
-
-(defun dtk-notify-say (text &optional dont-log)
-  "Say text on notification stream. "
-  (cl-declare (special dtk-speaker-process emacspeak-last-message))
-  (unless (stringp text) (setq text (format "%s" text)))
-  (unless dont-log (emacspeak-log-notification text))
-  (setq emacspeak-last-message text)
-  (cond
-   ((dtk-notify-process)                ; we have a live notifier
-    (dtk-notify-apply #'dtk-say text))
-   (t (dtk-say text)))
   text)
 
 (defun dtk-notify-letter (letter)

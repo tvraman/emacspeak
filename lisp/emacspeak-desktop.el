@@ -53,8 +53,8 @@
 (defadvice desktop-clear (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (dtk-notify-say "cleared desktop")
     (emacspeak-speak-mode-line)
+    (dtk-notify-speak "cleared desktop")
     (emacspeak-icon 'delete-object)))
 
 (defadvice desktop-save (after emacspeak pre act comp)

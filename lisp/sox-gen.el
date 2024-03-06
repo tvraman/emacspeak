@@ -292,7 +292,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tuples."
                      nil 'must-match)
     (timer-duration (read-from-minibuffer "Duration: "))))
   (sox--binaural-play duration (sox-binaural-get-effect name))
-  (dtk-notify-say
+  (dtk-notify-speak
    (format "%s: %s" name (sox--format-seconds duration))))
 
 (defun sox-slide-binaural (name-1 name-2 duration)
@@ -310,7 +310,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tuples."
     (run-with-timer
      dur nil
      #'(lambda (n1 n2  d)
-         (dtk-notify-say
+         (dtk-notify-speak
           (format "%s  to %s %s" n1 n2 (sox--format-seconds d)))
          (sox--binaural-play  d slide))
      name-1 name-2 slope)
@@ -396,7 +396,7 @@ binaural beat to another."
   (cl-declare (special sox-binaural-slider-scale))
   (let ((start 0)
         (dur-scale (sox--theme-duration-scale theme duration)))
-    (dtk-notify-say
+    (dtk-notify-speak
      (sox--format-seconds (sox--theme-compute-length theme dur-scale)))
     (cl-loop
      for beat in theme
@@ -417,7 +417,7 @@ binaural beat to another."
          (run-with-timer                ; start  at slider-start
           slider-start nil              ; no repeat
           #'(lambda (this that len)
-              (dtk-notify-say
+              (dtk-notify-speak
                (format "%s to %s %s"
                        this that (sox--format-seconds len)))
               (sox--binaural-play
