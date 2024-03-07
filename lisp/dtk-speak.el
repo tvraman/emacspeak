@@ -1859,13 +1859,6 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
    (t (dtk-speak text)))
   text)
 
-(defun dtk-notify-letter (letter)
-  "Speak letter on notification stream. "
-  (cond
-   ((dtk-notify-process)                ; we have a live notifier
-    (dtk-notify-apply #'dtk-letter letter))
-   (t (dtk-letter letter))))
-
 (defun dtk-notify-icon (icon)
   "Play icon  on notification stream. "
   (cond
