@@ -976,7 +976,7 @@ the speech rate.  Call when on a non-blank line to preview the effectt"
          (define-key map key (lambda () (interactive) (dtk-rate-adjust ))))
        map)
      t (lambda nil (emacspeak-icon 'repeat-end))
-     "Repeat with %k")))
+     (format "%s: Repeat with %%k" dtk-speech-rate))))
 
 (defun dtk-set-character-scale (factor &optional prefix)
   "Set character scale FACTOR for   speech rate.
