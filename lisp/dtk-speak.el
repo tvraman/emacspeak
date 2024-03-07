@@ -243,7 +243,7 @@ mac for MAC TTS (default on Mac)")
 
 (defcustom dtk-speech-rate-step
   (if (string-match "dtk" dtk-program) 50 8)
-  "Speech rate step used by `dtk-set-predefined-speech-rate'."
+  "Speech rate step used by `dtk-set-predefined-rate'."
   :type 'integer
   :group 'tts)
 
@@ -924,7 +924,7 @@ current local  value to the result."
                rate
                (if prefix "" "locally")))))
 
-(defun dtk-set-predefined-speech-rate (&optional prefix)
+(defun dtk-set-predefined-rate (&optional prefix)
   "Set speech rate to one of nine predefined levels.
 Interactive PREFIX arg says to set the rate globally.
 Formula used is:

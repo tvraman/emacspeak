@@ -331,7 +331,7 @@
 
 (dotimes (i 10)
   (define-key emacspeak-dtk-submap
-              (format "%s" i)   'dtk-set-predefined-speech-rate))
+              (format "%s" i)   'dtk-set-predefined-rate))
 
 (cl-loop
  for binding in
