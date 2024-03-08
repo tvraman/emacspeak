@@ -533,6 +533,7 @@ dynamic playlist. "
            (y-or-n-p "Stop "))
     (emacspeak-m-player-quit)
     (setq emacspeak-m-player-process nil))
+  (dtk-notify-speak resource)
   (let ((buffer (get-buffer-create "*M-Player*"))
         (process-connection-type nil)
         (playlist-p
