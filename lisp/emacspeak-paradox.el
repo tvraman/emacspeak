@@ -103,11 +103,6 @@
 
 ;;;  Managing Packages:
 
-(defadvice paradox-menu-execute(around emacspeak pre act comp)
-  "Silence messages while installing packages. "
-  (ems-with-messages-silenced ad-do-it)
-  (emacspeak-speak-message-again))
-
 (cl-loop
  for f in
  '(paradox-next-entry paradox-previous-entry)
