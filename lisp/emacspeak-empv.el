@@ -274,7 +274,7 @@ Interactive prefix arg plays on left ear using alsa."
    (emacspeak-keymap-update empv-map b))
   (map-keymap
    (lambda (_key cmd)
-     (when (symbolp cmd)
+     (when (and  (symbolp cmd) (not (eq cmd 'repeat-exit)))
        (put cmd 'repeat-map 'empv-map)))
    empv-map))
 
