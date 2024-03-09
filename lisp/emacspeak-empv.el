@@ -227,6 +227,10 @@ Interactive prefix arg plays on left ear using alsa."
     (emacspeak-icon 'button)))
 
 ;;; Setup:
+(add-hook
+ 'empv-youtube-results-mode-hook
+ #'(lambda nil
+     (emacspeak-icon 'open-object)))
 
 (defun emacspeak-empv-setup ()
   "Emacspeak setup for empv."
