@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 6, 2024.
+last updated on March 8, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2747,16 +2747,16 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-dtk-submap,  Nex
 ‘, dtk-toggle-punctuation-mode’
 ‘- dtk-rate-adjust’
 ‘. dtk-notify-stop’
-‘0 dtk-set-predefined-speech-rate’
-‘1 dtk-set-predefined-speech-rate’
-‘2 dtk-set-predefined-speech-rate’
-‘3 dtk-set-predefined-speech-rate’
-‘4 dtk-set-predefined-speech-rate’
-‘5 dtk-set-predefined-speech-rate’
-‘6 dtk-set-predefined-speech-rate’
-‘7 dtk-set-predefined-speech-rate’
-‘8 dtk-set-predefined-speech-rate’
-‘9 dtk-set-predefined-speech-rate’
+‘0 dtk-set-predefined-rate’
+‘1 dtk-set-predefined-rate’
+‘2 dtk-set-predefined-rate’
+‘3 dtk-set-predefined-rate’
+‘4 dtk-set-predefined-rate’
+‘5 dtk-set-predefined-rate’
+‘6 dtk-set-predefined-rate’
+‘7 dtk-set-predefined-rate’
+‘8 dtk-set-predefined-rate’
+‘9 dtk-set-predefined-rate’
 ‘= dtk-rate-adjust’
 ‘L dtk-local-server’
 ‘N dtk-set-next-language’
@@ -2876,7 +2876,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-multi-keymap,  N
 
 ‘' emacspeak-pianobar’
 ‘d sdcv-search-input’
-‘e eat’
 ‘f ffap’
 ‘l locate’
 ‘m notmuch-search’
@@ -3758,10 +3757,10 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      Switch to  next  language
 
-12.4.1.13 dtk-set-predefined-speech-rate
-........................................
+12.4.1.13 dtk-set-predefined-rate
+.................................
 
- -- Command: dtk-set-predefined-speech-rate (&optional prefix)
+ -- Command: dtk-set-predefined-rate (&optional prefix)
      ‘C-e d 9’
      ‘C-e d 8’
      ‘C-e d 7’
@@ -4008,7 +4007,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      
 
  -- Variable: User Option dtk-speech-rate-step
-     Speech rate step used by ‘dtk-set-predefined-speech-rate’.
+     Speech rate step used by ‘dtk-set-predefined-rate’.
 
      Default Value:
      

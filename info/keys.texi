@@ -102,16 +102,16 @@
 @item ,  dtk-toggle-punctuation-mode
 @item -  dtk-rate-adjust
 @item .  dtk-notify-stop
-@item 0  dtk-set-predefined-speech-rate
-@item 1  dtk-set-predefined-speech-rate
-@item 2  dtk-set-predefined-speech-rate
-@item 3  dtk-set-predefined-speech-rate
-@item 4  dtk-set-predefined-speech-rate
-@item 5  dtk-set-predefined-speech-rate
-@item 6  dtk-set-predefined-speech-rate
-@item 7  dtk-set-predefined-speech-rate
-@item 8  dtk-set-predefined-speech-rate
-@item 9  dtk-set-predefined-speech-rate
+@item 0  dtk-set-predefined-rate
+@item 1  dtk-set-predefined-rate
+@item 2  dtk-set-predefined-rate
+@item 3  dtk-set-predefined-rate
+@item 4  dtk-set-predefined-rate
+@item 5  dtk-set-predefined-rate
+@item 6  dtk-set-predefined-rate
+@item 7  dtk-set-predefined-rate
+@item 8  dtk-set-predefined-rate
+@item 9  dtk-set-predefined-rate
 @item =  dtk-rate-adjust
 @item L  dtk-local-server
 @item N  dtk-set-next-language
@@ -227,7 +227,6 @@
 @table @kbd
 @item '  emacspeak-pianobar
 @item d  sdcv-search-input
-@item e  eat
 @item f  ffap
 @item l  locate
 @item m  notmuch-search

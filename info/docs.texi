@@ -640,8 +640,8 @@ Switch to  next  language
 @end format
 @end deffn
 
-@subsubsection dtk-set-predefined-speech-rate
-@deffn {Command} dtk-set-predefined-speech-rate  (&optional prefix)
+@subsubsection dtk-set-predefined-rate
+@deffn {Command} dtk-set-predefined-rate  (&optional prefix)
 @table @kbd
 @item C-e d 9
 @kindex C-e d 9
@@ -665,7 +665,7 @@ Switch to  next  language
 @kindex C-e d 0
 @end table
 
-@findex dtk-set-predefined-speech-rate
+@findex dtk-set-predefined-rate
 
 @format
 Set speech rate to one of nine predefined levels.
@@ -1024,7 +1024,7 @@ Default Value:
 
 @defvar {User Option} dtk-speech-rate-step
 @verbatim
-Speech rate step used by ‘dtk-set-predefined-speech-rate’.
+Speech rate step used by ‘dtk-set-predefined-rate’.
 @end verbatim
 
 Default Value: 
@@ -8318,7 +8318,6 @@ Default Value:
 (("'" emacspeak-pianobar)
  ("C-'" empv-exit)
  ("d" sdcv-search-input)
- ("e" eat)
  ("f" ffap)
  ("l" locate)
  ("m" notmuch-search)

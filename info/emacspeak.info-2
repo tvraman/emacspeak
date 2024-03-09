@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 6, 2024.
+last updated on March 8, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -1231,7 +1231,6 @@ found on laptops is denoted <fn>
      (("'" emacspeak-pianobar)
       ("C-'" empv-exit)
       ("d" sdcv-search-input)
-      ("e" eat)
       ("f" ffap)
       ("l" locate)
       ("m" notmuch-search)

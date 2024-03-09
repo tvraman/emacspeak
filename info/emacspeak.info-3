@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 6, 2024.
+last updated on March 8, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -2848,10 +2848,10 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * dtk-set-language <1>:                  dtk-speak.          (line  122)
 * dtk-set-next-language:                 dtk-speak.          (line  131)
 * dtk-set-next-language <1>:             dtk-speak.          (line  134)
+* dtk-set-predefined-rate:               dtk-speak.          (line  139)
+* dtk-set-predefined-rate <1>:           dtk-speak.          (line  151)
 * dtk-set-predefined-speech-rate:        Speech Output Control.
                                                              (line   36)
-* dtk-set-predefined-speech-rate <1>:    dtk-speak.          (line  139)
-* dtk-set-predefined-speech-rate <2>:    dtk-speak.          (line  151)
 * dtk-set-preferred-language:            dtk-speak.          (line  161)
 * dtk-set-preferred-language <1>:        dtk-speak.          (line  162)
 * dtk-set-previous-language:             dtk-speak.          (line  170)
