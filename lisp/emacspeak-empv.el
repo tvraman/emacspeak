@@ -76,11 +76,10 @@
 
 (defadvice empv-exit (after emacspeak pre act comp)
   "Icon."
+  (repeat-exit)
   (when (ems-interactive-p)
     (dtk-stop 'all)
-    (emacspeak-icon 'close-object)
-    (repeat-exit)
-    (emacspeak-speak-mode-line)))
+    (emacspeak-icon 'close-object)))
 
 
 
