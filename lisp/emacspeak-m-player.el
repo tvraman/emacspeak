@@ -182,11 +182,11 @@ Reset immediately after being used.")
      for f in
      (directory-files-recursively file  "\\.mp3\\'") do
      (cl-pushnew f emacspeak-media-dynamic-playlist))
-    (dtk-speak-and-echo
+    (dtk-speak
      (format "Added files from directory %s" (file-name-base file))))
    ((string-match "\\.mp3$" file)
     (cl-pushnew file emacspeak-media-dynamic-playlist)
-    (dtk-speak-and-echo
+    (dtk-speak
      (format
       "Added %s with duration %s to dynamic playlist."
       (file-name-base file)
@@ -994,7 +994,7 @@ The time position can also be specified as HH:MM:SS."
 (defun emacspeak-m-player-display-percent ()
   "Display current percentage."
   (interactive)
-  (dtk-speak-and-echo (emacspeak-m-player-slave-command "get_percent_pos")))
+  (dtk-speak (emacspeak-m-player-slave-command "get_percent_pos")))
 
 (defun emacspeak-m-player-stream-info (&optional toggle-cue)
   "Speak and display metadata.
@@ -1012,7 +1012,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
         (when  emacspeak-m-player-cue-info
           (emacspeak-icon
            (if emacspeak-m-player-cue-info 'on 'off))))
-      (dtk-speak-and-echo (format "%s" (or info  "No Stream Info"))))))
+      (dtk-speak (format "%s" (or info  "No Stream Info"))))))
 
 (defun emacspeak-m-player-get-length ()
   "Display length of track."
@@ -1020,7 +1020,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   (let ((a
          (read
           (cl-second (split-string (ems--mp-send "get_time_length") "=")))))
-    (dtk-speak-and-echo a)
+    (dtk-speak a)
     a))
 
 (defconst emacspeak-m-player-display-cmd
@@ -1053,8 +1053,8 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
              collect
              (concat (cl-first f) " " (cl-second f) "\n ")))
       (tts-with-punctuations 'some
-                             (dtk-speak-and-echo (apply #'concat result))))
-     (t (dtk-speak-and-echo "Waiting")))))
+                             (dtk-speak (apply #'concat result))))
+     (t (dtk-speak "Waiting")))))
 
 (defconst emacspeak-m-player-filters
   '( "extrastereo" "extrastereo=1.5" "volnorm" "surround"
