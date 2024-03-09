@@ -532,7 +532,7 @@ dynamic playlist. "
            (y-or-n-p "Stop "))
     (emacspeak-m-player-quit)
     (setq emacspeak-m-player-process nil))
-  (dtk-notify-speak resource)
+  (dtk-notify-speak (file-name-base resource))
   (let ((buffer (get-buffer-create "*M-Player*"))
         (process-connection-type nil)
         (playlist-p
@@ -1019,7 +1019,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   (let ((a
          (read
           (cl-second (split-string (ems--mp-send "get_time_length") "=")))))
-    (dtk-speak-and-echo a)
+    (dtk-speak-and-echo (format "%s" a))
     a))
 
 (defconst emacspeak-m-player-display-cmd
