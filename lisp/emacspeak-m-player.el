@@ -291,8 +291,7 @@ Controls media playback when already playing.
          (buffer-live-p (process-buffer emacspeak-m-player-process)))
     (with-current-buffer (process-buffer emacspeak-m-player-process)
       (call-interactively #'emacspeak-m-player-command)))
-   (t
-    (call-interactively #'emacspeak-m-player))))
+   (t (call-interactively #'emacspeak-m-player))))
 
 (defun emacspeak-m-player-pop-to-player ()
   "Pop to m-player buffer."
