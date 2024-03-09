@@ -122,7 +122,7 @@ Interactive prefix arg plays on left ear using alsa."
   (interactive(list (emacspeak-media-read-resource)
                     current-prefix-arg))
   (cl-declare (special empv-mpv-args))
-  (dtk-notify-speak (abbreviate-file-name file))
+  (dtk-notify-speak (file-name-base file))
   (let* ((args (copy-sequence empv-mpv-args))
          (empv-mpv-args args))
     (when left (push "--audio-channels=fl" empv-mpv-args))
