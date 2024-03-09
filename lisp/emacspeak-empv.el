@@ -66,6 +66,14 @@
        (dtk-stop 'all)
        (emacspeak-icon 'button)))))
 
+(defadvice empv-youtube-tabulated (before emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-icon 'button)
+    ))
+
+
+
 (defadvice empv-exit (after emacspeak pre act comp)
   "Icon."
   (when (ems-interactive-p)
@@ -74,10 +82,7 @@
     (repeat-exit)
     (emacspeak-speak-mode-line)))
 
-(defadvice empv-youtube-tabulated (after emacspeak pre act comp)
-  "speak."
-  (when (ems-interactive-p)
-    (emacspeak-speak-mode-line)))
+
 
 ;;; Additional Commands:
 
@@ -230,7 +235,11 @@ Interactive prefix arg plays on left ear using alsa."
 (add-hook
  'empv-youtube-results-mode-hook
  #'(lambda nil
-     (emacspeak-icon 'open-object)))
+     (emacspeak-icon 'open-object)
+     (dtk-notify-speak
+      (format "%s results"
+              (length empv--last-youtube-candidates)))))
+
 
 (defun emacspeak-empv-setup ()
   "Emacspeak setup for empv."
