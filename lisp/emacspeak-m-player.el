@@ -1350,7 +1350,7 @@ arg `reset' starts with all filters set to 0."
        emacspeak-m-player-equalizer))
     (emacspeak-icon 'close-object)
     (push "equalizer" emacspeak-m-player-active-filters))
-   (t (message "No stream playing at present."))))
+   (t (message "No stream playing"))))
 
 (defun emacspeak-m-player-eq-preset  (name)
   "Prompts for  and apply equalizer preset.
@@ -1732,7 +1732,7 @@ As the default, use current position."
         (filter-spec nil)
         (filter nil))
     (unless (process-live-p emacspeak-m-player-process)
-      (error "No media playing  currently."))
+      (error "No media playing"))
     (unless ladspa
       (setq ladspa (setenv "LADSPA_PATH" "/usr/lib/ladspa")))
     (unless (file-exists-p (expand-file-name "tap_reverb.so" ladspa))

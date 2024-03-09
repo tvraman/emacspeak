@@ -250,7 +250,7 @@
 (add-hook 'proced-mode-hook #'emacspeak-proced-add-keys)
 
 (defun emacspeak-proced-update-process-cache ()
-  "Update cache of processes we are displaying."
+  "Updated display cache "
   (cl-declare (special emacspeak-proced-process-cache))
   (let ((cache nil))
     (save-excursion
