@@ -692,7 +692,6 @@
     ("C-'" empv-exit)
     ("'" emacspeak-pianobar)
     ("d" sdcv-search-input)
-    ("e" eat)
     ("f" ffap)
     ("l" locate)
     ("o" org-mode)
