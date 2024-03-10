@@ -275,12 +275,9 @@ Interactive prefix arg plays on left ear using alsa."
    emacspeak-empv-forward-15-minutes emacspeak-empv-backward-15-minutes
    emacspeak-empv-forward-30-minutes emacspeak-empv-backward-30-minutes
    emacspeak-empv-time-pos emacspeak-empv-clear-filter
-   empv-toggle emacspeak-empv-toggle-custom
-   emacspeak-empv-toggle-filter
-   
+    emacspeak-empv-toggle-custom emacspeak-empv-toggle-filter
 emacspeak-empv-absolute-seek  emacspeak-empv-percentage-seek 
-emacspeak-empv-relative-seek empv-copy-path 
-empv-current-loop-on  empv-display-current ))
+emacspeak-empv-relative-seek))
  
 
 (defvar emacspeak-empv-filter-history nil
