@@ -1,5 +1,5 @@
 ;;; emacspeak-empv.el --- Speech-enable EMPV  -*- lexical-binding: t; -*-
-;;; $Author: tv.raman.tv $
+;;; $Author: tv.raman.tv $s-mo
 ;;; Description:  Speech-enable EMPV An Emacs Interface to empv
 ;;; Keywords: Emacspeak,  Audio Desktop empv
 ;;;   LCD Archive entry:
@@ -240,8 +240,11 @@ Interactive prefix arg plays on left ear using alsa."
 
 (defun emacspeak-empv-setup ()
   "Emacspeak setup for empv."
-  (cl-declare (special empv-map))
+  (cl-declare (special empv-map
+                       empv-youtube-results-mode-map))
   (global-set-key (kbd "s-SPC") empv-map)
+  (define-key empv-youtube-results-mode-map
+              "o" 'empv-youtube-results-play-current)
   (cl-loop
    for b in
    '(
