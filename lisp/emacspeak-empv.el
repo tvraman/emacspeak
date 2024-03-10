@@ -66,6 +66,15 @@
        (dtk-stop 'all)
        (emacspeak-icon 'button)))))
 
+(defadvice empv-youtube-results-inspect (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-icon 'open-object)
+    (emacspeak-speak-mode-line)
+    ))
+
+
+
 (defadvice empv-youtube-tabulated (before emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
