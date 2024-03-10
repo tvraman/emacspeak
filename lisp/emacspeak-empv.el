@@ -136,7 +136,7 @@ Interactive prefix arg plays on left ear using alsa."
 (put 'emacspeak-empv-play-url 'repeat-map 'empv-map)
 (put 'emacspeak-empv-play-last 'repeat-map 'empv-map)
 
-(defsubst emacspeak-empv-local-file ()
+(defun emacspeak-empv-local-file ()
   "Return local media filename read with completion."
   (let (( default-directory empv-audio-dir))
     (emacspeak-media-local-resource nil)))
