@@ -72,16 +72,12 @@
     (emacspeak-icon 'button)
     ))
 
-
-
 (defadvice empv-exit (after emacspeak pre act comp)
   "Icon."
   (repeat-exit)
   (when (ems-interactive-p)
     (dtk-stop 'all)
     (emacspeak-icon 'close-object)))
-
-
 
 ;;; Additional Commands:
 
@@ -132,11 +128,7 @@ Interactive prefix arg plays on left ear using alsa."
     (when left (push "--audio-channels=fl" empv-mpv-args))
     (empv-play file)))
 
-(put 'emacspeak-empv-play-file 'repeat-map 'empv-map)
-(put 'emacspeak-empv-play-url 'repeat-map 'empv-map)
-(put 'emacspeak-empv-play-last 'repeat-map 'empv-map)
-
-(defun emacspeak-empv-local-file ()
+(defsubst emacspeak-empv-local-file ()
   "Return local media filename read with completion."
   (let (( default-directory empv-audio-dir))
     (emacspeak-media-local-resource nil)))
@@ -168,7 +160,7 @@ Interactive prefix arg plays on left ear using alsa."
   (empv--let-properties '(time-pos percent-pos)
     (message "%s %.2d%%"
              (ems--format-clock (or .time-pos 0))
-              (or .percent-pos 0))))
+             (or .percent-pos 0))))
 
 (defsubst emacspeak-empv-post-nav ()
   "Post nav action"
@@ -215,9 +207,7 @@ Interactive prefix arg plays on left ear using alsa."
    `(defun ,(intern  (format "emacspeak-empv-backward-%s-minutes" duration)) ()
       ,(format "Move backward by %s minutes" duration )
       (interactive )
-      (funcall-interactively 'emacspeak-empv-backward-minute
-                             ,duration))))
-
+      (funcall-interactively 'emacspeak-empv-backward-minute ,duration))))
 
 ;; Use it:
 (mapc #'ems--empv-gen-nav '(5 10 30))
@@ -238,7 +228,6 @@ Interactive prefix arg plays on left ear using alsa."
      (dtk-notify-speak
       (format "%s results"
               (length empv--last-youtube-candidates)))))
-
 
 (defun emacspeak-empv-setup ()
   "Emacspeak setup for empv."
@@ -270,14 +259,24 @@ Interactive prefix arg plays on left ear using alsa."
      ("x" empv-exit)
      ("y" emacspeak-empv-yt-download))
    do
-   (emacspeak-keymap-update empv-map b))
-  (map-keymap
-   (lambda (_key cmd)
-     (when (and  (symbolp cmd) (not (eq cmd 'repeat-exit)))
-       (put cmd 'repeat-map 'empv-map)))
-   empv-map))
+   (emacspeak-keymap-update empv-map b)))
 
 (emacspeak-empv-setup)
+
+;; Repeat:
+(mapc
+ #'(lambda (c) (put c 'repeat-map 'empv-map))
+ '(
+   emacspeak-empv-play-last emacspeak-empv-play-url
+   emacspeak-empv-play-file emacspeak-empv-play-local
+   emacspeak-empv-forward-minute emacspeak-empv-backward-minute
+   emacspeak-empv-forward-5-minutes emacspeak-empv-backward-5-minutes
+   emacspeak-empv-forward-10-minutes emacspeak-empv-backward-10-minutes
+   emacspeak-empv-forward-15-minutes emacspeak-empv-backward-15-minutes
+   emacspeak-empv-forward-30-minutes emacspeak-empv-backward-30-minutes
+   emacspeak-empv-time-pos emacspeak-empv-clear-filter
+   empv-toggle emacspeak-empv-toggle-custom emacspeak-empv-toggle-filter))
+ 
 
 (defvar emacspeak-empv-filter-history nil
   "History of filters used.")
