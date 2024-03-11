@@ -186,9 +186,12 @@ icon-name as string."
   "Upload samples to Pulse"
   (cl-loop
    for key being the hash-keys of emacspeak-sounds-cache do
-   (shell-command
-    (format "%s upload-sample %s %s"
-            emacspeak-pactl (gethash key emacspeak-sounds-cache) key))))
+   (call-process
+    emacspeak-pactl nil nil nil
+    "upload-sample"
+    (gethash key emacspeak-sounds-cache)
+    (symbol-name  key))))
+
 (defsubst ems--samples-not-loaded-p (sample)
   "Verify if sample loaded"
   (= 1 (call-process emacspeak-pactl nil nil nil "play-sample" sample)))
