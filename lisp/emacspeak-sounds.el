@@ -200,13 +200,17 @@ icon-name as string."
      emacspeak-sounds-dir)))
   (cl-declare (special emacspeak-play-program emacspeak-sounds-dir))
   (emacspeak-sounds-cache-rebuild theme)
-  (when
+  (when; upload samples if needed
       (and
        emacspeak-play-program           ; avoid nil nil comparison
        (string= emacspeak-play-program emacspeak-pactl)
        (or
-        (called-interactively-p 'interactive)
-        (= 1
+        (called-interactively-p 'interactive) ; upload on theme change
+        (= 1 ; check if loaded 
+           (call-process ; prompts
+            emacspeak-pactl nil nil nil
+            "play-sample" "waking-up"))
+        (= 1 ; check for icons
            (call-process
             emacspeak-pactl nil nil nil
             "play-sample" "item")))) 
