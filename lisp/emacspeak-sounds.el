@@ -189,8 +189,7 @@ icon-name as string."
    (call-process
     emacspeak-pactl nil nil nil
     "upload-sample"
-    (gethash key emacspeak-sounds-cache)
-    (symbol-name  key))))
+    (gethash key emacspeak-sounds-cache) (symbol-name  key))))
 
 (defsubst ems--samples-not-loaded-p (sample)
   "Verify if sample loaded"
