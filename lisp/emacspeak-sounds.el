@@ -176,11 +176,9 @@ icon-name as string."
   "Rebuild sound cache for theme, a directory containing sound files."
   (when (file-exists-p theme)
     (cl-loop
-     for f in (directory-files theme 'full "\\.ogg$")
-     do
-     (emacspeak-sounds-cache-put
-      (intern (file-name-base f))
-      f))))
+     for f in (directory-files theme 'full "\\.ogg$") do
+     (emacspeak-sounds-cache-put (intern (file-name-base f)) f))))
+
 (defsubst ems--upload-pulse-samples ()
   "Upload samples to Pulse"
   (cl-loop
