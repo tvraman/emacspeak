@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 8, 2024.
+last updated on March 11, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -4473,12 +4473,12 @@ otherwise play them using a local player.
 12.178.3.1 emacspeak-sounds-select-theme
 ........................................
 
- -- Command: emacspeak-sounds-select-theme (theme)
+ -- Command: emacspeak-sounds-select-theme (&optional theme)
      ‘C-e )’
 
      Select theme for auditory icons.
 
-     (fn THEME)
+     (fn &optional THEME)
 
 12.178.3.2 emacspeak-toggle-auditory-icons
 ..........................................

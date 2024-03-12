@@ -12044,7 +12044,7 @@ them using a local player.
 @subsection Emacspeak-Sounds Commands
 
 @subsubsection emacspeak-sounds-select-theme
-@deffn {Command} emacspeak-sounds-select-theme  (theme)
+@deffn {Command} emacspeak-sounds-select-theme  (&optional theme)
 @table @kbd
 @item C-e )
 @kindex C-e )
@@ -12055,7 +12055,7 @@ them using a local player.
 @format
 Select theme for auditory icons.
 
-(fn THEME)
+(fn &optional THEME)
 @end format
 @end deffn
 
