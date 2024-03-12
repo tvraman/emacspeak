@@ -247,6 +247,10 @@ mac for MAC TTS (default on Mac)")
   :type 'integer
   :group 'tts)
 
+(defvar dtk-handle-unicode nil
+  "convert unicode characters if the speech server doesn't support it.
+  This variable shouldn't usually be set")
+
 (defvar-local dtk-quiet nil
   "Silence speech ")
 
@@ -1719,7 +1723,7 @@ unless   `dtk-quiet' is set to t. "
         (dtk--delete-invisible-text)
         (dtk-handle-repeating-patterns mode)
         (when pron-table (tts-apply-pronunciations pron-table))
-        (dtk-unicode-replace-chars mode)
+        (when dtk-handle-unicode (dtk-unicode-replace-chars mode))
         (dtk-quote mode)
         (goto-char (point-min))         ; text is ready to be spoken
         (skip-syntax-forward "-")       ;skip leading whitespace

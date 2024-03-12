@@ -1032,7 +1032,7 @@ char is assumed to be one of a--z."
   (when char
     (cond
      ((emacspeak-is-alpha-p char) (dtk-letter (char-to-string char)))
-     ((> char 128) (emacspeak-speak-char-name char))
+     ((and dtk-handle-unicode (> char 128)) (emacspeak-speak-char-name char))
      (t (dtk-dispatch (dtk-char-to-speech char))))))
 
 (defun emacspeak-speak-char (&optional prefix)
@@ -1049,7 +1049,6 @@ Pronounces character phonetically unless  called with a PREFIX arg."
     (when char
       (cond
        ((stringp display) (dtk-speak display))
-       ((> char 128) (emacspeak-speak-char-name char))
        ((and (not prefix)
              (emacspeak-is-alpha-p char))
         (dtk-speak (emacspeak-get-phonetic-string char)))
