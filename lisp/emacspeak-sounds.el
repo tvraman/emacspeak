@@ -186,7 +186,7 @@ icon-name as string."
   (cl-loop
    for k being the hash-keys of emacspeak-sounds-cache
    using (hash-values v) do
-   (call-process emacspeak-pactl nil nil nil
+   (call-process emacspeak-pactl nil 0 nil
                  "upload-sample" v (symbol-name  k))))
 
 (defsubst ems--samples-not-loaded-p (sample)
