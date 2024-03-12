@@ -628,7 +628,9 @@ the sense of the filter. "
                        ems--large-text-size))
   (let ((inhibit-modification-hooks t)
         (deactivate-mark nil))
-    (when (and  (< (abs (- start end )) ems--large-text-size) (not emacspeak-speak-voice-annotated-paragraphs))
+    (when (and
+           (< (abs (- start end )) ems--large-text-size)
+           (not emacspeak-speak-voice-annotated-paragraphs))
       (save-restriction
         (narrow-to-region start end)
         (emacspeak-speak-voice-annotate-paragraphs)))
@@ -1166,7 +1168,10 @@ Negative prefix arg speaks from start of buffer to point. "
   (interactive "P")
   (cl-declare (special emacspeak-speak-voice-annotated-paragraphs
                        ems--large-text-size))
-  (when (and (< (buffer-size) ems--large-text-size) (not emacspeak-speak-voice-annotated-paragraphs))
+  (when
+      (and
+       (< (buffer-size) ems--large-text-size)
+       (not emacspeak-speak-voice-annotated-paragraphs))
             (emacspeak-speak-voice-annotate-paragraphs))
        (when (listp arg) (setq arg (car arg)))
        (dtk-stop 'all)
