@@ -248,7 +248,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1165 commands and 128 options.
+This chapter documents a total of 1165 commands and 127 options.
 
 @node amixer
 @section amixer
@@ -1116,20 +1116,6 @@ Default Value:
 @verbatim
 
 (ascii latin-iso8859-1)
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} dtk-use-tones
-@verbatim
-Toggle tones. 
-@end verbatim
-
-Default Value: 
-@verbatim
-
-t
 
 @end verbatim
 
