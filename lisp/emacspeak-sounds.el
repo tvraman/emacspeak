@@ -194,14 +194,17 @@ icon-name as string."
   (= 1 (call-process emacspeak-pactl nil nil nil "play-sample" sample)))
 
 ;;;###autoload
-(defun emacspeak-sounds-select-theme  ( theme)
+(defun emacspeak-sounds-select-theme  ( &optional theme)
   "Select theme for auditory icons."
   (interactive
    (list
     (expand-file-name
-     (completing-read "Theme: " '("ogg-3d" "ogg-chimes") nil 'must-match)
+     (completing-read
+      "Theme: " '("ogg-3d" "ogg-chimes")
+      nil 'must-match nil nil "ogg-chimes")
      emacspeak-sounds-dir)))
   (cl-declare (special emacspeak-play-program emacspeak-sounds-dir))
+  (setq theme (or theme (expand-file-name "ogg-chimes" emacspeak-sounds-dir)))
   (emacspeak-sounds-cache-rebuild theme)
   (when                                 ; upload samples if needed
       (and

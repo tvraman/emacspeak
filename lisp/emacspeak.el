@@ -428,7 +428,7 @@ commands and options for details."
   (dtk-initialize)
   (setq ring-bell-function #'(lambda nil (emacspeak-icon 'warn-user)))
   (emacspeak-sounds-cache-prompts)
-  (emacspeak-sounds-select-theme emacspeak-sounds-current-theme)
+  (make-thread #'emacspeak-sounds-select-theme)
   (emacspeak-pronounce-load-dictionaries)
   (make-thread #'(lambda nil  (ems--fastload "emacspeak-advice")))
   (emacspeak-setup-programming-modes)
