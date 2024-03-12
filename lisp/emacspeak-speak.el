@@ -2856,20 +2856,6 @@ Use `,' and `.' to continuously decrease/increase `selective-display'.
 
 ;;; Cue window buffer change:
 
-;; Help set up a buffer local window change hook:
-
-(defun ems--add-window-buffer-change-hook (&optional buffer)
-  "Setup buffer-local window-buffer-change-functions  in buffer
-`BUFFER'."
-  (with-current-buffer
-      (or buffer (current-buffer))
-    (add-hook
-     'window-buffer-change-functions
-     #'(lambda (w)
-         (with-current-buffer (window-buffer w)
-           (emacspeak-speak-windowful))
-         (sox-multiwindow 'swap 1.25)) 0 'local)))
-
 ;;; Bug Reporter:
 (defconst emacspeak-bug-address "emacspeak@emacspeak.net" "List address")
 
