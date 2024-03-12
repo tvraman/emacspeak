@@ -426,7 +426,6 @@ commands and options for details."
    #'(lambda nil (setq-default emacspeak-speak-messages nil))
    -10)
   (dtk-initialize)
-  (setq ring-bell-function #'(lambda nil (emacspeak-icon 'warn-user)))
   (make-thread #'emacspeak-sounds-select-theme)
   (emacspeak-pronounce-load-dictionaries)
   (make-thread #'(lambda nil  (ems--fastload "emacspeak-advice")))
@@ -440,8 +439,9 @@ commands and options for details."
      'minor-mode-alist
      '(emacspeak-speak-show-volume (:eval (ems--show-current-volume)))))
   (message emacspeak-startup)
-  (when   emacspeak-play-startup-icon (emacspeak-icon 'emacspeak)
-          (emacspeak-easter-egg)))
+  (when   emacspeak-play-startup-icon
+    (emacspeak-icon 'emacspeak)
+    (emacspeak-easter-egg)))
 
 (provide 'emacspeak)
 
