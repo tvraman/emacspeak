@@ -204,7 +204,9 @@ icon-name as string."
       nil 'must-match nil nil "ogg-chimes")
      emacspeak-sounds-dir)))
   (cl-declare (special emacspeak-play-program emacspeak-sounds-dir))
-  (setq theme (or theme (expand-file-name "ogg-chimes" emacspeak-sounds-dir)))
+  (setq theme (or theme (expand-file-name "ogg-chimes"
+                                          emacspeak-sounds-dir)))
+  (emacspeak-sounds-cache-prompts)
   (emacspeak-sounds-cache-rebuild theme)
   (when                                 ; upload samples if needed
       (and
