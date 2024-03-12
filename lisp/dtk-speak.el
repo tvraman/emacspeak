@@ -410,20 +410,13 @@ bound to \\[dtk-toggle-caps].")
       (dtk-interp-silence duration
                           (if force "\nd" "")))))
 
-(defcustom dtk-use-tones t
-  "Toggle tones. "
-  :type 'boolean
-  :group 'tts)
-
 (defun dtk-tone (pitch duration &optional force)
   "Produce a tone.
  Pitch   is  in hertz.
  Duration  is  in milliseconds.
 Uses a 5ms fade-in and fade-out. "
-  (cl-declare (special dtk-quiet dtk-speaker-process dtk-use-tones))
-  (unless
-      (or dtk-quiet (not dtk-use-tones)
-          (not (process-live-p dtk-speaker-process) ))
+  (cl-declare (special dtk-quiet dtk-speaker-process))
+  (unless (or dtk-quiet (not (process-live-p dtk-speaker-process)))
     (dtk-interp-tone pitch duration force)))
 
 (defun dtk-set-language (lang)
