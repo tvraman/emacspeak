@@ -1,0 +1,12 @@
+* Piper TTS
+
+
+
+1. Sandbox for [[https://github.com/rhasspy/piper][Piper TTS]]
+2. Download Piper along with a voice model.
+3. Update pathname in shell script [[./pipspeak][pipspeak]].
+4. Load  [[./pipspeak.el][pipspeak.el]]
+5.  Send it text:
+   #+begin_src  elisp
+(pip "this is a test.")
+   #+end_src
