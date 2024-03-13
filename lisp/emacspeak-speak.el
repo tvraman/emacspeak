@@ -2788,8 +2788,6 @@ p emacspeak-cycle-to-previous-buffer
      t (lambda nil (emacspeak-icon 'repeat-end))
      "Repeat with %k")))
 
-(provide 'emacspeak-speak)
-
 ;;; Network Utils:
 
 (defun ems--get-ip-address (dev)
@@ -2891,5 +2889,6 @@ Use `,' and `.' to continuously decrease/increase `selective-display'.
          (concat "Emacspeak: " emacspeak-version)
          vars nil nil
          "Description of Problem:")))))
+(provide 'emacspeak-speak)
 
 ;;;  end of file
