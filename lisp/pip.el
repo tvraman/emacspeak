@@ -39,7 +39,7 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
-(defvar pip-piper
+(defvar pip-pip
   (expand-file-name
    "../servers/piper/pipspeak" (file-name-directory load-file-name))
   "Spawn Piper TTS")
@@ -53,7 +53,7 @@
   (cl-declare (special  pip-piper))
   (unless (process-live-p pip-piper)
     (let ((process-connection-type nil))
-      (setq  pip-piper (start-process  "pip" nil  pip-piper))))
+      (setq  pip-piper (start-process  "pip" nil  pip-pip))))
   (when (called-interactively-p 'interactive)
     (pip-speak "Piper is running!")))
 
