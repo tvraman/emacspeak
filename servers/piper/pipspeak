@@ -1,3 +1,9 @@
 #!/bin/sh
-cd /home/raman/sourceforge/piper/install/
-./piper -m en_US-lessac-high.onnx --output-raw |   aplay -r 22050 -f S16_LE -t raw -
+#PreRequisites:
+# install piper-tts using pipx:
+#pipx install piper-tts
+# Add the model to the data directory.
+# piper looks in current dir
+PIP=pipx/venvs/piper-tts/lib/python3.11/site-packages/onnxruntime/datasets
+cd ${HOME}/.local/share/${PIP}
+piper -m en_US-lessac-high.onnx --output-raw |   aplay -r 22050 -f S16_LE -t raw -
