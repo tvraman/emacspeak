@@ -6,5 +6,5 @@
 # piper looks in current dir
 PIP=pipx/venvs/piper-tts/lib/python3.11/site-packages/onnxruntime/datasets
 cd ${HOME}/.local/share/${PIP}
-piper -m en_US-lessac-high.onnx --output-raw |  \
-aplay -Dtts_mono_left -r 22050 -f S16_LE -t raw -
+piper -m en_US-lessac-high.onnx  |  \
+aplay -Dtts_mono_left  - 
