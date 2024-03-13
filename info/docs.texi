@@ -231,6 +231,7 @@
 * mac-voices::Define  Mac tags.
 * omaps::Open street  Maps.
 * outloud-voices::Define  OutLoud tags.
+* pip::Interface To Piper TTS.
 * plain-voices::No Voice lock voices.
 * soundscape::Soundscapes.
 * sox::An Audio Work-Bench.
@@ -248,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1165 commands and 127 options.
+This chapter documents a total of 1177 commands and 127 options.
 
 @node amixer
 @section amixer
@@ -19280,6 +19281,43 @@ Default Value:
 @end verbatim
 
 @end defvar
+
+@node pip
+@section pip
+
+Piper TTS is an Open Source nueral-net based TTS engine.
+This module exposes Piper TTS to Emacs.
+
+@subsection Pip Commands
+
+@subsubsection pip-shutdown
+@deffn {Command} pip-shutdown   
+@findex pip-shutdown
+
+@format
+Shutdown Piper TTS
+@end format
+@end deffn
+
+@subsubsection pip-speak
+@deffn {Command} pip-speak  (text)
+@findex pip-speak
+
+@format
+Speak text
+
+(fn TEXT)
+@end format
+@end deffn
+
+@subsubsection pip-start
+@deffn {Command} pip-start   
+@findex pip-start
+
+@format
+Start the Piper process
+@end format
+@end deffn
 
 @node plain-voices
 @section plain-voices

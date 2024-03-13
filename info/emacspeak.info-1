@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 12, 2024.
+last updated on March 13, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3192,6 +3192,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-z-keymap,  Prev:
 * mac-voices::Define  Mac tags.
 * omaps::Open street  Maps.
 * outloud-voices::Define  OutLoud tags.
+* pip::Interface To Piper TTS.
 * plain-voices::No Voice lock voices.
 * soundscape::Soundscapes.
 * sox::An Audio Work-Bench.
@@ -3237,7 +3238,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1165 commands and 127 options.
+   This chapter documents a total of 1177 commands and 127 options.
 
 * Menu:
 
@@ -3472,6 +3473,7 @@ thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 * mac-voices::
 * omaps::
 * outloud-voices::
+* pip::
 * plain-voices::
 * soundscape::
 * sox::
