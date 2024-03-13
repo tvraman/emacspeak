@@ -46,7 +46,7 @@
 
 (defvar pip-piper nil
   "process handle")
-
+;;;###autoload
 (defun pip-start ()
   "Start the Piper process"
   (interactive)
