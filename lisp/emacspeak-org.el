@@ -607,11 +607,14 @@
 (defun emacspeak-org-table-speak-column-header-and-element ()
   "echoes col header and element"
   (interactive)
-  (dtk-speak-and-echo
-   (concat
-    (propertize (org-table-get  1 nil) 'face 'bold)
-    " "
-    (org-table-get-field))))
+  (if (eq (org-table-current-line) 1) ;; we're on the header line, 
+      (dtk-speak-and-echo (org-table-get-field))
+    (dtk-speak-and-echo
+     (concat
+      (propertize (org-table-get  1 nil) 'face 'bold)
+      " "
+      (org-table-get-field)))))
+
 
 (cl-loop
  for f in
