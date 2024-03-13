@@ -4,7 +4,16 @@
 #pipx install piper-tts
 # Add the model to the data directory.
 # piper looks in current dir
+#usage: pipspeak [dev]
+DEV=default
+D=$1
+
+if [  -n "$1" ]
+then
+  DEV=$1
+fi  
+
 PIP=pipx/venvs/piper-tts/lib/python3.11/site-packages/onnxruntime/datasets
 cd ${HOME}/.local/share/${PIP}
 piper -m en_US-lessac-high.onnx   --output-raw | \
-aplay -Dtts_mono_left  -r 22050 -f S16_LE -t raw -
+aplay -D$DEV  -r 22050 -f S16_LE -t raw -
