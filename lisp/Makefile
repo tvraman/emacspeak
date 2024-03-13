@@ -291,7 +291,7 @@ sox-gen.elc \
 sox.elc 
 
 ADDON_OBJECTS = \
-emacspeak-nm.elc  dom-addons.elc light.elc  \
+emacspeak-nm.elc  dom-addons.elc light.elc pip.elc  \
 xbacklight.elc   tetris.elc   \
 omaps.elc g-utils.elc gweb.elc gmaps.elc gm-nnir.elc 
 
