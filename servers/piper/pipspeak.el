@@ -1,6 +1,7 @@
 ;;; pipspeak --- Interface To Piper TTS -*- lexical-binding: t; -*-
 (require 'cl-lib)
-(defvar pipspeak-sh (executable-find "pipspeak")
+(defvar pipspeak-sh
+  (expand-file-name "pipspeak" (file-name-directory load-file-name))
   "Spawn Piper TTS")
 
 (defvar pipspeak-pip nil
