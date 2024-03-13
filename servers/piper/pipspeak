@@ -5,7 +5,7 @@
 # Add the model to the data directory.
 # piper looks in current dir
 #usage: pipspeak [dev]
-DEV=default
+DEV=tts_mid_left
 D=$1
 
 if [  -n "$1" ]
