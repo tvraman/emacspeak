@@ -1,4 +1,8 @@
+;;; pipspeak --- Interface To Piper TTS -*- lexical-binding: t; -*-
 (require 'cl-lib)
+(defvar pipspeak-sh (executable-find "pipspeak")
+  "Spawn Piper TTS")
+
 (defvar pipspeak-pip nil
   "process handle")
 
@@ -8,11 +12,13 @@
   (cl-declare (special  pipspeak-pip))
   (unless (process-live-p pipspeak-pip)
     (let ((process-connection-type nil))
-      (setq  pipspeak-pip
-             (start-process  "pip" "*pip*" (executable-find
-                                            "pipspeak")))))
+      (setq  pipspeak-pip (start-process  "pip" nil  pipspeak-sh))))
   (pipspeak-speak "Piper is running!"))
-
+(defun pipspeak-shutdown ()
+  "Shutdown Piper TTS"
+  (interactive)
+  (cl-declare (special pipspeak-pip))
+  (delete-process pipspeak-pip))
 (defun pipspeak-speak (text)
   "Speak text"
   (interactive "sText:")
