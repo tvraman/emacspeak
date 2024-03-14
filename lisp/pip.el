@@ -53,16 +53,28 @@
 
 (defvar pip-piper nil
   "process handle")
+(defvar pip-model (cl-first pip-voices)
+  "Current voice model.")
+
+(defun pip-model-select (voice)
+  "Select default from available choices."
+  (interactive
+   (list (completing-read "Voice Model:" pip-voices nil t)))
+  (cl-declare (special pip-voices pip-model))
+  (setq pip-model voice)
+  (when (process-live-p pip-piper) (pip-stop))
+  (when (called-interactively-p 'interactive)
+    (pip-speak (format "Selected %s" (file-name-base pip-model))))
+  )
 
 (defun pip-start ()
   "Start the Piper process"
   (interactive)
-  (cl-declare (special  pip-piper pip-voices))
+  (cl-declare (special  pip-piper pip-model))
   (unless (process-live-p pip-piper)
     (let ((process-connection-type nil))
       (setq  pip-piper
-             (start-process  "pip" nil  pip-pip
-                             (cl-first pip-voices)"tts_mono_left"))))
+             (start-process  "pip" nil  pip-pip pip-model"tts_mono_left"))))
   (when (called-interactively-p 'interactive)
     (pip-speak "Piper is running!")))
 
