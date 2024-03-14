@@ -1,16 +1,19 @@
 
 * Voice Names
 
-en_US-amy-medium
-en_US-arctic-medium
-en_US-joe-medium
-en_US-kusal-medium
-en_US-l2arctic-mediumb
-en_US-lessac-high
-en_US-libritts-high
-en_US-ryan-high
+1. en_US-amy-medium
+2. en_US-arctic-medium
+en_m3. US-joe-medium
+4. en_US-kusal-medium
+5. en_US-l2arctic-mediumb
+6. en_US-lessac-high
+7. en_US-libritts-high
+8. en_US-ryan-high
+* Voice Choices
 
-* URLs
+I use _ryan-high_ and _lessac-high_ (male, female).
+
+* Download URLs
 
 https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_US/lessac/high/en_US-lessac-high.onnx
 https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_US/amy-medium/en_US-amy-medium.onnx
