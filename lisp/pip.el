@@ -38,9 +38,10 @@
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-(defvar pip-data-dir
-  "/usr/local/lib/piper/datasets")
 
+(defvar pip-data-dir
+  "/usr/local/lib/piper/datasets"
+  "Where voice models live.")
 
 (defvar pip-voices
   (directory-files pip-data-dir 'full "\\.onnx$")
@@ -49,34 +50,38 @@
 (defvar pip-pip
   (expand-file-name
    "../servers/piper/pipspeak" (file-name-directory load-file-name))
-  "Spawn Piper TTS")
+  "Launch Piper TTS pipeline")
 
-(defvar pip-piper nil
-  "process handle")
+(defvar pip-piper nil "process handle")
+
 (defvar pip-model (cl-first pip-voices)
   "Current voice model.")
 
 (defun pip-model-select (voice)
-  "Select default from available choices."
+  "Select default from available choices.
+Restarts piper pipeline if already running."
   (interactive
    (list (completing-read "Voice Model:" pip-voices nil t)))
   (cl-declare (special pip-voices pip-model))
   (setq pip-model voice)
   (when (process-live-p pip-piper) (pip-stop))
   (when (called-interactively-p 'interactive)
-    (pip-speak (format "Selected %s" (file-name-base pip-model))))
-  )
+    (pip-speak (format "Selected voice %s" (file-name-base
+  pip-model)))))
+
+(defvar pip-device "tts_mono_left"
+  "Alsa device for Piper.")
 
 (defun pip-start ()
   "Start the Piper process"
   (interactive)
-  (cl-declare (special  pip-piper pip-model))
+  (cl-declare (special  pip-piper pip-model pip-device))
   (unless (process-live-p pip-piper)
     (let ((process-connection-type nil))
       (setq  pip-piper
-             (start-process  "pip" nil  pip-pip pip-model"tts_mono_left"))))
+             (start-process  "pip" nil  pip-pip pip-model pip-device))))
   (when (called-interactively-p 'interactive)
-    (pip-speak "Piper is running!")))
+    (pip-speak (format  "Piper is running with %s!" pip-model))))
 
 (defun pip-stop ()
   "Stop Piper TTS"
