@@ -3,17 +3,24 @@
 # install piper-tts using pipx:
 #pipx install piper-tts
 # Add the model to the data directory.
-# piper looks in current dir
+# See voice-urls.org for download urls.
+
 #usage: pipspeak [dev]
 DEV=tts_mid_left
 D=$1
-
 if [  -n "$1" ]
 then
   DEV=$1
 fi  
 
-PIP=pipx/venvs/piper-tts/lib/python3.11/site-packages/onnxruntime/datasets
-cd ${HOME}/.local/share/${PIP}
-piper -m en_US-lessac-high.onnx   --output-raw | \
+MODEL=lessac-high
+M=$2
+if [  -n "$2" ]
+then
+  MODEL=$2
+fi  
+
+PIP=/usr/local/lib/piper/datasets
+cd ${PIP}
+piper -m en_US-$M.onnx   --output-raw | \
 aplay -D$DEV  -r 22050 -f S16_LE -t raw -
