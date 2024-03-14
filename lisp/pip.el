@@ -69,7 +69,8 @@
   (interactive "sText:")
   (cl-declare (special pip-piper))
   (unless (process-live-p pip-piper) (pip-start))
-  (process-send-string pip-piper  (format "%s\n" text)))
+  (process-send-string pip-piper  (format "%s\n" text))
+  (process-send-eof pip-piper))
 
 (provide 'pip)
 ;;; End of file
