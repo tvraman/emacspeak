@@ -1,3 +1,13 @@
+* Python Piper and Pipx
+
+If piper is installed as
+#+begin_src shell
+  pipx install piper_tts
+#+end_src
+
+The resulting _piper_ if given a  model name appears to download the
+model and json file from Hugging Face. If that works, you dont need to
+use the URLs in the next section.
 
 * Voice Names
 
