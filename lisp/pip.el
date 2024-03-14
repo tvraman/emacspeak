@@ -38,6 +38,13 @@
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
+(defvar pip-data-dir
+  "/usr/local/lib/piper/datasets")
+
+
+(defvar emacspeak-wizards-espeak-voices-alist
+  (directory-files pip-data-dir 'full "\\.onnx$")
+  "Available voices.")
 
 (defvar pip-pip
   (expand-file-name
