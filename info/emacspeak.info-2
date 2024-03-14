@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 13, 2024.
+last updated on March 14, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -10010,18 +10010,21 @@ File: emacspeak.info,  Node: pip,  Next: plain-voices,  Prev: outloud-voices,  U
 12.232 pip
 ==========
 
-Piper TTS is an Open Source nueral-net based TTS engine.  This module
-exposes Piper TTS to Emacs.
+Piper TTS is an Open Source neural-net TTS engine.  This module exposes
+Piper TTS to Emacs.
 
 12.232.1 Pip Commands
 ---------------------
 
-12.232.1.1 pip-shutdown
-.......................
+12.232.1.1 pip-model-select
+...........................
 
- -- Command: pip-shutdown
+ -- Command: pip-model-select (voice)
 
-     Shutdown Piper TTS
+     Select default from available choices.
+     Restarts piper pipeline if already running.
+
+     (fn VOICE)
 
 12.232.1.2 pip-speak
 ....................
@@ -10038,6 +10041,13 @@ exposes Piper TTS to Emacs.
  -- Command: pip-start
 
      Start the Piper process
+
+12.232.1.4 pip-stop
+...................
+
+ -- Command: pip-stop
+
+     Stop Piper TTS
 
 
 File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: pip,  Up: Emacspeak Commands And Options

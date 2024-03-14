@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1177 commands and 127 options.
+This chapter documents a total of 1178 commands and 127 options.
 
 @node amixer
 @section amixer
@@ -19285,17 +19285,20 @@ Default Value:
 @node pip
 @section pip
 
-Piper TTS is an Open Source nueral-net based TTS engine.
+Piper TTS is an Open Source neural-net TTS engine.
 This module exposes Piper TTS to Emacs.
 
 @subsection Pip Commands
 
-@subsubsection pip-shutdown
-@deffn {Command} pip-shutdown   
-@findex pip-shutdown
+@subsubsection pip-model-select
+@deffn {Command} pip-model-select  (voice)
+@findex pip-model-select
 
 @format
-Shutdown Piper TTS
+Select default from available choices.
+Restarts piper pipeline if already running.
+
+(fn VOICE)
 @end format
 @end deffn
 
@@ -19316,6 +19319,15 @@ Speak text
 
 @format
 Start the Piper process
+@end format
+@end deffn
+
+@subsubsection pip-stop
+@deffn {Command} pip-stop   
+@findex pip-stop
+
+@format
+Stop Piper TTS
 @end format
 @end deffn
 

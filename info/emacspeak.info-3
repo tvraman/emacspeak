@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 13, 2024.
+last updated on March 14, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -5603,12 +5603,14 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
                                                              (line   53)
 * outloud:                               outloud-voices.     (line   15)
 * outloud <1>:                           outloud-voices.     (line   18)
-* pip-shutdown:                          pip.                (line   15)
-* pip-shutdown <1>:                      pip.                (line   16)
-* pip-speak:                             pip.                (line   22)
-* pip-speak <1>:                         pip.                (line   23)
-* pip-start:                             pip.                (line   31)
-* pip-start <1>:                         pip.                (line   32)
+* pip-model-select:                      pip.                (line   15)
+* pip-model-select <1>:                  pip.                (line   16)
+* pip-speak:                             pip.                (line   25)
+* pip-speak <1>:                         pip.                (line   26)
+* pip-start:                             pip.                (line   34)
+* pip-start <1>:                         pip.                (line   35)
+* pip-stop:                              pip.                (line   41)
+* pip-stop <1>:                          pip.                (line   42)
 * soundscape:                            soundscape.         (line   46)
 * soundscape <1>:                        soundscape.         (line   50)
 * soundscape-kill:                       soundscape.         (line   57)
