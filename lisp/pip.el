@@ -35,7 +35,7 @@
 ;;; Code:
 
 ;;   Required modules
-
+(unless (executable-find "piper") (error "Piper not installed."))
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
@@ -88,7 +88,7 @@ Restarts piper pipeline if already running."
   (interactive)
   (cl-declare (special pip-piper))
   (delete-process pip-piper))
-
+;;;###autoload
 (defun pip-speak (text)
   "Speak text"
   (interactive "sText:")
