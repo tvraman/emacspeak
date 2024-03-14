@@ -42,7 +42,7 @@
   "/usr/local/lib/piper/datasets")
 
 
-(defvar emacspeak-wizards-espeak-voices-alist
+(defvar pip-voices
   (directory-files pip-data-dir 'full "\\.onnx$")
   "Available voices.")
 
@@ -57,11 +57,12 @@
 (defun pip-start ()
   "Start the Piper process"
   (interactive)
-  (cl-declare (special  pip-piper))
+  (cl-declare (special  pip-piper pip-voices))
   (unless (process-live-p pip-piper)
     (let ((process-connection-type nil))
-      (setq  pip-piper (start-process  "pip" nil  pip-pip
-                                       "lessac-high" "tts_mono_left"))))
+      (setq  pip-piper
+             (start-process  "pip" nil  pip-pip
+                             (cl-first pip-voices)"tts_mono_left"))))
   (when (called-interactively-p 'interactive)
     (pip-speak "Piper is running!")))
 
