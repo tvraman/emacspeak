@@ -7,10 +7,9 @@
 
 #usage: pipspeak model device
 
-PIP=/usr/local/lib/piper/datasets
+
 MODEL=$1
 DEV=$2
 
-cd ${PIP}
 piper -m $MODEL   --output-raw | \
 aplay -D$DEV  -r 22050 -f S16_LE -t raw -
