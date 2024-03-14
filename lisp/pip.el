@@ -53,12 +53,13 @@
   (cl-declare (special  pip-piper))
   (unless (process-live-p pip-piper)
     (let ((process-connection-type nil))
-      (setq  pip-piper (start-process  "pip" nil  pip-pip))))
+      (setq  pip-piper (start-process  "pip" nil  pip-pip
+                                       "lessac-high" "tts_mono_left"))))
   (when (called-interactively-p 'interactive)
     (pip-speak "Piper is running!")))
 
-(defun pip-shutdown ()
-  "Shutdown Piper TTS"
+(defun pip-stop ()
+  "Stop Piper TTS"
   (interactive)
   (cl-declare (special pip-piper))
   (delete-process pip-piper))
