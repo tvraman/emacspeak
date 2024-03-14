@@ -30,7 +30,7 @@
 ;; Boston, MA 02110-1301, USA.
 
 ;;; Commentary:
-;; Piper TTS is an Open Source nueral-net based TTS engine.
+;; Piper TTS is an Open Source neural-net TTS engine.
 ;; This module exposes Piper TTS to Emacs.
 ;;; Code:
 
