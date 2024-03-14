@@ -6,7 +6,7 @@
 # See voice-urls.org for download urls.
 
 #usage: pipspeak model device
-
+# where model is a fully-qualified path to the model.
 
 MODEL=$1
 DEV=$2
