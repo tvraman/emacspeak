@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created by GNU Texinfo 7.1, https://www.gnu.org/software/texinfo/ -->
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>pip (Emacspeak User’s Manual — 2nd Edition.)</title>
+  <meta name="description" content=
+  "pip (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "pip (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta name="viewport" content=
+  "width=device-width,initial-scale=1" />
+  <link href="index.html" rel="start" title="Top" />
+  <link href="Concept-Index.html" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
+  "Emacspeak Commands And Options" />
+  <link href="outloud_002dvoices.html" rel="prev" title=
+  "outloud-voices" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+  pre.format-preformatted {font-family: inherit}
+  span:hover a.copiable-link {visibility: visible}
+  strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
+</head>
+<body lang="en" xml:lang="en">
+  <div class="section-level-extent" id="pip">
+    <div class="nav-panel">
+      <p>Previous: <a href="outloud_002dvoices.html" accesskey="p"
+      rel="prev">outloud-voices</a>, Up: <a href=
+      "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+      "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+      "index.html#SEC_Contents" title="Table of contents" rel=
+      "contents">Contents</a>][<a href="Concept-Index.html" title=
+      "Index" rel="index">Index</a>]</p>
+    </div>
+    <hr />
+    <h3 class="section" id="pip-1"><span>12.232 pip <a class=
+    "copiable-link" href="#pip-1">¶</a></span></h3>
+    <p>Piper TTS is an Open Source neural-net TTS engine. This
+    module exposes Piper TTS to Emacs.</p>
+  </div>
+  <div class="section-level-extent" id="Piper-TTS">
+    <h3 class="section"><span>12.233 Piper TTS <a class=
+    "copiable-link" href="#Piper-TTS">¶</a></span></h3>
+    <p>1. Sandbox for <a class="url" href=
+    "https://github.com/rhasspy/piper">https://github.com/rhasspy/piper</a>
+    2. pipx install piper-tts 3. Set location of voice data in
+    <code class="code">pip-data-dir</code>. 4. Create the data
+    directory above if needed. 5. Run piper there using the
+    –update-voices flag once for each desired voice to get the
+    voices. 6. <code class="code">M-x pip-speak</code> to
+    speak.</p>
+    <ul class="mini-toc">
+      <li>
+        <a href="#Pip-Commands" accesskey="1">Pip Commands</a>
+      </li>
+    </ul>
+    <div class="subsection-level-extent" id="Pip-Commands">
+      <h4 class="subsection"><span>12.233.1 Pip Commands <a class=
+      "copiable-link" href="#Pip-Commands">¶</a></span></h4>
+      <ul class="mini-toc">
+        <li>
+          <a href="#pip_002ddevice_002dselect" accesskey=
+          "1">pip-device-select</a>
+        </li>
+        <li>
+          <a href="#pip_002dmodel_002dselect" accesskey=
+          "2">pip-model-select</a>
+        </li>
+        <li>
+          <a href="#pip_002dspeak" accesskey="3">pip-speak</a>
+        </li>
+        <li>
+          <a href="#pip_002dstart" accesskey="4">pip-start</a>
+        </li>
+        <li>
+          <a href="#pip_002dstop" accesskey="5">pip-stop</a>
+        </li>
+      </ul>
+      <div class="subsubsection-level-extent" id=
+      "pip_002ddevice_002dselect">
+        <h4 class="subsubsection"><span>12.233.1.1
+        pip-device-select <a class="copiable-link" href=
+        "#pip_002ddevice_002dselect">¶</a></span></h4>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-pip_002ddevice_002dselect">
+          <span class="category-def">Command:</span>
+          <span><strong class="def-name">pip-device-select</strong>
+          <var class="def-var-arguments">(device)</var> <a class=
+          "copiable-link" href=
+          "#index-pip_002ddevice_002dselect">¶</a></span></dt>
+          <dd>
+            <a class="index-entry-id" id=
+            "index-pip_002ddevice_002dselect-1"></a>
+            <div class="format">
+              <pre class=
+              "format-preformatted">Select default from available choices.
+Restarts piper pipeline if already running.
+
+(fn DEVICE)
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection-level-extent" id=
+      "pip_002dmodel_002dselect">
+        <h4 class="subsubsection"><span>12.233.1.2 pip-model-select
+        <a class="copiable-link" href=
+        "#pip_002dmodel_002dselect">¶</a></span></h4>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-pip_002dmodel_002dselect">
+          <span class="category-def">Command:</span>
+          <span><strong class="def-name">pip-model-select</strong>
+          <var class="def-var-arguments">(voice)</var> <a class=
+          "copiable-link" href=
+          "#index-pip_002dmodel_002dselect">¶</a></span></dt>
+          <dd>
+            <a class="index-entry-id" id=
+            "index-pip_002dmodel_002dselect-1"></a>
+            <div class="format">
+              <pre class=
+              "format-preformatted">Select default from available choices.
+Restarts piper pipeline if already running.
+
+(fn VOICE)
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection-level-extent" id="pip_002dspeak">
+        <h4 class="subsubsection"><span>12.233.1.3 pip-speak
+        <a class="copiable-link" href=
+        "#pip_002dspeak">¶</a></span></h4>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-pip_002dspeak"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">pip-speak</strong> <var class=
+          "def-var-arguments">(text)</var> <a class="copiable-link"
+          href="#index-pip_002dspeak">¶</a></span></dt>
+          <dd>
+            <a class="index-entry-id" id=
+            "index-pip_002dspeak-1"></a>
+            <div class="format">
+              <pre class="format-preformatted">Speak text
+
+(fn TEXT)
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection-level-extent" id="pip_002dstart">
+        <h4 class="subsubsection"><span>12.233.1.4 pip-start
+        <a class="copiable-link" href=
+        "#pip_002dstart">¶</a></span></h4>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-pip_002dstart"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">pip-start</strong> <a class="copiable-link"
+          href="#index-pip_002dstart">¶</a></span></dt>
+          <dd>
+            <a class="index-entry-id" id=
+            "index-pip_002dstart-1"></a>
+            <div class="format">
+              <pre class=
+              "format-preformatted">Start the Piper process
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div class="subsubsection-level-extent" id="pip_002dstop">
+        <h4 class="subsubsection"><span>12.233.1.5 pip-stop
+        <a class="copiable-link" href=
+        "#pip_002dstop">¶</a></span></h4>
+        <dl class="first-deffn">
+          <dt class="deffn" id="index-pip_002dstop"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">pip-stop</strong> <a class="copiable-link"
+          href="#index-pip_002dstop">¶</a></span></dt>
+          <dd>
+            <a class="index-entry-id" id=
+            "index-pip_002dstop-1"></a>
+            <div class="format">
+              <pre class="format-preformatted">Stop Piper TTS
+</pre>
+            </div>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="nav-panel">
+    <p>Previous: <a href=
+    "outloud_002dvoices.html">outloud-voices</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html">Emacspeak Commands And
+    Options</a> &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+  </div>
+</body>
+</html>
