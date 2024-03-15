@@ -7,6 +7,7 @@
 
 #usage: pipspeak model device
 # where model is a fully-qualified path to the model.
+# And device is an alsa device.
 
 MODEL=$1
 DEV=$2
