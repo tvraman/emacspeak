@@ -34,18 +34,18 @@
 ;; This module exposes Piper TTS to Emacs.
 
 ;;  @section Piper TTS
-;; 
-;; 1. Sandbox for @url{https://github.com/rhasspy/piper}
-;; 2. pipx install piper-tts
-;; 3. Set location of voice data in  @code{pip-data-dir}.
-;; 4. Create the data directory above if needed.
-;; 5. Run piper there  using the --update-voices flag once for each desired voice to get the voices.
-;; 6. @code{M-x pip-speak} to speak.
-;; 7. At present @code{piper} is not suitable for use as a primary TTS
+;; @enumerate
+;; @item Sandbox for @url{https://github.com/rhasspy/piper}
+;; @item pipx install piper-tts
+;; @item Set location of voice data in  @code{pip-data-dir}.
+;; @item Create the data directory above if needed.
+;; @item Run piper there  using the --update-voices flag once for each desired voice to get the voices.
+;; @item @code{M-x pip-speak} to speak.
+;; @item At present @code{piper} is not suitable for use as a primary TTS
 ;; engine for Emacspeak, given its high latency.
-;; 8. However it might be interesting to use it for lower-priority
+;; @item However it might be interesting to use it for lower-priority
 ;; speech where quality trumps latency.
-;; 
+;; @end enumerate
 
 ;;; Code:
 
