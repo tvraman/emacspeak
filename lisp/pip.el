@@ -69,6 +69,22 @@ Restarts piper pipeline if already running."
     (pip-speak (format "Selected voice %s" (file-name-base
   pip-model)))))
 
+(defvar pip-devices
+  '("default"  "tts_mono_left" "tts_mid_left" "tts_mono_right" "tts_mid_right")
+  "Alsa devices.")
+
+(defun pip-device-select (device)
+  "Select default from available choices.
+Restarts piper pipeline if already running."
+  (interactive
+   (list (completing-read "Device" pip-devices nil t)))
+  (cl-declare (special pip-devices pip-device pip-model))
+  (setq pip-device device )
+  (when (process-live-p pip-piper) (pip-stop))
+  (when (called-interactively-p 'interactive)
+    (pip-speak (format "Selected voice %s" (file-name-base pip-model)))))
+
+
 (defvar pip-device "tts_mono_left"
   "Alsa device for Piper.")
 
