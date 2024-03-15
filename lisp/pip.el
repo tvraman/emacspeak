@@ -67,7 +67,10 @@ Restarts piper pipeline if already running."
   (when (process-live-p pip-piper) (pip-stop))
   (when (called-interactively-p 'interactive)
     (pip-speak (format "Selected voice %s" (file-name-base
-  pip-model)))))
+                                            pip-model)))))
+
+(defvar pip-device "tts_mid_left"
+  "Alsa device for Piper.")
 
 (defvar pip-devices
   '("default"  "tts_mono_left" "tts_mid_left" "tts_mono_right" "tts_mid_right")
@@ -83,10 +86,6 @@ Restarts piper pipeline if already running."
   (when (process-live-p pip-piper) (pip-stop))
   (when (called-interactively-p 'interactive)
     (pip-speak (format "Selected voice %s" (file-name-base pip-model)))))
-
-
-(defvar pip-device "tts_mono_left"
-  "Alsa device for Piper.")
 
 (defun pip-start ()
   "Start the Piper process"
