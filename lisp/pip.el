@@ -40,7 +40,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
 (defvar pip-data-dir
-  "/usr/local/lib/piper/datasets"
+  (expand-file-name "~/.local/share/piper/datasets")
   "Where voice models live.")
 
 (defvar pip-voices
