@@ -32,6 +32,17 @@
 ;;; Commentary:
 ;; Piper TTS is an Open Source neural-net TTS engine.
 ;; This module exposes Piper TTS to Emacs.
+
+;;  @section Piper TTS
+;; 
+;; 1. Sandbox for @xref{https://github.com/rhasspy/piper}
+;; 2. pipx install piper-tts
+;; 3. Set location of voice data in  @code{pip-data-dir}.
+;; 4. Create the data directory above if needed.
+;; 5. Run piper there  using the --update-voices flag once for each desired voice to get the voices.
+;; 6. @code{M-x pip-speak} to speak.
+;; 
+
 ;;; Code:
 
 ;;   Required modules
