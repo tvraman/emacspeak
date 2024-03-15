@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1178 commands and 127 options.
+This chapter documents a total of 1179 commands and 127 options.
 
 @node amixer
 @section amixer
@@ -19288,7 +19288,28 @@ Default Value:
 Piper TTS is an Open Source neural-net TTS engine.
 This module exposes Piper TTS to Emacs.
 
+ @section Piper TTS
+
+1. Sandbox for @url{https://github.com/rhasspy/piper}
+2. pipx install piper-tts
+3. Set location of voice data in  @code{pip-data-dir}.
+4. Create the data directory above if needed.
+5. Run piper there  using the --update-voices flag once for each desired voice to get the voices.
+6. @code{M-x pip-speak} to speak.
+
 @subsection Pip Commands
+
+@subsubsection pip-device-select
+@deffn {Command} pip-device-select  (device)
+@findex pip-device-select
+
+@format
+Select default from available choices.
+Restarts piper pipeline if already running.
+
+(fn DEVICE)
+@end format
+@end deffn
 
 @subsubsection pip-model-select
 @deffn {Command} pip-model-select  (voice)

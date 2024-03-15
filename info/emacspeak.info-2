@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 14, 2024.
+last updated on March 15, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -10013,10 +10013,29 @@ File: emacspeak.info,  Node: pip,  Next: plain-voices,  Prev: outloud-voices,  U
 Piper TTS is an Open Source neural-net TTS engine.  This module exposes
 Piper TTS to Emacs.
 
-12.232.1 Pip Commands
+12.233 Piper TTS
+================
+
+1.  Sandbox for <https://github.com/rhasspy/piper> 2.  pipx install
+piper-tts 3.  Set location of voice data in ‘pip-data-dir’.  4.  Create
+the data directory above if needed.  5.  Run piper there using the
+-update-voices flag once for each desired voice to get the voices.  6.
+‘M-x pip-speak’ to speak.
+
+12.233.1 Pip Commands
 ---------------------
 
-12.232.1.1 pip-model-select
+12.233.1.1 pip-device-select
+............................
+
+ -- Command: pip-device-select (device)
+
+     Select default from available choices.
+     Restarts piper pipeline if already running.
+
+     (fn DEVICE)
+
+12.233.1.2 pip-model-select
 ...........................
 
  -- Command: pip-model-select (voice)
@@ -10026,7 +10045,7 @@ Piper TTS to Emacs.
 
      (fn VOICE)
 
-12.232.1.2 pip-speak
+12.233.1.3 pip-speak
 ....................
 
  -- Command: pip-speak (text)
@@ -10035,14 +10054,14 @@ Piper TTS to Emacs.
 
      (fn TEXT)
 
-12.232.1.3 pip-start
+12.233.1.4 pip-start
 ....................
 
  -- Command: pip-start
 
      Start the Piper process
 
-12.232.1.4 pip-stop
+12.233.1.5 pip-stop
 ...................
 
  -- Command: pip-stop
@@ -10052,7 +10071,7 @@ Piper TTS to Emacs.
 
 File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: pip,  Up: Emacspeak Commands And Options
 
-12.233 plain-voices
+12.234 plain-voices
 ===================
 
 This module defines the various voices used in voice-lock mode.  Module
@@ -10064,7 +10083,7 @@ appropriate voice-locking controls
 
 File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options
 
-12.234 soundscape
+12.235 soundscape
 =================
 
 Soundscapes <https://en.wikipedia.org/wiki/Soundscape> define an
@@ -10101,10 +10120,10 @@ that is loaded using ‘(soundscape-load soundscape-default-theme)’.
 Emacs modes that provide similar functionality e.g., communication ==
 email, IM, ...  map to the same _mood_.
 
-12.234.1 Soundscape Commands
+12.235.1 Soundscape Commands
 ----------------------------
 
-12.234.1.1 soundscape
+12.235.1.1 soundscape
 .....................
 
  -- Command: soundscape (scape)
@@ -10115,14 +10134,14 @@ email, IM, ...  map to the same _mood_.
 
      (fn SCAPE)
 
-12.234.1.2 soundscape-kill
+12.235.1.2 soundscape-kill
 ..........................
 
  -- Command: soundscape-kill
 
      Stop all running soundscapes.
 
-12.234.1.3 soundscape-listener
+12.235.1.3 soundscape-listener
 ..............................
 
  -- Command: soundscape-listener (&optional restart)
@@ -10133,14 +10152,14 @@ email, IM, ...  map to the same _mood_.
 
      (fn &optional RESTART)
 
-12.234.1.4 soundscape-listener-shutdown
+12.235.1.4 soundscape-listener-shutdown
 .......................................
 
  -- Command: soundscape-listener-shutdown
 
      Shutdown listener.
 
-12.234.1.5 soundscape-remote
+12.235.1.5 soundscape-remote
 ............................
 
  -- Command: soundscape-remote (names)
@@ -10149,7 +10168,7 @@ email, IM, ...  map to the same _mood_.
 
      (fn NAMES)
 
-12.234.1.6 soundscape-restart
+12.235.1.6 soundscape-restart
 .............................
 
  -- Command: soundscape-restart (&optional prompt)
@@ -10162,7 +10181,7 @@ email, IM, ...  map to the same _mood_.
 
      (fn &optional PROMPT)
 
-12.234.1.7 soundscape-stop
+12.235.1.7 soundscape-stop
 ..........................
 
  -- Command: soundscape-stop (scape)
@@ -10171,14 +10190,14 @@ email, IM, ...  map to the same _mood_.
 
      (fn SCAPE)
 
-12.234.1.8 soundscape-theme
+12.235.1.8 soundscape-theme
 ...........................
 
  -- Command: soundscape-theme
 
      Shows default theme in a special buffer.
 
-12.234.1.9 soundscape-toggle
+12.235.1.9 soundscape-toggle
 ............................
 
  -- Command: soundscape-toggle
@@ -10188,7 +10207,7 @@ email, IM, ...  map to the same _mood_.
      Toggle automatic SoundScapes.
      Run command M-x soundscape-theme to see the default mode->mood mapping.
 
-12.234.1.10 soundscape-update-mood
+12.235.1.10 soundscape-update-mood
 ..................................
 
  -- Command: soundscape-update-mood (&optional prompt-mode)
@@ -10201,7 +10220,7 @@ email, IM, ...  map to the same _mood_.
 
      (fn &optional PROMPT-MODE)
 
-12.234.2 soundscape Options
+12.235.2 soundscape Options
 ---------------------------
 
  -- Variable: User Option soundscape-data

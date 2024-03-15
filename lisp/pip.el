@@ -35,7 +35,7 @@
 
 ;;  @section Piper TTS
 ;; 
-;; 1. Sandbox for @xref{https://github.com/rhasspy/piper}
+;; 1. Sandbox for @url{https://github.com/rhasspy/piper}
 ;; 2. pipx install piper-tts
 ;; 3. Set location of voice data in  @code{pip-data-dir}.
 ;; 4. Create the data directory above if needed.
