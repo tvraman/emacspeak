@@ -41,6 +41,10 @@
 ;; 4. Create the data directory above if needed.
 ;; 5. Run piper there  using the --update-voices flag once for each desired voice to get the voices.
 ;; 6. @code{M-x pip-speak} to speak.
+;; 7. At present @code{piper} is not suitable for use as a primary TTS
+;; engine for Emacspeak, given its high latency.
+;; 8. However it might be interesting to use it for lower-priority
+;; speech where quality trumps latency.
 ;; 
 
 ;;; Code:
