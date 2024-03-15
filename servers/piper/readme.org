@@ -1,8 +1,9 @@
 * Piper TTS
 
 1. Sandbox for [[https://github.com/rhasspy/piper][Piper TTS]]
-2. Download Piper along with a voice model.
-3. pipx install piper_tts
-4. Update pathname in shell script [[./pipspeak][pipspeak]].
-5. Load  [[./pipspeak.el][pipspeak.el]]
-6. M-x pipspeak-speak
+2. pipx install piper-tts
+3. Set location of voice data in  _emacspeak/lisp/pip.el_
+4. Create the data directory above if needed.
+5.  Run piper there  using the --update-voices flag once for each
+   desired voice to get the voices.
+
