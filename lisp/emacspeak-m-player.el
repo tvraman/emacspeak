@@ -432,25 +432,23 @@ If a dynamic playlist exists, just use it."
     (cond
      (emacspeak-m-player-hotkey-p (emacspeak-media-local-resource prefix))
      (t                             ; not hotkey, not dynamic playlist
-      (let ((completion-ignore-case t)
+      (let* ((completion-ignore-case t)
             (read-file-name-completion-ignore-case t)
             (filename
              (when (memq major-mode '(dired-mode locate-mode))
                (dired-get-filename 'local 'no-error)))
-            (dir (emacspeak-media-guess-directory)))
-        (or
-         filename 
-         (expand-file-name
-          (completing-read
-           "Media: "
-           (if prefix
+            (dir (emacspeak-media-guess-directory))
+            (collection
+             (or filename
+                 (if prefix
                (split-string
                 (string-trim
                  (shell-command-to-string
                   (format "find %s -type d | grep -v '.git' " dir))
                  " "))
-             (directory-files-recursively
-              dir emacspeak-media-extensions))))))))))
+             (directory-files-recursively dir emacspeak-media-extensions)))))
+        (or filename
+            (completing-read "Media: " collection)))))))
 
 (defun emacspeak-m-player-data-refresh ()
   "Populate metadata fields from current  stream."

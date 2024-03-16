@@ -131,7 +131,7 @@ Interactive prefix arg plays on left ear. "
                   "emacspeak-m-player" (&optional prefix))
 
 ;;;###autoload
-(defun emacspeak-empv-play-file (file &optional dir)
+(defun emacspeak-empv-play-file (file &optional _prefix)
   "Play file using mpv.
 Interactive prefix arg plays directory."
   (interactive
