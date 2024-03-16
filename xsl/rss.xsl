@@ -59,7 +59,7 @@ Only supports RSS 1.0
           select="description|rss:description"/>
       <xsl:apply-templates
           select="enclosure|rss:enclosure|media:content"/>
-      <br/><b><xsl:value-of select="./pubDate/text()"/></b>
+      <br/><b><xsl:value-of select="substring(./pubDate/text(), 1,16)"/></b>
       </p>
   </xsl:template>
   <xsl:template match="rss:title|rss:description|title|description">
