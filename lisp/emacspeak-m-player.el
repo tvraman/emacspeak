@@ -443,7 +443,10 @@ If a dynamic playlist exists, just use it."
          (expand-file-name
           (completing-read
            "Media: "
-           (directory-files-recursively dir emacspeak-media-extensions)))))))))
+           (sort
+            (directory-files-recursively dir
+                                         emacspeak-media-extensions)
+            #'string-lessp)))))))))
 
 (defun emacspeak-m-player-data-refresh ()
   "Populate metadata fields from current  stream."
