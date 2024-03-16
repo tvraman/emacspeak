@@ -4110,7 +4110,7 @@ the main emacspeak module.  It actually does very little:
 ------------------------
 
  -- Variable: User Option emacspeak-pip-enable
-     Load pip if available and supported.
+     Load pip if Piper-TTS is available.
 
      Default Value:
      

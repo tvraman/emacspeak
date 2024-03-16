@@ -1154,7 +1154,7 @@ Emacspeak modules as each package is loaded.
 
 @defvar {User Option} emacspeak-pip-enable
 @verbatim
-Load pip if available and supported.
+Load pip if Piper-TTS is available.
 @end verbatim
 
 Default Value: 
