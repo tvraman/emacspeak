@@ -443,7 +443,14 @@ If a dynamic playlist exists, just use it."
          (expand-file-name
           (completing-read
            "Media: "
-           (directory-files-recursively dir emacspeak-media-extensions)))))))))
+           (if prefix
+               (split-string
+                (string-trim
+                 (shell-command-to-string
+                  (format "find %s -type d | grep -v '.git' " dir))
+                 " "))
+             (directory-files-recursively
+              dir emacspeak-media-extensions))))))))))
 
 (defun emacspeak-m-player-data-refresh ()
   "Populate metadata fields from current  stream."

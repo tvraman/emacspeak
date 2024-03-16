@@ -131,17 +131,15 @@ Interactive prefix arg plays on left ear. "
                   "emacspeak-m-player" (&optional prefix))
 
 ;;;###autoload
-(defun emacspeak-empv-play-file (file &optional left)
+(defun emacspeak-empv-play-file (file &optional dir)
   "Play file using mpv.
-Interactive prefix arg plays on left ear using alsa."
-  (interactive(list (emacspeak-media-read-resource)
-                    current-prefix-arg))
+Interactive prefix arg plays directory."
+  (interactive
+   (list (emacspeak-media-read-resource current-prefix-arg)
+         current-prefix-arg))
   (cl-declare (special empv-mpv-args))
   (dtk-notify-speak (file-name-base file))
-  (let* ((args (copy-sequence empv-mpv-args))
-         (empv-mpv-args args))
-    (when left (push "--audio-channels=fl" empv-mpv-args))
-    (empv-play file)))
+    (empv-play file))
 
 (defsubst emacspeak-empv-local-file ()
   "Return local media filename read with completion."
