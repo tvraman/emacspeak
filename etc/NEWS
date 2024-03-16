@@ -12,7 +12,10 @@ This version requires Emacs-29.1 or later.
 
 Package ~ebuku.el~ is speech-enabled y module ~emacspeak-ebuku~ --
 this is an Emacs front-end to the ~buku~ bookmark manager.
+* Piper: Neural-Net TTS
 
+Emacspeak now uses Piper TTS if available as one more source of
+augmentative   audio  feedback.
 * Speech-Enabled LLM Front-End
 
 Emacspeak speech-enables package ~ellama~ and ~gptel~ for interacting
