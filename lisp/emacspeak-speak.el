@@ -2856,7 +2856,15 @@ Use `,' and `.' to continuously decrease/increase `selective-display'.
       (format "Selective Display: %s" selective-display)
       'personality voice-bolden))))
 
-;;; Cue window buffer change:
+;;; Pip: Use Piper if available.
+;; Uses pip if piper loaded, otherwise falls back to notifications
+
+(defun emacspeak-pip (text)
+  "Speak text, either using piper or regular notification stream."
+  (cond
+   ((featurep 'pip) (pip-speak text))
+   (t (dtk-notify-speak text))))
+
 
 ;;; Bug Reporter:
 (defconst emacspeak-bug-address "emacspeak@emacspeak.net" "List address")
