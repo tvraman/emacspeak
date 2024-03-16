@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1179 commands and 127 options.
+This chapter documents a total of 1179 commands and 128 options.
 
 @node amixer
 @section amixer
@@ -1151,6 +1151,20 @@ Emacspeak modules as each package is loaded.
 @end itemize
 
 @subsection emacspeak Options
+
+@defvar {User Option} emacspeak-pip-enable
+@verbatim
+Load pip if available and supported.
+@end verbatim
+
+Default Value: 
+@verbatim
+
+"/home/raman/.local/bin/piper"
+
+@end verbatim
+
+@end defvar
 
 @defvar {User Option} emacspeak-soundscapes
 @verbatim

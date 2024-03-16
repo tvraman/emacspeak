@@ -3238,7 +3238,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1179 commands and 127 options.
+   This chapter documents a total of 1179 commands and 128 options.
 
 * Menu:
 
@@ -4108,6 +4108,14 @@ the main emacspeak module.  It actually does very little:
 
 12.5.1 emacspeak Options
 ------------------------
+
+ -- Variable: User Option emacspeak-pip-enable
+     Load pip if available and supported.
+
+     Default Value:
+     
+     "/home/raman/.local/bin/piper"
+     
 
  -- Variable: User Option emacspeak-soundscapes
      Whether we should turn on soundscapes on startup.
