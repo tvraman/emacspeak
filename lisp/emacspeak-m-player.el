@@ -431,7 +431,7 @@ If a dynamic playlist exists, just use it."
   (unless emacspeak-media-dynamic-playlist ; do nothing if dynamic playlist
     (cond
      (emacspeak-m-player-hotkey-p (emacspeak-media-local-resource prefix))
-     (t ; not hotkey, not dynamic playlist
+     (t                             ; not hotkey, not dynamic playlist
       (let ((completion-ignore-case t)
             (read-file-name-completion-ignore-case t)
             (filename
@@ -443,10 +443,7 @@ If a dynamic playlist exists, just use it."
          (expand-file-name
           (completing-read
            "Media: "
-           (sort
-            (directory-files-recursively dir
-                                         emacspeak-media-extensions)
-            #'string-lessp)))))))))
+           (directory-files-recursively dir emacspeak-media-extensions)))))))))
 
 (defun emacspeak-m-player-data-refresh ()
   "Populate metadata fields from current  stream."
