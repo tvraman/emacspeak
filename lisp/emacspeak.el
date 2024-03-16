@@ -392,7 +392,7 @@ This cannot be set via custom; set this in your startup file before
 
 (defcustom emacspeak-pip-enable
   (executable-find "piper")
-  "Load pip if available and supported."
+  "Load pip if Piper-TTS is available."
   :type 'boolean
   :set
   #'(lambda (sym val)
