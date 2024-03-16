@@ -13,5 +13,5 @@ MODEL=$1
 DEV=$2
 
 piper -m $MODEL   --output-raw | \
-aplay -D$DEV  -r 22050 -f S16_LE -t raw -
+aplay -M -D$DEV  -r 22050 -f S16_LE -t raw -
 #  play -L -r 22050 -b 16 -c 1 -e signed-integer - # for sox
