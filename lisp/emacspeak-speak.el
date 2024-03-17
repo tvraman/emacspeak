@@ -77,6 +77,31 @@
   "Adjust clause boundaries so that newlines dont delimit clauses."
   (cl-declare (special dtk-chunk-separator-syntax))
   (setq dtk-chunk-separator-syntax ".)$\""))
+;;; Helpers: subdirs
+
+
+
+(defsubst ems--subdirs (d)
+  "Return list of subdirs in directory d"
+  (cl-remove-if
+   #'(lambda (f)
+       (or  (not (file-directory-p f))
+            (string-match "\\.$" f)))
+   (directory-files d 'full)))
+
+(defun ems--subdirs-recursively (d)
+  "Recursive list of leaf subdirs"
+  (let ((result nil)
+        (subdirs (ems--subdirs d)))
+    (cond
+     ((null subdirs)
+      (setq result (nconc result (list d))))
+     ((string-match "\\.git$" d) nil); pass
+     (t
+      (cl-loop
+       for dir in subdirs  do
+       (setq result  (nconc result (ems--subdirs-recursively dir))))))
+    (sort result #'string-greaterp)))
 
 ;;; Helper: Wifi ESSId:
 
