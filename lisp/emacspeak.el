@@ -99,8 +99,12 @@ the Emacspeak desktop.")
   (setopt gptel-post-stream-hook
           #'(lambda nil (emacspeak-icon 'tick-tick)))
   
-  (setopt gptel-post-response-functions
-          (cl-pushnew  'emacspeak-speak-region gptel-post-response-functions)))
+  (setopt
+   gptel-post-response-functions
+   (cl-pushnew
+    #'(lambda (start end)
+        (emacspeak-pip (buffer-substring-no-properties start end)))
+    gptel-post-response-functions)))
 
 ;;;  Setup package extensions
 (defvar emacspeak-packages-to-prepare
@@ -315,7 +319,8 @@ the Emacspeak desktop.")
    #'(lambda (pair)
        (emacspeak-do-package-setup  (cl-first pair) (cl-second pair)))
    emacspeak-packages-to-prepare)
-  (when emacspeak-soundscapes (soundscape-toggle)))
+  (when emacspeak-soundscapes (soundscape-toggle))
+  (message "emacspeak-prepare-emacs: done"))
 
 ;;;  setup programming modes
 
