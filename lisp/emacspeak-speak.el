@@ -95,7 +95,7 @@
         (subdirs (ems--subdirs d)))
     (cond
      ((null subdirs)
-      (setq result (nconc result (list d))))
+      (push d result))
      ((string-match "\\.git$" d) nil); pass
      (t
       (cl-loop
