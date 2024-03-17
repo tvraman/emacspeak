@@ -428,27 +428,26 @@ rather than completing over all subfiles."
 If a dynamic playlist exists, just use it."
   (cl-declare (special emacspeak-media-dynamic-playlist
                        emacspeak-m-player-hotkey-p))
-  (unless emacspeak-media-dynamic-playlist ; do nothing if dynamic playlist
-    (cond
-     (emacspeak-m-player-hotkey-p (emacspeak-media-local-resource prefix))
-     (t                             ; not hotkey, not dynamic playlist
-      (let* ((completion-ignore-case t)
-            (read-file-name-completion-ignore-case t)
-            (filename
-             (when (memq major-mode '(dired-mode locate-mode))
-               (dired-get-filename 'local 'no-error)))
-            (dir (emacspeak-media-guess-directory))
-            (collection
-             (or filename
-                 (if prefix
-               (split-string
-                (string-trim
-                 (shell-command-to-string
-                  (format "find %s -type d | grep -v '.git' " dir))
-                 " "))
-             (directory-files-recursively dir emacspeak-media-extensions)))))
-        (or filename
-            (completing-read "Media: " collection)))))))
+  (cond
+   (emacspeak-media-dynamic-playlist nil) ; do nothing if dynamic playlist
+   (emacspeak-m-player-hotkey-p (emacspeak-media-local-resource prefix))
+   (t                               ; not hotkey, not dynamic playlist
+    (let* ((completion-ignore-case t)
+           (read-file-name-completion-ignore-case t)
+           (filename
+            (when (memq major-mode '(dired-mode locate-mode))
+              (dired-get-filename 'local 'no-error)))
+           (dir (emacspeak-media-guess-directory))
+           (collection
+            (or
+             filename                   ; short-circuit expensive call
+             (if prefix
+                 (cl-remove-if
+                  #'(lambda (f) (or (not (file-directory-p f))
+                                    (string-match "\\.git" f)))
+                  (directory-files-recursively dir "." t)) ;list dirs
+               (directory-files-recursively dir emacspeak-media-extensions)))))
+      (or filename (completing-read "Media: " collection))))))
 
 (defun emacspeak-m-player-data-refresh ()
   "Populate metadata fields from current  stream."
