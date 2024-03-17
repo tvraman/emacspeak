@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 16, 2024.
+last updated on March 17, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -6510,13 +6510,13 @@ Youtube integration
 12.61.1.13 emacspeak-empv-play-file
 ...................................
 
- -- Command: emacspeak-empv-play-file (file &optional left)
+ -- Command: emacspeak-empv-play-file (file &optional prefix)
      ‘C-e '’
 
      Play file using mpv.
-     Interactive prefix arg plays on left ear using alsa.
+     Interactive prefix arg plays directory.
 
-     (fn FILE &optional LEFT)
+     (fn FILE &optional PREFIX)
 
 12.61.1.14 emacspeak-empv-play-last
 ...................................

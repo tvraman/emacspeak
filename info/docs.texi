@@ -3907,7 +3907,7 @@ Percentage seek in seconds,see ‘empv-seek’
 @end deffn
 
 @subsubsection emacspeak-empv-play-file
-@deffn {Command} emacspeak-empv-play-file  (file &optional left)
+@deffn {Command} emacspeak-empv-play-file  (file &optional prefix)
 @table @kbd
 @item C-e '
 @kindex C-e '
@@ -3917,9 +3917,9 @@ Percentage seek in seconds,see ‘empv-seek’
 
 @format
 Play file using mpv.
-Interactive prefix arg plays on left ear using alsa.
+Interactive prefix arg plays directory.
 
-(fn FILE &optional LEFT)
+(fn FILE &optional PREFIX)
 @end format
 @end deffn
 
