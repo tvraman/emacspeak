@@ -541,6 +541,7 @@ dynamic playlist. "
         (process-connection-type nil)
         (playlist-p
          (and resource
+              (not (file-directory-p resource))
               (or play-list (emacspeak-m-player-playlist-p resource))))
         (options (copy-sequence emacspeak-m-player-options))
         (file-list  (reverse emacspeak-media-dynamic-playlist))
