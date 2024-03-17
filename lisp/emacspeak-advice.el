@@ -431,10 +431,11 @@ When on a close delimiter, speak matching delimiter after a small delay. "
      (when (ems-interactive-p)
        (emacspeak-icon 'scroll)
        (dtk-speak (emacspeak-get-window-contents))
-       (dtk-notify-speak
-        (propertize
-         (format "%s " (emacspeak-get-current-percentage-into-buffer))
-         'personality voice-smoothen))))))
+       (when tts-notification-device
+         (dtk-notify-speak
+          (propertize
+           (format "%s " (emacspeak-get-current-percentage-into-buffer))
+           'personality voice-smoothen)))))))
 
 ;;;  Advise modify case commands to speak
 
