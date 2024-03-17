@@ -87,7 +87,7 @@
    #'(lambda (f)
        (or  (not (file-directory-p f))
             (string-match "\\.$" f)))
-   (directory-files d 'full)))
+   (directory-files d 'include-dirs)))
 
 (defun ems--subdirs-recursively (d)
   "Recursive list of leaf subdirs"
