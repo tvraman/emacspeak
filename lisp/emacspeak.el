@@ -305,6 +305,7 @@ the Emacspeak desktop.")
   (cl-declare (special emacspeak-packages-to-prepare
                        Info-file-list-for-emacs
                        emacspeak-soundscapes))
+  (unless (boundp 'Info-file-list-for-emacs) (require 'info))
   (push "emacspeak" Info-file-list-for-emacs)
   (setq-default line-move-visual nil)
   (setq use-dialog-box nil)
