@@ -81,7 +81,8 @@
 
 
 (defconst ems--subdirs-filter
-  (concat (regexp-opt '("/.." "/." "/.git")) "$")
+  (eval-when-compile
+    (concat (regexp-opt '("/.." "/." "/.git")) "$"))
   "Pattern to filter out dirs during traversal.")
 
 (defsubst ems--subdirs (d)
