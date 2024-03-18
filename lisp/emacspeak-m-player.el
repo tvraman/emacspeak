@@ -442,10 +442,7 @@ If a dynamic playlist exists, just use it."
             (or
              filename                   ; short-circuit expensive call
              (if prefix
-                 (cl-remove-if
-                  #'(lambda (f) (or (not (file-directory-p f))
-                                    (string-match "\\.git" f)))
-                  (directory-files-recursively dir "." t)) ;list dirs
+                 (ems--subdirs-recursively (expand-file-name dir)) ;list dirs
                (directory-files-recursively dir emacspeak-media-extensions)))))
       (or filename
           (completing-read "Media: "  collection))))))
