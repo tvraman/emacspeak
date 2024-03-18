@@ -83,11 +83,9 @@
 
 (defsubst ems--subdirs (d)
   "Return list of subdirs in directory d"
-  (cl-remove-if
-   #'(lambda (f)
-       (or  (not (file-directory-p f))
-            (string-match "\\.$" f)))
-   (directory-files d 'include-dirs)))
+  (cl-remove-if-not
+   #'file-directory-p
+   (cddr (directory-files d 'include-dirs))))
 
 (defun ems--subdirs-recursively (d)
   "Recursive list of leaf subdirs"
