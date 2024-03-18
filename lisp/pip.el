@@ -84,11 +84,13 @@ Restarts piper pipeline if already running."
     (pip-speak (format "Selected voice %s" (file-name-base
                                             pip-model)))))
 
-(defvar pip-device "tts_mid_left"
+(defvar pip-device "tts_quarter_right"
   "Alsa device for Piper.")
 
 (defvar pip-devices
-  '("default"  "tts_mono_left" "tts_mid_left" "tts_mono_right" "tts_mid_right")
+  '("default"  "tts_mono_left" "tts_mid_left" "tts_mono_right"
+    "tts_mid_right"
+    "tts_quarter_right" "tts_quarter_left")
   "Alsa devices.")
 
 (defun pip-device-select (device)
