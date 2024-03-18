@@ -98,7 +98,8 @@
      ((string-match ems--subdirs-filter d) nil)                              ; pass
      (t
       (cl-loop
-       for dir in subdirs  do
+       for dir in subdirs
+       if (not (string-match ems--subdirs-filter dir)) do
        (setq result  (nconc result (ems--subdirs-recursively dir))))))
     result))
 
