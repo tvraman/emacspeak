@@ -83,25 +83,22 @@
 
 (defun ems--subdirs (d)
   "Return list of subdirs in directory d"
-  (cl-remove-if
-   #'(lambda (f)
-       (or  (not (file-directory-p f))
-            (string-match "\\.$" f)))
-   (directory-files d 'full)))
+  (cl-remove-if-not
+   #'file-directory-p
+   (cddr (directory-files d 'full))))
 
 (defun ems--subdirs-recursively (d)
-  "Recursive list of leaf subdirs"
-  (let ((result nil)
+  "Recursive list of  subdirs"
+  (let ((result (list d))
         (subdirs (ems--subdirs d)))
     (cond
-     ((null subdirs)
-      (push d result))
-     ((string-match "\\.git$" d) nil); pass
+     ((or  (string-match "\\.git$" d) (string-match "\\.$" d))
+      nil)   ; pass
      (t
       (cl-loop
        for dir in subdirs  do
        (setq result  (nconc result (ems--subdirs-recursively dir))))))
-    (sort result #'string-greaterp)))
+    result))
 
 ;;; Helper: Wifi ESSId:
 
