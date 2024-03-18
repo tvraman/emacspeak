@@ -444,8 +444,7 @@ If a dynamic playlist exists, just use it."
              (if prefix
                  (ems--subdirs-recursively (expand-file-name dir)) ;list dirs
                (directory-files-recursively dir emacspeak-media-extensions)))))
-      (or filename
-          (completing-read "Media: "  collection))))))
+      (or filename (completing-read "Media: "  collection))))))
 
 (defun emacspeak-m-player-data-refresh ()
   "Populate metadata fields from current  stream."
