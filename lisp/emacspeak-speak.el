@@ -80,20 +80,21 @@
 ;;; Helpers: subdirs
 
 
+(defconst ems--subdirs-filter
+  (concat (regexp-opt '("/.." "/." "/.git")) "$")
+  "Pattern to filter out dirs during traversal.")
 
-(defun ems--subdirs (d)
+(defsubst ems--subdirs (d)
   "Return list of subdirs in directory d"
-  (cl-remove-if-not
-   #'file-directory-p
-   (cddr (directory-files d 'full))))
+  (cl-remove-if-not #'file-directory-p (cddr (directory-files d 'full))))
 
 (defun ems--subdirs-recursively (d)
   "Recursive list of  subdirs"
+  (cl-declare (special ems--subdirs-filter))
   (let ((result (list d))
         (subdirs (ems--subdirs d)))
     (cond
-     ((or  (string-match "\\.git$" d) (string-match "\\.$" d))
-      nil)   ; pass
+     ((string-match ems--subdirs-filter d) nil)                              ; pass
      (t
       (cl-loop
        for dir in subdirs  do
