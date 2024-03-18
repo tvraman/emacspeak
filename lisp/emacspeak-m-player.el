@@ -447,7 +447,8 @@ If a dynamic playlist exists, just use it."
                                     (string-match "\\.git" f)))
                   (directory-files-recursively dir "." t)) ;list dirs
                (directory-files-recursively dir emacspeak-media-extensions)))))
-      (or filename (completing-read "Media: " collection))))))
+      (or filename
+          (completing-read "Media: " (sort collection #'string-greaterp)))))))
 
 (defun emacspeak-m-player-data-refresh ()
   "Populate metadata fields from current  stream."
