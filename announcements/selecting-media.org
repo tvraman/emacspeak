@@ -1,0 +1,168 @@
+* Overview
+
+I have over 60MB of audio content on my laptop spread across 755
+subdirecories in over 9100 files. I also have many Internet stream
+shortcuts that I listen to on a regular basis.
+
+This blog article outlines the media selector implementation in
+Emacspeak \ and shows how a small amount of Lisp code built atop
+Emacs' built-in affordances of completion  provides a light-weight yet
+efficient interface. Notice that the implementation does not involve
+fancy things like SQL databases,  MP3 tags that one needs to update
+etc.; the solution relies on the speed of today's laptops, especially
+given the speed of disk access.
+
+* User Experience
+
+  As I type this up, the set of requirements as expressed in English
+  is far more verbose (and likely more complicated) than its
+  expression in Lisp!
+
+Pre-requisites for content selection and playback:
+
+  1. Launch either MPV (via package ~empv.el~) or ~mplayer~ via
+    Emacspeak's ~emacspeak-mplayer~ with a few keystrokes.
+  2. Media selection uses ~ido~ with ~fuzzy~ matching.
+  3. Choices are filtered incrementally for efficient eyes-free
+     interaction; see the relevant blog article on
+     [[https://emacspeak.blogspot.com/2018/06/ effective-suggest-and-complete-in-eyes.html][Search, Input, Filter, Target]] for additional background.
+  4. Content can be filtered using  the directory structure,
+     where directories conceptually equate to music albums,  audio
+     books or othre logical content groups.Once selected, a directory
+     and its contents are played as a conceptual /play-list/.
+  5. Searching and filtering can also occur across the list of all
+     9,100+ media files spread across 700+ directories.
+  6. Starting point of the SIFT process should be influenced by one's
+     current context, e.g., default-directory.
+  7.Each step of this process should have reasonable fall-backs.
+
+* Mapping Design To Implementation
+
+
+  1. Directory where we start AKA /context/ is selected by function  [[https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-m-player.el#L357][emacspeak-media-guess-directory]].
+     A. If default directory matches emacspeak-media-directory-regexp,use it.
+     B. If default directory contains media files, then use it.
+     C. If default directory contains directory emacspeak-media --- then use it.
+     D. Otherwise use emacspeak-media-shortcuts as the fallback.
+  2. Once we have selected the context, function
+     [[https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-m-player.el#L426][emacspeak-media-read-resource]]uses ~ido~ style interaction with
+     fuzzy-matching to pick the file to play.
+  3. That function uses Emacs' built-in ~directory-files-recursively~
+     to build the ~collection~ to hand-off to ~completing-read~; It
+     uses an Emacspeak provided function [[https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-speak.el#L92][ems--subdirs-recursively]] to
+     build up the list of 755+ sub-directories that live under
+     _$XDG_MUSIC_DIR_.
+
+
+* Resulting Experience
+
+1. I can pick the media to lay with a few keystrokes.
+2. I use Emacs' ~repeat-mode~ to advantage whereby I can quickly
+   change volume etc  once content is playing before going back to work.
+3. There's *no* media-player UI to get in my way while working, but I
+   can stop playing media with a single keystroke.
+4. Most importantly, I dont have to tag media, maintain databases or
+   do other busy work to be able to launch the media  that I want!
+
+   * The Lisp Code
+
+     The hyperlinks to the Emacspeak code-base are the source of
+     truth. I'll  include a snapshot of the 3 functions mentioned
+     above for completeness.
+
+
+** Guess Context
+
+#+begin_src  emacs-lisp
+  (defun emacspeak-media-guess-directory ()
+  "Guess media directory.
+1. If default directory matches emacspeak-media-directory-regexp,use it.
+2.  If default directory contains media files, then use it.
+3. If default directory contains directory emacspeak-media --- then use it.
+4. Otherwise use emacspeak-media-shortcuts as the fallback."
+  (cl-declare (special emacspeak-media-directory-regexp
+                       emacspeak-media emacspeak-m-player-hotkey-p))
+  (let ((case-fold-search t))
+    (cond
+     ((or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode)) nil)
+     (emacspeak-m-player-hotkey-p   emacspeak-media-shortcuts)
+     ((or                               ;  dir  contains media:
+       (string-match emacspeak-media-directory-regexp default-directory)
+       (directory-files default-directory   nil emacspeak-media-extensions))
+      default-directory)
+     ((file-in-directory-p emacspeak-media default-directory) emacspeak-media)
+     (t   emacspeak-media-shortcuts))))
+#+end_src
+
+
+** Helper: Recursive List Of Sub-directories
+
+#+begin_src  emacs-lisp
+
+  ;;; Helpers: subdirs
+
+
+(defconst ems--subdirs-filter
+  (eval-when-compile
+    (concat (regexp-opt '("/.." "/." "/.git")) "$"))
+  "Pattern to filter out dirs during traversal.")
+
+(defsubst ems--subdirs (d)
+  "Return list of subdirs in directory d"
+  (cl-remove-if-not #'file-directory-p (cddr (directory-files d 'full))))
+
+(defun ems--subdirs-recursively (d)
+  "Recursive list of  subdirs"
+  (cl-declare (special ems--subdirs-filter))
+  (let ((result (list d))
+        (subdirs (ems--subdirs d)))
+    (cond
+     ((string-match ems--subdirs-filter d) nil)                              ; pass
+     (t
+      (cl-loop
+       for dir in subdirs
+       if (not (string-match ems--subdirs-filter dir)) do
+       (setq result  (nconc result (ems--subdirs-recursively dir))))))
+    result))
+
+
+#+end_src
+** Read Resource
+     #+begin_src  emacs-lisp
+(defun emacspeak-media-read-resource (&optional prefix)
+  "Read resource from minibuffer.
+If a dynamic playlist exists, just use it."
+  (cl-declare (special emacspeak-media-dynamic-playlist
+                       emacspeak-m-player-hotkey-p))
+  (cond
+   (emacspeak-media-dynamic-playlist nil) ; do nothing if dynamic playlist
+   (emacspeak-m-player-hotkey-p (emacspeak-media-local-resource prefix))
+   (t                               ; not hotkey, not dynamic playlist
+    (let* ((completion-ignore-case t)
+           (read-file-name-completion-ignore-case t)
+           (filename
+            (when (memq major-mode '(dired-mode locate-mode))
+              (dired-get-filename 'local 'no-error)))
+           (dir (emacspeak-media-guess-directory))
+           (collection
+            (or
+             filename                   ; short-circuit expensive call
+             (if prefix
+                 (ems--subdirs-recursively  dir) ;list dirs
+               (directory-files-recursively dir emacspeak-media-extensions)))))
+      (or filename (completing-read "Media: "  collection))))))
+     #+end_src
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Smart Media Selector For The Audio Desktop
+#+date: <2024-03-18 Mon>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 30.0.50 (Org mode 9.6.15)
+#+cite_export:
