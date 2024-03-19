@@ -1,7 +1,7 @@
 ;;; emacspeak-rpm-spec.el --- Speech enable rpm spec -*- lexical-binding: t; -*-
 ;;
 ;; $Author: tv.raman.tv $
-;; Description: Controlling mplayer from emacs 
+;; Description: RPM Spec Editor
 ;; Keywords: Emacspeak, rpm-spec streaming media 
 ;;;   LCD Archive entry: 
 
