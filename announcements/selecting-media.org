@@ -5,7 +5,7 @@ subdirecories in over 9100 files. I also have many Internet stream
 shortcuts that I listen to on a regular basis.
 
 This blog article outlines the media selector implementation in
-Emacspeak \ and shows how a small amount of Lisp code built atop
+Emacspeak  and shows how a small amount of Lisp code built atop
 Emacs' built-in affordances of completion  provides a light-weight yet
 efficient interface. Notice that the implementation does not involve
 fancy things like SQL databases,  MP3 tags that one needs to update
@@ -18,7 +18,7 @@ given the speed of disk access.
   is far more verbose (and likely more complicated) than its
   expression in Lisp!
 
-Pre-requisites for content selection and playback:
+** Pre-requisites for content selection and playback
 
   1. Launch either MPV (via package ~empv.el~) or ~mplayer~ via
     Emacspeak's ~emacspeak-mplayer~ with a few keystrokes.
@@ -32,9 +32,8 @@ Pre-requisites for content selection and playback:
      and its contents are played as a conceptual /play-list/.
   5. Searching and filtering can also occur across the list of all
      9,100+ media files spread across 700+ directories.
-  6. Starting point of the SIFT process should be influenced by one's
-     current context, e.g., default-directory.
-  7.Each step of this process should have reasonable fall-backs.
+  6. Starting point of the SIFT process should be influenced by one's current context, e.g., default-directory.
+  7. Each step of this process should have reasonable fallbacks.
 
 * Mapping Design To Implementation
 
@@ -56,7 +55,7 @@ Pre-requisites for content selection and playback:
 
 * Resulting Experience
 
-1. I can pick the media to lay with a few keystrokes.
+1. I can pick the media to play with a few keystrokes.
 2. I use Emacs' ~repeat-mode~ to advantage whereby I can quickly
    change volume etc  once content is playing before going back to work.
 3. There's *no* media-player UI to get in my way while working, but I
@@ -64,10 +63,10 @@ Pre-requisites for content selection and playback:
 4. Most importantly, I dont have to tag media, maintain databases or
    do other busy work to be able to launch the media  that I want!
 
-   * The Lisp Code
+* The Lisp Code
 
      The hyperlinks to the Emacspeak code-base are the source of
-     truth. I'll  include a snapshot of the 3 functions mentioned
+     truth. I'll  include a snapshot of the  functions mentioned
      above for completeness.
 
 
@@ -94,6 +93,34 @@ Pre-requisites for content selection and playback:
      (t   emacspeak-media-shortcuts))))
 #+end_src
 
+
+** Read Resource
+     #+begin_src  emacs-lisp
+(defun emacspeak-media-read-resource (&optional prefix)
+  "Read resource from minibuffer.
+If a dynamic playlist exists, just use it."
+  (cl-declare (special emacspeak-media-dynamic-playlist
+                       emacspeak-m-player-hotkey-p))
+  (cond
+   (emacspeak-media-dynamic-playlist nil) ; do nothing if dynamic playlist
+   (emacspeak-m-player-hotkey-p (emacspeak-media-local-resource prefix))
+   (t                               ; not hotkey, not dynamic playlist
+    (let* ((completion-ignore-case t)
+           (read-file-name-completion-ignore-case t)
+           (filename
+            (when (memq major-mode '(dired-mode locate-mode))
+              (dired-get-filename 'local 'no-error)))
+           (dir (emacspeak-media-guess-directory))
+           (collection
+            (or
+             filename                   ; short-circuit expensive call
+             (if prefix
+                 (ems--subdirs-recursively  dir) ;list dirs
+               (directory-files-recursively dir emacspeak-media-extensions)))))
+      (or filename (completing-read "Media: "  collection))))))
+     #+end_src
+
+     
 
 ** Helper: Recursive List Of Sub-directories
 
@@ -127,31 +154,7 @@ Pre-requisites for content selection and playback:
 
 
 #+end_src
-** Read Resource
-     #+begin_src  emacs-lisp
-(defun emacspeak-media-read-resource (&optional prefix)
-  "Read resource from minibuffer.
-If a dynamic playlist exists, just use it."
-  (cl-declare (special emacspeak-media-dynamic-playlist
-                       emacspeak-m-player-hotkey-p))
-  (cond
-   (emacspeak-media-dynamic-playlist nil) ; do nothing if dynamic playlist
-   (emacspeak-m-player-hotkey-p (emacspeak-media-local-resource prefix))
-   (t                               ; not hotkey, not dynamic playlist
-    (let* ((completion-ignore-case t)
-           (read-file-name-completion-ignore-case t)
-           (filename
-            (when (memq major-mode '(dired-mode locate-mode))
-              (dired-get-filename 'local 'no-error)))
-           (dir (emacspeak-media-guess-directory))
-           (collection
-            (or
-             filename                   ; short-circuit expensive call
-             (if prefix
-                 (ems--subdirs-recursively  dir) ;list dirs
-               (directory-files-recursively dir emacspeak-media-extensions)))))
-      (or filename (completing-read "Media: "  collection))))))
-     #+end_src
+
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
 #+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
