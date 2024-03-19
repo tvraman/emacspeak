@@ -12,6 +12,13 @@ This version requires Emacs-29.1 or later.
 
 Package ~ebuku.el~ is speech-enabled y module ~emacspeak-ebuku~ --
 this is an Emacs front-end to the ~buku~ bookmark manager.
+* The HTML5 Audio/Video Tag In EWW
+
+Module ~emacspeak-eww~ adds support for the HTML5 ~audio~ and ~video~
+tags; press ";" in an EWW buffer to move to any audio/video tags in
+the page, and pess ";" again to play the content.
+
+
 * Piper: Neural-Net TTS
 
 Emacspeak now uses Piper TTS if available as one more source of
