@@ -94,8 +94,12 @@ The feed list is persisted to file saved-feeds on exit."
   #'(lambda (sym val)
       (set-default
        sym
-       (sort val #'(lambda (a b)
-                     (string-lessp (cl-first a) (cl-first b)))))
+       (sort
+        val
+        #'(lambda (a b)
+            (string-lessp
+             (string-trim (cl-first a)) (string-trim (cl-first b))))))
+      (setq emacspeak-feeds-feeds-table (make-hash-table :test #'equal))
       (emacspeak-feeds-cache-feeds))
   :group 'emacspeak-feeds)
 
