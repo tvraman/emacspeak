@@ -62,15 +62,16 @@
 (defvar emacspeak-feeds-feeds-table (make-hash-table :test #'equal)
   "Hash table to enable efficient feed look up when adding feeds.")
 
-(defun emacspeak-feeds-cache-feeds ()
-  "Cache feeds in emacspeak-feeds in a hash table."
+(defun emacspeak-feeds-cache-feeds (&optional feeds)
+  "Cache feeds in  `feeds' in a hash table."
   (cl-declare (special emacspeak-feeds))
+  (or feeds (setq feeds emacspeak-feeds))
   (cl-loop
-   for f in emacspeak-feeds
+   for f in feeds
    do
    (set-text-properties 0 (length (cl-second f)) nil (cl-second f))
    (puthash
-    (cl-second f); strip props 
+    (cl-second f)                       ; URL is the key
     f emacspeak-feeds-feeds-table)))
 
 (defcustom emacspeak-feeds
@@ -81,14 +82,16 @@
     )
   "Table of RSS/Atom feeds.
 The feed list is persisted to file saved-feeds on exit."
-  :type '(repeat
-          (list :tag "Feed"
-                (string :tag "Title")
-                (string :tag "URI")
-                (choice :tag "Type"
-                        (const :tag "RSS" rss)
-                        (const :tag "opml" opml)
-                        (const :tag "Atom" atom))))
+  :type
+  '(repeat
+    (list :tag "Feed"
+          (string :tag "Title")
+          (string :tag "URI")
+          (choice
+           :tag "Type"
+           (const :tag "RSS" rss)
+           (const :tag "opml" opml)
+           (const :tag "Atom" atom))))
   :initialize  'custom-initialize-reset
   :set
   #'(lambda (sym val)
@@ -100,7 +103,7 @@ The feed list is persisted to file saved-feeds on exit."
             (string-lessp
              (string-trim (cl-first a)) (string-trim (cl-first b))))))
       (setq emacspeak-feeds-feeds-table (make-hash-table :test #'equal))
-      (emacspeak-feeds-cache-feeds))
+      (emacspeak-feeds-cache-feeds val))
   :group 'emacspeak-feeds)
 
 (add-hook
@@ -116,6 +119,7 @@ The feed list is persisted to file saved-feeds on exit."
   "Check if this feed has been added before."
   (cl-declare (special emacspeak-feeds-feeds-table))
   (gethash feed-url emacspeak-feeds-feeds-table))
+
 ;;;###autoload
 (defun emacspeak-feeds-add-feed (title url type)
   "Add specified feed to our feed store."
@@ -136,7 +140,7 @@ The feed list is persisted to file saved-feeds on exit."
         (let ((dtk-quiet t))
           (customize-save-variable 'emacspeak-feeds emacspeak-feeds))
         (ems-with-messages-silenced
-         (message "Added feed as %s" title))))))
+          (message "Added feed as %s" title))))))
 
 (defvar emacspeak-feeds-archive-file
   (expand-file-name "feeds.el" emacspeak-user-directory)
