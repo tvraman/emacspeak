@@ -355,11 +355,11 @@ plays result as a directory." directory)
     (emacspeak-icon 'select-object)))
 
 (defun emacspeak-media-guess-directory ()
-  "Guess default directory.
-If default directory matches emacspeak-media-directory-regexp,
-use it.  If default directory contains media files, then use it.
-If default directory contains directory emacspeak-media --- then use it.
-Otherwise use emacspeak-media-shortcuts as the fallback."
+  "Guess media directory.
+1. If default directory matches emacspeak-media-directory-regexp,use it.
+2.  If default directory contains media files, then use it.
+3. If default directory contains directory emacspeak-media --- then use it.
+4. Otherwise use emacspeak-media-shortcuts as the fallback."
   (cl-declare (special emacspeak-media-directory-regexp
                        emacspeak-media emacspeak-m-player-hotkey-p))
   (let ((case-fold-search t))
