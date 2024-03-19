@@ -35,6 +35,372 @@
   </openSearch:startIndex>
   <openSearch:itemsPerPage>1000
   </openSearch:itemsPerPage>
+<entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-5507747641266165893</id><published>
+      2024-03-18T20:53:00.000-07:00
+    </published>
+    <updated>2024-03-18T20:53:22.701-07:00</updated><title type='text'>
+      Smart Media Selector For The Emacspeak Audio Desktop 
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;
+      class=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Smart Media Selector For The Audio
+      Desktop&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-org15514aa&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org15514aa&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1.&lt;/span&gt;
+      Overview&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      I have over 60MB of audio content on my laptop spread across 755
+      subdirecories in over 9100 files. I also have many Internet stream
+      shortcuts that I listen to on a regular basis.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      This blog article outlines the media selector implementation in
+      Emacspeak  and shows how a small amount of Lisp code built atop
+      Emacs&#39; built-in affordances of completion  provides a
+      light-weight yet
+      efficient interface. Notice that the implementation does not involve
+      fancy things like SQL databases,  MP3 tags that one needs to update
+      etc.; the solution relies on the speed of today&#39;s laptops,
+      especially
+      given the speed of disk access.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org9a3ab1b&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org9a3ab1b&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2.&lt;/span&gt; User
+      Experience&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;p&gt;
+      As I type this up, the set of requirements as expressed in English
+      is far more verbose (and likely more complicated) than its
+      expression in Lisp!
+      &lt;/p&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org1acff4f&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org1acff4f&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;2.1.&lt;/span&gt;
+      Pre-requisites for content selection and playback&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-1&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Launch either MPV (via package
+      &lt;code&gt;empv.el&lt;/code&gt;) or
+      &lt;code&gt;mplayer&lt;/code&gt; via
+      Emacspeak&#39;s &lt;code&gt;emacspeak-mplayer&lt;/code&gt; with a
+      few keystrokes.&lt;/li&gt;
+      &lt;li&gt;Media selection uses &lt;code&gt;ido&lt;/code&gt; with
+      &lt;code&gt;fuzzy&lt;/code&gt; matching.&lt;/li&gt;
+      &lt;li&gt;Choices are filtered incrementally for efficient eyes-free
+      interaction; see the relevant blog article on
+      &lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2018/06/%20effective-suggest-and-complete-in-eyes.html&quot;&gt;Search, Input, Filter, Target&lt;/a&gt; for additional background.&lt;/li&gt;
+      &lt;li&gt;Content can be filtered using  the directory structure,
+      where directories conceptually equate to music albums,  audio
+      books or othre logical content groups.Once selected, a directory
+      and its contents are played as a conceptual
+      &lt;i&gt;play-list&lt;/i&gt;.&lt;/li&gt;
+      &lt;li&gt;Searching and filtering can also occur across the list of
+      all
+      9,100+ media files spread across 700+ directories.&lt;/li&gt;
+      &lt;li&gt;Starting point of the SIFT process should be influenced by
+      one&#39;s current context, e.g., default-directory.&lt;/li&gt;
+      &lt;li&gt;Each step of this process should have reasonable
+      fallbacks.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgb044db1&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgb044db1&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3.&lt;/span&gt; Mapping Design
+      To Implementation&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Directory where we start AKA &lt;i&gt;context&lt;/i&gt; is
+      selected by function  &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-m-player.el#L357&quot;&gt;emacspeak-media-guess-directory&lt;/a&gt;.
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;If default directory matches
+      emacspeak-media-directory-regexp,use it.&lt;/li&gt;
+      &lt;li&gt;If default directory contains media files, then use
+      it.&lt;/li&gt;
+      &lt;li&gt;If default directory contains directory emacspeak-media
+      &amp;#x2014; then use it.&lt;/li&gt;
+      &lt;li&gt;Otherwise use emacspeak-media-shortcuts as the
+      fallback.&lt;/li&gt;
+      &lt;/ol&gt;&lt;/li&gt;
+      &lt;li&gt;Once we have selected the context, function
+      &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-m-player.el#L426&quot;&gt;emacspeak-media-read-resource&lt;/a&gt;uses &lt;code&gt;ido&lt;/code&gt; style interaction with
+      fuzzy-matching to pick the file to play.&lt;/li&gt;
+      &lt;li&gt;That function uses Emacs&#39; built-in
+      &lt;code&gt;directory-files-recursively&lt;/code&gt;
+      to build the &lt;code&gt;collection&lt;/code&gt; to hand-off to
+      &lt;code&gt;completing-read&lt;/code&gt;; It
+      uses an Emacspeak provided function &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-speak.el#L92&quot;&gt;ems&amp;#x2013;subdirs-recursively&lt;/a&gt; to
+      build up the list of 755+ sub-directories that live under
+      &lt;span
+      
+      class=&quot;underline&quot;&gt;$XDG&lt;sub&gt;MUSIC&lt;/sub&gt;&lt;sub&gt;DIR&lt;/sub&gt;&lt;/span&gt;.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      
+      &lt;div id=&quot;outline-container-org471fc48&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org471fc48&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;4.&lt;/span&gt; Resulting
+      Experience&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;I can pick the media to play with a few
+      keystrokes.&lt;/li&gt;
+      &lt;li&gt;I use Emacs&#39; &lt;code&gt;repeat-mode&lt;/code&gt; to
+      advantage whereby I can quickly
+      change volume etc  once content is playing before going back to
+      work.&lt;/li&gt;
+      &lt;li&gt;There&#39;s &lt;b&gt;no&lt;/b&gt; media-player UI to get
+      in my way while working, but I
+      can stop playing media with a single keystroke.&lt;/li&gt;
+      &lt;li&gt;Most importantly, I dont have to tag media, maintain
+      databases or
+      do other busy work to be able to launch the media  that I
+      want!&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org091f582&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org091f582&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;5.&lt;/span&gt; The Lisp
+      Code&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-5&quot;&gt;
+      &lt;p&gt;
+      The hyperlinks to the Emacspeak code-base are the source of
+      truth. I&#39;ll  include a snapshot of the  functions mentioned
+      above for completeness.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      
+      
+      &lt;div id=&quot;outline-container-org0433a76&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org0433a76&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;5.1.&lt;/span&gt; Guess
+      Context&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-5-1&quot;&gt;
+      &lt;div class=&quot;org-src-container&quot;&gt;
+      &lt;pre class=&quot;src src-emacs-lisp&quot;&gt;  (&lt;span
+      style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color:
+      #7fce5f;&quot;&gt;emacspeak-media-guess-directory&lt;/span&gt; ()
+      &lt;span style=&quot;color: #99bfcf; font-style:
+      italic;&quot;&gt;&quot;Guess media directory.&lt;/span&gt;
+      &lt;span style=&quot;color: #99bfcf; font-style: italic;&quot;&gt;1.
+      If default directory matches emacspeak-media-directory-regexp,use
+      it.&lt;/span&gt;
+      &lt;span style=&quot;color: #99bfcf; font-style: italic;&quot;&gt;2.
+       If default directory contains media files, then use
+      it.&lt;/span&gt;&lt;span style=&quot;color: #99bfcf; font-style:
+      italic;&quot;&gt;3. If default directory contains directory
+      emacspeak-media --- then use it.&lt;/span&gt;
+      &lt;span style=&quot;color: #99bfcf; font-style: italic;&quot;&gt;4.
+      Otherwise use emacspeak-media-shortcuts as the
+      fallback.&quot;&lt;/span&gt;
+      (&lt;span style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;cl-declare&lt;/span&gt; (special
+      emacspeak-media-directory-regexp
+      emacspeak-media emacspeak-m-player-hotkey-p))
+      (&lt;span style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;let&lt;/span&gt; ((case-fold-search t))
+      (&lt;span style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;cond&lt;/span&gt;
+      ((&lt;span style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;or&lt;/span&gt; (eq major-mode &#39;dired-mode) (eq
+      major-mode &#39;locate-mode)) nil)
+      (emacspeak-m-player-hotkey-p   emacspeak-media-shortcuts)
+      ((&lt;span style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;or&lt;/span&gt;                              
+      &lt;span style=&quot;color: #eaa4a4; font-style: italic;&quot;&gt;; 
+      &lt;/span&gt;&lt;span style=&quot;color: #eaa4a4; font-style:
+      italic;&quot;&gt;dir  contains media:&lt;/span&gt;
+      (string-match emacspeak-media-directory-regexp default-directory)
+      (directory-files default-directory   nil
+      emacspeak-media-extensions))      default-directory)
+      ((file-in-directory-p emacspeak-media default-directory)
+      emacspeak-media)
+      (t   emacspeak-media-shortcuts))))
+      &lt;/pre&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      
+      &lt;div id=&quot;outline-container-org932506f&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org932506f&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;5.2.&lt;/span&gt; Read
+      Resource&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-5-2&quot;&gt;
+      &lt;div class=&quot;org-src-container&quot;&gt;
+      &lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span
+      style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color:
+      #7fce5f;&quot;&gt;emacspeak-media-read-resource&lt;/span&gt;
+      (&lt;span style=&quot;color:
+      #41bf4f;&quot;&gt;&amp;amp;optional&lt;/span&gt; prefix)
+      &lt;span style=&quot;color: #99bfcf; font-style:
+      italic;&quot;&gt;&quot;Read resource from minibuffer.&lt;/span&gt;
+      &lt;span style=&quot;color: #99bfcf; font-style: italic;&quot;&gt;If
+      a dynamic playlist exists, just use it.&quot;&lt;/span&gt;
+      (&lt;span style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;cl-declare&lt;/span&gt; (special
+      emacspeak-media-dynamic-playlist
+      emacspeak-m-player-hotkey-p))
+      (&lt;span style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;cond&lt;/span&gt;
+      (emacspeak-media-dynamic-playlist nil) &lt;span style=&quot;color:
+      #eaa4a4; font-style: italic;&quot;&gt;; &lt;/span&gt;&lt;span
+      style=&quot;color: #eaa4a4; font-style: italic;&quot;&gt;do nothing
+      if dynamic playlist&lt;/span&gt;
+      (emacspeak-m-player-hotkey-p (emacspeak-media-local-resource
+      prefix))   (t                               &lt;span
+      style=&quot;color: #eaa4a4; font-style: italic;&quot;&gt;;
+      &lt;/span&gt;&lt;span style=&quot;color: #eaa4a4; font-style:
+      italic;&quot;&gt;not hotkey, not dynamic playlist&lt;/span&gt;
+      (&lt;span style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;let*&lt;/span&gt; ((completion-ignore-case t)
+      (read-file-name-completion-ignore-case t)
+      (filename
+      (&lt;span style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;when&lt;/span&gt; (memq major-mode &#39;(dired-mode
+      locate-mode))
+      (dired-get-filename &#39;local &#39;no-error)))
+      (dir (emacspeak-media-guess-directory))
+      (collection
+      (&lt;span style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;or&lt;/span&gt;
+      filename                   &lt;span style=&quot;color: #eaa4a4;
+      font-style: italic;&quot;&gt;; &lt;/span&gt;&lt;span
+      style=&quot;color: #eaa4a4; font-style:
+      italic;&quot;&gt;short-circuit expensive call&lt;/span&gt;
+      (&lt;span style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;if&lt;/span&gt; prefix
+      (ems--subdirs-recursively  dir) &lt;span style=&quot;color: #eaa4a4;
+      font-style: italic;&quot;&gt;;&lt;/span&gt;&lt;span
+      style=&quot;color: #eaa4a4; font-style: italic;&quot;&gt;list
+      dirs&lt;/span&gt;
+      (directory-files-recursively dir emacspeak-media-extensions)))))
+      (&lt;span style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;or&lt;/span&gt; filename (completing-read &lt;span
+      style=&quot;color: #65d5a8;&quot;&gt;&quot;Media:
+      &quot;&lt;/span&gt;  collection))))))
+      &lt;/pre&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      
+      
+      &lt;div id=&quot;outline-container-org4cb0687&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org4cb0687&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;5.3.&lt;/span&gt; Helper:
+      Recursive List Of Sub-directories&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-5-3&quot;&gt;
+      &lt;div class=&quot;org-src-container&quot;&gt;
+      &lt;pre class=&quot;src src-emacs-lisp&quot;&gt;
+      &lt;span style=&quot;color: #eaa4a4; font-style:
+      italic;&quot;&gt;;;; &lt;/span&gt;&lt;span style=&quot;color:
+      #eaa4a4; font-style: italic;&quot;&gt;Helpers: subdirs&lt;/span&gt;
+      
+      
+      (&lt;span style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;defconst&lt;/span&gt; &lt;span style=&quot;color:
+      #2fd0db;&quot;&gt;ems--subdirs-filter&lt;/span&gt;
+      (&lt;span style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;eval-when-compile&lt;/span&gt;
+      (concat (regexp-opt &#39;(&lt;span style=&quot;color:
+      #65d5a8;&quot;&gt;&quot;/..&quot;&lt;/span&gt; &lt;span
+      style=&quot;color: #65d5a8;&quot;&gt;&quot;/.&quot;&lt;/span&gt;
+      &lt;span style=&quot;color:
+      #65d5a8;&quot;&gt;&quot;/.git&quot;&lt;/span&gt;)) &lt;span
+      style=&quot;color: #65d5a8;&quot;&gt;&quot;$&quot;&lt;/span&gt;))
+      &lt;span style=&quot;color: #99bfcf; font-style:
+      italic;&quot;&gt;&quot;Pattern to filter out dirs during
+      traversal.&quot;&lt;/span&gt;)
+      
+      (&lt;span style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;defsubst&lt;/span&gt; &lt;span style=&quot;color:
+      #7fce5f;&quot;&gt;ems--subdirs&lt;/span&gt; (d)
+      &lt;span style=&quot;color: #99bfcf; font-style:
+      italic;&quot;&gt;&quot;Return list of subdirs in directory
+      d&quot;&lt;/span&gt;
+      (cl-remove-if-not #&#39;file-directory-p (cddr (directory-files d
+      &#39;full))))
+      
+      (&lt;span style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color:
+      #7fce5f;&quot;&gt;ems--subdirs-recursively&lt;/span&gt; (d)
+      &lt;span style=&quot;color: #99bfcf; font-style:
+      italic;&quot;&gt;&quot;Recursive list of  subdirs&quot;&lt;/span&gt;
+      (&lt;span style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;cl-declare&lt;/span&gt; (special
+      ems--subdirs-filter))  (&lt;span style=&quot;color: #70a0ff;
+      font-weight: bold;&quot;&gt;let&lt;/span&gt; ((result (list d))
+      (subdirs (ems--subdirs d)))
+      (&lt;span style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;cond&lt;/span&gt;
+      ((string-match ems--subdirs-filter d) nil)                          
+         &lt;span style=&quot;color: #eaa4a4; font-style:
+      italic;&quot;&gt;; &lt;/span&gt;&lt;span style=&quot;color: #eaa4a4;
+      font-style: italic;&quot;&gt;pass&lt;/span&gt;
+      (t
+      (&lt;span style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;cl-loop&lt;/span&gt;
+      for dir in subdirs
+      if (not (string-match ems--subdirs-filter dir)) do
+      (&lt;span style=&quot;color: #70a0ff; font-weight:
+      bold;&quot;&gt;setq&lt;/span&gt; result  (nconc result
+      (ems--subdirs-recursively dir))))))
+      result))
+      
+      
+      &lt;/pre&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/5507747641266165893'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/5507747641266165893'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2024/03/smart-media-selector-for-emacspeak.html' title='Smart Media Selector For The Emacspeak Audio Desktop '/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
   <entry>
     <id>tag:blogger.com,1999:blog-20280042.post-6583907408650234123</id><published>
       2023-12-19T17:58:00.000-08:00
