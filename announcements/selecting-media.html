@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-03-18 Mon 20:43 -->
+<!-- 2024-03-19 Tue 06:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Smart Media Selector For The Audio Desktop</title>
@@ -197,11 +197,11 @@
 <body>
 <div id="content" class="content">
 <h1 class="title">Smart Media Selector For The Audio Desktop</h1>
-<div id="outline-container-org15514aa" class="outline-2">
-<h2 id="org15514aa"><span class="section-number-2">1.</span> Overview</h2>
+<div id="outline-container-org1aeb168" class="outline-2">
+<h2 id="org1aeb168"><span class="section-number-2">1.</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-I have over 60MB of audio content on my laptop spread across 755
+I have over 60GB of audio content on my laptop spread across 755
 subdirecories in over 9100 files. I also have many Internet stream
 shortcuts that I listen to on a regular basis.
 </p>
@@ -218,8 +218,8 @@ given the speed of disk access.
 </div>
 </div>
 
-<div id="outline-container-org9a3ab1b" class="outline-2">
-<h2 id="org9a3ab1b"><span class="section-number-2">2.</span> User Experience</h2>
+<div id="outline-container-org1bbca5e" class="outline-2">
+<h2 id="org1bbca5e"><span class="section-number-2">2.</span> User Experience</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 As I type this up, the set of requirements as expressed in English
@@ -228,8 +228,8 @@ expression in Lisp!
 </p>
 </div>
 
-<div id="outline-container-org1acff4f" class="outline-3">
-<h3 id="org1acff4f"><span class="section-number-3">2.1.</span> Pre-requisites for content selection and playback</h3>
+<div id="outline-container-org33db8ac" class="outline-3">
+<h3 id="org33db8ac"><span class="section-number-3">2.1.</span> Pre-requisites for content selection and playback</h3>
 <div class="outline-text-3" id="text-2-1">
 <ol class="org-ol">
 <li>Launch either MPV (via package <code>empv.el</code>) or <code>mplayer</code> via
@@ -251,8 +251,8 @@ and its contents are played as a conceptual <i>play-list</i>.</li>
 </div>
 </div>
 
-<div id="outline-container-orgb044db1" class="outline-2">
-<h2 id="orgb044db1"><span class="section-number-2">3.</span> Mapping Design To Implementation</h2>
+<div id="outline-container-org98630d7" class="outline-2">
+<h2 id="org98630d7"><span class="section-number-2">3.</span> Mapping Design To Implementation</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li>Directory where we start AKA <i>context</i> is selected by function  <a href="https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-m-player.el#L357">emacspeak-media-guess-directory</a>.
@@ -275,8 +275,8 @@ build up the list of 755+ sub-directories that live under
 </div>
 
 
-<div id="outline-container-org471fc48" class="outline-2">
-<h2 id="org471fc48"><span class="section-number-2">4.</span> Resulting Experience</h2>
+<div id="outline-container-orge40f014" class="outline-2">
+<h2 id="orge40f014"><span class="section-number-2">4.</span> Resulting Experience</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li>I can pick the media to play with a few keystrokes.</li>
@@ -290,8 +290,8 @@ do other busy work to be able to launch the media  that I want!</li>
 </div>
 </div>
 
-<div id="outline-container-org091f582" class="outline-2">
-<h2 id="org091f582"><span class="section-number-2">5.</span> The Lisp Code</h2>
+<div id="outline-container-org43dde85" class="outline-2">
+<h2 id="org43dde85"><span class="section-number-2">5.</span> The Lisp Code</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 The hyperlinks to the Emacspeak code-base are the source of
@@ -301,8 +301,8 @@ above for completeness.
 </div>
 
 
-<div id="outline-container-org0433a76" class="outline-3">
-<h3 id="org0433a76"><span class="section-number-3">5.1.</span> Guess Context</h3>
+<div id="outline-container-org441a507" class="outline-3">
+<h3 id="org441a507"><span class="section-number-3">5.1.</span> Guess Context</h3>
 <div class="outline-text-3" id="text-5-1">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">  (<span style="color: #70a0ff; font-weight: bold;">defun</span> <span style="color: #7fce5f;">emacspeak-media-guess-directory</span> ()
@@ -329,8 +329,8 @@ above for completeness.
 </div>
 
 
-<div id="outline-container-org932506f" class="outline-3">
-<h3 id="org932506f"><span class="section-number-3">5.2.</span> Read Resource</h3>
+<div id="outline-container-org7bf03aa" class="outline-3">
+<h3 id="org7bf03aa"><span class="section-number-3">5.2.</span> Read Resource</h3>
 <div class="outline-text-3" id="text-5-2">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(<span style="color: #70a0ff; font-weight: bold;">defun</span> <span style="color: #7fce5f;">emacspeak-media-read-resource</span> (<span style="color: #41bf4f;">&amp;optional</span> prefix)
@@ -362,8 +362,8 @@ above for completeness.
 
 
 
-<div id="outline-container-org4cb0687" class="outline-3">
-<h3 id="org4cb0687"><span class="section-number-3">5.3.</span> Helper: Recursive List Of Sub-directories</h3>
+<div id="outline-container-orgfe8caab" class="outline-3">
+<h3 id="orgfe8caab"><span class="section-number-3">5.3.</span> Helper: Recursive List Of Sub-directories</h3>
 <div class="outline-text-3" id="text-5-3">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">
@@ -403,7 +403,7 @@ above for completeness.
 <div id="postamble" class="status">
 <p class="date">Date: 2024-03-18 Mon 00:00</p>
 <p class="author">Author: T.V Raman</p>
-<p class="date">Created: 2024-03-18 Mon 20:43</p>
+<p class="date">Created: 2024-03-19 Tue 06:54</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
