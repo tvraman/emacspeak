@@ -135,28 +135,22 @@ The feed list is persisted to file saved-feeds on exit."
   (cl-declare (special emacspeak-feeds))
   (let ((found (emacspeak-feeds-added-p url)))
     (cond
-     (found
-      (message "Feed already present  as %s" (cl-first found)))
+     (found (message "Feed already present  as %s" (cl-first found)))
      (t (push (list title url type) emacspeak-feeds)
-        (let ((dtk-quiet t))
-          (customize-save-variable 'emacspeak-feeds emacspeak-feeds))
-        (ems-with-messages-silenced
-          (message "Added feed as %s" title))))))
+          (setopt emacspeak-feeds emacspeak-feeds)
+        (message "Added feed as %s" title)))))
 
 
 (defun emacspeak-feeds-delete-feed (title)
-  "Delete specified feed to our feed store."
+  "Delete specified feed from our feed store."
   (interactive
-   (list
-    (completing-read "Delete:"
-                     (mapcar #'cl-first emacspeak-feeds))))
+   (list (completing-read "Delete:" (mapcar #'cl-first emacspeak-feeds))))
   (cl-declare (special emacspeak-feeds))
   (setq emacspeak-feeds
         (cl-remove-if
          #'(lambda (f) (string= title (cl-first f)))
          emacspeak-feeds))
-        (let ((dtk-quiet t))
-          (customize-save-variable 'emacspeak-feeds emacspeak-feeds))
+          (setopt emacspeak-feeds emacspeak-feeds)
         (message "Deleted %s" title))
 
 (defvar emacspeak-feeds-archive-file
