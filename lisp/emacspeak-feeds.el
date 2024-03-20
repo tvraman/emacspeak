@@ -179,25 +179,15 @@ Archiving is useful when synchronizing feeds across multiple machines."
   "Restore list of subscribed fees from  personal resource directory.
 Archiving is useful when synchronizing feeds across multiple machines."
   (interactive)
-  (cl-declare (special emacspeak-feeds-archive-file
-                       emacspeak-feeds))
+  (cl-declare (special emacspeak-feeds-archive-file emacspeak-feeds))
   (unless (file-exists-p emacspeak-feeds-archive-file)
-    (error "No archived feeds to restore. "))
-  (let ((buffer (find-file-noselect emacspeak-feeds-archive-file))
-        (feeds  nil))
-    (ems-with-messages-silenced
-     (with-current-buffer buffer
-       (goto-char (point-min))
-       (setq feeds (read buffer))))
-    (kill-buffer buffer)
-    (cl-loop for f in feeds
-             do
-             (apply #'emacspeak-feeds-add-feed f))
-    (when
-        (y-or-n-p
-         (format "After restoring %d feeds, we have a total of %d feeds. Save? "
-                 (length feeds) (length emacspeak-feeds)))
-      (customize-save-variable 'emacspeak-feeds emacspeak-feeds))))
+    (user-error "No archived feeds to restore. "))
+  (with-current-buffer (find-file-noselect emacspeak-feeds-archive-file)
+    (goto-char (point-min))
+    (setq emacspeak-feeds (read (current-buffer))))
+  (kill-buffer buffer)
+  (emacspeak-feeds-cache-feeds)
+  (setopt emacspeak-feeds emacspeak-feeds))
 
 (defun emacspeak-feeds-fastload-feeds ()
   "Fast load list of feeds from archive.
