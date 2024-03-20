@@ -1770,7 +1770,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (let ((target
          (or (next-single-property-change (point) 'audio)
              (next-single-property-change (point) 'video))))
-    (cl-assert target t "No  audio elements")
+    (unless target  (user-error   "No  audio/video elements"))
     (goto-char target)
     (emacspeak-speak-line)
     (dtk-notify-speak "Press ; to play")
@@ -1782,7 +1782,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (let ((target
          (or (previous-single-property-change (point) 'audio)
              (previous-single-property-change (point) 'video))))
-    (cl-assert target t "No  audio elements")
+    (unless target  (user-error   "No  audio/video elements"))
     (goto-char target)
     (emacspeak-speak-line)
     (dtk-notify-speak "Press ; to play")
