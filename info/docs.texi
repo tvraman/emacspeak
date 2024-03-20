@@ -8458,7 +8458,7 @@ Default Value:
 
 (("a" emacspeak-xslt-view-atom-file)
  ("l" emacspeak-empv-play-last)
- ("p" emacspeak-pianobar)
+ ("p" empv-youtube-playlist)
  ("r" emacspeak-xslt-view-rss-file)
  ("x" emacspeak-xslt-view-file)
  ("y" emacspeak-empv-play-url))
@@ -11244,8 +11244,6 @@ keys from @code{pianobar-key-map}.
 @kindex C-e C-'
 @item C-' '
 @kindex C-' '
-@item C-e y p
-@kindex C-e y p
 @end table
 
 @findex emacspeak-pianobar
