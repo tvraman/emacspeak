@@ -117,7 +117,7 @@ Startup  apps that need the network."
   (cl-declare (special emacspeak-speak-network-interfaces-list))
   (setq emacspeak-speak-network-interfaces-list
         (ems--get-active-network-interfaces))
-  (emacspeak-pip (format "Network up: %s" (ems--get-essid)))
+  (emacspeak-pip (format "%s. Network up. " (ems--get-essid)))
   (emacspeak-icon 'network-up))
 
 (defun emacspeak-dbus-nm-disconnected ()
