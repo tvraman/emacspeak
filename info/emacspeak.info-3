@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 19, 2024.
+last updated on March 20, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -2285,10 +2285,10 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-, a:                                 emacspeak-feeds.    (line   34)
 * C-, b:                                 sox-gen.            (line   90)
 * C-, h:                                 emacspeak-muggles.  (line   75)
-* C-, o:                                 emacspeak-feeds.    (line   73)
+* C-, o:                                 emacspeak-feeds.    (line   82)
 * C-, p:                                 emacspeak-wizards.  (line  744)
 * C-, q:                                 emacspeak-wizards.  (line  763)
-* C-, r:                                 emacspeak-feeds.    (line   92)
+* C-, r:                                 emacspeak-feeds.    (line  101)
 * C-, s:                                 emacspeak-wizards.  (line 1003)
 * C-, SPC:                               emacspeak-eww.      (line  927)
 * C-, t:                                 emacspeak-wizards.  (line  991)
@@ -2717,10 +2717,10 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-x @ a a:                             emacspeak-feeds.    (line   35)
 * C-x @ a b:                             sox-gen.            (line   91)
 * C-x @ a h:                             emacspeak-muggles.  (line   76)
-* C-x @ a o:                             emacspeak-feeds.    (line   74)
+* C-x @ a o:                             emacspeak-feeds.    (line   83)
 * C-x @ a p:                             emacspeak-wizards.  (line  745)
 * C-x @ a q:                             emacspeak-wizards.  (line  764)
-* C-x @ a r:                             emacspeak-feeds.    (line   93)
+* C-x @ a r:                             emacspeak-feeds.    (line  102)
 * C-x @ a s:                             emacspeak-wizards.  (line 1004)
 * C-x @ a SPC:                           emacspeak-eww.      (line  928)
 * C-x @ a t:                             emacspeak-wizards.  (line  992)
@@ -3789,16 +3789,18 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-feeds-awesome-rss <1>:       emacspeak-feeds.    (line   44)
 * emacspeak-feeds-browse:                emacspeak-feeds.    (line   51)
 * emacspeak-feeds-browse <1>:            emacspeak-feeds.    (line   54)
-* emacspeak-feeds-fastload-feeds:        emacspeak-feeds.    (line   61)
-* emacspeak-feeds-fastload-feeds <1>:    emacspeak-feeds.    (line   62)
-* emacspeak-feeds-opml-display:          emacspeak-feeds.    (line   71)
-* emacspeak-feeds-opml-display <1>:      emacspeak-feeds.    (line   75)
-* emacspeak-feeds-restore-feeds:         emacspeak-feeds.    (line   82)
-* emacspeak-feeds-restore-feeds <1>:     emacspeak-feeds.    (line   83)
-* emacspeak-feeds-rss-display:           emacspeak-feeds.    (line   90)
-* emacspeak-feeds-rss-display <1>:       emacspeak-feeds.    (line   94)
-* emacspeak-feeds-select-feed:           emacspeak-feeds.    (line  101)
-* emacspeak-feeds-select-feed <1>:       emacspeak-feeds.    (line  102)
+* emacspeak-feeds-delete-feed:           emacspeak-feeds.    (line   61)
+* emacspeak-feeds-delete-feed <1>:       emacspeak-feeds.    (line   62)
+* emacspeak-feeds-fastload-feeds:        emacspeak-feeds.    (line   70)
+* emacspeak-feeds-fastload-feeds <1>:    emacspeak-feeds.    (line   71)
+* emacspeak-feeds-opml-display:          emacspeak-feeds.    (line   80)
+* emacspeak-feeds-opml-display <1>:      emacspeak-feeds.    (line   84)
+* emacspeak-feeds-restore-feeds:         emacspeak-feeds.    (line   91)
+* emacspeak-feeds-restore-feeds <1>:     emacspeak-feeds.    (line   92)
+* emacspeak-feeds-rss-display:           emacspeak-feeds.    (line   99)
+* emacspeak-feeds-rss-display <1>:       emacspeak-feeds.    (line  103)
+* emacspeak-feeds-select-feed:           emacspeak-feeds.    (line  110)
+* emacspeak-feeds-select-feed <1>:       emacspeak-feeds.    (line  111)
 * emacspeak-filtertext:                  emacspeak-filtertext.
                                                              (line   22)
 * emacspeak-filtertext <1>:              emacspeak-filtertext.

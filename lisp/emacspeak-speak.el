@@ -95,7 +95,7 @@
   (let ((result (list d))
         (subdirs (ems--subdirs d)))
     (cond
-     ((string-match ems--subdirs-filter d) nil)                              ; pass
+     ((string-match ems--subdirs-filter d) nil)                              
      (t
       (cl-loop
        for dir in subdirs

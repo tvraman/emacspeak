@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 19, 2024.
+last updated on March 20, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -91,7 +91,16 @@ This module provides Feeds support for Emacspeak required modules
 
      (fn FEED)
 
-12.78.1.6 emacspeak-feeds-fastload-feeds
+12.78.1.6 emacspeak-feeds-delete-feed
+.....................................
+
+ -- Command: emacspeak-feeds-delete-feed (title)
+
+     Delete specified feed from our feed store.
+
+     (fn TITLE)
+
+12.78.1.7 emacspeak-feeds-fastload-feeds
 ........................................
 
  -- Command: emacspeak-feeds-fastload-feeds
@@ -101,7 +110,7 @@ This module provides Feeds support for Emacspeak required modules
      than adding those entries to the current set of subscribed
      feeds.
 
-12.78.1.7 emacspeak-feeds-opml-display
+12.78.1.8 emacspeak-feeds-opml-display
 ......................................
 
  -- Command: emacspeak-feeds-opml-display (feed-url)
@@ -112,7 +121,7 @@ This module provides Feeds support for Emacspeak required modules
 
      (fn FEED-URL)
 
-12.78.1.8 emacspeak-feeds-restore-feeds
+12.78.1.9 emacspeak-feeds-restore-feeds
 .......................................
 
  -- Command: emacspeak-feeds-restore-feeds
@@ -120,8 +129,8 @@ This module provides Feeds support for Emacspeak required modules
      Restore list of subscribed fees from  personal resource directory.
      Archiving is useful when synchronizing feeds across multiple machines.
 
-12.78.1.9 emacspeak-feeds-rss-display
-.....................................
+12.78.1.10 emacspeak-feeds-rss-display
+......................................
 
  -- Command: emacspeak-feeds-rss-display (feed-url)
      ‘C-, r’
@@ -131,7 +140,7 @@ This module provides Feeds support for Emacspeak required modules
 
      (fn FEED-URL)
 
-12.78.1.10 emacspeak-feeds-select-feed
+12.78.1.11 emacspeak-feeds-select-feed
 ......................................
 
  -- Command: emacspeak-feeds-select-feed (feed-type)

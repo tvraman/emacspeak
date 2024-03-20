@@ -35,16 +35,18 @@
 
 ;;  @section Piper TTS
 ;; @enumerate
-;; @item Sandbox for @url{https://github.com/rhasspy/piper}
-;; @item pipx install piper-tts
-;; @item Set location of voice data in  @code{pip-data-dir}.
-;; @item Create the data directory above if needed.
-;; @item Run piper there  using the --update-voices flag once for each desired voice to get the voices.
-;; @item @code{M-x pip-speak} to speak.
-;; @item At present @code{piper} is not suitable for use as a primary TTS
-;; engine for Emacspeak, given its high latency.
-;; @item However it might be interesting to use it for lower-priority
-;; speech where quality trumps latency.
+;;  @item  Sandbox for
+;; @url{https://github.com/rhasspy/piper} @item pipx install piper-tts
+;; @item Set location of voice data in @code{pip-data-dir}.  @item
+;; Create the data directory above if needed.
+;;   @item Run piper there
+;; using the --update-voices flag once for each desired voice to get
+;; the voices.
+;; @item @code{M-x pip-speak} to speak.  @item At present
+;; @code{piper} is not suitable for use as a primary TTS engine for
+;; Emacspeak, given its high latency.  @item However it might be
+;; interesting to use it for lower-priority speech where quality
+;; trumps latency.
 ;; @end enumerate
 
 ;;; Code:
