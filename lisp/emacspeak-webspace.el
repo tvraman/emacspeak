@@ -379,12 +379,12 @@ Optional interactive prefix arg forces a refresh."
       (goto-char (point-min))
       (insert "Press enter to open feeds.\n\n")
       (put-text-property (point-min) (point) 'face font-lock-doc-face)
-      (cl-loop for f in emacspeak-feeds
-               and position  from 1
-               do
-               (insert (format "%d\t" position))
-               (emacspeak-webspace-feed-reader-insert-button f)
-               (insert "\n"))
+      (cl-loop
+       for f in emacspeak-feeds
+       and position  from 1 do
+       (insert (format "%d\t" position))
+       (emacspeak-webspace-feed-reader-insert-button f)
+       (insert "\n"))
       (switch-to-buffer emacspeak-webspace-reader-buffer)
       (emacspeak-webspace-mode))))
 
