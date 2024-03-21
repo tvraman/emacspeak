@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1180 commands and 128 options.
+This chapter documents a total of 1179 commands and 128 options.
 
 @node amixer
 @section amixer
@@ -3936,22 +3936,6 @@ Interactive prefix arg plays directory.
 Play most recently played URL.
 
 (fn &optional LEFT)
-@end format
-@end deffn
-
-@subsubsection emacspeak-empv-play-local
-@deffn {Command} emacspeak-empv-play-local  (file)
-@table @kbd
-@item C-e "
-@kindex C-e "
-@end table
-
-@findex emacspeak-empv-play-local
-
-@format
-Play a local resource  using mpv.
-
-(fn FILE)
 @end format
 @end deffn
 
