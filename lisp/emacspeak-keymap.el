@@ -471,7 +471,7 @@
 (defcustom emacspeak-y-keys
   '(
     ("p" empv-youtube-playlist)
-    ("r" emacspeak-empv-radio-stream)
+    ("r" emacspeak-empv-radio)
     ("l" emacspeak-empv-play-last)
     ("y" emacspeak-empv-play-url)
     )

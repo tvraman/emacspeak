@@ -2938,7 +2938,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-y-keymap,  Next:
 
 ‘l emacspeak-empv-play-last’
 ‘p empv-youtube-playlist’
-‘r emacspeak-empv-radio-stream’
+‘r emacspeak-empv-radio’
 ‘y emacspeak-empv-play-url’
 
 
@@ -6539,10 +6539,10 @@ Youtube integration
 
      (fn URL &optional LEFT)
 
-12.61.1.16 emacspeak-empv-radio-stream
-......................................
+12.61.1.16 emacspeak-empv-radio
+...............................
 
- -- Command: emacspeak-empv-radio-stream
+ -- Command: emacspeak-empv-radio
      ‘C-e y r’
 
      Play Internet stream

@@ -142,7 +142,7 @@ Interactive prefix arg plays directory."
     (empv-play file))
 
 
-(defun emacspeak-empv-radio-stream ()
+(defun emacspeak-empv-radio ()
   "Play Internet stream"
   (interactive)
   (emacspeak-empv-play-file

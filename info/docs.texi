@@ -3956,14 +3956,14 @@ Interactive prefix arg plays on left ear.
 @end format
 @end deffn
 
-@subsubsection emacspeak-empv-radio-stream
-@deffn {Command} emacspeak-empv-radio-stream   
+@subsubsection emacspeak-empv-radio
+@deffn {Command} emacspeak-empv-radio   
 @table @kbd
 @item C-e y r
 @kindex C-e y r
 @end table
 
-@findex emacspeak-empv-radio-stream
+@findex emacspeak-empv-radio
 
 @format
 Play Internet stream
@@ -8457,7 +8457,7 @@ Default Value:
 
 (("l" emacspeak-empv-play-last)
  ("p" empv-youtube-playlist)
- ("r" emacspeak-empv-radio-stream)
+ ("r" emacspeak-empv-radio)
  ("y" emacspeak-empv-play-url))
 
 @end verbatim

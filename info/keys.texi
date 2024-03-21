@@ -286,7 +286,7 @@
 @table @kbd
 @item l  emacspeak-empv-play-last
 @item p  empv-youtube-playlist
-@item r  emacspeak-empv-radio-stream
+@item r  emacspeak-empv-radio
 @item y  emacspeak-empv-play-url
 @end table
 
