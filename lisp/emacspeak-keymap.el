@@ -470,9 +470,10 @@
 
 (defcustom emacspeak-y-keys
   '(
+    ("l" emacspeak-empv-play-last)
     ("p" empv-youtube-playlist)
     ("r" emacspeak-empv-radio)
-    ("l" emacspeak-empv-play-last)
+    ("t" empv-youtube-tabulated)
     ("y" emacspeak-empv-play-url)
     )
   "Key bindings for use with C-e y. "
@@ -616,8 +617,7 @@
     ("r" soundscape-restart)
     ("s" soundscape)
     ("t" soundscape-toggle)
-    ("u" soundscape-update-mood)
-    ("y" empv-youtube-tabulated))
+    ("u" soundscape-update-mood))
   "Super key bindings. "
   :group 'emacspeak
   :type '(repeat
