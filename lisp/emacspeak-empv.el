@@ -278,6 +278,7 @@ Interactive prefix arg plays directory."
 (mapc
  #'(lambda (c) (put c 'repeat-map 'empv-map))
  '(
+   empv-set-volume empv-display-current 
    emacspeak-empv-play-last emacspeak-empv-play-url
    emacspeak-empv-play-file emacspeak-empv-play-local
    emacspeak-empv-forward-minute emacspeak-empv-backward-minute
@@ -286,9 +287,9 @@ Interactive prefix arg plays directory."
    emacspeak-empv-forward-15-minutes emacspeak-empv-backward-15-minutes
    emacspeak-empv-forward-30-minutes emacspeak-empv-backward-30-minutes
    emacspeak-empv-time-pos emacspeak-empv-clear-filter
-    emacspeak-empv-toggle-custom emacspeak-empv-toggle-filter
-emacspeak-empv-absolute-seek  emacspeak-empv-percentage-seek 
-emacspeak-empv-relative-seek))
+   emacspeak-empv-toggle-custom emacspeak-empv-toggle-filter
+   emacspeak-empv-absolute-seek  emacspeak-empv-percentage-seek 
+   emacspeak-empv-relative-seek))
  
 
 (defvar emacspeak-empv-filter-history nil
