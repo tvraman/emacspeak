@@ -277,7 +277,7 @@ Interactive prefix arg plays directory."
 (mapc
  #'(lambda (c) (put c 'repeat-map 'empv-map))
  '(
-   empv-set-volume empv-display-current 
+   empv-set-volume empv-display-current  empv-toggle
    emacspeak-empv-play-last emacspeak-empv-play-url
    emacspeak-empv-play-file emacspeak-empv-play-local
    emacspeak-empv-forward-minute emacspeak-empv-backward-minute
