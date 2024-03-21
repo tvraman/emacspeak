@@ -267,7 +267,6 @@ Interactive prefix arg plays directory."
      ("r" emacspeak-empv-relative-seek)
      ("s" emacspeak-empv-absolute-seek)
      ("v" empv-set-volume)
-     ("x" empv-exit)
      ("y" emacspeak-empv-yt-download))
    do
    (emacspeak-keymap-update empv-map b)))
