@@ -1269,8 +1269,7 @@ found on laptops is denoted <fn>
       ("r" soundscape-restart)
       ("s" soundscape)
       ("t" soundscape-toggle)
-      ("u" soundscape-update-mood)
-      ("y" empv-youtube-tabulated))
+      ("u" soundscape-update-mood))
      
 
  -- Variable: User Option emacspeak-v-keys
@@ -1341,6 +1340,7 @@ found on laptops is denoted <fn>
      (("l" emacspeak-empv-play-last)
       ("p" empv-youtube-playlist)
       ("r" emacspeak-empv-radio)
+      ("t" empv-youtube-tabulated)
       ("y" emacspeak-empv-play-url))
      
 

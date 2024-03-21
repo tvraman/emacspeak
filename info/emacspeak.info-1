@@ -2838,7 +2838,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-super-keymap,  N
 ‘s soundscape’
 ‘t soundscape-toggle’
 ‘u soundscape-update-mood’
-‘y empv-youtube-tabulated’
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Next: Emacspeak Keybindings On emacspeak-multi-keymap,  Prev: Emacspeak Keybindings On emacspeak-super-keymap,  Up: Emacspeak Keymaps
@@ -2939,6 +2938,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-y-keymap,  Next:
 ‘l emacspeak-empv-play-last’
 ‘p empv-youtube-playlist’
 ‘r emacspeak-empv-radio’
+‘t empv-youtube-tabulated’
 ‘y emacspeak-empv-play-url’
 
 

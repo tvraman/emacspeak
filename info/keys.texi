@@ -191,7 +191,6 @@
 @item s  soundscape
 @item t  soundscape-toggle
 @item u  soundscape-update-mood
-@item y  empv-youtube-tabulated
 @end table
 
 @node Emacspeak Keybindings On emacspeak-alt-keymap
@@ -287,6 +286,7 @@
 @item l  emacspeak-empv-play-last
 @item p  empv-youtube-playlist
 @item r  emacspeak-empv-radio
+@item t  empv-youtube-tabulated
 @item y  emacspeak-empv-play-url
 @end table
 
