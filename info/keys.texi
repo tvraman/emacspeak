@@ -285,6 +285,7 @@
 @item l  emacspeak-empv-play-last
 @item p  empv-youtube-playlist
 @item r  emacspeak-xslt-view-rss-file
+@item s  emacspeak-empv-radio-stream
 @item x  emacspeak-xslt-view-file
 @item y  emacspeak-empv-play-url
 @end table

@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1179 commands and 128 options.
+This chapter documents a total of 1180 commands and 128 options.
 
 @node amixer
 @section amixer
@@ -3953,6 +3953,20 @@ Play URL using mpv.
 Interactive prefix arg plays on left ear. 
 
 (fn URL &optional LEFT)
+@end format
+@end deffn
+
+@subsubsection emacspeak-empv-radio-stream
+@deffn {Command} emacspeak-empv-radio-stream   
+@table @kbd
+@item C-e y s
+@kindex C-e y s
+@end table
+
+@findex emacspeak-empv-radio-stream
+
+@format
+Play Internet stream
 @end format
 @end deffn
 
@@ -8444,6 +8458,7 @@ Default Value:
  ("l" emacspeak-empv-play-last)
  ("p" empv-youtube-playlist)
  ("r" emacspeak-xslt-view-rss-file)
+ ("s" emacspeak-empv-radio-stream)
  ("x" emacspeak-xslt-view-file)
  ("y" emacspeak-empv-play-url))
 

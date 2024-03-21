@@ -1340,6 +1340,7 @@ found on laptops is denoted <fn>
       ("l" emacspeak-empv-play-last)
       ("p" empv-youtube-playlist)
       ("r" emacspeak-xslt-view-rss-file)
+      ("s" emacspeak-empv-radio-stream)
       ("x" emacspeak-xslt-view-file)
       ("y" emacspeak-empv-play-url))
      

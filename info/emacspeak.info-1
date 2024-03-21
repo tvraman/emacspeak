@@ -2937,6 +2937,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-y-keymap,  Next:
 ‘l emacspeak-empv-play-last’
 ‘p empv-youtube-playlist’
 ‘r emacspeak-xslt-view-rss-file’
+‘s emacspeak-empv-radio-stream’
 ‘x emacspeak-xslt-view-file’
 ‘y emacspeak-empv-play-url’
 
@@ -3237,7 +3238,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1179 commands and 128 options.
+   This chapter documents a total of 1180 commands and 128 options.
 
 * Menu:
 
@@ -6538,7 +6539,15 @@ Youtube integration
 
      (fn URL &optional LEFT)
 
-12.61.1.16 emacspeak-empv-relative-seek
+12.61.1.16 emacspeak-empv-radio-stream
+......................................
+
+ -- Command: emacspeak-empv-radio-stream
+     ‘C-e y s’
+
+     Play Internet stream
+
+12.61.1.17 emacspeak-empv-relative-seek
 .......................................
 
  -- Command: emacspeak-empv-relative-seek (target)
@@ -6548,7 +6557,7 @@ Youtube integration
 
      (fn TARGET)
 
-12.61.1.17 emacspeak-empv-time-pos
+12.61.1.18 emacspeak-empv-time-pos
 ..................................
 
  -- Command: emacspeak-empv-time-pos
@@ -6556,7 +6565,7 @@ Youtube integration
 
      Speak time and percent position.
 
-12.61.1.18 emacspeak-empv-toggle-custom
+12.61.1.19 emacspeak-empv-toggle-custom
 .......................................
 
  -- Command: emacspeak-empv-toggle-custom
@@ -6564,7 +6573,7 @@ Youtube integration
 
      Toggle our custom filters.
 
-12.61.1.19 emacspeak-empv-toggle-filter
+12.61.1.20 emacspeak-empv-toggle-filter
 .......................................
 
  -- Command: emacspeak-empv-toggle-filter (filter)
@@ -6575,7 +6584,7 @@ Youtube integration
 
      (fn FILTER)
 
-12.61.1.20 emacspeak-empv-yt-download
+12.61.1.21 emacspeak-empv-yt-download
 .....................................
 
  -- Command: emacspeak-empv-yt-download
