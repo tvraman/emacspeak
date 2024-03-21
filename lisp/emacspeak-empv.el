@@ -141,18 +141,6 @@ Interactive prefix arg plays directory."
   (dtk-notify-speak (file-name-base file))
     (empv-play file))
 
-(defsubst emacspeak-empv-local-file ()
-  "Return local media filename read with completion."
-  (let (( default-directory empv-audio-dir))
-    (emacspeak-media-local-resource nil)))
-
-(defun emacspeak-empv-play-local (file )
-  "Play a local resource  using mpv."
-  (interactive (list (emacspeak-empv-local-file)))
-  (empv-play file))
-
-(put 'emacspeak-empv-play-local 'repeat-map 'empv-map)
-
 (defun emacspeak-empv-accumulate-to-register ()
   "Accumulate media links to register u"
   (interactive)
