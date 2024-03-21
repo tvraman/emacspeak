@@ -114,8 +114,7 @@ This module provides Feeds support for Emacspeak required modules
 ......................................
 
  -- Command: emacspeak-feeds-opml-display (feed-url)
-     ‘C-, o’
-     ‘C-x @ a o’
+     ‘C-e v o’
 
      Display OPML feed.
 
@@ -1169,7 +1168,6 @@ found on laptops is denoted <fn>
       ("f" ffip)
       ("g" rg)
       ("l" eww-open-file)
-      ("o" emacspeak-feeds-opml-display)
       ("p" emacspeak-wizards-pdf-open)
       ("q" emacspeak-wizards-quotes)
       ("r" emacspeak-feeds-rss-display)
@@ -1281,8 +1279,12 @@ found on laptops is denoted <fn>
      Default Value:
      
      (("SPC" emacspeak-speak-spaces)
+      ("a" emacspeak-xslt-view-atom-file)
       ("b" ebuku)
-      ("v" view-register))
+      ("o" emacspeak-feeds-opml-display)
+      ("r" emacspeak-xslt-view-rss-file)
+      ("v" view-register)
+      ("x" emacspeak-xslt-view-file))
      
 
  -- Variable: User Option emacspeak-windows-keys
@@ -1336,12 +1338,9 @@ found on laptops is denoted <fn>
 
      Default Value:
      
-     (("a" emacspeak-xslt-view-atom-file)
-      ("l" emacspeak-empv-play-last)
+     (("l" emacspeak-empv-play-last)
       ("p" empv-youtube-playlist)
-      ("r" emacspeak-xslt-view-rss-file)
-      ("s" emacspeak-empv-radio-stream)
-      ("x" emacspeak-xslt-view-file)
+      ("r" emacspeak-empv-radio-stream)
       ("y" emacspeak-empv-play-url))
      
 
@@ -9126,7 +9125,7 @@ transformations using xsltproc
 ........................................
 
  -- Command: emacspeak-xslt-view-atom-file (file)
-     ‘C-e y a’
+     ‘C-e v a’
 
      View Atom file.
 
@@ -9136,7 +9135,7 @@ transformations using xsltproc
 ...................................
 
  -- Command: emacspeak-xslt-view-file (style file)
-     ‘C-e y x’
+     ‘C-e v x’
 
      Transform ‘file’ using ‘style’ and preview via browse-url.
 
@@ -9156,7 +9155,7 @@ transformations using xsltproc
 .......................................
 
  -- Command: emacspeak-xslt-view-rss-file (file)
-     ‘C-e y r’
+     ‘C-e v r’
 
      View RSS file.
 

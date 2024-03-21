@@ -2857,7 +2857,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-alt-keymap,  Nex
 ‘f ffip’
 ‘g rg’
 ‘l eww-open-file’
-‘o emacspeak-feeds-opml-display’
 ‘p emacspeak-wizards-pdf-open’
 ‘q emacspeak-wizards-quotes’
 ‘r emacspeak-feeds-rss-display’
@@ -2888,8 +2887,12 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-v-keymap,  Next:
 ================================================
 
 ‘SPC emacspeak-speak-spaces’
+‘a emacspeak-xslt-view-atom-file’
 ‘b ebuku’
+‘o emacspeak-feeds-opml-display’
+‘r emacspeak-xslt-view-rss-file’
 ‘v view-register’
+‘x emacspeak-xslt-view-file’
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-x-keymap,  Next: Emacspeak Keybindings On emacspeak-y-keymap,  Prev: Emacspeak Keybindings On emacspeak-v-keymap,  Up: Emacspeak Keymaps
@@ -2933,12 +2936,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-y-keymap,  Next:
 11.9 Emacspeak Keybindings On emacspeak-y-keymap
 ================================================
 
-‘a emacspeak-xslt-view-atom-file’
 ‘l emacspeak-empv-play-last’
 ‘p empv-youtube-playlist’
-‘r emacspeak-xslt-view-rss-file’
-‘s emacspeak-empv-radio-stream’
-‘x emacspeak-xslt-view-file’
+‘r emacspeak-empv-radio-stream’
 ‘y emacspeak-empv-play-url’
 
 
@@ -6543,7 +6543,7 @@ Youtube integration
 ......................................
 
  -- Command: emacspeak-empv-radio-stream
-     ‘C-e y s’
+     ‘C-e y r’
 
      Play Internet stream
 

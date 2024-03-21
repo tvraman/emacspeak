@@ -209,7 +209,6 @@
 @item f  ffip
 @item g  rg
 @item l  eww-open-file
-@item o  emacspeak-feeds-opml-display
 @item p  emacspeak-wizards-pdf-open
 @item q  emacspeak-wizards-quotes
 @item r  emacspeak-feeds-rss-display
@@ -238,8 +237,12 @@
 
 @table @kbd
 @item SPC  emacspeak-speak-spaces
+@item a  emacspeak-xslt-view-atom-file
 @item b  ebuku
+@item o  emacspeak-feeds-opml-display
+@item r  emacspeak-xslt-view-rss-file
 @item v  view-register
+@item x  emacspeak-xslt-view-file
 @end table
 
 @node Emacspeak Keybindings On emacspeak-x-keymap
@@ -281,12 +284,9 @@
  @section Emacspeak Keybindings On emacspeak-y-keymap
 
 @table @kbd
-@item a  emacspeak-xslt-view-atom-file
 @item l  emacspeak-empv-play-last
 @item p  empv-youtube-playlist
-@item r  emacspeak-xslt-view-rss-file
-@item s  emacspeak-empv-radio-stream
-@item x  emacspeak-xslt-view-file
+@item r  emacspeak-empv-radio-stream
 @item y  emacspeak-empv-play-url
 @end table
 

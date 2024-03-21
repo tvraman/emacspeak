@@ -185,7 +185,6 @@ Archiving is useful when synchronizing feeds across multiple machines."
   (with-current-buffer (find-file-noselect emacspeak-feeds-archive-file)
     (goto-char (point-min))
     (setq emacspeak-feeds (read (current-buffer))))
-  (kill-buffer buffer)
   (emacspeak-feeds-cache-feeds)
   (setopt emacspeak-feeds emacspeak-feeds))
 

@@ -3959,8 +3959,8 @@ Interactive prefix arg plays on left ear.
 @subsubsection emacspeak-empv-radio-stream
 @deffn {Command} emacspeak-empv-radio-stream   
 @table @kbd
-@item C-e y s
-@kindex C-e y s
+@item C-e y r
+@kindex C-e y r
 @end table
 
 @findex emacspeak-empv-radio-stream
@@ -7036,10 +7036,8 @@ feeds.
 @subsubsection emacspeak-feeds-opml-display
 @deffn {Command} emacspeak-feeds-opml-display  (feed-url)
 @table @kbd
-@item C-, o
-@kindex C-, o
-@item C-x @@ a o
-@kindex C-x @@ a o
+@item C-e v o
+@kindex C-e v o
 @end table
 
 @findex emacspeak-feeds-opml-display
@@ -8239,7 +8237,6 @@ Default Value:
  ("f" ffip)
  ("g" rg)
  ("l" eww-open-file)
- ("o" emacspeak-feeds-opml-display)
  ("p" emacspeak-wizards-pdf-open)
  ("q" emacspeak-wizards-quotes)
  ("r" emacspeak-feeds-rss-display)
@@ -8381,8 +8378,12 @@ Default Value:
 @verbatim
 
 (("SPC" emacspeak-speak-spaces)
+ ("a" emacspeak-xslt-view-atom-file)
  ("b" ebuku)
- ("v" view-register))
+ ("o" emacspeak-feeds-opml-display)
+ ("r" emacspeak-xslt-view-rss-file)
+ ("v" view-register)
+ ("x" emacspeak-xslt-view-file))
 
 @end verbatim
 
@@ -8454,12 +8455,9 @@ Key bindings for use with C-e y.
 Default Value: 
 @verbatim
 
-(("a" emacspeak-xslt-view-atom-file)
- ("l" emacspeak-empv-play-last)
+(("l" emacspeak-empv-play-last)
  ("p" empv-youtube-playlist)
- ("r" emacspeak-xslt-view-rss-file)
- ("s" emacspeak-empv-radio-stream)
- ("x" emacspeak-xslt-view-file)
+ ("r" emacspeak-empv-radio-stream)
  ("y" emacspeak-empv-play-url))
 
 @end verbatim
@@ -18285,8 +18283,8 @@ Browse URL with specified XSL style.
 @subsubsection emacspeak-xslt-view-atom-file
 @deffn {Command} emacspeak-xslt-view-atom-file  (file)
 @table @kbd
-@item C-e y a
-@kindex C-e y a
+@item C-e v a
+@kindex C-e v a
 @end table
 
 @findex emacspeak-xslt-view-atom-file
@@ -18301,8 +18299,8 @@ View Atom file.
 @subsubsection emacspeak-xslt-view-file
 @deffn {Command} emacspeak-xslt-view-file  (style file)
 @table @kbd
-@item C-e y x
-@kindex C-e y x
+@item C-e v x
+@kindex C-e v x
 @end table
 
 @findex emacspeak-xslt-view-file
@@ -18328,8 +18326,8 @@ Browse XML region with specified XSL style.
 @subsubsection emacspeak-xslt-view-rss-file
 @deffn {Command} emacspeak-xslt-view-rss-file  (file)
 @table @kbd
-@item C-e y r
-@kindex C-e y r
+@item C-e v r
+@kindex C-e v r
 @end table
 
 @findex emacspeak-xslt-view-rss-file

@@ -373,8 +373,12 @@
 (defcustom emacspeak-v-keys
   '(
     ("SPC" emacspeak-speak-spaces)
+    ("a" emacspeak-xslt-view-atom-file)
     ("b" ebuku)
+    ("o" emacspeak-feeds-opml-display)
+    ("r" emacspeak-xslt-view-rss-file)
     ("v" view-register)
+    ("x" emacspeak-xslt-view-file)
     )
   "Key bindings for use with C-e v. "
   :group 'emacspeak
@@ -467,11 +471,8 @@
 (defcustom emacspeak-y-keys
   '(
     ("p" empv-youtube-playlist)
-    ("s" emacspeak-empv-radio-stream)
-    ("a" emacspeak-xslt-view-atom-file)
+    ("r" emacspeak-empv-radio-stream)
     ("l" emacspeak-empv-play-last)
-    ("r" emacspeak-xslt-view-rss-file)
-    ("x" emacspeak-xslt-view-file)
     ("y" emacspeak-empv-play-url)
     )
   "Key bindings for use with C-e y. "
@@ -653,7 +654,6 @@
     ("g" rg)
     ("C-l" ellama-chat)
     ("l" eww-open-file)
-    ("o" emacspeak-feeds-opml-display)
     ("p" emacspeak-wizards-pdf-open)
     ("q" emacspeak-wizards-quotes)
     ("r" emacspeak-feeds-rss-display)
