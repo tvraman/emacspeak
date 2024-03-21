@@ -141,6 +141,13 @@ Interactive prefix arg plays directory."
   (dtk-notify-speak (file-name-base file))
     (empv-play file))
 
+
+(defun emacspeak-empv-radio-stream ()
+  "Play Internet stream"
+  (interactive)
+  (emacspeak-empv-play-file
+   (let ((default-directory emacspeak-media-shortcuts))
+     (emacspeak-media-read-resource))))
 (defun emacspeak-empv-accumulate-to-register ()
   "Accumulate media links to register u"
   (interactive)

@@ -467,6 +467,7 @@
 (defcustom emacspeak-y-keys
   '(
     ("p" empv-youtube-playlist)
+    ("s" emacspeak-empv-radio-stream)
     ("a" emacspeak-xslt-view-atom-file)
     ("l" emacspeak-empv-play-last)
     ("r" emacspeak-xslt-view-rss-file)
