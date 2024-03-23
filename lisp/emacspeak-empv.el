@@ -258,6 +258,7 @@ Interactive prefix arg plays directory."
      ("DEL" emacspeak-empv-clear-filter)
      ("M" emacspeak-empv-backward-minute)
      ("SPC" empv-toggle)
+     ("b" emacspeak-empv-toggle-balance)
      ("m" emacspeak-empv-forward-minute)
      ("r" emacspeak-empv-relative-seek)
      ("s" emacspeak-empv-absolute-seek)
@@ -295,8 +296,6 @@ Interactive prefix arg plays directory."
     "stereowiden=4.25:.1:735:.8"
     "stereotools=mutel=true"
     "stereotools=muter=true"
-    "stereotools=balance_out=1.0"
-    "stereotools=balance_out=-1.0"
     "surround=7.1" "virtualbass"
     )
   "Table of MPV filters.")
@@ -313,6 +312,14 @@ Filter is of the  form name=arg-1:arg-2:..."
   (cl-declare (special emacspeak-empv-filter-history))
   (cl-pushnew filter emacspeak-empv-filter-history :test #'string=)
   (empv--send-command (list "af" "toggle" filter)))
+
+
+(defun emacspeak-empv-toggle-balance (value)
+  "Set balance to value --- range is -1.0..1.0 "
+  (interactive (list (read-minibuffer "Balance: ")))
+  (funcall-interactively #'emacspeak-empv-toggle-filter
+                         (format "stereotools=balance_out=%f" value)))
+
 
 (defun emacspeak-empv-clear-filter ()
   "Clear all filters. "
