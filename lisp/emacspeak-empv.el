@@ -103,22 +103,17 @@
   "Max number of history to preserve.")
 
 ;;;###autoload
-(defun emacspeak-empv-play-url (url &optional left)
-  "Play URL using mpv.
-Interactive prefix arg plays on left ear. "
-  (interactive (list (emacspeak-eww-read-url 'emacspeak-empv-history)
-                     current-prefix-arg))
+(defun emacspeak-empv-play-url (url)
+  "Play URL using mpv. "
+  (interactive (list (emacspeak-eww-read-url 'emacspeak-empv-history)))
   (cl-declare (special emacspeak-empv-history-max
-                       emacspeak-empv-history empv-mpv-args))
+                       emacspeak-empv-history))
   (when
       (and url (stringp url)
            (string-prefix-p (emacspeak-google-result-url-prefix) url))
     (setq url  (emacspeak-google-canonicalize-result-url url)))
   (add-to-history 'emacspeak-empv-history url emacspeak-empv-history-max)
-  (let* ((args (copy-sequence empv-mpv-args))
-         (empv-mpv-args args))
-    (when left (push "--audio-channels=fl" empv-mpv-args))
-    (empv-play url)))
+    (empv-play url))
 
 (defun emacspeak-empv-play-last (&optional left)
   "Play most recently played URL."
