@@ -173,7 +173,7 @@ Interactive prefix arg plays directory."
 
 (defun emacspeak-empv-relative-seek (target)
   "Relative seek in seconds,see `empv-seek'"
-  (interactive "nTarget:")
+  (interactive (list (read-number "Target:" )))
   (empv-seek target)
   (emacspeak-empv-post-nav))
 
