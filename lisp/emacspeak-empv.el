@@ -115,11 +115,11 @@
   (add-to-history 'emacspeak-empv-history url emacspeak-empv-history-max)
     (empv-play url))
 
-(defun emacspeak-empv-play-last (&optional left)
+(defun emacspeak-empv-play-last ()
   "Play most recently played URL."
-  (interactive "P")
+  (interactive )
   (cl-declare (special emacspeak-empv-history))
-  (emacspeak-empv-play-url (cl-first emacspeak-empv-history) left))
+  (emacspeak-empv-play-url (cl-first emacspeak-empv-history)))
 
 (declare-function emacspeak-media-local-resource "emacspeak-empv" t)
 (declare-function emacspeak-media-read-resource
