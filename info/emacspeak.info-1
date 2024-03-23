@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 21, 2024.
+last updated on March 23, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3238,7 +3238,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1180 commands and 128 options.
+   This chapter documents a total of 1181 commands and 128 options.
 
 * Menu:
 
@@ -6521,23 +6521,20 @@ Youtube integration
 12.61.1.14 emacspeak-empv-play-last
 ...................................
 
- -- Command: emacspeak-empv-play-last (&optional left)
+ -- Command: emacspeak-empv-play-last
      ‘C-e y l’
 
      Play most recently played URL.
 
-     (fn &optional LEFT)
-
 12.61.1.15 emacspeak-empv-play-url
 ..................................
 
- -- Command: emacspeak-empv-play-url (url &optional left)
+ -- Command: emacspeak-empv-play-url (url)
      ‘C-e y y’
 
      Play URL using mpv.
-     Interactive prefix arg plays on left ear.
 
-     (fn URL &optional LEFT)
+     (fn URL)
 
 12.61.1.16 emacspeak-empv-radio
 ...............................
@@ -6565,7 +6562,17 @@ Youtube integration
 
      Speak time and percent position.
 
-12.61.1.19 emacspeak-empv-toggle-custom
+12.61.1.19 emacspeak-empv-toggle-balance
+........................................
+
+ -- Command: emacspeak-empv-toggle-balance (value)
+     ‘s-SPC b’
+
+     Set balance to value -- range is -1.0..1.0
+
+     (fn VALUE)
+
+12.61.1.20 emacspeak-empv-toggle-custom
 .......................................
 
  -- Command: emacspeak-empv-toggle-custom
@@ -6573,7 +6580,7 @@ Youtube integration
 
      Toggle our custom filters.
 
-12.61.1.20 emacspeak-empv-toggle-filter
+12.61.1.21 emacspeak-empv-toggle-filter
 .......................................
 
  -- Command: emacspeak-empv-toggle-filter (filter)
@@ -6584,7 +6591,7 @@ Youtube integration
 
      (fn FILTER)
 
-12.61.1.21 emacspeak-empv-yt-download
+12.61.1.22 emacspeak-empv-yt-download
 .....................................
 
  -- Command: emacspeak-empv-yt-download

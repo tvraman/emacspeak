@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1180 commands and 128 options.
+This chapter documents a total of 1181 commands and 128 options.
 
 @node amixer
 @section amixer
@@ -3924,7 +3924,7 @@ Interactive prefix arg plays directory.
 @end deffn
 
 @subsubsection emacspeak-empv-play-last
-@deffn {Command} emacspeak-empv-play-last  (&optional left)
+@deffn {Command} emacspeak-empv-play-last   
 @table @kbd
 @item C-e y l
 @kindex C-e y l
@@ -3934,13 +3934,11 @@ Interactive prefix arg plays directory.
 
 @format
 Play most recently played URL.
-
-(fn &optional LEFT)
 @end format
 @end deffn
 
 @subsubsection emacspeak-empv-play-url
-@deffn {Command} emacspeak-empv-play-url  (url &optional left)
+@deffn {Command} emacspeak-empv-play-url  (url)
 @table @kbd
 @item C-e y y
 @kindex C-e y y
@@ -3949,10 +3947,9 @@ Play most recently played URL.
 @findex emacspeak-empv-play-url
 
 @format
-Play URL using mpv.
-Interactive prefix arg plays on left ear. 
+Play URL using mpv. 
 
-(fn URL &optional LEFT)
+(fn URL)
 @end format
 @end deffn
 
@@ -3997,6 +3994,22 @@ Relative seek in seconds,see ‘empv-seek’
 
 @format
 Speak time and percent position.
+@end format
+@end deffn
+
+@subsubsection emacspeak-empv-toggle-balance
+@deffn {Command} emacspeak-empv-toggle-balance  (value)
+@table @kbd
+@item s-SPC b
+@kindex s-SPC b
+@end table
+
+@findex emacspeak-empv-toggle-balance
+
+@format
+Set balance to value --- range is -1.0..1.0 
+
+(fn VALUE)
 @end format
 @end deffn
 
@@ -13728,7 +13741,7 @@ Format for time in brief.
 Default Value: 
 @verbatim
 
-"%l %M%p"
+"%l %M"
 
 @end verbatim
 
