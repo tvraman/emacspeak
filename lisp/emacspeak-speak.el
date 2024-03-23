@@ -1680,7 +1680,7 @@ See the documentation for function
   :type 'string)
 
 (defcustom emacspeak-speak-time-brief-format
-  "%l %M%p"
+  "%l %M"
   "Format for time in brief."
   :group 'emacspeak
   :type 'string)
@@ -1719,8 +1719,7 @@ Optional second arg `set' sets the TZ environment variable as well."
   "Time in brief"
   (interactive)
   (cl-declare (special emacspeak-speak-time-brief-format))
-  (dtk-speak
-   (format-time-string emacspeak-speak-time-brief-format)))
+  (emacspeak-pip (format-time-string emacspeak-speak-time-brief-format)))
 
 (defun emacspeak-speak-time (&optional world)
   "Speak the time.
