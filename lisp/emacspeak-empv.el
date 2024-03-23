@@ -292,7 +292,10 @@ Interactive prefix arg plays directory."
   '(
     "asubboost" "bs2b" "bs2b=cmoy" "bs2b=jmeier"
     "extrastereo" "extrastereo=1.5" "haas" "headphone"
-    "stereowiden=4.25:.1:735:.8" "surround=7.1" "virtualbass"
+    "stereowiden=4.25:.1:735:.8"
+    "stereotools=balance_out=1.0"
+    "stereotools=balance_out=-1.0"
+    "surround=7.1" "virtualbass"
     )
   "Table of MPV filters.")
 
