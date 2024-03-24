@@ -275,6 +275,7 @@ Interactive prefix arg plays directory."
  '(
    empv-set-volume empv-display-current  empv-toggle
    emacspeak-empv-play-last emacspeak-empv-play-url
+   emacspeak-empv-radio
    emacspeak-empv-play-file emacspeak-empv-play-local
    emacspeak-empv-forward-minute emacspeak-empv-backward-minute
    emacspeak-empv-forward-5-minutes emacspeak-empv-backward-5-minutes
