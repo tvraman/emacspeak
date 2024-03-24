@@ -345,12 +345,10 @@ plays result as a directory." directory)
   "Flag set by hotkeys. Let-binding this causes default-directory
  to be ignored when guessing directory.")
 
-(defun emacspeak-m-player-hotkey (directory)
+(defun emacspeak-m-player-hotkey (_dir)
   "Launch MPlayer on   `directory'."
-  (cl-declare (special ido-case-fold))
   (let ((ido-case-fold t)
-        (emacspeak-m-player-hotkey-p t)
-        (emacspeak-media-shortcuts (expand-file-name directory)))
+        (emacspeak-m-player-hotkey-p t))
     (call-interactively #'emacspeak-multimedia)
     (emacspeak-icon 'select-object)))
 
