@@ -464,6 +464,7 @@
   "Placed on org-mode-hook to do Emacspeak setup."
   (cl-declare (special org-mode-map org-multi-keymap ))
   (emacspeak-org-update-keys)
+  (define-key org-mode-map (kbd "C-o a") 'tvr-org-alphabetize)
   (define-key org-mode-map (kbd "C-o e") 'tvr-org-enumerate)
   (define-key org-mode-map (kbd "C-o i") 'tvr-org-itemize)
   (define-key outline-minor-mode-map (kbd "C-o i") 'tvr-org-itemize)
@@ -760,6 +761,14 @@ arg just opens the file"
   (interactive)
   (forward-line 0)
   (insert "  1.  ")
+  (emacspeak-speak-line)
+  (emacspeak-icon 'item))
+
+(defun tvr-org-alphabetize ()
+  "Start an alphabetized   list."
+  (interactive)
+  (forward-line 0)
+  (insert "  A.  ")
   (emacspeak-speak-line)
   (emacspeak-icon 'item))
 
