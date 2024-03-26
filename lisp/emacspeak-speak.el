@@ -2772,8 +2772,20 @@ Appended entries are separated by newlines."
      (t (error "No next buffer in mode %s" major-mode)))))
 
 ;; Inspired by text-adjust-scale:
+
+(defcustom emacspeak-buffer-select-help
+  ""
+  "String passed to speak help.
+Set this to the empty string once you've learnt this command. "
+  :type '(choice
+          (const :tag "Speak Keys" :value "Repeat with %k")
+          (const :tag "Silence" :value ""))
+  :group 'emacspeak)
+
+
 (defun emacspeak-buffer-select()
   "Select buffer by smart cycling.
+Use option emacspeak-buffer-select-help to customize interactive feedback.
 By default, this command is bound to multiple keys.
 The final key of the initial  key-sequence, and  further invocations
 of the keys below call the following bindings:
@@ -2788,6 +2800,7 @@ o other-window
 p emacspeak-cycle-to-previous-buffer
 "
   (interactive )
+  (cl-declare (special emacspeak-buffer-select-help))
   (let ((key (event-basic-type last-command-event)))
     (emacspeak-icon 'repeat-active)
     (cl-case key
@@ -2809,7 +2822,7 @@ p emacspeak-cycle-to-previous-buffer
           #'(lambda () (interactive) (emacspeak-buffer-select ))))
        map)
      t (lambda nil (emacspeak-icon 'repeat-end))
-     "Repeat with %k")))
+     emacspeak-buffer-select-help)))
 
 ;;; Network Utils:
 

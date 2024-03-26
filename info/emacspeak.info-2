@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 25, 2024.
+last updated on March 26, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -4554,6 +4554,7 @@ of emacspeak from becoming dependent on the speech server modules
      ‘C-e ,’
 
      Select buffer by smart cycling.
+     Use option emacspeak-buffer-select-help to customize interactive feedback.
      By default, this command is bound to multiple keys.
      The final key of the initial  key-sequence, and  further invocations
      of the keys below call the following bindings:
@@ -5610,6 +5611,15 @@ of emacspeak from becoming dependent on the speech server modules
 
 12.179.2 emacspeak-speak Options
 --------------------------------
+
+ -- Variable: User Option emacspeak-buffer-select-help
+     String passed to speak help.
+     Set this to the empty string once you’ve learnt this command. 
+
+     Default Value:
+     
+     ""
+     
 
  -- Variable: User Option emacspeak-mail-alert-interval
      Interval in seconds between mail alerts for the same pending
@@ -10025,11 +10035,12 @@ Piper TTS to Emacs.
 ================
 
   1. Sandbox for <https://github.com/rhasspy/piper>
-  2. pipx install piper-tts
-  3. Set location of voice data in ‘pip-data-dir’.
-  4. Create the data directory above if needed.
+  2. pipx install piper-tts.
+  3. Set location of voice data in ‘pip-data-dir’.  Default is
+     ‘~/.local/share/voices-piper’
+  4. ;; Create the data directory above if needed.
   5. Run piper there using the -update-voices flag once for each desired
-     voice to get the voices.
+     voice to get the voice models.
   6. ‘M-x pip-speak’ to speak.
   7. At present ‘piper’ is not suitable for use as a primary TTS engine
      for Emacspeak, given its high latency.

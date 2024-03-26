@@ -718,7 +718,7 @@ specifies index of move, default is final index."
           ((= 0 chess-display-index)
            "Start of game ")
           (t (format "Move %d" chess-display-index)))))
-    (dtk-speak-and-echo
+    (message
      (concat
       msg
       (emacspeak-chess-describe-move chess-module-game chess-display-index)))))

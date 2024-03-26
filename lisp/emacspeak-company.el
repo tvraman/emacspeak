@@ -81,7 +81,7 @@
    (let ((metadata (funcall 'company-fetch-metadata)))
      (when metadata
        (propertize metadata 'personality 'voice-annotate))
-     (dtk-speak-and-echo
+     (message
       (concat (ems-company-current) " " metadata)))))
 
 ;;;  Emacspeak Front-End For Company:

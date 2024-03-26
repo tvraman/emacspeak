@@ -83,7 +83,7 @@ Interactive PREFIX arg means toggle  global default value. "
       (setq emacspeak-comint-autospeak (not emacspeak-comint-autospeak))))
   (when (called-interactively-p 'interactive)
     (emacspeak-icon (if emacspeak-comint-autospeak 'on 'off))
-    (dtk-speak-and-echo
+    (message
      (format "Turned emacspeak-comint-autospeak %s  %s."
              (if emacspeak-comint-autospeak "on" "off")
              (if prefix "" " locally")))))

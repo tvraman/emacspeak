@@ -823,9 +823,6 @@ Argument COMPLEMENT  is the complement of separator."
         (when (get-text-property start 'pause)
           (dtk-interp-silence (get-text-property start 'pause) nil)))))))
 
-;; Force the speech.
-(defalias 'dtk-force 'dtk-interp-speak)
-
 ;; Write out the string to the tts via TCL.
 ;; No quoting is done,
 ;; ifyou want to quote the text, see dtk-speak
@@ -1742,7 +1739,7 @@ unless   `dtk-quiet' is set to t. "
         (unless (= start (point-max))
           (skip-syntax-forward " ")     ;skip leading whitespace
           (unless (eobp) (dtk-audio-format (point) (point-max))))))
-    (dtk-force)))
+    (dtk-interp-speak)))
 
 ;;;###autoload
 (defmacro ems-with-messages-silenced (&rest body)
@@ -1753,8 +1750,6 @@ unless   `dtk-quiet' is set to t. "
      (let ((emacspeak-speak-messages nil)
            (inhibit-message t))
        ,@body)))
-
-(defalias 'dtk-speak-and-echo 'message)
 
 (defun dtk-speak-list (text &optional group)
   "Speak a  list of strings.
@@ -1884,7 +1879,7 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
   (let ((dtk-speaker-process (dtk-notify-process)))
     (when (process-live-p dtk-speaker-process)
       (dtk-speak-using-voice voice text)
-      (dtk-force))))
+      (dtk-interp-speak))))
 
 ;; Include dtk-unicode.el
 

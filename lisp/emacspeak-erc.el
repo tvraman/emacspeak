@@ -261,7 +261,7 @@ set the current local value to the result.")
                                                   buffer)))
           (when msg
             (emacspeak-icon 'progress)
-            (dtk-speak-and-echo (format "%s" msg))
+            (message (format "%s" msg))
             (tts-with-punctuations dtk-punctuation-mode
                                    (dtk-speak  msg))))))))
 

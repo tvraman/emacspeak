@@ -854,7 +854,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 (defun emacspeak-error-handler (data _ _)
   "Custom error handler"
   (emacspeak-icon 'warn-user)
-  (dtk-speak-and-echo (propertize (error-message-string data) 'face 'error)))
+  (message (propertize (error-message-string data) 'face 'error)))
 
 (defun emacspeak-fancy-error-handler (data _ caller)
   "Custom error handler."
@@ -870,7 +870,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
       (setq ems--last-error-msg m
             ems--lazy-error-time (current-time))
       (emacspeak-icon 'warn-user)
-      (dtk-speak-and-echo
+      (message
        (concat
         (propertize
          (if (string-match "^ad-Advice" fn) (substring fn 10) fn)
@@ -2075,7 +2075,7 @@ Produce an auditory icon if possible."
   "Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-icon 'mark-object)
-    (dtk-speak-and-echo
+    (message
      (format "Marked buffer containing %s lines"
              (count-lines (point) (mark 'force))))))
 
@@ -2083,7 +2083,7 @@ Produce an auditory icon if possible."
   "Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-icon 'mark-object)
-    (dtk-speak-and-echo
+    (message
      (format "Marked paragraph containing %s lines"
              (count-lines (point)
                           (mark 'force))))))
@@ -2092,7 +2092,7 @@ Produce an auditory icon if possible."
   "Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-icon 'mark-object)
-    (dtk-speak-and-echo
+    (message
      (format "Marked page containing %s lines"
              (count-lines (point) (mark 'force))))))
 
@@ -2100,7 +2100,7 @@ Produce an auditory icon if possible."
   "Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-icon 'mark-object)
-    (dtk-speak-and-echo
+    (message
      (format "Word %s marked"
              (buffer-substring-no-properties (point) (mark 'force))))))
 
@@ -2110,7 +2110,7 @@ Produce an auditory icon if possible."
     (let ((lines (count-lines (point) (marker-position (mark-marker))))
           (chars (abs (- (point) (marker-position (mark-marker))))))
       (emacspeak-icon 'mark-object)
-      (dtk-speak-and-echo
+      (message
        (if (> lines 1)
            (format "Marked S expression spanning %s lines" lines)
          (format "marked S expression containing %s characters" chars))))))

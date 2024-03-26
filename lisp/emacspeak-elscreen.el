@@ -111,7 +111,7 @@
                    (elscreen-status-label screen "")
                    (propertize screen-name 'face 'font-lock-string-face)))))
            screen-list "  "))
-    (dtk-speak-and-echo msg)))
+    (message msg)))
 
 (provide 'emacspeak-elscreen)
 ;;;  end of file

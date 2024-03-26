@@ -232,7 +232,7 @@ Full List Of Keybindings:
   (interactive)
   (cl-declare (special emacspeak-table))
   (cl-assert  (boundp 'emacspeak-table) nil "No table here")
-  (dtk-speak-and-echo
+  (message
    (format "%s" (emacspeak-table-current-element emacspeak-table))))
 
 (defun emacspeak-table-speak-row-header-and-element ()
@@ -275,7 +275,7 @@ Full List Of Keybindings:
      ((zerop (length content))
       (dtk-speak-list "blank")
       (sox-sin 0.1 400))
-     (t (dtk-speak-and-echo content)))))
+     (t (message content)))))
 
 (defun emacspeak-table-speak-both-headers-and-element ()
   "Speak  both row and column header and table element"
@@ -397,7 +397,7 @@ Optional prefix arg prompts for a new filter."
     (emacspeak-table-ui-filter-set
      (emacspeak-table-ui-generate-key)
      emacspeak-table-speak-row-filter))
-  (dtk-speak-and-echo
+  (message
    (mapconcat
     #'emacspeak-table-handle-row-filter-token
     emacspeak-table-speak-row-filter
@@ -453,7 +453,7 @@ Optional prefix arg prompts for a new filter."
                 (not prefix))
     (setq emacspeak-table-speak-column-filter
           (read-minibuffer "Specify column filter as a list: " "(")))
-  (dtk-speak-and-echo
+  (message
    (mapconcat
     #'emacspeak-table-handle-column-filter-token
     emacspeak-table-speak-column-filter

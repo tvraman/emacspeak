@@ -94,7 +94,7 @@
      (t (emacspeak-icon 'item)))
     (put-text-property 0 (length name)
                        'personality voice-bolden-medium name)
-    (dtk-speak-and-echo  (concat name ": "desc))))
+    (message  (concat name ": "desc))))
 
 (defun emacspeak-package-next-line ()
   "Move to next line and speak it."

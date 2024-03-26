@@ -1148,7 +1148,7 @@ Searches for matches in both  Title and Author."
       (expand-file-name (emacspeak-epub-calibre-record-path r)
                         emacspeak-epub-calibre-root-dir)))
     (setq emacspeak-epub-calibre-results results)
-    (dtk-speak-and-echo  (format "Added %d books" (length results)))))
+    (message  (format "Added %d books" (length results)))))
 
 (defun emacspeak-epub-bookshelf-calibre-author (pattern)
   "Add results of an author search to current bookshelf."
@@ -1169,7 +1169,7 @@ Searches for matches in both  Title and Author."
       (expand-file-name (emacspeak-epub-calibre-record-path r)
                         emacspeak-epub-calibre-root-dir)))
     (setq emacspeak-epub-calibre-results results)
-    (dtk-speak-and-echo  (format "Added %d books" (length results)))))
+    (message  (format "Added %d books" (length results)))))
 
 (defun emacspeak-epub-bookshelf-calibre-title (pattern)
   "Add results of an title search to current bookshelf."
@@ -1190,7 +1190,7 @@ Searches for matches in both  Title and Author."
       (expand-file-name (emacspeak-epub-calibre-record-path r)
                         emacspeak-epub-calibre-root-dir)))
     (setq emacspeak-epub-calibre-results results)
-    (dtk-speak-and-echo  (format "Added %d books" (length results)))))
+    (message  (format "Added %d books" (length results)))))
 
 (define-derived-mode emacspeak-calibre-mode special-mode
   "Calibre Interaction On The Emacspeak Audio Desktop"

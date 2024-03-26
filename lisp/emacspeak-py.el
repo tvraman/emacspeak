@@ -142,7 +142,7 @@ Provide contextual feedback when closing blocks"
                            (format
                             "indent %s"
                             (current-column)))
-    (dtk-force)))
+    (dtk-interp-speak)))
 
 (defadvice py-shift-region-left (after emacspeak pre act comp)
   "Speak number of lines that were shifted"

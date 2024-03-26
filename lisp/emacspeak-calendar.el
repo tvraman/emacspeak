@@ -439,7 +439,7 @@
         (if (= (point-min) (point-max))
             (message  "No appointments are currently displayed")
           (dtk-speak (buffer-string)))))
-     (t (dtk-speak-and-echo "You have no appointments ")))))
+     (t (message "You have no appointments ")))))
 
 (defadvice appt-add (after emacspeak pre act comp)
   "Confirm that the alarm got set."

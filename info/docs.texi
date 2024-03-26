@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1181 commands and 128 options.
+This chapter documents a total of 1181 commands and 129 options.
 
 @node amixer
 @section amixer
@@ -12164,6 +12164,7 @@ Move to start or end of buffer.
 
 @format
 Select buffer by smart cycling.
+Use option emacspeak-buffer-select-help to customize interactive feedback.
 By default, this command is bound to multiple keys.
 The final key of the initial  key-sequence, and  further invocations
 of the keys below call the following bindings:
@@ -13688,6 +13689,21 @@ Send this command to the TTS directly.
 @end deffn
 
 @subsection emacspeak-speak Options
+
+@defvar {User Option} emacspeak-buffer-select-help
+@verbatim
+String passed to speak help.
+Set this to the empty string once you’ve learnt this command. 
+@end verbatim
+
+Default Value: 
+@verbatim
+
+""
+
+@end verbatim
+
+@end defvar
 
 @defvar {User Option} emacspeak-mail-alert-interval
 @verbatim
@@ -19324,15 +19340,18 @@ This module exposes Piper TTS to Emacs.
  @section Piper TTS
 @enumerate
  @item  Sandbox for
-@url{https://github.com/rhasspy/piper} @item pipx install piper-tts
-@item Set location of voice data in @code{pip-data-dir}.  @item
-Create the data directory above if needed.
+@url{https://github.com/rhasspy/piper}
+@item pipx install piper-tts.
+@item Set location of voice data in @code{pip-data-dir}.
+Default is @code{~/.local/share/voices-piper}
+@item ;; Create the data directory above if needed.
   @item Run piper there
 using the --update-voices flag once for each desired voice to get
-the voices.
+the voice models.
 @item @code{M-x pip-speak} to speak.  @item At present
 @code{piper} is not suitable for use as a primary TTS engine for
-Emacspeak, given its high latency.  @item However it might be
+Emacspeak, given its high latency.
+@item However it might be
 interesting to use it for lower-priority speech where quality
 trumps latency.
 @end enumerate

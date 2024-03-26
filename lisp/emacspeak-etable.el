@@ -134,7 +134,7 @@ Otherwise cue user to the line just created."
                                (format
                                 "indent %s"
                                 (current-column)))
-        (dtk-force)))))
+        (dtk-interp-speak)))))
   ad-do-it
   ad-return-value)
 
