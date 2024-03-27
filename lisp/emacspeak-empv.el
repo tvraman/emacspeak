@@ -115,6 +115,18 @@
   (add-to-history 'emacspeak-empv-history url emacspeak-empv-history-max)
     (empv-play url))
 
+
+(defadvice empv-play (before emacspeak pre act comp)
+  "Record history."
+  (cl-declare (special emacspeak-empv-history-max
+                       emacspeak-empv-history))
+  (let ((url (ad-get-arg 0)))
+    (when
+        (and url (stringp url)
+             (string-prefix-p (emacspeak-google-result-url-prefix) url))
+      (setq url  (emacspeak-google-canonicalize-result-url url)))
+    (add-to-history 'emacspeak-empv-history url emacspeak-empv-history-max)))
+
 (defun emacspeak-empv-play-last ()
   "Play most recently played URL."
   (interactive )
