@@ -237,8 +237,6 @@ references, poor-man's xpath."
   "Like g-json-lookup, but returns empty string for nil."
   (or (g-json-lookup key object) ""))
 
-(defalias 'g-json-aref 'aref)
-
 ;;;  helper macros
 
 (defmacro g-using-scratch(&rest body)
