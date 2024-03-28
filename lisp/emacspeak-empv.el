@@ -256,6 +256,7 @@ Interactive prefix arg plays directory."
    '(
      ("%" emacspeak-empv-percentage-seek)
      ("'" empv-current-loop-on)
+     ("," emacspeak-empv-toggle-left)
      ("." emacspeak-empv-toggle-custom)
      ("0" empv-volume-up)
      ("9" empv-volume-down)
@@ -295,6 +296,7 @@ Interactive prefix arg plays directory."
    emacspeak-empv-forward-30-minutes emacspeak-empv-backward-30-minutes
    emacspeak-empv-time-pos emacspeak-empv-clear-filter
    emacspeak-empv-toggle-custom emacspeak-empv-toggle-filter
+   emacspeak-empv-toggle-left
    emacspeak-empv-absolute-seek  emacspeak-empv-percentage-seek 
    emacspeak-empv-relative-seek))
  
@@ -357,6 +359,16 @@ The default value is suitable for classical instrumental music."
      emacspeak-empv-custom-filters)
     (emacspeak-icon 'button)
     (message "Toggled custom filters")))
+
+
+(defun emacspeak-empv-toggle-left ()
+  "Toggle output to being just on the left."
+  (interactive)
+  (interactive)
+  (empv--send-command (list "af" "toggle" "stereotools=muter=true"))
+  (emacspeak-icon 'button)
+  (message "Toggled output left"))
+
 
 (provide 'emacspeak-empv)
 ;;;  end of file
