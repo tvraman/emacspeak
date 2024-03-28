@@ -643,8 +643,8 @@ b Browse
     (error "Got %s: Expected <bookshare>" (dom-tag response)))
   (mapc #'emacspeak-bookshare-apply-handler (dom-children response)))
 
-(cl--defalias 'emacspeak-bookshare-version-handler 'ignore)
-(cl--defalias 'emacspeak-bookshare-debugInfo-handler 'ignore)
+(defalias 'emacspeak-bookshare-version-handler 'ignore)
+(defalias 'emacspeak-bookshare-debugInfo-handler 'ignore)
 
 (defun emacspeak-bookshare-recurse (tree)
   "Recurse down tree."
