@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 27, 2024.
+last updated on March 28, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3238,7 +3238,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1181 commands and 129 options.
+   This chapter documents a total of 1182 commands and 129 options.
 
 * Menu:
 
@@ -6591,7 +6591,15 @@ Youtube integration
 
      (fn FILTER)
 
-12.61.1.22 emacspeak-empv-yt-download
+12.61.1.22 emacspeak-empv-toggle-left
+.....................................
+
+ -- Command: emacspeak-empv-toggle-left
+     ‘s-SPC ,’
+
+     Toggle output to being just on the left.
+
+12.61.1.23 emacspeak-empv-yt-download
 .....................................
 
  -- Command: emacspeak-empv-yt-download

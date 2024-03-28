@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 27, 2024.
+last updated on March 28, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -2777,6 +2777,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * s-m:                                   extra-muggles.      (line   53)
 * s-n:                                   emacspeak-muggles.  (line  134)
 * s-o:                                   emacspeak-dbus.     (line   92)
+* s-SPC ,:                               emacspeak-empv.     (line  204)
 * s-SPC ;:                               emacspeak-empv.     (line  193)
 * s-SPC .:                               emacspeak-empv.     (line  185)
 * s-SPC %:                               emacspeak-empv.     (line  110)
@@ -2793,7 +2794,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * s-SPC m:                               emacspeak-empv.     (line  100)
 * s-SPC r:                               emacspeak-empv.     (line  157)
 * s-SPC s:                               emacspeak-empv.     (line   17)
-* s-SPC y:                               emacspeak-empv.     (line  204)
+* s-SPC y:                               emacspeak-empv.     (line  212)
 
 
 File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key Index,  Up: Top
@@ -3432,8 +3433,10 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-empv-toggle-custom <1>:      emacspeak-empv.     (line  186)
 * emacspeak-empv-toggle-filter:          emacspeak-empv.     (line  191)
 * emacspeak-empv-toggle-filter <1>:      emacspeak-empv.     (line  194)
-* emacspeak-empv-yt-download:            emacspeak-empv.     (line  202)
-* emacspeak-empv-yt-download <1>:        emacspeak-empv.     (line  205)
+* emacspeak-empv-toggle-left:            emacspeak-empv.     (line  202)
+* emacspeak-empv-toggle-left <1>:        emacspeak-empv.     (line  205)
+* emacspeak-empv-yt-download:            emacspeak-empv.     (line  210)
+* emacspeak-empv-yt-download <1>:        emacspeak-empv.     (line  213)
 * emacspeak-enriched-voiceify-faces:     emacspeak-enriched. (line   14)
 * emacspeak-enriched-voiceify-faces <1>: emacspeak-enriched. (line   15)
 * emacspeak-eperiodic-goto-property-section: emacspeak-eperiodic.
