@@ -64,6 +64,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
+       (emacspeak-speak-mode-line)
        (emacspeak-icon 'open-object)))))
 
 (defun ems--gh-explorer-nav (direction)
