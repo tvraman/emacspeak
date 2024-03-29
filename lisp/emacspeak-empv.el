@@ -202,7 +202,7 @@ Interactive prefix arg plays directory."
   (empv-seek (* count -10))
   (emacspeak-empv-post-nav))
 
-(defun emacspeak-empv-forward-1-seconds (&optional count)
+(defun emacspeak-empv-forward-10-seconds (&optional count)
   "Move forward count  chunks of 10 seconds."
   (interactive "p")
   (or count (setq count 1))
