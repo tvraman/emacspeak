@@ -195,6 +195,23 @@ Interactive prefix arg plays directory."
   (empv-seek target '("absolute"))
   (emacspeak-empv-post-nav))
 
+(defun emacspeak-empv-backward-10-seconds (&optional count)
+  "Move back  count  slices of 10 seconds."
+  (interactive "n")
+  (or count (setq count 1))
+  (empv-seek (* count -10))
+  (emacspeak-empv-post-nav))
+
+(defun emacspeak-empv-forward-1-seconds (&optional count)
+  "Move forward count  chunks of 10 seconds."
+  (interactive "p")
+  (or count (setq count 1))
+  (empv-seek (* count 10))
+  (emacspeak-empv-post-nav))
+
+;; Generate other navigators:
+
+
 (defun emacspeak-empv-backward-minute (&optional count)
   "Move back  count  minutes."
   (interactive "p")
@@ -256,7 +273,11 @@ Interactive prefix arg plays directory."
    '(
      ("%" emacspeak-empv-percentage-seek)
      ("'" empv-current-loop-on)
-     ("." emacspeak-empv-toggle-custom)
+     ("," emacspeak-empv-toggle-left)
+     ("." emacspeak-empv-toggle-right)
+     ("\\" emacspeak-empv-toggle-custom)
+     ("<" emacspeak-empv-backward-10-seconds)
+     (">" emacspeak-empv-forward-10-seconds)
      ("0" empv-volume-up)
      ("9" empv-volume-down)
      (";" emacspeak-empv-toggle-filter)
@@ -295,6 +316,7 @@ Interactive prefix arg plays directory."
    emacspeak-empv-forward-30-minutes emacspeak-empv-backward-30-minutes
    emacspeak-empv-time-pos emacspeak-empv-clear-filter
    emacspeak-empv-toggle-custom emacspeak-empv-toggle-filter
+   emacspeak-empv-toggle-left emacspeak-empv-toggle-right
    emacspeak-empv-absolute-seek  emacspeak-empv-percentage-seek 
    emacspeak-empv-relative-seek))
  
@@ -357,6 +379,22 @@ The default value is suitable for classical instrumental music."
      emacspeak-empv-custom-filters)
     (emacspeak-icon 'button)
     (message "Toggled custom filters")))
+
+
+(defun emacspeak-empv-toggle-left ()
+  "Toggle output to being just on the left."
+  (interactive)
+  (empv--send-command (list "af" "toggle" "stereotools=muter=true"))
+  (emacspeak-icon 'button)
+  (message "Toggled output left"))
+
+
+(defun emacspeak-empv-toggle-right ()
+  "Toggle output to being just on the right."
+  (interactive)
+  (empv--send-command (list "af" "toggle" "stereotools=mutel=true"))
+  (emacspeak-icon 'button)
+  (message "Toggled output right"))
 
 (provide 'emacspeak-empv)
 ;;;  end of file
