@@ -1530,7 +1530,8 @@ program. Port defaults to dtk-local-server-port"
   nil
   "Virtual sound device to use for notifications stream.
 Set to nil to disable a separate Notification stream.
-If you set the device here, make sure it exists first."
+If you set the device here, make sure it exists first.
+For swiftmac, set this to 'left' or 'right'."
   :type '(choice
           (const :tag "None" nil)
           (string :value ""))
@@ -1867,6 +1868,7 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
              (zerop (length tts-notification-device)))
       (with-environment-variables
           (("ALSA_DEFAULT" tts-notification-device)
+           ("SWIFTMAC_AUDIO_TARGET" tts-notification-device)
            ("PULSE_SINK" tts-notification-device))
         (setq  new (dtk-make-process "Notify"))
         (when (process-live-p new)
