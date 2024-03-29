@@ -4087,6 +4087,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      Virtual sound device to use for notifications stream.
      Set to nil to disable a separate Notification stream.
      If you set the device here, make sure it exists first.
+     For swiftmac, set this to ’left’ or ’right’.
 
      Default Value:
      
