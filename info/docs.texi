@@ -3849,17 +3849,6 @@ Clear all filters.
 @end format
 @end deffn
 
-@subsubsection emacspeak-empv-forward-1-seconds
-@deffn {Command} emacspeak-empv-forward-1-seconds  (&optional count)
-@findex emacspeak-empv-forward-1-seconds
-
-@format
-Move forward count  chunks of 10 seconds.
-
-(fn &optional COUNT)
-@end format
-@end deffn
-
 @subsubsection emacspeak-empv-forward-10-minutes
 @deffn {Command} emacspeak-empv-forward-10-minutes   
 @table @kbd
@@ -3871,6 +3860,22 @@ Move forward count  chunks of 10 seconds.
 
 @format
 Move forward by 10 minutes
+@end format
+@end deffn
+
+@subsubsection emacspeak-empv-forward-10-seconds
+@deffn {Command} emacspeak-empv-forward-10-seconds  (&optional count)
+@table @kbd
+@item s-SPC >
+@kindex s-SPC >
+@end table
+
+@findex emacspeak-empv-forward-10-seconds
+
+@format
+Move forward count  chunks of 10 seconds.
+
+(fn &optional COUNT)
 @end format
 @end deffn
 
