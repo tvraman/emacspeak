@@ -3238,7 +3238,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1182 commands and 129 options.
+   This chapter documents a total of 1183 commands and 129 options.
 
 * Menu:
 
@@ -6595,11 +6595,19 @@ Youtube integration
 .....................................
 
  -- Command: emacspeak-empv-toggle-left
-     ‘s-SPC ,’
+     ‘s-SPC <’
 
      Toggle output to being just on the left.
 
-12.61.1.23 emacspeak-empv-yt-download
+12.61.1.23 emacspeak-empv-toggle-right
+......................................
+
+ -- Command: emacspeak-empv-toggle-right
+     ‘s-SPC >’
+
+     Toggle output to being just on the right.
+
+12.61.1.24 emacspeak-empv-yt-download
 .....................................
 
  -- Command: emacspeak-empv-yt-download

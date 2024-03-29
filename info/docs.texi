@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1182 commands and 129 options.
+This chapter documents a total of 1183 commands and 129 options.
 
 @node amixer
 @section amixer
@@ -4047,14 +4047,28 @@ Filter is of the  form name=arg-1:arg-2:...
 @subsubsection emacspeak-empv-toggle-left
 @deffn {Command} emacspeak-empv-toggle-left   
 @table @kbd
-@item s-SPC ,
-@kindex s-SPC ,
+@item s-SPC <
+@kindex s-SPC <
 @end table
 
 @findex emacspeak-empv-toggle-left
 
 @format
 Toggle output to being just on the left.
+@end format
+@end deffn
+
+@subsubsection emacspeak-empv-toggle-right
+@deffn {Command} emacspeak-empv-toggle-right   
+@table @kbd
+@item s-SPC >
+@kindex s-SPC >
+@end table
+
+@findex emacspeak-empv-toggle-right
+
+@format
+Toggle output to being just on the right.
 @end format
 @end deffn
 
