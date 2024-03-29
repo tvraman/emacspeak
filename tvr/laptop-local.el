@@ -32,4 +32,16 @@
   (browse-url-chrome "go/snippets"))
 
 (define-key emacspeak-v-keymap "s" 'tvr-snippets)
+
+
+
+
+(defun tvr-time-off ()
+  "Open time-off in Chrome"
+  (interactive)
+  (browse-url-chrome "go/tom"))
+
+(define-key emacspeak-v-keymap "t" 'tvr-time-off)
+
+
 (provide 'laptop-local)
