@@ -195,6 +195,23 @@ Interactive prefix arg plays directory."
   (empv-seek target '("absolute"))
   (emacspeak-empv-post-nav))
 
+(defun emacspeak-empv-backward-10-seconds (&optional count)
+  "Move back  count  slices of 10 seconds."
+  (interactive "n")
+  (or count (setq count 1))
+  (empv-seek (* count -10))
+  (emacspeak-empv-post-nav))
+
+(defun emacspeak-empv-forward-1-seconds (&optional count)
+  "Move forward count  chunks of 10 seconds."
+  (interactive "p")
+  (or count (setq count 1))
+  (empv-seek (* count 10))
+  (emacspeak-empv-post-nav))
+
+;; Generate other navigators:
+
+
 (defun emacspeak-empv-backward-minute (&optional count)
   "Move back  count  minutes."
   (interactive "p")
@@ -256,9 +273,11 @@ Interactive prefix arg plays directory."
    '(
      ("%" emacspeak-empv-percentage-seek)
      ("'" empv-current-loop-on)
-     ("<" emacspeak-empv-toggle-left)
-     (">" emacspeak-empv-toggle-right)
-     ("." emacspeak-empv-toggle-custom)
+     ("," emacspeak-empv-toggle-left)
+     ("." emacspeak-empv-toggle-right)
+     ("\\" emacspeak-empv-toggle-custom)
+     ("<" emacspeak-empv-backward-10-seconds)
+     (">" emacspeak-empv-forward-10-seconds)
      ("0" empv-volume-up)
      ("9" empv-volume-down)
      (";" emacspeak-empv-toggle-filter)
