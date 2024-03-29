@@ -22,5 +22,14 @@
   (interactive)
   (browse-url-chrome "https://mail//"))
 
+
 (define-key emacspeak-v-keymap "m" 'tvr-mail)
+
+
+(defun tvr-snippets ()
+  "Open Google Snippets in Chrome"
+  (interactive)
+  (browse-url-chrome "go/snippets"))
+
+(define-key emacspeak-v-keymap "s" 'tvr-snippets)
 (provide 'laptop-local)

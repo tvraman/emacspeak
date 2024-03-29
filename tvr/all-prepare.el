@@ -172,7 +172,16 @@ Uses the go oauth tool found in the xoauth git repo."
   (interactive)
   (browse-url-chrome "https://mail//"))
 
+
 (define-key emacspeak-v-keymap "m" 'tvr-mail)
+
+
+(defun tvr-snippets ()
+  "Open Google Snippets in Chrome"
+  (interactive)
+  (browse-url-chrome "go/snippets"))
+
+(define-key emacspeak-v-keymap "s" 'tvr-snippets)
 (provide 'laptop-local)
 (define-key emacs-lisp-mode-map (kbd "C-c e") 'macrostep-expand)
 (defun conditionally-enable-lispy ()
