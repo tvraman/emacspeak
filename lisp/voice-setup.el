@@ -232,7 +232,7 @@ Define a voice for it if needed, then return the symbol."
 ;;;  new light-weight voice lock
 (declare-function emacspeak-icon "emacspeak-sounds" (icon))
 
-;;;###autoload
+
 (define-minor-mode voice-lock-mode
   "Toggle voice lock mode."
   :init-value t
@@ -245,7 +245,7 @@ Define a voice for it if needed, then return the symbol."
   "Turn on Voice Lock mode ."
   (interactive)
   (voice-lock-mode))
-;;;###autoload
+
 (define-globalized-minor-mode global-voice-lock-mode
   voice-lock-mode
   voice-lock-mode--turn-on
@@ -276,7 +276,7 @@ Define a voice for it if needed, then return the symbol."
 ;; then the original face->personality mapping is restored from the
 ;; cached value.
 
-;;;###autoload
+
 (defun voice-setup-toggle-silence-personality ()
   "Toggle audibility of personality under point  . "
   (interactive)

@@ -59,7 +59,7 @@
 (declare-function emacspeak-icon "emacspeak-sounds.el" (icon))
 (declare-function emacspeak-queue-icon "emacspeak-sounds.el"
                   (icon))
-;;;###autoload
+
 (defvar dtk-program
   (or
    (getenv "DTK_PROGRAM")
@@ -76,7 +76,6 @@ mac for MAC TTS (default on Mac)")
 ;; Importing dtk-interp by inclusion:
 
 ;;;  macros
-;;;###autoload
 (defmacro tts-with-punctuations (setting &rest body)
   "Set punctuation  and exec   body."
   (declare (indent 1) (debug t))
@@ -1531,7 +1530,7 @@ program. Port defaults to dtk-local-server-port"
   "Virtual sound device to use for notifications stream.
 Set to nil to disable a separate Notification stream.
 If you set the device here, make sure it exists first.
-For swiftmac, set this to 'left' or 'right'."
+For swiftmac, set this to `left' or `right'."
   :type '(choice
           (const :tag "None" nil)
           (string :value ""))
@@ -1742,7 +1741,6 @@ unless   `dtk-quiet' is set to t. "
           (unless (eobp) (dtk-audio-format (point) (point-max))))))
     (dtk-interp-speak)))
 
-;;;###autoload
 (defmacro ems-with-messages-silenced (&rest body)
   "Evaluate body  after temporarily silencing messages."
   (declare (indent 0) (debug t))

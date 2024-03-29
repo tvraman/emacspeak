@@ -474,7 +474,6 @@ First loads any persistent dictionaries if not already loaded."
   "Return the pronunciation table."
   emacspeak-pronounce-table)
 
-;;;###autoload
 (defun emacspeak-pronounce-toggle-dictionaries (&optional state)
   "Toggle  pronunciation dictionaries. "
   (interactive "P")
