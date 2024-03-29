@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1183 commands and 129 options.
+This chapter documents a total of 1185 commands and 129 options.
 
 @node amixer
 @section amixer
@@ -3774,6 +3774,22 @@ Move backward by 10 minutes
 @end format
 @end deffn
 
+@subsubsection emacspeak-empv-backward-10-seconds
+@deffn {Command} emacspeak-empv-backward-10-seconds  (&optional count)
+@table @kbd
+@item s-SPC <
+@kindex s-SPC <
+@end table
+
+@findex emacspeak-empv-backward-10-seconds
+
+@format
+Move back  count  slices of 10 seconds.
+
+(fn &optional COUNT)
+@end format
+@end deffn
+
 @subsubsection emacspeak-empv-backward-30-minutes
 @deffn {Command} emacspeak-empv-backward-30-minutes   
 @table @kbd
@@ -3829,6 +3845,17 @@ Move back  count  minutes.
 
 @format
 Clear all filters. 
+@end format
+@end deffn
+
+@subsubsection emacspeak-empv-forward-1-seconds
+@deffn {Command} emacspeak-empv-forward-1-seconds  (&optional count)
+@findex emacspeak-empv-forward-1-seconds
+
+@format
+Move forward count  chunks of 10 seconds.
+
+(fn &optional COUNT)
 @end format
 @end deffn
 
@@ -4016,8 +4043,8 @@ Set balance to value --- range is -1.0..1.0
 @subsubsection emacspeak-empv-toggle-custom
 @deffn {Command} emacspeak-empv-toggle-custom   
 @table @kbd
-@item s-SPC .
-@kindex s-SPC .
+@item s-SPC \
+@kindex s-SPC \
 @end table
 
 @findex emacspeak-empv-toggle-custom
@@ -4047,8 +4074,8 @@ Filter is of the  form name=arg-1:arg-2:...
 @subsubsection emacspeak-empv-toggle-left
 @deffn {Command} emacspeak-empv-toggle-left   
 @table @kbd
-@item s-SPC <
-@kindex s-SPC <
+@item s-SPC ,
+@kindex s-SPC ,
 @end table
 
 @findex emacspeak-empv-toggle-left
@@ -4061,8 +4088,8 @@ Toggle output to being just on the left.
 @subsubsection emacspeak-empv-toggle-right
 @deffn {Command} emacspeak-empv-toggle-right   
 @table @kbd
-@item s-SPC >
-@kindex s-SPC >
+@item s-SPC .
+@kindex s-SPC .
 @end table
 
 @findex emacspeak-empv-toggle-right
