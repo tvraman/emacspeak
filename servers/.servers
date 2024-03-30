@@ -1,4 +1,6 @@
+SharpWin
 cloud 
+cloud-SharpWin
 cloud-dtk
 cloud-dtk-soft
 cloud-espeak
@@ -8,6 +10,7 @@ cloud-swiftmac
 dtk-exp
 dtk-soft
 espeak
+log-SharpWin
 log-dtk
 log-dtk-soft
 log-espeak
