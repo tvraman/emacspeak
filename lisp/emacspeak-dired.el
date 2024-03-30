@@ -214,7 +214,7 @@ Assumes that `dired-listing-switches' contains  -l"
                            'field-name (car fields))
         (setq fields (cdr fields))
         (skip-syntax-forward " ")))))
-;;;###autoload
+
 (defun emacspeak-dired-label-fields ()
   "Labels the fields of the listing in the dired buffer.
 Currently is a no-op  unless
