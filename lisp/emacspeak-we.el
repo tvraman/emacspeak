@@ -244,7 +244,6 @@ Default is to apply sort-tables.")
   :group 'emacspeak-we)
 (declare-function emacspeak-eww-reading-settings "emacspeak-eww")
 
-;;;###autoload
 (defun emacspeak-we-xslt-filter (path    url  &optional _speak)
   "Extract elements matching specified XPath path locator
 from Web page -- default is the current page being viewed."
@@ -666,7 +665,6 @@ values as completion. "
      (format "//*[%s]" filter)
      url
      (or (called-interactively-p 'interactive) speak))))
-;;;###autoload
 (defun emacspeak-we-extract-by-id (id   url &optional speak)
   "Extract elements having specified id attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a
@@ -684,7 +682,6 @@ completion."
            id)
    url
    speak))
-;;;###autoload
 (defun emacspeak-we-extract-by-id-list(ids   url &optional speak)
   "Extract elements having id specified in list `ids' from HTML.
 Extracts specified elements from current WWW page and displays it in a
@@ -801,7 +798,6 @@ specifies the page to extract contents  from."
    (or (called-interactively-p 'interactive) speak)))
 
 ;;;  xpath  filter
-;;;###autoload
 (defvar emacspeak-we-recent-xpath-filter
   "//p"
   "Caches most recently used xpath filter.")

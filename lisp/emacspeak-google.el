@@ -54,6 +54,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile (require 'derived))
 (require 'emacspeak-preamble)
+(require 'emacspeak-we)
 (require 'gweb)
 
 ;;;  Data Structures

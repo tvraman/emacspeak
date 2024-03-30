@@ -43,12 +43,13 @@
 ;; Install from elpa
 ;; M-x package-install  elfeed
 
-;;   Required modules:
-;;; Code:
 
+;;; Code:
+;;   Required modules:
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'emacspeak-we)
 (require 'elfeed "elfeed" 'no-match)
 
 ;;;  Map Faces to voices
