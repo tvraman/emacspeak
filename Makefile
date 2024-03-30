@@ -33,6 +33,10 @@
 # the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ###  Configuration
+ifeq ($(OS),Windows_NT)
+SHELL := cmd.exe
+endif 
+
 .POSIX:
 MAKE=make
 MAKEFLAGS=--no-print-directory
@@ -42,8 +46,10 @@ README = README
 
 emacspeak: config 
 	@cd lisp && $(MAKE) $(MAKEFLAGS)
+ifneq ($(OS),Windows_NT)
 	@make   $(README)
 	@chmod 644 $(README)
+endif
 	@echo "See the NEWS file for a  summary of new features — Control e cap n in Emacs"
 	@echo "See Emacspeak Customizations for customizations — control e cap C in Emacs"
 	@echo  "Read the Emacspeak Manual — Control e TAB in Emacs"

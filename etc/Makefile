@@ -48,7 +48,9 @@ tips.html: tips.xml tips.xsl
 # }}}
 # {{{ User level target--  config 
 config:
+ifneq ($(OS),Windows_NT)
 	@chmod 755   *.pl
+endif
 
 # }}}
 # {{{maintainer target 

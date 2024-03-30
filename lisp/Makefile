@@ -35,6 +35,9 @@
 # the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
 ### make rules
+ifeq ($(OS),Windows_NT)
+SHELL := cmd.exe
+endif
 
 .POSIX:
 # what emacs is called on your system
@@ -43,8 +46,8 @@ SRC="../lisp"
 # How to run in batch mode
 BATCH = -batch -q -no-site-file     \
 -f package-initialize \
---eval '(setq file-name-handler-alist nil gc-cons-threshold 64000000 \
-load-source-file-function  nil)' 
+--eval "(setq file-name-handler-alist nil gc-cons-threshold 64000000 \
+load-source-file-function  nil)" 
 DEPS= -l $(SRC)/emacspeak-preamble.el -l $(SRC)/emacspeak-loaddefs.el 
 
 COMPILE =  -f batch-byte-compile
@@ -344,7 +347,11 @@ tags:
 ###   user level target-- clean
 
 clean:
+ifeq ($(OS),Windows_NT)
+	@del /s *.elc  emacspeak-loaddefs.el 
+else
 	@rm -f *.elc  emacspeak-loaddefs.el 
+endif
 
 ###  end of file
 
