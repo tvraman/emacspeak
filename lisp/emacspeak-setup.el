@@ -53,12 +53,12 @@
 (cl-pushnew (file-name-directory load-file-name) load-path :test #'string=)
 (require 'emacspeak-preamble)
 
-;; load and start emacspeak if interactive 
+;; load and start emacspeak if interactive
+(require 'emacspeak)
 (unless noninteractive
   (let ((file-name-handler-alist nil)
         (load-source-file-function nil))
     (load  "emacspeak-loaddefs")
-    (require 'emacspeak)
     (emacspeak)))
 
 (provide 'emacspeak-setup)
