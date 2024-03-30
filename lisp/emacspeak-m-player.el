@@ -1161,7 +1161,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
 
 (defun emacspeak-m-player-rem-history (url)
   "Remove URL from media history"
-  (interactive (list (emacspeak-eww-read-url)))
+  (interactive (list (ems--read-url)))
   (cl-declare (special emacspeak-m-player-media-history))
   (setq emacspeak-m-player-media-history
         (cl-remove-if
@@ -1741,7 +1741,7 @@ As the default, use current position."
   "Play an RSS stream."
   (interactive
    (list
-    (emacspeak-eww-read-url)))
+    (ems--read-url)))
   (let* ((file (make-temp-file  "rss-media" nil ".m3u"))
          (buffer (find-file-noselect file)))
     (message "Retrieving playlist.")

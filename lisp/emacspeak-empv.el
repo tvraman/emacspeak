@@ -105,7 +105,7 @@
 ;;;###autoload
 (defun emacspeak-empv-play-url (url)
   "Play URL using mpv. "
-  (interactive (list (emacspeak-eww-read-url 'emacspeak-empv-history)))
+  (interactive (list (ems--read-url 'emacspeak-empv-history)))
   (cl-declare (special emacspeak-empv-history-max
                        emacspeak-empv-history))
   (when

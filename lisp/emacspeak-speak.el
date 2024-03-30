@@ -58,6 +58,7 @@
 (require 'emacspeak-pronounce)
 (require 'emacspeak-sounds)
 (require 'sox-gen)
+(require 'shr)
 (declare-function operate-on-rectangle "rect" (function start end coerce-tabs))
 (declare-function which-function "which-func" nil)
 (declare-function calendar-cursor-to-nearest-date "cal-move" nil)
@@ -77,6 +78,14 @@
   "Adjust clause boundaries so that newlines dont delimit clauses."
   (cl-declare (special dtk-chunk-separator-syntax))
   (setq dtk-chunk-separator-syntax ".)$\""))
+;;; Helper: Read URL
+
+
+(defun ems--read-url (&optional history)
+  (or
+   (shr-url-at-point nil)
+   (read-string "URL:" (browse-url-url-at-point) history)))
+
 ;;; Helpers: subdirs
 
 

@@ -89,6 +89,7 @@
 (require 'ido)
 (require 'emacspeak-maths nil 'no-error)
 (require 'emacspeak-outline)
+(require 'emacspeak-dired)
 (require 'smartparens "smartparens" 'no-error)
 (require 'browse-kill-ring "browse-kill-ring" 'no-error)
 (require 'xbacklight)

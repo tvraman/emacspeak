@@ -934,7 +934,7 @@ Each URL template carries out the following steps:
 
 (defun emacspeak-url-template-nls-add-to-wishlist  (book)
   "Add book under point to wishlist."
-  (interactive (list  (emacspeak-eww-read-url)))
+  (interactive (list  (ems--read-url)))
   (let  ((add nil))
     (unless book (error "No Book URL specified"))
     (setq add

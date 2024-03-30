@@ -484,11 +484,6 @@
   (cl-assert  (eq major-mode 'eww-mode) t (error "Not in EWW")))
 
 ;; Return URL under point or URL read from minibuffer.
-;;;###autoload
-(defun emacspeak-eww-read-url (&optional history)
-  (or
-   (shr-url-at-point nil)
-   (read-string "URL:" (browse-url-url-at-point) history)))
 
 ;; Generate functions emacspeak-eww-current-title and friends:
 
@@ -2616,7 +2611,7 @@ With interactive prefix arg, move to the start of the table."
 
 (defun emacspeak-eww-browse-chrome (url)
   "Open with Chrome."
-  (interactive (list (emacspeak-eww-read-url)))
+  (interactive (list (ems--read-url)))
   (browse-url-chrome url))
 
 ;;; Repeat Support:

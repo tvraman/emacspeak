@@ -252,7 +252,7 @@ feeds."
 ;;;###autoload
 (defun emacspeak-feeds-rss-display (feed-url)
   "Display RSS feed."
-  (interactive (list (emacspeak-eww-read-url)))
+  (interactive (list (ems--read-url)))
   (cl-declare (special emacspeak-rss-xsl))
   (emacspeak-icon 'open-object)
   (emacspeak-feeds-feed-display feed-url emacspeak-rss-xsl 'speak))
@@ -260,7 +260,7 @@ feeds."
 ;;;###autoload
 (defun emacspeak-feeds-opml-display (feed-url)
   "Display OPML feed."
-  (interactive (list (emacspeak-eww-read-url)))
+  (interactive (list (ems--read-url)))
   (cl-declare (special emacspeak-opml-xsl))
   (emacspeak-feeds-feed-display feed-url emacspeak-opml-xsl 'speak))
 
@@ -279,7 +279,7 @@ feeds."
 ;;;###autoload
 (defun emacspeak-feeds-atom-display (feed-url)
   "Display ATOM feed."
-  (interactive (list (emacspeak-eww-read-url)))
+  (interactive (list (ems--read-url)))
   (cl-declare (special emacspeak-atom-xsl))
   (emacspeak-icon 'open-object)
   (emacspeak-feeds-feed-display feed-url emacspeak-atom-xsl 'speak))

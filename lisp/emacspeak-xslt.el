@@ -403,7 +403,7 @@ and return the results in a newly created buffer. "
    (list
     (expand-file-name
      (read-file-name "XSL Transformation: "))
-    (emacspeak-eww-read-url)))
+    (ems--read-url)))
   (cl-declare (special emacspeak-xslt-options))
   (add-hook
    'emacspeak-eww-pre-process-hook
@@ -415,7 +415,7 @@ and return the results in a newly created buffer. "
   (interactive
    (list
     (emacspeak-xslt-read)
-    (emacspeak-eww-read-url)
+    (ems--read-url)
     current-prefix-arg))
   (let ((browse-url-browser-function  'eww-browse-url)
         (src-buffer

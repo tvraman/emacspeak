@@ -360,7 +360,7 @@ more results."
   "Play book stream"
   (interactive
    (list
-    (emacspeak-eww-read-url)))
+    (ems--read-url)))
   (cl-declare (special emacspeak-curl g-curl-options
                        emacspeak-xslt))
   (let ((file  (make-temp-file "librivox" nil ".rss"))
