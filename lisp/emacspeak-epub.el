@@ -163,13 +163,15 @@
 ;; emacspeak-epub-open
 ;; @end table
 
-;;;  Required Modules:
+;;;Code:
+;; Required Modules:
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-xslt)
-
+(require 'eww)
+(require 'emacspeak-eww)
 (eval-when-compile
   (require 'derived)
   (require 'subr-x))

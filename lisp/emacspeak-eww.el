@@ -455,7 +455,7 @@
 
 ;;; Code:
 
-;;  Required modules: 
+;;  Required modules:
 
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -520,14 +520,14 @@
 (defvar emacspeak-eww-url-at-point
   #'(lambda ()
       (ems-with-messages-silenced
-       (let ((url (shr-url-at-point nil)))
-         (cond
-          ((and url ;;; google  Result
-                (stringp url)
-                (string-prefix-p (emacspeak-google-result-url-prefix) url))
-           (emacspeak-google-canonicalize-result-url url))
-          ((and url (stringp url))url)
-          (t (error "No URL under point."))))))
+        (let ((url (shr-url-at-point nil)))
+          (cond
+           ((and url ;;; google  Result
+                 (stringp url)
+                 (string-prefix-p (emacspeak-google-result-url-prefix) url))
+            (emacspeak-google-canonicalize-result-url url))
+           ((and url (stringp url))url)
+           (t (error "No URL under point."))))))
   "EWW Url At point that also handle google specialities.")
 
 (add-hook
@@ -893,6 +893,7 @@ Retain previously set punctuations  mode."
 
 (defun emacspeak-eww-after-render-hook ()
   "Setup Emacspeak for rendered buffer. "
+  (cl-declare (special  emacspeak-eww-post-process-hook))
   (let ((title (emacspeak-eww-current-title))
         (alt (dom-alternate-links (emacspeak-eww-current-dom))))
     (when (= 0 (length title)) (setq title "EWW: Untitled"))
@@ -1021,7 +1022,7 @@ Retain previously set punctuations  mode."
 ;;;###autoload
 (defvar emacspeak-eww-pre-process-hook nil
   "Pre-process hook -- to be used for XSL preprocessing etc.")
-;;;###autoload
+
 (defun emacspeak-eww-run-pre-process-hook (&rest _ignore)
   "Run web pre process hook."
   (cl-declare (special emacspeak-eww-pre-process-hook))
@@ -1036,7 +1037,6 @@ Retain previously set punctuations  mode."
 
 ;;;  web-post-process
 
-;;;###autoload
 (defvar emacspeak-eww-post-process-hook nil
   "Set locally to a  site specific post processor.
 Note that the Web browser should reset this hook after using it.")
@@ -1677,7 +1677,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (cond
      (                                 ; filter by text:
       (setq dom
-            (funcall transform 
+            (funcall transform
                      (cl-remove-if-not
                       #'(lambda (node)
                           (string-match text (dom-texts node " ")))
@@ -1979,28 +1979,28 @@ The %s is automatically spoken if there is no user activity."
 (defadvice shr-copy-url (around emacspeak pre act comp)
   "Canonicalize Google URLs"
   (ems-with-messages-silenced
-   ad-do-it
-   (when (ems-interactive-p)
-     (emacspeak-icon 'delete-object)
-     (let ((u (car kill-ring)))
-       (when
-           (and u (stringp u)
-                (string-prefix-p (emacspeak-google-result-url-prefix) u))
-         (kill-new  (emacspeak-google-canonicalize-result-url u))))
-     (emacspeak-speak-current-kill))))
+    ad-do-it
+    (when (ems-interactive-p)
+      (emacspeak-icon 'delete-object)
+      (let ((u (car kill-ring)))
+        (when
+            (and u (stringp u)
+                 (string-prefix-p (emacspeak-google-result-url-prefix) u))
+          (kill-new  (emacspeak-google-canonicalize-result-url u))))
+      (emacspeak-speak-current-kill))))
 
 (defadvice shr-maybe-probe-and-copy-url (around emacspeak pre act comp)
   "Canonicalize Google URLs"
   (ems-with-messages-silenced
-   ad-do-it
-   (when (ems-interactive-p)
-     (emacspeak-icon 'delete-object)
-     (let ((u (car kill-ring)))
-       (when
-           (and u (stringp u)
-                (string-prefix-p (emacspeak-google-result-url-prefix) u))
-         (kill-new  (emacspeak-google-canonicalize-result-url u))))
-     (emacspeak-speak-current-kill))))
+    ad-do-it
+    (when (ems-interactive-p)
+      (emacspeak-icon 'delete-object)
+      (let ((u (car kill-ring)))
+        (when
+            (and u (stringp u)
+                 (string-prefix-p (emacspeak-google-result-url-prefix) u))
+          (kill-new  (emacspeak-google-canonicalize-result-url u))))
+      (emacspeak-speak-current-kill))))
 
 ;;;  Speech-enable EWW buffer list:
 
@@ -2665,4 +2665,3 @@ Use for large EBook buffers."
 (provide 'emacspeak-eww)
 
 ;;;  end of file
-
