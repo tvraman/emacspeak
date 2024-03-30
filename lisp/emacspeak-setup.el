@@ -58,6 +58,7 @@
   (let ((file-name-handler-alist nil)
         (load-source-file-function nil))
     (load  "emacspeak-loaddefs")
+    (require 'emacspeak)
     (emacspeak)))
 
 (provide 'emacspeak-setup)

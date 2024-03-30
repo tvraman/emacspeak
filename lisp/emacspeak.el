@@ -406,7 +406,7 @@ This cannot be set via custom; set this in your startup file before
       (when val (require 'pip)))
   :group 'emacspeak)
 
-;;;###autoload
+
 (defun emacspeak()
   "Start the Emacspeak Audio Desktop.
 Use Emacs as you normally would, emacspeak provides spoken feedback.
