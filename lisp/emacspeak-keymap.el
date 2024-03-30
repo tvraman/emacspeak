@@ -600,7 +600,6 @@
   '(
     ("SPC"  scratch-buffer)
     ("." emacspeak-wizards-shell-directory-reset)
-    ("C-n" emacspeak-wizards-google-headlines)
     ("R" emacspeak-webspace-feed-reader)
     ("b" eww-list-buffers)
     ("c" calculator)

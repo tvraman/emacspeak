@@ -88,7 +88,7 @@
 
 (defvar gmaps-location-table (make-hash-table  :test  #'equal)
   "Hash table that memoizes geolocation.")
-;;;###autoload
+
 (defun gmaps-address-location (address)
   "Returns gmaps--location structure. "
   (cl-declare (special gmaps-location-table gmaps-locations-loaded-p))
@@ -176,7 +176,7 @@
   (format "%slatlng=%s&sensor=false&key=%s"
           gmaps-geocoder-base location gmaps-api-key))
 
-;;;###autoload
+
 (defun gmaps-geocode (address &optional raw-p)
   "Geocode given address.
 Optional argument `raw-p' returns complete JSON  object."
@@ -188,7 +188,6 @@ Optional argument `raw-p' returns complete JSON  object."
      (raw-p (g-json-get 'results result))
      (t (g-json-path-lookup "results.[0].geometry.location" result)))))
 
-;;;###autoload
 (defun gmaps-reverse-geocode (lat-long &optional raw-p)
   "Reverse geocode lat-long.
 Optional argument `raw-p' returns raw JSON  object."

@@ -95,7 +95,7 @@
   (expand-file-name "pipe.flac" emacspeak-user-directory)
   "Named socket for piped media streams.")
 
-;;;###autoload
+
 (defun emacspeak-wizards-midi-using-m-score (midi-file)
   "Play midi file using mscore from musescore package."
   (interactive "fMidi File:")

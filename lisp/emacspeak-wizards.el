@@ -56,6 +56,7 @@
   (require 'light)
   (require 'let-alist))
 (require 'g-utils)
+(require 'gmaps)
 (require 'find-func)
 (require 'comint)
 (require 'shell)
@@ -2352,12 +2353,6 @@ external package."
      (,emacspeak-we-xsl-junk "//menu|//*[contains(@role,\"button\")]"))
    "https://news.google.com"
    'speak))
-
-;;;###autoload
-(defun emacspeak-wizards-google-headlines ()
-  "Display just the headlines from Google News."
-  (interactive)
-  (emacspeak-we-xslt-filter "//h3" "https://news.google.com" 'speak))
 
 ;;;  Use Threads To Call Command Asynchronously:
 
