@@ -2613,14 +2613,6 @@ With interactive prefix arg, move to the start of the table."
 ;;; Open With External Browser: EAF, Chrome
 
 (declare-function eaf-open-browser "eaf-browser" (url &optional args))
-;;;###autoload
-(defun emacspeak-eww-browse-eaf  (url)
-  "Launch async EAF browser."
-  (interactive (list (emacspeak-eww-read-url)))
-  (unless(require 'eaf)
-    (error "Install Emacs Application Framework"))
-  (require 'eaf-browser)
-  (eaf-open-browser url))
 
 (defun emacspeak-eww-browse-chrome (url)
   "Open with Chrome."

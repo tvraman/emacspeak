@@ -411,7 +411,7 @@ Optional interactive prefix arg `prompt-mode' prompts for the mode."
      '(soundscape--auto (:eval (soundscape-current)))
      'at-end)))
 
-;;;###autoload
+
 (defun soundscape-listener  (&optional restart)
   "Start  a Soundscape listener.
 Listener is loaded with all Soundscapes defined in `soundscape-default-theme' .
