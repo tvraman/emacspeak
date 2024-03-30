@@ -110,7 +110,6 @@ given name, it is updated with path and position."
 (defvar emacspeak-amark-file ".amarks.am"
   "Name of file used to save AMarks.")
 
-;;;###autoload
 (defun emacspeak-amark-save ()
   "Save buffer-local AMarks in  currently playing directory."
   (interactive)
@@ -128,7 +127,6 @@ given name, it is updated with path and position."
       (kill-buffer buff)
       (emacspeak-icon 'save-object))))
 
-;;;###autoload
 (defun emacspeak-amark-load ()
   "Load AMarks file from  current  media directory."
   (cl-declare (special emacspeak-amark-list emacspeak-amark-file
@@ -232,7 +230,6 @@ Maps command \\[emacspeak-m-player] across elements of the amarks
   (when (and emacspeak-amark-list (listp emacspeak-amark-list))
     (mapc #'emacspeak-amark-play emacspeak-amark-list)))
 
-;;;###autoload
 (defun emacspeak-amark-browse ()
   "Browse   amarks  in current directory using `emacspeak-amark-mode'."
   (interactive)
@@ -262,7 +259,6 @@ Maps command \\[emacspeak-m-player] across elements of the amarks
       (goto-char (point-min)))
     (funcall-interactively #'switch-to-buffer buff)))
 
-;;;###autoload
 (defun emacspeak-amark-bookshelf(&optional pattern)
   "Open a locate buffer with all .amarks.am files.
 Optional interactive prefix arg prompts for a pattern that is

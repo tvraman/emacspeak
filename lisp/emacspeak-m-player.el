@@ -76,6 +76,7 @@
 (require 'emacspeak-preamble)
 (require 'dired)
 (require 'emacspeak-dired)
+(require 'emacspeak-amark)
 (require 'ladspa)
 (require 'emacspeak-amark)
 
