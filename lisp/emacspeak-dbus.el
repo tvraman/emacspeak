@@ -400,7 +400,7 @@ already disabled."
   (setq emacspeak-dbus-screen-lock-handle nil))
 
 ;;; Setup:
-
+;;;###autoload
 (defun emacspeak-dbus-setup ()
   "Turn on DBus handlers."
   (require 'dbus)
