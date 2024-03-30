@@ -5286,26 +5286,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speak remainder of the buffer starting at point
 
-12.179.1.74 emacspeak-speak-run-shell-command
-.............................................
-
- -- Command: emacspeak-speak-run-shell-command (command &optional
-          read-as-csv)
-     ‘C-e !’
-
-     Invoke shell COMMAND and display its output as a table. The
-     results are placed in a buffer in Emacspeak’s table browsing
-     mode. Optional interactive prefix arg read-as-csv interprets the
-     result as csv. . Use this for running shell commands that produce
-     tabulated output. This command should be used for shell commands
-     that produce tabulated output that works with Emacspeak’s table
-     recognizer. Verify this first by running the command in a shell
-     and executing command ‘emacspeak-table-display-table-in-region’
-     normally bound to C-e M-i.
-
-     (fn COMMAND &optional READ-AS-CSV)
-
-12.179.1.75 emacspeak-speak-seconds-since-epoch
+12.179.1.74 emacspeak-speak-seconds-since-epoch
 ...............................................
 
  -- Command: emacspeak-speak-seconds-since-epoch (seconds)
@@ -5314,7 +5295,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn SECONDS)
 
-12.179.1.76 emacspeak-speak-sentence
+12.179.1.75 emacspeak-speak-sentence
 ....................................
 
  -- Command: emacspeak-speak-sentence (&optional arg)
@@ -5325,7 +5306,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional ARG)
 
-12.179.1.77 emacspeak-speak-sexp
+12.179.1.76 emacspeak-speak-sexp
 ................................
 
  -- Command: emacspeak-speak-sexp (&optional arg)
@@ -5336,7 +5317,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional ARG)
 
-12.179.1.78 emacspeak-speak-sexp-interactively
+12.179.1.77 emacspeak-speak-sexp-interactively
 ..............................................
 
  -- Command: emacspeak-speak-sexp-interactively
@@ -5346,14 +5327,14 @@ of emacspeak from becoming dependent on the speech server modules
       ‘r’ to speak the rest.
      any other key to speak entire sexp.
 
-12.179.1.79 emacspeak-speak-skim-buffer
+12.179.1.78 emacspeak-speak-skim-buffer
 .......................................
 
  -- Command: emacspeak-speak-skim-buffer
 
      Skim the current buffer  a paragraph at a time.
 
-12.179.1.80 emacspeak-speak-spaces
+12.179.1.79 emacspeak-speak-spaces
 ..................................
 
  -- Command: emacspeak-speak-spaces
@@ -5361,7 +5342,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speak number of spaces at point.
 
-12.179.1.81 emacspeak-speak-spaces-at-point
+12.179.1.80 emacspeak-speak-spaces-at-point
 ...........................................
 
  -- Command: emacspeak-speak-spaces-at-point
@@ -5369,14 +5350,14 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speak the white space at point.
 
-12.179.1.82 emacspeak-speak-spell-current-word
+12.179.1.81 emacspeak-speak-spell-current-word
 ..............................................
 
  -- Command: emacspeak-speak-spell-current-word
 
      Spell word at  point.
 
-12.179.1.83 emacspeak-speak-this-window
+12.179.1.82 emacspeak-speak-this-window
 .......................................
 
  -- Command: emacspeak-speak-this-window
@@ -5384,7 +5365,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speak current window.
 
-12.179.1.84 emacspeak-speak-time
+12.179.1.83 emacspeak-speak-time
 ................................
 
  -- Command: emacspeak-speak-time (&optional world)
@@ -5398,7 +5379,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional WORLD)
 
-12.179.1.85 emacspeak-speak-version
+12.179.1.84 emacspeak-speak-version
 ...................................
 
  -- Command: emacspeak-speak-version (&optional speak-rev)
@@ -5409,7 +5390,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional SPEAK-REV)
 
-12.179.1.86 emacspeak-speak-visual-line
+12.179.1.85 emacspeak-speak-visual-line
 .......................................
 
  -- Command: emacspeak-speak-visual-line
@@ -5417,7 +5398,7 @@ of emacspeak from becoming dependent on the speech server modules
      Speaks current visual line.
      Cues the start of a physical line with auditory icon ‘left’.
 
-12.179.1.87 emacspeak-speak-voice-annotate-paragraphs
+12.179.1.86 emacspeak-speak-voice-annotate-paragraphs
 .....................................................
 
  -- Command: emacspeak-speak-voice-annotate-paragraphs
@@ -5426,7 +5407,7 @@ of emacspeak from becoming dependent on the speech server modules
      Here, paragraph is taken to mean a chunk of text preceded by a blank line.
      Useful to do this before you listen to an entire buffer.
 
-12.179.1.88 emacspeak-speak-which-function
+12.179.1.87 emacspeak-speak-which-function
 ..........................................
 
  -- Command: emacspeak-speak-which-function
@@ -5435,7 +5416,7 @@ of emacspeak from becoming dependent on the speech server modules
      Speak which function we are on.  Uses which-function from
      which-func without turning that mode on.
 
-12.179.1.89 emacspeak-speak-window-information
+12.179.1.88 emacspeak-speak-window-information
 ..............................................
 
  -- Command: emacspeak-speak-window-information
@@ -5443,7 +5424,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speaks information about current window.
 
-12.179.1.90 emacspeak-speak-windowful
+12.179.1.89 emacspeak-speak-windowful
 .....................................
 
  -- Command: emacspeak-speak-windowful
@@ -5451,7 +5432,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Delete other windows, Line to top, then Speak window contents.
 
-12.179.1.91 emacspeak-speak-word
+12.179.1.90 emacspeak-speak-word
 ................................
 
  -- Command: emacspeak-speak-word (&optional arg)
@@ -5465,7 +5446,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional ARG)
 
-12.179.1.92 emacspeak-speak-word-interactively
+12.179.1.91 emacspeak-speak-word-interactively
 ..............................................
 
  -- Command: emacspeak-speak-word-interactively
@@ -5475,7 +5456,7 @@ of emacspeak from becoming dependent on the speech server modules
       ‘r’ to speak the rest.
      any other key to speak entire word.
 
-12.179.1.93 emacspeak-speak-world-clock
+12.179.1.92 emacspeak-speak-world-clock
 .......................................
 
  -- Command: emacspeak-speak-world-clock (zone &optional set)
@@ -5485,21 +5466,21 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn ZONE &optional SET)
 
-12.179.1.94 emacspeak-submit-bug
+12.179.1.93 emacspeak-submit-bug
 ................................
 
  -- Command: emacspeak-submit-bug
 
      Function to submit a bug to the Emacspeak list
 
-12.179.1.95 emacspeak-switch-to-reference-buffer
+12.179.1.94 emacspeak-switch-to-reference-buffer
 ................................................
 
  -- Command: emacspeak-switch-to-reference-buffer
 
      Switch back to buffer that generated completions.
 
-12.179.1.96 emacspeak-toggle-audio-indentation
+12.179.1.95 emacspeak-toggle-audio-indentation
 ..............................................
 
  -- Command: emacspeak-toggle-audio-indentation (&optional prefix)
@@ -5513,7 +5494,7 @@ of emacspeak from becoming dependent on the speech server modules
      line’s indentation.  Specifying ‘speak’
      results in the number of initial spaces being spoken.
 
-12.179.1.97 emacspeak-toggle-character-echo
+12.179.1.96 emacspeak-toggle-character-echo
 ...........................................
 
  -- Command: emacspeak-toggle-character-echo (&optional prefix)
@@ -5523,14 +5504,14 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.179.1.98 emacspeak-toggle-header-line
+12.179.1.97 emacspeak-toggle-header-line
 ........................................
 
  -- Command: emacspeak-toggle-header-line
 
      Toggle Emacspeak’s default header line.
 
-12.179.1.99 emacspeak-toggle-line-echo
+12.179.1.98 emacspeak-toggle-line-echo
 ......................................
 
  -- Command: emacspeak-toggle-line-echo (&optional prefix)
@@ -5540,8 +5521,8 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.179.1.100 emacspeak-toggle-mail-alert
-........................................
+12.179.1.99 emacspeak-toggle-mail-alert
+.......................................
 
  -- Command: emacspeak-toggle-mail-alert (&optional prefix)
      ‘C-e M-m’
@@ -5552,7 +5533,7 @@ of emacspeak from becoming dependent on the speech server modules
      Turning on this option results in Emacspeak producing an auditory icon
      indicating the arrival  of new mail when displaying the mode line.
 
-12.179.1.101 emacspeak-toggle-show-point
+12.179.1.100 emacspeak-toggle-show-point
 ........................................
 
  -- Command: emacspeak-toggle-show-point (&optional prefix)
@@ -5562,7 +5543,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.179.1.102 emacspeak-toggle-speak-line-invert-filter
+12.179.1.101 emacspeak-toggle-speak-line-invert-filter
 ......................................................
 
  -- Command: emacspeak-toggle-speak-line-invert-filter (&optional
@@ -5573,7 +5554,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.179.1.103 emacspeak-toggle-speak-messages
+12.179.1.102 emacspeak-toggle-speak-messages
 ............................................
 
  -- Command: emacspeak-toggle-speak-messages (&optional prefix)
@@ -5581,7 +5562,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Toggle  state of whether emacspeak echoes messages.
 
-12.179.1.104 emacspeak-toggle-word-echo
+12.179.1.103 emacspeak-toggle-word-echo
 .......................................
 
  -- Command: emacspeak-toggle-word-echo (&optional prefix)
@@ -5591,7 +5572,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.179.1.105 emacspeak-view-notifications
+12.179.1.104 emacspeak-view-notifications
 .........................................
 
  -- Command: emacspeak-view-notifications
@@ -5601,7 +5582,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Display notifications.
 
-12.179.1.106 emacspeak-zap-tts
+12.179.1.105 emacspeak-zap-tts
 ..............................
 
  -- Command: emacspeak-zap-tts
@@ -5968,25 +5949,7 @@ User interface to tables
      Copy table in current buffer to the table clipboard.
      Current buffer must be in emacspeak-table mode.
 
-12.187.1.4 emacspeak-table-display-table-in-region
-..................................................
-
- -- Command: emacspeak-table-display-table-in-region (start end)
-     ‘C-e M-i’
-
-     Recognize tabular data in current region and display it in table
-     browsing mode in a a separate buffer.
-     emacspeak table mode is designed to let you browse tabular data using
-     all the power of the two-dimensional spatial layout while giving you
-     sufficient contextual information.  The tables subdirectory of the
-     emacspeak distribution contains some sample tables -these are the
-     CalTrain schedules.  Execute command ‘describe-mode’ bound to
-     C-h m in a buffer that is in emacspeak table mode to read
-     the documentation on the table browser.
-
-     (fn START END)
-
-12.187.1.5 emacspeak-table-find-csv-file
+12.187.1.4 emacspeak-table-find-csv-file
 ........................................
 
  -- Command: emacspeak-table-find-csv-file (filename)
@@ -5997,7 +5960,7 @@ User interface to tables
 
      (fn FILENAME)
 
-12.187.1.6 emacspeak-table-find-file
+12.187.1.5 emacspeak-table-find-file
 ....................................
 
  -- Command: emacspeak-table-find-file (filename)
@@ -6013,7 +5976,7 @@ User interface to tables
 
      (fn FILENAME)
 
-12.187.1.7 emacspeak-table-goto
+12.187.1.6 emacspeak-table-goto
 ...............................
 
  -- Command: emacspeak-table-goto (row column)
@@ -6023,7 +5986,7 @@ User interface to tables
 
      (fn ROW COLUMN)
 
-12.187.1.8 emacspeak-table-goto-bottom
+12.187.1.7 emacspeak-table-goto-bottom
 ......................................
 
  -- Command: emacspeak-table-goto-bottom
@@ -6032,7 +5995,7 @@ User interface to tables
 
      Goes to the bottom of the current column.
 
-12.187.1.9 emacspeak-table-goto-left
+12.187.1.8 emacspeak-table-goto-left
 ....................................
 
  -- Command: emacspeak-table-goto-left
@@ -6041,8 +6004,8 @@ User interface to tables
 
      Goes to the left of the current row.
 
-12.187.1.10 emacspeak-table-goto-right
-......................................
+12.187.1.9 emacspeak-table-goto-right
+.....................................
 
  -- Command: emacspeak-table-goto-right
      ‘C-e C-t E’
@@ -6050,7 +6013,7 @@ User interface to tables
 
      Goes to the right of the current row.
 
-12.187.1.11 emacspeak-table-goto-top
+12.187.1.10 emacspeak-table-goto-top
 ....................................
 
  -- Command: emacspeak-table-goto-top
@@ -6059,7 +6022,7 @@ User interface to tables
 
      Goes to the top of the current column.
 
-12.187.1.12 emacspeak-table-mode
+12.187.1.11 emacspeak-table-mode
 ................................
 
  -- Command: emacspeak-table-mode
@@ -6191,7 +6154,7 @@ User interface to tables
      run, this mode runs the hook ‘emacspeak-table-mode-hook’, as the final
      or penultimate step during initialization.
 
-12.187.1.13 emacspeak-table-next-column
+12.187.1.12 emacspeak-table-next-column
 .......................................
 
  -- Command: emacspeak-table-next-column (&optional count)
@@ -6203,7 +6166,7 @@ User interface to tables
 
      (fn &optional COUNT)
 
-12.187.1.14 emacspeak-table-next-row
+12.187.1.13 emacspeak-table-next-row
 ....................................
 
  -- Command: emacspeak-table-next-row (&optional count)
@@ -6215,7 +6178,7 @@ User interface to tables
 
      (fn &optional COUNT)
 
-12.187.1.15 emacspeak-table-paste-from-clipboard
+12.187.1.14 emacspeak-table-paste-from-clipboard
 ................................................
 
  -- Command: emacspeak-table-paste-from-clipboard
@@ -6224,7 +6187,7 @@ User interface to tables
      Use the major  mode of this buffer to  decide what kind of table
      markup to use.
 
-12.187.1.16 emacspeak-table-previous-column
+12.187.1.15 emacspeak-table-previous-column
 ...........................................
 
  -- Command: emacspeak-table-previous-column (&optional count)
@@ -6236,7 +6199,7 @@ User interface to tables
 
      (fn &optional COUNT)
 
-12.187.1.17 emacspeak-table-previous-row
+12.187.1.16 emacspeak-table-previous-row
 ........................................
 
  -- Command: emacspeak-table-previous-row (&optional count)
@@ -6248,7 +6211,7 @@ User interface to tables
 
      (fn &optional COUNT)
 
-12.187.1.18 emacspeak-table-search
+12.187.1.17 emacspeak-table-search
 ..................................
 
  -- Command: emacspeak-table-search (&optional what)
@@ -6261,7 +6224,7 @@ User interface to tables
 
      (fn &optional WHAT)
 
-12.187.1.19 emacspeak-table-search-column
+12.187.1.18 emacspeak-table-search-column
 .........................................
 
  -- Command: emacspeak-table-search-column
@@ -6269,7 +6232,7 @@ User interface to tables
 
      Search in current table column.
 
-12.187.1.20 emacspeak-table-search-headers
+12.187.1.19 emacspeak-table-search-headers
 ..........................................
 
  -- Command: emacspeak-table-search-headers
@@ -6279,7 +6242,7 @@ User interface to tables
      row or column to search and pattern to look for.  If there is a
      match, makes the matching row or column current.
 
-12.187.1.21 emacspeak-table-search-row
+12.187.1.20 emacspeak-table-search-row
 ......................................
 
  -- Command: emacspeak-table-search-row
@@ -6287,7 +6250,7 @@ User interface to tables
 
      Search in current table row.
 
-12.187.1.22 emacspeak-table-select-automatic-speaking-method
+12.187.1.21 emacspeak-table-select-automatic-speaking-method
 ............................................................
 
  -- Command: emacspeak-table-select-automatic-speaking-method
@@ -6296,7 +6259,7 @@ User interface to tables
      Interactively select the kind of automatic speech to produce when
      browsing table elements
 
-12.187.1.23 emacspeak-table-sort-on-current-column
+12.187.1.22 emacspeak-table-sort-on-current-column
 ..................................................
 
  -- Command: emacspeak-table-sort-on-current-column
@@ -6304,7 +6267,7 @@ User interface to tables
 
      Sort table on current column.
 
-12.187.1.24 emacspeak-table-speak-both-headers-and-element
+12.187.1.23 emacspeak-table-speak-both-headers-and-element
 ..........................................................
 
  -- Command: emacspeak-table-speak-both-headers-and-element
@@ -6312,7 +6275,7 @@ User interface to tables
 
      Speak  both row and column header and table element
 
-12.187.1.25 emacspeak-table-speak-column-filtered
+12.187.1.24 emacspeak-table-speak-column-filtered
 .................................................
 
  -- Command: emacspeak-table-speak-column-filtered (&optional prefix)
@@ -6323,7 +6286,7 @@ User interface to tables
 
      (fn &optional PREFIX)
 
-12.187.1.26 emacspeak-table-speak-column-header-and-element
+12.187.1.25 emacspeak-table-speak-column-header-and-element
 ...........................................................
 
  -- Command: emacspeak-table-speak-column-header-and-element
@@ -6331,7 +6294,7 @@ User interface to tables
 
      Speak  column header and table element
 
-12.187.1.27 emacspeak-table-speak-coordinates
+12.187.1.26 emacspeak-table-speak-coordinates
 .............................................
 
  -- Command: emacspeak-table-speak-coordinates
@@ -6339,7 +6302,7 @@ User interface to tables
 
      Speak current table coordinates.
 
-12.187.1.28 emacspeak-table-speak-current-element
+12.187.1.27 emacspeak-table-speak-current-element
 .................................................
 
  -- Command: emacspeak-table-speak-current-element
@@ -6347,7 +6310,7 @@ User interface to tables
 
      Speak current table element
 
-12.187.1.29 emacspeak-table-speak-dimensions
+12.187.1.28 emacspeak-table-speak-dimensions
 ............................................
 
  -- Command: emacspeak-table-speak-dimensions
@@ -6355,7 +6318,7 @@ User interface to tables
 
      Speak current table dimensions.
 
-12.187.1.30 emacspeak-table-speak-row-filtered
+12.187.1.29 emacspeak-table-speak-row-filtered
 ..............................................
 
  -- Command: emacspeak-table-speak-row-filtered (&optional prefix)
@@ -6366,7 +6329,7 @@ User interface to tables
 
      (fn &optional PREFIX)
 
-12.187.1.31 emacspeak-table-speak-row-header-and-element
+12.187.1.30 emacspeak-table-speak-row-header-and-element
 ........................................................
 
  -- Command: emacspeak-table-speak-row-header-and-element
@@ -6374,7 +6337,7 @@ User interface to tables
 
      Speak  row header and table element
 
-12.187.1.32 emacspeak-table-ui-filter-load
+12.187.1.31 emacspeak-table-ui-filter-load
 ..........................................
 
  -- Command: emacspeak-table-ui-filter-load (file)
@@ -6384,7 +6347,7 @@ User interface to tables
 
      (fn FILE)
 
-12.187.1.33 emacspeak-table-ui-filter-save
+12.187.1.32 emacspeak-table-ui-filter-save
 ..........................................
 
  -- Command: emacspeak-table-ui-filter-save (file)
@@ -6394,7 +6357,7 @@ User interface to tables
 
      (fn FILE)
 
-12.187.1.34 emacspeak-table-view-csv-buffer
+12.187.1.33 emacspeak-table-view-csv-buffer
 ...........................................
 
  -- Command: emacspeak-table-view-csv-buffer (&optional buffer-name)
@@ -6405,7 +6368,7 @@ User interface to tables
 
      (fn &optional BUFFER-NAME)
 
-12.187.1.35 emacspeak-table-view-csv-url
+12.187.1.34 emacspeak-table-view-csv-url
 ........................................
 
  -- Command: emacspeak-table-view-csv-url (url &optional buffer-name)
@@ -10104,4 +10067,172 @@ Plain is suitable for a device for which you haven't yet implemented
 appropriate voice-locking controls
 
    required modules
+
+
+File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options
+
+12.235 soundscape
+=================
+
+Soundscapes <https://en.wikipedia.org/wiki/Soundscape> define an
+acoustic environment.  Boodler at <http://boodler.org> is a Python-based
+SoundScape generator.  To use this module, first install boodler.  Then
+install the soundscape packages (*.boop) files available at
+<http://boodler.org/lib>.  Make sure boodler works and produces audio in
+your environment.  finally install the Boodler packages from
+emacspeak/scapes from the Emacspeak GitHub repository by running ‘cd
+emacspeak/scapes; make ’
+
+   When boodler is set up and all packages installed, copy file
+emacspeak/scapes/soundscapes to ~/.boodler/Collection.  The above file
+lists all installed SoundScapes.  Directory emacspeak/scapes also
+contains additional Boodler Agents and SoundScapes that I have created
+for use with Emacspeak.
+
+   Module soundscape.el defines Emacs conveniences for running
+Soundscapes.  Main Entry Points:
+
+   • M-x soundscape-toggle - Enables or disables automatic SoundScapes.
+   • M-x soundscape - runs a named SoundScape
+   • M-x soundscape-stop - Stops a specified running Soundscape.
+   • M-x soundscape-kill - Kills all running Soundscapes.
+
+   When automatic Soundscapes are enabled, SoundScapes are started and
+stopped based on the current major mode.  Active Soundscape are
+displayed as part of the minor-mode-alist.  Command
+emacspeak-speak-minor-mode-line can be used to have this spoken.
+
+   Thus, SoundScapes can be thought of as reflecting the _mood_ of the
+current _mode_.  This package defines a single SOUNDSCAPE-DEFAULT-THEME
+that is loaded using ‘(soundscape-load soundscape-default-theme)’.
+Emacs modes that provide similar functionality e.g., communication ==
+email, IM, ...  map to the same _mood_.
+
+12.235.1 Soundscape Commands
+----------------------------
+
+12.235.1.1 soundscape
+.....................
+
+ -- Command: soundscape (scape)
+     ‘C-. s’
+     ‘C-x @ s s’
+
+     Play soundscape.
+
+     (fn SCAPE)
+
+12.235.1.2 soundscape-kill
+..........................
+
+ -- Command: soundscape-kill
+
+     Stop all running soundscapes.
+
+12.235.1.3 soundscape-listener
+..............................
+
+ -- Command: soundscape-listener (&optional restart)
+
+     Start  a Soundscape listener.
+     Listener is loaded with all Soundscapes defined in ‘soundscape-default-theme’ .
+     Optional interactive prefix arg restarts the listener.
+
+     (fn &optional RESTART)
+
+12.235.1.4 soundscape-listener-shutdown
+.......................................
+
+ -- Command: soundscape-listener-shutdown
+
+     Shutdown listener.
+
+12.235.1.5 soundscape-remote
+............................
+
+ -- Command: soundscape-remote (names)
+
+     Activate scapes named ‘names’ -- a list of strings.
+
+     (fn NAMES)
+
+12.235.1.6 soundscape-restart
+.............................
+
+ -- Command: soundscape-restart (&optional prompt)
+     ‘C-. r’
+     ‘C-x @ s r’
+
+     Restart Soundscape  environment.
+     With prefix arg ‘prompt’, prompt for a alsa/ladspa device and volume.
+     The  is then saved to soundscape-device for future use.
+
+     (fn &optional PROMPT)
+
+12.235.1.7 soundscape-stop
+..........................
+
+ -- Command: soundscape-stop (scape)
+
+     Stop running Soundscape.
+
+     (fn SCAPE)
+
+12.235.1.8 soundscape-theme
+...........................
+
+ -- Command: soundscape-theme
+
+     Shows default theme in a special buffer.
+
+12.235.1.9 soundscape-toggle
+............................
+
+ -- Command: soundscape-toggle
+     ‘C-. t’
+     ‘C-x @ s t’
+
+     Toggle automatic SoundScapes.
+     Run command M-x soundscape-theme to see the default mode->mood mapping.
+
+12.235.1.10 soundscape-update-mood
+..................................
+
+ -- Command: soundscape-update-mood (&optional prompt-mode)
+     ‘C-. u’
+     ‘C-x @ s u’
+
+     Update mood/scape mapping for current  mode.
+     The  updated mapping is not persisted.
+     Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
+
+     (fn &optional PROMPT-MODE)
+
+12.235.2 soundscape Options
+---------------------------
+
+ -- Variable: User Option soundscape-data
+     Soundscape data directory.
+
+     Default Value:
+     
+     "/home/raman/.boodler/Collection"
+     
+
+ -- Variable: User Option soundscape-device
+     Alsa sound device to use for soundscapes.
+
+     Default Value:
+     
+     "default"
+     
+
+ -- Variable: User Option soundscape-manager-options
+     User customizable options list passed to boodler.
+     Defaults specify alsa as the output and set master volume
+
+     Default Value:
+     
+     ("-m" "0.3")
+     
 

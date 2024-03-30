@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1185 commands and 129 options.
+This chapter documents a total of 1183 commands and 129 options.
 
 @node amixer
 @section amixer
@@ -13280,30 +13280,6 @@ Speak remainder of the buffer starting at point
 @end format
 @end deffn
 
-@subsubsection emacspeak-speak-run-shell-command
-@deffn {Command} emacspeak-speak-run-shell-command  (command &optional read-as-csv)
-@table @kbd
-@item C-e !
-@kindex C-e !
-@end table
-
-@findex emacspeak-speak-run-shell-command
-
-@format
-Invoke shell COMMAND and display its output as a table. The
-results are placed in a buffer in Emacspeak’s table browsing
-mode. Optional interactive prefix arg read-as-csv interprets the
-result as csv. . Use this for running shell commands that produce
-tabulated output. This command should be used for shell commands
-that produce tabulated output that works with Emacspeak’s table
-recognizer. Verify this first by running the command in a shell
-and executing command ‘emacspeak-table-display-table-in-region’
-normally bound to C-e M-i.
-
-(fn COMMAND &optional READ-AS-CSV)
-@end format
-@end deffn
-
 @subsubsection emacspeak-speak-seconds-since-epoch
 @deffn {Command} emacspeak-speak-seconds-since-epoch  (seconds)
 @findex emacspeak-speak-seconds-since-epoch
@@ -14191,30 +14167,6 @@ Copy current table element to specified register.
 @format
 Copy table in current buffer to the table clipboard.
 Current buffer must be in emacspeak-table mode.
-@end format
-@end deffn
-
-@subsubsection emacspeak-table-display-table-in-region
-@deffn {Command} emacspeak-table-display-table-in-region  (start end)
-@table @kbd
-@item C-e M-i
-@kindex C-e M-i
-@end table
-
-@findex emacspeak-table-display-table-in-region
-
-@format
-Recognize tabular data in current region and display it in table
-browsing mode in a a separate buffer.
-emacspeak table mode is designed to let you browse tabular data using
-all the power of the two-dimensional spatial layout while giving you
-sufficient contextual information.  The tables subdirectory of the
-emacspeak distribution contains some sample tables --these are the
-CalTrain schedules.  Execute command ‘describe-mode’ bound to
-C-h m in a buffer that is in emacspeak table mode to read
-the documentation on the table browser.
-
-(fn START END)
 @end format
 @end deffn
 

@@ -15,174 +15,6 @@ This manual documents *Emacspeak, The Complete Audio Desktop* and was
 last updated on March 29, 2024.
 
 
-File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options
-
-12.235 soundscape
-=================
-
-Soundscapes <https://en.wikipedia.org/wiki/Soundscape> define an
-acoustic environment.  Boodler at <http://boodler.org> is a Python-based
-SoundScape generator.  To use this module, first install boodler.  Then
-install the soundscape packages (*.boop) files available at
-<http://boodler.org/lib>.  Make sure boodler works and produces audio in
-your environment.  finally install the Boodler packages from
-emacspeak/scapes from the Emacspeak GitHub repository by running ‘cd
-emacspeak/scapes; make ’
-
-   When boodler is set up and all packages installed, copy file
-emacspeak/scapes/soundscapes to ~/.boodler/Collection.  The above file
-lists all installed SoundScapes.  Directory emacspeak/scapes also
-contains additional Boodler Agents and SoundScapes that I have created
-for use with Emacspeak.
-
-   Module soundscape.el defines Emacs conveniences for running
-Soundscapes.  Main Entry Points:
-
-   • M-x soundscape-toggle - Enables or disables automatic SoundScapes.
-   • M-x soundscape - runs a named SoundScape
-   • M-x soundscape-stop - Stops a specified running Soundscape.
-   • M-x soundscape-kill - Kills all running Soundscapes.
-
-   When automatic Soundscapes are enabled, SoundScapes are started and
-stopped based on the current major mode.  Active Soundscape are
-displayed as part of the minor-mode-alist.  Command
-emacspeak-speak-minor-mode-line can be used to have this spoken.
-
-   Thus, SoundScapes can be thought of as reflecting the _mood_ of the
-current _mode_.  This package defines a single SOUNDSCAPE-DEFAULT-THEME
-that is loaded using ‘(soundscape-load soundscape-default-theme)’.
-Emacs modes that provide similar functionality e.g., communication ==
-email, IM, ...  map to the same _mood_.
-
-12.235.1 Soundscape Commands
-----------------------------
-
-12.235.1.1 soundscape
-.....................
-
- -- Command: soundscape (scape)
-     ‘C-. s’
-     ‘C-x @ s s’
-
-     Play soundscape.
-
-     (fn SCAPE)
-
-12.235.1.2 soundscape-kill
-..........................
-
- -- Command: soundscape-kill
-
-     Stop all running soundscapes.
-
-12.235.1.3 soundscape-listener
-..............................
-
- -- Command: soundscape-listener (&optional restart)
-
-     Start  a Soundscape listener.
-     Listener is loaded with all Soundscapes defined in ‘soundscape-default-theme’ .
-     Optional interactive prefix arg restarts the listener.
-
-     (fn &optional RESTART)
-
-12.235.1.4 soundscape-listener-shutdown
-.......................................
-
- -- Command: soundscape-listener-shutdown
-
-     Shutdown listener.
-
-12.235.1.5 soundscape-remote
-............................
-
- -- Command: soundscape-remote (names)
-
-     Activate scapes named ‘names’ -- a list of strings.
-
-     (fn NAMES)
-
-12.235.1.6 soundscape-restart
-.............................
-
- -- Command: soundscape-restart (&optional prompt)
-     ‘C-. r’
-     ‘C-x @ s r’
-
-     Restart Soundscape  environment.
-     With prefix arg ‘prompt’, prompt for a alsa/ladspa device and volume.
-     The  is then saved to soundscape-device for future use.
-
-     (fn &optional PROMPT)
-
-12.235.1.7 soundscape-stop
-..........................
-
- -- Command: soundscape-stop (scape)
-
-     Stop running Soundscape.
-
-     (fn SCAPE)
-
-12.235.1.8 soundscape-theme
-...........................
-
- -- Command: soundscape-theme
-
-     Shows default theme in a special buffer.
-
-12.235.1.9 soundscape-toggle
-............................
-
- -- Command: soundscape-toggle
-     ‘C-. t’
-     ‘C-x @ s t’
-
-     Toggle automatic SoundScapes.
-     Run command M-x soundscape-theme to see the default mode->mood mapping.
-
-12.235.1.10 soundscape-update-mood
-..................................
-
- -- Command: soundscape-update-mood (&optional prompt-mode)
-     ‘C-. u’
-     ‘C-x @ s u’
-
-     Update mood/scape mapping for current  mode.
-     The  updated mapping is not persisted.
-     Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
-
-     (fn &optional PROMPT-MODE)
-
-12.235.2 soundscape Options
----------------------------
-
- -- Variable: User Option soundscape-data
-     Soundscape data directory.
-
-     Default Value:
-     
-     "/home/raman/.boodler/Collection"
-     
-
- -- Variable: User Option soundscape-device
-     Alsa sound device to use for soundscapes.
-
-     Default Value:
-     
-     "default"
-     
-
- -- Variable: User Option soundscape-manager-options
-     User customizable options list passed to boodler.
-     Defaults specify alsa as the output and set master volume
-
-     Default Value:
-     
-     ("-m" "0.3")
-     
-
-
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
 
 12.236 sox
@@ -2430,7 +2262,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * <f1> C-s:                              emacspeak-wizards.  (line  398)
 * <f1> C-v:                              emacspeak-wizards.  (line  411)
 * <f1> M:                                emacspeak-wizards.  (line  211)
-* <f1> N:                                emacspeak-speak.    (line 1083)
+* <f1> N:                                emacspeak-speak.    (line 1064)
 * <f1> TAB:                              emacspeak-info.     (line   38)
 * <fn>:                                  dtk-speak.          (line  225)
 * <help> ,:                              emacspeak-wizards.  (line  329)
@@ -2442,7 +2274,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * <help> C-s:                            emacspeak-wizards.  (line  399)
 * <help> C-v:                            emacspeak-wizards.  (line  412)
 * <help> M:                              emacspeak-wizards.  (line  212)
-* <help> N:                              emacspeak-speak.    (line 1084)
+* <help> N:                              emacspeak-speak.    (line 1065)
 * <help> TAB:                            emacspeak-info.     (line   39)
 * <print>:                               emacspeak-muggles.  (line   49)
 * <silence>:                             emacspeak-speak.    (line  235)
@@ -2541,7 +2373,6 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e cap R:                             Reading.            (line   69)
 * C-e ,:                                 emacspeak-speak.    (line   38)
 * C-e ;:                                 emacspeak-m-player. (line  786)
-* C-e !:                                 emacspeak-speak.    (line  778)
 * C-e ?:                                 emacspeak-websearch.
                                                              (line   52)
 * C-e .:                                 emacspeak-speak.    (line   37)
@@ -2555,7 +2386,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e /:                                 Reading.            (line   91)
 * C-e / <1>:                             emacspeak-websearch.
                                                              (line   53)
-* C-e \:                                 emacspeak-speak.    (line 1054)
+* C-e \:                                 emacspeak-speak.    (line 1035)
 * C-e &:                                 emacspeak-wizards.  (line  827)
 * C-e # a:                               emacspeak-gridtext. (line   27)
 * C-e # l:                               emacspeak-gridtext. (line   37)
@@ -2575,7 +2406,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e =:                                 Status Information. (line   87)
 * C-e = <1>:                             emacspeak-speak.    (line  332)
 * C-e |:                                 emacspeak-speak.    (line  506)
-* C-e 1:                                 emacspeak-speak.    (line  867)
+* C-e 1:                                 emacspeak-speak.    (line  848)
 * C-e 2:                                 emacspeak-speak.    (line  645)
 * C-e 3:                                 amixer.             (line   52)
 * C-e 4:                                 amixer.             (line   51)
@@ -2600,13 +2431,13 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e C-b:                               emacspeak-bookshare.
                                                              (line   53)
 * C-e C-c:                               emacspeak-speak.    (line  214)
-* C-e C-d:                               emacspeak-speak.    (line 1043)
+* C-e C-d:                               emacspeak-speak.    (line 1024)
 * C-e C-f:                               emacspeak-dired.    (line  165)
 * C-e C-j:                               emacspeak-hide.     (line   39)
 * C-e C-l:                               Status Information. (line   82)
 * C-e C-M-c:                             emacspeak-extras.   (line   28)
-* C-e C-M-q:                             emacspeak-speak.    (line 1064)
-* C-e C-M-SPC:                           emacspeak-speak.    (line  852)
+* C-e C-M-q:                             emacspeak-speak.    (line 1045)
+* C-e C-M-SPC:                           emacspeak-speak.    (line  833)
 * C-e C-n:                               Reading.            (line  138)
 * C-e C-o:                               emacspeak-ocr.      (line   18)
 * C-e C-p:                               Reading.            (line  143)
@@ -2614,52 +2445,52 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e C-s:                               Miscellaneous.      (line   26)
 * C-e C-s <1>:                           dtk-speak.          (line  331)
 * C-e C-SPC:                             emacspeak-speak.    (line  355)
-* C-e C-t ,:                             emacspeak-table-ui. (line   61)
-* C-e C-t .:                             emacspeak-table-ui. (line  406)
-* C-e C-t #:                             emacspeak-table-ui. (line  371)
-* C-e C-t <:                             emacspeak-table-ui. (line  108)
-* C-e C-t <down>:                        emacspeak-table-ui. (line  280)
-* C-e C-t <left>:                        emacspeak-table-ui. (line  300)
-* C-e C-t <right>:                       emacspeak-table-ui. (line  268)
-* C-e C-t <up>:                          emacspeak-table-ui. (line  313)
-* C-e C-t =:                             emacspeak-table-ui. (line  422)
-* C-e C-t >:                             emacspeak-table-ui. (line  117)
-* C-e C-t A:                             emacspeak-table-ui. (line  107)
-* C-e C-t a:                             emacspeak-table-ui. (line  362)
-* C-e C-t B:                             emacspeak-table-ui. (line   98)
-* C-e C-t b:                             emacspeak-table-ui. (line  379)
-* C-e C-t C:                             emacspeak-table-ui. (line  336)
-* C-e C-t c:                             emacspeak-table-ui. (line  398)
-* C-e C-t C-b:                           emacspeak-table-ui. (line  299)
-* C-e C-t C-f:                           emacspeak-table-ui. (line  267)
-* C-e C-t C-n:                           emacspeak-table-ui. (line  279)
-* C-e C-t C-p:                           emacspeak-table-ui. (line  312)
-* C-e C-t E:                             emacspeak-table-ui. (line  116)
-* C-e C-t f:                             emacspeak-table-ui. (line  430)
-* C-e C-t g:                             emacspeak-table-ui. (line  387)
-* C-e C-t h:                             emacspeak-table-ui. (line  344)
-* C-e C-t j:                             emacspeak-table-ui. (line   88)
+* C-e C-t ,:                             emacspeak-table-ui. (line   43)
+* C-e C-t .:                             emacspeak-table-ui. (line  388)
+* C-e C-t #:                             emacspeak-table-ui. (line  353)
+* C-e C-t <:                             emacspeak-table-ui. (line   90)
+* C-e C-t <down>:                        emacspeak-table-ui. (line  262)
+* C-e C-t <left>:                        emacspeak-table-ui. (line  282)
+* C-e C-t <right>:                       emacspeak-table-ui. (line  250)
+* C-e C-t <up>:                          emacspeak-table-ui. (line  295)
+* C-e C-t =:                             emacspeak-table-ui. (line  404)
+* C-e C-t >:                             emacspeak-table-ui. (line   99)
+* C-e C-t A:                             emacspeak-table-ui. (line   89)
+* C-e C-t a:                             emacspeak-table-ui. (line  344)
+* C-e C-t B:                             emacspeak-table-ui. (line   80)
+* C-e C-t b:                             emacspeak-table-ui. (line  361)
+* C-e C-t C:                             emacspeak-table-ui. (line  318)
+* C-e C-t c:                             emacspeak-table-ui. (line  380)
+* C-e C-t C-b:                           emacspeak-table-ui. (line  281)
+* C-e C-t C-f:                           emacspeak-table-ui. (line  249)
+* C-e C-t C-n:                           emacspeak-table-ui. (line  261)
+* C-e C-t C-p:                           emacspeak-table-ui. (line  294)
+* C-e C-t E:                             emacspeak-table-ui. (line   98)
+* C-e C-t f:                             emacspeak-table-ui. (line  412)
+* C-e C-t g:                             emacspeak-table-ui. (line  369)
+* C-e C-t h:                             emacspeak-table-ui. (line  326)
+* C-e C-t j:                             emacspeak-table-ui. (line   70)
 * C-e C-t k:                             emacspeak-table-ui. (line   34)
-* C-e C-t M-<:                           emacspeak-table-ui. (line  126)
-* C-e C-t M->:                           emacspeak-table-ui. (line   99)
-* C-e C-t M-l:                           emacspeak-table-ui. (line  449)
-* C-e C-t M-s:                           emacspeak-table-ui. (line  459)
-* C-e C-t n:                             emacspeak-table-ui. (line  278)
-* C-e C-t p:                             emacspeak-table-ui. (line  311)
+* C-e C-t M-<:                           emacspeak-table-ui. (line  108)
+* C-e C-t M->:                           emacspeak-table-ui. (line   81)
+* C-e C-t M-l:                           emacspeak-table-ui. (line  431)
+* C-e C-t M-s:                           emacspeak-table-ui. (line  441)
+* C-e C-t n:                             emacspeak-table-ui. (line  260)
+* C-e C-t p:                             emacspeak-table-ui. (line  293)
 * C-e C-t Q:                             emacspeak-wizards.  (line   62)
-* C-e C-t R:                             emacspeak-table-ui. (line  354)
-* C-e C-t r:                             emacspeak-table-ui. (line  441)
-* C-e C-t s:                             emacspeak-table-ui. (line  323)
-* C-e C-t S-<tab>:                       emacspeak-table-ui. (line  301)
-* C-e C-t SPC:                           emacspeak-table-ui. (line  414)
-* C-e C-t T:                             emacspeak-table-ui. (line  125)
-* C-e C-t TAB:                           emacspeak-table-ui. (line  266)
-* C-e C-t v:                             emacspeak-table-ui. (line  469)
+* C-e C-t R:                             emacspeak-table-ui. (line  336)
+* C-e C-t r:                             emacspeak-table-ui. (line  423)
+* C-e C-t s:                             emacspeak-table-ui. (line  305)
+* C-e C-t S-<tab>:                       emacspeak-table-ui. (line  283)
+* C-e C-t SPC:                           emacspeak-table-ui. (line  396)
+* C-e C-t T:                             emacspeak-table-ui. (line  107)
+* C-e C-t TAB:                           emacspeak-table-ui. (line  248)
+* C-e C-t v:                             emacspeak-table-ui. (line  451)
 * C-e C-t w:                             emacspeak-table-ui. (line   16)
 * C-e C-t x:                             emacspeak-table-ui. (line   24)
 * C-e C-u:                               emacspeak-feeds.    (line   53)
 * C-e C-w:                               Status Information. (line   28)
-* C-e C-w <1>:                           emacspeak-speak.    (line  926)
+* C-e C-w <1>:                           emacspeak-speak.    (line  907)
 * C-e C-x:                               emacspeak-speak.    (line  440)
 * C-e cap V:                             Status Information. (line   38)
 * C-e d cap V:                           Miscellaneous.      (line   84)
@@ -2699,12 +2530,12 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e d f <1>:                           dtk-speak.          (line   96)
 * C-e d i:                               Speech Output Control.
                                                              (line   77)
-* C-e d i <1>:                           emacspeak-speak.    (line  990)
+* C-e d i <1>:                           emacspeak-speak.    (line  971)
 * C-e d k:                               Controlling Echo.   (line   18)
-* C-e d k <1>:                           emacspeak-speak.    (line 1004)
+* C-e d k <1>:                           emacspeak-speak.    (line  985)
 * C-e d l:                               Controlling Echo.   (line   32)
 * C-e d L:                               dtk-speak.          (line   36)
-* C-e d l <1>:                           emacspeak-speak.    (line 1021)
+* C-e d l <1>:                           emacspeak-speak.    (line 1002)
 * C-e d m:                               Speech Output Control.
                                                              (line   50)
 * C-e d N:                               dtk-speak.          (line  133)
@@ -2731,9 +2562,9 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e d V:                               dtk-speak.          (line  339)
 * C-e d v:                               voice-setup.        (line   63)
 * C-e d w:                               Controlling Echo.   (line   25)
-* C-e d w <1>:                           emacspeak-speak.    (line 1072)
+* C-e d w <1>:                           emacspeak-speak.    (line 1053)
 * C-e d z:                               Miscellaneous.      (line   90)
-* C-e d z <1>:                           emacspeak-speak.    (line 1092)
+* C-e d z <1>:                           emacspeak-speak.    (line 1073)
 * C-e DIGIT:                             Reading.            (line  129)
 * C-e <DOWN>:                            Reading.            (line   49)
 * C-e f:                                 Status Information. (line   43)
@@ -2760,9 +2591,8 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
                                                              (line   56)
 * C-e M-e:                               emacspeak-speak.    (line  398)
 * C-e M-h:                               emacspeak-wizards.  (line  202)
-* C-e M-i:                               emacspeak-table-ui. (line   43)
 * C-e M-l:                               emacspeak-speak.    (line  653)
-* C-e M-m:                               emacspeak-speak.    (line 1031)
+* C-e M-m:                               emacspeak-speak.    (line 1012)
 * C-e M-o:                               emacspeak-comint.   (line   26)
 * C-e M-p:                               emacspeak-wizards.  (line  150)
 * C-e M-s:                               emacspeak-wizards.  (line  268)
@@ -2770,7 +2600,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e M-t:                               emacspeak-speak.    (line   83)
 * C-e M-u:                               emacspeak-feeds.    (line   16)
 * C-e M-v:                               emacspeak-wizards.  (line  161)
-* C-e M-w:                               emacspeak-speak.    (line  917)
+* C-e M-w:                               emacspeak-speak.    (line  898)
 * C-e meta C-@:                          Reading.            (line  183)
 * C-e n:                                 Reading.            (line   86)
 * C-e n <1>:                             emacspeak-speak.    (line   36)
@@ -2787,24 +2617,24 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e s:                                 Miscellaneous.      (line   12)
 * C-e s <1>:                             dtk-speak.          (line  226)
 * C-e SPC:                               Status Information. (line   23)
-* C-e SPC <1>:                           emacspeak-speak.    (line  934)
+* C-e SPC <1>:                           emacspeak-speak.    (line  915)
 * C-e t:                                 Status Information. (line   33)
-* C-e t <1>:                             emacspeak-speak.    (line  875)
+* C-e t <1>:                             emacspeak-speak.    (line  856)
 * C-e T:                                 emacspeak-wizards.  (line  289)
 * C-e TAB:                               emacspeak-speak.    (line  124)
 * C-e u:                                 emacspeak-url-template.
                                                              (line   20)
 * C-e <UP>:                              Reading.            (line   43)
 * C-e v:                                 Status Information. (line   66)
-* C-e V:                                 emacspeak-speak.    (line  889)
+* C-e V:                                 emacspeak-speak.    (line  870)
 * C-e v a:                               emacspeak-xslt.     (line   27)
 * C-e v o:                               emacspeak-feeds.    (line   82)
 * C-e v r:                               emacspeak-xslt.     (line   57)
-* C-e v SPC:                             emacspeak-speak.    (line  844)
+* C-e v SPC:                             emacspeak-speak.    (line  825)
 * C-e v x:                               emacspeak-xslt.     (line   37)
 * C-e w:                                 Reading.            (line   21)
 * C-e W:                                 emacspeak-speak.    (line  201)
-* C-e w <1>:                             emacspeak-speak.    (line  942)
+* C-e w <1>:                             emacspeak-speak.    (line  923)
 * C-e x ,:                               emacspeak-wizards.  (line  853)
 * C-e x ;:                               emacspeak-m-player. (line  656)
 * C-e x ::                               emacspeak-m-player. (line  380)
@@ -2877,7 +2707,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-h C-s:                               emacspeak-wizards.  (line  397)
 * C-h C-v:                               emacspeak-wizards.  (line  410)
 * C-h M:                                 emacspeak-wizards.  (line  210)
-* C-h N:                                 emacspeak-speak.    (line 1082)
+* C-h N:                                 emacspeak-speak.    (line 1063)
 * C-h TAB:                               emacspeak-info.     (line   37)
 * C-M-y:                                 emacspeak-muggles.  (line   97)
 * C-x @ a /:                             extra-muggles.      (line  332)
@@ -4890,26 +4720,24 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-speak-rest-of-buffer:        Reading.            (line   86)
 * emacspeak-speak-rest-of-buffer <1>:    emacspeak-speak.    (line  767)
 * emacspeak-speak-rest-of-buffer <2>:    emacspeak-speak.    (line  770)
-* emacspeak-speak-run-shell-command:     emacspeak-speak.    (line  775)
-* emacspeak-speak-run-shell-command <1>: emacspeak-speak.    (line  779)
-* emacspeak-speak-seconds-since-epoch:   emacspeak-speak.    (line  794)
-* emacspeak-speak-seconds-since-epoch <1>: emacspeak-speak.  (line  795)
-* emacspeak-speak-sentence:              emacspeak-speak.    (line  803)
-* emacspeak-speak-sentence <1>:          emacspeak-speak.    (line  804)
+* emacspeak-speak-seconds-since-epoch:   emacspeak-speak.    (line  775)
+* emacspeak-speak-seconds-since-epoch <1>: emacspeak-speak.  (line  776)
+* emacspeak-speak-sentence:              emacspeak-speak.    (line  784)
+* emacspeak-speak-sentence <1>:          emacspeak-speak.    (line  785)
 * emacspeak-speak-sexp:                  Reading.            (line  178)
-* emacspeak-speak-sexp <1>:              emacspeak-speak.    (line  814)
-* emacspeak-speak-sexp <2>:              emacspeak-speak.    (line  815)
-* emacspeak-speak-sexp-interactively:    emacspeak-speak.    (line  825)
-* emacspeak-speak-sexp-interactively <1>: emacspeak-speak.   (line  826)
-* emacspeak-speak-skim-buffer:           emacspeak-speak.    (line  835)
-* emacspeak-speak-skim-buffer <1>:       emacspeak-speak.    (line  836)
-* emacspeak-speak-spaces:                emacspeak-speak.    (line  842)
-* emacspeak-speak-spaces <1>:            emacspeak-speak.    (line  845)
+* emacspeak-speak-sexp <1>:              emacspeak-speak.    (line  795)
+* emacspeak-speak-sexp <2>:              emacspeak-speak.    (line  796)
+* emacspeak-speak-sexp-interactively:    emacspeak-speak.    (line  806)
+* emacspeak-speak-sexp-interactively <1>: emacspeak-speak.   (line  807)
+* emacspeak-speak-skim-buffer:           emacspeak-speak.    (line  816)
+* emacspeak-speak-skim-buffer <1>:       emacspeak-speak.    (line  817)
+* emacspeak-speak-spaces:                emacspeak-speak.    (line  823)
+* emacspeak-speak-spaces <1>:            emacspeak-speak.    (line  826)
 * emacspeak-speak-spaces-at-point:       Reading.            (line  183)
-* emacspeak-speak-spaces-at-point <1>:   emacspeak-speak.    (line  850)
-* emacspeak-speak-spaces-at-point <2>:   emacspeak-speak.    (line  853)
-* emacspeak-speak-spell-current-word:    emacspeak-speak.    (line  858)
-* emacspeak-speak-spell-current-word <1>: emacspeak-speak.   (line  859)
+* emacspeak-speak-spaces-at-point <1>:   emacspeak-speak.    (line  831)
+* emacspeak-speak-spaces-at-point <2>:   emacspeak-speak.    (line  834)
+* emacspeak-speak-spell-current-word:    emacspeak-speak.    (line  839)
+* emacspeak-speak-spell-current-word <1>: emacspeak-speak.   (line  840)
 * emacspeak-speak-telephone-directory:   emacspeak-wizards.  (line  218)
 * emacspeak-speak-telephone-directory <1>: emacspeak-wizards.
                                                              (line  221)
@@ -4928,40 +4756,40 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
                                                              (line  255)
 * emacspeak-speak-this-buffer-previous-display <2>: emacspeak-wizards.
                                                              (line  258)
-* emacspeak-speak-this-window:           emacspeak-speak.    (line  865)
-* emacspeak-speak-this-window <1>:       emacspeak-speak.    (line  868)
+* emacspeak-speak-this-window:           emacspeak-speak.    (line  846)
+* emacspeak-speak-this-window <1>:       emacspeak-speak.    (line  849)
 * emacspeak-speak-time:                  Status Information. (line   33)
-* emacspeak-speak-time <1>:              emacspeak-speak.    (line  873)
-* emacspeak-speak-time <2>:              emacspeak-speak.    (line  876)
+* emacspeak-speak-time <1>:              emacspeak-speak.    (line  854)
+* emacspeak-speak-time <2>:              emacspeak-speak.    (line  857)
 * emacspeak-speak-version:               Status Information. (line   38)
-* emacspeak-speak-version <1>:           emacspeak-speak.    (line  887)
-* emacspeak-speak-version <2>:           emacspeak-speak.    (line  890)
-* emacspeak-speak-visual-line:           emacspeak-speak.    (line  898)
-* emacspeak-speak-visual-line <1>:       emacspeak-speak.    (line  899)
+* emacspeak-speak-version <1>:           emacspeak-speak.    (line  868)
+* emacspeak-speak-version <2>:           emacspeak-speak.    (line  871)
+* emacspeak-speak-visual-line:           emacspeak-speak.    (line  879)
+* emacspeak-speak-visual-line <1>:       emacspeak-speak.    (line  880)
 * emacspeak-speak-voice-annotate-paragraphs: emacspeak-speak.
-                                                             (line  906)
+                                                             (line  887)
 * emacspeak-speak-voice-annotate-paragraphs <1>: emacspeak-speak.
-                                                             (line  907)
-* emacspeak-speak-which-function:        emacspeak-speak.    (line  915)
-* emacspeak-speak-which-function <1>:    emacspeak-speak.    (line  918)
+                                                             (line  888)
+* emacspeak-speak-which-function:        emacspeak-speak.    (line  896)
+* emacspeak-speak-which-function <1>:    emacspeak-speak.    (line  899)
 * emacspeak-speak-window-information:    Status Information. (line   28)
-* emacspeak-speak-window-information <1>: emacspeak-speak.   (line  924)
-* emacspeak-speak-window-information <2>: emacspeak-speak.   (line  927)
-* emacspeak-speak-windowful:             emacspeak-speak.    (line  932)
-* emacspeak-speak-windowful <1>:         emacspeak-speak.    (line  935)
+* emacspeak-speak-window-information <1>: emacspeak-speak.   (line  905)
+* emacspeak-speak-window-information <2>: emacspeak-speak.   (line  908)
+* emacspeak-speak-windowful:             emacspeak-speak.    (line  913)
+* emacspeak-speak-windowful <1>:         emacspeak-speak.    (line  916)
 * emacspeak-speak-word:                  Reading.            (line   21)
-* emacspeak-speak-word <1>:              emacspeak-speak.    (line  940)
-* emacspeak-speak-word <2>:              emacspeak-speak.    (line  943)
-* emacspeak-speak-word-interactively:    emacspeak-speak.    (line  954)
-* emacspeak-speak-word-interactively <1>: emacspeak-speak.   (line  955)
-* emacspeak-speak-world-clock:           emacspeak-speak.    (line  964)
-* emacspeak-speak-world-clock <1>:       emacspeak-speak.    (line  965)
+* emacspeak-speak-word <1>:              emacspeak-speak.    (line  921)
+* emacspeak-speak-word <2>:              emacspeak-speak.    (line  924)
+* emacspeak-speak-word-interactively:    emacspeak-speak.    (line  935)
+* emacspeak-speak-word-interactively <1>: emacspeak-speak.   (line  936)
+* emacspeak-speak-world-clock:           emacspeak-speak.    (line  945)
+* emacspeak-speak-world-clock <1>:       emacspeak-speak.    (line  946)
 * emacspeak-speedbar-click:              emacspeak-speedbar. (line   19)
 * emacspeak-speedbar-click <1>:          emacspeak-speedbar. (line   20)
 * emacspeak-speedbar-goto-speedbar:      emacspeak-speedbar. (line   26)
 * emacspeak-speedbar-goto-speedbar <1>:  emacspeak-speedbar. (line   27)
-* emacspeak-submit-bug:                  emacspeak-speak.    (line  974)
-* emacspeak-submit-bug <1>:              emacspeak-speak.    (line  975)
+* emacspeak-submit-bug:                  emacspeak-speak.    (line  955)
+* emacspeak-submit-bug <1>:              emacspeak-speak.    (line  956)
 * emacspeak-sudoku-board-columns-summarize: emacspeak-sudoku.
                                                              (line   17)
 * emacspeak-sudoku-board-columns-summarize <1>: emacspeak-sudoku.
@@ -5033,8 +4861,8 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
                                                              (line  178)
 * emacspeak-sudoku-up-sub-square:        emacspeak-sudoku.   (line  184)
 * emacspeak-sudoku-up-sub-square <1>:    emacspeak-sudoku.   (line  185)
-* emacspeak-switch-to-reference-buffer:  emacspeak-speak.    (line  981)
-* emacspeak-switch-to-reference-buffer <1>: emacspeak-speak. (line  982)
+* emacspeak-switch-to-reference-buffer:  emacspeak-speak.    (line  962)
+* emacspeak-switch-to-reference-buffer <1>: emacspeak-speak. (line  963)
 * emacspeak-symlink-current-file:        emacspeak-wizards.  (line  266)
 * emacspeak-symlink-current-file <1>:    emacspeak-wizards.  (line  269)
 * emacspeak-table-copy-current-element-to-kill-ring: emacspeak-table-ui.
@@ -5047,86 +4875,82 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
                                                              (line   25)
 * emacspeak-table-copy-to-clipboard:     emacspeak-table-ui. (line   32)
 * emacspeak-table-copy-to-clipboard <1>: emacspeak-table-ui. (line   35)
-* emacspeak-table-display-table-in-region: emacspeak-table-ui.
-                                                             (line   41)
-* emacspeak-table-display-table-in-region <1>: emacspeak-table-ui.
-                                                             (line   44)
-* emacspeak-table-find-csv-file:         emacspeak-table-ui. (line   59)
-* emacspeak-table-find-csv-file <1>:     emacspeak-table-ui. (line   62)
-* emacspeak-table-find-file:             emacspeak-table-ui. (line   70)
-* emacspeak-table-find-file <1>:         emacspeak-table-ui. (line   71)
-* emacspeak-table-goto:                  emacspeak-table-ui. (line   86)
-* emacspeak-table-goto <1>:              emacspeak-table-ui. (line   89)
-* emacspeak-table-goto-bottom:           emacspeak-table-ui. (line   96)
-* emacspeak-table-goto-bottom <1>:       emacspeak-table-ui. (line  100)
-* emacspeak-table-goto-left:             emacspeak-table-ui. (line  105)
-* emacspeak-table-goto-left <1>:         emacspeak-table-ui. (line  109)
-* emacspeak-table-goto-right:            emacspeak-table-ui. (line  114)
-* emacspeak-table-goto-right <1>:        emacspeak-table-ui. (line  118)
-* emacspeak-table-goto-top:              emacspeak-table-ui. (line  123)
-* emacspeak-table-goto-top <1>:          emacspeak-table-ui. (line  127)
-* emacspeak-table-mode:                  emacspeak-table-ui. (line  132)
-* emacspeak-table-mode <1>:              emacspeak-table-ui. (line  133)
-* emacspeak-table-next-column:           emacspeak-table-ui. (line  264)
-* emacspeak-table-next-column <1>:       emacspeak-table-ui. (line  269)
-* emacspeak-table-next-row:              emacspeak-table-ui. (line  276)
-* emacspeak-table-next-row <1>:          emacspeak-table-ui. (line  281)
-* emacspeak-table-paste-from-clipboard:  emacspeak-table-ui. (line  288)
+* emacspeak-table-find-csv-file:         emacspeak-table-ui. (line   41)
+* emacspeak-table-find-csv-file <1>:     emacspeak-table-ui. (line   44)
+* emacspeak-table-find-file:             emacspeak-table-ui. (line   52)
+* emacspeak-table-find-file <1>:         emacspeak-table-ui. (line   53)
+* emacspeak-table-goto:                  emacspeak-table-ui. (line   68)
+* emacspeak-table-goto <1>:              emacspeak-table-ui. (line   71)
+* emacspeak-table-goto-bottom:           emacspeak-table-ui. (line   78)
+* emacspeak-table-goto-bottom <1>:       emacspeak-table-ui. (line   82)
+* emacspeak-table-goto-left:             emacspeak-table-ui. (line   87)
+* emacspeak-table-goto-left <1>:         emacspeak-table-ui. (line   91)
+* emacspeak-table-goto-right:            emacspeak-table-ui. (line   96)
+* emacspeak-table-goto-right <1>:        emacspeak-table-ui. (line  100)
+* emacspeak-table-goto-top:              emacspeak-table-ui. (line  105)
+* emacspeak-table-goto-top <1>:          emacspeak-table-ui. (line  109)
+* emacspeak-table-mode:                  emacspeak-table-ui. (line  114)
+* emacspeak-table-mode <1>:              emacspeak-table-ui. (line  115)
+* emacspeak-table-next-column:           emacspeak-table-ui. (line  246)
+* emacspeak-table-next-column <1>:       emacspeak-table-ui. (line  251)
+* emacspeak-table-next-row:              emacspeak-table-ui. (line  258)
+* emacspeak-table-next-row <1>:          emacspeak-table-ui. (line  263)
+* emacspeak-table-paste-from-clipboard:  emacspeak-table-ui. (line  270)
 * emacspeak-table-paste-from-clipboard <1>: emacspeak-table-ui.
-                                                             (line  289)
-* emacspeak-table-previous-column:       emacspeak-table-ui. (line  297)
-* emacspeak-table-previous-column <1>:   emacspeak-table-ui. (line  302)
-* emacspeak-table-previous-row:          emacspeak-table-ui. (line  309)
-* emacspeak-table-previous-row <1>:      emacspeak-table-ui. (line  314)
-* emacspeak-table-search:                emacspeak-table-ui. (line  321)
-* emacspeak-table-search <1>:            emacspeak-table-ui. (line  324)
-* emacspeak-table-search-column:         emacspeak-table-ui. (line  334)
-* emacspeak-table-search-column <1>:     emacspeak-table-ui. (line  337)
-* emacspeak-table-search-headers:        emacspeak-table-ui. (line  342)
-* emacspeak-table-search-headers <1>:    emacspeak-table-ui. (line  345)
-* emacspeak-table-search-row:            emacspeak-table-ui. (line  352)
-* emacspeak-table-search-row <1>:        emacspeak-table-ui. (line  355)
+                                                             (line  271)
+* emacspeak-table-previous-column:       emacspeak-table-ui. (line  279)
+* emacspeak-table-previous-column <1>:   emacspeak-table-ui. (line  284)
+* emacspeak-table-previous-row:          emacspeak-table-ui. (line  291)
+* emacspeak-table-previous-row <1>:      emacspeak-table-ui. (line  296)
+* emacspeak-table-search:                emacspeak-table-ui. (line  303)
+* emacspeak-table-search <1>:            emacspeak-table-ui. (line  306)
+* emacspeak-table-search-column:         emacspeak-table-ui. (line  316)
+* emacspeak-table-search-column <1>:     emacspeak-table-ui. (line  319)
+* emacspeak-table-search-headers:        emacspeak-table-ui. (line  324)
+* emacspeak-table-search-headers <1>:    emacspeak-table-ui. (line  327)
+* emacspeak-table-search-row:            emacspeak-table-ui. (line  334)
+* emacspeak-table-search-row <1>:        emacspeak-table-ui. (line  337)
 * emacspeak-table-select-automatic-speaking-method: emacspeak-table-ui.
-                                                             (line  360)
+                                                             (line  342)
 * emacspeak-table-select-automatic-speaking-method <1>: emacspeak-table-ui.
-                                                             (line  363)
+                                                             (line  345)
 * emacspeak-table-sort-on-current-column: emacspeak-table-ui.
-                                                             (line  369)
+                                                             (line  351)
 * emacspeak-table-sort-on-current-column <1>: emacspeak-table-ui.
-                                                             (line  372)
+                                                             (line  354)
 * emacspeak-table-speak-both-headers-and-element: emacspeak-table-ui.
-                                                             (line  377)
+                                                             (line  359)
 * emacspeak-table-speak-both-headers-and-element <1>: emacspeak-table-ui.
-                                                             (line  380)
-* emacspeak-table-speak-column-filtered: emacspeak-table-ui. (line  385)
+                                                             (line  362)
+* emacspeak-table-speak-column-filtered: emacspeak-table-ui. (line  367)
 * emacspeak-table-speak-column-filtered <1>: emacspeak-table-ui.
-                                                             (line  388)
+                                                             (line  370)
 * emacspeak-table-speak-column-header-and-element: emacspeak-table-ui.
-                                                             (line  396)
+                                                             (line  378)
 * emacspeak-table-speak-column-header-and-element <1>: emacspeak-table-ui.
-                                                             (line  399)
-* emacspeak-table-speak-coordinates:     emacspeak-table-ui. (line  404)
-* emacspeak-table-speak-coordinates <1>: emacspeak-table-ui. (line  407)
-* emacspeak-table-speak-current-element: emacspeak-table-ui. (line  412)
+                                                             (line  381)
+* emacspeak-table-speak-coordinates:     emacspeak-table-ui. (line  386)
+* emacspeak-table-speak-coordinates <1>: emacspeak-table-ui. (line  389)
+* emacspeak-table-speak-current-element: emacspeak-table-ui. (line  394)
 * emacspeak-table-speak-current-element <1>: emacspeak-table-ui.
-                                                             (line  415)
-* emacspeak-table-speak-dimensions:      emacspeak-table-ui. (line  420)
-* emacspeak-table-speak-dimensions <1>:  emacspeak-table-ui. (line  423)
-* emacspeak-table-speak-row-filtered:    emacspeak-table-ui. (line  428)
+                                                             (line  397)
+* emacspeak-table-speak-dimensions:      emacspeak-table-ui. (line  402)
+* emacspeak-table-speak-dimensions <1>:  emacspeak-table-ui. (line  405)
+* emacspeak-table-speak-row-filtered:    emacspeak-table-ui. (line  410)
 * emacspeak-table-speak-row-filtered <1>: emacspeak-table-ui.
-                                                             (line  431)
+                                                             (line  413)
 * emacspeak-table-speak-row-header-and-element: emacspeak-table-ui.
-                                                             (line  439)
+                                                             (line  421)
 * emacspeak-table-speak-row-header-and-element <1>: emacspeak-table-ui.
-                                                             (line  442)
-* emacspeak-table-ui-filter-load:        emacspeak-table-ui. (line  447)
-* emacspeak-table-ui-filter-load <1>:    emacspeak-table-ui. (line  450)
-* emacspeak-table-ui-filter-save:        emacspeak-table-ui. (line  457)
-* emacspeak-table-ui-filter-save <1>:    emacspeak-table-ui. (line  460)
-* emacspeak-table-view-csv-buffer:       emacspeak-table-ui. (line  467)
-* emacspeak-table-view-csv-buffer <1>:   emacspeak-table-ui. (line  470)
-* emacspeak-table-view-csv-url:          emacspeak-table-ui. (line  478)
-* emacspeak-table-view-csv-url <1>:      emacspeak-table-ui. (line  479)
+                                                             (line  424)
+* emacspeak-table-ui-filter-load:        emacspeak-table-ui. (line  429)
+* emacspeak-table-ui-filter-load <1>:    emacspeak-table-ui. (line  432)
+* emacspeak-table-ui-filter-save:        emacspeak-table-ui. (line  439)
+* emacspeak-table-ui-filter-save <1>:    emacspeak-table-ui. (line  442)
+* emacspeak-table-view-csv-buffer:       emacspeak-table-ui. (line  449)
+* emacspeak-table-view-csv-buffer <1>:   emacspeak-table-ui. (line  452)
+* emacspeak-table-view-csv-url:          emacspeak-table-ui. (line  460)
+* emacspeak-table-view-csv-url <1>:      emacspeak-table-ui. (line  461)
 * emacspeak-tabulated-list-next-row:     emacspeak-tabulated-list.
                                                              (line   15)
 * emacspeak-tabulated-list-next-row <1>: emacspeak-tabulated-list.
@@ -5201,13 +5025,13 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
                                                              (line  146)
 * emacspeak-toggle-audio-indentation:    Speech Output Control.
                                                              (line   77)
-* emacspeak-toggle-audio-indentation <1>: emacspeak-speak.   (line  988)
-* emacspeak-toggle-audio-indentation <2>: emacspeak-speak.   (line  991)
+* emacspeak-toggle-audio-indentation <1>: emacspeak-speak.   (line  969)
+* emacspeak-toggle-audio-indentation <2>: emacspeak-speak.   (line  972)
 * emacspeak-toggle-auditory-icons:       emacspeak-sounds.   (line   82)
 * emacspeak-toggle-auditory-icons <1>:   emacspeak-sounds.   (line   85)
 * emacspeak-toggle-character-echo:       Controlling Echo.   (line   18)
-* emacspeak-toggle-character-echo <1>:   emacspeak-speak.    (line 1002)
-* emacspeak-toggle-character-echo <2>:   emacspeak-speak.    (line 1005)
+* emacspeak-toggle-character-echo <1>:   emacspeak-speak.    (line  983)
+* emacspeak-toggle-character-echo <2>:   emacspeak-speak.    (line  986)
 * emacspeak-toggle-comint-autospeak:     emacspeak-comint.   (line   14)
 * emacspeak-toggle-comint-autospeak <1>: emacspeak-comint.   (line   15)
 * emacspeak-toggle-comint-output-monitor: emacspeak-comint.  (line   24)
@@ -5215,28 +5039,28 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
                                                              (line   27)
 * emacspeak-toggle-eterm-autospeak:      emacspeak-eterm.    (line  375)
 * emacspeak-toggle-eterm-autospeak <1>:  emacspeak-eterm.    (line  376)
-* emacspeak-toggle-header-line:          emacspeak-speak.    (line 1012)
-* emacspeak-toggle-header-line <1>:      emacspeak-speak.    (line 1013)
+* emacspeak-toggle-header-line:          emacspeak-speak.    (line  993)
+* emacspeak-toggle-header-line <1>:      emacspeak-speak.    (line  994)
 * emacspeak-toggle-inaudible-or-comint-autospeak: emacspeak-comint.
                                                              (line   33)
 * emacspeak-toggle-inaudible-or-comint-autospeak <1>: emacspeak-comint.
                                                              (line   36)
 * emacspeak-toggle-line-echo:            Controlling Echo.   (line   32)
-* emacspeak-toggle-line-echo <1>:        emacspeak-speak.    (line 1019)
-* emacspeak-toggle-line-echo <2>:        emacspeak-speak.    (line 1022)
-* emacspeak-toggle-mail-alert:           emacspeak-speak.    (line 1029)
-* emacspeak-toggle-mail-alert <1>:       emacspeak-speak.    (line 1032)
-* emacspeak-toggle-show-point:           emacspeak-speak.    (line 1041)
-* emacspeak-toggle-show-point <1>:       emacspeak-speak.    (line 1044)
+* emacspeak-toggle-line-echo <1>:        emacspeak-speak.    (line 1000)
+* emacspeak-toggle-line-echo <2>:        emacspeak-speak.    (line 1003)
+* emacspeak-toggle-mail-alert:           emacspeak-speak.    (line 1010)
+* emacspeak-toggle-mail-alert <1>:       emacspeak-speak.    (line 1013)
+* emacspeak-toggle-show-point:           emacspeak-speak.    (line 1022)
+* emacspeak-toggle-show-point <1>:       emacspeak-speak.    (line 1025)
 * emacspeak-toggle-speak-line-invert-filter: emacspeak-speak.
-                                                             (line 1051)
+                                                             (line 1032)
 * emacspeak-toggle-speak-line-invert-filter <1>: emacspeak-speak.
-                                                             (line 1055)
-* emacspeak-toggle-speak-messages:       emacspeak-speak.    (line 1062)
-* emacspeak-toggle-speak-messages <1>:   emacspeak-speak.    (line 1065)
+                                                             (line 1036)
+* emacspeak-toggle-speak-messages:       emacspeak-speak.    (line 1043)
+* emacspeak-toggle-speak-messages <1>:   emacspeak-speak.    (line 1046)
 * emacspeak-toggle-word-echo:            Controlling Echo.   (line   25)
-* emacspeak-toggle-word-echo <1>:        emacspeak-speak.    (line 1070)
-* emacspeak-toggle-word-echo <2>:        emacspeak-speak.    (line 1073)
+* emacspeak-toggle-word-echo <1>:        emacspeak-speak.    (line 1051)
+* emacspeak-toggle-word-echo <2>:        emacspeak-speak.    (line 1054)
 * emacspeak-transient-mode:              emacspeak-transient.
                                                              (line   55)
 * emacspeak-transient-mode <1>:          emacspeak-transient.
@@ -5283,8 +5107,8 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-view-emacspeak-tips <1>:     emacspeak-wizards.  (line  290)
 * emacspeak-view-line-to-top:            emacspeak-view.     (line   14)
 * emacspeak-view-line-to-top <1>:        emacspeak-view.     (line   15)
-* emacspeak-view-notifications:          emacspeak-speak.    (line 1080)
-* emacspeak-view-notifications <1>:      emacspeak-speak.    (line 1085)
+* emacspeak-view-notifications:          emacspeak-speak.    (line 1061)
+* emacspeak-view-notifications <1>:      emacspeak-speak.    (line 1066)
 * emacspeak-view-register:               Status Information. (line   66)
 * emacspeak-vm-browse-message:           emacspeak-vm.       (line   15)
 * emacspeak-vm-browse-message <1>:       emacspeak-vm.       (line   16)
@@ -5720,8 +5544,8 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-xslt-view-xml:               emacspeak-xslt.     (line   65)
 * emacspeak-xslt-view-xml <1>:           emacspeak-xslt.     (line   67)
 * emacspeak-zap-dtk:                     Miscellaneous.      (line   90)
-* emacspeak-zap-tts:                     emacspeak-speak.    (line 1090)
-* emacspeak-zap-tts <1>:                 emacspeak-speak.    (line 1093)
+* emacspeak-zap-tts:                     emacspeak-speak.    (line 1071)
+* emacspeak-zap-tts <1>:                 emacspeak-speak.    (line 1074)
 * emacspeak-zoxide:                      emacspeak-comint.   (line   43)
 * emacspeak-zoxide <1>:                  emacspeak-comint.   (line   47)
 * espeak:                                espeak-voices.      (line   15)
