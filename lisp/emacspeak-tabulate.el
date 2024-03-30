@@ -144,53 +144,6 @@ Fields are assumed to be delimited by whitespace. "
 ;; br = end for last column
 
 ;;;  Parse a region of tabular data
-;;;###autoload
-(defun ems-tabulate-parse-region (start end)
-  "Parse  region as tabular data and return a vector of vectors"
-  (let ((table nil)
-        (col-start start)
-        (col-end nil)
-        (j 0)
-        (left-edge nil)
-        (row-vector nil)
-        (white-space (ems-tabulate-field-separators-in-region start
-                                                              end))
-        (separators nil)
-        (row-count (count-lines start end))
-        (column-count nil)
-        (element nil))
-    (setq column-count (1+ (length white-space)))
-    (setq table (make-vector row-count nil))
-    (save-excursion
-      (goto-char start)
-      (cl-loop for
-               i from 0 to (1- row-count)
-               do
-               (setq row-vector (make-vector column-count nil))
-               (setq separators white-space)
-               (beginning-of-line)
-               (setq col-start (point))
-               (setq left-edge  col-start)
-               (setq col-end
-                     (+ left-edge (ems-interval-start (car separators))))
-               (setq element (buffer-substring col-start col-end))
-               (aset row-vector j element)
-               (cl-incf j)
-               (while separators
-                 (setq col-start
-                       (+ left-edge (ems-interval-end (car separators))))
-                 (setq separators (cdr separators))
-                 (setq col-end
-                       (if separators
-                           (+ left-edge (ems-interval-start (car separators)))
-                         (progn (end-of-line) (point))))
-                 (setq element (buffer-substring col-start col-end))
-                 (aset row-vector j element)
-                 (cl-incf j))
-               (setq j 0)
-               (aset table i row-vector)
-               (forward-line 1)))
-    table))
 
 (provide 'emacspeak-tabulate)
 
