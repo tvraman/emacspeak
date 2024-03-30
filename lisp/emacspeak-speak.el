@@ -2751,7 +2751,6 @@ Appended entries are separated by newlines."
       (when (with-current-buffer buf (eq mode major-mode))
         (throw 'cl-loop buf)))))
 
-;;;###autoload
 (defun emacspeak-cycle-to-previous-buffer ()
   "Cycles to previous buffer having same mode."
   (interactive)
@@ -2761,7 +2760,6 @@ Appended entries are separated by newlines."
       (funcall-interactively #'switch-to-buffer prev))
      (t (error "No previous buffer in mode %s" major-mode)))))
 
-;;;###autoload
 (defun emacspeak-cycle-to-next-buffer ()
   "Cycles to next buffer having same mode."
   (interactive)
@@ -2853,7 +2851,6 @@ Filters out loopback for convenience."
 
 ;;; Smarter selective-display:
 
-;;;###autoload
 (defun emacspeak-selective-display (&optional arg)
   "Continuously adjust selective-display.
 Use `,' and `.' to continuously decrease/increase `selective-display'.

@@ -124,7 +124,6 @@ Optional interactive PREFIX arg toggles global value."
              (if prefix "" "locally"))
     (when emacspeak-use-auditory-icons (emacspeak-icon 'on))))
 
-;;;###autoload
 (defun emacspeak-icon (icon)
   "Produce an auditory ICON."
   (cl-declare (special emacspeak-use-auditory-icons emacspeak-play-program))
@@ -191,7 +190,6 @@ icon-name as string."
   "Verify if sample loaded"
   (= 1 (call-process emacspeak-pactl nil nil nil "play-sample" sample)))
 
-;;;###autoload
 (defun emacspeak-sounds-select-theme  ( &optional theme)
   "Select theme for auditory icons."
   (interactive

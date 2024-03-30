@@ -12,7 +12,175 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 27, 2024.
+last updated on March 29, 2024.
+
+
+File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options
+
+12.235 soundscape
+=================
+
+Soundscapes <https://en.wikipedia.org/wiki/Soundscape> define an
+acoustic environment.  Boodler at <http://boodler.org> is a Python-based
+SoundScape generator.  To use this module, first install boodler.  Then
+install the soundscape packages (*.boop) files available at
+<http://boodler.org/lib>.  Make sure boodler works and produces audio in
+your environment.  finally install the Boodler packages from
+emacspeak/scapes from the Emacspeak GitHub repository by running ‘cd
+emacspeak/scapes; make ’
+
+   When boodler is set up and all packages installed, copy file
+emacspeak/scapes/soundscapes to ~/.boodler/Collection.  The above file
+lists all installed SoundScapes.  Directory emacspeak/scapes also
+contains additional Boodler Agents and SoundScapes that I have created
+for use with Emacspeak.
+
+   Module soundscape.el defines Emacs conveniences for running
+Soundscapes.  Main Entry Points:
+
+   • M-x soundscape-toggle - Enables or disables automatic SoundScapes.
+   • M-x soundscape - runs a named SoundScape
+   • M-x soundscape-stop - Stops a specified running Soundscape.
+   • M-x soundscape-kill - Kills all running Soundscapes.
+
+   When automatic Soundscapes are enabled, SoundScapes are started and
+stopped based on the current major mode.  Active Soundscape are
+displayed as part of the minor-mode-alist.  Command
+emacspeak-speak-minor-mode-line can be used to have this spoken.
+
+   Thus, SoundScapes can be thought of as reflecting the _mood_ of the
+current _mode_.  This package defines a single SOUNDSCAPE-DEFAULT-THEME
+that is loaded using ‘(soundscape-load soundscape-default-theme)’.
+Emacs modes that provide similar functionality e.g., communication ==
+email, IM, ...  map to the same _mood_.
+
+12.235.1 Soundscape Commands
+----------------------------
+
+12.235.1.1 soundscape
+.....................
+
+ -- Command: soundscape (scape)
+     ‘C-. s’
+     ‘C-x @ s s’
+
+     Play soundscape.
+
+     (fn SCAPE)
+
+12.235.1.2 soundscape-kill
+..........................
+
+ -- Command: soundscape-kill
+
+     Stop all running soundscapes.
+
+12.235.1.3 soundscape-listener
+..............................
+
+ -- Command: soundscape-listener (&optional restart)
+
+     Start  a Soundscape listener.
+     Listener is loaded with all Soundscapes defined in ‘soundscape-default-theme’ .
+     Optional interactive prefix arg restarts the listener.
+
+     (fn &optional RESTART)
+
+12.235.1.4 soundscape-listener-shutdown
+.......................................
+
+ -- Command: soundscape-listener-shutdown
+
+     Shutdown listener.
+
+12.235.1.5 soundscape-remote
+............................
+
+ -- Command: soundscape-remote (names)
+
+     Activate scapes named ‘names’ -- a list of strings.
+
+     (fn NAMES)
+
+12.235.1.6 soundscape-restart
+.............................
+
+ -- Command: soundscape-restart (&optional prompt)
+     ‘C-. r’
+     ‘C-x @ s r’
+
+     Restart Soundscape  environment.
+     With prefix arg ‘prompt’, prompt for a alsa/ladspa device and volume.
+     The  is then saved to soundscape-device for future use.
+
+     (fn &optional PROMPT)
+
+12.235.1.7 soundscape-stop
+..........................
+
+ -- Command: soundscape-stop (scape)
+
+     Stop running Soundscape.
+
+     (fn SCAPE)
+
+12.235.1.8 soundscape-theme
+...........................
+
+ -- Command: soundscape-theme
+
+     Shows default theme in a special buffer.
+
+12.235.1.9 soundscape-toggle
+............................
+
+ -- Command: soundscape-toggle
+     ‘C-. t’
+     ‘C-x @ s t’
+
+     Toggle automatic SoundScapes.
+     Run command M-x soundscape-theme to see the default mode->mood mapping.
+
+12.235.1.10 soundscape-update-mood
+..................................
+
+ -- Command: soundscape-update-mood (&optional prompt-mode)
+     ‘C-. u’
+     ‘C-x @ s u’
+
+     Update mood/scape mapping for current  mode.
+     The  updated mapping is not persisted.
+     Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
+
+     (fn &optional PROMPT-MODE)
+
+12.235.2 soundscape Options
+---------------------------
+
+ -- Variable: User Option soundscape-data
+     Soundscape data directory.
+
+     Default Value:
+     
+     "/home/raman/.boodler/Collection"
+     
+
+ -- Variable: User Option soundscape-device
+     Alsa sound device to use for soundscapes.
+
+     Default Value:
+     
+     "default"
+     
+
+ -- Variable: User Option soundscape-manager-options
+     User customizable options list passed to boodler.
+     Defaults specify alsa as the output and set master volume
+
+     Default Value:
+     
+     ("-m" "0.3")
+     
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -2377,7 +2545,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e ?:                                 emacspeak-websearch.
                                                              (line   52)
 * C-e .:                                 emacspeak-speak.    (line   37)
-* C-e ':                                 emacspeak-empv.     (line  120)
+* C-e ':                                 emacspeak-empv.     (line  140)
 * C-e (:                                 amixer.             (line   24)
 * C-e ):                                 emacspeak-sounds.   (line   74)
 * C-e [:                                 Reading.            (line  121)
@@ -2694,9 +2862,9 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e x u:                               emacspeak-wizards.  (line 1012)
 * C-e x v:                               emacspeak-wizards.  (line 1042)
 * C-e x w:                               emacspeak-wizards.  (line  713)
-* C-e y l:                               emacspeak-empv.     (line  131)
-* C-e y r:                               emacspeak-empv.     (line  149)
-* C-e y y:                               emacspeak-empv.     (line  139)
+* C-e y l:                               emacspeak-empv.     (line  151)
+* C-e y r:                               emacspeak-empv.     (line  169)
+* C-e y y:                               emacspeak-empv.     (line  159)
 * C-e z b:                               emacspeak-wizards.  (line 1068)
 * C-e z e:                               emacspeak-wizards.  (line  509)
 * C-e z l:                               emacspeak-m-player. (line  366)
@@ -2777,23 +2945,27 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * s-m:                                   extra-muggles.      (line   53)
 * s-n:                                   emacspeak-muggles.  (line  134)
 * s-o:                                   emacspeak-dbus.     (line   92)
-* s-SPC ;:                               emacspeak-empv.     (line  193)
-* s-SPC .:                               emacspeak-empv.     (line  185)
-* s-SPC %:                               emacspeak-empv.     (line  110)
-* s-SPC <down>:                          emacspeak-empv.     (line   76)
-* s-SPC <left>:                          emacspeak-empv.     (line   50)
-* s-SPC <next>:                          emacspeak-empv.     (line   84)
-* s-SPC <prior>:                         emacspeak-empv.     (line   42)
-* s-SPC <right>:                         emacspeak-empv.     (line   92)
+* s-SPC ,:                               emacspeak-empv.     (line  224)
+* s-SPC ;:                               emacspeak-empv.     (line  213)
+* s-SPC .:                               emacspeak-empv.     (line  232)
+* s-SPC \:                               emacspeak-empv.     (line  205)
+* s-SPC %:                               emacspeak-empv.     (line  130)
+* s-SPC <:                               emacspeak-empv.     (line   42)
+* s-SPC <down>:                          emacspeak-empv.     (line   86)
+* s-SPC <left>:                          emacspeak-empv.     (line   60)
+* s-SPC <next>:                          emacspeak-empv.     (line  104)
+* s-SPC <prior>:                         emacspeak-empv.     (line   52)
+* s-SPC <right>:                         emacspeak-empv.     (line  112)
 * s-SPC <up>:                            emacspeak-empv.     (line   34)
-* s-SPC =:                               emacspeak-empv.     (line  167)
-* s-SPC b:                               emacspeak-empv.     (line  175)
-* s-SPC DEL:                             emacspeak-empv.     (line   68)
-* s-SPC M:                               emacspeak-empv.     (line   58)
-* s-SPC m:                               emacspeak-empv.     (line  100)
-* s-SPC r:                               emacspeak-empv.     (line  157)
+* s-SPC =:                               emacspeak-empv.     (line  187)
+* s-SPC >:                               emacspeak-empv.     (line   94)
+* s-SPC b:                               emacspeak-empv.     (line  195)
+* s-SPC DEL:                             emacspeak-empv.     (line   78)
+* s-SPC M:                               emacspeak-empv.     (line   68)
+* s-SPC m:                               emacspeak-empv.     (line  120)
+* s-SPC r:                               emacspeak-empv.     (line  177)
 * s-SPC s:                               emacspeak-empv.     (line   17)
-* s-SPC y:                               emacspeak-empv.     (line  204)
+* s-SPC y:                               emacspeak-empv.     (line  240)
 
 
 File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key Index,  Up: Top
@@ -3396,44 +3568,52 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-empv-accumulate-to-register <1>: emacspeak-empv. (line   26)
 * emacspeak-empv-backward-10-minutes:    emacspeak-empv.     (line   32)
 * emacspeak-empv-backward-10-minutes <1>: emacspeak-empv.    (line   35)
-* emacspeak-empv-backward-30-minutes:    emacspeak-empv.     (line   40)
-* emacspeak-empv-backward-30-minutes <1>: emacspeak-empv.    (line   43)
-* emacspeak-empv-backward-5-minutes:     emacspeak-empv.     (line   48)
-* emacspeak-empv-backward-5-minutes <1>: emacspeak-empv.     (line   51)
-* emacspeak-empv-backward-minute:        emacspeak-empv.     (line   56)
-* emacspeak-empv-backward-minute <1>:    emacspeak-empv.     (line   59)
-* emacspeak-empv-clear-filter:           emacspeak-empv.     (line   66)
-* emacspeak-empv-clear-filter <1>:       emacspeak-empv.     (line   69)
-* emacspeak-empv-forward-10-minutes:     emacspeak-empv.     (line   74)
-* emacspeak-empv-forward-10-minutes <1>: emacspeak-empv.     (line   77)
-* emacspeak-empv-forward-30-minutes:     emacspeak-empv.     (line   82)
-* emacspeak-empv-forward-30-minutes <1>: emacspeak-empv.     (line   85)
-* emacspeak-empv-forward-5-minutes:      emacspeak-empv.     (line   90)
-* emacspeak-empv-forward-5-minutes <1>:  emacspeak-empv.     (line   93)
-* emacspeak-empv-forward-minute:         emacspeak-empv.     (line   98)
-* emacspeak-empv-forward-minute <1>:     emacspeak-empv.     (line  101)
-* emacspeak-empv-percentage-seek:        emacspeak-empv.     (line  108)
-* emacspeak-empv-percentage-seek <1>:    emacspeak-empv.     (line  111)
-* emacspeak-empv-play-file:              emacspeak-empv.     (line  118)
-* emacspeak-empv-play-file <1>:          emacspeak-empv.     (line  121)
-* emacspeak-empv-play-last:              emacspeak-empv.     (line  129)
-* emacspeak-empv-play-last <1>:          emacspeak-empv.     (line  132)
-* emacspeak-empv-play-url:               emacspeak-empv.     (line  137)
-* emacspeak-empv-play-url <1>:           emacspeak-empv.     (line  140)
-* emacspeak-empv-radio:                  emacspeak-empv.     (line  147)
-* emacspeak-empv-radio <1>:              emacspeak-empv.     (line  150)
-* emacspeak-empv-relative-seek:          emacspeak-empv.     (line  155)
-* emacspeak-empv-relative-seek <1>:      emacspeak-empv.     (line  158)
-* emacspeak-empv-time-pos:               emacspeak-empv.     (line  165)
-* emacspeak-empv-time-pos <1>:           emacspeak-empv.     (line  168)
-* emacspeak-empv-toggle-balance:         emacspeak-empv.     (line  173)
-* emacspeak-empv-toggle-balance <1>:     emacspeak-empv.     (line  176)
-* emacspeak-empv-toggle-custom:          emacspeak-empv.     (line  183)
-* emacspeak-empv-toggle-custom <1>:      emacspeak-empv.     (line  186)
-* emacspeak-empv-toggle-filter:          emacspeak-empv.     (line  191)
-* emacspeak-empv-toggle-filter <1>:      emacspeak-empv.     (line  194)
-* emacspeak-empv-yt-download:            emacspeak-empv.     (line  202)
-* emacspeak-empv-yt-download <1>:        emacspeak-empv.     (line  205)
+* emacspeak-empv-backward-10-seconds:    emacspeak-empv.     (line   40)
+* emacspeak-empv-backward-10-seconds <1>: emacspeak-empv.    (line   43)
+* emacspeak-empv-backward-30-minutes:    emacspeak-empv.     (line   50)
+* emacspeak-empv-backward-30-minutes <1>: emacspeak-empv.    (line   53)
+* emacspeak-empv-backward-5-minutes:     emacspeak-empv.     (line   58)
+* emacspeak-empv-backward-5-minutes <1>: emacspeak-empv.     (line   61)
+* emacspeak-empv-backward-minute:        emacspeak-empv.     (line   66)
+* emacspeak-empv-backward-minute <1>:    emacspeak-empv.     (line   69)
+* emacspeak-empv-clear-filter:           emacspeak-empv.     (line   76)
+* emacspeak-empv-clear-filter <1>:       emacspeak-empv.     (line   79)
+* emacspeak-empv-forward-10-minutes:     emacspeak-empv.     (line   84)
+* emacspeak-empv-forward-10-minutes <1>: emacspeak-empv.     (line   87)
+* emacspeak-empv-forward-10-seconds:     emacspeak-empv.     (line   92)
+* emacspeak-empv-forward-10-seconds <1>: emacspeak-empv.     (line   95)
+* emacspeak-empv-forward-30-minutes:     emacspeak-empv.     (line  102)
+* emacspeak-empv-forward-30-minutes <1>: emacspeak-empv.     (line  105)
+* emacspeak-empv-forward-5-minutes:      emacspeak-empv.     (line  110)
+* emacspeak-empv-forward-5-minutes <1>:  emacspeak-empv.     (line  113)
+* emacspeak-empv-forward-minute:         emacspeak-empv.     (line  118)
+* emacspeak-empv-forward-minute <1>:     emacspeak-empv.     (line  121)
+* emacspeak-empv-percentage-seek:        emacspeak-empv.     (line  128)
+* emacspeak-empv-percentage-seek <1>:    emacspeak-empv.     (line  131)
+* emacspeak-empv-play-file:              emacspeak-empv.     (line  138)
+* emacspeak-empv-play-file <1>:          emacspeak-empv.     (line  141)
+* emacspeak-empv-play-last:              emacspeak-empv.     (line  149)
+* emacspeak-empv-play-last <1>:          emacspeak-empv.     (line  152)
+* emacspeak-empv-play-url:               emacspeak-empv.     (line  157)
+* emacspeak-empv-play-url <1>:           emacspeak-empv.     (line  160)
+* emacspeak-empv-radio:                  emacspeak-empv.     (line  167)
+* emacspeak-empv-radio <1>:              emacspeak-empv.     (line  170)
+* emacspeak-empv-relative-seek:          emacspeak-empv.     (line  175)
+* emacspeak-empv-relative-seek <1>:      emacspeak-empv.     (line  178)
+* emacspeak-empv-time-pos:               emacspeak-empv.     (line  185)
+* emacspeak-empv-time-pos <1>:           emacspeak-empv.     (line  188)
+* emacspeak-empv-toggle-balance:         emacspeak-empv.     (line  193)
+* emacspeak-empv-toggle-balance <1>:     emacspeak-empv.     (line  196)
+* emacspeak-empv-toggle-custom:          emacspeak-empv.     (line  203)
+* emacspeak-empv-toggle-custom <1>:      emacspeak-empv.     (line  206)
+* emacspeak-empv-toggle-filter:          emacspeak-empv.     (line  211)
+* emacspeak-empv-toggle-filter <1>:      emacspeak-empv.     (line  214)
+* emacspeak-empv-toggle-left:            emacspeak-empv.     (line  222)
+* emacspeak-empv-toggle-left <1>:        emacspeak-empv.     (line  225)
+* emacspeak-empv-toggle-right:           emacspeak-empv.     (line  230)
+* emacspeak-empv-toggle-right <1>:       emacspeak-empv.     (line  233)
+* emacspeak-empv-yt-download:            emacspeak-empv.     (line  238)
+* emacspeak-empv-yt-download <1>:        emacspeak-empv.     (line  241)
 * emacspeak-enriched-voiceify-faces:     emacspeak-enriched. (line   14)
 * emacspeak-enriched-voiceify-faces <1>: emacspeak-enriched. (line   15)
 * emacspeak-eperiodic-goto-property-section: emacspeak-eperiodic.

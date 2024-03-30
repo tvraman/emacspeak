@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 27, 2024.
+last updated on March 29, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3238,7 +3238,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1181 commands and 129 options.
+   This chapter documents a total of 1185 commands and 129 options.
 
 * Menu:
 
@@ -4087,6 +4087,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      Virtual sound device to use for notifications stream.
      Set to nil to disable a separate Notification stream.
      If you set the device here, make sure it exists first.
+     For swiftmac, set this to ’left’ or ’right’.
 
      Default Value:
      
@@ -6429,7 +6430,17 @@ Youtube integration
 
      Move backward by 10 minutes
 
-12.61.1.4 emacspeak-empv-backward-30-minutes
+12.61.1.4 emacspeak-empv-backward-10-seconds
+............................................
+
+ -- Command: emacspeak-empv-backward-10-seconds (&optional count)
+     ‘s-SPC <’
+
+     Move back  count  slices of 10 seconds.
+
+     (fn &optional COUNT)
+
+12.61.1.5 emacspeak-empv-backward-30-minutes
 ............................................
 
  -- Command: emacspeak-empv-backward-30-minutes
@@ -6437,7 +6448,7 @@ Youtube integration
 
      Move backward by 30 minutes
 
-12.61.1.5 emacspeak-empv-backward-5-minutes
+12.61.1.6 emacspeak-empv-backward-5-minutes
 ...........................................
 
  -- Command: emacspeak-empv-backward-5-minutes
@@ -6445,7 +6456,7 @@ Youtube integration
 
      Move backward by 5 minutes
 
-12.61.1.6 emacspeak-empv-backward-minute
+12.61.1.7 emacspeak-empv-backward-minute
 ........................................
 
  -- Command: emacspeak-empv-backward-minute (&optional count)
@@ -6455,7 +6466,7 @@ Youtube integration
 
      (fn &optional COUNT)
 
-12.61.1.7 emacspeak-empv-clear-filter
+12.61.1.8 emacspeak-empv-clear-filter
 .....................................
 
  -- Command: emacspeak-empv-clear-filter
@@ -6463,7 +6474,7 @@ Youtube integration
 
      Clear all filters.
 
-12.61.1.8 emacspeak-empv-forward-10-minutes
+12.61.1.9 emacspeak-empv-forward-10-minutes
 ...........................................
 
  -- Command: emacspeak-empv-forward-10-minutes
@@ -6471,15 +6482,25 @@ Youtube integration
 
      Move forward by 10 minutes
 
-12.61.1.9 emacspeak-empv-forward-30-minutes
-...........................................
+12.61.1.10 emacspeak-empv-forward-10-seconds
+............................................
+
+ -- Command: emacspeak-empv-forward-10-seconds (&optional count)
+     ‘s-SPC >’
+
+     Move forward count  chunks of 10 seconds.
+
+     (fn &optional COUNT)
+
+12.61.1.11 emacspeak-empv-forward-30-minutes
+............................................
 
  -- Command: emacspeak-empv-forward-30-minutes
      ‘s-SPC <next>’
 
      Move forward by 30 minutes
 
-12.61.1.10 emacspeak-empv-forward-5-minutes
+12.61.1.12 emacspeak-empv-forward-5-minutes
 ...........................................
 
  -- Command: emacspeak-empv-forward-5-minutes
@@ -6487,7 +6508,7 @@ Youtube integration
 
      Move forward by 5 minutes
 
-12.61.1.11 emacspeak-empv-forward-minute
+12.61.1.13 emacspeak-empv-forward-minute
 ........................................
 
  -- Command: emacspeak-empv-forward-minute (&optional count)
@@ -6497,7 +6518,7 @@ Youtube integration
 
      (fn &optional COUNT)
 
-12.61.1.12 emacspeak-empv-percentage-seek
+12.61.1.14 emacspeak-empv-percentage-seek
 .........................................
 
  -- Command: emacspeak-empv-percentage-seek (target)
@@ -6507,7 +6528,7 @@ Youtube integration
 
      (fn TARGET)
 
-12.61.1.13 emacspeak-empv-play-file
+12.61.1.15 emacspeak-empv-play-file
 ...................................
 
  -- Command: emacspeak-empv-play-file (file &optional prefix)
@@ -6518,7 +6539,7 @@ Youtube integration
 
      (fn FILE &optional PREFIX)
 
-12.61.1.14 emacspeak-empv-play-last
+12.61.1.16 emacspeak-empv-play-last
 ...................................
 
  -- Command: emacspeak-empv-play-last
@@ -6526,7 +6547,7 @@ Youtube integration
 
      Play most recently played URL.
 
-12.61.1.15 emacspeak-empv-play-url
+12.61.1.17 emacspeak-empv-play-url
 ..................................
 
  -- Command: emacspeak-empv-play-url (url)
@@ -6536,7 +6557,7 @@ Youtube integration
 
      (fn URL)
 
-12.61.1.16 emacspeak-empv-radio
+12.61.1.18 emacspeak-empv-radio
 ...............................
 
  -- Command: emacspeak-empv-radio
@@ -6544,7 +6565,7 @@ Youtube integration
 
      Play Internet stream
 
-12.61.1.17 emacspeak-empv-relative-seek
+12.61.1.19 emacspeak-empv-relative-seek
 .......................................
 
  -- Command: emacspeak-empv-relative-seek (target)
@@ -6554,7 +6575,7 @@ Youtube integration
 
      (fn TARGET)
 
-12.61.1.18 emacspeak-empv-time-pos
+12.61.1.20 emacspeak-empv-time-pos
 ..................................
 
  -- Command: emacspeak-empv-time-pos
@@ -6562,7 +6583,7 @@ Youtube integration
 
      Speak time and percent position.
 
-12.61.1.19 emacspeak-empv-toggle-balance
+12.61.1.21 emacspeak-empv-toggle-balance
 ........................................
 
  -- Command: emacspeak-empv-toggle-balance (value)
@@ -6572,15 +6593,15 @@ Youtube integration
 
      (fn VALUE)
 
-12.61.1.20 emacspeak-empv-toggle-custom
+12.61.1.22 emacspeak-empv-toggle-custom
 .......................................
 
  -- Command: emacspeak-empv-toggle-custom
-     ‘s-SPC .’
+     ‘s-SPC \’
 
      Toggle our custom filters.
 
-12.61.1.21 emacspeak-empv-toggle-filter
+12.61.1.23 emacspeak-empv-toggle-filter
 .......................................
 
  -- Command: emacspeak-empv-toggle-filter (filter)
@@ -6591,7 +6612,23 @@ Youtube integration
 
      (fn FILTER)
 
-12.61.1.22 emacspeak-empv-yt-download
+12.61.1.24 emacspeak-empv-toggle-left
+.....................................
+
+ -- Command: emacspeak-empv-toggle-left
+     ‘s-SPC ,’
+
+     Toggle output to being just on the left.
+
+12.61.1.25 emacspeak-empv-toggle-right
+......................................
+
+ -- Command: emacspeak-empv-toggle-right
+     ‘s-SPC .’
+
+     Toggle output to being just on the right.
+
+12.61.1.26 emacspeak-empv-yt-download
 .....................................
 
  -- Command: emacspeak-empv-yt-download
