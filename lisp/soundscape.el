@@ -399,7 +399,7 @@ Optional interactive prefix arg `prompt-mode' prompts for the mode."
                (string= name  (car pair)))
            soundscape-default-theme)))
 
-;;;###autoload
+
 (defun soundscape-init ()
   "Initialize Soundscape."
   (soundscape-catalog)
