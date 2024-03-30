@@ -604,7 +604,7 @@ dynamic playlist. "
           (t
            (file-name-base  resource))))))))
 
-;;;###autoload
+
 (defun emacspeak-m-player-using-openal ()
   "Use openal.  "
   (interactive)
@@ -619,7 +619,7 @@ dynamic playlist. "
   '("-af" "hrtf=s" "-af" "resample=48000")
   "Additional options to use built-in HRTF.")
 
-;;;###autoload
+
 (defun emacspeak-m-player-using-hrtf ()
   "Add af resample=48000,hrtf to startup options.
 This will work if the soundcard is set to 48000."
@@ -640,7 +640,7 @@ This will work if the soundcard is set to 48000."
          (append emacspeak-m-player-options (list "-shuffle"))))
     (call-interactively #'emacspeak-m-player)))
 
-;;;###autoload
+
 (defun emacspeak-m-player-loop (&optional raw)
   "M-Player with repeat indefinitely  turned on.
 Interactive prefix `raw' reads a raw URL."

@@ -156,7 +156,7 @@ Stop apps that use the network."
 (defun emacspeak-dbus-resume-signal-handler()
   "Resume handler"
   (run-hooks 'emacspeak-dbus-resume-hook))
-;;;###autoload
+
 (defun emacspeak-dbus-screensaver-check ()
   "Check  and fix Emacs DBus Binding to gnome-screensaver"
   (when (file-exists-p "/usr/bin/gnome-screensaver")
@@ -226,7 +226,7 @@ already disabled."
 
 (defvar emacspeak-orca-handle nil
   "Orca process handle")
-;;;###autoload
+
 (defun emacspeak-orca-toggle ()
   "Toggle state of orca."
   (interactive)
@@ -400,7 +400,7 @@ already disabled."
   (setq emacspeak-dbus-screen-lock-handle nil))
 
 ;;; Setup:
-;;;###autoload
+
 (defun emacspeak-dbus-setup ()
   "Turn on DBus handlers."
   (require 'dbus)

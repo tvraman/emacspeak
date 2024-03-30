@@ -58,7 +58,6 @@
    (hydra-face-teal voice-lighten-medium)))
 
 ;;;  Toggle Talkative:
-;;;###autoload
 (defun emacspeak-hydra-toggle-talkative ()
   "Toggle hydra-is-helpful"
   (interactive)
@@ -67,16 +66,13 @@
   (emacspeak-icon (if hydra-is-helpful 'on 'off)))
 
 ;;;  Emacspeak Helpers:
-;;;###autoload
 (defun emacspeak-hydra-body-pre (&optional name)
   "Provide auditory icon"
   (when name (dtk-speak name))
   (emacspeak-icon 'open-object))
-;;;###autoload
 (defun emacspeak-hydra-pre ()
   "Provide auditory icon"
   (emacspeak-icon 'progress))
-;;;###autoload
 (defun emacspeak-hydra-post ()
   "Provide auditory icon. "
   (dtk-stop 'all)
@@ -92,7 +88,6 @@
    hydra-head-format "%s "
    hydra-hint-display-type nil
    hydra-hint-display-type #'message))
-;;;###autoload
 (defun emacspeak-hydra-self-help (name)
   "Speak hint for specified Hydra."
   (message (eval (symbol-value (intern (format "%s/hint" name))))))

@@ -88,6 +88,7 @@
 (require 'emacspeak-preamble)
 (require 'emacspeak-dired)
 (require 'hydra)
+(require 'emacspeak-hydra)
 (require 'org)
 (require 'emacspeak-outline)
 (require 'emacspeak-m-player)
