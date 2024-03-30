@@ -122,7 +122,6 @@
    :post emacspeak-hydra-post)
   "Brightness "
   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-brightness") "Help")
-  ("b" emacspeak-brightness-alert-toggle "Alert" )
   ("s" light-set "set")
   ("g" light-get "Get")
   ("t" emacspeak-hydra-toggle-talkative)
