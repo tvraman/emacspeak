@@ -206,7 +206,7 @@ feeds."
       (customize-save-variable 'emacspeak-feeds emacspeak-feeds))))
 
 ;;;  display  feeds:
-
+;;;###autoload
 (defun emacspeak-feeds-feed-display(feed-url style &optional speak)
   "Fetch feed asynchronously via Emacs and display using xsltproc."
   (let ((read-process-output-max  (* 1024 1024)))
