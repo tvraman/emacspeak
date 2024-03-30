@@ -1041,7 +1041,6 @@ Retain previously set punctuations  mode."
   "Set locally to a  site specific post processor.
 Note that the Web browser should reset this hook after using it.")
 
-;;;###autoload
 (defun emacspeak-eww-run-post-process-hook (&rest _ignore)
   "Run web post process hook."
   (cl-declare (special emacspeak-eww-post-process-hook))
