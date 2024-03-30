@@ -40,6 +40,8 @@
 ;;  required modules
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'widget)
+(require 'emacspeak-widget)
 (declare-function widget-at "wid-edit" (&optional pos))
 (declare-function widget-type "wid-edit" (widget))
 

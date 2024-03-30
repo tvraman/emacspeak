@@ -147,7 +147,7 @@ Returns a string with appropriate personality."
 ;;;   widget specific summarizers  --as per Per's suggestion
 
 ;;;   default
-;;;###autoload
+
 (defun emacspeak-widget-default-summarize (widget)
   "Fall back summarizer for all widgets"
   (let* ((inhibit-read-only t)

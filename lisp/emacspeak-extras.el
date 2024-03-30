@@ -190,7 +190,7 @@ for the current voice family."
           (insert "\n"))))))
     (switch-to-buffer buffer)
     (goto-char (point-min))))
-;;;###autoload
+
 (defun voice-setup-defined-voices ()
   "Return list of voices defined via defvoice"
   (cl-loop
