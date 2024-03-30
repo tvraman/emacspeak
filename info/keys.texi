@@ -264,6 +264,7 @@
 @item =  emacspeak-wizards-find-longest-line-in-region
 @item b  battery
 @item d  emacspeak-speak-load-directory-settings
+@item e  emacspeak-we-xsl-map
 @item f  emacspeak-wizards-remote-frame
 @item h  emacspeak-wizards-how-many-matches
 @item i  ibuffer
