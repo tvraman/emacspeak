@@ -672,8 +672,7 @@ arg just opens the file"
   (require 'org)
   (require 'ol-eww)
   (cond
-   (open
-    (funcall-interactively #'find-file  emacspeak-org-hotlist))
+   (open (funcall-interactively #'find-file  emacspeak-org-hotlist))
    (t
     (org-store-link nil)
     (org-capture nil "h"))))
