@@ -5,26 +5,39 @@ Emacspeak News --History Of User-Visible Changes
 
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
-* Emacspeak 60 --- Emacspeak 59 User Visible Changes
+* Emacspeak 60 --- Emacspeak 60 User Visible Changes
 
 This version requires Emacs-29.1 or later.
 * Speech-Enable EBuku
 
-Package ~ebuku.el~ is speech-enabled y module ~emacspeak-ebuku~ --
+Package ~ebuku.el~ is speech-enabled y module ~emacspeak-ebuku~ ---
 this is an Emacs front-end to the ~buku~ bookmark manager.
-* The HTML5 Audio/Video Tag In EWW
 
+* The HTML5 Audio/Video Tag In EWW
 Module ~emacspeak-eww~ adds support for the HTML5 ~audio~ and ~video~
 tags; press ";" in an EWW buffer to move to any audio/video tags in
 the page, and pess ";" again to play the content.
-
 
 * Piper: Neural-Net TTS
 
 Emacspeak now uses Piper TTS if available as one more source of
 augmentative   audio  feedback.
+
 * Speech-Enabled LLM Front-End
 
 Emacspeak speech-enables package ~ellama~ and ~gptel~ for interacting
 with both local and remote LLMs.
+* Pipewire Support
 
+Emacspeak now uses Pipewire if available.
+Pulse should be considered deprecated starting with this release.
+
+* Updated Keybindings
+
+Keybindings continue to be revised in the interest of ergonomics.
+
+* Mac Speech Server Using SwiftMac
+
+There is a new speech server  --- SwiftMac --- for the Mac. The older
+Python Mac server is now deprecated and unmaintained and will be
+declared obsolete with the next elease.
