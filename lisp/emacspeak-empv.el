@@ -258,7 +258,8 @@ Interactive prefix arg plays directory."
  #'(lambda nil
      (emacspeak-icon 'open-object)
      (emacspeak-pronounce-refresh-pronunciations)
-     (dtk-notify-speak (format "%s results" (length empv--last-youtube-candidates)))))
+     (dtk-notify-speak
+      (format "%s results" (length empv--last-youtube-candidates)))))
 
 (defun emacspeak-empv-setup ()
   "Emacspeak setup for empv."
