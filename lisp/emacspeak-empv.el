@@ -257,9 +257,8 @@ Interactive prefix arg plays directory."
  'empv-youtube-results-mode-hook
  #'(lambda nil
      (emacspeak-icon 'open-object)
-     (dtk-notify-speak
-      (format "%s results"
-              (length empv--last-youtube-candidates)))))
+     (emacspeak-pronounce-refresh-pronunciations)
+     (dtk-notify-speak (format "%s results" (length empv--last-youtube-candidates)))))
 
 (defun emacspeak-empv-setup ()
   "Emacspeak setup for empv."
