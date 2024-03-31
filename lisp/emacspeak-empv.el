@@ -306,19 +306,21 @@ Interactive prefix arg plays directory."
 (mapc
  #'(lambda (c) (put c 'repeat-map 'empv-map))
  '(
-   empv-set-volume empv-display-current  empv-toggle
-   emacspeak-empv-play-last emacspeak-empv-play-url
-   emacspeak-empv-radio emacspeak-empv-play-file emacspeak-empv-play-local
-   emacspeak-empv-forward-minute emacspeak-empv-backward-minute
-   emacspeak-empv-forward-5-minutes emacspeak-empv-backward-5-minutes
-   emacspeak-empv-forward-10-minutes emacspeak-empv-backward-10-minutes
-   emacspeak-empv-forward-15-minutes emacspeak-empv-backward-15-minutes
-   emacspeak-empv-forward-30-minutes emacspeak-empv-backward-30-minutes
-   emacspeak-empv-time-pos emacspeak-empv-clear-filter
-   emacspeak-empv-toggle-custom emacspeak-empv-toggle-filter
-   emacspeak-empv-toggle-left emacspeak-empv-toggle-right
-   emacspeak-empv-absolute-seek  emacspeak-empv-percentage-seek 
-   emacspeak-empv-relative-seek))
+  empv-set-volume empv-display-current  empv-toggle
+  emacspeak-empv-play-last emacspeak-empv-play-url
+  emacspeak-empv-radio emacspeak-empv-play-file
+  emacspeak-empv-play-local
+   emacspeak-empv-backward-10-seconds emacspeak-empv-forward-10-seconds
+  emacspeak-empv-forward-minute emacspeak-empv-backward-minute
+  emacspeak-empv-forward-5-minutes emacspeak-empv-backward-5-minutes
+  emacspeak-empv-forward-10-minutes emacspeak-empv-backward-10-minutes
+  emacspeak-empv-forward-15-minutes emacspeak-empv-backward-15-minutes
+  emacspeak-empv-forward-30-minutes emacspeak-empv-backward-30-minutes
+  emacspeak-empv-time-pos emacspeak-empv-clear-filter
+  emacspeak-empv-toggle-custom emacspeak-empv-toggle-filter
+  emacspeak-empv-toggle-left emacspeak-empv-toggle-right
+  emacspeak-empv-absolute-seek  emacspeak-empv-percentage-seek 
+  emacspeak-empv-relative-seek))
  
 
 (defvar emacspeak-empv-filter-history nil
