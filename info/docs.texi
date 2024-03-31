@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1183 commands and 129 options.
+This chapter documents a total of 1181 commands and 129 options.
 
 @node amixer
 @section amixer
@@ -3628,8 +3628,6 @@ ELFEED ==  Feed Reader for Emacs.
 Install from elpa
 M-x package-install  elfeed
 
-  Required modules:
-
 @subsection Emacspeak-Elfeed Commands
 
 @subsubsection emacspeak-elfeed-eww-entry-at-point
@@ -4371,6 +4369,9 @@ emacspeak-epub-browse-files
 @item o
 emacspeak-epub-open
 @end table
+
+Code:
+Required Modules:
 
 @subsection Emacspeak-Epub Commands
 
@@ -5915,17 +5916,6 @@ into ‘notes’.‘m
 
 @format
 Open with Chrome.
-
-(fn URL)
-@end format
-@end deffn
-
-@subsubsection emacspeak-eww-browse-eaf
-@deffn {Command} emacspeak-eww-browse-eaf  (url)
-@findex emacspeak-eww-browse-eaf
-
-@format
-Launch async EAF browser.
 
 (fn URL)
 @end format
@@ -8419,7 +8409,6 @@ Default Value:
 @verbatim
 
 (("." emacspeak-wizards-shell-directory-reset)
- ("C-n" emacspeak-wizards-google-headlines)
  ("R" emacspeak-webspace-feed-reader)
  ("SPC" scratch-buffer)
  ("b" eww-list-buffers)
@@ -10239,7 +10228,6 @@ Call the body in the "emacspeak-muggles-brightness" hydra.
 The heads for the associated hydra are:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-brightness")’,
-"b":    ‘emacspeak-brightness-alert-toggle’,
 "s":    ‘light-set’,
 "g":    ‘light-get’,
 "t":    ‘emacspeak-hydra-toggle-talkative’,
@@ -17488,22 +17476,6 @@ Optional interactive prefix arg ext says this comes from an
 external package.
 
 (fn F &optional EXT)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-google-headlines
-@deffn {Command} emacspeak-wizards-google-headlines   
-@table @kbd
-@item C-. C-n
-@kindex C-. C-n
-@item C-x @@ s C-n
-@kindex C-x @@ s C-n
-@end table
-
-@findex emacspeak-wizards-google-headlines
-
-@format
-Display just the headlines from Google News.
 @end format
 @end deffn
 

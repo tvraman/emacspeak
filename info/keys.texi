@@ -172,7 +172,6 @@
  @section Emacspeak Keybindings On emacspeak-super-keymap
 
 @table @kbd
-@item C-n  emacspeak-wizards-google-headlines
 @item SPC  scratch-buffer
 @item .  emacspeak-wizards-shell-directory-reset
 @item R  emacspeak-webspace-feed-reader
