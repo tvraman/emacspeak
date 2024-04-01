@@ -62,7 +62,8 @@ of Emacspeak's PR/Analyst Contacts.
 | 56.0 | May 2022      | AgileDog        |
 | 57.0 | Nov 2022       | * Tilden         |
 | 58.0 | May 2023      | ErgoDog        |
-| 59.0 | Nov 2023 | VirtualDog |
+| 59.0 | Nov 2023       | VirtualDog      |
+| 60.0 | May 2024      | DreamDog      |
 |-----+---------------+----------------|
 
 #+TITLE:     code-names.txt
