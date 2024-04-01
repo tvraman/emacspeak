@@ -8,6 +8,20 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 * Emacspeak 60 --- Emacspeak 60 User Visible Changes
 
 This version requires Emacs-29.1 or later.
+
+* Emacspeak And MPV
+
+
+Module ~emacspeak-empv~ now provides better ~MPV~ interaction and more
+Youtube functionality.
+
+* BBC Sounds
+
+More BBC Sounds integration via module ~emacspeak-bbc~.
+
+
+
+
 * Speech-Enable EBuku
 
 Package ~ebuku.el~ is speech-enabled y module ~emacspeak-ebuku~ ---
