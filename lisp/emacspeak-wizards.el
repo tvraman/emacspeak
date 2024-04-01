@@ -394,7 +394,6 @@ To leave, press \\[keyboard-quit]."
 
 ;;;  Frame Nav:
 
-;;;###autoload
 (defun emacspeak-next-frame-or-buffer (&optional frame)
   "Move to next buffer.
 With optional interactive prefix arg `frame', move to next frame instead."
@@ -403,7 +402,6 @@ With optional interactive prefix arg `frame', move to next frame instead."
    (frame (funcall-interactively #'other-frame 1))
    (t (call-interactively #'next-buffer))))
 
-;;;###autoload
 (defun emacspeak-previous-frame-or-buffer (&optional frame)
   "Move to previous buffer.
 With optional interactive prefix arg `frame', move to previous frame instead."
