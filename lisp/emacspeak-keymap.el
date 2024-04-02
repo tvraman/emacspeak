@@ -183,6 +183,7 @@
    ("4" amixer-volume-adjust)
    (";" emacspeak-multimedia)
    ("<XF86WakeUp>" emacspeak-speak-brief-time)
+   ("<delete>" empv-toggle)
    ("<down>" emacspeak-read-next-line)
    ("<f11>" emacspeak-wizards-shell-toggle)
    ("<f1>" emacspeak-learn-emacs)
