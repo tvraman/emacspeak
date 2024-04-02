@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 30, 2024.
+last updated on April 1, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -73,15 +73,7 @@ This module provides Feeds support for Emacspeak required modules
 
      (fn FEED-URL)
 
-12.78.1.4 emacspeak-feeds-awesome-rss
-.....................................
-
- -- Command: emacspeak-feeds-awesome-rss
-
-     Display Awesome RSS OPML file read with completion.
-     See etc/fixup-awesome-rss  for first-time  for instructions.
-
-12.78.1.5 emacspeak-feeds-browse
+12.78.1.4 emacspeak-feeds-browse
 ................................
 
  -- Command: emacspeak-feeds-browse (feed)
@@ -91,7 +83,7 @@ This module provides Feeds support for Emacspeak required modules
 
      (fn FEED)
 
-12.78.1.6 emacspeak-feeds-delete-feed
+12.78.1.5 emacspeak-feeds-delete-feed
 .....................................
 
  -- Command: emacspeak-feeds-delete-feed (title)
@@ -100,7 +92,7 @@ This module provides Feeds support for Emacspeak required modules
 
      (fn TITLE)
 
-12.78.1.7 emacspeak-feeds-fastload-feeds
+12.78.1.6 emacspeak-feeds-fastload-feeds
 ........................................
 
  -- Command: emacspeak-feeds-fastload-feeds
@@ -110,7 +102,7 @@ This module provides Feeds support for Emacspeak required modules
      than adding those entries to the current set of subscribed
      feeds.
 
-12.78.1.8 emacspeak-feeds-opml-display
+12.78.1.7 emacspeak-feeds-opml-display
 ......................................
 
  -- Command: emacspeak-feeds-opml-display (feed-url)
@@ -120,7 +112,7 @@ This module provides Feeds support for Emacspeak required modules
 
      (fn FEED-URL)
 
-12.78.1.9 emacspeak-feeds-restore-feeds
+12.78.1.8 emacspeak-feeds-restore-feeds
 .......................................
 
  -- Command: emacspeak-feeds-restore-feeds
@@ -128,8 +120,8 @@ This module provides Feeds support for Emacspeak required modules
      Restore list of subscribed fees from  personal resource directory.
      Archiving is useful when synchronizing feeds across multiple machines.
 
-12.78.1.10 emacspeak-feeds-rss-display
-......................................
+12.78.1.9 emacspeak-feeds-rss-display
+.....................................
 
  -- Command: emacspeak-feeds-rss-display (feed-url)
      ‘C-, r’
@@ -139,7 +131,7 @@ This module provides Feeds support for Emacspeak required modules
 
      (fn FEED-URL)
 
-12.78.1.11 emacspeak-feeds-select-feed
+12.78.1.10 emacspeak-feeds-select-feed
 ......................................
 
  -- Command: emacspeak-feeds-select-feed (feed-type)
@@ -160,14 +152,6 @@ This module provides Feeds support for Emacspeak required modules
      (("BBC Podcast Directory" "http://www.bbc.co.uk/podcasts.opml" opml)
       ("CNet Tech News" "http://feeds.feedburner.com/cnet/tcoc" rss)
       ("Wired News" "http://www.wired.com/news_drop/netcenter/netcenter.rdf" rss))
-     
-
- -- Variable: User Option emacspeak-feeds-awesome-rss
-     Location of Awesome RSS
-
-     Default Value:
-     
-     "/home/raman/sourceforge/awesome-rss-feeds/"
      
 
 

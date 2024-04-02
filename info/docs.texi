@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1181 commands and 129 options.
+This chapter documents a total of 1180 commands and 128 options.
 
 @node amixer
 @section amixer
@@ -7048,16 +7048,6 @@ Display ATOM feed.
 @end format
 @end deffn
 
-@subsubsection emacspeak-feeds-awesome-rss
-@deffn {Command} emacspeak-feeds-awesome-rss   
-@findex emacspeak-feeds-awesome-rss
-
-@format
-Display Awesome RSS OPML file read with completion.
-See etc/fixup-awesome-rss  for first-time  for instructions.
-@end format
-@end deffn
-
 @subsubsection emacspeak-feeds-browse
 @deffn {Command} emacspeak-feeds-browse  (feed)
 @table @kbd
@@ -7166,20 +7156,6 @@ Default Value:
 (("BBC Podcast Directory" "http://www.bbc.co.uk/podcasts.opml" opml)
  ("CNet Tech News" "http://feeds.feedburner.com/cnet/tcoc" rss)
  ("Wired News" "http://www.wired.com/news_drop/netcenter/netcenter.rdf" rss))
-
-@end verbatim
-
-@end defvar
-
-@defvar {User Option} emacspeak-feeds-awesome-rss
-@verbatim
-Location of Awesome RSS
-@end verbatim
-
-Default Value: 
-@verbatim
-
-"/home/raman/sourceforge/awesome-rss-feeds/"
 
 @end verbatim
 
