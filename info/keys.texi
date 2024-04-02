@@ -27,6 +27,27 @@
 @item C-w  emacspeak-speak-window-information
 @item C-x  emacspeak-speak-header-line
 @item SPC  emacspeak-speak-windowful
+@item !  emacspeak-speak-run-shell-command
+@item $  flyspell-mode
+@item %  emacspeak-speak-current-percentage
+@item &  emacspeak-wizards-shell-command-on-current-file
+@item '  emacspeak-empv-play-file
+@item (  amixer
+@item )  emacspeak-sounds-select-theme
+@item ,  emacspeak-buffer-select
+@item .  emacspeak-buffer-select
+@item /  emacspeak-websearch-dispatch
+@item 1  emacspeak-speak-this-window
+@item 2  emacspeak-speak-other-window
+@item 3  amixer-volume-adjust
+@item 4  amixer-volume-adjust
+@item ;  emacspeak-multimedia
+@item =  emacspeak-speak-current-column
+@item ?  emacspeak-websearch-dispatch
+@item @@  emacspeak-speak-message-at-time
+@item A  emacspeak-appt-repeat-announcement
+@item B  emacspeak-speak-buffer-interactively
+@item C  emacspeak-customize
 @item L  emacspeak-speak-line-interactively
 @item M  emacspeak-speak-minor-mode-line
 @item N  emacspeak-view-emacspeak-news
@@ -61,27 +82,6 @@
 @item u  emacspeak-url-template-fetch
 @item w  emacspeak-speak-word
 @item |  emacspeak-speak-line-set-column-filter
-@item !  emacspeak-speak-run-shell-command
-@item $  flyspell-mode
-@item %  emacspeak-speak-current-percentage
-@item &  emacspeak-wizards-shell-command-on-current-file
-@item '  emacspeak-empv-play-file
-@item (  amixer
-@item )  emacspeak-sounds-select-theme
-@item ,  emacspeak-buffer-select
-@item .  emacspeak-buffer-select
-@item /  emacspeak-websearch-dispatch
-@item 1  emacspeak-speak-this-window
-@item 2  emacspeak-speak-other-window
-@item 3  amixer-volume-adjust
-@item =  emacspeak-speak-current-column
-@item ?  emacspeak-websearch-dispatch
-@item @@  emacspeak-speak-message-at-time
-@item A  emacspeak-appt-repeat-announcement
-@item B  emacspeak-speak-buffer-interactively
-@item C  emacspeak-customize
-@item 4  amixer-volume-adjust
-@item ;  emacspeak-multimedia
 @end table
 
 @node Emacspeak Keybindings On emacspeak-dtk-submap
