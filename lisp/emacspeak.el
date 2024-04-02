@@ -96,8 +96,9 @@ the Emacspeak desktop.")
 
 (with-eval-after-load "gptel"
   (cl-declare (special gptel-post-response-functions))
-  (setopt gptel-post-stream-hook
-          #'(lambda nil (emacspeak-icon 'tick-tick)))
+  (add-hook
+   'gptel-post-stream-hook
+   #'(lambda nil (emacspeak-icon 'tick-tick)))
   
   (setopt
    gptel-post-response-functions
