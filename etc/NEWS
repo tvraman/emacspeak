@@ -55,3 +55,8 @@ Keybindings continue to be revised in the interest of ergonomics.
 There is a new speech server  --- SwiftMac --- for the Mac. The older
 Python Mac server is now deprecated and unmaintained and will be
 declared obsolete with the next elease.
+
+* Tree-sSitter Support
+
+Emaspeak now leverages tree-sitter support if available when
+navigating in programming modes.
