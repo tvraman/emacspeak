@@ -162,12 +162,6 @@ Interactive prefix arg plays directory."
                                     'empv-youtube-results--current-video-url))
 (declare-function emacspeak-eww-yt-dl "emacspeak-eww" (url))
 
-;;;###autoload
-(defun emacspeak-empv-yt-download ()
-  "Download Youtube result."
-  (interactive)
-  (emacspeak-eww-yt-dl (empv-youtube-results--current-video-url)))
-
 ;;; Seekers:
 (defun emacspeak-empv-time-pos ()
   "Speak time and percent position."
