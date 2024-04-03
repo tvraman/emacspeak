@@ -60,3 +60,7 @@ declared obsolete with the next elease.
 
 Emaspeak now leverages tree-sitter support if available when
 navigating in programming modes.
+
+* Smart Media Selector
+
+See the Emacspeak Blog for details on Emacspeak's [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selector]].
