@@ -1588,9 +1588,9 @@ Displays name of current buffer.")
     (let ((window-count (length (window-list))))
       (emacspeak-icon 'item)
       (when (> window-count 1) (emacspeak--sox-multiwindow))
-      (dtk-speak (format-mode-line header-line-format))))
+      (dtk-notify-speak (format-mode-line header-line-format))))
    (t
-    (dtk-speak
+    (dtk-notify-speak
      (concat
       (propertize (buffer-name) 'personality voice-smoothen)
       (format-time-string emacspeak-speak-time-brief-format))))))
