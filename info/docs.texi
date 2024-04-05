@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1180 commands and 128 options.
+This chapter documents a total of 1179 commands and 128 options.
 
 @node amixer
 @section amixer
@@ -4100,20 +4100,6 @@ Toggle output to being just on the left.
 
 @format
 Toggle output to being just on the right.
-@end format
-@end deffn
-
-@subsubsection emacspeak-empv-yt-download
-@deffn {Command} emacspeak-empv-yt-download   
-@table @kbd
-@item s-SPC y
-@kindex s-SPC y
-@end table
-
-@findex emacspeak-empv-yt-download
-
-@format
-Download Youtube result.
 @end format
 @end deffn
 

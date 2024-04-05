@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 2, 2024.
+last updated on April 5, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -2793,7 +2793,6 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * s-SPC m:                               emacspeak-empv.     (line  120)
 * s-SPC r:                               emacspeak-empv.     (line  177)
 * s-SPC s:                               emacspeak-empv.     (line   17)
-* s-SPC y:                               emacspeak-empv.     (line  240)
 
 
 File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key Index,  Up: Top
@@ -3440,8 +3439,6 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-empv-toggle-left <1>:        emacspeak-empv.     (line  225)
 * emacspeak-empv-toggle-right:           emacspeak-empv.     (line  230)
 * emacspeak-empv-toggle-right <1>:       emacspeak-empv.     (line  233)
-* emacspeak-empv-yt-download:            emacspeak-empv.     (line  238)
-* emacspeak-empv-yt-download <1>:        emacspeak-empv.     (line  241)
 * emacspeak-enriched-voiceify-faces:     emacspeak-enriched. (line   14)
 * emacspeak-enriched-voiceify-faces <1>: emacspeak-enriched. (line   15)
 * emacspeak-eperiodic-goto-property-section: emacspeak-eperiodic.
