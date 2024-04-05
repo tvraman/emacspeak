@@ -1437,10 +1437,10 @@ change via the TTS.
 maintained internally on the TTS server.  If say_it is non-nil say the
 language change via the TTS.
 
-     set_lang langauge:voice say_it
+     set_lang language:voice say_it
 
    _Immediately_ switch to the requested language and/or voice,
-seperated by a colon.  Examples
+separated by a colon.  Examples
 
    • set_lang "en"
 
@@ -1448,7 +1448,7 @@ seperated by a colon.  Examples
 
    • set_lang ":whisper"
 
-   If say_it is non-nil, speak via the TTS the langauge and voice
+   If say_it is non-nil, speak via the TTS the language and voice
 selected.
 
      set_preferred_lang alias lang
