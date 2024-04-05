@@ -237,11 +237,6 @@
 ;; Play media URL under point using @code{emacs-m-player}.
 ;; Handles URL fragment as time-stamp where we resume; use @kbd{J} in
 ;; M-Player to jump to that offset.
-;; @item U
-;; @command{emacspeak-eww-curl-play-media-at-point}
-;; Play media url under point by first downloading the URL using
-;; CURL. This is useful for sites that do multiple redirects before
-;; returning the actual media stream URL.
 ;; @item u
 ;; @command{emacspeak-eww-url-to-register}
 ;;Accumulate url under point to register@code{u}.
@@ -621,7 +616,6 @@ Safari/537.36"
   (define-key eww-link-keymap  "k" 'shr-copy-url)
   (define-key eww-link-keymap ";" 'emacspeak-m-player-url)
   (define-key eww-link-keymap "Y" 'emacspeak-eww-yt-dl)
-  (define-key eww-link-keymap "U" 'emacspeak-eww-curl-play-media-at-point)
   (define-key eww-link-keymap "x" 'emacspeak-feeds-select-feed)
   (define-key eww-link-keymap  "y" 'emacspeak-empv-play-url)
   (cl-loop
@@ -722,23 +716,6 @@ second interactive prefix arg adds mplayer option
      emacspeak-m-player-media-history :test #'string=)
     (message " Playing url under point")
     (emacspeak-m-player-url url playlist-p)))
-
-(defun emacspeak-eww-curl-play-media-at-point ()
-  "Use Curl to pull a URL, then pass
-the first line to MPlayer as a playlist.
-Useful in handling double-redirect from TuneIn."
-  (interactive)
-  (let ((url
-         (if emacspeak-eww-url-at-point
-             (funcall emacspeak-eww-url-at-point)
-           (browse-url-url-at-point))))
-    (setq url
-          (cl-first
-           (split-string
-            (shell-command-to-string (format "curl --silent '%s'" url))
-            "\n")))
-    (message "Playing redirected media  URL under point: %s" url)
-    (emacspeak-m-player url t)))
 
 ;;;  Inline Helpers:
 
