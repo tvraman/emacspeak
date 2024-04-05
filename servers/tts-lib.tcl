@@ -1,11 +1,11 @@
 #$Id$
-#{{{ LCD Entry: 
+#{{{ LCD Entry:
 #
 # LCD Archive Entry:
 # emacspeak| T. V. Raman |raman@cs.cornell.edu
 # A speech interface to Emacs |
 # $Date$ |
-#  $Revision$ | 
+#  $Revision$ |
 # Location https://github.com/tvraman/emacspeak
 #
 
@@ -13,10 +13,10 @@
 #{{{ Copyright:
 
 #x
-#Copyright (C) 1995 -- 2024, T. V. Raman 
+#Copyright (C) 1995 -- 2024, T. V. Raman
 #All Rights Reserved
 # Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-# All Rights Reserved. 
+# All Rights Reserved.
 #
 # This file is not part of GNU Emacs, but the same permissions apply.
 #
@@ -39,21 +39,20 @@
 #{{{ tts_caps
 
 proc tts_caps {flag} {
-    global tts 
+    global tts
     set tts(caps_beep) $flag
     return ""
 }
 
-
 #}}}
 
-#{{{ sync state 
+#{{{ sync state
 proc tts_sync_state {punct  splitcaps caps rate } {
     tts_set_punctuations  $punct
     tts_split_caps   $splitcaps
     tts_caps $caps
     tts_set_speech_rate  $rate
-} 
+}
 #}}}
 #{{{ queue:
 
@@ -77,12 +76,12 @@ proc queue_length {} {
 proc queue_clear {} {
     global tts queue
     if {$tts(debug)} {
-    puts -nonewline  $tts(write) "$tts(q_head) \013"
+        puts -nonewline  $tts(write) "$tts(q_head) \013"
     }
     if {[info exists q]} unset q
-    set queue(-1) "" 
+    set queue(-1) ""
     set tts(q_head) 0
-    set tts(q_tail) 0 
+    set tts(q_tail) 0
     return ""
 }
 
@@ -107,19 +106,18 @@ proc c {{element ""}} {
     }
 }
 
-#queue a note 
+#queue a note
 proc n {instrument note length {target 0} {step 5}} {
     global queue tts env
     set queue($tts(q_tail)) [list n $instrument $note \
-                             $length $target $step]
+                                 $length $target $step]
     incr tts(q_tail)
     return ""
 }
 
-
-#queue a beep 
+#queue a beep
 proc b {{pitch 523} {length 100}} {
-    global queue tts 
+    global queue tts
     set queue($tts(q_tail)) [list b $pitch $length]
     incr tts(q_tail)
     return ""
@@ -133,40 +131,14 @@ proc a {sound} {
     incr tts(q_tail)
     return ""
 }
-
-proc queue_rewind {} {
-    global tts queue 
-    if {$tts(q_head) == 0} {return ""}
-    set tts(q_head)  0
-    set element  $queue($tts(q_head))
-    return $element
-}
-
-proc queue_retreat {{step 1}} {
-    global tts queue 
-    if {$tts(q_head) == 0} {return ""}
-    incr tts(q_head) [expr - $step]
-    set tts(q_head)  [expr max ($tts(q_head), 0)]
-    set element  $queue($tts(q_head))
-    return $element
-}
-
-proc queue_advance {{step 1}} {
-    global tts queue 
-    incr tts(q_head) $step
-    set tts(q_head)  [expr min ($tts(q_head), $tts(q_tail))]
-    set element  $queue($tts(q_head))
-    return $element
-}
-
 proc queue_remove {} {
-    global tts queue 
+    global tts queue
     set element  $queue($tts(q_head))
     incr tts(q_head)
     return $element
 }
 #}}}
-#{{{sounds: 
+#{{{sounds:
 
 #play a sound over the server
 proc p {sound} {
@@ -176,9 +148,9 @@ proc p {sound} {
 }
 
 #}}}
-#{{{beep  
+#{{{beep
 
-#you need to have beep installed 
+#you need to have sox installed
 
 proc beep_initialize {} {
     global tts
@@ -187,86 +159,85 @@ proc beep_initialize {} {
         set tts(beep) 1
     }
 }
+
 # length is in milliseconds with a 10ms fade-in and fade-out.
 proc beep {{freq 523} {length 100}} {
     set l  [expr $length / 1000.0]
-        # equal 10ms fade at start and end:
-        exec play -q -n  synth $l sin $freq  sin $freq \
+    # equal 10ms fade at start and end:
+    exec play -q -n  synth $l sin $freq  sin $freq \
         fade  h 0.01 0  delay 0 0.01 channels 2 > /dev/null &
 }
 
-
 #}}}
-#{{{self test 
+#{{{self test
 
 proc tts_selftest {} {
-     loop i 1 10 {
-     q "This is test $i. "
-     }
-     d
+    loop i 1 10 {
+        q "This is test $i. "
+    }
+    d
 }
 
-
 #}}}
-#{{{guessing os   and port 
+#{{{guessing os   and port
 
 proc which_os {} {
-global env
-     #if env variable DTK_OS is set, use it;
-     if {[info exists env(DTK_OS)] } {
-     return  $env(DTK_OS)
-     } 
-     set machine [exec uname -a]
-     #os hostname version 
-     set fields [split $machine ]
-     set os [lindex $fields 0]
-     set host [lindex $fields 1]
-     set version [lindex $fields 2]    
-     switch -exact  -- $os {
-     ULTRIX  -
-     OSF1  {return DEC}
-     SunOS {
-     #are we  solaris
-     if {[string match 5.* $version] }  {
-     return Solaris
-     } else    {
-     #we are sunos 4
-     return SunOS
-     }
-     }
-     Linux -
-     default    {
-     return Linux
-     }
-     }
-     }
+    global env
+    #if env variable DTK_OS is set, use it;
+    if {[info exists env(DTK_OS)] } {
+        return  $env(DTK_OS)
+    }
+    set machine [exec uname -a]
+    #os hostname version
+    set fields [split $machine ]
+    set os [lindex $fields 0]
+    set host [lindex $fields 1]
+    set version [lindex $fields 2]
+    switch -exact  -- $os {
+        ULTRIX  -
+        OSF1  {return DEC}
+        SunOS {
+            #are we  solaris
+            if {[string match 5.* $version] }  {
+                return Solaris
+            } else    {
+                #we are sunos 4
+                return SunOS
+            }
+        }
+        Linux -
+        default    {
+            return Linux
+        }
+    }
+}
 
 proc which_port {{os Linux}} {
-     global env
+    global env
     if {[info exists env(DTK_PORT)] } {
-    set port $env(DTK_PORT)
-    puts stdout "Set port to $port"
+        set port $env(DTK_PORT)
+        puts stdout "Set port to $port"
     } else {
-    switch -exact  -- $os {
-           DEC {
-           set port /dev/tty00
-           }
-           SunOS -
-           Solaris -
-           solaris {
-           set port /dev/ttya
-           } 
-           Linux -
-           default {
-           set port /dev/ttyS0
-           }
-           }
+        switch -exact  -- $os {
+            DEC {
+                set port /dev/tty00
+            }
+            SunOS -
+            Solaris -
+            solaris {
+                set port /dev/ttya
+            }
+            Linux -
+            default {
+                set port /dev/ttyS0
+            }
+        }
     }
     return $port
 }
 
 #}}}
-#{{{tts setserial 
+#{{{tts setserial
 
 proc tts_setserial {} {
     global tts
@@ -274,44 +245,44 @@ proc tts_setserial {} {
     set port [which_port $machine]
     set tts(read)  [open $port  r]
     set tts(write)  [open $port  w]
-    #set up stty settings 
+    #set up stty settings
     switch -exact  -- $machine {
         DEC { #osf and ultrix
-            exec stty sane 9600 raw  -echo < $port 
-            exec stty ixon ixoff  <  $port 
+            exec stty sane 9600 raw  -echo < $port
+            exec stty ixon ixoff  <  $port
         }
         solaris -
         Solaris {
-            exec /usr/bin/stty sane 9600 raw  < $port 
-            exec /usr/bin/stty -echo <  $port 
-            exec /usr/bin/stty ignpar <  $port 
-            exec   /usr/bin/stty ixon ixoff < $port 
+            exec /usr/bin/stty sane 9600 raw  < $port
+            exec /usr/bin/stty -echo <  $port
+            exec /usr/bin/stty ignpar <  $port
+            exec   /usr/bin/stty ixon ixoff < $port
         }
         SunOS   {
-            exec stty sane 9600 raw  -echo -echoe -echoke echoctl  > $port 
-            exec stty ixon ixoff  >  $port 
+            exec stty sane 9600 raw  -echo -echoe -echoke echoctl  > $port
+            exec stty ixon ixoff  >  $port
         }
         Linux -
         default   {
-            exec stty sane 9600 raw  -echo <  $port 
-            exec stty -echo <  $port 
-            exec stty ixon ixoff  < $port 
+            exec stty sane 9600 raw  -echo <  $port
+            exec stty -echo <  $port
+            exec stty ixon ixoff  < $port
         }
     }
-    
+
     #set up the right kind of buffering:
     fcntl $tts(read) nobuf 1
     fcntl $tts(write) nobuf 1
 }
 
 #}}}
-#{{{tts initialize  
+#{{{tts initialize
 
 proc tts_initialize {} {
     global tts queue env
     # caps beep (used by dtk soft)
     set tts(caps_beep) 0
-    #split caps flag: 
+    #split caps flag:
     set tts(split_caps) 1
     #allcaps beep flag
     set tts(allcaps_beep)  0
@@ -321,27 +292,27 @@ proc tts_initialize {} {
     set tts(q_tail) 0
     set tts(punctuations) some
     set queue(-1) ""
-    
+
     #play program
     # always use paplay
     set tts(play) "/usr/bin/paplay"
     #if env variable EMACSPEAK_PLAY is set, use it;
     if {[info exists env(EMACSPEAK_PLAY)] } {
         set tts(play)  $env(EMACSPEAK_PLAY)
-    } 
+    }
     #optional debuggin output
     if {[info exists env(DTK_DEBUG)] } {
         set tts(debug) 1
     } else {
         set tts(debug) 0
     }
-    
+
     #flag to avoid multiple consecutive stops
     set tts(not_stopped) 1
 }
 
 #}}}
-#{{{ Emacs local variables  
+#{{{ Emacs local variables
 
 ### Local variables:
 ### mode: tcl
