@@ -88,18 +88,6 @@ proc d {} {
     speech_task
 }
 
-proc tts_repeat  {} {
-    global tts 
-    queue_rewind
-    if {[queue_empty?]} {
-        synth  "No speech to repeat. "
-        set tts(not_stopped) 1
-    } else {
-        speech_task
-    }
-    return ""
-}
-
 #formerly called tts_stop 
 
 proc s {} {
