@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1179 commands and 128 options.
+This chapter documents a total of 1177 commands and 128 options.
 
 @node amixer
 @section amixer
@@ -5668,11 +5668,6 @@ Copy URL under point to the kill-ring.
 Play media URL under point using @code{emacs-m-player}.
 Handles URL fragment as time-stamp where we resume; use @kbd{J} in
 M-Player to jump to that offset.
-@item U
-@command{emacspeak-eww-curl-play-media-at-point}
-Play media url under point by first downloading the URL using
-CURL. This is useful for sites that do multiple redirects before
-returning the actual media stream URL.
 @item u
 @command{emacspeak-eww-url-to-register}
 Accumulate url under point to register@code{u}.
@@ -5723,7 +5718,7 @@ transforms like @code{sort-tables}.
  @command{emacspeak-eww-play-audio/video}
 When on an audio element, plays audio under point.
 @item  C-RET
-@command {emacspeak-eww-fillin-form-field}
+@command {emacspeak-eww-fillin-field}
 When on an input field, insert  username/password information
 accessed via auth-source.
 @item '
@@ -5907,27 +5902,6 @@ Open with Chrome.
 @end format
 @end deffn
 
-@subsubsection emacspeak-eww-cleanup-eww-data
-@deffn {Command} emacspeak-eww-cleanup-eww-data   
-@findex emacspeak-eww-cleanup-eww-data
-
-@format
-Clean up DOM and Source from eww-data.
-Use for large EBook buffers.
-@end format
-@end deffn
-
-@subsubsection emacspeak-eww-curl-play-media-at-point
-@deffn {Command} emacspeak-eww-curl-play-media-at-point   
-@findex emacspeak-eww-curl-play-media-at-point
-
-@format
-Use Curl to pull a URL, then pass
-the first line to MPlayer as a playlist.
-Useful in handling double-redirect from TuneIn.
-@end format
-@end deffn
-
 @subsubsection emacspeak-eww-delete-mark
 @deffn {Command} emacspeak-eww-delete-mark  (name)
 @findex emacspeak-eww-delete-mark
@@ -5948,9 +5922,9 @@ Focus on current div by rendering it in a new buffer.
 @end format
 @end deffn
 
-@subsubsection emacspeak-eww-fillin-form-field
-@deffn {Command} emacspeak-eww-fillin-form-field   
-@findex emacspeak-eww-fillin-form-field
+@subsubsection emacspeak-eww-fillin-field
+@deffn {Command} emacspeak-eww-fillin-field   
+@findex emacspeak-eww-fillin-field
 
 @format
 Fill in user or passwd field using auth-source backend.
