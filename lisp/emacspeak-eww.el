@@ -692,8 +692,7 @@ Safari/537.36"
    do
    (emacspeak-keymap-update eww-mode-map binding))
   (setq shr-external-rendering-functions emacspeak-eww-filter-renderers))
-(cl-eval-when '(load)
-  (emacspeak-eww-setup))
+  (emacspeak-eww-setup)
 
 ;;; play media:
 
@@ -1224,7 +1223,8 @@ Note that the Web browser should reset this hook after using it.")
   (let ((copy (copy-sequence emacspeak-eww-shr-renderers)))
     (cl-pushnew (cons 'em 'emacspeak-eww-em-with-space) copy)
     (cl-pushnew (cons 'strong 'emacspeak-eww-strong-with-space) copy)
-    (cl-pushnew (cons 'span 'emacspeak-eww-span-with-space) copy) copy)
+    (cl-pushnew (cons 'span 'emacspeak-eww-span-with-space) copy)
+    copy)
   "Renderers used when filtering.")
 
 (defun eww-dom-keep-if (dom predicate)
