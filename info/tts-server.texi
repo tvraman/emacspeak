@@ -263,11 +263,11 @@ server, maintained internally on the TTS server. If
 say_it is non-nil say the language change via the TTS.
 
 @example
-set_lang langauge:voice say_it
+set_lang language:voice say_it
 @end example
 
 @emph{Immediately} switch to the requested language
-and/or voice, seperated by a colon. Examples  
+and/or voice, separated by a colon. Examples  
 
 @itemize @bullet
 @item
@@ -280,7 +280,7 @@ set_lang "en:whisper"
 set_lang ":whisper"
 @end itemize
 
-If say_it is non-nil, speak via the TTS the langauge and voice
+If say_it is non-nil, speak via the TTS the language and voice
 selected. 
 
 
