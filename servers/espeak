@@ -289,16 +289,6 @@ proc d {} {
     service
     speech_task
 }
-
-proc tts_resume  {} {
-    resume
-    return ""
-}
-proc tts_pause {} {
-    pause
-    return ""
-}
-
 proc s {} {
     global tts
     if {$tts(not_stopped) == 1} {

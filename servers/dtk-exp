@@ -71,7 +71,6 @@ proc version {} {
     d
 }
 
-
 proc tts_set_punctuations {mode} {
     global tts
     set tts(punctuations) $mode
@@ -100,8 +99,8 @@ proc tts_say {text} {
     set tts(not_stopped) 1
     puts -nonewline  $tts(write)\
         "\[_]\[:sa w]$text \013"
-        tts_gobble_acknowledgements
-return ""
+    tts_gobble_acknowledgements
+    return ""
 }
 
 #formerly called tts_letter
@@ -114,33 +113,13 @@ proc l {text} {
     tts_gobble_acknowledgements 0.001
     puts -nonewline  $tts(write)\
         "\[_]\[:ra $f]\[:sa le]$text\[:sa c]"
-        return ""
+    return ""
 }
 
 #formerly called tts_speak
 
 proc d {} {
     speech_task
-}
-
-
-proc tts_resume  {} {
-    global tts
-    queue_restore
-    if {[queue_empty?]} {
-        puts -nonewline  $tts(write) {  [:sa c] No speech to resume. }
-        set tts(not_stopped) 1
-    } else {
-        speech_task
-    }
-    return ""
-}
-
-proc tts_pause {} {
-    global tts
-    queue_backup
-    s
-    return ""
 }
 
 #formerly called tts_stop
@@ -163,11 +142,11 @@ proc s {} {
 proc t  {{pitch 440} {duration 50}} {
     global tts queue
     global tts queue
-    if {$tts(beep)} { 
+    if {$tts(beep)} {
         b $pitch $duration
         return ""
     }
-    #otherwise, use dtk builtin tones 
+    #otherwise, use dtk builtin tones
     set tone "\[:to $pitch $duration\]"
     set queue($tts(q_tail)) [list t $tone]
     incr tts(q_tail)
@@ -178,7 +157,6 @@ proc sh  {{duration 50}} {
     c "  \[_<$duration>\] "
     return ""
 }
-
 
 proc tts_split_caps {flag} {
     global tts
@@ -270,7 +248,7 @@ proc speech_task {} {
                 set retval [tts_get_acknowledgement ]
             }
             b {
-                lvarpop event 
+                lvarpop event
                 eval beep $event
             }
             a {
@@ -281,7 +259,7 @@ proc speech_task {} {
         if {$tts(talking?) == 0} {break;}
     }
     puts -nonewline  $tts(write) "\013"
-    
+
     set tts(talking?) 0
     tts_gobble_acknowledgements
     return ""
