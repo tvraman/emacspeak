@@ -165,38 +165,6 @@ proc queue_remove {} {
     incr tts(q_head)
     return $element
 }
-
-proc queue_backup {} {
-    global tts  backup queue
-    if {[queue_empty?]} {
-set tts(backup_head) 0
-    set tts(backup_tail) 0
-        return
-    }
-    unset backup
-    set backup(-1) ""
-    set head [expr  max($tts(q_head) - 2, 0)]
-    set tail $tts(q_tail)
-    loop i $head $tail 1 {
-        set backup($i) $queue($i)
-    }
-    set tts(backup_head) $head
-    set tts(backup_tail) $tail
-}
-
-proc queue_restore {} {
-    global tts  backup queue
-    unset queue
-    set queue(-1) ""
-    set head $tts(backup_head)
-    set tail $tts(backup_tail)
-    loop i $head $tail 1 {
-        set queue($i) $backup($i)
-    }
-    set tts(q_head) $head
-    set tts(q_tail) $tail
-}
-
 #}}}
 #{{{sounds: 
 
@@ -340,7 +308,7 @@ proc tts_setserial {} {
 #{{{tts initialize  
 
 proc tts_initialize {} {
-    global tts backup  queue env
+    global tts queue env
     # caps beep (used by dtk soft)
     set tts(caps_beep) 0
     #split caps flag: 
@@ -351,11 +319,9 @@ proc tts_initialize {} {
     set tts(char_factor)  1.2
     set tts(q_head)  0
     set tts(q_tail) 0
-    set tts(backup_head)  0
-    set tts(backup_tail) 0
     set tts(punctuations) some
     set queue(-1) ""
-    set backup(-1) ""
+    
     #play program
     # always use paplay
     set tts(play) "/usr/bin/paplay"
