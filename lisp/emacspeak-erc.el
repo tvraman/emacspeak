@@ -87,7 +87,7 @@ server."
 
 ;;;  advice interactive commands
 (cl-declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
-(emacspeak-pronounce-augment-pronunciations
+(emacspeak-pronounce-augment
  'erc-mode
  emacspeak-pronounce-internet-smileys-pronunciations)
 

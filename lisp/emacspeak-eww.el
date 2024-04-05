@@ -588,6 +588,7 @@ Safari/537.36"
 (defcustom emacspeak-eww-inhibit-images nil
   "Turn this on to avoid rendering images."
   :type 'boolean
+
   :group 'emacspeak)
 
 (declare-function emacspeak-feeds-feed-display
@@ -601,9 +602,7 @@ Safari/537.36"
                shr-inhibit-images emacspeak-eww-inhibit-images
                emacspeak-pronounce-xml-ns
                emacspeak-eww-masquerade))
-  (ems--fastload "emacspeak-pronounce")
-  (emacspeak-pronounce-augment-pronunciations
-   'eww-mode emacspeak-pronounce-xml-ns)
+  (emacspeak-pronounce-augment 'eww-mode emacspeak-pronounce-xml-ns)
   (emacspeak-pronounce-add-dictionary-entry
    'eww-mode
    emacspeak-pronounce-rfc-3339-datetime-pattern

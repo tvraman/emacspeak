@@ -221,10 +221,10 @@ Silently drops alerts on the floor --- Google Talk is too chatty otherwise."
 
 ;;;  Pronunciations
 (cl-declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
-(emacspeak-pronounce-augment-pronunciations
+(emacspeak-pronounce-augment
  'jabber-chat-mode
  emacspeak-pronounce-internet-smileys-pronunciations)
-(emacspeak-pronounce-augment-pronunciations
+(emacspeak-pronounce-augment
  'jabber-mode
  emacspeak-pronounce-internet-smileys-pronunciations)
 

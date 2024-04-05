@@ -513,7 +513,7 @@ Leave point at front of decoded attachment."
  for mode in
  '(vm-presentation-mode mail-mode)
  do
- (emacspeak-pronounce-augment-pronunciations
+ (emacspeak-pronounce-augment
   mode
   emacspeak-pronounce-internet-smileys-pronunciations)
  (emacspeak-pronounce-add-dictionary-entry

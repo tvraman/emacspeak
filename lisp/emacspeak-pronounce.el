@@ -555,7 +555,7 @@ First loads any persistent dictionaries if not already loaded."
 
 ;;;  adding predefined dictionaries to a mode:
 
-(defun emacspeak-pronounce-augment-pronunciations (mode dictionary)
+(defun emacspeak-pronounce-augment (mode dictionary)
   "Augment pronunciations."
   (let ((mode-alist (emacspeak-pronounce-get-dictionary mode)))
     (cl-loop

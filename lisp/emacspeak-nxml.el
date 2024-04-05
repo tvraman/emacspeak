@@ -134,7 +134,7 @@
              emacspeak-pronounce-xml-ns))
 
 ;; nxml mode inherits from xml mode
-(emacspeak-pronounce-augment-pronunciations
+(emacspeak-pronounce-augment
  'xml-mode
  emacspeak-pronounce-xml-ns)
 (emacspeak-pronounce-add-super 'xml-mode 'nxml-mode)
