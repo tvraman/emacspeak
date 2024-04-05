@@ -692,8 +692,8 @@ Safari/537.36"
    do
    (emacspeak-keymap-update eww-mode-map binding))
   (setq shr-external-rendering-functions emacspeak-eww-filter-renderers))
-
-(emacspeak-eww-setup)
+(cl-eval-when '(load)
+  (emacspeak-eww-setup))
 
 ;;; play media:
 
