@@ -876,8 +876,8 @@ Retain previously set punctuations  mode."
     (emacspeak-speak-voice-annotate-paragraphs)
     (cond
      (emacspeak-eww-post-process-hook
-      (emacspeak-eww-run-post-process-hook))
-     (t (emacspeak-speak-header-line)))))
+      (emacspeak-eww-run-post-process-hook)))
+    (emacspeak-speak-header-line)))
 
 (add-hook 'eww-after-render-hook 'emacspeak-eww-after-render-hook)
 
@@ -1018,11 +1018,9 @@ Note that the Web browser should reset this hook after using it.")
   "Run web post process hook."
   (cl-declare (special emacspeak-eww-post-process-hook))
   (when     emacspeak-eww-post-process-hook
-    (condition-case
-        nil
+    (condition-case nil
         (let ((inhibit-read-only t))
-          (run-hooks
-           'emacspeak-eww-post-process-hook))
+          (run-hooks 'emacspeak-eww-post-process-hook))
       ((debug error)  (message "Caught error  in post-process hook.")
        (setq emacspeak-eww-post-process-hook nil)))
     (setq emacspeak-eww-post-process-hook nil)))
@@ -2577,9 +2575,7 @@ With interactive prefix arg, move to the start of the table."
     (emacspeak-eww-view-helper
      (dom-html-from-nodes (list dom) (eww-current-url)))))
 
-;;; Open With External Browser: EAF, Chrome
-
-(declare-function eaf-open-browser "eaf-browser" (url &optional args))
+;;; Open With External Browser:  Chrome
 
 (defun emacspeak-eww-browse-chrome (url)
   "Open with Chrome."
@@ -2590,21 +2586,6 @@ With interactive prefix arg, move to the start of the table."
 (put 'emacspeak-eww-play-media-at-point
      'repeat-map  'emacspeak-m-player-mode-map)
 
-;;; Command: eww-cleanup:
-
-;;; Command to cleanup dom and source for large web pages: e.g. ebooks
-
-(defun emacspeak-eww-cleanup-eww-data ()
-  "Clean up DOM and Source from eww-data.
-Use for large EBook buffers."
-  (interactive)
-  (cl-declare (special eww-data))
-  (plist-put eww-data :source nil)
-  (plist-put eww-data :dom nil)
-  (when  (called-interactively-p 'interactive)
-    (emacspeak-icon 'task-done)))
-
-;;; Command: url-to-register
 ;;; youtube-dl downloader:
 
 (defun emacspeak-eww-yt-dl (url)
