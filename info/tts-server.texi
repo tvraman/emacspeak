@@ -229,11 +229,9 @@ identifiers.
 @example
 tts_sync_state punct  splitcaps caps rate
 @end example
-
-Queue or @emph{Immediately} left as a decision to server.
-This was created for TTS hardware and can be omitted in
-software servers but should not generate an error. 
-
+This ensures @emph{atomicity} i.e., all state settings in the TTS
+engine happen at one shot. Note that failure to do this might result
+in some utterances being spoken with a partially set state.
 @itemize @bullet
 @item
 punct: see tts_set_punctuations
