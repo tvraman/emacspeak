@@ -292,7 +292,7 @@
 ;;  @command{emacspeak-eww-play-audio/video}
 ;; When on an audio element, plays audio under point.
 ;; @item  C-RET
-;; @command {emacspeak-eww-fillin-form-field}
+;; @command {emacspeak-eww-fillin-field}
 ;; When on an input field, insert  username/password information
 ;; accessed via auth-source.
 ;; @item '
@@ -615,8 +615,7 @@ Safari/537.36"
    '("I" "o")
    do
    (keymap-unset eww-link-keymap c 'remove))
-  (define-key eww-text-map  [C-return]
-              'emacspeak-eww-fillin-form-field)
+  (define-key eww-text-map  [C-return] 'emacspeak-eww-fillin-field)
   (define-key eww-link-keymap  "u" 'emacspeak-eww-url-to-register)
   (define-key eww-link-keymap  "!" 'emacspeak-eww-shell-cmd-on-url-at-point)
   (define-key eww-link-keymap  "k" 'shr-copy-url)
@@ -2385,7 +2384,7 @@ with an interactive prefix arg. "
 
 ;;; Form filling:
 
-(defun emacspeak-eww-fillin-form-field ()
+(defun emacspeak-eww-fillin-field ()
   "Fill in user or passwd field using auth-source backend."
   (interactive)
   (emacspeak-eww-browser-check)
