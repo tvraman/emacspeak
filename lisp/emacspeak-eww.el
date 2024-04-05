@@ -877,7 +877,7 @@ Retain previously set punctuations  mode."
     (cond
      (emacspeak-eww-post-process-hook
       (emacspeak-eww-run-post-process-hook))
-     (t (emacspeak-speak-mode-line)))))
+     (t (emacspeak-speak-header-line)))))
 
 (add-hook 'eww-after-render-hook 'emacspeak-eww-after-render-hook)
 
