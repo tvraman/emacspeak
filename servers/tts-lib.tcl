@@ -106,15 +106,6 @@ proc c {{element ""}} {
     }
 }
 
-#queue a note
-proc n {instrument note length {target 0} {step 5}} {
-    global queue tts env
-    set queue($tts(q_tail)) [list n $instrument $note \
-                                 $length $target $step]
-    incr tts(q_tail)
-    return ""
-}
-
 #queue a beep
 proc b {{pitch 523} {length 100}} {
     global queue tts
