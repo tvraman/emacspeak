@@ -3736,11 +3736,6 @@ Provides better Youtube integration
 
 @subsubsection emacspeak-empv-absolute-seek
 @deffn {Command} emacspeak-empv-absolute-seek  (target)
-@table @kbd
-@item s-SPC s
-@kindex s-SPC s
-@end table
-
 @findex emacspeak-empv-absolute-seek
 
 @format
@@ -3761,11 +3756,6 @@ Accumulate media links to register u
 
 @subsubsection emacspeak-empv-backward-10-minutes
 @deffn {Command} emacspeak-empv-backward-10-minutes   
-@table @kbd
-@item s-SPC <up>
-@kindex s-SPC <up>
-@end table
-
 @findex emacspeak-empv-backward-10-minutes
 
 @format
@@ -3775,11 +3765,6 @@ Move backward by 10 minutes
 
 @subsubsection emacspeak-empv-backward-10-seconds
 @deffn {Command} emacspeak-empv-backward-10-seconds  (&optional count)
-@table @kbd
-@item s-SPC <
-@kindex s-SPC <
-@end table
-
 @findex emacspeak-empv-backward-10-seconds
 
 @format
@@ -3791,11 +3776,6 @@ Move back  count  slices of 10 seconds.
 
 @subsubsection emacspeak-empv-backward-30-minutes
 @deffn {Command} emacspeak-empv-backward-30-minutes   
-@table @kbd
-@item s-SPC <prior>
-@kindex s-SPC <prior>
-@end table
-
 @findex emacspeak-empv-backward-30-minutes
 
 @format
@@ -3805,11 +3785,6 @@ Move backward by 30 minutes
 
 @subsubsection emacspeak-empv-backward-5-minutes
 @deffn {Command} emacspeak-empv-backward-5-minutes   
-@table @kbd
-@item s-SPC <left>
-@kindex s-SPC <left>
-@end table
-
 @findex emacspeak-empv-backward-5-minutes
 
 @format
@@ -3819,11 +3794,6 @@ Move backward by 5 minutes
 
 @subsubsection emacspeak-empv-backward-minute
 @deffn {Command} emacspeak-empv-backward-minute  (&optional count)
-@table @kbd
-@item s-SPC M
-@kindex s-SPC M
-@end table
-
 @findex emacspeak-empv-backward-minute
 
 @format
@@ -3835,11 +3805,6 @@ Move back  count  minutes.
 
 @subsubsection emacspeak-empv-clear-filter
 @deffn {Command} emacspeak-empv-clear-filter   
-@table @kbd
-@item s-SPC DEL
-@kindex s-SPC DEL
-@end table
-
 @findex emacspeak-empv-clear-filter
 
 @format
@@ -3849,11 +3814,6 @@ Clear all filters.
 
 @subsubsection emacspeak-empv-forward-10-minutes
 @deffn {Command} emacspeak-empv-forward-10-minutes   
-@table @kbd
-@item s-SPC <down>
-@kindex s-SPC <down>
-@end table
-
 @findex emacspeak-empv-forward-10-minutes
 
 @format
@@ -3863,11 +3823,6 @@ Move forward by 10 minutes
 
 @subsubsection emacspeak-empv-forward-10-seconds
 @deffn {Command} emacspeak-empv-forward-10-seconds  (&optional count)
-@table @kbd
-@item s-SPC >
-@kindex s-SPC >
-@end table
-
 @findex emacspeak-empv-forward-10-seconds
 
 @format
@@ -3879,11 +3834,6 @@ Move forward count  chunks of 10 seconds.
 
 @subsubsection emacspeak-empv-forward-30-minutes
 @deffn {Command} emacspeak-empv-forward-30-minutes   
-@table @kbd
-@item s-SPC <next>
-@kindex s-SPC <next>
-@end table
-
 @findex emacspeak-empv-forward-30-minutes
 
 @format
@@ -3893,11 +3843,6 @@ Move forward by 30 minutes
 
 @subsubsection emacspeak-empv-forward-5-minutes
 @deffn {Command} emacspeak-empv-forward-5-minutes   
-@table @kbd
-@item s-SPC <right>
-@kindex s-SPC <right>
-@end table
-
 @findex emacspeak-empv-forward-5-minutes
 
 @format
@@ -3907,11 +3852,6 @@ Move forward by 5 minutes
 
 @subsubsection emacspeak-empv-forward-minute
 @deffn {Command} emacspeak-empv-forward-minute  (&optional count)
-@table @kbd
-@item s-SPC m
-@kindex s-SPC m
-@end table
-
 @findex emacspeak-empv-forward-minute
 
 @format
@@ -3923,11 +3863,6 @@ Move forward count  minutes.
 
 @subsubsection emacspeak-empv-percentage-seek
 @deffn {Command} emacspeak-empv-percentage-seek  (target)
-@table @kbd
-@item s-SPC %
-@kindex s-SPC %
-@end table
-
 @findex emacspeak-empv-percentage-seek
 
 @format
@@ -4001,11 +3936,6 @@ Play Internet stream
 
 @subsubsection emacspeak-empv-relative-seek
 @deffn {Command} emacspeak-empv-relative-seek  (target)
-@table @kbd
-@item s-SPC r
-@kindex s-SPC r
-@end table
-
 @findex emacspeak-empv-relative-seek
 
 @format
@@ -4017,11 +3947,6 @@ Relative seek in seconds,see ‘empv-seek’
 
 @subsubsection emacspeak-empv-time-pos
 @deffn {Command} emacspeak-empv-time-pos   
-@table @kbd
-@item s-SPC =
-@kindex s-SPC =
-@end table
-
 @findex emacspeak-empv-time-pos
 
 @format
@@ -4031,11 +3956,6 @@ Speak time and percent position.
 
 @subsubsection emacspeak-empv-toggle-balance
 @deffn {Command} emacspeak-empv-toggle-balance  (value)
-@table @kbd
-@item s-SPC b
-@kindex s-SPC b
-@end table
-
 @findex emacspeak-empv-toggle-balance
 
 @format
@@ -4047,11 +3967,6 @@ Set balance to value --- range is -1.0..1.0
 
 @subsubsection emacspeak-empv-toggle-custom
 @deffn {Command} emacspeak-empv-toggle-custom   
-@table @kbd
-@item s-SPC \
-@kindex s-SPC \
-@end table
-
 @findex emacspeak-empv-toggle-custom
 
 @format
@@ -4061,11 +3976,6 @@ Toggle our custom filters.
 
 @subsubsection emacspeak-empv-toggle-filter
 @deffn {Command} emacspeak-empv-toggle-filter  (filter)
-@table @kbd
-@item s-SPC ;
-@kindex s-SPC ;
-@end table
-
 @findex emacspeak-empv-toggle-filter
 
 @format
@@ -4078,11 +3988,6 @@ Filter is of the  form name=arg-1:arg-2:...
 
 @subsubsection emacspeak-empv-toggle-left
 @deffn {Command} emacspeak-empv-toggle-left   
-@table @kbd
-@item s-SPC ,
-@kindex s-SPC ,
-@end table
-
 @findex emacspeak-empv-toggle-left
 
 @format
@@ -4092,11 +3997,6 @@ Toggle output to being just on the left.
 
 @subsubsection emacspeak-empv-toggle-right
 @deffn {Command} emacspeak-empv-toggle-right   
-@table @kbd
-@item s-SPC .
-@kindex s-SPC .
-@end table
-
 @findex emacspeak-empv-toggle-right
 
 @format

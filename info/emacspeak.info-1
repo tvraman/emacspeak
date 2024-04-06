@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 5, 2024.
+last updated on April 6, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -6407,7 +6407,6 @@ Youtube integration
 ......................................
 
  -- Command: emacspeak-empv-absolute-seek (target)
-     ‘s-SPC s’
 
      Absolute seek in seconds,see ‘empv-seek’
 
@@ -6424,7 +6423,6 @@ Youtube integration
 ............................................
 
  -- Command: emacspeak-empv-backward-10-minutes
-     ‘s-SPC <up>’
 
      Move backward by 10 minutes
 
@@ -6432,7 +6430,6 @@ Youtube integration
 ............................................
 
  -- Command: emacspeak-empv-backward-10-seconds (&optional count)
-     ‘s-SPC <’
 
      Move back  count  slices of 10 seconds.
 
@@ -6442,7 +6439,6 @@ Youtube integration
 ............................................
 
  -- Command: emacspeak-empv-backward-30-minutes
-     ‘s-SPC <prior>’
 
      Move backward by 30 minutes
 
@@ -6450,7 +6446,6 @@ Youtube integration
 ...........................................
 
  -- Command: emacspeak-empv-backward-5-minutes
-     ‘s-SPC <left>’
 
      Move backward by 5 minutes
 
@@ -6458,7 +6453,6 @@ Youtube integration
 ........................................
 
  -- Command: emacspeak-empv-backward-minute (&optional count)
-     ‘s-SPC M’
 
      Move back  count  minutes.
 
@@ -6468,7 +6462,6 @@ Youtube integration
 .....................................
 
  -- Command: emacspeak-empv-clear-filter
-     ‘s-SPC DEL’
 
      Clear all filters.
 
@@ -6476,7 +6469,6 @@ Youtube integration
 ...........................................
 
  -- Command: emacspeak-empv-forward-10-minutes
-     ‘s-SPC <down>’
 
      Move forward by 10 minutes
 
@@ -6484,7 +6476,6 @@ Youtube integration
 ............................................
 
  -- Command: emacspeak-empv-forward-10-seconds (&optional count)
-     ‘s-SPC >’
 
      Move forward count  chunks of 10 seconds.
 
@@ -6494,7 +6485,6 @@ Youtube integration
 ............................................
 
  -- Command: emacspeak-empv-forward-30-minutes
-     ‘s-SPC <next>’
 
      Move forward by 30 minutes
 
@@ -6502,7 +6492,6 @@ Youtube integration
 ...........................................
 
  -- Command: emacspeak-empv-forward-5-minutes
-     ‘s-SPC <right>’
 
      Move forward by 5 minutes
 
@@ -6510,7 +6499,6 @@ Youtube integration
 ........................................
 
  -- Command: emacspeak-empv-forward-minute (&optional count)
-     ‘s-SPC m’
 
      Move forward count  minutes.
 
@@ -6520,7 +6508,6 @@ Youtube integration
 .........................................
 
  -- Command: emacspeak-empv-percentage-seek (target)
-     ‘s-SPC %’
 
      Percentage seek in seconds,see ‘empv-seek’
 
@@ -6568,7 +6555,6 @@ Youtube integration
 .......................................
 
  -- Command: emacspeak-empv-relative-seek (target)
-     ‘s-SPC r’
 
      Relative seek in seconds,see ‘empv-seek’
 
@@ -6578,7 +6564,6 @@ Youtube integration
 ..................................
 
  -- Command: emacspeak-empv-time-pos
-     ‘s-SPC =’
 
      Speak time and percent position.
 
@@ -6586,7 +6571,6 @@ Youtube integration
 ........................................
 
  -- Command: emacspeak-empv-toggle-balance (value)
-     ‘s-SPC b’
 
      Set balance to value -- range is -1.0..1.0
 
@@ -6596,7 +6580,6 @@ Youtube integration
 .......................................
 
  -- Command: emacspeak-empv-toggle-custom
-     ‘s-SPC \’
 
      Toggle our custom filters.
 
@@ -6604,7 +6587,6 @@ Youtube integration
 .......................................
 
  -- Command: emacspeak-empv-toggle-filter (filter)
-     ‘s-SPC ;’
 
      Toggle Filter.
      Filter is of the  form name=arg-1:arg-2:...
@@ -6615,7 +6597,6 @@ Youtube integration
 .....................................
 
  -- Command: emacspeak-empv-toggle-left
-     ‘s-SPC ,’
 
      Toggle output to being just on the left.
 
@@ -6623,7 +6604,6 @@ Youtube integration
 ......................................
 
  -- Command: emacspeak-empv-toggle-right
-     ‘s-SPC .’
 
      Toggle output to being just on the right.
 
