@@ -64,3 +64,8 @@ navigating in programming modes.
 * Smart Media Selector
 
 See the Emacspeak Blog for details on Emacspeak's [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selector]].
+
+* Smart EBook  Selector
+
+EPub and Bookshare books can also be selected using  a smart selector
+similar to the one for media.
