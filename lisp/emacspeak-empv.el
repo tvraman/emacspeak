@@ -144,9 +144,13 @@ Interactive prefix arg plays directory."
   (interactive
    (list (emacspeak-media-read-resource current-prefix-arg)
          current-prefix-arg))
-  (cl-declare (special empv-mpv-args))
-  (dtk-notify-speak (file-name-base file))
-    (empv-play file))
+  (cl-declare (special  empv--process))
+  (cond
+   ((and empv--process (process-live-p empv--process))
+    (call-interactively (lookup-key  empv-map  (read-key-sequence
+                                                "EMpv Key:"))))
+   (t (dtk-notify-speak (file-name-base file))
+    (empv-play file))))
 
 
 (defun emacspeak-empv-radio ()
