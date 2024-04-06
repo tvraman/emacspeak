@@ -4283,8 +4283,8 @@ final or penultimate step during initialization.
 @subsubsection emacspeak-epub
 @deffn {Command} emacspeak-epub   
 @table @kbd
-@item C-e g
-@kindex C-e g
+@item C-e M-e
+@kindex C-e M-e
 @end table
 
 @findex emacspeak-epub
@@ -12568,8 +12568,8 @@ Seconds value is also placed in the kill-ring.
 @subsubsection emacspeak-speak-extent
 @deffn {Command} emacspeak-speak-extent  (beg end &optional no-case)
 @table @kbd
-@item C-e M-e
-@kindex C-e M-e
+@item C-e M-r
+@kindex C-e M-r
 @end table
 
 @findex emacspeak-speak-extent

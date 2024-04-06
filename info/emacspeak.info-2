@@ -4893,7 +4893,7 @@ of emacspeak from becoming dependent on the speech server modules
 ..................................
 
  -- Command: emacspeak-speak-extent (beg end &optional no-case)
-     ‘C-e M-e’
+     ‘C-e M-r’
 
      Speak extent delimited by beg and end.
      Match patterns beg and end define the extent; optional arg

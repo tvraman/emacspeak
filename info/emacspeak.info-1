@@ -2710,7 +2710,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘c emacspeak-speak-char’
 ‘e move-end-of-line’
 ‘f emacspeak-speak-buffer-filename’
-‘g emacspeak-epub’
+‘g keyboard-quit’
 ‘h emacspeak-speak-help’
 ‘i emacspeak-speak-rest-of-buffer’
 ‘j emacspeak-hide-or-expose-block’
@@ -6873,7 +6873,7 @@ table of contents.
 ........................
 
  -- Command: emacspeak-epub
-     ‘C-e g’
+     ‘C-e M-e’
 
      EPub  Interaction.
      When opened, displays a bookshelf consisting of  epubs found at the
