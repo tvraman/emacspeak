@@ -855,7 +855,17 @@ in the epub file."
    (list
     (or
      (get-text-property (point) 'epub)
-     (read-file-name "EPub: " emacspeak-epub-library-directory))
+     (when (eq major-mode 'dired-mode) (dired-get-filename))
+        (let ((completion-ignore-case t)
+              (emacspeak-speak-messages nil)
+              (read-file-name-completion-ignore-case t))
+          (completing-read
+           "Book: "
+           (ems--subdirs-recursively emacspeak-epub-library-directory)
+           #'(lambda (d)
+               (cl-some
+                #'(lambda (f) (string-match "\\.epub$" f))
+                (directory-files d))))))
     current-prefix-arg))
   (cl-declare (special emacspeak-speak-directory-settings eww-data
                        epub-this-epub emacspeak-epub-this-epub))
