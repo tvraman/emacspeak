@@ -1,12 +1,12 @@
 ;;; emacspeak-empv.el --- Speech-enable EMPV  -*- lexical-binding: t; -*-
-;;; $Author: tv.raman.tv $s-mo
-;;; Description:  Speech-enable EMPV An Emacs Interface to empv
-;;; Keywords: Emacspeak,  Audio Desktop empv
-;;;   LCD Archive entry:
+;; $Author: tv.raman.tv $s-mo
+;; Description:  Speech-enable EMPV An Emacs Interface to empv
+;; Keywords: Emacspeak,  Audio Desktop empv
+;;   LCD Archive entry:
 
-;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
-;;; A speech interface to Emacs |
+;; LCD Archive Entry:
+;; emacspeak| T. V. Raman |raman@cs.cornell.edu
+;; A speech interface to Emacs |
 ;; Location https://github.com/tvraman/emacspeak
 
 ;;;   Copyright:
