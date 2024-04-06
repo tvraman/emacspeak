@@ -1289,14 +1289,15 @@ Useful for fulltext search in a book."
   "Render  book using EWW"
   (interactive
    (list
-    (or (emacspeak-bookshare-get-directory)
+    (or
+     (emacspeak-bookshare-get-directory)
+        (when (eq major-mode 'dired-mode) (dired-get-filename))
         (let ((completion-ignore-case t)
               (emacspeak-speak-messages nil)
               (read-file-name-completion-ignore-case t))
-          (read-directory-name "Book: "
-                               (when (eq major-mode 'dired-mode)
-                                 (dired-get-filename))
-                               emacspeak-bookshare-directory)))))
+          (completing-read
+           "Book: "
+           (ems--subdirs-recursively emacspeak-bookshare-directory))))))
   (cl-declare (special eww-data
                        emacspeak-xslt emacspeak-bookshare-directory
                        emacspeak-speak-directory-settings
