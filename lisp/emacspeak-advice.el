@@ -1371,6 +1371,7 @@ Produce an auditory icon if possible."
      "Speech-enabled by emacspeak."
      (when (ems-interactive-p)
        (emacspeak-icon 'close-object)
+       (dtk-stop 'all)
        (emacspeak-speak-mode-line)))))
 
 (cl-loop
