@@ -146,7 +146,7 @@ Uses the go oauth tool found in the xoauth git repo."
   (kmacro "C-c 3 C-; d F u C-; d l l n"))
 (define-key emacspeak-y-keymap "3" 'tvr-km-emacs-log)
 (defalias 'tvr-km-morning
-  (kmacro "C-<tab> C-e g b h <tab> <return> n n e c"))
+  (kmacro "C-<tab> C-e M-e b h <tab> <return> n n e c"))
 (define-key emacspeak-y-keymap "0" 'tvr-km-morning)
 (setq pre-redisplay-function nil
       x-wait-for-event-timeout 0
