@@ -162,6 +162,13 @@ If already playing, then read an empv key and invoke its command."
   (emacspeak-accumulate-to-register ?u
                                     'empv-youtube-results--current-video-url))
 (declare-function emacspeak-eww-yt-dl "emacspeak-eww" (url))
+;;; Lyrics:
+;; Let's use our Google searcher:
+
+(defadvice empv--lyrics-on-not-found (around emacspeak pre act comp)
+  "Override to use our own implementation."
+  (funcall-interactively
+   #'emacspeak-websearch-accessible-google (ad-get-arg 0)))
 
 ;;; Seekers:
 (defun emacspeak-empv-time-pos ()
