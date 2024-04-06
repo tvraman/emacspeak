@@ -259,7 +259,6 @@ If already playing, then read an empv key and invoke its command."
   "Emacspeak setup for empv."
   (cl-declare (special empv-map
                        empv-youtube-results-mode-map))
-  (global-set-key (kbd "s-SPC") empv-map)
   (define-key empv-youtube-results-mode-map
               "o" 'empv-youtube-results-play-current)
   (cl-loop
