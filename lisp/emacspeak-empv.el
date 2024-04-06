@@ -140,17 +140,20 @@
 ;;;###autoload
 (defun emacspeak-empv-play-file (file &optional _prefix)
   "Play file using mpv.
-Interactive prefix arg plays directory."
+Interactive prefix arg plays directory.
+If already playing, then read an empv key and invoke its command."
   (interactive
-   (list (emacspeak-media-read-resource current-prefix-arg)
-         current-prefix-arg))
+   (list
+    (unless (and empv--process (process-live-p empv--process))
+      (emacspeak-media-read-resource current-prefix-arg))
+    current-prefix-arg))
   (cl-declare (special  empv--process))
   (cond
-   ((and empv--process (process-live-p empv--process))
-    (call-interactively (lookup-key  empv-map  (read-key-sequence
-                                                "EMpv Key:"))))
+   ((null file)                         ; we're already playing
+    (call-interactively
+     (lookup-key  empv-map  (read-key-sequence "EMpv Key:"))))
    (t (dtk-notify-speak (file-name-base file))
-    (empv-play file))))
+      (empv-play file))))
 
 
 (defun emacspeak-empv-radio ()
