@@ -55,7 +55,7 @@
 (cl-loop
  for f in
  '(
-   aempv-current-loop-off empv-current-loop-on
+   aempv-current-loop-off empv-current-loop-on empv-lyrics-current
    empv-toggle empv-pause
    empv-file-loop-off empv-file-loop-on
    empv-playlist-loop-off empv-playlist-loop-on) do
@@ -65,6 +65,13 @@
      (when (ems-interactive-p)
        (dtk-stop 'all)
        (emacspeak-icon 'button)))))
+
+(defadvice empv-lyrics-display-mode (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+
 
 (defadvice empv-youtube-results-play-current (before emacspeak pre act comp)
   "speak."
