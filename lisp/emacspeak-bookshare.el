@@ -327,7 +327,8 @@ Optional argument `no-auth' says we dont need a user auth."
     emacspeak-bookshare-categories
     (let ((result
            (dom-by-tag
-            (emacspeak-bookshare-api-call "reference/category/list" "" 'no-auth)
+            (emacspeak-bookshare-api-call
+             "reference/category/list" "" 'no-auth)
             'result)))
       (cl-loop
        for r in result collect
@@ -724,7 +725,7 @@ b Browse
         (setq
          directory (emacspeak-bookshare-generate-directory author title)
          target (emacspeak-bookshare-generate-target author title))
-                                        ;Render result with formatted properties
+                                        ;Render  with formatted properties
         (cond
          ((file-exists-p directory)
           (setq face 'highlight
@@ -808,7 +809,8 @@ b Browse
 (declare-function emacspeak-bookshare-get-author    "emacspeak-bookshare" nil)
 (declare-function emacspeak-bookshare-get-title    "emacspeak-bookshare" nil)
 (declare-function emacspeak-bookshare-get-id    "emacspeak-bookshare" nil)
-(declare-function emacspeak-bookshare-get-metadata    "emacspeak-bookshare" nil)
+(declare-function emacspeak-bookshare-get-metadata
+                  "emacspeak-bookshare" nil)
 (declare-function emacspeak-bookshare-get-target    "emacspeak-bookshare" nil)
 (declare-function emacspeak-bookshare-get-directory "emacspeak-bookshare" nil)
 
@@ -1297,7 +1299,12 @@ Useful for fulltext search in a book."
               (read-file-name-completion-ignore-case t))
           (completing-read
            "Book: "
-           (ems--subdirs-recursively emacspeak-bookshare-directory))))))
+           (ems--subdirs-recursively emacspeak-bookshare-directory)
+           #'(lambda (d)
+               (cl-some
+                #'(lambda (f) (string-match "\\.ncx$" f))
+                (directory-files d))
+               ))))))
   (cl-declare (special eww-data
                        emacspeak-xslt emacspeak-bookshare-directory
                        emacspeak-speak-directory-settings
