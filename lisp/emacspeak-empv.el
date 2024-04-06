@@ -70,16 +70,12 @@
   "speak."
   (when (ems-interactive-p) (emacspeak-icon 'button)))
 
-
-
 (defadvice empv-youtube-results-inspect (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-icon 'open-object)
     (emacspeak-speak-mode-line)
     ))
-
-
 
 (defadvice empv-youtube-tabulated (before emacspeak pre act comp)
   "speak."
@@ -113,8 +109,7 @@
            (string-prefix-p (emacspeak-google-result-url-prefix) url))
     (setq url  (emacspeak-google-canonicalize-result-url url)))
   (add-to-history 'emacspeak-empv-history url emacspeak-empv-history-max)
-    (empv-play url))
-
+  (empv-play url))
 
 (defadvice empv-play (before emacspeak pre act comp)
   "Record history."
@@ -154,7 +149,6 @@ If already playing, then read an empv key and invoke its command."
      (lookup-key  empv-map  (read-key-sequence "EMpv Key:"))))
    (t (dtk-notify-speak (file-name-base file))
       (empv-play file))))
-
 
 (defun emacspeak-empv-radio ()
   "Play Internet stream"
@@ -211,7 +205,6 @@ If already playing, then read an empv key and invoke its command."
   (emacspeak-empv-post-nav))
 
 ;; Generate other navigators:
-
 
 (defun emacspeak-empv-backward-minute (&optional count)
   "Move back  count  minutes."
@@ -322,9 +315,9 @@ If already playing, then read an empv key and invoke its command."
    emacspeak-empv-time-pos emacspeak-empv-clear-filter
    emacspeak-empv-toggle-custom emacspeak-empv-toggle-filter
    emacspeak-empv-toggle-left emacspeak-empv-toggle-right
-   emacspeak-empv-absolute-seek  emacspeak-empv-percentage-seek 
+   emacspeak-empv-absolute-seek  emacspeak-empv-percentage-seek
    emacspeak-empv-relative-seek))
- 
+
 
 (defvar emacspeak-empv-filter-history nil
   "History of filters used.")
@@ -352,13 +345,11 @@ Filter is of the  form name=arg-1:arg-2:..."
   (cl-pushnew filter emacspeak-empv-filter-history :test #'string=)
   (empv--send-command (list "af" "toggle" filter)))
 
-
 (defun emacspeak-empv-toggle-balance (value)
   "Set balance to value --- range is -1.0..1.0 "
   (interactive (list (read-minibuffer "Balance: ")))
   (funcall-interactively #'emacspeak-empv-toggle-filter
                          (format "stereotools=balance_out=%f" value)))
-
 
 (defun emacspeak-empv-clear-filter ()
   "Clear all filters. "
@@ -385,14 +376,12 @@ The default value is suitable for classical instrumental music."
     (emacspeak-icon 'button)
     (message "Toggled custom filters")))
 
-
 (defun emacspeak-empv-toggle-left ()
   "Toggle output to being just on the left."
   (interactive)
   (empv--send-command (list "af" "toggle" "stereotools=muter=true"))
   (emacspeak-icon 'button)
   (message "Toggled output left"))
-
 
 (defun emacspeak-empv-toggle-right ()
   "Toggle output to being just on the right."
