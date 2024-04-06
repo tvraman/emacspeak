@@ -6534,6 +6534,7 @@ Youtube integration
 
      Play file using mpv.
      Interactive prefix arg plays directory.
+     If already playing, then read an empv key and invoke its command.
 
      (fn FILE &optional PREFIX)
 
