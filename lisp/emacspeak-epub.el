@@ -860,13 +860,12 @@ in the epub file."
         (let ((completion-ignore-case t)
               (emacspeak-speak-messages nil)
               (read-file-name-completion-ignore-case t))
-          (completing-read
-           "Book: "
-           (ems--subdirs-recursively emacspeak-epub-library-directory)
-           #'(lambda (d)
-               (cl-some
-                #'(lambda (f) (string-match "\\.epub$" f))
-                (directory-files d))))))
+          (shell-quote-argument
+           (completing-read
+            "Book: "
+            (directory-files-recursively
+             emacspeak-epub-library-directory
+             "\\.epub$" 'include-dirs)))))
     current-prefix-arg))
   (cl-declare (special emacspeak-speak-directory-settings eww-data
                        epub-this-epub emacspeak-epub-this-epub))
