@@ -169,6 +169,7 @@
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'dired)
 (require 'emacspeak-xslt)
 (require 'eww)
 (require 'emacspeak-eww)
@@ -845,7 +846,7 @@ Filename may need to  be shell-quoted when called from Lisp."
   "EPub handle.")
 
 (declare-function eww-update-header-line-format "eww" nil)
-
+;;;###autoload
 (defun emacspeak-epub-eww (epub-file &optional use-ncx)
   "Display entire book  using EWW from EPub.
 Use content listed in toc.ncx  if prefix-arg use-ncx is true.
