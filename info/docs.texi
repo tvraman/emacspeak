@@ -1891,6 +1891,11 @@ Download content  to target location.
 
 @subsubsection emacspeak-bookshare-eww
 @deffn {Command} emacspeak-bookshare-eww  (directory)
+@table @kbd
+@item C-e y b
+@kindex C-e y b
+@end table
+
 @findex emacspeak-bookshare-eww
 
 @format
@@ -8354,7 +8359,8 @@ Key bindings for use with C-e y.
 Default Value: 
 @verbatim
 
-(("l" emacspeak-empv-play-last)
+(("b" emacspeak-bookshare-eww)
+ ("l" emacspeak-empv-play-last)
  ("p" empv-youtube-playlist)
  ("r" emacspeak-empv-radio)
  ("t" empv-youtube-tabulated)

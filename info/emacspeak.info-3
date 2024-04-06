@@ -2742,6 +2742,8 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e x u:                               emacspeak-wizards.  (line 1003)
 * C-e x v:                               emacspeak-wizards.  (line 1033)
 * C-e x w:                               emacspeak-wizards.  (line  704)
+* C-e y b:                               emacspeak-bookshare.
+                                                             (line  191)
 * C-e y l:                               emacspeak-empv.     (line  139)
 * C-e y r:                               emacspeak-empv.     (line  157)
 * C-e y y:                               emacspeak-empv.     (line  147)
@@ -3076,107 +3078,107 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-bookshare-eww:               emacspeak-bookshare.
                                                              (line  189)
 * emacspeak-bookshare-eww <1>:           emacspeak-bookshare.
-                                                             (line  190)
+                                                             (line  192)
 * emacspeak-bookshare-expand-at-point:   emacspeak-bookshare.
-                                                             (line  198)
-* emacspeak-bookshare-expand-at-point <1>: emacspeak-bookshare.
                                                              (line  199)
+* emacspeak-bookshare-expand-at-point <1>: emacspeak-bookshare.
+                                                             (line  200)
 * emacspeak-bookshare-extract-and-view:  emacspeak-bookshare.
-                                                             (line  206)
-* emacspeak-bookshare-extract-and-view <1>: emacspeak-bookshare.
                                                              (line  207)
+* emacspeak-bookshare-extract-and-view <1>: emacspeak-bookshare.
+                                                             (line  208)
 * emacspeak-bookshare-extract-xml:       emacspeak-bookshare.
-                                                             (line  215)
-* emacspeak-bookshare-extract-xml <1>:   emacspeak-bookshare.
                                                              (line  216)
+* emacspeak-bookshare-extract-xml <1>:   emacspeak-bookshare.
+                                                             (line  217)
 * emacspeak-bookshare-flush-lines:       emacspeak-bookshare.
-                                                             (line  224)
-* emacspeak-bookshare-flush-lines <1>:   emacspeak-bookshare.
                                                              (line  225)
+* emacspeak-bookshare-flush-lines <1>:   emacspeak-bookshare.
+                                                             (line  226)
 * emacspeak-bookshare-fulltext:          emacspeak-bookshare.
-                                                             (line  233)
-* emacspeak-bookshare-fulltext <1>:      emacspeak-bookshare.
                                                              (line  234)
+* emacspeak-bookshare-fulltext <1>:      emacspeak-bookshare.
+                                                             (line  235)
 * emacspeak-bookshare-fulltext-search:   emacspeak-bookshare.
-                                                             (line  243)
-* emacspeak-bookshare-fulltext-search <1>: emacspeak-bookshare.
                                                              (line  244)
+* emacspeak-bookshare-fulltext-search <1>: emacspeak-bookshare.
+                                                             (line  245)
 * emacspeak-bookshare-get-more-results:  emacspeak-bookshare.
-                                                             (line  252)
-* emacspeak-bookshare-get-more-results <1>: emacspeak-bookshare.
                                                              (line  253)
+* emacspeak-bookshare-get-more-results <1>: emacspeak-bookshare.
+                                                             (line  254)
 * emacspeak-bookshare-id-search:         emacspeak-bookshare.
-                                                             (line  259)
-* emacspeak-bookshare-id-search <1>:     emacspeak-bookshare.
                                                              (line  260)
+* emacspeak-bookshare-id-search <1>:     emacspeak-bookshare.
+                                                             (line  261)
 * emacspeak-bookshare-isbn-search:       emacspeak-bookshare.
-                                                             (line  268)
-* emacspeak-bookshare-isbn-search <1>:   emacspeak-bookshare.
                                                              (line  269)
+* emacspeak-bookshare-isbn-search <1>:   emacspeak-bookshare.
+                                                             (line  270)
 * emacspeak-bookshare-list-preferences:  emacspeak-bookshare.
-                                                             (line  277)
-* emacspeak-bookshare-list-preferences <1>: emacspeak-bookshare.
                                                              (line  278)
+* emacspeak-bookshare-list-preferences <1>: emacspeak-bookshare.
+                                                             (line  279)
 * emacspeak-bookshare-mode:              emacspeak-bookshare.
-                                                             (line  284)
-* emacspeak-bookshare-mode <1>:          emacspeak-bookshare.
                                                              (line  285)
+* emacspeak-bookshare-mode <1>:          emacspeak-bookshare.
+                                                             (line  286)
 * emacspeak-bookshare-next-result:       emacspeak-bookshare.
-                                                             (line  354)
-* emacspeak-bookshare-next-result <1>:   emacspeak-bookshare.
                                                              (line  355)
+* emacspeak-bookshare-next-result <1>:   emacspeak-bookshare.
+                                                             (line  356)
 * emacspeak-bookshare-periodical-list:   emacspeak-bookshare.
-                                                             (line  361)
-* emacspeak-bookshare-periodical-list <1>: emacspeak-bookshare.
                                                              (line  362)
+* emacspeak-bookshare-periodical-list <1>: emacspeak-bookshare.
+                                                             (line  363)
 * emacspeak-bookshare-previous-result:   emacspeak-bookshare.
-                                                             (line  368)
-* emacspeak-bookshare-previous-result <1>: emacspeak-bookshare.
                                                              (line  369)
+* emacspeak-bookshare-previous-result <1>: emacspeak-bookshare.
+                                                             (line  370)
 * emacspeak-bookshare-set-preference:    emacspeak-bookshare.
-                                                             (line  375)
-* emacspeak-bookshare-set-preference <1>: emacspeak-bookshare.
                                                              (line  376)
+* emacspeak-bookshare-set-preference <1>: emacspeak-bookshare.
+                                                             (line  377)
 * emacspeak-bookshare-since-search:      emacspeak-bookshare.
-                                                             (line  384)
-* emacspeak-bookshare-since-search <1>:  emacspeak-bookshare.
                                                              (line  385)
+* emacspeak-bookshare-since-search <1>:  emacspeak-bookshare.
+                                                             (line  386)
 * emacspeak-bookshare-title-search:      emacspeak-bookshare.
-                                                             (line  394)
-* emacspeak-bookshare-title-search <1>:  emacspeak-bookshare.
                                                              (line  395)
+* emacspeak-bookshare-title-search <1>:  emacspeak-bookshare.
+                                                             (line  396)
 * emacspeak-bookshare-toc:               emacspeak-bookshare.
-                                                             (line  404)
-* emacspeak-bookshare-toc <1>:           emacspeak-bookshare.
                                                              (line  405)
+* emacspeak-bookshare-toc <1>:           emacspeak-bookshare.
+                                                             (line  406)
 * emacspeak-bookshare-toc-at-point:      emacspeak-bookshare.
-                                                             (line  413)
-* emacspeak-bookshare-toc-at-point <1>:  emacspeak-bookshare.
                                                              (line  414)
+* emacspeak-bookshare-toc-at-point <1>:  emacspeak-bookshare.
+                                                             (line  415)
 * emacspeak-bookshare-unpack-at-point:   emacspeak-bookshare.
-                                                             (line  421)
-* emacspeak-bookshare-unpack-at-point <1>: emacspeak-bookshare.
                                                              (line  422)
+* emacspeak-bookshare-unpack-at-point <1>: emacspeak-bookshare.
+                                                             (line  423)
 * emacspeak-bookshare-url-executor:      emacspeak-bookshare.
-                                                             (line  428)
-* emacspeak-bookshare-url-executor <1>:  emacspeak-bookshare.
                                                              (line  429)
+* emacspeak-bookshare-url-executor <1>:  emacspeak-bookshare.
+                                                             (line  430)
 * emacspeak-bookshare-version-handler:   emacspeak-bookshare.
-                                                             (line  437)
-* emacspeak-bookshare-version-handler <1>: emacspeak-bookshare.
                                                              (line  438)
+* emacspeak-bookshare-version-handler <1>: emacspeak-bookshare.
+                                                             (line  439)
 * emacspeak-bookshare-view:              emacspeak-bookshare.
-                                                             (line  448)
-* emacspeak-bookshare-view <1>:          emacspeak-bookshare.
                                                              (line  449)
+* emacspeak-bookshare-view <1>:          emacspeak-bookshare.
+                                                             (line  450)
 * emacspeak-bookshare-view-at-point:     emacspeak-bookshare.
-                                                             (line  457)
-* emacspeak-bookshare-view-at-point <1>: emacspeak-bookshare.
                                                              (line  458)
+* emacspeak-bookshare-view-at-point <1>: emacspeak-bookshare.
+                                                             (line  459)
 * emacspeak-bookshare-view-page-range:   emacspeak-bookshare.
-                                                             (line  465)
-* emacspeak-bookshare-view-page-range <1>: emacspeak-bookshare.
                                                              (line  466)
+* emacspeak-bookshare-view-page-range <1>: emacspeak-bookshare.
+                                                             (line  467)
 * emacspeak-brightness-alert-toggle:     emacspeak-wizards.  (line   14)
 * emacspeak-brightness-alert-toggle <1>: emacspeak-wizards.  (line   15)
 * emacspeak-brightness-autoblack-toggle: emacspeak-wizards.  (line   21)

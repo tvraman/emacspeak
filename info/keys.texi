@@ -283,6 +283,7 @@
  @section Emacspeak Keybindings On emacspeak-y-keymap
 
 @table @kbd
+@item b  emacspeak-bookshare-eww
 @item l  emacspeak-empv-play-last
 @item p  empv-youtube-playlist
 @item r  emacspeak-empv-radio

@@ -2935,6 +2935,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-y-keymap,  Next:
 11.9 Emacspeak Keybindings On emacspeak-y-keymap
 ================================================
 
+‘b emacspeak-bookshare-eww’
 ‘l emacspeak-empv-play-last’
 ‘p empv-youtube-playlist’
 ‘r emacspeak-empv-radio’
@@ -4754,6 +4755,7 @@ Assuming you have correctly setup your API key:
 ..................................
 
  -- Command: emacspeak-bookshare-eww (directory)
+     ‘C-e y b’
 
      Render  book using EWW
 
