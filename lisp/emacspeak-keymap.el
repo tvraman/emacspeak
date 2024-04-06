@@ -471,6 +471,7 @@
 
 (defcustom emacspeak-y-keys
   '(
+    ("E" emacspeak-epub-eww)
     ("b" emacspeak-bookshare-eww)
     ("l" emacspeak-empv-play-last)
     ("p" empv-youtube-playlist)
