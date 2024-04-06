@@ -4503,6 +4503,11 @@ Delete EPub under point.
 
 @subsubsection emacspeak-epub-eww
 @deffn {Command} emacspeak-epub-eww  (epub-file &optional use-ncx)
+@table @kbd
+@item C-e y E
+@kindex C-e y E
+@end table
+
 @findex emacspeak-epub-eww
 
 @format
@@ -8359,7 +8364,8 @@ Key bindings for use with C-e y.
 Default Value: 
 @verbatim
 
-(("b" emacspeak-bookshare-eww)
+(("E" emacspeak-epub-eww)
+ ("b" emacspeak-bookshare-eww)
  ("l" emacspeak-empv-play-last)
  ("p" empv-youtube-playlist)
  ("r" emacspeak-empv-radio)
