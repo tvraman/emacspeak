@@ -592,11 +592,13 @@ Safari/537.36"
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
   (cl-declare (special
+               eww-header-line-format
                shr-external-rendering-functions emacspeak-eww-filter-renderers
                eww-mode-map eww-link-keymap eww-text-map
                shr-inhibit-images emacspeak-eww-inhibit-images
                emacspeak-pronounce-xml-ns
                emacspeak-eww-masquerade))
+  (setq eww-header-line-format "%t ")
   (emacspeak-pronounce-augment 'eww-mode emacspeak-pronounce-xml-ns)
   (emacspeak-pronounce-add-dictionary-entry
    'eww-mode
@@ -1312,6 +1314,7 @@ for use as a DOM filter."
     (set-buffer-modified-p nil)
     (goto-char (point-min))
     (setq buffer-read-only t))
+  (setq eww-header-line-format "%t ")
   (eww-update-header-line-format)
   (emacspeak-icon 'open-object)
   (emacspeak-speak-buffer))
