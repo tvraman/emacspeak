@@ -164,11 +164,12 @@ If already playing, then read an empv key and invoke its command."
 (declare-function emacspeak-eww-yt-dl "emacspeak-eww" (url))
 ;;; Lyrics:
 ;; Let's use our Google searcher:
+(declare-function emacspeak-websearch-accessible-google "emacspeak-empv" t)
 
 (defadvice empv--lyrics-on-not-found (around emacspeak pre act comp)
   "Override to use our own implementation."
-  (funcall-interactively
-   #'emacspeak-websearch-accessible-google (ad-get-arg 0)))
+  (setq ad-return-value nil)
+  (funcall #'emacspeak-websearch-accessible-google (ad-get-arg 0)))
 
 ;;; Seekers:
 (defun emacspeak-empv-time-pos ()
