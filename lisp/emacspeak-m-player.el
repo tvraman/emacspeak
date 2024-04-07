@@ -883,6 +883,7 @@ The time position can also be specified as HH:MM:SS."
       (let ((buffer (process-buffer emacspeak-m-player-process)))
         (with-current-buffer buffer
           (when emacspeak-m-player-url
+            (accept-process-output emacspeak-m-player-process 0.1)
             (let ((time  (cl-first (emacspeak-m-player-get-position))))
               (setq
                emacspeak-m-player-media-history
@@ -897,7 +898,7 @@ The time position can also be specified as HH:MM:SS."
                (format
                 "%s#%s"
                 (cl-first (split-string emacspeak-m-player-url "#"))
-                time)
+                (or time "0"))
                emacspeak-m-player-media-history
                :test #'string=)))
           ;;dont amark shortcut streams
