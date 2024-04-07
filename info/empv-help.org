@@ -1,20 +1,20 @@
 # Initial work-file to create emacspeak-empv docs.
 
 
-* Emacspeak Enhancements To EMPV
 
-This section documents Emacspeak extensions to EMPV, the Emacs
+
+This section documents Emacspeak extensions to ~EMPV~, the Emacs
 interface of choice to the GNU MPV media player.
 This section should be read alongside the EMPV documentation; Install
 EMPV from ELPA.
 
 
-**  Interactive Commands:
+**  Interactive Commands
 
-Emacspeak adds a few convenience commands to the commands provided by
+Emacspeak adds a few convenience commands to the those provided by
 empv.el:
 
-  1. Command _emacspeak-empv-play-url_ for use from EWW etc. to play
+  1. Command _emacspeak-empv-play-url_ to play
     a URL using EMPV.
   2. Adds history tracking to our EMPV commands.
   3. Command _empv-play-last-url_ to play from our EMPV history.
@@ -23,22 +23,12 @@ empv.el:
   5. Command _emacspeak-empv-radio_ to play from Emacspeak's library
      of Internet streams.
 
-**  Seekers:
+**  Seekers
 
 Emacspeak defines additional convenience commands to seek in  streams
 at different time granularities, the names are self-documenting and
 bound  in the _empv_map_.
   
-  1. Toggle active filter: emacspeak-empv-toggle-filter 
-  2. Toggle Audio Balance: emacspeak-empv-toggle-balance 
-  3. Clear any active filters: emacspeak-empv-clear-filter 
-  4. Toggle our custom filter: emacspeak-empv-toggle-custom 
-  5. Toggle left output: emacspeak-empv-toggle-left 
-  6. Toggle right output: emacspeak-empv-toggle-right 
-  
-
-
-
   - emacspeak-empv-absolute-seek 
   - emacspeak-empv-backward-10-minutes
   - emacspeak-empv-backward-10-seconds 
@@ -52,16 +42,19 @@ bound  in the _empv_map_.
   - emacspeak-empv-forward-minute 
   - emacspeak-empv-percentage-seek 
   - emacspeak-empv-relative-seek 
-  
-media 
 
 **   Toggling Filters
 
 Command _mpv_ provides a number of audio filters. Emacspeak exposes a
 select few for interactive use.
 
-
-
+  1. Toggle active filter: emacspeak-empv-toggle-filter 
+  2. Toggle Audio Balance: emacspeak-empv-toggle-balance 
+  3. Clear any active filters: emacspeak-empv-clear-filter 
+  4. Toggle our custom filter: emacspeak-empv-toggle-custom 
+  5. Toggle left output: emacspeak-empv-toggle-left 
+  6. Toggle right output: emacspeak-empv-toggle-right 
+  
 #+options: ':nil **:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
 #+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
