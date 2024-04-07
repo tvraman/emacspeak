@@ -36,6 +36,7 @@
   pre.format-preformatted {font-family: inherit}
   span:hover a.copiable-link {visibility: visible}
   strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+  ul.mark-bullet {list-style-type: disc}
   -->
   /*]]>*/
   </style>
@@ -59,21 +60,96 @@
     <h3 class="section" id="emacspeak_002dempv-1"><span>12.61
     emacspeak-empv <a class="copiable-link" href=
     "#emacspeak_002dempv-1">¶</a></span></h3>
-    <p>EMPV == Emacs Front-End To mpv — the GNU media player
-    Provides better Youtube integration</p>
+    <p>EMPV == Emacs Front-End To mpv — the GNU media player —
+    Provides better Youtube integration.</p>
+    <p>This section documents Emacspeak extensions to <code class=
+    "code">EMPV</code>, the Emacs interface of choice to the GNU
+    MPV media player. This section should be read alongside the
+    EMPV documentation; Install EMPV from ELPA.</p>
     <ul class="mini-toc">
       <li>
+        <a href="#Interactive-Commands" accesskey="1">Interactive
+        Commands</a>
+      </li>
+      <li>
+        <a href="#Navigating-In-Time" accesskey="2">Navigating In
+        Time</a>
+      </li>
+      <li>
+        <a href="#Toggling-Filters" accesskey="3">Toggling
+        Filters</a>
+      </li>
+      <li>
         <a href="#Emacspeak_002dEmpv-Commands" accesskey=
-        "1">Emacspeak-Empv Commands</a>
+        "4">Emacspeak-Empv Commands</a>
       </li>
       <li>
         <a href="#emacspeak_002dempv-Options" accesskey=
-        "2">emacspeak-empv Options</a>
+        "5">emacspeak-empv Options</a>
       </li>
     </ul>
+    <div class="subsection-level-extent" id="Interactive-Commands">
+      <h4 class="subsection"><span>12.61.1 Interactive Commands
+      <a class="copiable-link" href=
+      "#Interactive-Commands">¶</a></span></h4>
+      <p>Emacspeak adds a few convenience commands to the those
+      provided by empv.el:</p>
+      <ol class="enumerate">
+        <li>Command emacspeak-empv-play-url to play a URL using
+        MPV.</li>
+        <li>Adds history tracking to our EMPV commands.</li>
+        <li>Command empv-play-last-url to play from our EMPV
+        history.</li>
+        <li>Command emacspeak-empv-play-file to play local media
+        and Internet streams.</li>
+        <li>Command emacspeak-empv-radio to play from Emacspeak’s
+        library of Internet streams.</li>
+      </ol>
+    </div>
+    <div class="subsection-level-extent" id="Navigating-In-Time">
+      <h4 class="subsection"><span>12.61.2 Navigating In Time
+      <a class="copiable-link" href=
+      "#Navigating-In-Time">¶</a></span></h4>
+      <p>Emacspeak defines additional convenience commands to seek
+      in streams at different time granularities, the names are
+      self-documenting and bound in the empv-map.</p>
+      <ul class="itemize mark-bullet">
+        <li>emacspeak-empv-absolute-seek</li>
+        <li>emacspeak-empv-backward-10-minutes</li>
+        <li>emacspeak-empv-backward-10-seconds</li>
+        <li>emacspeak-empv-backward-30-minutes</li>
+        <li>emacspeak-empv-backward-5-minutes</li>
+        <li>emacspeak-empv-backward-minute</li>
+        <li>emacspeak-empv-forward-10-minutes</li>
+        <li>emacspeak-empv-forward-10-seconds</li>
+        <li>emacspeak-empv-forward-30-minutes</li>
+        <li>emacspeak-empv-forward-5-minutes</li>
+        <li>emacspeak-empv-forward-minute</li>
+        <li>emacspeak-empv-percentage-seek</li>
+        <li>emacspeak-empv-relative-seek</li>
+      </ul>
+    </div>
+    <div class="subsection-level-extent" id="Toggling-Filters">
+      <h4 class="subsection"><span>12.61.3 Toggling Filters
+      <a class="copiable-link" href=
+      "#Toggling-Filters">¶</a></span></h4>
+      <p>Command mpv provides a number of audio filters. Emacspeak
+      exposes a select few for interactive use.</p>
+      <ol class="enumerate">
+        <li>Toggle active filter: emacspeak-empv-toggle-filter</li>
+        <li>Toggle Audio Balance:
+        emacspeak-empv-toggle-balance</li>
+        <li>Clear any active filters:
+        emacspeak-empv-clear-filter</li>
+        <li>Toggle our custom filter:
+        emacspeak-empv-toggle-custom</li>
+        <li>Toggle left output: emacspeak-empv-toggle-left</li>
+        <li>Toggle right output: emacspeak-empv-toggle-right</li>
+      </ol>
+    </div>
     <div class="subsection-level-extent" id=
     "Emacspeak_002dEmpv-Commands">
-      <h4 class="subsection"><span>12.61.1 Emacspeak-Empv Commands
+      <h4 class="subsection"><span>12.61.4 Emacspeak-Empv Commands
       <a class="copiable-link" href=
       "#Emacspeak_002dEmpv-Commands">¶</a></span></h4>
       <ul class="mini-toc">
@@ -186,7 +262,7 @@
       </ul>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dabsolute_002dseek">
-        <h4 class="subsubsection"><span>12.61.1.1
+        <h4 class="subsubsection"><span>12.61.4.1
         emacspeak-empv-absolute-seek <a class="copiable-link" href=
         "#emacspeak_002dempv_002dabsolute_002dseek">¶</a></span></h4>
         <dl class="first-deffn">
@@ -213,7 +289,7 @@
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002daccumulate_002dto_002dregister">
-        <h4 class="subsubsection"><span>12.61.1.2
+        <h4 class="subsubsection"><span>12.61.4.2
         emacspeak-empv-accumulate-to-register <a class=
         "copiable-link" href=
         "#emacspeak_002dempv_002daccumulate_002dto_002dregister">¶</a></span></h4>
@@ -240,7 +316,7 @@
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dbackward_002d10_002dminutes">
-        <h4 class="subsubsection"><span>12.61.1.3
+        <h4 class="subsubsection"><span>12.61.4.3
         emacspeak-empv-backward-10-minutes <a class="copiable-link"
         href=
         "#emacspeak_002dempv_002dbackward_002d10_002dminutes">¶</a></span></h4>
@@ -267,7 +343,7 @@
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dbackward_002d10_002dseconds">
-        <h4 class="subsubsection"><span>12.61.1.4
+        <h4 class="subsubsection"><span>12.61.4.4
         emacspeak-empv-backward-10-seconds <a class="copiable-link"
         href=
         "#emacspeak_002dempv_002dbackward_002d10_002dseconds">¶</a></span></h4>
@@ -297,7 +373,7 @@
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dbackward_002d30_002dminutes">
-        <h4 class="subsubsection"><span>12.61.1.5
+        <h4 class="subsubsection"><span>12.61.4.5
         emacspeak-empv-backward-30-minutes <a class="copiable-link"
         href=
         "#emacspeak_002dempv_002dbackward_002d30_002dminutes">¶</a></span></h4>
@@ -324,7 +400,7 @@
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dbackward_002d5_002dminutes">
-        <h4 class="subsubsection"><span>12.61.1.6
+        <h4 class="subsubsection"><span>12.61.4.6
         emacspeak-empv-backward-5-minutes <a class="copiable-link"
         href=
         "#emacspeak_002dempv_002dbackward_002d5_002dminutes">¶</a></span></h4>
@@ -351,7 +427,7 @@
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dbackward_002dminute">
-        <h4 class="subsubsection"><span>12.61.1.7
+        <h4 class="subsubsection"><span>12.61.4.7
         emacspeak-empv-backward-minute <a class="copiable-link"
         href=
         "#emacspeak_002dempv_002dbackward_002dminute">¶</a></span></h4>
@@ -379,7 +455,7 @@
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dclear_002dfilter">
-        <h4 class="subsubsection"><span>12.61.1.8
+        <h4 class="subsubsection"><span>12.61.4.8
         emacspeak-empv-clear-filter <a class="copiable-link" href=
         "#emacspeak_002dempv_002dclear_002dfilter">¶</a></span></h4>
         <dl class="first-deffn">
@@ -402,7 +478,7 @@
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dforward_002d10_002dminutes">
-        <h4 class="subsubsection"><span>12.61.1.9
+        <h4 class="subsubsection"><span>12.61.4.9
         emacspeak-empv-forward-10-minutes <a class="copiable-link"
         href=
         "#emacspeak_002dempv_002dforward_002d10_002dminutes">¶</a></span></h4>
@@ -429,7 +505,7 @@
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dforward_002d10_002dseconds">
-        <h4 class="subsubsection"><span>12.61.1.10
+        <h4 class="subsubsection"><span>12.61.4.10
         emacspeak-empv-forward-10-seconds <a class="copiable-link"
         href=
         "#emacspeak_002dempv_002dforward_002d10_002dseconds">¶</a></span></h4>
@@ -459,7 +535,7 @@
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dforward_002d30_002dminutes">
-        <h4 class="subsubsection"><span>12.61.1.11
+        <h4 class="subsubsection"><span>12.61.4.11
         emacspeak-empv-forward-30-minutes <a class="copiable-link"
         href=
         "#emacspeak_002dempv_002dforward_002d30_002dminutes">¶</a></span></h4>
@@ -486,7 +562,7 @@
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dforward_002d5_002dminutes">
-        <h4 class="subsubsection"><span>12.61.1.12
+        <h4 class="subsubsection"><span>12.61.4.12
         emacspeak-empv-forward-5-minutes <a class="copiable-link"
         href=
         "#emacspeak_002dempv_002dforward_002d5_002dminutes">¶</a></span></h4>
@@ -513,7 +589,7 @@
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dforward_002dminute">
-        <h4 class="subsubsection"><span>12.61.1.13
+        <h4 class="subsubsection"><span>12.61.4.13
         emacspeak-empv-forward-minute <a class="copiable-link"
         href="#emacspeak_002dempv_002dforward_002dminute">¶</a></span></h4>
         <dl class="first-deffn">
@@ -540,7 +616,7 @@
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dpercentage_002dseek">
-        <h4 class="subsubsection"><span>12.61.1.14
+        <h4 class="subsubsection"><span>12.61.4.14
         emacspeak-empv-percentage-seek <a class="copiable-link"
         href=
         "#emacspeak_002dempv_002dpercentage_002dseek">¶</a></span></h4>
@@ -568,7 +644,7 @@
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dplay_002dfile">
-        <h4 class="subsubsection"><span>12.61.1.15
+        <h4 class="subsubsection"><span>12.61.4.15
         emacspeak-empv-play-file <a class="copiable-link" href=
         "#emacspeak_002dempv_002dplay_002dfile">¶</a></span></h4>
         <dl class="first-deffn">
@@ -601,7 +677,7 @@ If already playing, then read an empv key and invoke its command.
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dplay_002dlast">
-        <h4 class="subsubsection"><span>12.61.1.16
+        <h4 class="subsubsection"><span>12.61.4.16
         emacspeak-empv-play-last <a class="copiable-link" href=
         "#emacspeak_002dempv_002dplay_002dlast">¶</a></span></h4>
         <dl class="first-deffn">
@@ -630,7 +706,7 @@ If already playing, then read an empv key and invoke its command.
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dplay_002durl">
-        <h4 class="subsubsection"><span>12.61.1.17
+        <h4 class="subsubsection"><span>12.61.4.17
         emacspeak-empv-play-url <a class="copiable-link" href=
         "#emacspeak_002dempv_002dplay_002durl">¶</a></span></h4>
         <dl class="first-deffn">
@@ -661,7 +737,7 @@ If already playing, then read an empv key and invoke its command.
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dradio">
-        <h4 class="subsubsection"><span>12.61.1.18
+        <h4 class="subsubsection"><span>12.61.4.18
         emacspeak-empv-radio <a class="copiable-link" href=
         "#emacspeak_002dempv_002dradio">¶</a></span></h4>
         <dl class="first-deffn">
@@ -689,7 +765,7 @@ If already playing, then read an empv key and invoke its command.
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002drelative_002dseek">
-        <h4 class="subsubsection"><span>12.61.1.19
+        <h4 class="subsubsection"><span>12.61.4.19
         emacspeak-empv-relative-seek <a class="copiable-link" href=
         "#emacspeak_002dempv_002drelative_002dseek">¶</a></span></h4>
         <dl class="first-deffn">
@@ -716,7 +792,7 @@ If already playing, then read an empv key and invoke its command.
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dtime_002dpos">
-        <h4 class="subsubsection"><span>12.61.1.20
+        <h4 class="subsubsection"><span>12.61.4.20
         emacspeak-empv-time-pos <a class="copiable-link" href=
         "#emacspeak_002dempv_002dtime_002dpos">¶</a></span></h4>
         <dl class="first-deffn">
@@ -739,7 +815,7 @@ If already playing, then read an empv key and invoke its command.
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dtoggle_002dbalance">
-        <h4 class="subsubsection"><span>12.61.1.21
+        <h4 class="subsubsection"><span>12.61.4.21
         emacspeak-empv-toggle-balance <a class="copiable-link"
         href="#emacspeak_002dempv_002dtoggle_002dbalance">¶</a></span></h4>
         <dl class="first-deffn">
@@ -766,7 +842,7 @@ If already playing, then read an empv key and invoke its command.
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dtoggle_002dcustom">
-        <h4 class="subsubsection"><span>12.61.1.22
+        <h4 class="subsubsection"><span>12.61.4.22
         emacspeak-empv-toggle-custom <a class="copiable-link" href=
         "#emacspeak_002dempv_002dtoggle_002dcustom">¶</a></span></h4>
         <dl class="first-deffn">
@@ -790,7 +866,7 @@ If already playing, then read an empv key and invoke its command.
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dtoggle_002dfilter">
-        <h4 class="subsubsection"><span>12.61.1.23
+        <h4 class="subsubsection"><span>12.61.4.23
         emacspeak-empv-toggle-filter <a class="copiable-link" href=
         "#emacspeak_002dempv_002dtoggle_002dfilter">¶</a></span></h4>
         <dl class="first-deffn">
@@ -817,7 +893,7 @@ Filter is of the  form name=arg-1:arg-2:...
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dtoggle_002dleft">
-        <h4 class="subsubsection"><span>12.61.1.24
+        <h4 class="subsubsection"><span>12.61.4.24
         emacspeak-empv-toggle-left <a class="copiable-link" href=
         "#emacspeak_002dempv_002dtoggle_002dleft">¶</a></span></h4>
         <dl class="first-deffn">
@@ -841,7 +917,7 @@ Filter is of the  form name=arg-1:arg-2:...
       </div>
       <div class="subsubsection-level-extent" id=
       "emacspeak_002dempv_002dtoggle_002dright">
-        <h4 class="subsubsection"><span>12.61.1.25
+        <h4 class="subsubsection"><span>12.61.4.25
         emacspeak-empv-toggle-right <a class="copiable-link" href=
         "#emacspeak_002dempv_002dtoggle_002dright">¶</a></span></h4>
         <dl class="first-deffn">
@@ -866,7 +942,7 @@ Filter is of the  form name=arg-1:arg-2:...
     </div>
     <div class="subsection-level-extent" id=
     "emacspeak_002dempv-Options">
-      <h4 class="subsection"><span>12.61.2 emacspeak-empv Options
+      <h4 class="subsection"><span>12.61.5 emacspeak-empv Options
       <a class="copiable-link" href=
       "#emacspeak_002dempv-Options">¶</a></span></h4>
       <dl class="first-defvr first-defvar-alias-first-defvr">
