@@ -1181,7 +1181,13 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
    ((and prefix emacspeak-m-player-media-history) 
     (call-interactively 'emacspeak-m-player-browse-history))
    (emacspeak-m-player-media-history
-    (emacspeak-m-player-url (car emacspeak-m-player-media-history )))
+    (let ((url (car emacspeak-m-player-media-history ))
+          (fields nil))
+      (when (string-match "#" url)
+        (setq fields (split-string url "#"))
+        (unless (string-match "[[:digit:].]+" (cl-second fields))
+          (setq url (cl-first fields))))
+      (emacspeak-m-player-url url)))
    (t (error "No media history"))))
 
 (defvar emacspeak-m-player-history-map
