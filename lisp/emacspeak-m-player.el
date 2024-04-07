@@ -376,14 +376,14 @@ plays result as a directory." directory)
 (defun emacspeak-m-player-url (url &optional playlist-p)
   "Call emacspeak-m-player on  URL.
 URL fragment specifies optional start position."
-  (interactive
-   (list (car (browse-url-interactive-arg "Media URL: "))))
+  (interactive (list (car (browse-url-interactive-arg "Media URL: "))))
   (cl-declare (special emacspeak-m-player-options))
   (ems-with-messages-silenced
    (cl-multiple-value-bind
        (link offset ) (split-string url "#")
      (cond
-      (offset
+      ((and  offset
+             (string-match "[[:digit:].]+" offset))
        (let ((emacspeak-m-player-options
               (append emacspeak-m-player-options (list "-ss" offset))))
          (emacspeak-m-player link playlist-p)))
