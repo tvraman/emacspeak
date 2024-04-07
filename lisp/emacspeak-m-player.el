@@ -699,9 +699,9 @@ necessary."
   "Return list (position filename length)  to use as an amark. "
   (cl-declare (special emacspeak-m-player-process))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
-    ;; dispatch command twice to avoid flakiness in mplayer
-    (ems--mp-send
-     "get_time_pos\nget_file_name\nget_time_length\n")
+    ;; try accept-process-output instead of
+    ;; dispatching  command twice to avoid flakiness in mplayer
+    (accept-process-output emacspeak-m-player-process 0.1)
     (let* ((output
             (ems--mp-send
              "get_time_pos\nget_file_name\nget_time_length\n") )
@@ -883,7 +883,6 @@ The time position can also be specified as HH:MM:SS."
       (let ((buffer (process-buffer emacspeak-m-player-process)))
         (with-current-buffer buffer
           (when emacspeak-m-player-url
-            (accept-process-output emacspeak-m-player-process 0.1)
             (let ((time  (cl-first (emacspeak-m-player-get-position))))
               (setq
                emacspeak-m-player-media-history
