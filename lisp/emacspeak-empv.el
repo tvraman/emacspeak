@@ -81,14 +81,12 @@
   "speak."
   (when (ems-interactive-p)
     (emacspeak-icon 'open-object)
-    (emacspeak-speak-mode-line)
-    ))
+    (emacspeak-speak-mode-line)))
 
 (defadvice empv-youtube-tabulated (before emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (emacspeak-icon 'button)
-    ))
+    (emacspeak-icon 'button)))
 
 (defadvice empv-exit (after emacspeak pre act comp)
   "Icon."
@@ -169,6 +167,7 @@ If already playing, then read an empv key and invoke its command."
   (emacspeak-accumulate-to-register ?u
                                     'empv-youtube-results--current-video-url))
 (declare-function emacspeak-eww-yt-dl "emacspeak-eww" (url))
+
 ;;; Lyrics:
 ;; Let's use our Google searcher:
 (declare-function emacspeak-websearch-accessible-google "emacspeak-empv" t)

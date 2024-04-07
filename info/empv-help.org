@@ -1,0 +1,78 @@
+# Initial work-file to create emacspeak-empv docs.
+
+
+* Emacspeak Enhancements To EMPV
+
+This section documents Emacspeak extensions to EMPV, the Emacs
+interface of choice to the GNU MPV media player.
+This section should be read alongside the EMPV documentation; Install
+EMPV from ELPA.
+
+
+**  Interactive Commands:
+
+Emacspeak adds a few convenience commands to the commands provided by
+empv.el:
+
+  1. Command _emacspeak-empv-play-url_ for use from EWW etc. to play
+    a URL using EMPV.
+  2. Adds history tracking to our EMPV commands.
+  3. Command _empv-play-last-url_ to play from our EMPV history.
+  4. Command _emacspeak-empv-play-file_  to play  local media and
+    Internet streams.
+  5. Command _emacspeak-empv-radio_ to play from Emacspeak's library
+     of Internet streams.
+
+**  Seekers:
+
+Emacspeak defines additional convenience commands to seek in  streams
+at different time granularities, the names are self-documenting and
+bound  in the _empv_map_.
+  
+  1. Toggle active filter: emacspeak-empv-toggle-filter 
+  2. Toggle Audio Balance: emacspeak-empv-toggle-balance 
+  3. Clear any active filters: emacspeak-empv-clear-filter 
+  4. Toggle our custom filter: emacspeak-empv-toggle-custom 
+  5. Toggle left output: emacspeak-empv-toggle-left 
+  6. Toggle right output: emacspeak-empv-toggle-right 
+  
+
+
+
+  - emacspeak-empv-absolute-seek 
+  - emacspeak-empv-backward-10-minutes
+  - emacspeak-empv-backward-10-seconds 
+  - emacspeak-empv-backward-30-minutes
+  - emacspeak-empv-backward-5-minutes
+  - emacspeak-empv-backward-minute 
+  - emacspeak-empv-forward-10-minutes
+  - emacspeak-empv-forward-10-seconds 
+  - emacspeak-empv-forward-30-minutes
+  - emacspeak-empv-forward-5-minutes
+  - emacspeak-empv-forward-minute 
+  - emacspeak-empv-percentage-seek 
+  - emacspeak-empv-relative-seek 
+  
+media 
+
+**   Toggling Filters
+
+Command _mpv_ provides a number of audio filters. Emacspeak exposes a
+select few for interactive use.
+
+
+
+#+options: ':nil **:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: empv-help
+#+date: <2024-04-07 Sun>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 30.0.50 (Org mode 9.6.15)
+#+cite_export:
