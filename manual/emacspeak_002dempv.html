@@ -60,14 +60,15 @@
     <h3 class="section" id="emacspeak_002dempv-1"><span>12.61
     emacspeak-empv <a class="copiable-link" href=
     "#emacspeak_002dempv-1">¶</a></span></h3>
-    <p><em class="emph">EMPV</em> == Emacs Front-End To <em class=
-    "emph">mpv</em> — the GNU media player — Provides better
-    Youtube integration.</p>
-    <p>This section documents Emacspeak extensions to <em class=
-    "emph">EMPV</em> , the Emacs interface of choice to the GNU
-    <em class="emph">MPV</em> media player. This section should be
-    read alongside the <em class="emph">EMPV</em> documentation;
-    Install <em class="emph">EMPV</em> from ELPA.</p>
+    <p><code class="code">EMPV</code> == Emacs Front-End To
+    <code class="code">mpv</code> — the GNU media player — Provides
+    better Youtube integration.</p>
+    <p>This section documents Emacspeak extensions to <code class=
+    "code">EMPV</code> , the Emacs interface of choice to the GNU
+    <code class="code">MPV</code> media player. This section should
+    be read alongside the <code class="code">EMPV</code>
+    documentation; Install <code class="code">EMPV</code> from
+    ELPA.</p>
     <ul class="mini-toc">
       <li>
         <a href="#Interactive-Commands" accesskey="1">Interactive
@@ -95,18 +96,19 @@
       <a class="copiable-link" href=
       "#Interactive-Commands">¶</a></span></h4>
       <p>Emacspeak adds a few convenience commands to the those
-      provided by package <em class="emph">empv</em>:</p>
+      provided by package <code class="code">empv</code>:</p>
       <ol class="enumerate">
-        <li>Command <em class="emph">emacspeak-empv-play-url to
-        play</em> a URL using <em class="emph">MPV</em> .</li>
-        <li>Adds history tracking to our <em class="emph">EMPV</em>
-        commands.</li>
-        <li>Command empv-play-last-url to play from our <em class=
-        "emph">EMPV</em> history.</li>
-        <li>Command <em class="emph">emacspeak-empv-play-file to
-        play local media and</em> Internet streams.</li>
-        <li>Command <em class="emph">emacspeak-empv-radio to play
-        from Emacspeak’s library</em> of Internet streams.</li>
+        <li>Command <code class="code">emacspeak-empv-play-url to
+        play</code> a URL using <code class="code">MPV</code>
+        .</li>
+        <li>Adds history tracking to our <code class=
+        "code">EMPV</code> commands.</li>
+        <li>Command empv-play-last-url to play from our
+        <code class="code">EMPV</code> history.</li>
+        <li>Command <code class="code">emacspeak-empv-play-file to
+        play local media and</code> Internet streams.</li>
+        <li>Command <code class="code">emacspeak-empv-radio to play
+        from Emacspeak's library</code> of Internet streams.</li>
       </ol>
     </div>
     <div class="subsection-level-extent" id="Navigating-In-Time">
@@ -117,52 +119,54 @@
       in streams at different time granularities, the names are
       self-documenting and bound in the empv-map.</p>
       <ul class="itemize mark-bullet">
-        <li><em class="emph">emacspeak-empv-absolute-seek</em></li>
-        <li><em class=
-        "emph">emacspeak-empv-backward-10-minutes</em></li>
-        <li><em class=
-        "emph">emacspeak-empv-backward-10-seconds</em></li>
-        <li><em class=
-        "emph">emacspeak-empv-backward-30-minutes</em></li>
-        <li><em class=
-        "emph">emacspeak-empv-backward-5-minutes</em></li>
-        <li><em class=
-        "emph">emacspeak-empv-backward-minute</em></li>
-        <li><em class=
-        "emph">emacspeak-empv-forward-10-minutes</em></li>
-        <li><em class=
-        "emph">emacspeak-empv-forward-10-seconds</em></li>
-        <li><em class=
-        "emph">emacspeak-empv-forward-30-minutes</em></li>
-        <li><em class=
-        "emph">emacspeak-empv-forward-5-minutes</em></li>
-        <li><em class=
-        "emph">emacspeak-empv-forward-minute</em></li>
-        <li><em class=
-        "emph">emacspeak-empv-percentage-seek</em></li>
-        <li><em class="emph">emacspeak-empv-relative-seek</em></li>
+        <li><code class=
+        "code">emacspeak-empv-absolute-seek</code></li>
+        <li><code class=
+        "code">emacspeak-empv-backward-10-minutes</code></li>
+        <li><code class=
+        "code">emacspeak-empv-backward-10-seconds</code></li>
+        <li><code class=
+        "code">emacspeak-empv-backward-30-minutes</code></li>
+        <li><code class=
+        "code">emacspeak-empv-backward-5-minutes</code></li>
+        <li><code class=
+        "code">emacspeak-empv-backward-minute</code></li>
+        <li><code class=
+        "code">emacspeak-empv-forward-10-minutes</code></li>
+        <li><code class=
+        "code">emacspeak-empv-forward-10-seconds</code></li>
+        <li><code class=
+        "code">emacspeak-empv-forward-30-minutes</code></li>
+        <li><code class=
+        "code">emacspeak-empv-forward-5-minutes</code></li>
+        <li><code class=
+        "code">emacspeak-empv-forward-minute</code></li>
+        <li><code class=
+        "code">emacspeak-empv-percentage-seek</code></li>
+        <li><code class=
+        "code">emacspeak-empv-relative-seek</code></li>
       </ul>
     </div>
     <div class="subsection-level-extent" id="Toggling-Filters">
       <h4 class="subsection"><span>12.61.3 Toggling Filters
       <a class="copiable-link" href=
       "#Toggling-Filters">¶</a></span></h4>
-      <p>Command <em class="emph">mpv</em> provides a number of
+      <p>Command <code class="code">mpv</code> provides a number of
       audio filters. Emacspeak exposes a select few for interactive
       use.</p>
       <ol class="enumerate">
-        <li>Toggle active filter: <em class=
-        "emph">emacspeak-empv-toggle-filter</em></li>
-        <li>Toggle Audio Balance: <em class=
-        "emph">emacspeak-empv-toggle-balance</em></li>
-        <li>Clear any active filters: <em class=
-        "emph">emacspeak-empv-clear-filter</em></li>
-        <li>Toggle our custom filter: <em class=
-        "emph">emacspeak-empv-toggle-custom</em></li>
-        <li>Toggle left output: <em class=
-        "emph">emacspeak-empv-toggle-left</em></li>
-        <li>Toggle right output: <em class=
-        "emph">emacspeak-empv-toggle-right</em></li>
+        <li>Toggle active filter: <code class=
+        "code">emacspeak-empv-toggle-filter</code></li>
+        <li>Toggle Audio Balance: <code class=
+        "code">emacspeak-empv-toggle-balance</code></li>
+        <li>Clear any active filters: <code class=
+        "code">emacspeak-empv-clear-filter</code></li>
+        <li>Toggle our custom filter: <code class=
+        "code">emacspeak-empv-toggle-custom</code></li>
+        <li>Toggle left output: <code class=
+        "code">emacspeak-empv-toggle-left</code></li>
+        <li>Toggle right output: <code class=
+        "code">emacspeak-empv-toggle-right</code></li>
       </ol>
     </div>
     <div class="subsection-level-extent" id=
