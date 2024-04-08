@@ -77,30 +77,30 @@
 ;; 
 ;; @itemize
 ;; @item @command{sox-rev-up}: A set of binaural beats designed for  use
-;; at the start of the day. Transitions from @emph{Dream} -> @emph{Think}
-;; ->@emph{Act} -> @emph{Focus}.
+;; at the start of the day. Transitions from @strong{Dream} -> @strong{Think}
+;; ->@strong{Act} -> @strong{Focus}.
 ;; @item @command{sox-wind-down}: A  set of binaural beats for winding down
 ;; at the end of the day. This can be thought of as the reverse of
-;; @command{sox-rev-up} and the sequence transitions from @emph{Act} ->
-;; @emph{Think} -> @emph{Dream} ->@emph{Sleep}.
+;; @command{sox-rev-up} and the sequence transitions from @strong{Act} ->
+;; @strong{Think} -> @strong{Dream} ->@strong{Sleep}.
 ;; @item @command{sox-turn-down}: Designed for falling asleep.
-;; This sequence starts with a short period of @emph{Dream} before moving
-;; to @emph{Sleep}.
+;; This sequence starts with a short period of @strong{Dream} before moving
+;; to @strong{Sleep}.
 ;; @item @command{sox-relax}:  A variant of the previous sequence,
-;; @code{sox-relax} spends equal time in @emph{Dream} and @emph{Sleep}.
+;; @code{sox-relax} spends equal time in @strong{Dream} and @strong{Sleep}.
 ;; @item @command{sox-binaural}: Provide a completion-based front-end to
-;; playing any one of the predefined binaural effects (@emph{Delta},
-;; @emph{Theta}, @emph{Alpha}, @emph{Beta}, or @emph{Gamma}. The previously
+;; playing any one of the predefined binaural effects (@strong{Delta},
+;; @strong{Theta}, @strong{Alpha}, @strong{Beta}, or @strong{Gamma}. The previously
 ;; defined sequences are built up using these effects.
 ;; @item @command{sox-beats-binaural}: Plays a collection of binaural
 ;; beats, prompting for carrier and beat frequencies for each tone. The
 ;; predefined sequences listed earlier were created after first generating
 ;; experimental beat-sequences using this command.
 ;; @item @command{sox-slide-binaural}: Prompts for two binaural effects
-;; (see above) and generates a binaural beat that @emph{slides} from the
+;; (see above) and generates a binaural beat that @strong{slides} from the
 ;; first effect to the second over a specified duration.
 ;; @item @command{sox-chakras}: Pick  amongst one of a predefined set of
-;; sequences designed for @emph{Chakra} meditation.
+;; sequences designed for @strong{Chakra} meditation.
 ;; @item @command{sox-tone-binaural}: Generate a simple binaural beat
 ;; with a single carrier frequency.
 ;; @item @command{sox-tone-slide-binaural}: Generate a  tone that slides

@@ -95,7 +95,7 @@
 ;; @code{piece} is similar to the previously listed command.
 ;; @end itemize
 ;; You can obtain views of the board along the rows and diagonals, as
-;; well as a @emph{knight's perspective }:
+;; well as a @strong{knight's perspective }:
 ;; @itemize @bullet
 ;; @item Viewers: @kbd{v} followed by the directional navigation keys
 ;; speaks the squares in that direction from the current
@@ -108,11 +108,11 @@
 ;; @end itemize
 ;; @subsection Examining Games
 
-;; Package @emph{Chess} allows one to browse through a game using
+;; Package @strong{Chess} allows one to browse through a game using
 ;; @kbd{,} and @kbd{.}  --- @code{chess-display-move-backward} and
 ;; @code{chess-display-move-forward}.  Emacspeak speech-enables these
 ;; commands to speak the move that led to the currently displayed
-;; state of the game. Finally, @kbd{m} speaks the @emph{current move}
+;; state of the game. Finally, @kbd{m} speaks the @strong{current move}
 ;; being displayed.
 
 ;;; Code:

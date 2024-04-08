@@ -54,9 +54,9 @@
 ;; The main entry point is command @command{emacspeak-epub} bound to
 ;; @kbd{C-e g}. This command opens a new bookshelf buffer unless the
 ;; user has previously opened a specific bookshelf. A
-;; @emph{bookshelf} is a buffer that lists books placed on a given
-;; bookshelf --- these are listed by @emph{title} and
-;; @emph{author}. The bookshelf buffer is in a special mode that
+;; @strong{bookshelf} is a buffer that lists books placed on a given
+;; bookshelf --- these are listed by @strong{title} and
+;; @strong{author}. The bookshelf buffer is in a special mode that
 ;; provides single-key commands for adding, removing and finding
 ;; books, as well as for opening the selected book using Emacs'
 ;; built-in Web browser (@command{eww}).
@@ -127,7 +127,7 @@
 ;; indexing your EBook library.  See user options named
 ;; @code{emacspeak-epub-calibre-*} for customizing emacspeak to work
 ;; with Calibre.  Once set up, Calibre integration provides the
-;; following commands from the @emph{bookshelf} buffer:
+;; following commands from the @strong{bookshelf} buffer:
 ;; 
 ;; @table @kbd
 ;; @item /

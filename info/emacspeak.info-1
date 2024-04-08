@@ -4306,7 +4306,7 @@ bookmarks.  Amarks are stored in a .amarks.am file in the working
 directory.  It also provides a simple AMark Browser to use from a
 directory containing mp3 files where Amarks have been created - see
 ‘emacspeak-amarks-browse’.  ‘emacspeak-amarks-bookshelf’ brings up a
-_AmarksBookshelf_ that can be used to browse available Amark files.
+*AmarksBookshelf* that can be used to browse available Amark files.
 
 12.10.1 Emacspeak-Amark Commands
 --------------------------------
@@ -4587,8 +4587,8 @@ Bookshare client.
 -------------
 
 The main entry point is command ‘emacspeak-bookshare’ bound to ‘C-e
-C-b’.  This creates a special _Bookshare Interaction_ buffer that is
-placed in _emacspeak-bookshare-mode_.  Se the help for that mode on
+C-b’.  This creates a special *Bookshare Interaction* buffer that is
+placed in *emacspeak-bookshare-mode*.  Se the help for that mode on
 detailed usage instructions and key-bindings.
 
 12.18.3 Sample Interaction
@@ -5282,7 +5282,7 @@ diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
      bound to ‘w’.  Argument ‘piece’ is similar to the previously listed
      command.
    You can obtain views of the board along the rows and diagonals, as
-well as a _knight's perspective _:
+well as a *knight's perspective *:
    • Viewers: ‘v’ followed by the directional navigation keys speaks the
      squares in that direction from the current square.  ‘vn’ speaks the
      squares from a knight's perspective, i.e.  the squares the Knight
@@ -5293,11 +5293,11 @@ well as a _knight's perspective _:
 12.27.2 Examining Games
 -----------------------
 
-Package _Chess_ allows one to browse through a game using ‘,’ and ‘.’ --
+Package *Chess* allows one to browse through a game using ‘,’ and ‘.’ --
 ‘chess-display-move-backward’ and ‘chess-display-move-forward’.
 Emacspeak speech-enables these commands to speak the move that led to
 the currently displayed state of the game.  Finally, ‘m’ speaks the
-_current move_ being displayed.
+*current move* being displayed.
 
 12.27.3 Emacspeak-Chess Commands
 --------------------------------
@@ -6803,8 +6803,8 @@ epub2 -- it will support epub3 some time in the future.
 
    The main entry point is command ‘emacspeak-epub’ bound to ‘C-e g’.
 This command opens a new bookshelf buffer unless the user has previously
-opened a specific bookshelf.  A _bookshelf_ is a buffer that lists books
-placed on a given bookshelf -- these are listed by _title_ and _author_.
+opened a specific bookshelf.  A *bookshelf* is a buffer that lists books
+placed on a given bookshelf -- these are listed by *title* and *author*.
 The bookshelf buffer is in a special mode that provides single-key
 commands for adding, removing and finding books, as well as for opening
 the selected book using Emacs' built-in Web browser (‘eww’).
@@ -6871,7 +6871,7 @@ Project Calibre enables the indexing and searching of large EBook
 collections.  Read the Calibre documentation for organizing and indexing
 your EBook library.  See user options named ‘emacspeak-epub-calibre-*’
 for customizing emacspeak to work with Calibre.  Once set up, Calibre
-integration provides the following commands from the _bookshelf_ buffer:
+integration provides the following commands from the *bookshelf* buffer:
 
 ‘/’
      emacspeak-epub-calibre-results
@@ -7967,7 +7967,7 @@ prompt for a list of filters.  Command ‘emacspeak-eww-restore’ bound to
 --------------------------------------------------
 
 Contrast this with filtering described in the previous section.  There,
-we discussed commands that _filter_ the DOM to render specific types of
+we discussed commands that *filter* the DOM to render specific types of
 elements.  For HTML as spoken on the Web, there is a separate use-case
 that is helpful as a dual to filtering, namely, displaying a specific
 portion of a page, typically the contents of a ‘div’ element.  These
@@ -7977,7 +7977,7 @@ news sites.  Commands ‘emacspeak-eww-dive-into-div’ help in such cases,
 ‘C-d’ renders the ‘div’ containing point in a separate buffer As with
 the filtering commands, ‘l’ returns to the buffer where these commands
 were executed.  Long-term users of Emacspeak who still remember Emacs-W3
-will recognize this as the _focus_ command implemented by Emacspeak for
+will recognize this as the *focus* command implemented by Emacspeak for
 W3.
 
 12.75.4 Updated Commands For Following Links
@@ -8023,7 +8023,7 @@ Summary Of Keyboard Commands:
 respectively.  The latter commands also move to the cell being spoken.
 You can get a sense of the table's size via ‘M-,’ which speaks the
 number of rows and cells in the table.  This works for plain tables, not
-nested tables; for nested tables, first have then _unnested_ using one
+nested tables; for nested tables, first have then *unnested* using one
 of the XSLT transforms like ‘sort-tables’.
 
 12.75.6 Miscellaneous Commands
@@ -8116,8 +8116,8 @@ prefix-key ‘G’.
 ‘e’
      ‘emacspeak-we-url-expand-and-execute’ Follow link under point, but
      pass the result to a custom executor.  Availability of special
-     executors for link under point is indicated by auditory icon _item_
-     instead of _button_ You can then experiment by pressing ‘RET’ or ‘e
+     executors for link under point is indicated by auditory icon *item*
+     instead of *button* You can then experiment by pressing ‘RET’ or ‘e
      e’.  Special executors are available for Reddit Links, Wikipedia
      Links etc.
 ‘f’

@@ -204,7 +204,7 @@
 ;; @subsection Diving Into (Focusing) On Specific Content
 ;;
 ;; Contrast this with filtering described in the previous section.
-;; There, we discussed commands that @emph{filter} the DOM to render
+;; There, we discussed commands that @strong{filter} the DOM to render
 ;; specific types of elements. For HTML as spoken on the Web, there
 ;; is a separate use-case that is helpful as a dual to filtering,
 ;; namely, displaying a specific portion of a page, typically the
@@ -218,7 +218,7 @@
 ;;  As with the filtering commands, @kbd{l} returns to the
 ;; buffer where these commands were executed.
 ;; Long-term users of Emacspeak who still remember Emacs-W3 will
-;; recognize this as the @emph{focus} command implemented by
+;; recognize this as the @strong{focus} command implemented by
 ;; Emacspeak for W3.
 ;; @subsection Updated  Commands For Following  Links
 
@@ -277,7 +277,7 @@
 ;; cell being spoken.  You can get a sense of the table's size via
 ;; @kbd{M-,} which speaks the number of rows and cells in the
 ;; table. This works for plain tables, not nested tables; for nested
-;; tables, first have then @emph{unnested} using one of the XSLT
+;; tables, first have then @strong{unnested} using one of the XSLT
 ;; transforms like @code{sort-tables}.
 
 ;; @subsection Miscellaneous Commands
@@ -386,7 +386,7 @@
 ;; @command{emacspeak-we-url-expand-and-execute}
 ;; Follow link under point, but pass the result to a custom executor.
 ;; Availability of special executors for link under point is indicated
-;; by auditory icon @emph{item} instead of @emph{button}
+;; by auditory icon @strong{item} instead of @strong{button}
 ;; You can then experiment by pressing @code{RET} or @code {e e}.
 ;; Special executors are available for Reddit Links, Wikipedia Links etc.
 ;; @item f

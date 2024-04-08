@@ -53,8 +53,8 @@
 ;; @subsection Usage
 ;; The main entry point is command
 ;; @code{emacspeak-bookshare} bound to @kbd{C-e C-b}.
-;; This creates a special @emph{Bookshare Interaction} buffer that is
-;; placed in @emph{emacspeak-bookshare-mode}.
+;; This creates a special @strong{Bookshare Interaction} buffer that is
+;; placed in @strong{emacspeak-bookshare-mode}.
 ;; Se the help for that mode on detailed usage instructions and key-bindings.
 ;; 
 ;; @subsection Sample Interaction

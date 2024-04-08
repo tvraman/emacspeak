@@ -4452,7 +4452,7 @@ auditory icons over the years:
   3. Even more important is the nature of the sound and what it sounds
      like in the context of the overall speech output where that sound
      is used.
-  4. This is why the gain of icons _should never be_ normalized in my
+  4. This is why the gain of icons *should never be* normalized in my
      view-- tuning icons is as complex as picking colors from a color
      palette.
   5. The included themes have been optimized over years of use and are
@@ -10077,11 +10077,11 @@ stopped based on the current major mode.  Active Soundscape are
 displayed as part of the minor-mode-alist.  Command
 emacspeak-speak-minor-mode-line can be used to have this spoken.
 
-   Thus, SoundScapes can be thought of as reflecting the _mood_ of the
-current _mode_.  This package defines a single SOUNDSCAPE-DEFAULT-THEME
+   Thus, SoundScapes can be thought of as reflecting the *mood* of the
+current *mode*.  This package defines a single SOUNDSCAPE-DEFAULT-THEME
 that is loaded using ‘(soundscape-load soundscape-default-theme)’.
 Emacs modes that provide similar functionality e.g., communication ==
-email, IM, ...  map to the same _mood_.
+email, IM, ...  map to the same *mood*.
 
 12.235.1 Soundscape Commands
 ----------------------------

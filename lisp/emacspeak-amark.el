@@ -50,7 +50,7 @@
 ;; directory.  It also provides a simple AMark Browser to use from a
 ;; directory containing mp3 files where Amarks have been created --
 ;; see @command{emacspeak-amarks-browse}.
-;;  @command{emacspeak-amarks-bookshelf} brings up a @emph{AmarksBookshelf}
+;;  @command{emacspeak-amarks-bookshelf} brings up a @strong{AmarksBookshelf}
 ;; that can be used to  browse available Amark files.
 
 ;;; Code:

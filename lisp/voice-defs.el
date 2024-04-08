@@ -61,8 +61,8 @@
 ;; In addition, we define @code{bolden-and-animate} as an auditory
 ;; analog of @code{bold-italic}.
 ;; The two additional voices @code{indent} and @code{annotate}
-;; predate the above and are retained  as two @emph{softer} voices. 
-;; Finally, there are 4 @emph{overlay} voices, corresponding  to the
+;; predate the above and are retained  as two @strong{softer} voices. 
+;; Finally, there are 4 @strong{overlay} voices, corresponding  to the
 ;; 4 dimensions; these each set one of the dimensions to @code{8}.
 ;; Thus, we have a total of 25 unique voices defined in this module.
 ;; @subsection Things to note

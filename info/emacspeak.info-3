@@ -181,29 +181,29 @@ These commands can be called directly to play one of the predefined
 binaural beats.
 
    • ‘sox-rev-up’: A set of binaural beats designed for use at the start
-     of the day.  Transitions from _Dream_ -> _Think_ ->_Act_ ->
-     _Focus_.
+     of the day.  Transitions from *Dream* -> *Think* ->*Act* ->
+     *Focus*.
    • ‘sox-wind-down’: A set of binaural beats for winding down at the
      end of the day.  This can be thought of as the reverse of
-     ‘sox-rev-up’ and the sequence transitions from _Act_ -> _Think_ ->
-     _Dream_ ->_Sleep_.
+     ‘sox-rev-up’ and the sequence transitions from *Act* -> *Think* ->
+     *Dream* ->*Sleep*.
    • ‘sox-turn-down’: Designed for falling asleep.  This sequence starts
-     with a short period of _Dream_ before moving to _Sleep_.
+     with a short period of *Dream* before moving to *Sleep*.
    • ‘sox-relax’: A variant of the previous sequence, ‘sox-relax’ spends
-     equal time in _Dream_ and _Sleep_.
+     equal time in *Dream* and *Sleep*.
    • ‘sox-binaural’: Provide a completion-based front-end to playing any
-     one of the predefined binaural effects (_Delta_, _Theta_, _Alpha_,
-     _Beta_, or _Gamma_.  The previously defined sequences are built up
+     one of the predefined binaural effects (*Delta*, *Theta*, *Alpha*,
+     *Beta*, or *Gamma*.  The previously defined sequences are built up
      using these effects.
    • ‘sox-beats-binaural’: Plays a collection of binaural beats,
      prompting for carrier and beat frequencies for each tone.  The
      predefined sequences listed earlier were created after first
      generating experimental beat-sequences using this command.
    • ‘sox-slide-binaural’: Prompts for two binaural effects (see above)
-     and generates a binaural beat that _slides_ from the first effect
+     and generates a binaural beat that *slides* from the first effect
      to the second over a specified duration.
    • ‘sox-chakras’: Pick amongst one of a predefined set of sequences
-     designed for _Chakra_ meditation.
+     designed for *Chakra* meditation.
    • ‘sox-tone-binaural’: Generate a simple binaural beat with a single
      carrier frequency.
    • ‘sox-tone-slide-binaural’: Generate a tone that slides from one
@@ -369,8 +369,8 @@ effects, which can be conceptualized as pairs.
   C. brighten, smoothen
    In addition, we define ‘bolden-and-animate’ as an auditory analog of
 ‘bold-italic’.  The two additional voices ‘indent’ and ‘annotate’
-predate the above and are retained as two _softer_ voices.  Finally,
-there are 4 _overlay_ voices, corresponding to the 4 dimensions; these
+predate the above and are retained as two *softer* voices.  Finally,
+there are 4 *overlay* voices, corresponding to the 4 dimensions; these
 each set one of the dimensions to ‘8’.  Thus, we have a total of 25
 unique voices defined in this module.
 

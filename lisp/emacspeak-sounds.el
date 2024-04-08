@@ -87,7 +87,7 @@
 ;; the basic level.
 ;;@item  Even more important is the nature of the sound and what it sounds
 ;; like in the context of the overall speech output  where that sound is used.
-;; @item This is why  the gain of icons  @emph{should never be} normalized in
+;; @item This is why  the gain of icons  @strong{should never be} normalized in
 ;; my view---  tuning icons is as complex as picking
 ;; colors from  a color palette.
 ;; @item The included themes have been optimized over years of use and

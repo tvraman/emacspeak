@@ -74,11 +74,11 @@
 ;; Command emacspeak-speak-minor-mode-line can be used to have this spoken.
 ;; 
 ;; Thus, SoundScapes can be thought of as reflecting the
-;; @emph{mood} of the current @emph{mode}.
+;; @strong{mood} of the current @strong{mode}.
 ;; This package defines a single @var{soundscape-default-theme}
 ;; that is loaded using @code{(soundscape-load soundscape-default-theme)}.
 ;; Emacs modes that provide similar functionality e.g.,
-;; communication == email, IM, ... map to  the same @emph{mood}.
+;; communication == email, IM, ... map to  the same @strong{mood}.
 ;;; Code:
 
 ;; Automatic switching of soundscapes happens by sending a message to

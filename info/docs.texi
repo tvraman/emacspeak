@@ -1382,7 +1382,7 @@ to bookmarks. Amarks are stored in a .amarks.am file in the working
 directory.  It also provides a simple AMark Browser to use from a
 directory containing mp3 files where Amarks have been created --
 see @command{emacspeak-amarks-browse}.
- @command{emacspeak-amarks-bookshelf} brings up a @emph{AmarksBookshelf}
+ @command{emacspeak-amarks-bookshelf} brings up a @strong{AmarksBookshelf}
 that can be used to  browse available Amark files.
 
 @subsection Emacspeak-Amark Commands
@@ -1688,8 +1688,8 @@ This module implements an Emacspeak Bookshare client.
 @subsection Usage
 The main entry point is command
 @code{emacspeak-bookshare} bound to @kbd{C-e C-b}.
-This creates a special @emph{Bookshare Interaction} buffer that is
-placed in @emph{emacspeak-bookshare-mode}.
+This creates a special @strong{Bookshare Interaction} buffer that is
+placed in @strong{emacspeak-bookshare-mode}.
 Se the help for that mode on detailed usage instructions and key-bindings.
 
 @subsection Sample Interaction
@@ -2497,7 +2497,7 @@ last is most useful when the game is an end-state.
 @code{piece} is similar to the previously listed command.
 @end itemize
 You can obtain views of the board along the rows and diagonals, as
-well as a @emph{knight's perspective }:
+well as a @strong{knight's perspective }:
 @itemize @bullet
 @item Viewers: @kbd{v} followed by the directional navigation keys
 speaks the squares in that direction from the current
@@ -2510,11 +2510,11 @@ or file.
 @end itemize
 @subsection Examining Games
 
-Package @emph{Chess} allows one to browse through a game using
+Package @strong{Chess} allows one to browse through a game using
 @kbd{,} and @kbd{.}  --- @code{chess-display-move-backward} and
 @code{chess-display-move-forward}.  Emacspeak speech-enables these
 commands to speak the move that led to the currently displayed
-state of the game. Finally, @kbd{m} speaks the @emph{current move}
+state of the game. Finally, @kbd{m} speaks the @strong{current move}
 being displayed.
 
 @subsection Emacspeak-Chess Commands
@@ -4234,9 +4234,9 @@ support epub3 some time in the future.
 The main entry point is command @command{emacspeak-epub} bound to
 @kbd{C-e g}. This command opens a new bookshelf buffer unless the
 user has previously opened a specific bookshelf. A
-@emph{bookshelf} is a buffer that lists books placed on a given
-bookshelf --- these are listed by @emph{title} and
-@emph{author}. The bookshelf buffer is in a special mode that
+@strong{bookshelf} is a buffer that lists books placed on a given
+bookshelf --- these are listed by @strong{title} and
+@strong{author}. The bookshelf buffer is in a special mode that
 provides single-key commands for adding, removing and finding
 books, as well as for opening the selected book using Emacs'
 built-in Web browser (@command{eww}).
@@ -4307,7 +4307,7 @@ collections.  Read the Calibre documentation for organizing and
 indexing your EBook library.  See user options named
 @code{emacspeak-epub-calibre-*} for customizing emacspeak to work
 with Calibre.  Once set up, Calibre integration provides the
-following commands from the @emph{bookshelf} buffer:
+following commands from the @strong{bookshelf} buffer:
 
 @table @kbd
 @item /
@@ -5628,7 +5628,7 @@ are available via completion.
 @subsection Diving Into (Focusing) On Specific Content
 
 Contrast this with filtering described in the previous section.
-There, we discussed commands that @emph{filter} the DOM to render
+There, we discussed commands that @strong{filter} the DOM to render
 specific types of elements. For HTML as spoken on the Web, there
 is a separate use-case that is helpful as a dual to filtering,
 namely, displaying a specific portion of a page, typically the
@@ -5642,7 +5642,7 @@ point in a separate buffer
  As with the filtering commands, @kbd{l} returns to the
 buffer where these commands were executed.
 Long-term users of Emacspeak who still remember Emacs-W3 will
-recognize this as the @emph{focus} command implemented by
+recognize this as the @strong{focus} command implemented by
 Emacspeak for W3.
 @subsection Updated  Commands For Following  Links
 
@@ -5700,7 +5700,7 @@ next table cell respectively. The latter commands also move to the
 cell being spoken.  You can get a sense of the table's size via
 @kbd{M-,} which speaks the number of rows and cells in the
 table. This works for plain tables, not nested tables; for nested
-tables, first have then @emph{unnested} using one of the XSLT
+tables, first have then @strong{unnested} using one of the XSLT
 transforms like @code{sort-tables}.
 
 @subsection Miscellaneous Commands
@@ -5809,7 +5809,7 @@ Filters out elements having specified class value.
 @command{emacspeak-we-url-expand-and-execute}
 Follow link under point, but pass the result to a custom executor.
 Availability of special executors for link under point is indicated
-by auditory icon @emph{item} instead of @emph{button}
+by auditory icon @strong{item} instead of @strong{button}
 You can then experiment by pressing @code{RET} or @code {e e}.
 Special executors are available for Reddit Links, Wikipedia Links etc.
 @item f
@@ -12031,7 +12031,7 @@ the bundled themes as a guide.
 the basic level.
 @item  Even more important is the nature of the sound and what it sounds
 like in the context of the overall speech output  where that sound is used.
-@item This is why  the gain of icons  @emph{should never be} normalized in
+@item This is why  the gain of icons  @strong{should never be} normalized in
 my view---  tuning icons is as complex as picking
 colors from  a color palette.
 @item The included themes have been optimized over years of use and
@@ -19375,11 +19375,11 @@ mode. Active Soundscape  are displayed as part of the minor-mode-alist.
 Command emacspeak-speak-minor-mode-line can be used to have this spoken.
 
 Thus, SoundScapes can be thought of as reflecting the
-@emph{mood} of the current @emph{mode}.
+@strong{mood} of the current @strong{mode}.
 This package defines a single @var{soundscape-default-theme}
 that is loaded using @code{(soundscape-load soundscape-default-theme)}.
 Emacs modes that provide similar functionality e.g.,
-communication == email, IM, ... map to  the same @emph{mood}.
+communication == email, IM, ... map to  the same @strong{mood}.
 
 @subsection Soundscape Commands
 
@@ -19748,30 +19748,30 @@ binaural beats.
 
 @itemize
 @item @command{sox-rev-up}: A set of binaural beats designed for  use
-at the start of the day. Transitions from @emph{Dream} -> @emph{Think}
-->@emph{Act} -> @emph{Focus}.
+at the start of the day. Transitions from @strong{Dream} -> @strong{Think}
+->@strong{Act} -> @strong{Focus}.
 @item @command{sox-wind-down}: A  set of binaural beats for winding down
 at the end of the day. This can be thought of as the reverse of
-@command{sox-rev-up} and the sequence transitions from @emph{Act} ->
-@emph{Think} -> @emph{Dream} ->@emph{Sleep}.
+@command{sox-rev-up} and the sequence transitions from @strong{Act} ->
+@strong{Think} -> @strong{Dream} ->@strong{Sleep}.
 @item @command{sox-turn-down}: Designed for falling asleep.
-This sequence starts with a short period of @emph{Dream} before moving
-to @emph{Sleep}.
+This sequence starts with a short period of @strong{Dream} before moving
+to @strong{Sleep}.
 @item @command{sox-relax}:  A variant of the previous sequence,
-@code{sox-relax} spends equal time in @emph{Dream} and @emph{Sleep}.
+@code{sox-relax} spends equal time in @strong{Dream} and @strong{Sleep}.
 @item @command{sox-binaural}: Provide a completion-based front-end to
-playing any one of the predefined binaural effects (@emph{Delta},
-@emph{Theta}, @emph{Alpha}, @emph{Beta}, or @emph{Gamma}. The previously
+playing any one of the predefined binaural effects (@strong{Delta},
+@strong{Theta}, @strong{Alpha}, @strong{Beta}, or @strong{Gamma}. The previously
 defined sequences are built up using these effects.
 @item @command{sox-beats-binaural}: Plays a collection of binaural
 beats, prompting for carrier and beat frequencies for each tone. The
 predefined sequences listed earlier were created after first generating
 experimental beat-sequences using this command.
 @item @command{sox-slide-binaural}: Prompts for two binaural effects
-(see above) and generates a binaural beat that @emph{slides} from the
+(see above) and generates a binaural beat that @strong{slides} from the
 first effect to the second over a specified duration.
 @item @command{sox-chakras}: Pick  amongst one of a predefined set of
-sequences designed for @emph{Chakra} meditation.
+sequences designed for @strong{Chakra} meditation.
 @item @command{sox-tone-binaural}: Generate a simple binaural beat
 with a single carrier frequency.
 @item @command{sox-tone-slide-binaural}: Generate a  tone that slides
@@ -19965,8 +19965,8 @@ conceptualized as pairs.
 In addition, we define @code{bolden-and-animate} as an auditory
 analog of @code{bold-italic}.
 The two additional voices @code{indent} and @code{annotate}
-predate the above and are retained  as two @emph{softer} voices.
-Finally, there are 4 @emph{overlay} voices, corresponding  to the
+predate the above and are retained  as two @strong{softer} voices.
+Finally, there are 4 @strong{overlay} voices, corresponding  to the
 4 dimensions; these each set one of the dimensions to @code{8}.
 Thus, we have a total of 25 unique voices defined in this module.
 @subsection Things to note
