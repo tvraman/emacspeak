@@ -51,6 +51,8 @@
 
 (voice-setup-add-map
  '(
+   (Info-emphasis voice-animate)
+   (Info-strong voice-bolden)
    (Info-quoted voice-lighten)
    (info-index-match 'voice-animate)
    (info-title-1 voice-bolden-extra)
