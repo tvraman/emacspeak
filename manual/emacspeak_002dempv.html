@@ -60,12 +60,14 @@
     <h3 class="section" id="emacspeak_002dempv-1"><span>12.61
     emacspeak-empv <a class="copiable-link" href=
     "#emacspeak_002dempv-1">¶</a></span></h3>
-    <p>EMPV == Emacs Front-End To mpv — the GNU media player —
-    Provides better Youtube integration.</p>
-    <p>This section documents Emacspeak extensions to <code class=
-    "code">EMPV</code>, the Emacs interface of choice to the GNU
-    MPV media player. This section should be read alongside the
-    EMPV documentation; Install EMPV from ELPA.</p>
+    <p><em class="emph">EMPV</em> == Emacs Front-End To <em class=
+    "emph">mpv</em> — the GNU media player — Provides better
+    Youtube integration.</p>
+    <p>This section documents Emacspeak extensions to <em class=
+    "emph">EMPV</em> , the Emacs interface of choice to the GNU
+    <em class="emph">MPV</em> media player. This section should be
+    read alongside the <em class="emph">EMPV</em> documentation;
+    Install <em class="emph">EMPV</em> from ELPA.</p>
     <ul class="mini-toc">
       <li>
         <a href="#Interactive-Commands" accesskey="1">Interactive
@@ -93,17 +95,18 @@
       <a class="copiable-link" href=
       "#Interactive-Commands">¶</a></span></h4>
       <p>Emacspeak adds a few convenience commands to the those
-      provided by empv.el:</p>
+      provided by package <em class="emph">empv</em>:</p>
       <ol class="enumerate">
-        <li>Command emacspeak-empv-play-url to play a URL using
-        MPV.</li>
-        <li>Adds history tracking to our EMPV commands.</li>
-        <li>Command empv-play-last-url to play from our EMPV
-        history.</li>
-        <li>Command emacspeak-empv-play-file to play local media
-        and Internet streams.</li>
-        <li>Command emacspeak-empv-radio to play from Emacspeak’s
-        library of Internet streams.</li>
+        <li>Command <em class="emph">emacspeak-empv-play-url to
+        play</em> a URL using <em class="emph">MPV</em> .</li>
+        <li>Adds history tracking to our <em class="emph">EMPV</em>
+        commands.</li>
+        <li>Command empv-play-last-url to play from our <em class=
+        "emph">EMPV</em> history.</li>
+        <li>Command <em class="emph">emacspeak-empv-play-file to
+        play local media and</em> Internet streams.</li>
+        <li>Command <em class="emph">emacspeak-empv-radio to play
+        from Emacspeak’s library</em> of Internet streams.</li>
       </ol>
     </div>
     <div class="subsection-level-extent" id="Navigating-In-Time">
@@ -114,37 +117,52 @@
       in streams at different time granularities, the names are
       self-documenting and bound in the empv-map.</p>
       <ul class="itemize mark-bullet">
-        <li>emacspeak-empv-absolute-seek</li>
-        <li>emacspeak-empv-backward-10-minutes</li>
-        <li>emacspeak-empv-backward-10-seconds</li>
-        <li>emacspeak-empv-backward-30-minutes</li>
-        <li>emacspeak-empv-backward-5-minutes</li>
-        <li>emacspeak-empv-backward-minute</li>
-        <li>emacspeak-empv-forward-10-minutes</li>
-        <li>emacspeak-empv-forward-10-seconds</li>
-        <li>emacspeak-empv-forward-30-minutes</li>
-        <li>emacspeak-empv-forward-5-minutes</li>
-        <li>emacspeak-empv-forward-minute</li>
-        <li>emacspeak-empv-percentage-seek</li>
-        <li>emacspeak-empv-relative-seek</li>
+        <li><em class="emph">emacspeak-empv-absolute-seek</em></li>
+        <li><em class=
+        "emph">emacspeak-empv-backward-10-minutes</em></li>
+        <li><em class=
+        "emph">emacspeak-empv-backward-10-seconds</em></li>
+        <li><em class=
+        "emph">emacspeak-empv-backward-30-minutes</em></li>
+        <li><em class=
+        "emph">emacspeak-empv-backward-5-minutes</em></li>
+        <li><em class=
+        "emph">emacspeak-empv-backward-minute</em></li>
+        <li><em class=
+        "emph">emacspeak-empv-forward-10-minutes</em></li>
+        <li><em class=
+        "emph">emacspeak-empv-forward-10-seconds</em></li>
+        <li><em class=
+        "emph">emacspeak-empv-forward-30-minutes</em></li>
+        <li><em class=
+        "emph">emacspeak-empv-forward-5-minutes</em></li>
+        <li><em class=
+        "emph">emacspeak-empv-forward-minute</em></li>
+        <li><em class=
+        "emph">emacspeak-empv-percentage-seek</em></li>
+        <li><em class="emph">emacspeak-empv-relative-seek</em></li>
       </ul>
     </div>
     <div class="subsection-level-extent" id="Toggling-Filters">
       <h4 class="subsection"><span>12.61.3 Toggling Filters
       <a class="copiable-link" href=
       "#Toggling-Filters">¶</a></span></h4>
-      <p>Command mpv provides a number of audio filters. Emacspeak
-      exposes a select few for interactive use.</p>
+      <p>Command <em class="emph">mpv</em> provides a number of
+      audio filters. Emacspeak exposes a select few for interactive
+      use.</p>
       <ol class="enumerate">
-        <li>Toggle active filter: emacspeak-empv-toggle-filter</li>
-        <li>Toggle Audio Balance:
-        emacspeak-empv-toggle-balance</li>
-        <li>Clear any active filters:
-        emacspeak-empv-clear-filter</li>
-        <li>Toggle our custom filter:
-        emacspeak-empv-toggle-custom</li>
-        <li>Toggle left output: emacspeak-empv-toggle-left</li>
-        <li>Toggle right output: emacspeak-empv-toggle-right</li>
+        <li>Toggle active filter: <em class=
+        "emph">emacspeak-empv-toggle-filter</em></li>
+        <li>Toggle Audio Balance: <em class=
+        "emph">emacspeak-empv-toggle-balance</em></li>
+        <li>Clear any active filters: <em class=
+        "emph">emacspeak-empv-clear-filter</em></li>
+        <li>Toggle our custom filter: <em class=
+        "emph">emacspeak-empv-toggle-custom</em></li>
+        <li>Toggle left output: <em class=
+        "emph">emacspeak-empv-toggle-left</em></li>
+        <li>Toggle right output: <em class=
+        "emph">emacspeak-empv-toggle-right</em></li>
       </ol>
     </div>
     <div class="subsection-level-extent" id=
@@ -960,7 +978,7 @@ The default value is suitable for classical instrumental music.
 </pre>
           <p>Default Value:</p>
           <pre class="verbatim">
-("extrastereo" "stereowiden=4.25:.1:735:.8")
+("extrastereo" "stereowiden=4.25:.1:735:.8" "haas")
 
 </pre>
         </dd>
