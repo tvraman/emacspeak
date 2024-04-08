@@ -24,7 +24,7 @@ developing a speech server, see
 @section High-level Overview
 
 The @acronym{TTS} server reads commands from standard input, and script
-@emph{speech-server} can be used to cause a @acronym{TTS} server to communicate
+@strong{speech-server} can be used to cause a @acronym{TTS} server to communicate
 via a @acronym{TCP} socket. Speech server commands are used by the client
 application to make specific requests of the server; the server
 listens for these requests in a non-blocking read loop and executes
@@ -36,7 +36,7 @@ follows:
 Commands that send text to be spoken.
 
 @item
-Commands that set @emph{state} of the @acronym{TTS} server.
+Commands that set @strong{state} of the @acronym{TTS} server.
 @end itemize
 
 All commands are of the form
@@ -46,12 +46,12 @@ commandWord @{arguments@}
 @end example
 
 The braces are optional if the command argument contains no white
-space.  The speech server maintains a @emph{current state} that
+space.  The speech server maintains a @strong{current state} that
 determines various characteristics of spoken output such as speech
 rate, punctuations mode etc. (see set of commands that manipulate
-speech state for complete list).  The client application @emph{queues}
+speech state for complete list).  The client application @strong{queues}
 The text and non-speech audio output to be produced before asking the
-server to @emph{dispatch} the set of queued requests, i.e. start
+server to @strong{dispatch} the set of queued requests, i.e. start
 producing output.
 
 Once the server has been asked to produce output, it removes items
@@ -59,9 +59,9 @@ from the front of the queue, sends the requisite commands to the
 underlying @acronym{TTS} engine, and waits for the engine to acknowledge that
 the request has been completely processed. This is a non-blocking
 operation, i.e., if the client application generates additional
-requests, these are processed @emph{immediately}.
+requests, these are processed @strong{immediately}.
 
-The above design allows the Emacspeak @acronym{TTS} server to be @emph{highly}
+The above design allows the Emacspeak @acronym{TTS} server to be @strong{highly}
 responsive; Client applications can queue large amounts of text
 (typically queued a clause at a time to achieve the best prosody), ask
 the @acronym{TTS} server to start speaking, and interrupt the spoken output at
@@ -77,14 +77,14 @@ request on the queue are clearly marked.
 version
 @end example
 
-Speaks the @emph{version} of the @acronym{TTS} engine. Produces output
+Speaks the @strong{version} of the @acronym{TTS} engine. Produces output
 immediately.
 
 @example
 tts_say text
 @end example
 
-Speaks the specified @emph{text} immediately. The text is not
+Speaks the specified @strong{text} immediately. The text is not
 pre-processed in any way, contrast this with the primary way of
 speaking text which is to queue text before asking the server to
 process the queue.
@@ -94,7 +94,7 @@ boundaries @samp{[*]}.  The @samp{[*]} syntax is specific to the
 Dectalk family of synthesizers; servers for other @acronym{TTS} engines need to
 map this pattern to the engine-specific code for each engine. As an
 example, see @file{servers/outloud} A morpheme boundary results in
-synthesizing compound words such as @emph{left bracket} with the right
+synthesizing compound words such as @strong{left bracket} with the right
 intonation; using a space would result in that phrase being
 synthesized as two separate words.
 
@@ -102,10 +102,10 @@ synthesized as two separate words.
 l c
 @end example
 
-Speak @emph{c} a single character, as a letter.  The character is
+Speak @strong{c} a single character, as a letter.  The character is
 spoken immediately. This command uses the @acronym{TTS} engine's capability to
 speak a single character with the ability to flush speech
-@emph{immediately}.  Client applications wishing to produce
+@strong{immediately}.  Client applications wishing to produce
 character-at-a-time output, e.g., when providing character echo during
 keyboard input should use this command.
 
@@ -113,7 +113,7 @@ keyboard input should use this command.
 d
 @end example
 
-This command is used to @emph{dispatch} all queued requests.  It was
+This command is used to @strong{dispatch} all queued requests.  It was
 renamed to a single character command (like many of the commonly used
 @acronym{TTS} server commands) to work more effectively over slow (9600) dialup
 lines.  The effect of calling this command is for the @acronym{TTS} server to
@@ -123,7 +123,7 @@ start processing items that have been queued via earlier requests.
 s
 @end example
 
-Stop speech @emph{immediately}.  Spoken output is interrupted, and all
+Stop speech @strong{immediately}.  Spoken output is interrupted, and all
 pending requests are flushed from the queue.
 
 @example
@@ -131,7 +131,7 @@ q text
 @end example
 
 Queues text to be spoken. No spoken output is produced until a
-@emph{dispatch} request is received via execution of command @emph{d}.
+@strong{dispatch} request is received via execution of command @strong{d}.
 
 
 @example
@@ -154,7 +154,7 @@ Must support ogg format.
 p filename
 @end example
 
-@emph{dispatch}  play the audio file identified by filename for playing.
+@strong{dispatch}  play the audio file identified by filename for playing.
 Must support ogg format.
 
 
@@ -179,7 +179,7 @@ milliseconds.
 tts_reset
 @end example
 
-@emph{Immediately} reset @acronym{TTS} engine to default settings.
+@strong{Immediately} reset @acronym{TTS} engine to default settings.
 Stops all speech and clears the queue. 
 
 @example
@@ -197,7 +197,7 @@ None: Do not speak punctuation characters.
 Some: Speak some punctuation characters. Used for English prose.
 
 @item
-All: Speak out @emph{all} punctuation characters; useful in
+All: Speak out @strong{all} punctuation characters; useful in
 programming modes.
 @end itemize
 
@@ -215,21 +215,21 @@ tts_set_character_scale factor
 Queues changing the scale factor. 
 Scale factor applied to speech rate when speaking individual
 characters.Thus, setting speech rate to 500 and character scale to 1.2
-will cause command @emph{l} to use a speech rate of
-@emph{500 * 1.2 = 600}.
+will cause command @strong{l} to use a speech rate of
+@strong{500 * 1.2 = 600}.
 
 @example
 tts_split_caps flag
 @end example
 
-Queues changing of the state of @emph{split caps} processing.
+Queues changing of the state of @strong{split caps} processing.
 Turn this on to speak mixed-case (@acronym{AKA} Camel Case)
 identifiers.
 
 @example
 tts_sync_state punct  splitcaps caps rate
 @end example
-This ensures @emph{atomicity} i.e., all state settings in the TTS
+This ensures @strong{atomicity} i.e., all state settings in the TTS
 engine happen at one shot. Note that failure to do this might result
 in some utterances being spoken with a partially set state.
 @itemize @bullet
@@ -250,7 +250,7 @@ rate: see tts_set_speech_rate
 set_next_lang say_it
 @end example
 
-@emph{Immediately} switch to the next language on the
+@strong{Immediately} switch to the next language on the
 server, maintained internally on the TTS server. If
 say_it is non-nil say the language change via the TTS.
 
@@ -258,7 +258,7 @@ say_it is non-nil say the language change via the TTS.
 set_previous_lang say_it
 @end example
 
-@emph{Immediately} switch to the previous language on the
+@strong{Immediately} switch to the previous language on the
 server, maintained internally on the TTS server. If
 say_it is non-nil say the language change via the TTS.
 
@@ -266,7 +266,7 @@ say_it is non-nil say the language change via the TTS.
 set_lang language:voice say_it
 @end example
 
-@emph{Immediately} switch to the requested language
+@strong{Immediately} switch to the requested language
 and/or voice, separated by a colon. Examples  
 
 @itemize @bullet
@@ -288,6 +288,6 @@ selected.
 set_preferred_lang alias lang
 @end example
 
-@emph{Immediately} set an alias in the TTS server mapping for
+@strong{Immediately} set an alias in the TTS server mapping for
 example "en" to "en_GB". This can later be used by set_lang.
 

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 7, 2024.
+last updated on April 8, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -1261,7 +1261,7 @@ developing a speech server, see
 ========================
 
 The TTS server reads commands from standard input, and script
-_speech-server_ can be used to cause a TTS server to communicate via a
+*speech-server* can be used to cause a TTS server to communicate via a
 TCP socket.  Speech server commands are used by the client application
 to make specific requests of the server; the server listens for these
 requests in a non-blocking read loop and executes requests as they
@@ -1269,28 +1269,28 @@ become available.  Requests can be classified as follows:
 
    • Commands that send text to be spoken.
 
-   • Commands that set _state_ of the TTS server.
+   • Commands that set *state* of the TTS server.
 
    All commands are of the form
 
      commandWord {arguments}
 
    The braces are optional if the command argument contains no white
-space.  The speech server maintains a _current state_ that determines
+space.  The speech server maintains a *current state* that determines
 various characteristics of spoken output such as speech rate,
 punctuations mode etc.  (see set of commands that manipulate speech
-state for complete list).  The client application _queues_ The text and
+state for complete list).  The client application *queues* The text and
 non-speech audio output to be produced before asking the server to
-_dispatch_ the set of queued requests, i.e.  start producing output.
+*dispatch* the set of queued requests, i.e.  start producing output.
 
    Once the server has been asked to produce output, it removes items
 from the front of the queue, sends the requisite commands to the
 underlying TTS engine, and waits for the engine to acknowledge that the
 request has been completely processed.  This is a non-blocking
 operation, i.e., if the client application generates additional
-requests, these are processed _immediately_.
+requests, these are processed *immediately*.
 
-   The above design allows the Emacspeak TTS server to be _highly_
+   The above design allows the Emacspeak TTS server to be *highly*
 responsive; Client applications can queue large amounts of text
 (typically queued a clause at a time to achieve the best prosody), ask
 the TTS server to start speaking, and interrupt the spoken output at any
@@ -1305,11 +1305,11 @@ on the queue are clearly marked.
 
      version
 
-   Speaks the _version_ of the TTS engine.  Produces output immediately.
+   Speaks the *version* of the TTS engine.  Produces output immediately.
 
      tts_say text
 
-   Speaks the specified _text_ immediately.  The text is not
+   Speaks the specified *text* immediately.  The text is not
 pre-processed in any way, contrast this with the primary way of speaking
 text which is to queue text before asking the server to process the
 queue.
@@ -1319,20 +1319,20 @@ morpheme boundaries ‘[*]’.  The ‘[*]’ syntax is specific to the Dectalk
 family of synthesizers; servers for other TTS engines need to map this
 pattern to the engine-specific code for each engine.  As an example, see
 ‘servers/outloud’ A morpheme boundary results in synthesizing compound
-words such as _left bracket_ with the right intonation; using a space
+words such as *left bracket* with the right intonation; using a space
 would result in that phrase being synthesized as two separate words.
 
      l c
 
-   Speak _c_ a single character, as a letter.  The character is spoken
+   Speak *c* a single character, as a letter.  The character is spoken
 immediately.  This command uses the TTS engine's capability to speak a
-single character with the ability to flush speech _immediately_.  Client
+single character with the ability to flush speech *immediately*.  Client
 applications wishing to produce character-at-a-time output, e.g., when
 providing character echo during keyboard input should use this command.
 
      d
 
-   This command is used to _dispatch_ all queued requests.  It was
+   This command is used to *dispatch* all queued requests.  It was
 renamed to a single character command (like many of the commonly used
 TTS server commands) to work more effectively over slow (9600) dialup
 lines.  The effect of calling this command is for the TTS server to
@@ -1340,13 +1340,13 @@ start processing items that have been queued via earlier requests.
 
      s
 
-   Stop speech _immediately_.  Spoken output is interrupted, and all
+   Stop speech *immediately*.  Spoken output is interrupted, and all
 pending requests are flushed from the queue.
 
      q text
 
    Queues text to be spoken.  No spoken output is produced until a
-_dispatch_ request is received via execution of command _d_.
+*dispatch* request is received via execution of command *d*.
 
      c codes
 
@@ -1362,7 +1362,7 @@ ogg format.
 
      p filename
 
-   _dispatch_ play the audio file identified by filename for playing.
+   *dispatch* play the audio file identified by filename for playing.
 Must support ogg format.
 
      t freq length
@@ -1381,7 +1381,7 @@ milliseconds.
 
      tts_reset
 
-   _Immediately_ reset TTS engine to default settings.  Stops all speech
+   *Immediately* reset TTS engine to default settings.  Stops all speech
 and clears the queue.
 
      tts_set_punctuations mode
@@ -1393,7 +1393,7 @@ Typically, TTS servers provide at least three modes:
 
    • Some: Speak some punctuation characters.  Used for English prose.
 
-   • All: Speak out _all_ punctuation characters; useful in programming
+   • All: Speak out *all* punctuation characters; useful in programming
      modes.
 
      tts_set_speech_rate rate
@@ -1405,16 +1405,16 @@ typically engine specific.
 
    Queues changing the scale factor.  Scale factor applied to speech
 rate when speaking individual characters.Thus, setting speech rate to
-500 and character scale to 1.2 will cause command _l_ to use a speech
-rate of _500 * 1.2 = 600_.
+500 and character scale to 1.2 will cause command *l* to use a speech
+rate of *500 * 1.2 = 600*.
 
      tts_split_caps flag
 
-   Queues changing of the state of _split caps_ processing.  Turn this
+   Queues changing of the state of *split caps* processing.  Turn this
 on to speak mixed-case (AKA Camel Case) identifiers.
 
      tts_sync_state punct  splitcaps caps rate
-   This ensures _atomicity_ i.e., all state settings in the TTS engine
+   This ensures *atomicity* i.e., all state settings in the TTS engine
 happen at one shot.  Note that failure to do this might result in some
 utterances being spoken with a partially set state.
    • punct: see tts_set_punctuations
@@ -1427,19 +1427,19 @@ utterances being spoken with a partially set state.
 
      set_next_lang say_it
 
-   _Immediately_ switch to the next language on the server, maintained
+   *Immediately* switch to the next language on the server, maintained
 internally on the TTS server.  If say_it is non-nil say the language
 change via the TTS.
 
      set_previous_lang say_it
 
-   _Immediately_ switch to the previous language on the server,
+   *Immediately* switch to the previous language on the server,
 maintained internally on the TTS server.  If say_it is non-nil say the
 language change via the TTS.
 
      set_lang language:voice say_it
 
-   _Immediately_ switch to the requested language and/or voice,
+   *Immediately* switch to the requested language and/or voice,
 separated by a colon.  Examples
 
    • set_lang "en"
@@ -1453,7 +1453,7 @@ selected.
 
      set_preferred_lang alias lang
 
-   _Immediately_ set an alias in the TTS server mapping for example "en"
+   *Immediately* set an alias in the TTS server mapping for example "en"
 to "en_GB". This can later be used by set_lang.
 
 

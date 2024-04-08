@@ -55,19 +55,19 @@ packages, see their accompanying online info documentation.
 As the document preparation system of choice, Emacspeak supports a
 fluent speech-enabled interface to editing and formatting @LaTeX{}
 documents.  This interface is provided by speech-enabling
-@emph{AUCTeX} mode.
+@strong{AUCTeX} mode.
 
 @cindex AUCTeX
 
-Mode @emph{AUCTeX} provides efficient keyboard shortcuts for inserting
+Mode @strong{AUCTeX} provides efficient keyboard shortcuts for inserting
 and maintaining @LaTeX{} markup as a document is being authored.  All of
 these editing commands provide succinct auditory feedback when used
 with Emacspeak.  The syntax coloring provided by this mode is extended
-to provide @emph{voice locking} @MDash{} consequently, Emacspeak uses
+to provide @strong{voice locking} @MDash{} consequently, Emacspeak uses
 different voices to speak the embedded markup to set it apart from the
 content.
 
-Mode @emph{AUCTeX} can be used to create empty document templates and
+Mode @strong{AUCTeX} can be used to create empty document templates and
 to insert document content at the appropriate places in the template.
 The mode also enables structured navigation of the document as it is
 being edited.  Emacspeak speech-enables these template creation and
@@ -101,9 +101,9 @@ All of the user commands available during incremental search are
 documented in the online Emacs info manual.  These are speech-enabled
 by Emacspeak to provide spoken prompts as the dialog begins; auditory
 icons indicate a search hit or search miss as the search progresses.
-Along with auditory icons @emph{search-hit} and @emph{search-miss} the
+Along with auditory icons @strong{search-hit} and @strong{search-miss} the
 user also hears the current line spoken, and in the case of a search
-hit, the matching text is @emph{aurally} highlighted by using the
+hit, the matching text is @strong{aurally} highlighted by using the
 standard audio formatting technique of changing voice characteristic.
 This feedback proves extremely effective when the search pattern
 appears several times on a single line; the user is unambiguously cued
@@ -113,23 +113,23 @@ Search and replace actions are an extension to the basic
 conversational gestures of a search dialog.  In addition to specifying
 a search string, the user also specifies a replacement string.  On the
 Emacspeak desktop, this functionality is provided by command
-@emph{query-replace}.  The speech-enabled version of this interaction
+@strong{query-replace}.  The speech-enabled version of this interaction
 prompts the user for the search and replacement texts.  The auditory
 feedback during the interactive search and replacement process
 parallels that described in the case of incremental search.  Audio
 formatting to indicate the occurrence that is about to be replaced
 proves an effective means of avoiding erroneous modifications to the
 text being edited.  As an example, consider using command
-@emph{query-replace} to locate and replace the second occurrence of
+@strong{query-replace} to locate and replace the second occurrence of
 @b{foo} with @b{bar} in the text
 
 @samp{Do not change this fool, but change this food.}
 
 When the search matches the first occurrence of @b{foo} in word
-@emph{fool}, the aural highlighting helps the user in answering ``no''
+@strong{fool}, the aural highlighting helps the user in answering ``no''
 in response to question ``should this occurrence be replaced''.  In
 addition to allowing the user to supply a simple ``yes or no'' answer
-for each match, command @emph{query-replace} also allows the user to
+for each match, command @strong{query-replace} also allows the user to
 specify a number of other valid answers as described in the online
 Emacs documentation.
 

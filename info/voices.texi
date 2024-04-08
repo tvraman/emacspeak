@@ -96,7 +96,7 @@ That list of numbers needs to be translated to appropriate
 device-specific codes to send to the TTS engine.
 
 @item
-You do not want to do this translation @emph{each} time you
+You do not want to do this translation @strong{each} time you
 speak something.
 
 @item

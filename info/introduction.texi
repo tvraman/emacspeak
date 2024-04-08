@@ -22,7 +22,7 @@ impaired computer users face the additional handicap of being
 @acronym{DOS}-impaired @MDash{} a far more serious problem:-)
 
 Emacspeak is an emacs subsystem that provides complete speech access.
-It is @emph{not} a screen-reader @MDash{} rather, it is a complete
+It is @strong{not} a screen-reader @MDash{} rather, it is a complete
 user environment with built-in speech feedback.  Emacspeak has a
 significant advantage; since it runs inside Emacs, a
 structure-sensitive, fully customizable environment, Emacspeak has

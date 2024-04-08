@@ -225,7 +225,7 @@ the buffer from point.  Negative prefix arg speaks from start of
 buffer to point.  If voice lock mode is on, the paragraphs in the
 buffer are voice annotated first, see command
 @code{emacspeak-speak-voice-annotate-paragraphs}.  This provides the
-auditory equivalent of @emph{dropped caps} from visual typography.
+auditory equivalent of @strong{dropped caps} from visual typography.
 
 @findex emacspeak-speak-rest-of-buffer
 @kindex C-e n

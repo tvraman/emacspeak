@@ -30,7 +30,7 @@ current buffer @MDash{} or for all buffers (globally).  To toggle the
 specific echo functionality for all buffers, precede the specific
 command with @kbd{C-u}.  Note that in the documentation below, this
 use of @kbd{C-u} is indicated using the common Emacs terminology of
-@emph{prefix arg} or @emph{interactive prefix arg}.
+@strong{prefix arg} or @strong{interactive prefix arg}.
 
 @table @kbd
 @findex emacspeak-toggle-character-echo
@@ -146,8 +146,8 @@ value to the result.
 
 
 Toggle capitalization.  when set, capitalization is indicated by a
-@emph{cap} before the word, and upper-case words are indicated with a
-@emph{acc} before the word.  Interactive PREFIX arg means toggle the global default
+@strong{cap} before the word, and upper-case words are indicated with a
+@strong{acc} before the word.  Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.
 @end table
 
