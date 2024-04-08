@@ -456,7 +456,7 @@ Filter is of the  form name=arg-1:arg-2:..."
   (emacspeak-icon 'delete-object))
 
 (defcustom emacspeak-empv-custom-filters
-  '("extrastereo" "stereowiden=4.25:.1:735:.8")
+  '("extrastereo" "stereowiden=4.25:.1:735:.8" "haas")
   "List of custom filters to turn on/off at one shot
 The default value is suitable for classical instrumental music."
   :type '(repeat  :tag "Filters" (string :tag "Filter"))
