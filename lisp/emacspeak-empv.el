@@ -35,32 +35,32 @@
 
 
 ;;; Commentary:
-;; EMPV ==  Emacs Front-End To mpv --- the GNU media player ---
+;; @emph{EMPV}  ==  Emacs Front-End To @emph{mpv}  --- the GNU media player ---
 ;; Provides better Youtube integration.
 ;; 
-;; This section documents Emacspeak extensions to @code{EMPV}, the Emacs
-;; interface of choice to the GNU MPV media player.
-;; This section should be read alongside the EMPV documentation; Install
-;; EMPV from ELPA@.
+;; This section documents Emacspeak extensions to @emph{EMPV} , the Emacs
+;; interface of choice to the GNU @emph{MPV}  media player.
+;; This section should be read alongside the @emph{EMPV}  documentation; Install
+;; @emph{EMPV}  from ELPA.
 ;; 
 ;; @subsection Interactive Commands
 ;; 
 ;; Emacspeak adds a few convenience commands to the those provided by
-;; empv.el:
+;; package @emph{empv}:
 ;; 
 ;; @enumerate
 ;; @item
-;; Command emacspeak-empv-play-url to play
-;; a URL using MPV.
+;; Command  @emph{emacspeak-empv-play-url to play} 
+;; a URL using @emph{MPV} .
 ;; @item
-;; Adds history tracking to our EMPV commands.
+;; Adds history tracking to our @emph{EMPV}  commands.
 ;; @item
-;; Command empv-play-last-url to play from our EMPV history.
+;; Command empv-play-last-url to play from our @emph{EMPV}  history.
 ;; @item
-;; Command emacspeak-empv-play-file  to play  local media and
+;; Command  @emph{emacspeak-empv-play-file  to play  local media and} 
 ;; Internet streams.
 ;; @item
-;; Command emacspeak-empv-radio to play from Emacspeak's library
+;; Command  @emph{emacspeak-empv-radio to play from Emacspeak's library} 
 ;; of Internet streams.
 ;; @end enumerate
 ;; 
@@ -72,51 +72,51 @@
 ;; 
 ;; @itemize
 ;; @item
-;; emacspeak-empv-absolute-seek 
+;;  @emph{emacspeak-empv-absolute-seek}  
 ;; @item
-;; emacspeak-empv-backward-10-minutes
+;;  @emph{emacspeak-empv-backward-10-minutes} 
 ;; @item
-;; emacspeak-empv-backward-10-seconds 
+;;  @emph{emacspeak-empv-backward-10-seconds}  
 ;; @item
-;; emacspeak-empv-backward-30-minutes
+;;  @emph{emacspeak-empv-backward-30-minutes} 
 ;; @item
-;; emacspeak-empv-backward-5-minutes
+;;  @emph{emacspeak-empv-backward-5-minutes} 
 ;; @item
-;; emacspeak-empv-backward-minute 
+;;  @emph{emacspeak-empv-backward-minute}  
 ;; @item
-;; emacspeak-empv-forward-10-minutes
+;;  @emph{emacspeak-empv-forward-10-minutes} 
 ;; @item
-;; emacspeak-empv-forward-10-seconds 
+;;  @emph{emacspeak-empv-forward-10-seconds}  
 ;; @item
-;; emacspeak-empv-forward-30-minutes
+;;  @emph{emacspeak-empv-forward-30-minutes} 
 ;; @item
-;; emacspeak-empv-forward-5-minutes
+;;  @emph{emacspeak-empv-forward-5-minutes} 
 ;; @item
-;; emacspeak-empv-forward-minute 
+;;  @emph{emacspeak-empv-forward-minute}  
 ;; @item
-;; emacspeak-empv-percentage-seek 
+;;  @emph{emacspeak-empv-percentage-seek}  
 ;; @item
-;; emacspeak-empv-relative-seek 
+;;  @emph{emacspeak-empv-relative-seek}  
 ;; @end itemize
 ;; 
 ;; @subsection Toggling Filters
 ;; 
-;; Command mpv provides a number of audio filters. Emacspeak exposes a
+;; Command @emph{mpv}  provides a number of audio filters. Emacspeak exposes a
 ;; select few for interactive use.
 ;; 
 ;; @enumerate
 ;; @item
-;; Toggle active filter: emacspeak-empv-toggle-filter 
+;; Toggle active filter:  @emph{emacspeak-empv-toggle-filter}  
 ;; @item
-;; Toggle Audio Balance: emacspeak-empv-toggle-balance 
+;; Toggle Audio Balance:  @emph{emacspeak-empv-toggle-balance}  
 ;; @item
-;; Clear any active filters: emacspeak-empv-clear-filter 
+;; Clear any active filters:  @emph{emacspeak-empv-clear-filter}  
 ;; @item
-;; Toggle our custom filter: emacspeak-empv-toggle-custom 
+;; Toggle our custom filter:  @emph{emacspeak-empv-toggle-custom}  
 ;; @item
-;; Toggle left output: emacspeak-empv-toggle-left 
+;; Toggle left output:  @emph{emacspeak-empv-toggle-left}  
 ;; @item
-;; Toggle right output: emacspeak-empv-toggle-right 
+;; Toggle right output:  @emph{emacspeak-empv-toggle-right}  
 ;; @end enumerate
 ;; 
 ;; 
