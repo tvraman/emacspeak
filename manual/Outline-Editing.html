@@ -53,71 +53,78 @@
     Outline Editing <a class="copiable-link" href=
     "#Outline-Editing-1">¶</a></span></h4>
     <p>All of the various outline editing interfaces on the Emacs
-    desktop allow the user to <em class="emph">hide</em> or
-    <em class="emph">show</em> the contents at the different levels
-    of a possibly nested tree structure. Components of this tree
-    structure can be manipulated as a unit, e.g., entire subtrees
-    can be deleted or copied. Outline editing thus provides an
-    efficient means of obtaining quick overviews of a document.</p>
+    desktop allow the user to <strong class="strong">hide</strong>
+    or <strong class="strong">show</strong> the contents at the
+    different levels of a possibly nested tree structure.
+    Components of this tree structure can be manipulated as a unit,
+    e.g., entire subtrees can be deleted or copied. Outline editing
+    thus provides an efficient means of obtaining quick overviews
+    of a document.</p>
     <p>The visual interface displays such hidden content as a
     series of ellipses following the visible outline heading.
-    Emacspeak produces auditory icon <em class="emph">ellipses</em>
-    when speaking such outline headings.</p>
-    <p>The basic <em class="emph">outline mode</em> allows the user
-    to specify the syntax and level of outline header lines as a
-    regular expression. This simple technique can be used to
-    advantage in the structured navigation of large electronic
-    texts such as those available on the Internet from online book
-    projects such as project Gutenberg and the Internet Wiretap.
-    For example, when this feature is activated while reading the
-    electronic text of a Shakespearean play, the different acts can
-    be recognized as separate nodes in the logical structure of the
-    document. The user can then hide the document body with a
-    single keystroke, navigate the outline headings to find a
-    particular act, and have that portion rendered either visually
-    or aurally. Hiding an outline level produces auditory icon
-    <em class="emph">close-object</em>; exposing a hidden level
-    produces auditory icon <em class="emph">open-object</em>. For
-    details on using mode <code class="code">outline</code>, see
-    the relevant section of the online Emacs info manual.</p>
+    Emacspeak produces auditory icon <strong class=
+    "strong">ellipses</strong> when speaking such outline
+    headings.</p>
+    <p>The basic <strong class="strong">outline mode</strong>
+    allows the user to specify the syntax and level of outline
+    header lines as a regular expression. This simple technique can
+    be used to advantage in the structured navigation of large
+    electronic texts such as those available on the Internet from
+    online book projects such as project Gutenberg and the Internet
+    Wiretap. For example, when this feature is activated while
+    reading the electronic text of a Shakespearean play, the
+    different acts can be recognized as separate nodes in the
+    logical structure of the document. The user can then hide the
+    document body with a single keystroke, navigate the outline
+    headings to find a particular act, and have that portion
+    rendered either visually or aurally. Hiding an outline level
+    produces auditory icon <strong class=
+    "strong">close-object</strong>; exposing a hidden level
+    produces auditory icon <strong class=
+    "strong">open-object</strong>. For details on using mode
+    <code class="code">outline</code>, see the relevant section of
+    the online Emacs info manual.</p>
     <p>The basic outline facility described above is applicable to
     all content being edited or browsed on the Emacspeak desktop.
     In addition, Emacspeak has other specialized outline editing
-    modes such as <em class="emph">folding mode</em> that provide
-    extended outlining facilities. In mode <em class=
-    "emph">folding</em>, the user can create (possibly nested)
-    <em class="emph">folds</em> — logical containers of content
-    that are delimited by a special <em class="emph">fold
-    mark</em>. The fold mark is typically a text string that is
-    chosen based on the type of content that is being manipulated.
-    Thus, when <em class="emph">folding</em> a C~program source
-    file, fold marks are created from C~comments. The user can
-    <em class="emph">open</em> or <em class="emph">close</em> any
-    or all folds in a document, and these actions are accompanied
-    by auditory icons <em class="emph">open-object</em> and
-    <em class="emph">close-object</em>. By entering a fold, all
-    editing actions are restricted to the contents of that fold;
-    this proves a simple yet convenient way of constraining editing
+    modes such as <strong class="strong">folding mode</strong> that
+    provide extended outlining facilities. In mode <strong class=
+    "strong">folding</strong>, the user can create (possibly
+    nested) <strong class="strong">folds</strong> — logical
+    containers of content that are delimited by a special
+    <strong class="strong">fold mark</strong>. The fold mark is
+    typically a text string that is chosen based on the type of
+    content that is being manipulated. Thus, when <strong class=
+    "strong">folding</strong> a C~program source file, fold marks
+    are created from C~comments. The user can <strong class=
+    "strong">open</strong> or <strong class="strong">close</strong>
+    any or all folds in a document, and these actions are
+    accompanied by auditory icons <strong class=
+    "strong">open-object</strong> and <strong class=
+    "strong">close-object</strong>. By entering a fold, all editing
+    actions are restricted to the contents of that fold; this
+    proves a simple yet convenient way of constraining editing
     actions such as search and replace to specific portions of
     large documents. Folds can be manipulated as a unit and can be
     deleted, copied or moved.</p>
-    <p>Mode <em class="emph">folding</em> proves especially
-    effective in maintaining large software modules. The technique
-    can be used to advantage by creating folds for different
-    sections in a module and by further placing each function
-    appearing in a particular section in a fold of its own. Complex
-    functions can themselves be folded into sections where each
-    section reflects a different stage in the algorithm implemented
-    by that function. Thus, the technique of folding can be used as
-    an effective aid in <em class="emph">literate</em> programming.
-    I typically write software modules by first creating an outline
-    structure using folds that reflect the various components of
-    that module. Next, I populate each fold with the function
-    signatures and documentation for the functions in each section.
-    When I am satisfied with the overall architecture of the
-    module, I fill in the function skeletons with actual program
-    code. This technique is used extensively in maintaining the
-    Emacspeak code base.</p>
+    <p>Mode <strong class="strong">folding</strong> proves
+    especially effective in maintaining large software modules. The
+    technique can be used to advantage by creating folds for
+    different sections in a module and by further placing each
+    function appearing in a particular section in a fold of its
+    own. Complex functions can themselves be folded into sections
+    where each section reflects a different stage in the algorithm
+    implemented by that function. Thus, the technique of folding
+    can be used as an effective aid in <strong class=
+    "strong">literate</strong> programming. I typically write
+    software modules by first creating an outline structure using
+    folds that reflect the various components of that module. Next,
+    I populate each fold with the function signatures and
+    documentation for the functions in each section. When I am
+    satisfied with the overall architecture of the module, I fill
+    in the function skeletons with actual program code. This
+    technique is used extensively in maintaining the Emacspeak code
+    base.</p>
   </div>
   <hr />
   <div class="nav-panel">

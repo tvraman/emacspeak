@@ -85,20 +85,20 @@
       "#High_002dlevel-Overview">¶</a></span></h3>
       <p>The <abbr class="acronym" title=
       "Text to Speech">TTS</abbr> server reads commands from
-      standard input, and script <em class=
-      "emph">speech-server</em> can be used to cause a <abbr class=
-      "acronym" title="Text to Speech">TTS</abbr> server to
-      communicate via a <abbr class="acronym">TCP</abbr> socket.
-      Speech server commands are used by the client application to
-      make specific requests of the server; the server listens for
-      these requests in a non-blocking read loop and executes
-      requests as they become available. Requests can be classified
-      as follows:</p>
+      standard input, and script <strong class=
+      "strong">speech-server</strong> can be used to cause a
+      <abbr class="acronym" title="Text to Speech">TTS</abbr>
+      server to communicate via a <abbr class="acronym">TCP</abbr>
+      socket. Speech server commands are used by the client
+      application to make specific requests of the server; the
+      server listens for these requests in a non-blocking read loop
+      and executes requests as they become available. Requests can
+      be classified as follows:</p>
       <ul class="itemize mark-bullet">
         <li>Commands that send text to be spoken.</li>
-        <li>Commands that set <em class="emph">state</em> of the
-        <abbr class="acronym" title="Text to Speech">TTS</abbr>
-        server.</li>
+        <li>Commands that set <strong class="strong">state</strong>
+        of the <abbr class="acronym" title=
+        "Text to Speech">TTS</abbr> server.</li>
       </ul>
       <p>All commands are of the form</p>
       <div class="example">
@@ -106,15 +106,15 @@
 </pre>
       </div>
       <p>The braces are optional if the command argument contains
-      no white space. The speech server maintains a <em class=
-      "emph">current state</em> that determines various
+      no white space. The speech server maintains a <strong class=
+      "strong">current state</strong> that determines various
       characteristics of spoken output such as speech rate,
       punctuations mode etc. (see set of commands that manipulate
       speech state for complete list). The client application
-      <em class="emph">queues</em> The text and non-speech audio
-      output to be produced before asking the server to <em class=
-      "emph">dispatch</em> the set of queued requests, i.e. start
-      producing output.</p>
+      <strong class="strong">queues</strong> The text and
+      non-speech audio output to be produced before asking the
+      server to <strong class="strong">dispatch</strong> the set of
+      queued requests, i.e. start producing output.</p>
       <p>Once the server has been asked to produce output, it
       removes items from the front of the queue, sends the
       requisite commands to the underlying <abbr class="acronym"
@@ -122,14 +122,15 @@
       engine to acknowledge that the request has been completely
       processed. This is a non-blocking operation, i.e., if the
       client application generates additional requests, these are
-      processed <em class="emph">immediately</em>.</p>
+      processed <strong class="strong">immediately</strong>.</p>
       <p>The above design allows the Emacspeak <abbr class=
       "acronym" title="Text to Speech">TTS</abbr> server to be
-      <em class="emph">highly</em> responsive; Client applications
-      can queue large amounts of text (typically queued a clause at
-      a time to achieve the best prosody), ask the <abbr class=
-      "acronym" title="Text to Speech">TTS</abbr> server to start
-      speaking, and interrupt the spoken output at any time.</p>
+      <strong class="strong">highly</strong> responsive; Client
+      applications can queue large amounts of text (typically
+      queued a clause at a time to achieve the best prosody), ask
+      the <abbr class="acronym" title="Text to Speech">TTS</abbr>
+      server to start speaking, and interrupt the spoken output at
+      any time.</p>
       <ul class="mini-toc">
         <li>
           <a href="#Commands-That-Queue-Output_002e" accesskey=
@@ -153,18 +154,18 @@
           <pre class="example-preformatted">version
 </pre>
         </div>
-        <p>Speaks the <em class="emph">version</em> of the
-        <abbr class="acronym" title="Text to Speech">TTS</abbr>
+        <p>Speaks the <strong class="strong">version</strong> of
+        the <abbr class="acronym" title="Text to Speech">TTS</abbr>
         engine. Produces output immediately.</p>
         <div class="example">
           <pre class="example-preformatted">tts_say text
 </pre>
         </div>
-        <p>Speaks the specified <em class="emph">text</em>
-        immediately. The text is not pre-processed in any way,
-        contrast this with the primary way of speaking text which
-        is to queue text before asking the server to process the
-        queue.</p>
+        <p>Speaks the specified <strong class=
+        "strong">text</strong> immediately. The text is not
+        pre-processed in any way, contrast this with the primary
+        way of speaking text which is to queue text before asking
+        the server to process the queue.</p>
         <p>Note that this command needs to handle the special
         syntax for morpheme boundaries ‘<samp class=
         "samp">[*]</samp>’. The ‘<samp class="samp">[*]</samp>’
@@ -174,49 +175,51 @@
         pattern to the engine-specific code for each engine. As an
         example, see <samp class="file">servers/outloud</samp> A
         morpheme boundary results in synthesizing compound words
-        such as <em class="emph">left bracket</em> with the right
-        intonation; using a space would result in that phrase being
-        synthesized as two separate words.</p>
+        such as <strong class="strong">left bracket</strong> with
+        the right intonation; using a space would result in that
+        phrase being synthesized as two separate words.</p>
         <div class="example">
           <pre class="example-preformatted">l c
 </pre>
         </div>
-        <p>Speak <em class="emph">c</em> a single character, as a
-        letter. The character is spoken immediately. This command
-        uses the <abbr class="acronym" title=
-        "Text to Speech">TTS</abbr> engine’s capability to speak a
-        single character with the ability to flush speech
-        <em class="emph">immediately</em>. Client applications
-        wishing to produce character-at-a-time output, e.g., when
-        providing character echo during keyboard input should use
-        this command.</p>
+        <p>Speak <strong class="strong">c</strong> a single
+        character, as a letter. The character is spoken
+        immediately. This command uses the <abbr class="acronym"
+        title="Text to Speech">TTS</abbr> engine’s capability to
+        speak a single character with the ability to flush speech
+        <strong class="strong">immediately</strong>. Client
+        applications wishing to produce character-at-a-time output,
+        e.g., when providing character echo during keyboard input
+        should use this command.</p>
         <div class="example">
           <pre class="example-preformatted">d
 </pre>
         </div>
-        <p>This command is used to <em class="emph">dispatch</em>
-        all queued requests. It was renamed to a single character
-        command (like many of the commonly used <abbr class=
-        "acronym" title="Text to Speech">TTS</abbr> server
-        commands) to work more effectively over slow (9600) dialup
-        lines. The effect of calling this command is for the
-        <abbr class="acronym" title="Text to Speech">TTS</abbr>
-        server to start processing items that have been queued via
-        earlier requests.</p>
+        <p>This command is used to <strong class=
+        "strong">dispatch</strong> all queued requests. It was
+        renamed to a single character command (like many of the
+        commonly used <abbr class="acronym" title=
+        "Text to Speech">TTS</abbr> server commands) to work more
+        effectively over slow (9600) dialup lines. The effect of
+        calling this command is for the <abbr class="acronym"
+        title="Text to Speech">TTS</abbr> server to start
+        processing items that have been queued via earlier
+        requests.</p>
         <div class="example">
           <pre class="example-preformatted">s
 </pre>
         </div>
-        <p>Stop speech <em class="emph">immediately</em>. Spoken
-        output is interrupted, and all pending requests are flushed
-        from the queue.</p>
+        <p>Stop speech <strong class="strong">immediately</strong>.
+        Spoken output is interrupted, and all pending requests are
+        flushed from the queue.</p>
         <div class="example">
           <pre class="example-preformatted">q text
 </pre>
         </div>
         <p>Queues text to be spoken. No spoken output is produced
-        until a <em class="emph">dispatch</em> request is received
-        via execution of command <em class="emph">d</em>.</p>
+        until a <strong class="strong">dispatch</strong> request is
+        received via execution of command <strong class=
+        "strong">d</strong>.</p>
         <div class="example">
           <pre class="example-preformatted">c codes
 </pre>
@@ -238,8 +241,8 @@
           <pre class="example-preformatted">p filename
 </pre>
         </div>
-        <p><em class="emph">dispatch</em> play the audio file
-        identified by filename for playing. Must support ogg
+        <p><strong class="strong">dispatch</strong> play the audio
+        file identified by filename for playing. Must support ogg
         format.</p>
         <div class="example">
           <pre class="example-preformatted">t freq length
@@ -264,9 +267,9 @@
           <pre class="example-preformatted">tts_reset
 </pre>
         </div>
-        <p><em class="emph">Immediately</em> reset <abbr class=
-        "acronym" title="Text to Speech">TTS</abbr> engine to
-        default settings. Stops all speech and clears the
+        <p><strong class="strong">Immediately</strong> reset
+        <abbr class="acronym" title="Text to Speech">TTS</abbr>
+        engine to default settings. Stops all speech and clears the
         queue.</p>
         <div class="example">
           <pre class=
@@ -282,8 +285,8 @@
           <li>None: Do not speak punctuation characters.</li>
           <li>Some: Speak some punctuation characters. Used for
           English prose.</li>
-          <li>All: Speak out <em class="emph">all</em> punctuation
-          characters; useful in programming modes.</li>
+          <li>All: Speak out <strong class="strong">all</strong>
+          punctuation characters; useful in programming modes.</li>
         </ul>
         <div class="example">
           <pre class=
@@ -300,25 +303,26 @@
         <p>Queues changing the scale factor. Scale factor applied
         to speech rate when speaking individual characters.Thus,
         setting speech rate to 500 and character scale to 1.2 will
-        cause command <em class="emph">l</em> to use a speech rate
-        of <em class="emph">500 * 1.2 = 600</em>.</p>
+        cause command <strong class="strong">l</strong> to use a
+        speech rate of <strong class="strong">500 * 1.2 =
+        600</strong>.</p>
         <div class="example">
           <pre class="example-preformatted">tts_split_caps flag
 </pre>
         </div>
-        <p>Queues changing of the state of <em class="emph">split
-        caps</em> processing. Turn this on to speak mixed-case
-        (<abbr class="acronym">AKA</abbr> Camel Case)
-        identifiers.</p>
+        <p>Queues changing of the state of <strong class=
+        "strong">split caps</strong> processing. Turn this on to
+        speak mixed-case (<abbr class="acronym">AKA</abbr> Camel
+        Case) identifiers.</p>
         <div class="example">
           <pre class=
           "example-preformatted">tts_sync_state punct  splitcaps caps rate
 </pre>
         </div>
-        <p>This ensures <em class="emph">atomicity</em> i.e., all
-        state settings in the TTS engine happen at one shot. Note
-        that failure to do this might result in some utterances
-        being spoken with a partially set state.</p>
+        <p>This ensures <strong class="strong">atomicity</strong>
+        i.e., all state settings in the TTS engine happen at one
+        shot. Note that failure to do this might result in some
+        utterances being spoken with a partially set state.</p>
         <ul class="itemize mark-bullet">
           <li>punct: see tts_set_punctuations</li>
           <li>splitcaps: see tts_split_caps</li>
@@ -330,26 +334,26 @@
           <pre class="example-preformatted">set_next_lang say_it
 </pre>
         </div>
-        <p><em class="emph">Immediately</em> switch to the next
-        language on the server, maintained internally on the TTS
-        server. If say_it is non-nil say the language change via
-        the TTS.</p>
+        <p><strong class="strong">Immediately</strong> switch to
+        the next language on the server, maintained internally on
+        the TTS server. If say_it is non-nil say the language
+        change via the TTS.</p>
         <div class="example">
           <pre class=
           "example-preformatted">set_previous_lang say_it
 </pre>
         </div>
-        <p><em class="emph">Immediately</em> switch to the previous
-        language on the server, maintained internally on the TTS
-        server. If say_it is non-nil say the language change via
-        the TTS.</p>
+        <p><strong class="strong">Immediately</strong> switch to
+        the previous language on the server, maintained internally
+        on the TTS server. If say_it is non-nil say the language
+        change via the TTS.</p>
         <div class="example">
           <pre class=
           "example-preformatted">set_lang language:voice say_it
 </pre>
         </div>
-        <p><em class="emph">Immediately</em> switch to the
-        requested language and/or voice, separated by a colon.
+        <p><strong class="strong">Immediately</strong> switch to
+        the requested language and/or voice, separated by a colon.
         Examples</p>
         <ul class="itemize mark-bullet">
           <li>set_lang "en"</li>
@@ -363,9 +367,9 @@
           "example-preformatted">set_preferred_lang alias lang
 </pre>
         </div>
-        <p><em class="emph">Immediately</em> set an alias in the
-        TTS server mapping for example "en" to "en_GB". This can
-        later be used by set_lang.</p>
+        <p><strong class="strong">Immediately</strong> set an alias
+        in the TTS server mapping for example "en" to "en_GB". This
+        can later be used by set_lang.</p>
       </div>
     </div>
   </div>
