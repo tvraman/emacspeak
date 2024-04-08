@@ -35,32 +35,32 @@
 
 
 ;;; Commentary:
-;; @emph{EMPV}  ==  Emacs Front-End To @emph{mpv}  --- the GNU media player ---
+;; @code{EMPV}  ==  Emacs Front-End To @code{mpv}  --- the GNU media player ---
 ;; Provides better Youtube integration.
 ;; 
-;; This section documents Emacspeak extensions to @emph{EMPV} , the Emacs
-;; interface of choice to the GNU @emph{MPV}  media player.
-;; This section should be read alongside the @emph{EMPV}  documentation; Install
-;; @emph{EMPV}  from ELPA.
+;; This section documents Emacspeak extensions to @code{EMPV} , the Emacs
+;; interface of choice to the GNU @code{MPV}  media player.
+;; This section should be read alongside the @code{EMPV}  documentation; Install
+;; @code{EMPV}  from ELPA.
 ;; 
 ;; @subsection Interactive Commands
 ;; 
 ;; Emacspeak adds a few convenience commands to the those provided by
-;; package @emph{empv}:
+;; package @code{empv}:
 ;; 
 ;; @enumerate
 ;; @item
-;; Command  @emph{emacspeak-empv-play-url to play} 
-;; a URL using @emph{MPV} .
+;; Command  @code{emacspeak-empv-play-url to play} 
+;; a URL using @code{MPV} .
 ;; @item
-;; Adds history tracking to our @emph{EMPV}  commands.
+;; Adds history tracking to our @code{EMPV}  commands.
 ;; @item
-;; Command empv-play-last-url to play from our @emph{EMPV}  history.
+;; Command empv-play-last-url to play from our @code{EMPV}  history.
 ;; @item
-;; Command  @emph{emacspeak-empv-play-file  to play  local media and} 
+;; Command  @code{emacspeak-empv-play-file  to play  local media and} 
 ;; Internet streams.
 ;; @item
-;; Command  @emph{emacspeak-empv-radio to play from Emacspeak's library} 
+;; Command  @code{emacspeak-empv-radio to play from Emacspeak's library} 
 ;; of Internet streams.
 ;; @end enumerate
 ;; 
@@ -72,51 +72,51 @@
 ;; 
 ;; @itemize
 ;; @item
-;;  @emph{emacspeak-empv-absolute-seek}  
+;;  @code{emacspeak-empv-absolute-seek}  
 ;; @item
-;;  @emph{emacspeak-empv-backward-10-minutes} 
+;;  @code{emacspeak-empv-backward-10-minutes} 
 ;; @item
-;;  @emph{emacspeak-empv-backward-10-seconds}  
+;;  @code{emacspeak-empv-backward-10-seconds}  
 ;; @item
-;;  @emph{emacspeak-empv-backward-30-minutes} 
+;;  @code{emacspeak-empv-backward-30-minutes} 
 ;; @item
-;;  @emph{emacspeak-empv-backward-5-minutes} 
+;;  @code{emacspeak-empv-backward-5-minutes} 
 ;; @item
-;;  @emph{emacspeak-empv-backward-minute}  
+;;  @code{emacspeak-empv-backward-minute}  
 ;; @item
-;;  @emph{emacspeak-empv-forward-10-minutes} 
+;;  @code{emacspeak-empv-forward-10-minutes} 
 ;; @item
-;;  @emph{emacspeak-empv-forward-10-seconds}  
+;;  @code{emacspeak-empv-forward-10-seconds}  
 ;; @item
-;;  @emph{emacspeak-empv-forward-30-minutes} 
+;;  @code{emacspeak-empv-forward-30-minutes} 
 ;; @item
-;;  @emph{emacspeak-empv-forward-5-minutes} 
+;;  @code{emacspeak-empv-forward-5-minutes} 
 ;; @item
-;;  @emph{emacspeak-empv-forward-minute}  
+;;  @code{emacspeak-empv-forward-minute}  
 ;; @item
-;;  @emph{emacspeak-empv-percentage-seek}  
+;;  @code{emacspeak-empv-percentage-seek}  
 ;; @item
-;;  @emph{emacspeak-empv-relative-seek}  
+;;  @code{emacspeak-empv-relative-seek}  
 ;; @end itemize
 ;; 
 ;; @subsection Toggling Filters
 ;; 
-;; Command @emph{mpv}  provides a number of audio filters. Emacspeak exposes a
+;; Command @code{mpv}  provides a number of audio filters. Emacspeak exposes a
 ;; select few for interactive use.
 ;; 
 ;; @enumerate
 ;; @item
-;; Toggle active filter:  @emph{emacspeak-empv-toggle-filter}  
+;; Toggle active filter:  @code{emacspeak-empv-toggle-filter}  
 ;; @item
-;; Toggle Audio Balance:  @emph{emacspeak-empv-toggle-balance}  
+;; Toggle Audio Balance:  @code{emacspeak-empv-toggle-balance}  
 ;; @item
-;; Clear any active filters:  @emph{emacspeak-empv-clear-filter}  
+;; Clear any active filters:  @code{emacspeak-empv-clear-filter}  
 ;; @item
-;; Toggle our custom filter:  @emph{emacspeak-empv-toggle-custom}  
+;; Toggle our custom filter:  @code{emacspeak-empv-toggle-custom}  
 ;; @item
-;; Toggle left output:  @emph{emacspeak-empv-toggle-left}  
+;; Toggle left output:  @code{emacspeak-empv-toggle-left}  
 ;; @item
-;; Toggle right output:  @emph{emacspeak-empv-toggle-right}  
+;; Toggle right output:  @code{emacspeak-empv-toggle-right}  
 ;; @end enumerate
 ;; 
 ;; 

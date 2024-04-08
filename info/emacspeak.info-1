@@ -6400,25 +6400,25 @@ File: emacspeak.info,  Node: emacspeak-empv,  Next: emacspeak-enriched,  Prev: e
 12.61 emacspeak-empv
 ====================
 
-_EMPV_ == Emacs Front-End To _mpv_ -- the GNU media player -- Provides
+‘EMPV’ == Emacs Front-End To ‘mpv’ -- the GNU media player -- Provides
 better Youtube integration.
 
-   This section documents Emacspeak extensions to _EMPV_ , the Emacs
-interface of choice to the GNU _MPV_ media player.  This section should
-be read alongside the _EMPV_ documentation; Install _EMPV_ from ELPA.
+   This section documents Emacspeak extensions to ‘EMPV’ , the Emacs
+interface of choice to the GNU ‘MPV’ media player.  This section should
+be read alongside the ‘EMPV’ documentation; Install ‘EMPV’ from ELPA.
 
 12.61.1 Interactive Commands
 ----------------------------
 
 Emacspeak adds a few convenience commands to the those provided by
-package _empv_:
+package ‘empv’:
 
-  1. Command _emacspeak-empv-play-url to play_ a URL using _MPV_ .
-  2. Adds history tracking to our _EMPV_ commands.
-  3. Command empv-play-last-url to play from our _EMPV_ history.
-  4. Command _emacspeak-empv-play-file to play local media and_ Internet
+  1. Command ‘emacspeak-empv-play-url to play’ a URL using ‘MPV’ .
+  2. Adds history tracking to our ‘EMPV’ commands.
+  3. Command empv-play-last-url to play from our ‘EMPV’ history.
+  4. Command ‘emacspeak-empv-play-file to play local media and’ Internet
      streams.
-  5. Command _emacspeak-empv-radio to play from Emacspeak's library_ of
+  5. Command ‘emacspeak-empv-radio to play from Emacspeak's library’ of
      Internet streams.
 
 12.61.2 Navigating In Time
@@ -6428,32 +6428,32 @@ Emacspeak defines additional convenience commands to seek in streams at
 different time granularities, the names are self-documenting and bound
 in the empv-map.
 
-   • _emacspeak-empv-absolute-seek_
-   • _emacspeak-empv-backward-10-minutes_
-   • _emacspeak-empv-backward-10-seconds_
-   • _emacspeak-empv-backward-30-minutes_
-   • _emacspeak-empv-backward-5-minutes_
-   • _emacspeak-empv-backward-minute_
-   • _emacspeak-empv-forward-10-minutes_
-   • _emacspeak-empv-forward-10-seconds_
-   • _emacspeak-empv-forward-30-minutes_
-   • _emacspeak-empv-forward-5-minutes_
-   • _emacspeak-empv-forward-minute_
-   • _emacspeak-empv-percentage-seek_
-   • _emacspeak-empv-relative-seek_
+   • ‘emacspeak-empv-absolute-seek’
+   • ‘emacspeak-empv-backward-10-minutes’
+   • ‘emacspeak-empv-backward-10-seconds’
+   • ‘emacspeak-empv-backward-30-minutes’
+   • ‘emacspeak-empv-backward-5-minutes’
+   • ‘emacspeak-empv-backward-minute’
+   • ‘emacspeak-empv-forward-10-minutes’
+   • ‘emacspeak-empv-forward-10-seconds’
+   • ‘emacspeak-empv-forward-30-minutes’
+   • ‘emacspeak-empv-forward-5-minutes’
+   • ‘emacspeak-empv-forward-minute’
+   • ‘emacspeak-empv-percentage-seek’
+   • ‘emacspeak-empv-relative-seek’
 
 12.61.3 Toggling Filters
 ------------------------
 
-Command _mpv_ provides a number of audio filters.  Emacspeak exposes a
+Command ‘mpv’ provides a number of audio filters.  Emacspeak exposes a
 select few for interactive use.
 
-  1. Toggle active filter: _emacspeak-empv-toggle-filter_
-  2. Toggle Audio Balance: _emacspeak-empv-toggle-balance_
-  3. Clear any active filters: _emacspeak-empv-clear-filter_
-  4. Toggle our custom filter: _emacspeak-empv-toggle-custom_
-  5. Toggle left output: _emacspeak-empv-toggle-left_
-  6. Toggle right output: _emacspeak-empv-toggle-right_
+  1. Toggle active filter: ‘emacspeak-empv-toggle-filter’
+  2. Toggle Audio Balance: ‘emacspeak-empv-toggle-balance’
+  3. Clear any active filters: ‘emacspeak-empv-clear-filter’
+  4. Toggle our custom filter: ‘emacspeak-empv-toggle-custom’
+  5. Toggle left output: ‘emacspeak-empv-toggle-left’
+  6. Toggle right output: ‘emacspeak-empv-toggle-right’
 
 12.61.4 Emacspeak-Empv Commands
 -------------------------------
