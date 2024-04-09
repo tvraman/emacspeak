@@ -150,8 +150,8 @@ instead you hear only the first screenful."
   `(defadvice ,f(after emacspeak pre act com)
      "Provide auditory contextual feedback."
      (when (ems-interactive-p)
-       (emacspeak-speak-mode-line)
-       (emacspeak-icon 'close-object)))))
+       (emacspeak-icon 'close-object)
+       (emacspeak-speak-mode-line)))))
 
 ;;;   starting up:
 
