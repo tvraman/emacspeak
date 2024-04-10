@@ -1956,7 +1956,6 @@ location of the mark is indicated by an aural highlight. "
 
 (defun emacspeak-execute-repeatedly (command)
   "Execute COMMAND repeatedly."
-  (interactive (list (read-command "Command to execute repeatedly:")))
   (cl-declare (special ems--continuous-key))
   (emacspeak-icon 'repeat-start)
   (let ((key "")
