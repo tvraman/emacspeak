@@ -1967,9 +1967,9 @@ location of the mark is indicated by an aural highlight. "
           (setq key (read-key message))
           (when (not (= 32 key))
             (dtk-stop 'all)
-            (setq continue nil)))))
-    (emacspeak-icon 'repeat-end)
-    (dtk-speak "Exited continuous mode ")))
+            (setq continue nil))))
+      (emacspeak-icon 'repeat-end)
+      (dtk-speak "Exited continuous mode "))))
 
 (defun emacspeak-speak-continuously ()
   "Speak a buffer continuously.
