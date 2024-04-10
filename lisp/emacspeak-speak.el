@@ -1951,12 +1951,8 @@ location of the mark is indicated by an aural highlight. "
 
 ;;;   Execute command repeatedly:
 
-(defvar ems--continuous-key 32
-  "Key to use to repeat command.")
-
 (defun emacspeak-execute-repeatedly (command)
   "Execute COMMAND repeatedly."
-  (cl-declare (special ems--continuous-key))
   (emacspeak-icon 'repeat-start)
   (let ((key "")
         (pos (point))
@@ -1968,9 +1964,8 @@ location of the mark is indicated by an aural highlight. "
       (cond
        ((= (point) pos) (setq continue nil))
        (t (setq pos (point))
-          (setq key (read-key-sequence message))
-          (when (and (stringp key)
-                     (not (= ems--continuous-key (string-to-char key))))
+          (setq key (read-key message))
+          (when (not (= 32 key))
             (dtk-stop 'all)
             (setq continue nil)))))
     (emacspeak-icon 'repeat-end)
