@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1177 commands and 128 options.
+This chapter documents a total of 1176 commands and 128 options.
 
 @node amixer
 @section amixer
@@ -12204,17 +12204,6 @@ Use interactive prefix arg to get coordinate positions of the
 displayed buffers.
 
 (fn &optional DETAILS)
-@end format
-@end deffn
-
-@subsubsection emacspeak-execute-repeatedly
-@deffn {Command} emacspeak-execute-repeatedly  (command)
-@findex emacspeak-execute-repeatedly
-
-@format
-Execute COMMAND repeatedly.
-
-(fn COMMAND)
 @end format
 @end deffn
 
