@@ -1221,7 +1221,6 @@ found on laptops is denoted <fn>
      Default Value:
      
      (("'" emacspeak-pianobar)
-      ("C-'" empv-exit)
       ("d" sdcv-search-input)
       ("f" ffap)
       ("l" locate)
