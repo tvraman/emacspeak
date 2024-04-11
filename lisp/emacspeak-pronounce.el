@@ -253,7 +253,7 @@ the match  being passed to the func which returns  the new pronunciation."
   "Return list of supers for mode `child'. "
   (get child 'emacspeak-pronounce-supers))
 
-(defvar-local emacspeak-pronounce-personality nil
+(defvar emacspeak-pronounce-personality nil
   "Personality used for pronunciations")
 
 (defun emacspeak-pronounce-toggle-voice ()
