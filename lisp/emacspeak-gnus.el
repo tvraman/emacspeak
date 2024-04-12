@@ -342,6 +342,7 @@ Indicate change of selection with
     ad-do-it
     (when (ems-interactive-p)
       (emacspeak-icon 'close-object)
+      (dtk-stop)
       (if (eq cur-group (gnus-group-group-name))
           (emacspeak-pip "No more unread newsgroups")
         (progn 
@@ -356,6 +357,7 @@ Indicate change of selection with
     ad-do-it
     (when (ems-interactive-p)
       (emacspeak-icon 'close-object)
+      (dtk-stop)
       (if (eq cur-group (gnus-group-group-name))
           (emacspeak-pip "No more unread newsgroups")
         (progn 
