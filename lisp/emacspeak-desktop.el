@@ -47,6 +47,15 @@
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+;;; Interactive Command: Preserve buffer
+
+(defun emacspeak-desktop-preserve (buffer)
+  "Preserve: Dont kill this buffer when clearing desktop."
+  (cl-declare (special  desktop-clear-preserve-buffers))
+  (interactive
+   (list (read-buffer "Preserve Buffer: " (current-buffer) t)))
+  (cl-pushnew buffer desktop-clear-preserve-buffers)
+  (message "Preserving %s for this session." buffer))
 
 ;;;   desktop
 
