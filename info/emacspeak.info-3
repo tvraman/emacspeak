@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 10, 2024.
+last updated on April 12, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -2736,6 +2736,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e x e z:                             emacspeak-we.       (line  176)
 * C-e x f:                               emacspeak-wizards.  (line  763)
 * C-e x h:                               emacspeak-wizards.  (line  613)
+* C-e x k:                               emacspeak-desktop.  (line   16)
 * C-e x M-c:                             emacspeak-wizards.  (line  372)
 * C-e x o:                               emacspeak-wizards.  (line  721)
 * C-e x t:                               emacspeak-wizards.  (line  220)
@@ -3301,6 +3302,8 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-describe-emacspeak <1>:      emacspeak-wizards.  (line   55)
 * emacspeak-describe-tapestry:           emacspeak-speak.    (line   81)
 * emacspeak-describe-tapestry <1>:       emacspeak-speak.    (line   84)
+* emacspeak-desktop-preserve:            emacspeak-desktop.  (line   14)
+* emacspeak-desktop-preserve <1>:        emacspeak-desktop.  (line   17)
 * emacspeak-dial-dtk:                    Miscellaneous.      (line   79)
 * emacspeak-dired-csv-open:              emacspeak-dired.    (line   16)
 * emacspeak-dired-csv-open <1>:          emacspeak-dired.    (line   17)

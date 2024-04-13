@@ -12,7 +12,160 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 10, 2024.
+last updated on April 12, 2024.
+
+
+File: emacspeak.info,  Node: emacspeak-extras,  Next: emacspeak-exwm,  Prev: emacspeak-eww,  Up: Emacspeak Commands And Options
+
+12.76 emacspeak-extras
+======================
+
+Infrequently used wizards archived for posterity.
+
+12.76.1 Emacspeak-Extras Commands
+---------------------------------
+
+12.76.1.1 emacspeak-annotate-add-annotation
+...........................................
+
+ -- Command: emacspeak-annotate-add-annotation (&optional reset)
+
+     Add annotation to the annotation working buffer.
+     Prompt for annotation buffer if not already set.
+     Interactive prefix arg ‘reset’ prompts for the annotation
+     buffer even if one is already set.
+     Annotation is entered in a temporary buffer and the
+     annotation is inserted into the working buffer when complete.
+
+12.76.1.2 emacspeak-clipfile-copy
+.................................
+
+ -- Command: emacspeak-clipfile-copy (start end &optional prompt)
+     ‘C-e C-M-c’
+
+     Use file-based Emacspeak Clipboard --
+     dis a convenient way of sharing information between independent
+     Emacspeak sessions running on  different machines.
+
+12.76.1.3 emacspeak-clipfile-paste
+..................................
+
+ -- Command: emacspeak-clipfile-paste (&optional paste-table)
+
+     Yank contents of the Emacspeak clipboard at point.
+
+12.76.1.4 emacspeak-curl
+........................
+
+ -- Command: emacspeak-curl (url)
+
+     Grab URL using Curl, and preview it with a browser .
+
+12.76.1.5 emacspeak-wizards-add-autoload-cookies
+................................................
+
+ -- Command: emacspeak-wizards-add-autoload-cookies (&optional f)
+
+     Add autoload cookies to file f.
+     Default is to add autoload cookies to current file.
+
+12.76.1.6 emacspeak-wizards-bindings-from-org
+.............................................
+
+ -- Command: emacspeak-wizards-bindings-from-org (variable filename)
+
+     Load bindings from a specified file.
+
+12.76.1.7 emacspeak-wizards-bindings-to-org
+...........................................
+
+ -- Command: emacspeak-wizards-bindings-to-org (variable filename)
+
+     Persists mapping to org file.
+
+12.76.1.8 emacspeak-wizards-display-pod-as-manpage
+..................................................
+
+ -- Command: emacspeak-wizards-display-pod-as-manpage (filename)
+
+     Create a virtual manpage in Emacs from the Perl Online Documentation.
+
+12.76.1.9 emacspeak-wizards-find-grep
+.....................................
+
+ -- Command: emacspeak-wizards-find-grep (glob pattern)
+
+     Run compile using find and grep.
+     Interactive  arguments specify filename pattern and search pattern.
+
+12.76.1.10 emacspeak-wizards-fix-read-only-text
+...............................................
+
+ -- Command: emacspeak-wizards-fix-read-only-text (start end)
+
+     Nuke read-only property on text range.
+
+12.76.1.11 emacspeak-wizards-generate-voice-sampler
+...................................................
+
+ -- Command: emacspeak-wizards-generate-voice-sampler (step)
+
+     Generate a buffer that shows a sample line in all the ACSS settings
+     for the current voice family.
+
+12.76.1.12 emacspeak-wizards-list-voices
+........................................
+
+ -- Command: emacspeak-wizards-list-voices (pattern)
+     ‘C-h "’
+     ‘<f1> "’
+     ‘<help> "’
+
+     Show all defined voice-face mappings  in a help buffer.
+     Sample text to use comes from variable
+       ‘ems-wizards-sampler-text
+
+12.76.1.13 emacspeak-wizards-midi-using-m-score
+...............................................
+
+ -- Command: emacspeak-wizards-midi-using-m-score (midi-file)
+
+     Play midi file using mscore from musescore package.
+
+12.76.1.14 emacspeak-wizards-show-voices
+........................................
+
+ -- Command: emacspeak-wizards-show-voices
+
+     Display a buffer with sample text in the defined voices.
+
+12.76.1.15 emacspeak-wizards-voice-sampler
+..........................................
+
+ -- Command: emacspeak-wizards-voice-sampler (personality)
+
+     Read a personality  and apply it to the current line.
+
+12.76.2 emacspeak-extras Options
+--------------------------------
+
+ -- Variable: User Option emacspeak-clipfile-file
+     File used to save Emacspeak clipboard.
+     The emacspeak clipboard provides a convenient mechanism for exchanging
+     information between different Emacs sessions.
+
+     Default Value:
+     
+     "/home/raman/.emacspeak//clipboard"
+     
+
+ -- Variable: User Option emacspeak-curl-cookie-store
+     Cookie store used by Curl.
+
+     Default Value:
+     
+     "/home/raman/.curl-cookies"
+     
 
 
 File: emacspeak.info,  Node: emacspeak-exwm,  Next: emacspeak-feeds,  Prev: emacspeak-extras,  Up: Emacspeak Commands And Options
@@ -1302,6 +1455,7 @@ found on laptops is denoted <fn>
       ("f" emacspeak-wizards-remote-frame)
       ("h" emacspeak-wizards-how-many-matches)
       ("i" ibuffer)
+      ("k" emacspeak-desktop-preserve)
       ("m" mspools-show)
       ("o" emacspeak-wizards-occur-header-lines)
       ("p" paradox-list-packages)
