@@ -4,8 +4,8 @@
 
 Emacspeak produces spoken output by communicating with one of many
 speech servers.  This section documents the communication protocol
-between the client application i.e. Emacspeak, and the @acronym{TTS,
-Text to Speech} server. This section is primarily intended for
+between the client application i.e. Emacspeak, and the Text to Speech
+(@acronym{TTS}) server. This section is primarily intended for
 developers wishing to:
 
 @itemize @bullet
@@ -23,12 +23,12 @@ commands when developing a speech server, see
 
 @section High-level Overview
 
-The @acronym{TTS} server reads commands from standard input, and
-script @strong{speech-server} can be used to cause a @acronym{TTS}
+The @acronym{TTS} server reads commands from standard input.
+Script @strong{speech-server} can be used to cause a @acronym{TTS}
 server to communicate via a @acronym{TCP} socket. Speech server
 commands are used by the client application to make specific requests
 of the server; the server listens for these requests in a non-blocking
-read loop and executes requests as they become available. Requests can
+read-eval-print (REPL)  loop and executes requests as they become available. Requests can
 be classified as follows:
 
 @itemize @bullet
@@ -150,15 +150,15 @@ stream.
 a filename
 @end example
 
-Cues the audio file identified by filename for playing.  Must support
-ogg format.
+Cues the audio file identified by filename for playing,
+an @code{ogg} file.
 
 @example
 p filename
 @end example
 
 @strong{dispatch} play the audio file identified by filename for
-playing.  Must support ogg format.
+playing  --- @code{ogg} file.
 
 
 @example

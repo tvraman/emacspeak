@@ -1243,9 +1243,9 @@ File: emacspeak.info,  Node: TTS Servers,  Next: Emacspeak At Twenty,  Prev: Ema
 
 Emacspeak produces spoken output by communicating with one of many
 speech servers.  This section documents the communication protocol
-between the client application i.e.  Emacspeak, and the TTS (Text to
-Speech) server.  This section is primarily intended for developers
-wishing to:
+between the client application i.e.  Emacspeak, and the Text to Speech
+(TTS) server.  This section is primarily intended for developers wishing
+to:
 
    • Create new speech servers that comply with this communication
      protocol
@@ -1260,12 +1260,13 @@ developing a speech server, see
 15.1 High-level Overview
 ========================
 
-The TTS server reads commands from standard input, and script
+The TTS server reads commands from standard input.  Script
 *speech-server* can be used to cause a TTS server to communicate via a
 TCP socket.  Speech server commands are used by the client application
 to make specific requests of the server; the server listens for these
-requests in a non-blocking read loop and executes requests as they
-become available.  Requests can be classified as follows:
+requests in a non-blocking read-eval-print (REPL) loop and executes
+requests as they become available.  Requests can be classified as
+follows:
 
    • Commands that send text to be spoken.
 
@@ -1357,13 +1358,13 @@ engine at the appropriate point in the output stream.
 
      a filename
 
-   Cues the audio file identified by filename for playing.  Must support
-ogg format.
+   Cues the audio file identified by filename for playing, an ‘ogg’
+file.
 
      p filename
 
-   *dispatch* play the audio file identified by filename for playing.
-Must support ogg format.
+   *dispatch* play the audio file identified by filename for playing --
+‘ogg’ file.
 
      t freq length
 
