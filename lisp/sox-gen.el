@@ -90,7 +90,8 @@
 ;; @code{sox-relax} spends equal time in @strong{Dream} and @strong{Sleep}.
 ;; @item @command{sox-binaural}: Provide a completion-based front-end to
 ;; playing any one of the predefined binaural effects (@strong{Delta},
-;; @strong{Theta}, @strong{Alpha}, @strong{Beta}, or @strong{Gamma}. The previously
+;; @strong{Theta}, @strong{Alpha}, @strong{Beta}, or @strong{Gamma}.
+;; The previously
 ;; defined sequences are built up using these effects.
 ;; @item @command{sox-beats-binaural}: Plays a collection of binaural
 ;; beats, prompting for carrier and beat frequencies for each tone. The
