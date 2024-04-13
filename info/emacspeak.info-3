@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 12, 2024.
+last updated on April 13, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -1398,8 +1398,8 @@ Typically, TTS servers provide at least three modes:
 
      tts_set_speech_rate rate
 
-   Queues speech rate change.  The interpretation of this value is
-typically engine specific.
+   *Immediately* change speech rate.  The interpretation of this value
+is typically engine specific.
 
      tts_set_character_scale factor
 
@@ -1413,7 +1413,7 @@ rate of *500 * 1.2 = 600*.
    Queues changing of the state of *split caps* processing.  Turn this
 on to speak mixed-case (AKA Camel Case) identifiers.
 
-     tts_sync_state punct  splitcaps caps rate
+     tts_sync_state punct splitcaps caps rate
    This ensures *atomicity* i.e., all state settings in the TTS engine
 happen at one shot.  Note that failure to do this might result in some
 utterances being spoken with a partially set state.
