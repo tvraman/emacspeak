@@ -14,8 +14,10 @@ log-espeak
 log-mac
 log-outloud
 log-plain
+log-sharpwin
 log-swiftmac
 mac
 null
 outloud
+sharpwin
 swiftmac

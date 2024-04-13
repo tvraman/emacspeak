@@ -1458,7 +1458,7 @@ Set by \\[dtk-set-punctuations].")
   (dtk-initialize))
 
 (defvar tts-multi-engines
-  '("espeak"  "outloud"   "dtk-soft")
+  '("espeak"  "outloud"   "dtk-soft" "sharpwin")
   "List of TTS engines that are multi capable.")
 
 (defsubst tts-multistream-p (engine)
@@ -1867,6 +1867,7 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
       (with-environment-variables
           (("ALSA_DEFAULT" tts-notification-device)
            ("SWIFTMAC_AUDIO_TARGET" tts-notification-device)
+           ("SHARPWIN_AUDIO_TARGET" tts-notification-device)
            ("PULSE_SINK" tts-notification-device))
         (setq  new (dtk-make-process "Notify"))
         (when (process-live-p new)
