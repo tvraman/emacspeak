@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1176 commands and 128 options.
+This chapter documents a total of 1177 commands and 128 options.
 
 @node amixer
 @section amixer
@@ -3105,6 +3105,24 @@ Speech-enable the debugger by speech-enabling interactive commands.
 @section emacspeak-desktop
 
 advice desktop package
+
+@subsection Emacspeak-Desktop Commands
+
+@subsubsection emacspeak-desktop-preserve
+@deffn {Command} emacspeak-desktop-preserve  (buffer)
+@table @kbd
+@item C-e x k
+@kindex C-e x k
+@end table
+
+@findex emacspeak-desktop-preserve
+
+@format
+Preserve: Dont kill this buffer when clearing desktop.
+
+(fn BUFFER)
+@end format
+@end deffn
 
 @node emacspeak-devdocs
 @section emacspeak-devdocs
@@ -8421,6 +8439,7 @@ Default Value:
  ("f" emacspeak-wizards-remote-frame)
  ("h" emacspeak-wizards-how-many-matches)
  ("i" ibuffer)
+ ("k" emacspeak-desktop-preserve)
  ("m" mspools-show)
  ("o" emacspeak-wizards-occur-header-lines)
  ("p" paradox-list-packages)

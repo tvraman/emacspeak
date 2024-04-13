@@ -430,6 +430,7 @@
     ("f" emacspeak-wizards-remote-frame)
     ("h" emacspeak-wizards-how-many-matches)
     ("i" ibuffer)
+    ("k" emacspeak-desktop-preserve)
     ("m" mspools-show)
     ("o" emacspeak-wizards-occur-header-lines)
     ("p" paradox-list-packages)
