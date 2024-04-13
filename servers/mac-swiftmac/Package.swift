@@ -31,7 +31,9 @@ let package = Package(
       name: "swiftmac",
       dependencies: ["OggDecoder"],
       path: "Sources/SwiftMacPackage",
-      sources: ["logger.swift", "statestore.swift", "playpuretone.swift", "main.swift"]
+      sources: [
+        "logger.swift", "statestore.swift", "soundmanager.swift", "toneplayer.swift", "main.swift",
+      ]
     )
   ]
 )
