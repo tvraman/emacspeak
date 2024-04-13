@@ -4,39 +4,51 @@ import Darwin
 import Foundation
 
 class Logger {
-  private let fileURL: URL
-  private let backgroundQueue: DispatchQueue
+  #if DEBUG
+    private let fileURL: URL
+    private let backgroundQueue: DispatchQueue
 
-  init(fileName: String) {
-    let fileManager = FileManager.default
-    let directoryURL = URL(fileURLWithPath: "/tmp", isDirectory: true)
+    init(fileName: String) {
+      let fileManager = FileManager.default
+      let directoryURL = URL(fileURLWithPath: "/tmp", isDirectory: true)
 
-    fileURL = directoryURL.appendingPathComponent(fileName)
+      // Get the process ID (PID)
+      let pid = ProcessInfo.processInfo.processIdentifier
 
-    // Create file if it doesn't exist
-    if !fileManager.fileExists(atPath: fileURL.path) {
-      fileManager.createFile(atPath: fileURL.path, contents: nil, attributes: nil)
+      // Append the PID to the filename
+      let fileNameWithPID = "\(fileName)_\(pid).log"
+
+      fileURL = directoryURL.appendingPathComponent(fileNameWithPID)
+
+      // Create file if it doesn't exist
+      if !fileManager.fileExists(atPath: fileURL.path) {
+        fileManager.createFile(atPath: fileURL.path, contents: nil, attributes: nil)
+      }
+
+      backgroundQueue = DispatchQueue(
+        label: "org.emacspeak.server.swiftmac.logger", qos: .background)
     }
 
-    backgroundQueue = DispatchQueue(label: "org.emacspeak.server.swiftmac.logger", qos: .background)
-  }
+    func log(_ m: String) {
+      let message = m + "\n"
+      backgroundQueue.async { [weak self] in
+        guard let self = self else { return }
 
-  func log(_ m: String) {
-    let message = m + "\n"
-    backgroundQueue.async { [weak self] in
-      guard let self = self else { return }
+        do {
+          let fileHandle = try FileHandle(forWritingTo: self.fileURL)
+          defer { fileHandle.closeFile() }
 
-      do {
-        let fileHandle = try FileHandle(forWritingTo: self.fileURL)
-        defer { fileHandle.closeFile() }
-
-        fileHandle.seekToEndOfFile()
-        if let data = message.data(using: .utf8) {
-          fileHandle.write(data)
+          fileHandle.seekToEndOfFile()
+          if let data = message.data(using: .utf8) {
+            fileHandle.write(data)
+          }
+        } catch {
+          print("Error writing to log file: \(error)")
         }
-      } catch {
-        print("Error writing to log file: \(error)")
       }
     }
-  }
+  #else
+    func log(_ m: String) {
+    }
+  #endif
 }

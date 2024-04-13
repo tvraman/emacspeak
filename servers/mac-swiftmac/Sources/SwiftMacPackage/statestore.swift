@@ -2,137 +2,248 @@ import AVFoundation
 import AppKit
 import Darwin
 import Foundation
+import OggDecoder
 
-// Due to being fully async, handling the state is a bit of a pain,
-// we have to store it all in a class and gate access to it, the good
-// news is the only syncronise bits are on reading the data out.
-class StateStore {
-  private var backlog: String = ""
-  // private var voiceq = defaultVoice
-  private var splitCaps: Bool = defaultSplitCaps
-  private var voice = defaultVoice
-  private var beepCaps: Bool = defaultBeepCaps
-  private var charScale: Float = defaultCharScale
-  private var punct: String = defaultPunct
-  private let queue = DispatchQueue(
-    label: "org.emacspeak.server.swiftmac.state",
-    qos: .userInteractive)
-
-  func clearBacklog() {
-    #if DEBUG
-      debugLogger.log("Enter: clearBacklog")
-    #endif
-
-    queue.async {
-      self.backlog = ""
-    }
+public actor StateStore {
+  private var _allCapsBeep: Bool = false
+  public var allCapsBeep: Bool {
+    get { _allCapsBeep }
+    set { _allCapsBeep = newValue }
   }
 
-  func pushBacklog(_ with: String, code: Bool = false) {
-    #if DEBUG
-      debugLogger.log("Enter: pushBacklog")
-    #endif
-    let punct = self.getPunct().lowercased()
-    queue.async { [weak self] in
-      guard let self = self else { return }
-      var w = stripSpecialEmbeds(with)
-      if !code {
-        switch punct {
-        case "all":
-          w = replaceAllPuncs(w)
-        case "some":
-          w = replaceSomePuncs(w)
-        case "none":
-          w = replaceBasePuncs(w)
-        default:
-          w = replaceCore(w)
-        }
+  private var _characterScale: Float = 1.2
+  public var characterScale: Float {
+    get { _characterScale }
+    set { _characterScale = newValue }
+  }
+
+  private var _pendingQueue: [(String, String)] = []
+  public var pendingQueue: [(String, String)] {
+    get { _pendingQueue }
+    set { _pendingQueue = newValue }
+  }
+
+  public func appendToPendingQueue(_ item: (String, String)) {
+    _pendingQueue.append(item)
+  }
+
+  public func popFromPendingQueue() -> (String, String)? {
+    if !_pendingQueue.isEmpty {
+      return _pendingQueue.removeFirst()
+    }
+    return nil
+  }
+
+  // Clear the pending queue
+  public func clearPendingQueue() {
+    _pendingQueue.removeAll()
+  }
+
+  private var _pitchMultiplier: Float = 1.0
+  public var pitchMultiplier: Float {
+    get { _pitchMultiplier }
+    set { _pitchMultiplier = newValue }
+  }
+
+  private var _postDelay: TimeInterval = 0
+  public var postDelay: TimeInterval {
+    get { _postDelay }
+    set { _postDelay = newValue }
+  }
+
+  private var _preDelay: TimeInterval = 0
+  public var preDelay: TimeInterval {
+    get { _preDelay }
+    set { _preDelay = newValue }
+  }
+
+  private var _punctuations: String = "all"
+  public var punctuations: String {
+    get { _punctuations }
+    set { _punctuations = newValue }
+  }
+
+  private var _audioTarget: String = "None"
+  public var audioTarget: String {
+    get { _audioTarget.lowercased() }
+    set { _audioTarget = newValue }
+  }
+
+  private var _soundVolume: Float = 1
+  public var soundVolume: Float {
+    get { _soundVolume }
+    set { _soundVolume = newValue }
+  }
+
+  private var _speechRate: Float = 0.5
+  public var speechRate: Float {
+    get { _speechRate }
+    set { _speechRate = newValue }
+  }
+
+  private var _splitCaps: Bool = false
+  public var splitCaps: Bool {
+    get { _splitCaps }
+    set { _splitCaps = newValue }
+  }
+
+  private var _toneVolume: Float = 1
+  public var toneVolume: Float {
+    get { _toneVolume }
+    set { _toneVolume = newValue }
+  }
+
+  private var _ttsDiscard: Bool = false
+  public var ttsDiscard: Bool {
+    get { _ttsDiscard }
+    set { _ttsDiscard = newValue }
+  }
+
+  private var _voice: AVSpeechSynthesisVoice = AVSpeechSynthesisVoice()
+  public var voice: AVSpeechSynthesisVoice {
+    get { _voice }
+    set { _voice = newValue }
+  }
+
+  private var _voiceVolume: Float = 1
+  public var voiceVolume: Float {
+    get { _voiceVolume }
+    set { _voiceVolume = newValue }
+  }
+
+  public init() async {
+    self.soundVolume = 1.0
+    if let f = Float(self.getEnvironmentVariable("SWIFTMAC_SOUND_VOLUME")) {
+      self.soundVolume = f
+    }
+
+    self.toneVolume = 1.0
+    if let f = Float(self.getEnvironmentVariable("SWIFTMAC_TONE_VOLUME")) {
+      self.toneVolume = f
+    }
+
+    if let f = Float(self.getEnvironmentVariable("SWIFTMAC_VOICE_VOLUME")) {
+      self.voiceVolume = f
+    }
+
+    self.audioTarget = self.getEnvironmentVariable("SWIFTMAC_AUDIO_TARGET")
+
+    debugLogger.log("soundVolume \(self.soundVolume)")
+    debugLogger.log("toneVolume \(self.toneVolume)")
+    debugLogger.log("voiceVolume \(self.voiceVolume)")
+  }
+
+  public func getCharacterRate() async -> Float {
+    return Float(Float(self.speechRate) * self.characterScale)
+  }
+
+  private func getEnvironmentVariable(_ variable: String) -> String {
+    return ProcessInfo.processInfo.environment[variable] ?? ""
+  }
+
+  public func setAllCapsBeep(_ value: Bool) {
+    self._allCapsBeep = value
+  }
+
+  public func setCharacterScale(_ value: Float) {
+    self._characterScale = value
+  }
+
+  public func setPitchMultiplier(_ value: Float) {
+    self._pitchMultiplier = value
+  }
+
+  public func setPostDelay(_ value: TimeInterval) {
+    self._postDelay = value
+  }
+
+  public func setPreDelay(_ value: TimeInterval) {
+    self._preDelay = value
+  }
+
+  public func setPunctuations(_ value: String) {
+    self._punctuations = value
+  }
+
+  public func setSoundVolume(_ value: Float) {
+    self._soundVolume = value
+  }
+
+  public func setSpeechRate(_ value: Float) {
+    self._speechRate = value
+  }
+
+  public func setSplitCaps(_ value: Bool) {
+    self._splitCaps = value
+  }
+
+  public func setToneVolume(_ value: Float) {
+    self._toneVolume = value
+  }
+
+  public func setTtsDiscard(_ value: Bool) {
+    self._ttsDiscard = value
+  }
+
+  func parseLang(_ input: String) -> (String?, String?) {
+    let components = input.split(separator: ":", maxSplits: 1)
+
+    switch components.count {
+    case 1:
+      if input.hasPrefix(":") {
+        return (nil, String(components[0]))
+      } else {
+        return (String(components[0]), nil)
       }
-      self.backlog += w
+    case 2:
+      return (String(components[0]), String(components[1]))
+    default:
+      return (nil, nil)
     }
   }
 
-  func popBacklog() -> String {
-    #if DEBUG
-      debugLogger.log("Enter: popBacklog")
-    #endif
-    var result: String = ""
-    queue.sync {
-      result = self.backlog
-    }
-    self.clearBacklog()
-    return result
-  }
-
-  func setCharScale(_ r: Float) {
-    #if DEBUG
-      debugLogger.log("Enter: setCharScale")
-    #endif
-    queue.async {
-      self.charScale = r
+  public func setVoice(_ value: String) {
+    let (l, v) = parseLang(value)
+    let voiceIdentifier = self.getVoiceIdentifier(language: l, voiceName: v)
+    if let voice = AVSpeechSynthesisVoice(identifier: voiceIdentifier) {
+      self._voice = voice
+    } else {
+      self._voice = AVSpeechSynthesisVoice()
     }
   }
 
-  func getCharScale() -> Float {
-    #if DEBUG
-      debugLogger.log("Enter: getCharScale")
-    #endif
-    return queue.sync {
-      return self.charScale
-    }
-  }
+  private func getVoiceIdentifier(language: String?, voiceName: String?) -> String {
+    debugLogger.log("Enter: getVoiceIdentifier")
 
-  func setPunct(_ s: String) {
-    #if DEBUG
-      debugLogger.log("Enter: setPunct")
-    #endif
-    queue.async {
-      self.punct = s
-    }
-  }
+    let defaultVoice = AVSpeechSynthesisVoice()
 
-  func getPunct() -> String {
-    #if DEBUG
-      debugLogger.log("Enter: getPunct")
-    #endif
-    return queue.sync {
-      return self.punct
-    }
-  }
+    let voices = AVSpeechSynthesisVoice.speechVoices()
 
-  func setSplitCaps(_ b: Bool) {
-    #if DEBUG
-      debugLogger.log("Enter: setSplitCaps")
-    #endif
-    queue.async {
-      self.splitCaps = b
+    // Check if both language and voiceName are provided
+    if let language = language, let voiceName = voiceName {
+      if let voice = voices.first(where: { $0.language == language && $0.name == voiceName }) {
+        return voice.identifier
+      }
     }
-  }
 
-  func getSplitCaps() -> Bool {
-    #if DEBUG
-      debugLogger.log("Enter: getSplitCaps")
-    #endif
-    return queue.sync {
-      return self.splitCaps
+    // Check if only language is provided
+    if let language = language {
+      if let voice = voices.first(where: { $0.language == language }) {
+        return voice.identifier
+      }
     }
-  }
 
-  func setBeepCaps(_ b: Bool) {
-    #if DEBUG
-      debugLogger.log("Enter: setBeepCaps")
-    #endif
-    queue.async {
-      self.beepCaps = b
+    // Check if only voiceName is provided
+    if let voiceName = voiceName {
+      if let voice = voices.first(where: { $0.name == voiceName }) {
+        return voice.identifier
+      }
     }
-  }
 
-  func getBeepCaps() -> Bool {
-    #if DEBUG
-      debugLogger.log("Enter: getBeepCaps")
-    #endif
-    return queue.sync {
-      return self.beepCaps
-    }
+    // If no matching voice is found, return the default voice identifier
+    return defaultVoice.identifier
+  }
+  public func setVoiceVolume(_ value: Float) {
+    self._voiceVolume = value
   }
 }
