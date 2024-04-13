@@ -89,7 +89,7 @@ enum ECILanguageDialect initLanguage(Tcl_Interp *interp,
 
   for (i = 0; i < LANG_INFO_MAX; i++) {
     if ((TheLanguages[i].code) != NULL) {
-      char buffer_i[3];
+      char buffer_i[8];
       snprintf(buffer_i, 3, "%d", i);
       char command[40];
       sprintf(command, "set langalias(%s)  %s\n",
@@ -104,8 +104,8 @@ enum ECILanguageDialect initLanguage(Tcl_Interp *interp,
 
   for (i = 0; i < nLanguages; i++) {
     int aLang = 0;
-    char buffer_i[3];
-    char buffer_j[3];
+    char buffer_i[16];
+    char buffer_j[16];
     for (aLang = 0; aLang < LANG_INFO_MAX; aLang++) {
       if (TheLanguages[aLang].lang == aLanguages[i]) break;
     }
@@ -114,8 +114,8 @@ enum ECILanguageDialect initLanguage(Tcl_Interp *interp,
       continue;
     }
 
-    snprintf(buffer_i, 3, "%d", MIN(aLang, LANG_INFO_MAX));
-    snprintf(buffer_j, 3, "%d", MIN(j, LANG_INFO_MAX));
+    snprintf(buffer_i, 16, "%d", MIN(aLang, LANG_INFO_MAX));
+    snprintf(buffer_j, 16, "%d", MIN(j, LANG_INFO_MAX));
     j++;
     Tcl_SetVar2(interp, "langsynth", buffer_j, buffer_i, 0);
 
@@ -147,8 +147,8 @@ enum ECILanguageDialect initLanguage(Tcl_Interp *interp,
   }
 
   if (aCurrentLanguage != NODEFINEDCODESET) {
-    char buffer_i[3];
-    snprintf(buffer_i, 3, "%d", MIN(aCurrentLangIndex, LANG_INFO_MAX));
+    char buffer_i[16];
+    snprintf(buffer_i, 16, "%d", MIN(aCurrentLangIndex, LANG_INFO_MAX));
     Tcl_SetVar2(interp, "langsynth", "current", buffer_i, 0);
   }
 
