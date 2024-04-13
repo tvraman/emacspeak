@@ -1759,7 +1759,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 (defvar emacspeak-eww-el-nav-history nil
   "History for element navigation.")
 
-(defun emacspeak-eww-next-element (el &optional _speak)
+(defun emacspeak-eww-next-element (el &optional speak)
   "Move forward to the next specified element."
   (interactive
    (list
@@ -1781,10 +1781,10 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
      ((and start next)
       (goto-char start)
       (setq emacspeak-eww-el-nav-history  el)
-      (emacspeak-speak-region start next))
+      (when speak (emacspeak-speak-region start next)))
      (t (message "Did not move.")))))
 
-(defun emacspeak-eww-previous-element (el &optional _speak)
+(defun emacspeak-eww-previous-element (el &optional speak)
   "Move backward  to the previous  specified element."
   (interactive
    (list
@@ -1806,7 +1806,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
      ((and start previous)
       (goto-char previous)
       (setq  emacspeak-eww-el-nav-history el)
-      (emacspeak-speak-region start previous))
+      (when speak (emacspeak-speak-region start previous)))
      (t (message "Did not move.")))))
 
 (defun emacspeak-eww-next-element-from-history ()
