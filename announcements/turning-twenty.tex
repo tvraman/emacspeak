@@ -1,35 +1,34 @@
-% Created 2014-09-15 Mon 14:51
+% Created 2024-04-12 Fri 19:46
+% Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{fixltx2e}
 \usepackage{graphicx}
 \usepackage{longtable}
-\usepackage{float}
 \usepackage{wrapfig}
 \usepackage{rotating}
 \usepackage[normalem]{ulem}
 \usepackage{amsmath}
-\usepackage{textcomp}
-\usepackage{marvosym}
-\usepackage{wasysym}
 \usepackage{amssymb}
+\usepackage{capt-of}
 \usepackage{hyperref}
-\tolerance=1000
 \author{T. V. Raman\thanks{tv.raman.tv@gmail.com}}
-\date{\textit{<2014-09-12>}}
+\date{\textit{<2014-09-12 Fri>}}
 \title{Emacspeak At Twenty: Looking Back, Looking Forward}
 \hypersetup{
-  pdfkeywords={Emacspeak, Complete Audio Desktop, Speech-Enabled Applications},
-  pdfsubject={Emacspeak At 20},
-  pdfcreator={Emacs 24.4.50.1 (Org mode 8.2.6)}}
+ pdfauthor={T. V. Raman},
+ pdftitle={Emacspeak At Twenty: Looking Back, Looking Forward},
+ pdfkeywords={Emacspeak, Complete Audio Desktop, Speech-Enabled Applications},
+ pdfsubject={Emacspeak At 20},
+ pdfcreator={Emacs 24.4.50.1 (Org mode 8.2.6)}, 
+ pdflang={English}}
 \begin{document}
 
 \maketitle
 \tableofcontents
 
 \section{Introduction}
-\label{sec-1}
+\label{sec:org4f141b7}
 
 One afternoon in the third week of September 1994, I started
 writing myself a small Emacs extension using Lisp Advice to make
@@ -41,7 +40,7 @@ ubiquitous computing. This article draws on \href{http://norvig.com/21-days.html
 In 10 Years} by Peter Norvig for some of its inspiration.
 
 \section{Using UNIX With Speech Output —  1994}
-\label{sec-2}
+\label{sec:org0403a1f}
 
 As a graduate student at \href{http://www.cs.cornell.edu/info/people/raman/raman.html}{Cornell}, I accessed my Unix workstation
 (SunOS) from an Intel 486 PC running IBM Screen-Reader. There
@@ -75,7 +74,7 @@ hours, version 0.01 of Emacspeak was up and running.
 
 
 \section{Key Enabler — Emacs And Lisp Advice}
-\label{sec-3}
+\label{sec:orgd145d26}
 
 It took me a couple of weeks to fully recognize the potential of
 what I had built with Emacs Lisp Advice. Until then, I had used
@@ -88,7 +87,7 @@ architecture of Emacspeak, see the \href{http://emacspeak.sourceforge.net/raman/
 book \href{http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html}{Beautiful Code} from O'Reilly.
 
 \section{Key Component —  Text To Speech (TTS)}
-\label{sec-4}
+\label{sec:org20ab243}
 
 Emacspeak is a speech-subsystem for Emacs; it depends on an
 external Text-To-Speech (TTS) engine to produce speech. In 1994,
@@ -130,7 +129,7 @@ that were possible with the admittedly less-natural sounding
 DECTalk!
 
 \section{Emacspeak And Software Development}
-\label{sec-5}
+\label{sec:org41b9240}
 
 
 
@@ -179,12 +178,13 @@ Emacspeak was able to provide fluent, well-integrated contextual
 feedback for all of these tasks. And that was a game-changer
 given what I had had before Emacspeak. As a case in point, I did
 not dare program in Python before I speech-enabled Emacs'
-Python-Mode; the fact that white space is significan\'t in Python
+Python-Mode; the fact that white space is significan$\backslash$'t in Python
 made it difficult to program using a plain screen-reader that was
 unaware of the semantics of the underlying content being
 accessed.
+
 \subsection{Programming Defensively}
-\label{sec-5-1}
+\label{sec:org38cc750}
 
 As an aside, note that all of Emacspeak has been developed over
 the last 20 years with Emacspeak being the only adaptive
@@ -211,7 +211,7 @@ variety of third party modules without any loss of functionality.
 
 
 \section{Emacspeak And Authoring Documents}
-\label{sec-6}
+\label{sec:org694f9ef}
 
 In 1994, my preferred environment for authoring \textbf{all} documents
 was \textbf{\LaTeX{}} using the Auctex package. Later I started writing
@@ -239,10 +239,10 @@ Geometry} that I published in 2002; all of the content,
 including the drawings were created by me using Emacs.
 
 \section{Emacspeak And The Early Days Of The Web}
-\label{sec-7}
+\label{sec:orgdd0b2c5}
 
 Right around the time that I was writing version 0.01 of
-emacspeak, a far more significan\'t software movement was under way
+emacspeak, a far more significan$\backslash$'t software movement was under way
 — the World Wide Web was moving from the realms of academia to
 the mainstream world with the launch of NCSA Mosaic — and in late
 1994 by the first commercial Web browser in Netscape
@@ -296,7 +296,7 @@ during the last year, I have added support within emacspeak to
 content navigation.
 
 \section{Audio Formatting —  Generalizing Aural CSS}
-\label{sec-8}
+\label{sec:orgf259491}
 
 
 A key idea in Audio System For Technical Readings \href{http://www.cs.cornell.edu/home/raman/aster/aster-toplevel.html}{(AsTeR)} was the
@@ -352,7 +352,7 @@ correctly write \textbf{else if} vs \textbf{elsif} in various programming
 languages!
 
 \section{Conversational Gestures For The Audio Desktop}
-\label{sec-9}
+\label{sec:org2143cd0}
 
 By 1996, Emacspeak was the only piece of adaptive technology I
 used; in fall of 1995, I had moved to Adobe Systems from DEC
@@ -383,7 +383,7 @@ par for the course as far as traditional screen-readers are
 concerned), these types of highly dynamic interfaces present a
 challenge. For example, consider handling a completion interface
 using a screen-reader that is speaking the visual display. There
-is a significan\'t challenge in deciding \emph{what to speak} e.g., when
+is a significan$\backslash$'t challenge in deciding \emph{what to speak} e.g., when
 presented with a list of completions, the currently typed text,
 and the default completion, which of these should you speak, and
 in what order? The problem gets harder when you consider that the
@@ -407,11 +407,12 @@ details on Emacspeak's table browsing functionality which
 continues to remain one of the richest collection of end-user
 affordances for working with two-dimensional data.
 
+
 \subsection{Speech-Enabling Interactive Games}
-\label{sec-9-1}
+\label{sec:org832185f}
 
 So in 1997, I went the next step in asking — given access to the
-underlying infromation, is it possible to build effective
+underlying information, is it possible to build effective
 eyes-free interaction to highly interactive tasks? I picked
 \textbf{Tetris} as a means of exploring this space, the result was an
 Emacspeak extension to speech-enable module \textbf{tetris.el}. The
@@ -427,18 +428,18 @@ user interface layer that formed part of the
 Speech-enabling games for effective eyes-free interaction has
 proven highly educational. Interactive games are typically built
 to challenge the user, and if the eyes-free interface is
-inefficient, you just won\'t play the game — contrast this with a
+inefficient, you just won't play the game — contrast this with a
 task that you \textbf{must} perform, where you're likely to make do with
 a sub-optimal interface. Over the years, Emacspeak has come to
 include eyes-free interfaces to several games including \href{http://en.wikipedia.org/wiki/Tetris}{Tetris},
-\href{http://en.wikipedia.org/wiki/2048_(video_game)}{Sudoku}, and of late the popular \href{http://en.wikipedia.org/wiki/2048_(video_game)}{2048 game}. Each of these have in
+\href{http://en.wikipedia.org/wiki/2048\_(video\_game)}{Sudoku}, and of late the popular \href{http://en.wikipedia.org/wiki/2048\_(video\_game)}{2048 game}. Each of these have in
 turn contributed to enhancing the interaction model in Emacspeak,
 and those innovations typically make their way to the rest of the
 environment.
 
 
 \section{Accessing Media Streams}
-\label{sec-10}
+\label{sec:org9b5ce3b}
 
 Streaming real-time audio on the Internet became a reality with
 the advent of RealAudio in 1995; soon there were a large number
@@ -474,7 +475,7 @@ the filesystem using completions, e.g., package \textbf{ido}, these
 types of actions become even more efficient!
 
 \section{EBooks—   Ubiquitous Access To Books}
-\label{sec-11}
+\label{sec:orgbdda9fa}
 
 
 AsTeR — was motivated by the increasing availability of technical
@@ -491,7 +492,7 @@ Emacspeak provided fairly light-weight but efficient access to
 all of the electronic books I had on my local disk — Emacs'
 strengths with respect to browsing textual documents meant that I
 needed to build little that was specific to Emacspeak. The late
-90's saw the arival of Daisy as an XML-based format for
+90's saw the arrival of Daisy as an XML-based format for
 accessible electronic books. The last decade has seen the rapid
 convergence to \textbf{epub} as a distribution format of choice for
 electronic books. Emacspeak provides interaction modes that make
@@ -518,7 +519,7 @@ to search and browse books, along with an integrated \textbf{EPub mode}
 for reading books.
 
 \section{Leveraging Computational Tools —  From SQL And R To IPython Notebooks}
-\label{sec-12}
+\label{sec:org5409534}
 
 The ability to invoke external processes and interface with them
 via a simple read-eval-loop (REPL) is perhaps one of Emacs'
@@ -550,7 +551,7 @@ in an eyes-free environment is far smoother in Emacs than in a
 browser-based editor.
 
 \section{Social Web  — EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols}
-\label{sec-13}
+\label{sec:org3139d16}
 
 The ability to process large amounts of email and electronic news
 has always been a feature of Emacs. I started using package \textbf{vm}
@@ -605,7 +606,7 @@ wrappers for Google services that provide a RESTful API.
 
 
 \section{The RESTful Web —  Web Wizards And URL Templates For Faster Access}
-\label{sec-14}
+\label{sec:orgf3bf453}
 
 Today, the Web, based on URLs and HTTP-style protocols is widely
 recognized as a platform in its own right. This platform emerged
@@ -680,7 +681,7 @@ the user's collection of subscribed feeds.
 
 
 \section{Mashing It Up —  Leveraging Evolving Web APIs}
-\label{sec-15}
+\label{sec:org83851f8}
 
 The next step in this evolution came with the arrival of richer
 Web APIs — especially ones that defined a clean client/server
@@ -726,7 +727,7 @@ potential of this design pattern remains to be fully realized
 given today's tight association of the Web to the Web Browser.
 
 \section{Conclusion}
-\label{sec-16}
+\label{sec:orgaa53dfb}
 
 
 In 1996, I wrote an article entitled
@@ -758,16 +759,16 @@ visual interaction when this comes to pass.
 
 
 \section{References}
-\label{sec-17}
+\label{sec:orgdb597a3}
 
 \begin{itemize}
 \item \href{http://emacspeak.sourceforge.net/raman/aui/aui.html}{Auditory User Interfaces}   Klewer Publishing, 1997.
-\item Advice      An Emacs Lisp package by    \href{http://www.isi.edu/~hans/}{Hans Chalupsky} that
+\item Advice      An Emacs Lisp package by    \href{http://www.isi.edu/\~hans/}{Hans Chalupsky} that
 became part of Emacs 19.23.
 \item \href{http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html}{Beautiful Code}   An overview of the Emacspeak architecture.
 \item \href{http://emacspeak.sourceforge.net/raman/publications/chi96-emacspeak/}{Speech-Enabled Applications}   Emacspeak at CHI 1996.
 \item EWW   Emacspeak  \href{http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html}{extends EWW }.
-\item \href{http://artlung.com/smorgasborg/C_R_Y_P_T_O_N_O_M_I_C_O_N.shtml}{In The Beginning Was The Command Line} By Neal Stephenson
+\item \href{http://artlung.com/smorgasborg/C\_R\_Y\_P\_T\_O\_N\_O\_M\_I\_C\_O\_N.shtml}{In The Beginning Was The Command Line} By Neal Stephenson
 \end{itemize}
-% Emacs 24.4.50.1 (Org mode 8.2.6)
+Emacs 24.4.50.1 (Org mode 8.2.6)
 \end{document}
