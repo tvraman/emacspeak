@@ -1458,7 +1458,7 @@ Set by \\[dtk-set-punctuations].")
   (dtk-initialize))
 
 (defvar tts-multi-engines
-  '("espeak"  "outloud"   "dtk-soft" "sharpwin")
+  '("espeak"  "outloud"   "dtk-soft" "sharpwin" "swiftmac")
   "List of TTS engines that are multi capable.")
 
 (defsubst tts-multistream-p (engine)
