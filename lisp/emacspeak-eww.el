@@ -1777,8 +1777,6 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (setq el 'shr-continuation-indentation))
   (let* ((start (next-single-property-change (point) el))
          (next (next-single-property-change start el)))
-    (when (or emacspeak-eww-autospeak speak)
-      (setq next (next-single-property-change next el)))
     (cond
      ((and start next)
       (goto-char start)
@@ -1804,8 +1802,6 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (setq el 'shr-continuation-indentation))
   (let* ((start (previous-single-property-change (point) el))
          (previous (previous-single-property-change  start  el)))
-    (when (or emacspeak-eww-autospeak speak)
-      (setq previous  (previous-single-property-change  start  el)))
     (cond
      ((and start previous)
       (goto-char previous)
