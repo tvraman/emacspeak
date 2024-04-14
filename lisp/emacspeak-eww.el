@@ -1781,7 +1781,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
      ((and start next)
       (goto-char start)
       (setq emacspeak-eww-el-nav-history  el)
-      (when speak (emacspeak-speak-region start next)))
+      (when (or emacspeak-eww-autospeak speak)
+        (emacspeak-speak-region start next)))
      (t (message "Did not move.")))))
 
 (defun emacspeak-eww-previous-element (el &optional speak)
@@ -1806,7 +1807,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
      ((and start previous)
       (goto-char previous)
       (setq  emacspeak-eww-el-nav-history el)
-      (when speak (emacspeak-speak-region start previous)))
+      (when (or emacspeak-eww-autospeak speak)
+        (emacspeak-speak-region start previous)))
      (t (message "Did not move.")))))
 
 (defun emacspeak-eww-next-element-from-history ()
