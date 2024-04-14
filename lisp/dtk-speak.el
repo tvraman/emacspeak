@@ -1558,8 +1558,7 @@ For swiftmac, set this to `left' or `right'."
   (unless dtk-program (setq dtk-program "espeak"))
   (let ((new (dtk-make-process "Speaker")))
     ;; success, so nuke old server
-    (when (processp dtk-speaker-process) (delete-process
-                                          dtk-speaker-process))
+    (when (processp dtk-speaker-process) (delete-process dtk-speaker-process))
     (setq dtk-speaker-process new)
     (when (tts-multistream-p dtk-program) (dtk-notify-initialize))
     (when (string-match "cloud" dtk-program) ; we'll serve icons.
