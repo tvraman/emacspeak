@@ -637,7 +637,7 @@ the sense of the filter. "
         (emacspeak-speak-voice-annotate-paragraphs)))
     (if (< (abs (- start end )) ems--large-text-size)
         (dtk-speak (buffer-substring start end))
-      (emacspeak-speak-windowful))))
+      (call-interactively #' emacspeak-speak-windowful))))
 
 (defun emacspeak-speak-extent (beg end &optional no-case)
   "Speak extent delimited by beg and end.
