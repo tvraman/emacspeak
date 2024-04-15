@@ -1210,18 +1210,15 @@ Useful to listen to a buffer without switching  contexts."
 (defun emacspeak-speak-help ()
   "Speak help buffer if one present. "
   (interactive )
-  (let ((help-buffer (get-buffer "*Help*")))
-    (cond
-     (help-buffer
-      (emacspeak-icon 'help)
+  (if-let ((help-buffer (get-buffer "*Help*")))
       (save-window-excursion
+        (emacspeak-icon 'help)
         (with-current-buffer help-buffer
           (or (window-live-p (get-buffer-window help-buffer))
               (display-buffer help-buffer))
           (select-window (get-buffer-window help-buffer))
-          (call-interactively #'emacspeak-speak-windowful))))
-     (t (emacspeak-icon 'button)
-        (dtk-speak "First ask for help")))))
+          (call-interactively #'emacspeak-speak-windowful)))
+    (dtk-speak "First ask for help")))
 
 (defun emacspeak-get-current-completion ()
   "Return the completion under point in the *Completions* buffer."
