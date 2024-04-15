@@ -1214,8 +1214,12 @@ Useful to listen to a buffer without switching  contexts."
     (cond
      (help-buffer
       (emacspeak-icon 'help)
-      (with-current-buffer help-buffer
-        (call-interactively #'emacspeak-speak-windowful)))
+      (save-window-excursion
+        (with-current-buffer help-buffer
+          (or (window-live-p (get-buffer-window help-buffer))
+              (display-buffer help-buffer))
+          (select-window (get-buffer-window help-buffer))
+          (call-interactively #'emacspeak-speak-windowful))))
      (t (emacspeak-icon 'button)
         (dtk-speak "First ask for help")))))
 
