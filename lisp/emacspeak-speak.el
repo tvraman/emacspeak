@@ -2220,15 +2220,6 @@ any other key to speak entire buffer."
   (emacspeak-speak-buffer
    (emacspeak-ask-how-to-speak "buffer" (sit-for 1))))
 
-(defun emacspeak-speak-help-interactively ()
-  "Speak the start of, rest of, or the entire help.
- `s' to speak the start.
- `r' to speak the rest.
-any other key to speak entire help."
-  (interactive)
-  (emacspeak-speak-help
-   (emacspeak-ask-how-to-speak "help" (sit-for 1))))
-
 (defun emacspeak-speak-line-interactively ()
   "Speak the start of, rest of, or the entire line.
  `s' to speak the start.
