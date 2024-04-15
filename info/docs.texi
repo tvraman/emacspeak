@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1177 commands and 128 options.
+This chapter documents a total of 1176 commands and 128 options.
 
 @node amixer
 @section amixer
@@ -12744,7 +12744,7 @@ Speak header line if set.
 @end deffn
 
 @subsubsection emacspeak-speak-help
-@deffn {Command} emacspeak-speak-help  (&optional arg)
+@deffn {Command} emacspeak-speak-help   
 @table @kbd
 @item C-e h
 @kindex C-e h
@@ -12753,23 +12753,7 @@ Speak header line if set.
 @findex emacspeak-speak-help
 
 @format
-Speak help buffer if one present.
-With prefix arg, speaks the rest of the buffer from point.
-Negative prefix arg speaks from start of buffer to point.
-
-(fn &optional ARG)
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-help-interactively
-@deffn {Command} emacspeak-speak-help-interactively   
-@findex emacspeak-speak-help-interactively
-
-@format
-Speak the start of, rest of, or the entire help.
- ‘s’ to speak the start.
- ‘r’ to speak the rest.
-any other key to speak entire help.
+Speak help buffer if one present. 
 @end format
 @end deffn
 
