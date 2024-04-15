@@ -1207,17 +1207,15 @@ Useful to listen to a buffer without switching  contexts."
   (emacspeak-icon 'select-object)
   (emacspeak-speak-buffer 1))
 
-(defun emacspeak-speak-help (&optional arg)
-  "Speak help buffer if one present.
-With prefix arg, speaks the rest of the buffer from point.
-Negative prefix arg speaks from start of buffer to point."
+(defun emacspeak-speak-help ()
+  "Speak help buffer if one present. "
   (interactive "P")
   (let ((help-buffer (get-buffer "*Help*")))
     (cond
      (help-buffer
       (emacspeak-icon 'help)
       (with-current-buffer help-buffer
-        (emacspeak-speak-buffer arg)))
+        (call-interactively #'emacspeak-speak-windowful)))
      (t (emacspeak-icon 'button)
         (dtk-speak "First ask for help")))))
 
