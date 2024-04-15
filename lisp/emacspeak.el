@@ -44,8 +44,11 @@
 ;; It actually does very little:
 ;; @itemize
 ;; @item  It sets up Emacs to load package-specific
-;; Emacspeak modules as each package is loaded.
-;; @item  It implements function emacspeak which loads the rest of the system.
+;; Emacspeak modules as and when a  package is loaded.
+;; @item  It implements function emacspeak which loads the rest of the
+;; system.
+;; @item It provides affordances for  setting up consistent behavior in
+;; programming modes.
 ;; @end itemize
 ;;; Code:
 
