@@ -1209,7 +1209,7 @@ Useful to listen to a buffer without switching  contexts."
 
 (defun emacspeak-speak-help ()
   "Speak help buffer if one present. "
-  (interactive "P")
+  (interactive )
   (let ((help-buffer (get-buffer "*Help*")))
     (cond
      (help-buffer
