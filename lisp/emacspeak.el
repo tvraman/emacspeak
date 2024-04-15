@@ -420,18 +420,32 @@ Commands invoked with prefix \\`C-e d'
 
 Emacspeak provides a set of additional keymaps to give easy access to
 its extensive facilities.
+All of these bindings can be customized 
+via custom.
 
-Press C-; to access keybindings in emacspeak-hyper-keymap:
+Press C-; to access keybindings in `emacspeak-hyper-keymap':
 \\{emacspeak-hyper-keymap}
 
-Press C-.  to access keybindings in emacspeak-super-keymap:
+Press C-.  to access keybindings in `emacspeak-super-keymap':
 \\{emacspeak-super-keymap}
 
-Press C-, to access keybindings in emacspeak-alt-keymap:
+Press C-, to access keybindings in `emacspeak-alt-keymap':
 \\{emacspeak-alt-keymap}
 
-Press C-' to access keybindings in emacspeak-multi-keymap:
+Press C-' to access keybindings in `emacspeak-multi-keymap':
 \\{emacspeak-multi-keymap}
+
+Press C-v to access keybindings in `emacspeak-v-keymap':
+\\{emacspeak-v-keymap}
+
+Press C-x to access keybindings in `emacspeak-x-keymap':
+\\{emacspeak-x-keymap}
+
+Press C-y to access keybindings in `emacspeak-y-keymap':
+\\{emacspeak-y-keymap}
+
+Press C-z to access keybindings in `emacspeak-z-keymap':
+\\{emacspeak-z-keymap}
 
 See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."
