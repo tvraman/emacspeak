@@ -87,9 +87,9 @@ the Emacspeak desktop.")
 ;; set up Emacspeak support for a given package.  Argument MODULE (a
 ;; symbol)specifies the emacspeak module that implements the
 ;; speech-enabling extensions for `package' (a string).
-(defsubst emacspeak-do-package-setup (package module)
+(defsubst emacspeak-do-package-setup (pair)
   "Setup Emacspeak extension for   PACKAGE by loading MODULE."
-  (with-eval-after-load package (require module)))
+  (with-eval-after-load (cl-first pair) (require (cl-second pair))))
 
 ;; DocView
 (declare-function doc-view-open-text "doc-view")
@@ -317,12 +317,7 @@ the Emacspeak desktop.")
   (push "emacspeak" Info-file-list-for-emacs)
   (setq-default line-move-visual nil)
   (setq use-dialog-box nil)
-  (when (boundp 'Info-directory-list)
-    (push emacspeak-info-directory Info-directory-list))
-  (mapc
-   #'(lambda (pair)
-       (emacspeak-do-package-setup  (cl-first pair) (cl-second pair)))
-   emacspeak-packages-to-prepare)
+  (mapc #'emacspeak-do-package-setup emacspeak-packages-to-prepare)
   (when emacspeak-soundscapes (soundscape-toggle))
   (message "emacspeak-prepare-emacs: done"))
 
