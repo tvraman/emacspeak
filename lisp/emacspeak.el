@@ -332,13 +332,11 @@ the Emacspeak desktop.")
 (defsubst emacspeak-setup-programming-mode ()
   "Setup programming mode."
   (cl-declare (special dtk-split-caps emacspeak-audio-indentation dtk-caps))
-  (ems-with-messages-silenced
-   (dtk-set-punctuations 'all)
-   (or dtk-split-caps (dtk-toggle-split-caps))
-   (or dtk-caps (dtk-toggle-caps))
-   (emacspeak-pronounce-refresh-pronunciations)
-   (or emacspeak-audio-indentation
-       (emacspeak-toggle-audio-indentation))))
+  (dtk-set-punctuations 'all)
+  (or dtk-split-caps (dtk-toggle-split-caps))
+  (or dtk-caps (dtk-toggle-caps))
+  (emacspeak-pronounce-refresh-pronunciations)
+  (or emacspeak-audio-indentation (emacspeak-toggle-audio-indentation)))
 
 (defun emacspeak-setup-programming-modes ()
   "Setup programming modes."
