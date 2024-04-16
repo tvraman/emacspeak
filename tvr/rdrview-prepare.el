@@ -26,9 +26,10 @@
      (  goto-char   (  point-min  )) 
      (  plist-put   eww-data   :title   (  string-trim   (  thing-at-point   'line   t  )))) 
    (  eww--after-page-change  ))
+
 (  defun   eww-rdrview-toggle-and-reload   () 
-   "Toggle   `eww-rdrview-mode'   and reload page in current eww buffer." 
-   (  interactive  ) 
-   (  if   eww-rdrview-mode   (  eww-rdrview-mode   -1  ) 
-     (  eww-rdrview-mode   1  )) 
-   (  eww-reload  ))
+  "Toggle   `eww-rdrview-mode'   and reload page in current eww buffer." 
+  (  interactive  ) 
+  (  if   eww-rdrview-mode   (  eww-rdrview-mode   -1  ) 
+    (  eww-rdrview-mode   1  )) 
+  (  eww-reload  ))
