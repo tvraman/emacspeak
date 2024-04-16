@@ -7863,7 +7863,9 @@ Emacs starting with Emacs-24.4 .  This module speech-enables EWW.
    It implements additional interactive commands for navigating the DOM.
 It also provides a set of filters for interactively filtering the DOM by
 various attributes such as id, class and role.  Finally, this module
-updates EWW's built-in key-bindings with Emacspeak conveniences.
+updates EWW's built-in key-bindings with Emacspeak conveniences -- for a
+complete list of key-bindings, invoke command ‘describe-bindings’ in an
+‘EWW’ buffer by pressing ‘C-h b’.
 
 12.75.1 Structured Navigation
 -----------------------------

@@ -49,7 +49,9 @@
 ;; DOM. It also provides a set of filters for interactively filtering
 ;; the DOM by various attributes such as id, class and role.
 ;; Finally, this module updates EWW's built-in key-bindings with
-;; Emacspeak conveniences.
+;; Emacspeak conveniences --- for a complete list of key-bindings,
+;;invoke  command @code{describe-bindings} in an @code{EWW} buffer by
+;;pressing @kbd{C-h b}.
 
 ;; @subsection Structured Navigation
 ;;
