@@ -636,7 +636,6 @@ Safari/537.36"
      ("4" emacspeak-eww-next-h4)
      (":" emacspeak-eww-tags-at-point)
      (";" emacspeak-eww-next-audio/video)
-     ("=" dtk-toggle-punctuation-mode)
      ("?" emacspeak-google-similar-to-this-page)
      ("A" eww-view-dom-having-attribute)
      ("C" eww-view-dom-having-class)
