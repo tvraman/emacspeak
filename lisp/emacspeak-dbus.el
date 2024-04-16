@@ -241,18 +241,20 @@ already disabled."
   "Emacspeak hook for Login1-resume."
   (cl-declare (special amixer-alsactl-config-file ))
   (ems-with-messages-silenced
-   (tts-restart)
-   (emacspeak-icon 'waking-up)
-   (amixer-restore amixer-alsactl-config-file)
-   (when emacspeak-orca (emacspeak-orca-toggle))
-   (when (featurep 'soundscape) (soundscape-restart))
-   (when (featurep 'light) (light-black))
-   (when
-       (dbus-call-method
-        :session "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
-        "org.gnome.ScreenSaver" "GetActive")
-     (emacspeak-icon 'pwd)
-     (emacspeak-icon 'help))))
+    (tts-restart)
+    (emacspeak-icon 'waking-up)
+    (amixer-restore amixer-alsactl-config-file)
+    (when (featurep 'soundscape) (soundscape-restart))
+    (cond
+     ((dbus-call-method 
+       :session "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
+       "org.gnome.ScreenSaver" "GetActive") ; screen locked, gdm login
+      (and emacspeak-orca (not emacspeak-orca-handle) (emacspeak-orca-toggle))
+      (emacspeak-icon 'pwd)
+      (emacspeak-icon 'help))
+     (t                                 ;screen unlocked
+      (and emacspeak-orca emacspeak-orca-handle (emacspeak-orca-toggle)) 
+      (when (featurep 'light) (light-black))))))
 
 (add-hook 'emacspeak-dbus-resume-hook #'emacspeak-dbus-resume)
 
