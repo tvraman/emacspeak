@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 15, 2024.
+last updated on April 16, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3241,7 +3241,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1176 commands and 128 options.
+   This chapter documents a total of 1177 commands and 128 options.
 
 * Menu:
 
@@ -8712,21 +8712,28 @@ prefix arg to delete a previously created eww-mark.
      See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
      The ul is automatically spoken if there is no user activity.
 
-12.75.9.50 emacspeak-eww-reading-settings
+12.75.9.50 emacspeak-eww-rdr-reload
+...................................
+
+ -- Command: emacspeak-eww-rdr-reload
+
+     Reload current Web page using ‘emacspeak-eww-rdr’.
+
+12.75.9.51 emacspeak-eww-reading-settings
 .........................................
 
  -- Command: emacspeak-eww-reading-settings
 
      Setup speech-rate, punctuation and split-caps for reading prose.
 
-12.75.9.51 emacspeak-eww-restore
+12.75.9.52 emacspeak-eww-restore
 ................................
 
  -- Command: emacspeak-eww-restore
 
      Restore buffer to pre-filtered canonical state.
 
-12.75.9.52 emacspeak-eww-shell-cmd-on-url-at-point
+12.75.9.53 emacspeak-eww-shell-cmd-on-url-at-point
 ..................................................
 
  -- Command: emacspeak-eww-shell-cmd-on-url-at-point (&optional prompt)
@@ -8735,14 +8742,14 @@ prefix arg to delete a previously created eww-mark.
 
      (fn &optional PROMPT)
 
-12.75.9.53 emacspeak-eww-shr-outline-toggle
+12.75.9.54 emacspeak-eww-shr-outline-toggle
 ...........................................
 
  -- Command: emacspeak-eww-shr-outline-toggle
 
      Toggle between shr and native outliner.
 
-12.75.9.54 emacspeak-eww-smart-tabs
+12.75.9.55 emacspeak-eww-smart-tabs
 ...................................
 
  -- Command: emacspeak-eww-smart-tabs (char &optional define)
@@ -8755,7 +8762,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn CHAR &optional DEFINE)
 
-12.75.9.55 emacspeak-eww-smart-tabs-add
+12.75.9.56 emacspeak-eww-smart-tabs-add
 .......................................
 
  -- Command: emacspeak-eww-smart-tabs-add (char url)
@@ -8764,35 +8771,35 @@ prefix arg to delete a previously created eww-mark.
 
      (fn CHAR URL)
 
-12.75.9.56 emacspeak-eww-smart-tabs-load
+12.75.9.57 emacspeak-eww-smart-tabs-load
 ........................................
 
  -- Command: emacspeak-eww-smart-tabs-load
 
      Load our smart tabsfrom a file.
 
-12.75.9.57 emacspeak-eww-smart-tabs-save
+12.75.9.58 emacspeak-eww-smart-tabs-save
 ........................................
 
  -- Command: emacspeak-eww-smart-tabs-save
 
      Save our smart tabs to a file for reloading.
 
-12.75.9.58 emacspeak-eww-speak-this-element
+12.75.9.59 emacspeak-eww-speak-this-element
 ...........................................
 
  -- Command: emacspeak-eww-speak-this-element
 
      Speak current .
 
-12.75.9.59 emacspeak-eww-table-data
+12.75.9.60 emacspeak-eww-table-data
 ...................................
 
  -- Command: emacspeak-eww-table-data
 
      View  table at point as a data table using Emacspeak Table UI.
 
-12.75.9.60 emacspeak-eww-table-next-cell
+12.75.9.61 emacspeak-eww-table-next-cell
 ........................................
 
  -- Command: emacspeak-eww-table-next-cell (&optional prefix)
@@ -8802,7 +8809,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn &optional PREFIX)
 
-12.75.9.61 emacspeak-eww-table-next-row
+12.75.9.62 emacspeak-eww-table-next-row
 .......................................
 
  -- Command: emacspeak-eww-table-next-row (&optional prefix)
@@ -8812,7 +8819,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn &optional PREFIX)
 
-12.75.9.62 emacspeak-eww-table-previous-cell
+12.75.9.63 emacspeak-eww-table-previous-cell
 ............................................
 
  -- Command: emacspeak-eww-table-previous-cell (&optional prefix)
@@ -8822,7 +8829,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn &optional PREFIX)
 
-12.75.9.63 emacspeak-eww-table-previous-row
+12.75.9.64 emacspeak-eww-table-previous-row
 ...........................................
 
  -- Command: emacspeak-eww-table-previous-row (&optional prefix)
@@ -8832,35 +8839,35 @@ prefix arg to delete a previously created eww-mark.
 
      (fn &optional PREFIX)
 
-12.75.9.64 emacspeak-eww-table-speak-cell
+12.75.9.65 emacspeak-eww-table-speak-cell
 .........................................
 
  -- Command: emacspeak-eww-table-speak-cell
 
      Speak current cell.
 
-12.75.9.65 emacspeak-eww-table-speak-dimensions
+12.75.9.66 emacspeak-eww-table-speak-dimensions
 ...............................................
 
  -- Command: emacspeak-eww-table-speak-dimensions
 
      Speak number of rows and cells.
 
-12.75.9.66 emacspeak-eww-tags-at-point
+12.75.9.67 emacspeak-eww-tags-at-point
 ......................................
 
  -- Command: emacspeak-eww-tags-at-point
 
      Display tags at point.
 
-12.75.9.67 emacspeak-eww-url-to-register
+12.75.9.68 emacspeak-eww-url-to-register
 ........................................
 
  -- Command: emacspeak-eww-url-to-register
 
      Accumulate  URL in register ‘u’
 
-12.75.9.68 emacspeak-eww-yt-dl
+12.75.9.69 emacspeak-eww-yt-dl
 ..............................
 
  -- Command: emacspeak-eww-yt-dl (url)

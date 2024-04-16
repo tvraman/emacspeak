@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1176 commands and 128 options.
+This chapter documents a total of 1177 commands and 128 options.
 
 @node amixer
 @section amixer
@@ -6516,6 +6516,15 @@ Optional interactive prefix arg speaks the ul.
 Second interactive prefix toggles this flag.
 See user option ‘emacspeak-eww-autospeak’ on how to reverse this behavior.
 The ul is automatically spoken if there is no user activity.
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-rdr-reload
+@deffn {Command} emacspeak-eww-rdr-reload   
+@findex emacspeak-eww-rdr-reload
+
+@format
+Reload current Web page using ‘emacspeak-eww-rdr’.
 @end format
 @end deffn
 
