@@ -615,6 +615,7 @@ Safari/537.36"
    do
    (keymap-unset eww-link-keymap c 'remove))
   (define-key eww-text-map  [C-return] 'emacspeak-eww-fillin-field)
+  (define-key eww-link-keymap  "S" 'emacspeak-eww-rdr-follow)
   (define-key eww-link-keymap  "u" 'emacspeak-eww-url-to-register)
   (define-key eww-link-keymap  "!" 'emacspeak-eww-shell-cmd-on-url-at-point)
   (define-key eww-link-keymap  "k" 'shr-copy-url)
@@ -677,7 +678,7 @@ Safari/537.36"
      ("Q" emacspeak-kill-buffer-quietly)
      ("R" eww-view-dom-having-role)
      ("S" emacspeak-eww-rdr-reload)
-("T" emacspeak-eww-previous-table)
+     ("T" emacspeak-eww-previous-table)
      ("V" eww-view-source)
      ("[" emacspeak-eww-previous-p)
      ("\"" emacspeak-eww-reading-settings)
@@ -697,7 +698,7 @@ Safari/537.36"
    do
    (emacspeak-keymap-update eww-mode-map binding))
   (setq shr-external-rendering-functions emacspeak-eww-filter-renderers))
-  (emacspeak-eww-setup)
+(emacspeak-eww-setup)
 
 ;;; play media:
 
@@ -2628,7 +2629,7 @@ With interactive prefix arg, move to the start of the table."
 
 (defconst emacspeak-eww-rdr-cmd
   (when emacspeak-eww-rdr
-   (list emacspeak-eww-rdr    "-T"   "title,sitename,body"   "-H"  ))
+    (list emacspeak-eww-rdr    "-T"   "title,sitename,body"   "-H"  ))
   "Command-line to invoke rdrview.")
 
 (defun emacspeak-eww-rdr-reload ()
@@ -2637,6 +2638,13 @@ With interactive prefix arg, move to the start of the table."
   (cl-assert (eq major-mode 'eww-mode) t "Not in an EWW buffer.")
   (let ((eww-retrieve-command   emacspeak-eww-rdr-cmd))
     (eww-reload)))
+
+(defun emacspeak-eww-rdr-follow ()
+  "Follow link under point, but use rdr to load page."
+  (interactive)
+  (cl-assert (eq major-mode 'eww-mode) t "Not in an EWW buffer.")
+  (let ((eww-retrieve-command   emacspeak-eww-rdr-cmd))
+    (call-interactively #'eww-follow-link)))
 
 (provide 'emacspeak-eww)
 
