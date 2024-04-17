@@ -2627,7 +2627,8 @@ With interactive prefix arg, move to the start of the table."
   "Executable: rdrview.")
 
 (defconst emacspeak-eww-rdr-cmd
-   (list emacspeak-eww-rdr    "-T"   "title,sitename,body"   "-H"  )
+  (when emacspeak-eww-rdr
+   (list emacspeak-eww-rdr    "-T"   "title,sitename,body"   "-H"  ))
   "Command-line to invoke rdrview.")
 
 (defun emacspeak-eww-rdr-reload ()
