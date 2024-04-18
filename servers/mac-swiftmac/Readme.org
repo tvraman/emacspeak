@@ -1,0 +1,32 @@
+* swiftmac
+This is a drop in replacement for the python "mac" server.
+
+** Quick Install (requires swift compiler)
+ - make swiftmac (from emacspeak root, ignore warnings)
+ - Change the server in your configuration to "swiftmac"
+ - Restart emacs
+
+** Recommended Settings
+#+BEGIN_SRC 
+  ; stops doubletalk (when supported)
+  (setopt mac-ignore-accessibility 't)
+  (setopt dtk-program "swiftmac")
+  ; these are between 0 and 1
+  (setenv "SWIFTMAC_TONE_VOLUME" "0.6")
+  (setenv "SWIFTMAC_SOUND_VOLUME" "0.3")
+  (setenv "SWIFTMAC_VOICE_VOLUME" "1.0")
+  (push "swiftmac" tts-multi-engines)
+  (setopt tts-notification-device "right")
+  (require 'emacspeak-setup)
+  ; Heree you can just do "en-US" or just ":Alex"
+  (dtk-set-language "en-US:Alex")
+  ; 0.6 is 60% in VoiceOver terms
+  (dtk-set-rate 0.6 t)
+#+END_SRC
+
+** Dependencies 
+ - https://github.com/arkasas/OggDecoder.git
+
+
+** Bugs?
+ - https://github.com/robertmeta/swiftmac/issues
