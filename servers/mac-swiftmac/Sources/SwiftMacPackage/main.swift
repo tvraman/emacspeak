@@ -14,7 +14,7 @@ import OggDecoder
 #else
   let debugLogger = Logger()  // No-Op
 #endif
-let version = "2.2.0"  // think this is first bug free 2.0
+let version = "2.4.2"
 let name = "swiftmac"
 var ss = await StateStore()  // just create new one to reset
 let speaker = AVSpeechSynthesizer()
@@ -97,11 +97,11 @@ func main() async {
     case "l": await instantLetter(params)
     case "p": await doPlaySound(params)
     case "q": await queueLine(cmd, params)
-    case "s": await queueLine(cmd, params)
+    case "s": await instantStopSpeaking()
     case "sh": await queueLine(cmd, params)
     case "t": await queueLine(cmd, params)
     case "tts_allcaps_beep": await queueLine(cmd, params)
-    case "set_lang": await ttsSetVoice(params)  // tts_set_voice but instnat
+    case "set_lang": await ttsSetVoice(params)
     case "tts_exit": await instantTtsExit()
     case "tts_reset": await instantTtsReset()
     case "tts_say": await instantTtsSay(params)
@@ -111,9 +111,10 @@ func main() async {
     case "tts_set_sound_volume": await queueLine(cmd, params)
     case "tts_set_speech_rate": await instantSetSpeechRate(params)
     case "tts_set_tone_volume": await queueLine(cmd, params)
+    case "tts_set_voice": await queueLine(cmd, params)
     case "tts_set_voice_volume": await queueLine(cmd, params)
     case "tts_split_caps": await queueLine(cmd, params)
-    case "tts_sync_state": await doDiscard(cmd, params)
+    case "tts_sync_state": await instantTtsSyncState(params)
     case "version": await instantVersion()
     default: await unknownLine(cmd, params)
     }
@@ -130,7 +131,6 @@ func dispatchPendingQueue() async {
     switch cmd {
     case "p": await doPlaySound(params)  // just like p in mainloop
     case "q": await doSpeak(params)
-    case "s": await doStopSpeaking()
     case "sh": await doSilence(params)
     case "t": await doTone(params)
     case "tts_allcaps_beep": await ttsAllCapsBeep(params)
@@ -139,6 +139,7 @@ func dispatchPendingQueue() async {
     case "tts_set_punctuations": await ttsSetPunctuations(params)
     case "tts_set_sound_volume": await ttsSetSoundVolume(params)
     case "tts_set_tone_volume": await ttsSetToneVolume(params)
+    case "tts_set_voice": await ttsSetVoice(params)
     case "tts_set_voice_volume": await ttsSetVoiceVolume(params)
     case "tts_split_caps": await ttsSplitCaps(params)
     default: await impossibleQueue(cmd, params)
@@ -179,7 +180,7 @@ func insertSpaceBeforeUppercase(_ input: String) -> String {
 
 @MainActor func instantTtsReset() async {
   debugLogger.log("Enter: instantTtsReset")
-  await doStopAll()
+  await instantStopSpeaking()
   ss = await StateStore()
 }
 
@@ -187,7 +188,7 @@ func instantVersion() async {
   debugLogger.log("Enter: instantVersion")
   let sayVersion = version.replacingOccurrences(of: ".", with: " dot ")
 
-  await doStopAll()
+  await instantStopSpeaking()
   #if DEBUG
     await instantTtsSay("\(name) \(sayVersion): debug mode")
   #else
@@ -223,15 +224,15 @@ func instantLetter(_ p: String) async {
   }
   let oldSpeechRate = await ss.speechRate
   await ss.setSpeechRate(await ss.getCharacterRate())
-  await doStopSpeaking()
+  await instantStopSpeaking()
   await doSpeak(p.lowercased())
   await ss.setPitchMultiplier(oldPitchMultiplier)
   await ss.setSpeechRate(oldSpeechRate)
   await ss.setPreDelay(oldPreDelay)
 }
 
-func doStopSpeaking() async {
-  debugLogger.log("Enter: doStopSpeaking")
+func instantStopSpeaking() async {
+  debugLogger.log("Enter: instantStopSpeaking")
   speaker.stopSpeaking(at: .immediate)
   playerNode.stop()
 }
@@ -431,21 +432,20 @@ func ttsAllCapsBeep(_ p: String) async {
   }
 }
 
-func processAndQueueSync(_ p: String) async {
+// MainActor because this is explicitly to be atomic
+@MainActor func instantTtsSyncState(_ p: String) async {
   debugLogger.log("Enter: processAndQueueSync")
   let ps = p.split(separator: " ")
   if ps.count == 4 {
     let punct = String(ps[0])
-    await ss.appendToPendingQueue(("tts_set_punctuations", punct))
-
+    await ttsSetPunctuations(punct)
     let splitCaps = String(ps[1])
-    await ss.appendToPendingQueue(("tts_split_caps", splitCaps))
-
+    await ttsSplitCaps(splitCaps)
     let beepCaps = String(ps[2])
-    await ss.appendToPendingQueue(("tts_allcaps_beep", beepCaps))
-
+    await ttsAllCapsBeep(beepCaps)
     let rate = String(ps[3])
-    await ss.appendToPendingQueue(("tts_set_speech_rate", rate))
+    await instantSetSpeechRate(rate)
+
   }
 }
 
@@ -489,15 +489,8 @@ func doPlaySound(_ p: String) async {
 func instantTtsSay(_ p: String) async {
   debugLogger.log("Enter: instantTtsSay")
   debugLogger.log("ttsSay: \(p)")
-  await doStopAll()
+  await instantStopSpeaking()
   await doSpeak(p)
-}
-
-func doStopAll() async {
-  debugLogger.log("Enter: doStopAll")
-  await doStopSpeaking()
-  await tonePlayer.stop()
-  await SoundManager.shared.stopCurrentSound()
 }
 
 // Because all speaking must handle [*]

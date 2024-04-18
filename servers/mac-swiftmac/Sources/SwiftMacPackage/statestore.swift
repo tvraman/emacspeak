@@ -202,13 +202,23 @@ public actor StateStore {
     }
   }
 
+  private var voiceCache: [String: AVSpeechSynthesisVoice] = [:]
+
   public func setVoice(_ value: String) {
-    let (l, v) = parseLang(value)
-    let voiceIdentifier = self.getVoiceIdentifier(language: l, voiceName: v)
-    if let voice = AVSpeechSynthesisVoice(identifier: voiceIdentifier) {
-      self._voice = voice
+    let (language, voiceName) = parseLang(value)
+    let cacheKey = "\(language)_\(voiceName)"
+
+    if let cachedVoice = voiceCache[cacheKey] {
+      self._voice = cachedVoice
     } else {
-      self._voice = AVSpeechSynthesisVoice()
+      let voiceIdentifier = self.getVoiceIdentifier(language: language, voiceName: voiceName)
+
+      if let voice = AVSpeechSynthesisVoice(identifier: voiceIdentifier) {
+        self._voice = voice
+        voiceCache[cacheKey] = voice
+      } else {
+        self._voice = AVSpeechSynthesisVoice()
+      }
     }
   }
 
