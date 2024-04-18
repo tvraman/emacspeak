@@ -109,7 +109,7 @@ Use Custom to customize where possible. "
                custom-file global-mode-string outline-minor-mode-prefix
                outline-mode-prefix-map emacspeak-directory))
   (setenv "PULSE_SINK" "effect_input.spatializer") ; for mplayer
-  (when (and display-battery-mode (null (battery--upower-devices)))
+  (when (or display-battery-mode (null (battery--upower-devices)))
     (display-battery-mode -1))
   (load-theme 'ef-maris-dark t)
   (load-library "aster")
