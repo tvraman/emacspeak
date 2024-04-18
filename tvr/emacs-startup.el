@@ -109,6 +109,8 @@ Use Custom to customize where possible. "
                custom-file global-mode-string outline-minor-mode-prefix
                outline-mode-prefix-map emacspeak-directory))
   (setenv "PULSE_SINK" "effect_input.spatializer") ; for mplayer
+  (when (and display-battery-mode (null (battery--upower-devices)))
+    (display-battery-mode -1))
   (load-theme 'ef-maris-dark t)
   (load-library "aster")
   ;; basic look and feel
@@ -185,6 +187,7 @@ Use Custom to customize where possible. "
    (tvr-customize)
    (load "emacspeak-muggles"))
   (emacspeak-wizards-project-shells-initialize))
+(declare-function battery--upower-devices "battery" nil)
 
 (declare-function
  emacspeak-pronounce-toggle-dictionaries
