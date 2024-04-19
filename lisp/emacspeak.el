@@ -448,7 +448,7 @@ Press C-z to access keybindings in `emacspeak-z-keymap':
 \\{emacspeak-z-keymap}
 
 See the online documentation \\[emacspeak-open-info] for individual
-commands and options for details."
+commands and options."
   (setenv "EMACSPEAK_DIR" emacspeak-directory)
   (add-hook                           ; silence messages when quitting
    'kill-emacs-hook
