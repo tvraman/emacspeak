@@ -307,6 +307,9 @@ the Emacspeak desktop.")
     ("yasnippet" emacspeak-yasnippet)
     )
   "Packages to  speech-enable.")
+(defconst emacspeak-soundscapes
+  (executable-find "boodler")
+  "Whether we should turn on soundscapes on startup.")
 
 (defun emacspeak-prepare-emacs ()
   "Prepare Emacs to speech-enable packages when loaded."
@@ -388,10 +391,7 @@ This cannot be set via custom; set this in your startup file before
      emacspeak-version))
   "Emacspeak startup message.")
 
-(defcustom emacspeak-soundscapes nil
-  "Whether we should turn on soundscapes on startup."
-  :type 'boolean
-  :group 'emacspeak)
+
 
 (defcustom emacspeak-pip-enable
   (executable-find "piper")
