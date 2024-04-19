@@ -673,7 +673,7 @@ emacspeak will generate a tone
 instead of speaking such lines when punctuation mode is set
 to some.")
 
-(defvar-local ems--speak-max-length 384
+(defvar-local ems--speak-max-length 512
   "Threshold for determining `long' lines.
 Emacspeak will ask for confirmation before speaking lines
 that are longer than this length.  This is to avoid accidentally
