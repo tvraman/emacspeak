@@ -336,7 +336,7 @@ with duplicates removed when saving as a list of string."
      (forward-line 2)
      (emacspeak-icon 'open-object)
      (setq header-line-format (format "%s  Weather" gmaps-my-zip))
-     (emacspeak-speak-windowful))
+     (emacspeak-speak-line))
  "Light-weight Google weather.")
 
 ;;;  Calendar Mobile:
