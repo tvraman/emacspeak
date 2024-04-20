@@ -20090,7 +20090,7 @@ Settings for voice-bolden
 Default Value: 
 @verbatim
 
-(nil 3 nil 6)
+(nil 4 nil 6)
 
 @end verbatim
 

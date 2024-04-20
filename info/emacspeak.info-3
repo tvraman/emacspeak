@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 19, 2024.
+last updated on April 20, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -449,7 +449,7 @@ unique voices defined in this module.
 
      Default Value:
      
-     (nil 3 nil 6)
+     (nil 4 nil 6)
      
 
  -- Variable: User Option voice-brighten-extra-settings
