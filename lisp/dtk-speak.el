@@ -728,27 +728,6 @@ Argument COMPLEMENT  is the complement of separator."
     (dtk-interp-queue text)
     (dtk-interp-queue-code (tts-voice-reset-code))))
 
-(defun dtk-letter-using-voice (voice letter)
-  "Use voice VOICE to speak letter."
-  (cl-declare (special dtk-quiet tts-default-voice))
-  (unless (or (eq 'inaudible voice) dtk-quiet
-              (null letter) (string-equal letter ""))
-    (dtk-interp-queue-code (tts-voice-reset-code))
-    (dtk-interp-queue-code
-     (cond
-      ((symbolp voice)
-       (tts-get-voice-command
-        (if (boundp voice) (symbol-value voice) voice)))
-      ((listp voice)
-       (mapconcat
-        #'(lambda (v)
-            (tts-get-voice-command
-             (if (boundp v) (symbol-value v) v)))
-        voice " "))
-      (t "")))
-    (dtk-interp-letter letter)
-    (dtk-interp-queue-code (tts-voice-reset-code))))
-
 ;; Internal function used by dtk-speak to send text out.
 ;; Handles voice locking etc.
 ;; assumes in dtk-scratch-buffer
