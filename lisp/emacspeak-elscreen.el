@@ -73,8 +73,7 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-icon 'window-resize)
-       (dtk-notify-using-voice
-        voice-smoothen
+       (dtk-notify        
         (or
          (elscreen-get-screen-nickname  (elscreen-get-current-screen))
          (buffer-name)))

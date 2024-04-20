@@ -1872,15 +1872,6 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
         (when (process-live-p new)
           (setq dtk-notify-process new))))))
 
-(defun dtk-notify-using-voice (voice text &optional dont-log)
-  "Use voice VOICE to speak text TEXT on notification stream."
-  (unless dont-log (emacspeak-log-notification text))
-  (setq emacspeak-last-message text)
-  (let ((dtk-speaker-process (dtk-notify-process)))
-    (when (process-live-p dtk-speaker-process)
-      (dtk-speak-using-voice voice text)
-      (dtk-interp-speak))))
-
 ;; Include dtk-unicode.el
 
 ;; dtk-unicode.el --- Pronounce Unicode characters
