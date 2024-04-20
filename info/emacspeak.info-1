@@ -3632,7 +3632,8 @@ File: emacspeak.info,  Node: dtk-speak,  Next: emacspeak,  Prev: dom-addons,  Up
 12.4 dtk-speak
 ==============
 
-Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
+This module defines the TTS interface.  Here, prefix dtk is synonymous
+with tts.
 
 12.4.1 Dtk-Speak Commands
 -------------------------

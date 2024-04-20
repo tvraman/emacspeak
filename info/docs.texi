@@ -437,7 +437,7 @@ Useful additional functions for dom.el
 @node dtk-speak
 @section dtk-speak
 
-Defines the TTS interface.
+This module defines the TTS interface.
 Here, prefix dtk is synonymous with tts.
 
 @subsection Dtk-Speak Commands
