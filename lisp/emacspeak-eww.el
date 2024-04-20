@@ -2622,7 +2622,8 @@ With interactive prefix arg, move to the start of the table."
 
 ;;; RDR View:
 ;; inspired by
-;; https://jiewawa.me/2024/04/another-way-of-integrating-mozilla-readability-in-emacs-eww/
+;; https://jiewawa.me/2024/04/\
+;; another-way-of-integrating-mozilla-readability-in-emacs-eww/
 
 (defconst emacspeak-eww-rdr (executable-find "rdrview")
   "Executable: rdrview.")
