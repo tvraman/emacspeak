@@ -120,7 +120,7 @@ Indicate  no movement if we did not move."
          ad-do-it
          (cond
           ((eq orig (point))
-           (dtk-notify-speak "Did not move")
+           (dtk-notify "Did not move")
            (emacspeak-icon 'tick-tick))
           ((= ?\) (char-syntax (preceding-char)))
            (emacspeak-icon 'select-object)

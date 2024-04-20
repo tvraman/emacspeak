@@ -85,7 +85,7 @@
       (dtk-tone 500 100 'force)
       (unless ws (emacspeak-speak-this-char (preceding-char)))
       ad-do-it
-      (when ws (dtk-notify-speak (format "Indent %s " (current-column))))))
+      (when ws (dtk-notify (format "Indent %s " (current-column))))))
    (t ad-do-it))
   ad-return-value)
 

@@ -236,7 +236,7 @@ If already playing, then read an empv key and invoke its command."
    ((null file)                         ; we're already playing
     (call-interactively
      (lookup-key  empv-map  (read-key-sequence "EMpv Key:"))))
-   (t (dtk-notify-speak (file-name-base file))
+   (t (dtk-notify (file-name-base file))
       (empv-play file))))
 
 (defun emacspeak-empv-radio ()
@@ -350,7 +350,7 @@ If already playing, then read an empv key and invoke its command."
  #'(lambda nil
      (emacspeak-icon 'open-object)
      (emacspeak-pronounce-refresh-pronunciations)
-     (dtk-notify-speak
+     (dtk-notify
       (format "%s: %s results"
               (cdr  (assoc 'title (cl-first empv--last-youtube-candidates)))
               (length empv--last-youtube-candidates)))))

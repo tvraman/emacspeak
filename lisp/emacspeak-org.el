@@ -691,7 +691,7 @@ arg just opens the file"
            ((null first-key) entries)
            (t                           ;third  is cl-caddr
             (cl-caddr (assoc first-key entries)))))
-    (dtk-notify-speak
+    (dtk-notify
      (mapconcat
       #'(lambda (e)
           (format "%c: %s\n" (cl-first e) (cl-second e)))

@@ -245,7 +245,7 @@ Expected: ((acss) string)."
 (defun emacspeak-maths-handle-error (contents)
   "Display error message."
   (let ((msg (car contents)))
-    (dtk-notify-speak
+    (dtk-notify
      (cond
       ((string= "38" msg) "Top of tree")
       ((string= "39" msg) "Last Node at this level")

@@ -63,7 +63,7 @@
   "speak."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
-    (dtk-notify-speak "cleared desktop")
+    (dtk-notify "cleared desktop")
     (emacspeak-icon 'delete-object)))
 
 (defadvice desktop-save (after emacspeak pre act comp)

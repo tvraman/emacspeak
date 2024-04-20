@@ -323,7 +323,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
      (when (ems-interactive-p)
        (emacspeak-icon 'large-movement)
        (emacspeak-speak-line)
-       (dtk-notify-speak (emacspeak-get-current-percentage-verbously))))))
+       (dtk-notify (emacspeak-get-current-percentage-verbously))))))
 
 (cl-loop
  for f in
@@ -430,7 +430,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
      "Speak next screenful."
      (when (ems-interactive-p)
        (emacspeak-icon 'scroll)
-       (dtk-notify-speak
+       (dtk-notify
           (propertize
            (format "%s " (emacspeak-get-current-percentage-into-buffer))
            'personality voice-smoothen))
@@ -674,7 +674,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 (defadvice read-event (before emacspeak pre act comp)
   "Speak prompt."
   (when  (ad-get-arg 0)
-    (dtk-notify-speak (ad-get-arg 0))))
+    (dtk-notify (ad-get-arg 0))))
 
 (defadvice read-multiple-choice (before emacspeak pre act comp)
   "speak."
@@ -697,7 +697,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
     (ems--log-message
      (concat msg
              (mapconcat #'identity details "\n ")))
-    (dtk-notify-speak msg)
+    (dtk-notify msg)
     (sox-tones 2 2)
     (dtk-speak-list choices)))
 
@@ -755,7 +755,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   (ems-with-messages-silenced
    (let ((msg (ad-get-arg 0))
          (exit (ad-get-arg 2)))
-     (dtk-notify-speak
+     (dtk-notify
       (format
        "%s Press %s to exit"
        msg
@@ -808,14 +808,14 @@ When on a close delimiter, speak matching delimiter after a small delay. "
                  emacspeak-last-message  m)
 ;;; so we really need to speak it
            (emacspeak-icon 'key)
-           (tts-with-punctuations 'all (dtk-notify-speak m 'dont-log)))
+           (tts-with-punctuations 'all (dtk-notify m 'dont-log)))
          ad-return-value)))))
 
 (defadvice display-message-or-buffer (after emacspeak pre act comp)
   "Icon"
   (let ((buffer-name (ad-get-arg 1)))
     (when (bufferp ad-return-value)
-      (dtk-notify-speak
+      (dtk-notify
        (format "Displayed message in buffer  %s" buffer-name)))))
 
 (defvar emacspeak--last-docs nil
@@ -912,7 +912,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 ;; read-password--hide-password
 (defadvice read-passwd--hide-password (after emacspeak pre act comp)
   "Icon."
-  (dtk-notify-speak
+  (dtk-notify
    (if read-passwd--hide-password
        "dot"
      (if (characterp last-input-event)
@@ -948,7 +948,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
         (emacspeak-icon 'char)
         (setq emacspeak-last-message prompt)
         (setq emacspeak-read-char-prompt-cache prompt)
-        (tts-with-punctuations 'all (dtk-notify-speak (or prompt "key")))))))
+        (tts-with-punctuations 'all (dtk-notify (or prompt "key")))))))
 
 (defadvice read-char-choice (before emacspeak pre act comp)
   "Speak the prompt. "
@@ -2061,7 +2061,7 @@ Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line))
-    (dtk-notify-speak (buffer-name))))
+    (dtk-notify (buffer-name))))
 
 (defadvice mark-defun (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
@@ -2140,10 +2140,10 @@ Produce an auditory icon if possible."
       (setq lines (count-lines start end)
             chars (abs (- start end)))
       (if (> lines 1)
-          (dtk-notify-speak
+          (dtk-notify
            (format "Copied %s lines to register %c"
                    lines register))
-        (dtk-notify-speak
+        (dtk-notify
          (format "Copied %s characters to register %c"
                  chars register))))))
 
@@ -2215,7 +2215,7 @@ Produce an auditory icon if possible."
     (when minibuffer-default (emacspeak-icon 'help))
     (tts-with-punctuations
         'all
-      (dtk-notify-speak
+      (dtk-notify
        (concat
         (buffer-string)
         (if (stringp minibuffer-default) minibuffer-default ""))))))
@@ -2829,7 +2829,7 @@ Produce an auditory icon if possible."
   "speak."
   (cl-declare (special rectangle-mark-mode))
   (when (ems-interactive-p)
-    (dtk-notify-speak
+    (dtk-notify
      (format "Turned %s rectangle mark mode"
              (if rectangle-mark-mode "on" "off")))
     (emacspeak-icon (if rectangle-mark-mode 'on 'off))))

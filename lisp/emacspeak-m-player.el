@@ -145,7 +145,7 @@ This is set to nil when playing Internet  streams.")
   "Mode-line for M-Player buffers."
   (interactive)
   (cl-declare (special emacspeak-m-player-process))
-  (dtk-notify-speak
+  (dtk-notify
    (cond
     ((eq 'run (process-status emacspeak-m-player-process))
      (let ((info (emacspeak-m-player-get-position)))
@@ -532,7 +532,7 @@ dynamic playlist. "
            (y-or-n-p "Stop "))
     (emacspeak-m-player-quit)
     (setq emacspeak-m-player-process nil))
-  (dtk-notify-speak (file-name-base resource))
+  (dtk-notify (file-name-base resource))
   (let ((buffer (get-buffer-create "*M-Player*"))
         (process-connection-type nil)
         (playlist-p
@@ -1816,7 +1816,7 @@ Optional interactive prefix arg prompts for name to use for  player."
        'unique))
     (when (called-interactively-p 'interactive)
       (emacspeak-icon 'task-done)
-      (dtk-notify-speak
+      (dtk-notify
        "persisted current process. You can now start another player."))))
 
 (defun emacspeak-m-player-restore-process ()

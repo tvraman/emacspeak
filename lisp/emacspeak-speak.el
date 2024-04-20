@@ -617,7 +617,7 @@ the sense of the filter. "
   (interactive)
   (let ((beg (save-excursion (skip-syntax-backward " ")))
         (end (save-excursion (skip-syntax-forward " "))))
-    (dtk-notify-speak  (format "%s spaces " (+ (- end beg))))))
+    (dtk-notify  (format "%s spaces " (+ (- end beg))))))
 
 (defvar ems--large-text-size 40000
   "Upper limit on what we attempt to speak in one shot.")
@@ -1586,9 +1586,9 @@ Displays name of current buffer.")
     (let ((window-count (length (window-list))))
       (emacspeak-icon 'item)
       (when (> window-count 1) (emacspeak--sox-multiwindow))
-      (dtk-notify-speak (format-mode-line header-line-format))))
+      (dtk-notify (format-mode-line header-line-format))))
    (t
-    (dtk-notify-speak
+    (dtk-notify
      (concat
       (propertize (buffer-name) 'personality voice-smoothen)
       (format-time-string emacspeak-speak-time-brief-format))))))
@@ -1710,7 +1710,7 @@ Second interactive prefix sets clock to new timezone."
     (let ((time-string
            (format-time-string emacspeak-speak-time-format
                                (current-time) (getenv "TZ"))))
-      (dtk-notify-speak time-string)))))
+      (dtk-notify time-string)))))
 
 (defsubst ems--seconds-to-duration (sec)
   "Return seconds formatted as time if valid, otherwise return as is."
@@ -2424,7 +2424,7 @@ See documentation for command run-at-time for details on time-spec."
   (run-at-time
    time nil
    #'(lambda (m)
-       (dtk-notify-speak m)
+       (dtk-notify m)
        (when emacspeak-use-auditory-icons (emacspeak-icon 'alarm))
        (sox-tones))
    message)
@@ -2675,7 +2675,7 @@ but quickly switch to a window by name."
    ((= (point) (point-max)) (call-interactively 'beginning-of-buffer))
    (t (call-interactively 'beginning-of-buffer)))
   (when (called-interactively-p 'interactive)
-    (dtk-notify-speak
+    (dtk-notify
      (format "%s%%" (emacspeak-get-current-percentage-into-buffer)))))
 
 ;;; Utility: Accumulate
@@ -2854,7 +2854,7 @@ Use `,' and `.' to continuously decrease/increase `selective-display'.
   "Speak text, either using piper or regular notification stream."
   (cond
    ((featurep 'pip) (pip-speak text))
-   (t (dtk-notify-speak text))))
+   (t (dtk-notify text))))
 
 
 ;;; Bug Reporter:

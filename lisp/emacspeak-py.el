@@ -63,7 +63,7 @@ Provide contextual feedback when closing blocks"
       (unless ws (emacspeak-speak-this-char (preceding-char)))
       ad-do-it
       (when ws
-        (dtk-notify-speak  (format "Indent %s "ad-return-value))
+        (dtk-notify  (format "Indent %s "ad-return-value))
         (emacspeak-icon  'close-object)
         (sit-for 0.2)
         (save-excursion

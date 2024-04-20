@@ -177,7 +177,7 @@ Silently drops alerts on the floor --- Google Talk is too chatty otherwise."
   (when (or jabber-message-alert-same-buffer
             (not (memq (selected-window) (get-buffer-window-list buffer))))
     (emacspeak-icon 'item)
-    (dtk-notify-speak
+    (dtk-notify
      (if (jabber-muc-sender-p from)
          (format "Private message from %s in %s"
                  (jabber-jid-resource from)
@@ -216,7 +216,7 @@ Silently drops alerts on the floor --- Google Talk is too chatty otherwise."
 (defun emacspeak-jabber-connected ()
   "Function to add to jabber-post-connection-hook."
   (emacspeak-icon 'task-done)
-  (dtk-notify-speak "Connected to jabber."))
+  (dtk-notify "Connected to jabber."))
 (add-hook 'jabber-post-connect-hook #'emacspeak-jabber-connected)
 
 ;;;  Pronunciations

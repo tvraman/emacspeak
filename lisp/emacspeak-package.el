@@ -152,7 +152,7 @@
   (when (ems-interactive-p)
     (let ((upgrades (package-menu--find-upgrades)))
       (when upgrades
-        (dtk-notify-speak (format "%s" (mapcar #'car upgrades)))))))
+        (dtk-notify (format "%s" (mapcar #'car upgrades)))))))
 
 (provide 'emacspeak-package)
 ;;;  end of file

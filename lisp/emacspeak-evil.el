@@ -250,7 +250,7 @@
     (emacspeak-icon 'mark-object)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
-      (dtk-notify-speak (format "Marker %c" (ad-get-arg 0))))))
+      (dtk-notify (format "Marker %c" (ad-get-arg 0))))))
 
 ;;;  Update keymaps:
 
@@ -298,7 +298,7 @@
   (when (and evil-previous-state evil-next-state
              (not (eq evil-previous-state evil-next-state)))
     (emacspeak-icon 'select-object)
-    (dtk-notify-speak
+    (dtk-notify
      (format "Changing state from %s to %s"
              evil-previous-state evil-next-state))))
 
@@ -314,7 +314,7 @@
   "speak."
   (when (ems-interactive-p)
     (emacspeak-icon 'open-object)
-    (dtk-notify-speak "Leaving Emacs state.")))
+    (dtk-notify "Leaving Emacs state.")))
 
 ;;;  Additional Commands:
 

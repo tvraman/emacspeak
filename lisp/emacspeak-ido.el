@@ -82,7 +82,7 @@
   (when   ido-matches 
     (when (> (length ido-matches) ido-max-prospects) (emacspeak-icon
                                                       'ellipses))
-    (dtk-notify-speak
+    (dtk-notify
      (concat
       (minibuffer-contents)
       (format " %d choices: "  (length ido-matches))

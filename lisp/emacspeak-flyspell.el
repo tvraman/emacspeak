@@ -90,7 +90,7 @@ fly spell checking."
      ad-do-it
      (dtk-speak (car (flyspell-get-word nil)))
      (when (sit-for 1)
-       (dtk-notify-speak (cl-second flyspell-auto-correct-ring)))
+       (dtk-notify (cl-second flyspell-auto-correct-ring)))
      (when (sit-for 1) (emacspeak-speak-message-again))
      (emacspeak-icon 'select-object))) (t ad-do-it)) ad-return-value)
 

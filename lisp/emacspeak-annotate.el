@@ -62,7 +62,7 @@
 (defadvice annotate-annotate (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
-    (dtk-notify-speak "Added annotation")))
+    (dtk-notify "Added annotation")))
 
 (cl-loop
  for f in 
@@ -76,7 +76,7 @@
        (let ((o (cl-first (overlays-at (point)))))
          (emacspeak-icon 'large-movement)
          (emacspeak-speak-line)
-         (dtk-notify-speak (overlay-get o 'annotation)))))))
+         (dtk-notify (overlay-get o 'annotation)))))))
 
 (provide 'emacspeak-annotate)
 ;;;  end of file

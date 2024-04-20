@@ -68,7 +68,7 @@
 (defsubst emacspeak-tab-bar-speak-tab-name ()
   "Speak name of current tab."
   (emacspeak-icon 'tick-tick)
-  (dtk-notify-speak
+  (dtk-notify
    (format "%s"
            (alist-get 'name (alist-get 'current-tab (tab-bar-tabs))))))
 

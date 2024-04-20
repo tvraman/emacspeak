@@ -1833,7 +1833,7 @@ grouping"
     (funcall func text)))
 (declare-function emacspeak-log-notification "emacspeak-speak" (text))
 
-(defun dtk-notify-speak (text &optional dont-log)
+(defun dtk-notify (text &optional dont-log)
   "Speak text on notification stream.
 Notification is logged in the notifications buffer unless `dont-log' is T. "
   (cl-declare (special dtk-speaker-process emacspeak-last-message))

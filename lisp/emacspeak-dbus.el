@@ -128,7 +128,7 @@ Stop apps that use the network."
         (mapcar #'car (network-interface-list)))
   (emacspeak-icon 'network-down)
   (message (mapconcat #'identity emacspeak-speak-network-interfaces-list ""))
-  (dtk-notify-speak "Network down"))
+  (dtk-notify "Network down"))
 
 (add-hook 'nm-connected-hook 'emacspeak-dbus-nm-connected)
 (add-hook 'nm-disconnected-hook 'emacspeak-dbus-nm-disconnected)
