@@ -335,7 +335,7 @@ with duplicates removed when saving as a list of string."
      (search-forward "Search Tools")
      (forward-line 2)
      (emacspeak-icon 'open-object)
-     (setq header-line-format (format "%s  Weather" gmaps-my-zip))
+     (setq header-line-format  "Weather")
      (emacspeak-speak-line))
  "Light-weight Google weather.")
 
