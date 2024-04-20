@@ -333,7 +333,7 @@ with duplicates removed when saving as a list of string."
  (list #'(lambda nil gmaps-my-zip))
  #'(lambda nil
      (search-forward "Search Tools")
-     (forward-line 1)
+     (forward-line 2)
      (emacspeak-icon 'open-object)
      (setq header-line-format (format "Weather for %s" gmaps-my-zip))
      (emacspeak-speak-windowful))
