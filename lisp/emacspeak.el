@@ -410,17 +410,16 @@ Use Emacs as you normally would, emacspeak provides spoken feedback.
 Emacspeak also provides commands for having parts of the current buffer,
 the mode-line etc to be spoken.
 
-Commands invoked with prefix \\`C-e'
+Commands invoked with prefix \\`C-e' provide the primary Emacspeak interface.
 
 \\{emacspeak-keymap}
 
-Commands invoked with prefix \\`C-e d'
+Commands invoked with prefix \\`C-e d' control text-to-speech.
 
 \\{emacspeak-dtk-submap}
 
 Emacspeak provides a set of additional keymaps to give easy access to
-its extensive facilities.
-All of these bindings can be customized 
+Emacs' extensive facilities.  All of these bindings can be customized
 via custom.
 
 Press C-; to access keybindings in `emacspeak-hyper-keymap':
