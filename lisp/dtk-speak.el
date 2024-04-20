@@ -1791,17 +1791,14 @@ grouping"
 ;;;  Notify:
 
 (defun dtk-notify-process ()
-  "Return  Notification TTS handle or nil. "
-  (cl-declare (special dtk-notify-process dtk-speaker-process
-                       dtk-program))
-  (let ((result
-         (cond
-          ((null dtk-notify-process) dtk-speaker-process)
-          ((and (processp dtk-notify-process)
-                (memq (process-status dtk-notify-process) '(open run)))
-           dtk-notify-process)
-          (t dtk-speaker-process))))
-    (when (process-live-p result) result)))
+  "Return  Notification TTS handle or dtk-speaker-process. "
+  (cl-declare (special dtk-notify-process dtk-speaker-process))
+  (cond
+   ((null dtk-notify-process) dtk-speaker-process)
+   ((and (processp dtk-notify-process)
+         (memq (process-status dtk-notify-process) '(open run)))
+    dtk-notify-process)
+   (t dtk-speaker-process)))
 
 (defun dtk-notify-stop ()
   "Stop  speech on notification stream."
