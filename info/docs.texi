@@ -249,7 +249,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1178 commands and 127 options.
+This chapter documents a total of 1177 commands and 127 options.
 
 @node amixer
 @section amixer
@@ -8313,7 +8313,6 @@ Default Value:
  ("DEL" emacspeak-wizards-snarf-sexp)
  ("TAB" hippie-expand)
  ("a" emacspeak-amark-browse)
- ("b" emacspeak-wizards-bbc-sounds)
  ("c" browse-url-chrome)
  ("d" magit-dispatch)
  ("f" magit-file-dispatch)
@@ -17006,28 +17005,6 @@ Bug: First run fails to bind keys.   Works on subsequent runs.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-bbc-sounds
-@deffn {Command} emacspeak-wizards-bbc-sounds   
-@table @kbd
-@item C-; b
-@kindex C-; b
-@item C-x @@ h b
-@kindex C-x @@ h b
-@end table
-
-@findex emacspeak-wizards-bbc-sounds
-
-@format
-Search BBC Sounds.
-Result page is filtered down to two sections, Shows and Episodes.
-
-Press [RET] on links in the Show section to open that show page.
-The page for that show contains playable links for Episodes.
-
-Press ‘y’ on Episode links to play them with MPV.
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-cleanup-shell-path
 @deffn {Command} emacspeak-wizards-cleanup-shell-path   
 @findex emacspeak-wizards-cleanup-shell-path
@@ -20565,7 +20542,13 @@ BBC Radio 4 Extra Schedule@item @b{bbc r4 schedule }
 
 BBC R4 Schedule@item @b{bbc sounds}
 
-Search BBC Sounds@item @b{bbc world service  schedule }
+Search BBC Sounds.
+Result page is filtered down to two sections, Shows and Episodes.
+
+Press [RET] on links in the Show section to open that show page.
+The page for that show contains playable links for Episodes.
+
+Press `y' on Episode links to play them with MPV.@item @b{bbc world service  schedule }
 
 BBC World Service Schedule@item @b{bing news}
 

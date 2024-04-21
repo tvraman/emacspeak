@@ -149,7 +149,6 @@
 @item C-l  emacspeak-librivox
 @item C-t  emacspeak-wizards-tramp-open-location
 @item a  emacspeak-amark-browse
-@item b  emacspeak-wizards-bbc-sounds
 @item c  browse-url-chrome
 @item d  magit-dispatch
 @item f  magit-file-dispatch

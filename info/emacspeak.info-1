@@ -2795,7 +2795,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-hyper-keymap,  N
 ‘C-l emacspeak-librivox’
 ‘C-t emacspeak-wizards-tramp-open-location’
 ‘a emacspeak-amark-browse’
-‘b emacspeak-wizards-bbc-sounds’
 ‘c browse-url-chrome’
 ‘d magit-dispatch’
 ‘f magit-file-dispatch’
@@ -3241,7 +3240,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1178 commands and 127 options.
+   This chapter documents a total of 1177 commands and 127 options.
 
 * Menu:
 
