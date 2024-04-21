@@ -2574,8 +2574,8 @@ With interactive prefix arg, move to the start of the table."
 (defun emacspeak-eww-dive-into-div ()
   "Focus on current div by rendering it in a new buffer."
   (interactive)
+  (cl-assert (memq 'div (emacspeak-eww-here-tags) ) t "No div here.")
   (let ((dom (get-text-property (point) 'eww-dom)))
-    (cl-assert (memq 'div (emacspeak-eww-here-tags) ) t "No div here.")
     (emacspeak-eww-view-helper
      (dom-html-from-nodes (list dom) (eww-current-url)))))
 
