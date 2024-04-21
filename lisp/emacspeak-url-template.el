@@ -264,7 +264,13 @@ with duplicates removed when saving as a list of string."
  "https://www.bbc.co.uk/sounds/search?q=%s"
  (list "BBC Sounds:")
  #'emacspeak-speak-line
- "Search BBC Sounds"
+ "Search BBC Sounds.
+Result page is filtered down to two sections, Shows and Episodes.
+
+Press [RET] on links in the Show section to open that show page.
+The page for that show contains playable links for Episodes.
+
+Press `y' on Episode links to play them with MPV."
  #'(lambda (url)
      (let ((filter
             (mapconcat

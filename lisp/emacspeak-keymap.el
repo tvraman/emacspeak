@@ -560,7 +560,6 @@
     ("DEL" emacspeak-wizards-snarf-sexp)
     ("TAB" hippie-expand)
     ("a" emacspeak-amark-browse)
-    ("b" emacspeak-wizards-bbc-sounds)
     ("c" browse-url-chrome)
     ("d" magit-dispatch)
     ("f" magit-file-dispatch)
