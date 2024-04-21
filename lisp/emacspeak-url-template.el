@@ -335,11 +335,10 @@ with duplicates removed when saving as a list of string."
      (search-forward "Search Tools")
      (forward-line 2)
      (emacspeak-icon 'open-object)
-     (setq header-line-format
-           (save-excursion
-             (forward-line 1)
-             (thing-at-point 'line)))
-     (emacspeak-speak-line))
+     (setq header-line-format "")
+     (emacspeak-speak-region
+      (point)
+      (save-excursion (forward-line 1) (line-end-position))))
  "Light-weight Google weather.")
 
 ;;;  Calendar Mobile:
