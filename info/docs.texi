@@ -20567,7 +20567,7 @@ BBC R4 Schedule@item @b{bbc sounds}
 
 Search BBC Sounds@item @b{bbc world service  schedule }
 
-BBC R4 Schedule@item @b{bing news}
+BBC World Service Schedule@item @b{bing news}
 
 Bing News results as RSS feed.@item @b{business headlines from cnn}
 
@@ -20619,8 +20619,7 @@ Haskell API Search against a local server.@item @b{html google news search}
 
 Search Google news.@item @b{local weather from google}
 
-Light-weight Google weather. Displays weather for your current
-US-ZIP Code. @item @b{microsoft search}
+Light-weight Google weather. Displays weather for your current US-ZIP Code. @item @b{microsoft search}
 
 Bing results as RSS feed.@item @b{nba  standings}
 
