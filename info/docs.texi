@@ -20529,7 +20529,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 64 URL Templates.
+This section documents a total of 63 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -20599,15 +20599,15 @@ Display top stocks  from Google Finance.@item @b{freesound}
 
 Search FreeSound.@item @b{gita}
 
-Open specific chapter/verse in the Gita @item @b{google news search}
+Open specific chapter/verse in the Gita @item @b{global weather from google}
+
+World Weather From Google@item @b{google news search}
 
 Search Google news.@item @b{google scholar}
 
 Google Scholar Search@item @b{google trends}
 
-Google Trends@item @b{google weather}
-
-Light-weight Google weather.@item @b{guardian rss feeds directory}
+Google Trends@item @b{guardian rss feeds directory}
 
 Guardian Feeds  Directory@item @b{hacker  news frontpage}
 
@@ -20617,7 +20617,10 @@ Display Hacker News Front Page@item @b{hoogle haskell api search}
 
 Haskell API Search against a local server.@item @b{html google news search}
 
-Search Google news.@item @b{microsoft search}
+Search Google news.@item @b{local weather from google}
+
+Light-weight Google weather. Displays weather for your current
+US-ZIP Code. @item @b{microsoft search}
 
 Bing results as RSS feed.@item @b{nba  standings}
 
@@ -20664,15 +20667,7 @@ Display tech news from CNET@item @b{tinyurl}
 
 @item @b{tunein radio}
 
-Translate StreamId to playable stream.@item @b{w3c irc logs}
-
-Use this to pull up the
-archived logs from the W3C IRC. You need to know the exact
-name of the channel.@item @b{w3c lists}
-
-Use this to pull up the
-archived mail from the W3C list. You need to know the exact
-name of the list.@item @b{washington post}
+Translate StreamId to playable stream.@item @b{washington post}
 
 Washington Post Contents@item @b{wiki data search}
 

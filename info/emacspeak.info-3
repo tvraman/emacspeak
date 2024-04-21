@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 20, 2024.
+last updated on April 21, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -763,7 +763,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.242 URL Templates
 ====================
 
-This section documents a total of 64 URL Templates.
+This section documents a total of 63 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u’.  This command
@@ -852,18 +852,18 @@ following steps:
   26. gita
 
      Open specific chapter/verse in the Gita
-  27. google news search
+  27. global weather from google
+
+     World Weather From Google
+  28. google news search
 
      Search Google news.
-  28. google scholar
+  29. google scholar
 
      Google Scholar Search
-  29. google trends
+  30. google trends
 
      Google Trends
-  30. google weather
-
-     Light-weight Google weather.
   31. guardian rss feeds directory
 
      Guardian Feeds Directory
@@ -879,96 +879,92 @@ following steps:
   35. html google news search
 
      Search Google news.
-  36. microsoft search
+  36. local weather from google
+
+     Light-weight Google weather.  Displays weather for your current
+     US-ZIP Code.
+  37. microsoft search
 
      Bing results as RSS feed.
-  37. nba standings
+  38. nba standings
 
      Display NBA standings.
-  38. nls bard bookshelf
+  39. nls bard bookshelf
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  39. nls bard popular
+  40. nls bard popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  40. nls bard recent
+  41. nls bard recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  41. nls bard search
+  42. nls bard search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  42. npr
+  43. npr
 
      Open NPR home , then display the alternative links to access RSS
      feeds.
-  43. online radiotime browser
+  44. online radiotime browser
 
      RadioTime Entry point.
-  44. online radiotime search
+  45. online radiotime search
 
      RadioTime Search
-  45. openlibrary
+  46. openlibrary
 
      Open Library Search
-  46. player fm bbc rss feeds
+  47. player fm bbc rss feeds
 
      Player FM BBC RSS Feeds
-  47. radiotime categories
+  48. radiotime categories
 
      RadioTime Categories
-  48. reddit at point
+  49. reddit at point
 
      Open RSS Feed for Reddit URL under point.
-  49. reddit by topic
+  50. reddit by topic
 
      Open RSS Feed for Reddit Topic.
-  50. reddit front page
+  51. reddit front page
 
      Open Feed for Reddit Front Page.
-  51. reddit search
+  52. reddit search
 
      Reddit Search Results Feed.
-  52. sourceforge browse mirrors
+  53. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  53. sourceforge download
+  54. sourceforge download
 
      Download specified file.
-  54. sourceforge project
+  55. sourceforge project
 
      Open specified project page at SourceForge.
-  55. tech news from cnet
+  56. tech news from cnet
 
      Display tech news from CNET
-  56. tinyurl
+  57. tinyurl
 
-  57. tunein radio
+  58. tunein radio
 
      Translate StreamId to playable stream.
-  58. w3c irc logs
-
-     Use this to pull up the archived logs from the W3C IRC. You need to
-     know the exact name of the channel.
-  59. w3c lists
-
-     Use this to pull up the archived mail from the W3C list.  You need
-     to know the exact name of the list.
-  60. washington post
+  59. washington post
 
      Washington Post Contents
-  61. wiki data search
+  60. wiki data search
 
      Search WikiData.
-  62. wikipedia at point
+  61. wikipedia at point
 
      Extract body content from Wikipedia link at point
-  63. wordnet search
+  62. wordnet search
 
      Look up term in WordNet.
-  64. yahoo rssnews
+  63. yahoo rssnews
 
      News From Yahoo As RSS.
 

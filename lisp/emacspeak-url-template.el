@@ -243,7 +243,7 @@ with duplicates removed when saving as a list of string."
 "https://www.bbc.co.uk/sounds/schedules/bbc_world_service " 
  nil
  #'emacspeak-eww-next-h3
- "BBC R4 Schedule")
+ "BBC World Service Schedule")
 
 (emacspeak-url-template-define
  "BBC r4 Schedule "
@@ -321,14 +321,14 @@ with duplicates removed when saving as a list of string."
 
 (defun emacspeak-url-template-setup-content-filter ()
   "Set up content filter in displayed page."
-  (cl-declare
+c  (cl-declare
    (special emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter))
   (setq emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter))
 
 ;;; Basic Google:
 
 (emacspeak-url-template-define
- "Google Weather"
+ "Local Weather From Google"
  "https://www.google.com/search?num=25&gbv=1&q=weather+%s"
  (list #'(lambda nil gmaps-my-zip))
  #'(lambda nil
@@ -336,10 +336,26 @@ with duplicates removed when saving as a list of string."
      (forward-line 2)
      (emacspeak-icon 'open-object)
      (setq header-line-format "")
-     (emacspeak-speak-region
-      (point)
-      (save-excursion (forward-line 1) (line-end-position))))
- "Light-weight Google weather.")
+     (tts-with-punctuations 'some
+       (emacspeak-speak-region
+        (point)
+        (save-excursion (forward-line 1) (line-end-position)))))
+ "Light-weight Google weather. Displays weather for your current US-ZIP Code. ")
+
+(emacspeak-url-template-define
+ "Global Weather From Google"
+ "https://www.google.com/search?num=25&gbv=1&q=weather+%s"
+ (list "Location:")
+ #'(lambda nil
+     (search-forward "Search Tools")
+     (forward-line 2)
+     (emacspeak-icon 'open-object)
+     (setq header-line-format "")
+     (tts-with-punctuations 'some
+       (emacspeak-speak-region
+        (save-excursion (forward-line -1) (line-beginning-position))
+        (save-excursion (forward-line 1) (line-end-position)))))
+ "World Weather From Google")
 
 ;;;  Calendar Mobile:
 
@@ -456,45 +472,6 @@ with duplicates removed when saving as a list of string."
       "http://rss.news.yahoo.com/rss/" ""))
  "News  From Yahoo As RSS."
  #'emacspeak-feeds-rss-display)
-
-;;;  w3c
-
-(emacspeak-url-template-define
- "w3c IRC Logs"
- "http://www.w3.org/%s-%s-irc "
- (list
-  #'(lambda nil
-      (emacspeak-speak-collect-date "Date: "
-                                    "%Y/%m/%d"))
-  "Channel Name: ")
- #'(lambda ()
-     (let ((inhibit-read-only t))
-       (flush-lines "has joined #" (point-min) (point-max))
-       (flush-lines "has left #" (point-min) (point-max))))
- "Use this to pull up the
-archived logs from the W3C IRC. You need to know the exact
-name of the channel.")
-
-(emacspeak-url-template-define
- "w3c Lists"
- "http://lists.w3.org/Archives/Member/%s/%s/"
- (list
-  'emacspeak-url-template-get-w3c-group
-  'emacspeak-url-template-get-w3c-year/month)
- nil
- "Use this to pull up the
-archived mail from the W3C list. You need to know the exact
-name of the list.")
-
-(defun emacspeak-url-template-get-w3c-group ()
-  "Get name of W3C group "
-  (read-from-minibuffer "W3C group: "
-                        "w3c-"))
-
-(defun emacspeak-url-template-get-w3c-year/month ()
-  "Get year/month"
-  (emacspeak-speak-collect-date "Date range: "
-                                "%Y%h"))
 
 ;;; CNBC Quotes
 
@@ -1100,10 +1077,6 @@ template."
  nil
  "Display Hacker News Front Page"
  #'emacspeak-feeds-rss-display)
-
-;;; CIA World Fact Book:
-
-;; needs updating.
 
 ;;; Air Quality From Wunderground
 
