@@ -9,8 +9,7 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 This version requires Emacs-29.1 or later.
 
-* Emacspeak And MPV
-
+* EMPV: Emacspeak And MPV
 
 Module ~emacspeak-empv~ now provides better ~MPV~ interaction and more
 Youtube functionality.
@@ -19,15 +18,13 @@ Youtube functionality.
 
 More BBC Sounds integration via module ~emacspeak-bbc~.
 
-
-
-
 * Speech-Enable EBuku
 
-Package ~ebuku.el~ is speech-enabled y module ~emacspeak-ebuku~ ---
+Package ~ebuku.el~ is speech-enabled by  module ~emacspeak-ebuku~ ---
 this is an Emacs front-end to the ~buku~ bookmark manager.
 
 * The HTML5 Audio/Video Tag In EWW
+
 Module ~emacspeak-eww~ adds support for the HTML5 ~audio~ and ~video~
 tags; press ";" in an EWW buffer to move to any audio/video tags in
 the page, and pess ";" again to play the content.
@@ -41,6 +38,7 @@ augmentative   audio  feedback.
 
 Emacspeak speech-enables package ~ellama~ and ~gptel~ for interacting
 with both local and remote LLMs.
+
 * Pipewire Support
 
 Emacspeak now uses Pipewire if available.
@@ -54,11 +52,11 @@ Keybindings continue to be revised in the interest of ergonomics.
 
 There is a new speech server  --- SwiftMac --- for the Mac. The older
 Python Mac server is now deprecated and unmaintained and will be
-declared obsolete with the next elease.
+declared obsolete with the next release.
 
-* Tree-sSitter Support
+* Tree-Sitter Support
 
-Emaspeak now leverages tree-sitter support if available when
+Emacspeak  now leverages tree-sitter support if available when
 navigating in programming modes.
 
 * Smart Media Selector
