@@ -232,7 +232,7 @@ None: For systems that rely on the speech server playing the icon."
   '(choice
     (const  :tag "None" nil)
     (const  :tag "Pulse" "/usr/bin/pactl")
-    (const  :tag "SoX" "/usr/local/bin/play"))
+    (const  :tag "SoX" "/usr/bin/play"))
   :set
   #'(lambda(sym val)
       (set-default sym val)
@@ -240,8 +240,7 @@ None: For systems that rely on the speech server playing the icon."
        ((null val) (setq ems--play-args nil)) ; serve icons
        ((string= emacspeak-pactl val); pactl: play-sample
         (setq ems--play-args "play-sample"))
-       ((or  (string= "/usr/bin/play" val); sox-play: play file
-             (string= "/usr/local/bin/play" val))
+       ((string= sox-play val); sox-play: play file
         (setq ems--play-args "-q"))))
   :group 'emacspeak)
 
