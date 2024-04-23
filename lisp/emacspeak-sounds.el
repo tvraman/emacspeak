@@ -147,7 +147,7 @@ Value is a string, a fully qualified filename. ")
 (defsubst emacspeak-sounds-cache-get (sound )
   "Return file that is mapped to sound."
   (cl-declare (special emacspeak-sounds-cache))
-  (gethash sound emacspeak-sounds-cache
+  (gethash sound emacspeak-sounds-cache ; or default to button
            (gethash 'button emacspeak-sounds-cache)))
 
 (defun emacspeak-sounds-resource (icon)
@@ -158,7 +158,7 @@ icon-name as string."
     (cond                                 
      ((null emacspeak-play-program) f) 
      ((string= emacspeak-play-program emacspeak-pactl) ; pactl->sample-name
-      (symbol-name icon))
+      (symbol-name icon)) ;fixme: handle default (button
      (t ; sox-play -> filename
       f))))
 
