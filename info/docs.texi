@@ -13328,7 +13328,7 @@ Second interactive prefix sets clock to new timezone.
 @end deffn
 
 @subsubsection emacspeak-speak-version
-@deffn {Command} emacspeak-speak-version  (&optional speak-rev)
+@deffn {Command} emacspeak-speak-version   
 @table @kbd
 @item C-e V
 @kindex C-e V
@@ -13337,10 +13337,7 @@ Second interactive prefix sets clock to new timezone.
 @findex emacspeak-speak-version
 
 @format
-Announce version information for running emacspeak.
-Optional interactive prefix arg ‘speak-rev’ speaks only the Git revision.
-
-(fn &optional SPEAK-REV)
+Announce version information for running emacspeak. 
 @end format
 @end deffn
 

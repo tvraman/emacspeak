@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 21, 2024.
+last updated on April 23, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-extras,  Next: emacspeak-exwm,  Prev: emacspeak-eww,  Up: Emacspeak Commands And Options
@@ -5496,13 +5496,10 @@ of emacspeak from becoming dependent on the speech server modules
 12.179.1.82 emacspeak-speak-version
 ...................................
 
- -- Command: emacspeak-speak-version (&optional speak-rev)
+ -- Command: emacspeak-speak-version
      ‘C-e V’
 
      Announce version information for running emacspeak.
-     Optional interactive prefix arg ‘speak-rev’ speaks only the Git revision.
-
-     (fn &optional SPEAK-REV)
 
 12.179.1.83 emacspeak-speak-visual-line
 .......................................
