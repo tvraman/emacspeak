@@ -4,7 +4,6 @@
 ;;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;; A speech interface to Emacs |
-;;  $Revision: 4532 $ |
 ;; Location https://github.com/tvraman/emacspeak
 ;;;   Copyright:
 
