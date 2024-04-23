@@ -158,10 +158,10 @@ icon-name as string."
     (cond                                 
      ((null emacspeak-play-program) f) 
      ((string= emacspeak-play-program emacspeak-pactl) ; pactl->sample-name
-      (if (gethash icon emacspeak-sounds-cache)
+      (if (gethash icon emacspeak-sounds-cache)        
           (symbol-name icon)
-        (emacspeak-sounds-cache-get 'button)))
-     (t ; sox-play -> filename
+        "button"))
+     (t                                 ; sox-play -> filename
       f))))
 
 ;;;Sound themes
