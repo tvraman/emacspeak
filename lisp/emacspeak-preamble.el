@@ -91,10 +91,6 @@
   (expand-file-name "README" emacspeak-directory)
   "README.")
 
-(defconst emacspeak-icon
-  (expand-file-name "prompts/emacspeak.ogg" emacspeak-sounds-dir)
-  "Emacspeak startup icon.")
-
 ;; local media dir
 (defconst emacspeak-media (getenv "XDG_MUSIC_DIR")
   "Local media directory.")
