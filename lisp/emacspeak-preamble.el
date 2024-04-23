@@ -92,7 +92,7 @@
   "README.")
 
 (defconst emacspeak-icon
-  (expand-file-name "emacspeak.ogg" emacspeak-sounds-dir)
+  (expand-file-name "prompts/emacspeak.ogg" emacspeak-sounds-dir)
   "Emacspeak startup icon.")
 
 ;; local media dir
