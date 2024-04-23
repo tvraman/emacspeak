@@ -1779,7 +1779,7 @@ Seconds value is also placed in the kill-ring."
   (propertize "VirtualDog" 'face 'bold)
   "Code name of present release.")
 (defvar emacspeak-version
-  (concat "59.0,   " emacspeak-codename emacspeak-git-revision)
+  (concat "59.0,   " emacspeak-codename " " emacspeak-git-revision)
   "Version number for Emacspeak.")
 
 (defun emacspeak-speak-version ()
