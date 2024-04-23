@@ -1786,7 +1786,7 @@ Seconds value is also placed in the kill-ring."
   "Announce version information for running emacspeak. "
   (interactive)
   (emacspeak-icon 'emacspeak)
-  (dtk-speak
+  (message
      (format "Emacspeak %s " emacspeak-version )))
 
 (defun emacspeak-speak-current-kill (&optional count)
