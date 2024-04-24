@@ -367,8 +367,7 @@ This cannot be set via custom; set this in your startup file before
 (defsubst emacspeak-play-startup-icon ()
   "Play startup icon."
   (cl-declare (special emacspeak-play-startup-icon ))
-  (when (and  emacspeak-play-startup-icon )
-    (emacspeak-icon 'emacspeak)))
+  (when   emacspeak-play-startup-icon (emacspeak-icon 'emacspeak)))
 
 (defsubst emacspeak-easter-egg ()
   "Easter Egg"
