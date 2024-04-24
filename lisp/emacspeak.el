@@ -364,11 +364,6 @@ the Emacspeak desktop.")
 This cannot be set via custom; set this in your startup file before
   you load anything else.")
 
-(defsubst emacspeak-play-startup-icon ()
-  "Play startup icon."
-  (cl-declare (special emacspeak-play-startup-icon ))
-  (when   emacspeak-play-startup-icon (emacspeak-icon 'emacspeak)))
-
 (defsubst emacspeak-easter-egg ()
   "Easter Egg"
   (cl-declare (special emacspeak-play))
