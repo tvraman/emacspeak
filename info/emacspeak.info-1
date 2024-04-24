@@ -2651,7 +2651,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ==============================================
 
 ‘C-@ emacspeak-speak-current-mark’
-‘C-a emacspeak-toggle-auditory-icons’
+‘C-a emacspeak-toggle-icons’
 ‘C-b emacspeak-bookshare’
 ‘C-c emacspeak-selective-display’
 ‘C-d emacspeak-toggle-show-point’

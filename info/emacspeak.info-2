@@ -4562,12 +4562,11 @@ also defines sound themes for auditory icons.
      as a gimmick.
    • The Emacspeak interface should be usable at all times with the
      icons turned off.
-   • Command ‘emacspeak-toggle-auditory-icons’ toggles the use of
-     auditory icons.  This flag is buffer-local; use an interactive
-     prefix argosy ‘C-u’ to toggle auditory icons on/off globally.
-   • Use ‘setq-default emacspeak-use-auditory-icons nil)’ to turn
-     auditory icons off at startup; default is to use auditory icons
-     globally.
+   • Command ‘emacspeak-toggle-icons’ toggles the use of auditory icons.
+     This flag is buffer-local; use an interactive prefix argosy ‘C-u’
+     to toggle auditory icons on/off globally.
+   • Use ‘setq-default emacspeak-use-icons nil)’ to turn auditory icons
+     off at startup; default is to use auditory icons globally.
    • General principle for using auditory icons:
        1. Convey information about events taking place in parallel.
        2. For instance, if making a selection automatically moves the
@@ -4625,10 +4624,10 @@ otherwise play them using a local player.
 
      (fn &optional THEME)
 
-12.178.3.2 emacspeak-toggle-auditory-icons
-..........................................
+12.178.3.2 emacspeak-toggle-icons
+.................................
 
- -- Command: emacspeak-toggle-auditory-icons (&optional prefix)
+ -- Command: emacspeak-toggle-icons (&optional prefix)
      ‘C-e C-a’
 
      Toggle use of auditory icons.

@@ -2430,7 +2430,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e .:                                 emacspeak-speak.    (line   37)
 * C-e ':                                 emacspeak-empv.     (line  179)
 * C-e (:                                 amixer.             (line   24)
-* C-e ):                                 emacspeak-sounds.   (line   74)
+* C-e ):                                 emacspeak-sounds.   (line   73)
 * C-e [:                                 Reading.            (line  121)
 * C-e [ <1>:                             emacspeak-speak.    (line  661)
 * C-e ]:                                 emacspeak-speak.    (line  639)
@@ -2479,7 +2479,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e C-<left>:                          emacspeak-wizards.  (line  139)
 * C-e C-<return>:                        emacspeak-speak.    (line  310)
 * C-e C-<right>:                         emacspeak-wizards.  (line  114)
-* C-e C-a:                               emacspeak-sounds.   (line   84)
+* C-e C-a:                               emacspeak-sounds.   (line   83)
 * C-e C-b:                               emacspeak-bookshare.
                                                              (line   53)
 * C-e C-c:                               emacspeak-speak.    (line  205)
@@ -4609,8 +4609,8 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
                                                              (line   42)
 * emacspeak-solitaire-speak-stones <1>:  emacspeak-solitaire.
                                                              (line   43)
-* emacspeak-sounds-select-theme:         emacspeak-sounds.   (line   72)
-* emacspeak-sounds-select-theme <1>:     emacspeak-sounds.   (line   75)
+* emacspeak-sounds-select-theme:         emacspeak-sounds.   (line   71)
+* emacspeak-sounds-select-theme <1>:     emacspeak-sounds.   (line   74)
 * emacspeak-speak-brief-time:            emacspeak-speak.    (line  235)
 * emacspeak-speak-brief-time <1>:        emacspeak-speak.    (line  238)
 * emacspeak-speak-buffer:                Reading.            (line   76)
@@ -5052,8 +5052,6 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
                                                              (line   77)
 * emacspeak-toggle-audio-indentation <1>: emacspeak-speak.   (line  944)
 * emacspeak-toggle-audio-indentation <2>: emacspeak-speak.   (line  947)
-* emacspeak-toggle-auditory-icons:       emacspeak-sounds.   (line   82)
-* emacspeak-toggle-auditory-icons <1>:   emacspeak-sounds.   (line   85)
 * emacspeak-toggle-character-echo:       Controlling Echo.   (line   18)
 * emacspeak-toggle-character-echo <1>:   emacspeak-speak.    (line  958)
 * emacspeak-toggle-character-echo <2>:   emacspeak-speak.    (line  961)
@@ -5066,6 +5064,8 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-toggle-eterm-autospeak <1>:  emacspeak-eterm.    (line  376)
 * emacspeak-toggle-header-line:          emacspeak-speak.    (line  968)
 * emacspeak-toggle-header-line <1>:      emacspeak-speak.    (line  969)
+* emacspeak-toggle-icons:                emacspeak-sounds.   (line   81)
+* emacspeak-toggle-icons <1>:            emacspeak-sounds.   (line   84)
 * emacspeak-toggle-inaudible-or-comint-autospeak: emacspeak-comint.
                                                              (line   33)
 * emacspeak-toggle-inaudible-or-comint-autospeak <1>: emacspeak-comint.
