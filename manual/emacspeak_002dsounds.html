@@ -88,14 +88,13 @@
         <li>The Emacspeak interface should be usable at all times
         with the icons turned off.</li>
         <li>Command <code class=
-        "code">emacspeak-toggle-auditory-icons</code> toggles the
-        use of auditory icons. This flag is buffer-local; use an
+        "code">emacspeak-toggle-icons</code> toggles the use of
+        auditory icons. This flag is buffer-local; use an
         interactive prefix argosy <code class="code">C-u</code> to
         toggle auditory icons on/off globally.</li>
-        <li>Use <code class="code">setq-default
-        emacspeak-use-auditory-icons nil)</code> to turn auditory
-        icons off at startup; default is to use auditory icons
-        globally.</li>
+        <li>Use <code class="code">setq-default emacspeak-use-icons
+        nil)</code> to turn auditory icons off at startup; default
+        is to use auditory icons globally.</li>
         <li>General principle for using auditory icons:
           <ol class="enumerate">
             <li>Convey information about events taking place in
@@ -169,8 +168,8 @@
           accesskey="1">emacspeak-sounds-select-theme</a>
         </li>
         <li>
-          <a href="#emacspeak_002dtoggle_002dauditory_002dicons"
-          accesskey="2">emacspeak-toggle-auditory-icons</a>
+          <a href="#emacspeak_002dtoggle_002dicons" accesskey=
+          "2">emacspeak-toggle-icons</a>
         </li>
       </ul>
       <div class="subsubsection-level-extent" id=
@@ -207,20 +206,18 @@
         </dl>
       </div>
       <div class="subsubsection-level-extent" id=
-      "emacspeak_002dtoggle_002dauditory_002dicons">
+      "emacspeak_002dtoggle_002dicons">
         <h4 class="subsubsection"><span>12.178.3.2
-        emacspeak-toggle-auditory-icons <a class="copiable-link"
-        href=
-        "#emacspeak_002dtoggle_002dauditory_002dicons">¶</a></span></h4>
+        emacspeak-toggle-icons <a class="copiable-link" href=
+        "#emacspeak_002dtoggle_002dicons">¶</a></span></h4>
         <dl class="first-deffn">
           <dt class="deffn" id=
-          "index-emacspeak_002dtoggle_002dauditory_002dicons">
-          <span class="category-def">Command:</span>
-          <span><strong class=
-          "def-name">emacspeak-toggle-auditory-icons</strong>
-          <var class="def-var-arguments">(&amp;optional
-          prefix)</var> <a class="copiable-link" href=
-          "#index-emacspeak_002dtoggle_002dauditory_002dicons">¶</a></span></dt>
+          "index-emacspeak_002dtoggle_002dicons"><span class=
+          "category-def">Command:</span> <span><strong class=
+          "def-name">emacspeak-toggle-icons</strong> <var class=
+          "def-var-arguments">(&amp;optional prefix)</var>
+          <a class="copiable-link" href=
+          "#index-emacspeak_002dtoggle_002dicons">¶</a></span></dt>
           <dd>
             <dl class="table">
               <dt>
@@ -229,7 +226,7 @@
                 "#index-C_002de-C_002da">¶</a></span>
               </dt>
             </dl><a class="index-entry-id" id=
-            "index-emacspeak_002dtoggle_002dauditory_002dicons-1"></a>
+            "index-emacspeak_002dtoggle_002dicons-1"></a>
             <div class="format">
               <pre class=
               "format-preformatted">Toggle use of auditory icons.
