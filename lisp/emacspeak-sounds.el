@@ -231,10 +231,10 @@ Pulse: For systems running Pipewire or Pulseaudio.
 sox-play: For systems using SoX as the local player.
 None: For systems that rely on the speech server playing the icon."
   :type
-  '(choice
+  `(choice
     (const  :tag "None" nil)
-    (const  :tag "Pulse" "/usr/bin/pactl")
-    (const  :tag "SoX" "/usr/bin/play"))
+    (const  :tag "Pulse" ,emacspeak-pactl)
+    (const  :tag "SoX" ,sox-play))
   :set
   #'(lambda(sym val)
       (set-default sym val)
