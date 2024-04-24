@@ -129,6 +129,15 @@ Optional interactive PREFIX arg toggles global value."
     (if   (null emacspeak-play-program) ; serve icon
         (emacspeak-serve-icon icon)
       (emacspeak-play-icon icon))))
+;;;  emacspeak-prompts:
+
+(defvar emacspeak-prompts-dir
+  (expand-file-name "prompts" emacspeak-sounds-dir)
+  "Where pre-defined prompt files are located.")
+
+(defun emacspeak-sounds-cache-prompts ()
+  "Populate sounds cache with prompts"
+  (emacspeak-sounds-cache-rebuild emacspeak-prompts-dir))
 
 ;;; Sounds Cache:
 
@@ -239,17 +248,8 @@ None: For systems that rely on the speech server playing the icon."
        ((string= sox-play val) (setq ems--play-args "-q"))))
   :group 'emacspeak)
 
-;;;  emacspeak-prompts:
-
-(defvar emacspeak-prompts-dir
-  (expand-file-name "prompts" emacspeak-sounds-dir)
-  "Where pre-defined prompt files are located.")
-
-(defun emacspeak-sounds-cache-prompts ()
-  "Populate sounds cache with prompts"
-  (emacspeak-sounds-cache-rebuild emacspeak-prompts-dir))
-
 ;;; Implementation: emacspeak-icon methods
+
 ;;;;   queue an auditory icon
 (defun emacspeak-queue-icon (icon)
   "Queue auditory icon ICON.
@@ -281,7 +281,7 @@ without Pipewire/Pulse: play from sox."
   (cl-declare (special emacspeak-play-program ems--play-args))
   (let ((process-connection-type nil))
     (start-process
-     "Play" nil emacspeak-play-program
-     ems--play-args (emacspeak-sounds-resource icon))))
+     "Play" nil emacspeak-play-program ems--play-args
+     (emacspeak-sounds-resource icon))))
 
 (provide  'emacspeak-sounds)
