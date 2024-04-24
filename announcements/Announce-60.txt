@@ -44,25 +44,24 @@ user interface. A rich suite of task-oriented tools provides efficient
 speech-enabled access to the evolving assistant-oriented social
 Internet cloud.
 
-* Major Enhancements:
+** Major Enhancements:
 
+  1. Updated Keybindings  ⌨
+  2. EMPV: Emacspeak And MPV 📺🔈
+  3. BBC Sounds 📻
+  4. Speech-Enable EBuku 🔖
+  5. The HTML5 Audio/Video Tag In EWW 🕷🔈
+  6. Piper: Neural-Net TTS  🎺
+  7. Speech-Enabled LLM Front-End 🧙
+  8. Pipewire Support  🔊
+  10. Mac Speech Server:   SwiftMac 🍏
+  11. Tree-Sitter Support  🎄
+  12. Smart Media Selector 🗄
+  13. Smart EBook  Selector📚
 
-
-1. Updated Keybindings  ⌨
-2. Smart Buffer Selection ⛏
-3. Audio Volume Adjust 🔈
-4. Speech-Rate Adjust🚄
-5. Twitter Support Removed X marks the spot.
-6. BBC Sounds URL Template  📻
-7. [[https://garfnet.org.uk/cms/2023/10/29/latest-bbc-hls-radio-streams/][BBC
-   HLS Streams]]  using MPV 📻
-8. ZOxide Integration ⏠ ⏡
-9. emacspeak-pipewire ǁ
-
-
-      — And a lot more than will fit this margin. … 🗞
+  — And a lot more than will fit this margin. … 🗞
   
-Note: This version *requires* emacs-29.1 or later. 
+Note: This version 2requires2 emacs-29.1 or later. 
 
 * Establishing Liberty, Equality And Freedom:
 
