@@ -209,7 +209,7 @@
    ("C-M-q" emacspeak-toggle-speak-messages)
    ("C-M-y" emacspeak-clipboard-paste)
    ("C-SPC" emacspeak-speak-current-mark)
-   ("C-a" emacspeak-toggle-auditory-icons)
+   ("C-a" emacspeak-toggle-icons)
    ("C-b" emacspeak-bookshare)
    ("C-c" emacspeak-selective-display)
    ("C-d" emacspeak-toggle-show-point)

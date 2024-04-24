@@ -1596,12 +1596,12 @@ Provide an auditory icon if possible."
 
 (defadvice call-last-kbd-macro (around emacspeak pre act comp)
   "Speak."
-  (cl-declare (special emacspeak-use-auditory-icons))
+  (cl-declare (special emacspeak-use-icons))
   (cond
    ((ems-interactive-p)
     (ems-with-messages-silenced
      (let ((dtk-quiet t)
-           (emacspeak-use-auditory-icons nil))
+           (emacspeak-use-icons nil))
        ad-do-it))
     (message "Executed macro. ")
     (emacspeak-icon 'task-done))

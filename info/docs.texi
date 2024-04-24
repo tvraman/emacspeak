@@ -12014,11 +12014,11 @@ This module provides the interface for generating auditory icons.
 provide additional feedback, not as a gimmick.
 @item   The Emacspeak interface
 should be usable at all times with the icons turned off.
-@item  Command @code{emacspeak-toggle-auditory-icons} toggles the
+@item  Command @code{emacspeak-toggle-icons} toggles the
 use of auditory icons. This flag is buffer-local; use an
 interactive prefix argosy @code{C-u} to toggle auditory icons on/off
 globally.
-@item  Use @code{setq-default emacspeak-use-auditory-icons nil)} to turn
+@item  Use @code{setq-default emacspeak-use-icons nil)} to turn
 auditory icons  off at startup; default is to use auditory icons globally.
 @item   General principle for using auditory icons:
 @enumerate
@@ -12085,14 +12085,14 @@ Select theme for auditory icons.
 @end format
 @end deffn
 
-@subsubsection emacspeak-toggle-auditory-icons
-@deffn {Command} emacspeak-toggle-auditory-icons  (&optional prefix)
+@subsubsection emacspeak-toggle-icons
+@deffn {Command} emacspeak-toggle-icons  (&optional prefix)
 @table @kbd
 @item C-e C-a
 @kindex C-e C-a
 @end table
 
-@findex emacspeak-toggle-auditory-icons
+@findex emacspeak-toggle-icons
 
 @format
 Toggle use of auditory icons.

@@ -76,7 +76,7 @@
 (defun emacspeak-hydra-post ()
   "Provide auditory icon. "
   (dtk-stop 'all)
-  (when emacspeak-use-auditory-icons
+  (when emacspeak-use-icons
     (emacspeak-icon 'close-object)))
 
 ;;;  Setup Help And Hint 

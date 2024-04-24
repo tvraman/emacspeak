@@ -777,8 +777,8 @@ Argument COMPLEMENT  is the complement of separator."
 (defun dtk-audio-format (start end)
   "Format and speak text from `start' to `end'. "
   (cl-declare (special voice-lock-mode dtk-speaker-process
-                       tts-default-voice emacspeak-use-auditory-icons))
-  (when (and emacspeak-use-auditory-icons
+                       tts-default-voice emacspeak-use-icons))
+  (when (and emacspeak-use-icons
              (get-text-property start 'auditory-icon))
     (emacspeak-queue-icon (get-text-property start 'auditory-icon)))
   (dtk-interp-queue-code (tts-voice-reset-code))
@@ -1626,7 +1626,7 @@ unless   `dtk-quiet' is set to t. "
                dtk-yank-excluded-properties
                dtk-speaker-process dtk-stop-immediately
                tts-strip-octals
-               emacspeak-use-auditory-icons
+               emacspeak-use-icons
                dtk-speech-rate dtk-speak-nonprinting-chars
                dtk-quiet dtk-chunk-separator-syntax
                inhibit-modification-hooks

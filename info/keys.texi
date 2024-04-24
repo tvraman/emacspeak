@@ -7,7 +7,7 @@
 
 @table @kbd
 @item C-@@  emacspeak-speak-current-mark
-@item C-a  emacspeak-toggle-auditory-icons
+@item C-a  emacspeak-toggle-icons
 @item C-b  emacspeak-bookshare
 @item C-c  emacspeak-selective-display
 @item C-d  emacspeak-toggle-show-point

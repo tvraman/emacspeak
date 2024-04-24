@@ -44,11 +44,11 @@
 ;; provide additional feedback, not as a gimmick.
 ;; @item   The Emacspeak interface
 ;; should be usable at all times with the icons turned off.
-;; @item  Command @code{emacspeak-toggle-auditory-icons} toggles the
+;; @item  Command @code{emacspeak-toggle-icons} toggles the
 ;; use of auditory icons. This flag is buffer-local; use an
 ;; interactive prefix argosy @code{C-u} to toggle auditory icons on/off
 ;; globally.
-;; @item  Use @code{setq-default emacspeak-use-auditory-icons nil)} to turn
+;; @item  Use @code{setq-default emacspeak-use-icons nil)} to turn
 ;; auditory icons  off at startup; default is to use auditory icons globally.
 ;; @item   General principle for using auditory icons:
 ;; @enumerate
@@ -104,30 +104,30 @@
 
 ;;;   Auditory Icons:
 
-(defvar-local emacspeak-use-auditory-icons t
-  "Control auditory icons.
-Use `emacspeak-toggle-auditory-icons' bound to
-\\[emacspeak-toggle-auditory-icons].")
+(defvar-local emacspeak-use-icons t
+  "Turn on auditory icons.
+Use `emacspeak-toggle-icons' bound to
+\\[emacspeak-toggle-icons].")
 
-(defun emacspeak-toggle-auditory-icons (&optional prefix)
+(defun emacspeak-toggle-icons (&optional prefix)
   "Toggle use of auditory icons.
 Optional interactive PREFIX arg toggles global value."
   (interactive "P")
-  (cl-declare (special emacspeak-use-auditory-icons))
-  (setq  emacspeak-use-auditory-icons (not emacspeak-use-auditory-icons))
+  (cl-declare (special emacspeak-use-icons))
+  (setq  emacspeak-use-icons (not emacspeak-use-icons))
   (when prefix
-    (setq-default emacspeak-use-auditory-icons
-                  emacspeak-use-auditory-icons))
+    (setq-default emacspeak-use-icons
+                  emacspeak-use-icons))
   (when (called-interactively-p 'interactive)
     (message "Turned %s auditory icons %s"
-             (if emacspeak-use-auditory-icons  'on 'off)
+             (if emacspeak-use-icons  'on 'off)
              (if prefix "" "locally"))
-    (when emacspeak-use-auditory-icons (emacspeak-icon 'on))))
+    (when emacspeak-use-icons (emacspeak-icon 'on))))
 
 (defun emacspeak-icon (icon)
   "Produce an auditory ICON."
-  (cl-declare (special emacspeak-use-auditory-icons emacspeak-play-program))
-  (when emacspeak-use-auditory-icons
+  (cl-declare (special emacspeak-use-icons emacspeak-play-program))
+  (when emacspeak-use-icons
     (if   (null emacspeak-play-program) ; serve icon
         (emacspeak-serve-icon icon)
       (emacspeak-play-icon icon))))
