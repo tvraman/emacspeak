@@ -274,7 +274,9 @@ This is a private function and  might go away."
 ;; ems--play-args is set when emacspeak-play-program is selected.
 
 (defun emacspeak-play-icon(icon)
-  "Produce auditory icon `icon' using a local  player. "
+  "Produce auditory icon ICON using a local player.
+Linux: Pipewire and Pulse: pactl.
+without Pipewire/Pulse: play from sox."
   (cl-declare (special emacspeak-play-program ems--play-args))
   (let ((process-connection-type nil))
     (start-process
