@@ -230,6 +230,9 @@ this on to speak mixed-case (@acronym{AKA} Camel Case) identifiers.
 @example
 tts_sync_state punct splitcaps caps rate
 @end example
+
+@strong{Immediately} apply the passed settings.
+
 This ensures @strong{atomicity} i.e., all state settings in the TTS
 engine happen at one shot. Note that failure to do this might result
 in some utterances being spoken with a partially set state.

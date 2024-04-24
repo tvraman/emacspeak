@@ -2,6 +2,7 @@ import AVFoundation
 import AppKit
 import Darwin
 import Foundation
+import Network
 import OggDecoder
 
 /* Globals */
@@ -14,7 +15,7 @@ import OggDecoder
 #else
   let debugLogger = Logger()  // No-Op
 #endif
-let version = "2.4.2"
+let version = "2.6.3"
 let name = "swiftmac"
 var ss = await StateStore()  // just create new one to reset
 let speaker = AVSpeechSynthesizer()
@@ -72,9 +73,111 @@ func notificationMode() async -> Bool {
   return false
 }
 
+func parseCommandLineArguments() -> (port: Int?, shouldListen: Bool) {
+  debugLogger.log("in parseCommandLineArguments")
+  let arguments = CommandLine.arguments
+  var port: Int?
+  var shouldListen = false
+
+  if let index = arguments.firstIndex(of: "-p"), index + 1 < arguments.count {
+    port = Int(arguments[index + 1])
+    shouldListen = true
+  }
+
+  return (port, shouldListen)
+}
+
+func startNetworkListener(port: NWEndpoint.Port) {
+  debugLogger.log("in startNetworkListener")
+  let listener = try! NWListener(using: .tcp, on: port)
+
+  listener.stateUpdateHandler = { newState in
+    switch newState {
+    case .ready:
+      debugLogger.log("Listener ready")
+    case .failed(let error):
+      debugLogger.log("Listener failed with error: \(error)")
+    case .waiting(let error):
+      debugLogger.log("Listener waiting with error: \(error)")
+    default:
+      break
+    }
+  }
+
+  listener.newConnectionHandler = { newConnection in
+    debugLogger.log("New connection: \(newConnection.endpoint)")
+    handleConnection(newConnection)
+  }
+
+  listener.start(queue: .main)
+}
+
+func handleConnection(_ connection: NWConnection) {
+  debugLogger.log("in handleConnection")
+
+  connection.stateUpdateHandler = { newState in
+    switch newState {
+    case .ready:
+      debugLogger.log("Connection ready")
+      receiveData(from: connection)
+    case .failed(let error):
+      debugLogger.log("Connection failed with error: \(error)")
+    case .waiting(let error):
+      debugLogger.log("Connection waiting with error: \(error)")
+    default:
+      break
+    }
+  }
+
+  connection.start(queue: .main)
+}
+
+func receiveData(from connection: NWConnection) {
+  debugLogger.log("in receiveData")
+
+  connection.receive(minimumIncompleteLength: 1, maximumLength: 101024) {
+    data, _, isComplete, error in
+    if let error = error {
+      debugLogger.log("Error receiving data: \(error)")
+      connection.cancel()
+      return
+    }
+
+    if let data = data, !data.isEmpty {
+      let inputString = String(data: data, encoding: .utf8) ?? ""
+      let inputLines = inputString.components(separatedBy: CharacterSet.newlines)
+      debugLogger.log("string in \(inputLines)")
+      debugLogger.log("lines in \(inputLines)")
+
+      for inputLine in inputLines {
+        let trimmedLine = inputLine.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !trimmedLine.isEmpty {
+          Task {
+            await processInputLine(trimmedLine)
+          }
+        }
+      }
+    }
+
+    if isComplete {
+      debugLogger.log("Connection closed")
+      connection.cancel()
+    } else {
+      receiveData(from: connection)
+    }
+  }
+}
+
 /* EntryPoint */
 func main() async {
   debugLogger.log("Enter: main")
+
+  let (port, shouldListen) = parseCommandLineArguments()
+
+  if shouldListen, let port = port {
+    debugLogger.log("Starting network listener on port \(port)")
+    startNetworkListener(port: NWEndpoint.Port(rawValue: UInt16(port))!)
+  }
 
   if await notificationMode() {
     await instantTtsSay("notification mode on")
@@ -82,42 +185,47 @@ func main() async {
     // Setup notification audio routing
     engine.attach(playerNode)
     engine.attach(environmentNode)
-
   } else {
     await instantVersion()
   }
 
-  while let l = readLine() {
-    debugLogger.log("got line \(l)")
-    let (cmd, params) = await isolateCmdAndParams(l)
-    switch cmd {
-    case "a": await processAndQueueAudioIcon(params)
-    case "c": await doDiscard(cmd, params)
-    case "d": await dispatchPendingQueue()
-    case "l": await instantLetter(params)
-    case "p": await doPlaySound(params)
-    case "q": await queueLine(cmd, params)
-    case "s": await instantStopSpeaking()
-    case "sh": await queueLine(cmd, params)
-    case "t": await queueLine(cmd, params)
-    case "tts_allcaps_beep": await queueLine(cmd, params)
-    case "set_lang": await ttsSetVoice(params)
-    case "tts_exit": await instantTtsExit()
-    case "tts_reset": await instantTtsReset()
-    case "tts_say": await instantTtsSay(params)
-    case "tts_set_character_scale": await queueLine(cmd, params)
-    case "tts_set_pitch_multiplier": await queueLine(cmd, params)
-    case "tts_set_punctuations": await queueLine(cmd, params)
-    case "tts_set_sound_volume": await queueLine(cmd, params)
-    case "tts_set_speech_rate": await instantSetSpeechRate(params)
-    case "tts_set_tone_volume": await queueLine(cmd, params)
-    case "tts_set_voice": await queueLine(cmd, params)
-    case "tts_set_voice_volume": await queueLine(cmd, params)
-    case "tts_split_caps": await queueLine(cmd, params)
-    case "tts_sync_state": await instantTtsSyncState(params)
-    case "version": await instantVersion()
-    default: await unknownLine(cmd, params)
-    }
+  while let line = readLine() {
+    await processInputLine(line)
+  }
+}
+
+func processInputLine(_ line: String) async {
+  debugLogger.log("Enter: processInputLine")
+
+  debugLogger.log("got line \(line)")
+  let (cmd, params) = await isolateCmdAndParams(line)
+  switch cmd {
+  case "a": await processAndQueueAudioIcon(params)
+  case "c": await processAndQueueCodes(params)
+  case "d": await dispatchPendingQueue()
+  case "l": await instantLetter(params)
+  case "p": await doPlaySound(params)
+  case "q": await queueLine(cmd, params)
+  case "s": await instantStopSpeaking()
+  case "sh": await queueLine(cmd, params)
+  case "t": await queueLine(cmd, params)
+  case "tts_allcaps_beep": await queueLine(cmd, params)
+  case "set_lang": await ttsSetVoice(params)
+  case "tts_exit": await instantTtsExit()
+  case "tts_reset": await instantTtsReset()
+  case "tts_say": await instantTtsSay(params)
+  case "tts_set_character_scale": await queueLine(cmd, params)
+  case "tts_set_pitch_multiplier": await queueLine(cmd, params)
+  case "tts_set_punctuations": await queueLine(cmd, params)
+  case "tts_set_sound_volume": await queueLine(cmd, params)
+  case "tts_set_speech_rate": await instantSetSpeechRate(params)
+  case "tts_set_tone_volume": await queueLine(cmd, params)
+  case "tts_set_voice": await queueLine(cmd, params)
+  case "tts_set_voice_volume": await queueLine(cmd, params)
+  case "tts_split_caps": await queueLine(cmd, params)
+  case "tts_sync_state": await instantTtsSyncState(params)
+  case "version": await instantVersion()
+  default: await unknownLine(cmd, params)
   }
 }
 
@@ -233,8 +341,12 @@ func instantLetter(_ p: String) async {
 
 func instantStopSpeaking() async {
   debugLogger.log("Enter: instantStopSpeaking")
-  speaker.stopSpeaking(at: .immediate)
-  playerNode.stop()
+  if speaker.isSpeaking {
+    speaker.stopSpeaking(at: .immediate)
+  }
+  if playerNode.isPlaying {
+    playerNode.stop()
+  }
 }
 
 func isFirstLetterCapital(_ str: String) -> Bool {
@@ -280,6 +392,22 @@ func extractVoice(_ string: String) -> String? {
   return String(string[range])
 }
 
+func extractPitch(_ string: String) -> String? {
+  debugLogger.log("Enter: extractPitch")
+  let pattern = "\\[\\[pitch\\s+([^\\]]+)\\]\\]"
+  let regex = try! NSRegularExpression(pattern: pattern, options: [])
+
+  let matches = regex.matches(
+    in: string, options: [], range: NSRange(location: 0, length: string.utf16.count))
+
+  guard let match = matches.first else {
+    return nil
+  }
+
+  let range = Range(match.range(at: 1), in: string)!
+  return String(string[range])
+}
+
 func processAndQueueAudioIcon(_ p: String) async {
   debugLogger.log("Enter: processAndQueueAudioIcon")
   await ss.appendToPendingQueue(("p", p))
@@ -290,6 +418,9 @@ func processAndQueueCodes(_ p: String) async {
   debugLogger.log("Enter: processAndQueueCodes")
   if let v = extractVoice(p) {
     await ss.appendToPendingQueue(("tts_set_voice", v))
+  }
+  if let p = extractPitch(p) {
+    await ss.appendToPendingQueue(("tts_set_pitch_multiplier", p))
   }
 }
 
@@ -461,29 +592,41 @@ func doTone(_ p: String) async {
   }
 }
 
-func doPlaySound(_ p: String) async {
+func doPlaySound(_ path: String) async {
   debugLogger.log("Enter: doPlaySound")
-  let soundURL = URL(fileURLWithPath: p)
+  let soundURL = URL(fileURLWithPath: path)
 
-  let savedWavUrl: URL? = await withCheckedContinuation { continuation in
-    if soundURL.pathExtension.lowercased() == "ogg" {
-      debugLogger.log("Decoding OGG file at URL: \(soundURL)")
-      let decoder = OGGDecoder()
-      decoder.decode(soundURL) { savedWavUrl in
-        continuation.resume(returning: savedWavUrl)
-      }
-    } else {
-      continuation.resume(returning: soundURL)
+  do {
+    let decodedURL: URL? = try await decodeIfNeeded(soundURL)
+    guard let url = decodedURL else {
+      debugLogger.log("Failed to get audio file URL from path: \(path)")
+      return
     }
-  }
 
-  guard let url = savedWavUrl else {
-    debugLogger.log("Failed to get audio file URL from path: \(p)")
-    return
+    debugLogger.log("Playing sound from URL: \(url)")
+    let volume = await ss.soundVolume  // Assuming this is a property call or async method
+    Task {
+      await SoundManager.shared.playSound(from: url, volume: volume)
+    }
+  } catch {
+    debugLogger.log("An error occurred while trying to play sound: \(error)")
+    // Handle error or simply log it to allow continuation of program execution
   }
+}
 
-  let volume = await ss.soundVolume  // Assuming this is efficient to call frequently.
-  await SoundManager.shared.playSound(from: url, volume: volume)
+/// Helper function to decode OGG files if necessary
+private func decodeIfNeeded(_ url: URL) async throws -> URL? {
+  if url.pathExtension.lowercased() == "ogg" {
+    debugLogger.log("Decoding OGG file at URL: \(url)")
+    let decoder = OGGDecoder()
+    return try await withCheckedContinuation { continuation in
+      decoder.decode(url) { decodedUrl in
+        continuation.resume(returning: decodedUrl)
+      }
+    }
+  } else {
+    return url
+  }
 }
 
 func instantTtsSay(_ p: String) async {
