@@ -369,11 +369,11 @@ This cannot be set via custom; set this in your startup file before
   (cl-declare (special emacspeak-play))
   (let ((f (expand-file-name "ai/01-gemini.ogg" emacspeak-etc-directory)))
     (when
-        (and  emacspeak-play-startup-icon sox-play
-              (file-exists-p f)
-              (string=                  ; anniversary
-               (format-time-string "%m-%d") (format-time-string "04-25")))
-      (start-process "ogg" nil sox-play f))))
+        (and
+         emacspeak-play-startup-icon sox-play
+         (file-exists-p f)
+         (string= (format-time-string "%m-%d") (format-time-string "04-25")))
+      (run-at-time 3 nil #'(lambda () (start-process "ogg" nil sox-play f))))))
 
 (defvar emacspeak-startup
   (eval-when-compile
