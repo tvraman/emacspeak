@@ -360,6 +360,8 @@ If already playing, then read an empv key and invoke its command."
   (cl-declare (special empv-map
                        empv-youtube-results-mode-map))
   (define-key empv-youtube-results-mode-map
+              (kbd "C-v") 'empv-youtube-results-load-more)
+  (define-key empv-youtube-results-mode-map
               "o" 'empv-youtube-results-play-current)
   (cl-loop
    for b in
