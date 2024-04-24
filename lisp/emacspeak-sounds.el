@@ -170,11 +170,12 @@ icon-name, as string."
 (defconst emacspeak-pactl (executable-find "pactl") "PaCtl Executable.")
 
 ;; Called when  selecting themes.
-(defun emacspeak-sounds-cache-rebuild (theme)
-  "Rebuild sound cache for theme, a directory containing sound files."
-  (when (file-exists-p theme)
+(defun emacspeak-sounds-cache-rebuild (dir)
+  "Rebuild sound cache for `dir', a directory containing sound files.
+It is called  to cache sounds in our theme and prompts directories."
+  (when (file-exists-p dir)
     (cl-loop
-     for f in (directory-files theme 'full "\\.ogg$") do
+     for f in (directory-files dir 'full "\\.ogg$") do
      (emacspeak-sounds-cache-put (intern (file-name-base f)) f))))
 
 (defsubst ems--upload-pulse-samples ()
