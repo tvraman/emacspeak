@@ -61,7 +61,7 @@ Internet cloud.
 
   — And a lot more than will fit this margin. … 🗞
   
-Note: This version 2requires2 emacs-29.1 or later. 
+Note: This version requires emacs-29.1 or later. 
 
 * Establishing Liberty, Equality And Freedom:
 
@@ -127,7 +127,7 @@ The latest development snapshot of Emacspeak is always available at
 [[https://github.com/tvraman/emacspeak][GitHub]].
 
 * History:
-
+- Emacspeak 60 delivers a more idealized auditory environment.
 - Emacspeak 59 delivers better ergonomics by minimizing the need for chording, but sadly, with no  dog to guide its way.
   - Emacspeak 58 delivers better ergonomics by minimizing the need for chording.
   - Emacspeak 57.0 is named in honor of [[https://tvraman.github.io/tilden-face.jpg][Tilden Labrador]].
@@ -305,7 +305,7 @@ HeadDog (DM), LiveDog (DM), GoldenDog (DM), BlackDog (DM) etc., are Registered
 Dogmarks of Aster,  Hubbell  and Tilden Labrador.  All other dogs belong to
 their respective owners.
 
-#+TITLE:     Announcing Emacspeak 59.0—VirtualDog!
+#+TITLE:     Announcing Emacspeak 60.0—DreamDog!
 #+AUTHOR:    T.V Raman
 #+EMAIL:     tv.raman.tv@gmail.com#+DATE:      2009-11-25 Wed
 #+LANGUAGE:  en
