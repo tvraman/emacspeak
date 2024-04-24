@@ -60,7 +60,8 @@ emacspeak-preamble.elc \
 emacspeak-loaddefs.elc \
 dtk-speak.elc		dectalk-voices.elc\
 plain-voices.elc espeak-voices.elc \
-outloud-voices.elc  mac-voices.elc
+outloud-voices.elc  mac-voices.elc \
+swiftmac-voices.elc 
 
 SPEAK_OBJECTS =   \
 voice-setup.elc \
