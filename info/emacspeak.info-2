@@ -4587,7 +4587,7 @@ also defines sound themes for auditory icons.
    • As of Emacspeak 13.0, this module defines a themes architecture for
      auditory icons.  Sound files corresponding to a given theme are
      found in appropriate subdirectories of emacspeak-sounds-dir.
-   • There are two supported themes: ‘ogg-chimes’ and ‘ogg-3d’.
+   • There are two supported themes: ‘chimes’ and ‘3d’.
    • Contrast this with ‘prompts’ -- they dont belong to any theme.
 
 12.178.2 Designing Auditory Icons
