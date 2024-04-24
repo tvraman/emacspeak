@@ -10,7 +10,7 @@ my @raw = qx(cat ../lisp/*.el | grep $pattern); #matching lines
 chomp(@raw);
 
 # Load in defined icon names.
-my @icons = qx(ls ../sounds/ogg-chimes/*.ogg);
+my @icons = qx(ls ../sounds/chimes/*.ogg);
 chomp(@icons);
 my %hash;
 

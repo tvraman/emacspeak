@@ -13,21 +13,21 @@
   (concatenate 'string
                *emacspeak-dir*
                "/"
-               "sounds/ogg-chimes/window-resize.ogg")
+               "sounds/chimes/window-resize.ogg")
   "Window change icon.")
 
 (defvar *tts-off-icon*
   (concatenate 'string
                *emacspeak-dir*
                "/"
-               "sounds/ogg-chimes/off.ogg")
+               "sounds/chimes/off.ogg")
   "Off icon.")
 
 (defvar *tts-on-icon*
   (concatenate 'string
                *emacspeak-dir*
                "/"
-               "sounds/ogg-chimes/on.ogg")
+               "sounds/chimes/on.ogg")
   "On icon.")
 
 ;;}}}

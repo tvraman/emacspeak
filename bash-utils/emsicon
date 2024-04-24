@@ -4,4 +4,4 @@
 l="$@"
 pidof -q `which emacs` && \
 emacsclient -n -e "(emacspeak-icon '$l)"   2>&1 > /dev/null ||
-        paplay ${HOME}/emacs/lisp/emacspeak/sounds/ogg-chimes/$l.ogg
+        paplay ${HOME}/emacs/lisp/emacspeak/sounds/chimes/$l.ogg
