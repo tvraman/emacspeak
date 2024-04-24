@@ -462,7 +462,8 @@ commands and options."
      '(emacspeak-speak-show-volume (:eval (ems--show-current-volume)))))
   (message emacspeak-startup)
   (when   emacspeak-play-startup-icon
-    (emacspeak-icon 'emacspeak)
+    (message "played startup %s"
+             (emacspeak-icon 'emacspeak))
     (emacspeak-easter-egg)))
 
 (provide 'emacspeak)
