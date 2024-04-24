@@ -448,7 +448,7 @@ commands and options."
    #'(lambda nil (setq-default emacspeak-speak-messages nil))
    -10)
   (dtk-initialize)
-  (make-thread #'emacspeak-sounds-select-theme)
+  (emacspeak-sounds-select-theme)
   (emacspeak-pronounce-load-dictionaries)
   (make-thread #'(lambda nil  (ems--fastload "emacspeak-advice")))
   (emacspeak-setup-programming-modes)
