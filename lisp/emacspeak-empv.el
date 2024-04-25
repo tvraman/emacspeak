@@ -355,6 +355,15 @@ If already playing, then read an empv key and invoke its command."
               (cdr  (assoc 'title (cl-first empv--last-youtube-candidates)))
               (length empv--last-youtube-candidates)))))
 
+(defadvice empv--youtube-tabulated-entries-append (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-icon 'scroll)
+    (dtk-notify
+      (format "%s: %s results"
+              (cdr  (assoc 'title (cl-first empv--last-youtube-candidates)))
+              (length empv--last-youtube-candidates)))))
+
 (defun emacspeak-empv-setup ()
   "Emacspeak setup for empv."
   (cl-declare (special empv-map
