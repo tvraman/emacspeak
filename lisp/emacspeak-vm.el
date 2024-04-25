@@ -383,6 +383,7 @@ Then speak the screenful. "
   "Provide an auditory icon if requested"
   (when (ems-interactive-p)
     (emacspeak-icon 'close-object)
+    (dtk-stop)
     (with-current-buffer (window-buffer (selected-window))
       (emacspeak-speak-mode-line))))
 
