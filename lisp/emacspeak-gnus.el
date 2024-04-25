@@ -151,6 +151,7 @@ instead you hear only the first screenful."
      "Provide auditory contextual feedback."
      (when (ems-interactive-p)
        (emacspeak-icon 'close-object)
+       (dtk-stop)
        (emacspeak-speak-mode-line)))))
 
 ;;;   starting up:
