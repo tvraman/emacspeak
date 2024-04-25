@@ -805,7 +805,7 @@ are available are cued by an auditory icon on the header line."
      "speak"
      (when (ems-interactive-p)
        (emacspeak-icon 'open-object)
-       (emacspeak-speak-mode-line)))))
+       (emacspeak-speak-header-line)))))
 
 (defvar-local emacspeak-eww-style nil
   "Record if we applied an  xsl style in this buffer.")
@@ -1617,7 +1617,7 @@ Optional interactive arg `multi' prompts for multiple classes."
   (let ((inhibit-read-only  t))
     (keep-lines pattern)
     (goto-char (point-min))
-    (emacspeak-speak-mode-line)
+    (emacspeak-speak-header-line)
     (emacspeak-icon 'open-object)))
 
 (defun eww-view-dom-having-elements (&optional multi)
@@ -1662,7 +1662,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
       (emacspeak-eww-view-helper
        (dom-html-from-nodes dom (eww-current-url)))
       (emacspeak-icon 'open-object)
-      (emacspeak-speak-mode-line))
+      (emacspeak-speak-header-line))
      (t (message "Filtering failed.")))))
 
 (defun eww-view-dom-not-having-elements (multi)
@@ -1687,7 +1687,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (interactive)
   (cl-declare (special eww-history eww-history-position))
   (eww-restore-history(elt eww-history eww-history-position))
-  (emacspeak-speak-mode-line)
+  (emacspeak-speak-header-line)
   (emacspeak-icon 'open-object))
 
 ;;;  Filters For Non-interactive  Use:

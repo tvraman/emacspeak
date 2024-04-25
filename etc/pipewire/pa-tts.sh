@@ -1,9 +1,6 @@
 #!/bin/sh
 #Create our tts_mono_left and tts_mono_right and avoid .asoundrc
 
-
-
-
 # A tts_mono_right and tts_mono_left device
 # See https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Modules/#module-remap-sink
 # Emacspeak will use the first as the notification device.
