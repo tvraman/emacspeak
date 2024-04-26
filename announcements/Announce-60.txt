@@ -12,15 +12,15 @@
 San Jose, CA, (May 4, 2024)
 
 ** Emacspeak 60.0 (DreamDog)  Unleashed!  🦮
-       --- Making Accessible Computing Effortless!
+  --- Innate Intelligence Makes   Accessible Computing Effortless!
 
 Advancing Accessibility In The Age Of User-Aware Interfaces --- Zero
 cost of Ownership makes priceless software Universally affordable!
 
-Emacspeak Inc (NASDOG: ESPK) --- http://github.com/tvraman/emacspeak
---- announces immediate world-wide availability of [[https://github.com/tvraman/emacspeak/releases/download/60.0/emacspeak-60.0.tar.bz2][Emacspeak 60.0]]
-(DreamDog) 🦮 --- a non-LLM powered (though innately intelligent)
-audio desktop that leverages today's evolving Data, Social and
+Emacspeak Inc (NASDOG: ESPK) — http://github.com/tvraman/emacspeak —
+announces immediate world-wide availability of [[https://github.com/tvraman/emacspeak/releases/download/60.0/emacspeak-60.0.tar.bz2][Emacspeak 60.0]]
+(DreamDog) 🦮 --- a non-LLM powered and innately intelligent audio
+desktop that leverages today's evolving Data, Social and
 Assistant-Oriented Internet cloud to enable working efficiently and
 effectively from anywhere!
 
@@ -38,7 +38,7 @@ Emacspeak is a fully functional audio desktop that provides complete
 eyes-free access to all major 32 and 64 bit operating environments. By
 seamlessly blending live access to all aspects of the Internet such as
 ubiquitous assistance, Web-surfing, blogging, remote software
-development, streaming media, social computing, AI-Bots  and electronic
+development, streaming media, social computing, AI-Tools  and electronic
 messaging into the audio desktop, Emacspeak enables spoken access to
 local and remote information with a consistent and well-integrated
 user interface. A rich suite of task-oriented tools provides efficient
@@ -51,9 +51,9 @@ Internet cloud.
   2. EMPV: Emacspeak And MPV 📺🔈
   3. BBC Sounds: Search, Play and Download  📻
   4. Speech-Enable EBuku 🔖
-  5. The HTML5 Audio/Video Tag In EWW 🕷🔈
+  5. Supports  HTML5 Audio/Video Tag In EWW 🕷🔈
   6. Piper: Neural-Net TTS  🎺
-  7. Speech-Enabled LLM Front-End 🧙
+  7. Speech-Enabled LLM Front-Ends, ~ellama~ and ~gptel~ . 🧙
   8. Pipewire Support  🔊
   10. New Mac Speech Server:   SwiftMac 🍏
   11. Tree-Sitter Support  🎄
@@ -129,7 +129,7 @@ The latest development snapshot of Emacspeak is always available at
 
 * History:
 
-- Emacspeak 60 delivers a more idealized auditory environment.
+- Innately intelligent, Emacspeak 60 delivers a more idealized auditory environment.
 - Emacspeak 59 delivers better ergonomics by minimizing the need for chording, but sadly, with no  dog to guide its way.
   - Emacspeak 58 delivers better ergonomics by minimizing the need for chording.
   - Emacspeak 57.0 is named in honor of [[https://tvraman.github.io/tilden-face.jpg][Tilden Labrador]].
