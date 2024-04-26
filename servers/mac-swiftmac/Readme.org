@@ -10,12 +10,14 @@ Project: https://github.com/robertmeta/swiftmac
  - Restart emacs
 
 ** Recommended Settings
-#+BEGIN_SRC 
+#+BEGIN_SRC  emacs-lisp
   ; pick your favorite voice 
   (setopt swiftmac-default-voice-string "[{voice :Alex}] [[[[pitch 1]]]]")
   ; general emacspeak stuff not specific to swiftmac
-  (setq-default load-path (cons "~/.emacspeak/lisp" load-path)) 
-  (setq-default emacspeak-directory "~/.emacspeak") 
+  (setq-default load-path (cons "~/.emacspeak/lisp" load-path))
+  ;; TVR: ~/.emacspeak is used by emacspeak  emacspeak-user-directory
+  ;; suggest not conflating  it with emacspeak-directory so drop next line
+  ;(setq-default emacspeak-directory "~/.emacspeak") 
   ; stops doubletalk (when supported)
   (setopt mac-ignore-accessibility 't) 
   (setopt dtk-program "swiftmac")
@@ -25,8 +27,9 @@ Project: https://github.com/robertmeta/swiftmac
   (setenv "SWIFTMAC_VOICE_VOLUME" "1.0") 
   ; set to write or left or setup in customize
   (setopt tts-notification-device "right") 
-  ; initialize emacsepeak
+  ; initialize Emacspeak
   (require 'emacspeak-setup)
+  ;; tvr: first line does not parse (English) and I suggest taking these next  lines out.
   ;; Below is an example of tweaking voices for syntax
   ;; The below is not crazy, just for demo purposes.
   ; (swiftmac-define-voice voice-bolden "[{voice en_US:Fred}] [[pitch 0.8]]")
