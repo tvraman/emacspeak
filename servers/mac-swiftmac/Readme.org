@@ -1,5 +1,8 @@
 * swiftmac
-This is a drop in replacement for the python "mac" server.
+This is a server for Emacspeak for modern macs using
+swift 5.5+.
+
+Project: https://github.com/robertmeta/swiftmac
 
 ** Quick Install (requires swift compiler)
  - make swiftmac (from emacspeak root, ignore warnings)
@@ -8,9 +11,11 @@ This is a drop in replacement for the python "mac" server.
 
 ** Recommended Settings
 #+BEGIN_SRC 
+  ; pick your favorite voice 
+  (setopt swiftmac-default-voice-string "[{voice :Alex}] [[[[pitch 1]]]]")
   ; general emacspeak stuff not specific to swiftmac
-  (setq load-path (cons "~/.emacspeak/lisp" load-path)) 
-  (setq emacspeak-directory "~/.emacspeak") 
+  (setq-default load-path (cons "~/.emacspeak/lisp" load-path)) 
+  (setq-default emacspeak-directory "~/.emacspeak") 
   ; stops doubletalk (when supported)
   (setopt mac-ignore-accessibility 't) 
   (setopt dtk-program "swiftmac")
@@ -33,6 +38,9 @@ This is a drop in replacement for the python "mac" server.
   ; (swiftmac-define-voice voice-monotone "[{voice en-US:Eddy}] [[pitch 1]]")
   ; (swiftmac-define-voice voice-monotone-extra "[{voice en-US:Eddy}] [[pitch 1.5]]")
 #+END_SRC
+
+** See long names for voices
+ - swift show-voices.swift - will list them all
 
 ** Cloud Development
  - Just launch swiftmac directly with the -p parameter and specify a port
