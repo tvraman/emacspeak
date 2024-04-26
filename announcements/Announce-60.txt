@@ -164,7 +164,7 @@ is entirely free of Artificial Ingredients (AI)™.
    light-weight Internet access.
   - Emacspeak 41.0 continues to improve 
    on  the desire to provide not just equal, but superior access —
-   technology when correctly implemented can significan\'tly enhance the
+   technology when correctly implemented can significantly enhance the
    human ability. 
   - Emacspeak 40.0 goes back to Web basics by enabling
    [[http://emacspeak.blogspot.com/2013/11/reading-web-content-efficiently.html][efficient access]] to large amounts of readable Web content. 
