@@ -10,36 +10,20 @@ Project: https://github.com/robertmeta/swiftmac
  - Restart emacs
 
 ** Recommended Settings
-#+BEGIN_SRC  emacs-lisp
+#+BEGIN_SRC emacs-lisp
   ; pick your favorite voice 
-  (setopt swiftmac-default-voice-string "[{voice :Alex}] [[[[pitch 1]]]]")
+  (setopt swiftmac-default-voice-string "[{voice :Alex}] [[pitch 1]]")
   ; general emacspeak stuff not specific to swiftmac
-  (setq-default load-path (cons "~/.emacspeak/lisp" load-path))
-  ;; TVR: ~/.emacspeak is used by emacspeak  emacspeak-user-directory
-  ;; suggest not conflating  it with emacspeak-directory so drop next line
-  ;(setq-default emacspeak-directory "~/.emacspeak") 
-  ; stops doubletalk (when supported)
+  (setq-default load-path (cons "~/.emacspeak/lisp" load-path)) 
+  ; stops doubletalk (when emacs supports it)
   (setopt mac-ignore-accessibility 't) 
+  ; choose swiftmac
   (setopt dtk-program "swiftmac")
-  ; these are between 0 and 1
-  (setenv "SWIFTMAC_TONE_VOLUME" "0.1") 
-  (setenv "SWIFTMAC_SOUND_VOLUME" "0.1") 
-  (setenv "SWIFTMAC_VOICE_VOLUME" "1.0") 
-  ; set to write or left or setup in customize
+  ; for notifications: set to right or left
   (setopt tts-notification-device "right") 
   ; initialize Emacspeak
   (require 'emacspeak-setup)
-  ;; tvr: first line does not parse (English) and I suggest taking these next  lines out.
-  ;; Below is an example of tweaking voices for syntax
-  ;; The below is not crazy, just for demo purposes.
-  ; (swiftmac-define-voice voice-bolden "[{voice en_US:Fred}] [[pitch 0.8]]")
-  ; (swiftmac-define-voice voice-animate "[{voice en-US:Kit}] [[pitch 1]]")
-  ; (swiftmac-define-voice voice-animate-extra "[{voice en-US:Kit}] [[pitch 1.5 ]]")
-  ; (swiftmac-define-voice voice-lighten "[{voice en-AU:Matilda}] [[pitch 1]]")
-  ; (swiftmac-define-voice voice-lighten-extra "[{voice en-AU:Matilda}] [[pitch 1.1]]")
-  ; (swiftmac-define-voice voice-smoothen "[{voice en-UK:Daniel}] [[pitch 1]]")
-  ; (swiftmac-define-voice voice-monotone "[{voice en-US:Eddy}] [[pitch 1]]")
-  ; (swiftmac-define-voice voice-monotone-extra "[{voice en-US:Eddy}] [[pitch 1.5]]")
+  ; more options: https://github.com/robertmeta/swiftmac/
 #+END_SRC
 
 ** See long names for voices
@@ -50,7 +34,6 @@ Project: https://github.com/robertmeta/swiftmac
 
 ** Dependencies 
  - https://github.com/arkasas/OggDecoder.git
-
 
 ** Bugs?
  - https://github.com/robertmeta/swiftmac/issues
