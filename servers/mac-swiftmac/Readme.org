@@ -10,7 +10,7 @@ Project: https://github.com/robertmeta/swiftmac
  - Restart emacs
 
 ** Recommended Settings
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ; pick your favorite voice 
   (setopt swiftmac-default-voice-string "[{voice :Alex}] [[pitch 1]]")
   ; general emacspeak stuff not specific to swiftmac
@@ -19,14 +19,11 @@ Project: https://github.com/robertmeta/swiftmac
   (setopt mac-ignore-accessibility 't) 
   ; choose swiftmac
   (setopt dtk-program "swiftmac")
-  ; these are between 0.0 and 1.0
-  (setenv "SWIFTMAC_TONE_VOLUME" "0.1") 
-  (setenv "SWIFTMAC_SOUND_VOLUME" "0.1") 
-  (setenv "SWIFTMAC_VOICE_VOLUME" "1.0") 
-  ; set to right or left or setup in customize
+  ; for notifications: set to right or left
   (setopt tts-notification-device "right") 
   ; initialize Emacspeak
   (require 'emacspeak-setup)
+  ; more options: https://github.com/robertmeta/swiftmac/
 #+END_SRC
 
 ** See long names for voices
@@ -37,7 +34,6 @@ Project: https://github.com/robertmeta/swiftmac
 
 ** Dependencies 
  - https://github.com/arkasas/OggDecoder.git
-
 
 ** Bugs?
  - https://github.com/robertmeta/swiftmac/issues
