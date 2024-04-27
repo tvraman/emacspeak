@@ -12,14 +12,14 @@
 San Jose, CA, (May 4, 2024)
 
 ** Emacspeak 60.0 (DreamDog)  Unleashed!  🦮
-  --- Innate Intelligence Makes   Accessible Computing Effortless!
+  --- Innate Intelligence™ Makes   Accessible Computing Effortless!
 
 Advancing Accessibility In The Age Of User-Aware Interfaces --- Zero
 cost of Ownership makes priceless software Universally affordable!
 
 Emacspeak Inc (NASDOG: ESPK) — http://github.com/tvraman/emacspeak —
 announces immediate world-wide availability of [[https://github.com/tvraman/emacspeak/releases/download/60.0/emacspeak-60.0.tar.bz2][Emacspeak 60.0]]
-(DreamDog) 🦮 --- a non-LLM powered and innately intelligent audio
+(DreamDog) 🦮 --- a non-LLM powered, and innately intelligent audio
 desktop that leverages today's evolving Data, Social and
 Assistant-Oriented Internet cloud to enable working efficiently and
 effectively from anywhere!
