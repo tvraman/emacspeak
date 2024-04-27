@@ -243,6 +243,7 @@ already disabled."
   (ems-with-messages-silenced
     (tts-restart)
     (emacspeak-icon 'waking-up)
+    (emacspeak-speak-brief-time)
     (amixer-restore amixer-alsactl-config-file)
     (when (featurep 'soundscape) (soundscape-restart))
     (cond
@@ -415,4 +416,5 @@ already disabled."
 
 (provide 'emacspeak-dbus)
 ;;;  end of file
+
 
