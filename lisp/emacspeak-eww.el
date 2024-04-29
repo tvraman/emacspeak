@@ -2645,6 +2645,7 @@ With interactive prefix arg, move to the start of the table."
   (interactive)
   (cl-assert (eq major-mode 'eww-mode) t "Not in an EWW buffer.")
   (let ((eww-retrieve-command   emacspeak-eww-rdr-cmd))
+    (emacspeak-eww-autospeak)
     (call-interactively #'eww-follow-link)))
 
 (provide 'emacspeak-eww)
