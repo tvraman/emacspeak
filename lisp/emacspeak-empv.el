@@ -354,20 +354,28 @@ If already playing, then read an empv key and invoke its command."
       (format "%s: %s results"
               (cdr  (assoc 'title (cl-first empv--last-youtube-candidates)))
               (length empv--last-youtube-candidates)))))
+(defun emacspeak-empv-current-title ()
+  "Speak title of currently selected item."
+  (interactive)
+  (emacspeak-icon 'select-object)
+  (dtk-speak (cdr (assq 'title (empv-youtube-results--current-item)))
+             ))
 
 (defadvice empv--youtube-tabulated-entries-append (after emacspeak pre act comp)
   "speak."
   (when (ems-interactive-p)
     (emacspeak-icon 'scroll)
     (dtk-notify
-      (format "%s: %s results"
-              (cdr  (assoc 'title (cl-first empv--last-youtube-candidates)))
-              (length empv--last-youtube-candidates)))))
+     (format "%s: %s results"
+             (cdr  (assoc 'title (cl-first empv--last-youtube-candidates)))
+             (length empv--last-youtube-candidates)))))
 
 (defun emacspeak-empv-setup ()
   "Emacspeak setup for empv."
   (cl-declare (special empv-map
                        empv-youtube-results-mode-map))
+  (define-key empv-youtube-results-mode-map
+              (kbd "t") 'emacspeak-empv-current-title)
   (define-key empv-youtube-results-mode-map
               (kbd "C-v") 'empv-youtube-results-load-more)
   (define-key empv-youtube-results-mode-map
