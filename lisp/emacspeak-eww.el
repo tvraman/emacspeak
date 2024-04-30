@@ -447,7 +447,17 @@
 ;; completion. Use this command with an interactive prefix arg to
 ;; delete a previously created eww-mark.
 ;;
+;; @subsection Extracting Readable Content
+;; By default, EWW includes a  simple @strong{readability} filter,
+;; @code {eww-readable}   bound to @code{s}.
+;; Emacspeak extends this facility with
+;; @code{rdrview[ -- see @url{https://github.com/eafer/rdrview }]},
+;; a command-line tool that extracts page contents using a
+;; @strong{simplified view} filter that mirrors the implementation in Firefox.
 
+;; You can use Emacspeak commands @code{emacspeak-eww-rdr- follow}
+;; and @code{emacspeak-eww-rdr-reload} both bound to @code{S}  with
+;; variable levels of success on various Web sites.
 ;;; Code:
 
 ;;  Required modules:
