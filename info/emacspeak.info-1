@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 26, 2024.
+last updated on April 29, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3241,7 +3241,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1177 commands and 127 options.
+   This chapter documents a total of 1178 commands and 127 options.
 
 * Menu:
 
@@ -6530,14 +6530,21 @@ select few for interactive use.
 
      Clear all filters.
 
-12.61.4.9 emacspeak-empv-forward-10-minutes
-...........................................
+12.61.4.9 emacspeak-empv-current-title
+......................................
+
+ -- Command: emacspeak-empv-current-title
+
+     Speak title of currently selected item.
+
+12.61.4.10 emacspeak-empv-forward-10-minutes
+............................................
 
  -- Command: emacspeak-empv-forward-10-minutes
 
      Move forward by 10 minutes
 
-12.61.4.10 emacspeak-empv-forward-10-seconds
+12.61.4.11 emacspeak-empv-forward-10-seconds
 ............................................
 
  -- Command: emacspeak-empv-forward-10-seconds (&optional count)
@@ -6546,21 +6553,21 @@ select few for interactive use.
 
      (fn &optional COUNT)
 
-12.61.4.11 emacspeak-empv-forward-30-minutes
+12.61.4.12 emacspeak-empv-forward-30-minutes
 ............................................
 
  -- Command: emacspeak-empv-forward-30-minutes
 
      Move forward by 30 minutes
 
-12.61.4.12 emacspeak-empv-forward-5-minutes
+12.61.4.13 emacspeak-empv-forward-5-minutes
 ...........................................
 
  -- Command: emacspeak-empv-forward-5-minutes
 
      Move forward by 5 minutes
 
-12.61.4.13 emacspeak-empv-forward-minute
+12.61.4.14 emacspeak-empv-forward-minute
 ........................................
 
  -- Command: emacspeak-empv-forward-minute (&optional count)
@@ -6569,7 +6576,7 @@ select few for interactive use.
 
      (fn &optional COUNT)
 
-12.61.4.14 emacspeak-empv-percentage-seek
+12.61.4.15 emacspeak-empv-percentage-seek
 .........................................
 
  -- Command: emacspeak-empv-percentage-seek (target)
@@ -6578,7 +6585,7 @@ select few for interactive use.
 
      (fn TARGET)
 
-12.61.4.15 emacspeak-empv-play-file
+12.61.4.16 emacspeak-empv-play-file
 ...................................
 
  -- Command: emacspeak-empv-play-file (file &optional prefix)
@@ -6590,7 +6597,7 @@ select few for interactive use.
 
      (fn FILE &optional PREFIX)
 
-12.61.4.16 emacspeak-empv-play-last
+12.61.4.17 emacspeak-empv-play-last
 ...................................
 
  -- Command: emacspeak-empv-play-last
@@ -6598,7 +6605,7 @@ select few for interactive use.
 
      Play most recently played URL.
 
-12.61.4.17 emacspeak-empv-play-url
+12.61.4.18 emacspeak-empv-play-url
 ..................................
 
  -- Command: emacspeak-empv-play-url (url)
@@ -6608,7 +6615,7 @@ select few for interactive use.
 
      (fn URL)
 
-12.61.4.18 emacspeak-empv-radio
+12.61.4.19 emacspeak-empv-radio
 ...............................
 
  -- Command: emacspeak-empv-radio
@@ -6616,7 +6623,7 @@ select few for interactive use.
 
      Play Internet stream
 
-12.61.4.19 emacspeak-empv-relative-seek
+12.61.4.20 emacspeak-empv-relative-seek
 .......................................
 
  -- Command: emacspeak-empv-relative-seek (target)
@@ -6625,14 +6632,14 @@ select few for interactive use.
 
      (fn TARGET)
 
-12.61.4.20 emacspeak-empv-time-pos
+12.61.4.21 emacspeak-empv-time-pos
 ..................................
 
  -- Command: emacspeak-empv-time-pos
 
      Speak time and percent position.
 
-12.61.4.21 emacspeak-empv-toggle-balance
+12.61.4.22 emacspeak-empv-toggle-balance
 ........................................
 
  -- Command: emacspeak-empv-toggle-balance (value)
@@ -6641,14 +6648,14 @@ select few for interactive use.
 
      (fn VALUE)
 
-12.61.4.22 emacspeak-empv-toggle-custom
+12.61.4.23 emacspeak-empv-toggle-custom
 .......................................
 
  -- Command: emacspeak-empv-toggle-custom
 
      Toggle our custom filters.
 
-12.61.4.23 emacspeak-empv-toggle-filter
+12.61.4.24 emacspeak-empv-toggle-filter
 .......................................
 
  -- Command: emacspeak-empv-toggle-filter (filter)
@@ -6658,14 +6665,14 @@ select few for interactive use.
 
      (fn FILTER)
 
-12.61.4.24 emacspeak-empv-toggle-left
+12.61.4.25 emacspeak-empv-toggle-left
 .....................................
 
  -- Command: emacspeak-empv-toggle-left
 
      Toggle output to being just on the left.
 
-12.61.4.25 emacspeak-empv-toggle-right
+12.61.4.26 emacspeak-empv-toggle-right
 ......................................
 
  -- Command: emacspeak-empv-toggle-right

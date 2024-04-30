@@ -250,7 +250,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1177 commands and 127 options.
+This chapter documents a total of 1178 commands and 127 options.
 
 @node amixer
 @section amixer
@@ -3903,6 +3903,15 @@ Move back  count  minutes.
 
 @format
 Clear all filters. 
+@end format
+@end deffn
+
+@subsubsection emacspeak-empv-current-title
+@deffn {Command} emacspeak-empv-current-title   
+@findex emacspeak-empv-current-title
+
+@format
+Speak title of currently selected item.
 @end format
 @end deffn
 
