@@ -884,15 +884,15 @@ Retain previously set punctuations  mode."
   (cl-declare (special  emacspeak-eww-post-process-hook))
   (let ((title (emacspeak-eww-current-title))
         (alt (dom-alternate-links (emacspeak-eww-current-dom))))
-    (when (= 0 (length title)) (setq title "EWW: Untitled"))
+    (when (= 0 (length title)) (setq title "U")
+          (dtk-tone 523.3 150 t))
     (when emacspeak-eww-rename-buffer (rename-buffer title 'unique))
     (when alt
-      (put-text-property 0 2 'auditory-icon 'mark-object  header-line-format))
+      (put-text-property 0 1 'auditory-icon 'mark-object  header-line-format))
     (emacspeak-speak-voice-annotate-paragraphs)
     (cond
-     (emacspeak-eww-post-process-hook
-      (emacspeak-eww-run-post-process-hook)))
-    (emacspeak-speak-header-line)))
+     (emacspeak-eww-post-process-hook (emacspeak-eww-run-post-process-hook))
+     (t (emacspeak-speak-header-line)))))
 
 (add-hook 'eww-after-render-hook 'emacspeak-eww-after-render-hook)
 
