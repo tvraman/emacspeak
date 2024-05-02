@@ -885,7 +885,7 @@ Retain previously set punctuations  mode."
   (let ((title (emacspeak-eww-current-title))
         (alt (dom-alternate-links (emacspeak-eww-current-dom))))
     (when (= 0 (length title)) (setq title "U")
-          (dtk-tone 261.6 150 'force))
+          (sox-sin .5 "%-2:%-1""fade h .1 .5 .4 gain -8 "))
     (when emacspeak-eww-rename-buffer (rename-buffer title 'unique))
     (when alt
       (put-text-property 0 1 'auditory-icon 'mark-object  header-line-format))
