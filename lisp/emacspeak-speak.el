@@ -1437,6 +1437,7 @@ Interactive prefix arg speaks buffer info."
                        folding-mode column-number-mode line-number-mode
                        emacspeak-mail-alert mode-line-format))
   (with-current-buffer (window-buffer (selected-window))
+    (dtk-stop)
     (force-mode-line-update)
     (when
         (or
@@ -1484,27 +1485,27 @@ Interactive prefix arg speaks buffer info."
             (when buffer-read-only
               (emacspeak-icon 'unmodified-object)))
           (tts-with-punctuations
-           'all
-           (dtk-speak
-            (concat
-             autospeak
-             dir-info
-             (propertize (buffer-name) 'personality
-                         voice-lighten-medium)
-             (emacspeak-get-current-percentage-verbously)
-             (when window-count
-               (propertize window-count 'personality voice-smoothen))
-             (when vc-mode
-               (propertize (downcase vc-mode) 'personality voice-smoothen))
-             (when vc-state (format " %s " vc-state))
-             (when line-number-mode
-               (format "line %d" (emacspeak-get-current-line-number)))
-             (when column-number-mode
-               (format "column %d" (current-column)))
-             (propertize
-              (downcase
-               (format-mode-line mode-name)) 'personality voice-animate)
-             global-info frame-info recursion-info))))))))))
+              'all
+            (dtk-speak
+             (concat
+              autospeak
+              dir-info
+              (propertize (buffer-name) 'personality
+                          voice-lighten-medium)
+              (emacspeak-get-current-percentage-verbously)
+              (when window-count
+                (propertize window-count 'personality voice-smoothen))
+              (when vc-mode
+                (propertize (downcase vc-mode) 'personality voice-smoothen))
+              (when vc-state (format " %s " vc-state))
+              (when line-number-mode
+                (format "line %d" (emacspeak-get-current-line-number)))
+              (when column-number-mode
+                (format "column %d" (current-column)))
+              (propertize
+               (downcase
+                (format-mode-line mode-name)) 'personality voice-animate)
+              global-info frame-info recursion-info))))))))))
 
 (defun emacspeak-return-mode-line ()
   "Debug tool: return visually displayed mode-line as a string."
