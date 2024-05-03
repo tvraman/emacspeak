@@ -408,8 +408,7 @@ If already playing, then read an empv key and invoke its command."
      ("m" emacspeak-empv-forward-minute)
      ("r" emacspeak-empv-relative-seek)
      ("s" emacspeak-empv-absolute-seek)
-     ("v" empv-set-volume)
-     ("y" emacspeak-empv-yt-download))
+     ("v" empv-set-volume))
    do
    (emacspeak-keymap-update empv-map b)))
 
