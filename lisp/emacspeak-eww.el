@@ -834,7 +834,8 @@ If buffer was result of displaying a feed, reload feed.
 If we came from a url-template, reload that template.
 Retain previously set punctuations  mode."
   (add-hook
-   'emacspeak-eww-post-process-hookj 'emacspeak-eww-post-render-actions)
+   'emacspeak-eww-post-process-hook
+   'emacspeak-eww-post-render-actions)
   (cond
    ((and (eww-current-url)
          emacspeak-eww-feed
@@ -864,7 +865,8 @@ Retain previously set punctuations  mode."
        'at-end)
       (kill-buffer)
       (emacspeak-url-template-open (emacspeak-url-template-get  n))))
-   (t ad-do-it)))
+   (t ad-do-it
+      (sox-sin .5 "%-2:%-1""fade h .1 .5 .4 gain -8 "))))
 
 (cl-loop
  for f in
@@ -884,8 +886,9 @@ Retain previously set punctuations  mode."
   (cl-declare (special  emacspeak-eww-post-process-hook))
   (let ((title (emacspeak-eww-current-title))
         (alt (dom-alternate-links (emacspeak-eww-current-dom))))
-    (when (= 0 (length title)) (setq title "U")
-          (sox-sin .5 "%-2:%-1""fade h .1 .5 .4 gain -8 "))
+    (when (= 0 (length title))
+      (setq title "U")
+      (sox-sin .5 "%-2:%-1""fade h .1 .5 .4 gain -8 "))
     (when emacspeak-eww-rename-buffer (rename-buffer title 'unique))
     (when alt
       (put-text-property 0 1 'auditory-icon 'mark-object  header-line-format))
@@ -2648,7 +2651,7 @@ With interactive prefix arg, move to the start of the table."
   (interactive)
   (cl-assert (eq major-mode 'eww-mode) t "Not in an EWW buffer.")
   (let ((eww-retrieve-command   emacspeak-eww-rdr-cmd))
-(emacspeak-eww-autospeak)
+    (emacspeak-eww-autospeak)
     (eww-reload)))
 
 (defun emacspeak-eww-rdr-follow ()
