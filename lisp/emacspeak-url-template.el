@@ -774,12 +774,12 @@ the result at point.")
 ;;;###autoload
 (defun emacspeak-url-template-open (ut)
   "Fetch resource identified by URL template."
-  (cl-declare (special emacspeak-eww-post-process-hook))
+  (cl-declare (special emacspeak-eww-post-hook))
   (let ((read-process-output-max (* 1024 1024))
         (fetcher (or (emacspeak-url-template-fetcher ut) 'browse-url))
         (url (emacspeak-url-template-url ut))
         (action (emacspeak-url-template-post-action ut)))
-    (when action (add-hook 'emacspeak-eww-post-process-hook action))
+    (when action (add-hook 'emacspeak-eww-post-hook action))
     (kill-new url)
     (funcall fetcher url)))
 
@@ -823,7 +823,7 @@ Optional interactive prefix arg displays documentation for specified resource."
      (documentation (emacspeak-url-template-help-internal name))
      (t
       (add-hook
-       'emacspeak-eww-post-process-hook
+       'emacspeak-eww-post-hook
        (emacspeak-url-template-generate-name-setter name))
       (emacspeak-url-template-open (emacspeak-url-template-get name))))))
 
@@ -1108,7 +1108,7 @@ template."
  "Printer friendly   link on Cricinfo"
  #'(lambda (_u)
      (add-hook
-      'emacspeak-eww-post-process-hook
+      'emacspeak-eww-post-hook
       #'(lambda nil
           (search-forward "\n\n")
           (dtk-set-punctuations-to-some)

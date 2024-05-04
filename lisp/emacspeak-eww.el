@@ -834,7 +834,7 @@ If buffer was result of displaying a feed, reload feed.
 If we came from a url-template, reload that template.
 Retain previously set punctuations  mode."
   (add-hook
-   'emacspeak-eww-post-process-hook
+   'emacspeak-eww-post-hook
    'emacspeak-eww-post-render-actions)
   (cond
    ((and (eww-current-url)
@@ -846,7 +846,7 @@ Retain previously set punctuations  mode."
           (s emacspeak-eww-style))
       (kill-buffer)
       (add-hook
-       'emacspeak-eww-post-process-hook
+       'emacspeak-eww-post-hook
        #'(lambda ()
            (dtk-set-punctuations 'all)
            (dtk-set-rate r))
@@ -858,7 +858,7 @@ Retain previously set punctuations  mode."
         ((n emacspeak-eww-url-template)
          (r dtk-speech-rate))
       (add-hook
-       'emacspeak-eww-post-process-hook
+       'emacspeak-eww-post-hook
        #'(lambda nil
            (dtk-set-punctuations 'all)
            (dtk-set-rate r))
@@ -883,7 +883,7 @@ Retain previously set punctuations  mode."
 
 (defun emacspeak-eww-after-render-hook ()
   "Setup Emacspeak for rendered buffer. "
-  (cl-declare (special  emacspeak-eww-post-process-hook))
+  (cl-declare (special  emacspeak-eww-post-hook))
   (let ((title (emacspeak-eww-current-title))
         (alt (dom-alternate-links (emacspeak-eww-current-dom))))
     (when (= 0 (length title))
@@ -894,7 +894,7 @@ Retain previously set punctuations  mode."
       (put-text-property 0 1 'auditory-icon 'mark-object  header-line-format))
     (emacspeak-speak-voice-annotate-paragraphs)
     (cond
-     (emacspeak-eww-post-process-hook (emacspeak-eww-run-post-process-hook))
+     (emacspeak-eww-post-hook (emacspeak-eww-run-post-process-hook))
      (t (emacspeak-speak-header-line)))))
 
 (add-hook 'eww-after-render-hook 'emacspeak-eww-after-render-hook)
@@ -1001,7 +1001,7 @@ Retain previously set punctuations  mode."
 (defun emacspeak-eww-autospeak()
   "Setup post process hook to speak the first windowful . "
   (add-hook
-   'emacspeak-eww-post-process-hook
+   'emacspeak-eww-post-hook
    #'(lambda nil
        (cl-declare (special emacspeak-we-xpath-filter))
        (setq emacspeak-we-xpath-filter
@@ -1028,20 +1028,20 @@ Retain previously set punctuations  mode."
 
 ;;;  web-post-process
 
-(defvar emacspeak-eww-post-process-hook nil
+(defvar emacspeak-eww-post-hook nil
   "Set locally to a  site specific post processor.
 Note that the Web browser should reset this hook after using it.")
 
 (defun emacspeak-eww-run-post-process-hook (&rest _ignore)
   "Run web post process hook."
-  (cl-declare (special emacspeak-eww-post-process-hook))
-  (when     emacspeak-eww-post-process-hook
+  (cl-declare (special emacspeak-eww-post-hook))
+  (when     emacspeak-eww-post-hook
     (condition-case nil
         (let ((inhibit-read-only t))
-          (run-hooks 'emacspeak-eww-post-process-hook))
+          (run-hooks 'emacspeak-eww-post-hook))
       ((debug error)  (message "Caught error  in post-process hook.")
-       (setq emacspeak-eww-post-process-hook nil)))
-    (setq emacspeak-eww-post-process-hook nil)))
+       (setq emacspeak-eww-post-hook nil)))
+    (setq emacspeak-eww-post-hook nil)))
 
 ;;;  xslt transform on request:
 
@@ -2211,7 +2211,7 @@ arg `delete', delete that mark instead."
                (t (error "Unknown book type."))))
         (when point
           (add-hook
-           'emacspeak-eww-post-process-hook
+           'emacspeak-eww-post-hook
            #'(lambda ()
                (goto-char point)
                (delete-other-windows)
@@ -2219,7 +2219,7 @@ arg `delete', delete that mark instead."
                (emacspeak-icon 'large-movement))
            'at-end)
           (when (eq type 'local-file)
-            (add-hook 'emacspeak-eww-post-process-hook
+            (add-hook 'emacspeak-eww-post-hook
                       #'emacspeak-speak-line
                       'at-end)))
         (funcall handler book)))))))

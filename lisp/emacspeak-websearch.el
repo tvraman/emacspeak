@@ -157,9 +157,9 @@
 LOCATOR is a string to search for in the results page.
 SPEAKER is a function to call to speak relevant information.
 ARGS specifies additional arguments to SPEAKER if any."
-  (cl-declare (special emacspeak-eww-post-process-hook))
+  (cl-declare (special emacspeak-eww-post-hook))
   (add-hook
-   'emacspeak-eww-post-process-hook
+   'emacspeak-eww-post-hook
    (eval
     `#'(lambda nil
          (let ((inhibit-read-only t))
@@ -335,7 +335,7 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
       (browse-url search-url))
      (t                                 ; always just show results
       (add-hook
-       'emacspeak-eww-post-process-hook
+       'emacspeak-eww-post-hook
        #'(lambda ()
            (goto-char (point-min))
            (emacspeak-eww-next-h)
@@ -372,7 +372,7 @@ Optional prefix arg prompts for toolbelt options."
      (options (emacspeak-google-toolbelt-change))
      (t
       (add-hook
-       'emacspeak-eww-post-process-hook
+       'emacspeak-eww-post-hook
        #'(lambda ()
            (goto-char (point-min))
            (emacspeak-eww-next-h) (search-forward "Search Tools" nil
@@ -470,7 +470,7 @@ Optional prefix arg prompts for toolbelt options."
    (list
     (emacspeak-websearch-read-query "Lookup word in Webster:")))
   (cl-declare (special emacspeak-websearch-merriam-webster-uri))
-  (add-hook 'emacspeak-eww-post-process-hook #'emacspeak-eww-next-h1 'at-end)
+  (add-hook 'emacspeak-eww-post-hook #'emacspeak-eww-next-h1 'at-end)
   (browse-url
    (concat emacspeak-websearch-merriam-webster-uri
            (url-hexify-string query))))

@@ -59,9 +59,9 @@
 ;;; Helper:
 
 (defun emacspeak-we-rename-buffer (key)
-  "Setup emacspeak-eww-post-process-hook  to rename result buffer"
+  "Setup emacspeak-eww-post-hook  to rename result buffer"
   (add-hook
-   'emacspeak-eww-post-process-hook
+   'emacspeak-eww-post-hook
    (eval
     `#'(lambda nil
          (rename-buffer
@@ -273,7 +273,7 @@ Each filter is a list of the form
    'emacspeak-eww-pre-process-hook
    (emacspeak-xslt-make-xsl-transformer-pipeline specs url))
   (add-hook
-   'emacspeak-eww-post-process-hook
+   'emacspeak-eww-post-hook
    #'emacspeak-eww-reading-settings 'at-end)
   (browse-url url))
 
@@ -473,7 +473,7 @@ Tables are specified by containing  match pattern
       (delete-region (point-min) (point))
       (setq values (split-string (buffer-string))))
     (add-hook
-     'emacspeak-eww-post-process-hook
+     'emacspeak-eww-post-hook
      (eval
       `#'(lambda nil
            (cl-declare (special  emacspeak-we-buffer-class-cache))
@@ -497,7 +497,7 @@ Tables are specified by containing  match pattern
        (point-min) (point-max))
       (setq values (split-string (buffer-string))))
     (add-hook
-     'emacspeak-eww-post-process-hook
+     'emacspeak-eww-post-hook
      (eval
       `#'(lambda nil
            (cl-declare (special  emacspeak-we-buffer-id-cache))
@@ -521,7 +521,7 @@ Tables are specified by containing  match pattern
        (point-min) (point-max))
       (setq values (split-string (buffer-string))))
     (add-hook
-     'emacspeak-eww-post-process-hook
+     'emacspeak-eww-post-hook
      (eval
       `#'(lambda nil
            (cl-declare (special  emacspeak-we-buffer-role-cache))

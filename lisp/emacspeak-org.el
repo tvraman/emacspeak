@@ -702,7 +702,7 @@ arg just opens the file"
 
 (defun emacspeak-org-eww-file (file _link)
   "Preview HTML files with EWW from exporter."
-  (add-hook 'emacspeak-eww-post-process-hook  #'emacspeak-speak-buffer)
+  (add-hook 'emacspeak-eww-post-hook  #'emacspeak-speak-buffer)
   (funcall-interactively #'eww-open-file file))
 
 ;;;  Edit Special Advice:

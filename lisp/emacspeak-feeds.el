@@ -230,7 +230,7 @@ feeds."
     (with-current-buffer data-buffer
       (when speak (emacspeak-eww-autospeak))
       (add-hook
-       'emacspeak-eww-post-process-hook
+       'emacspeak-eww-post-hook
        #'(lambda ()
            (setq eww-current-url feed-url
                  emacspeak-eww-feed t
@@ -309,7 +309,7 @@ Argument `feed' is a feed structure (label url type)."
    (list
     (let ((completion-ignore-case t))
       (completing-read "Feed:" emacspeak-feeds nil 'must-match))))
-  (add-hook 'emacspeak-eww-post-process-hook
+  (add-hook 'emacspeak-eww-post-hook
             #'(lambda nil (emacspeak-icon 'open-object)))
   (emacspeak-feeds-browse-feed (assoc feed emacspeak-feeds) 'speak))
 

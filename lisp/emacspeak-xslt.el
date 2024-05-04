@@ -90,7 +90,7 @@ This is useful when handling bad HTML.")
      (cl-declare (special emacspeak-we-xsl-p))
      (when emacspeak-we-xsl-p
        (setq emacspeak-we-xsl-p nil)
-       (add-hook 'emacspeak-eww-post-process-hook
+       (add-hook 'emacspeak-eww-post-hook
                  #'(lambda ()
                      (cl-declare (special emacspeak-we-xsl-p))
                      (setq emacspeak-we-xsl-p t))
