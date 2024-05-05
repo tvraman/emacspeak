@@ -1,5 +1,8 @@
 # Youtube Utils
 # turn yt playlist into an m3 playlist
+#  Pull playlist as json, run through jq  and extract URLs.
+
+
 # usage: yt2m3u url name
 function yt2m3u (){
   youtube-dl -j $1 --flat-playlist | jq -r '.id' | \
