@@ -28,4 +28,5 @@ if ($min == 0 ) {
     $chime = "$sounds/$c";
 }
 # update xxxxx below for logged-in user:
-qx(XDG_RUNTIME_DIR=/run/user/xxxxx; mplayer -volume 70 -af bs2b,ladspa=tap_reverb:tap_reverb:5000:-4:-18:1:1:1:1:6 $chime  2>&1  >/dev/null);
+#qx(XDG_RUNTIME_DIR=/run/user/xxxxx; mplayer -volume 70 -af bs2b,ladspa=tap_reverb:tap_reverb:5000:-4:-18:1:1:1:1:6 $chime  2>&1  >/dev/null);
+qx(XDG_RUNTIME_DIR=/run/user/xxxxx; mpv --af=haas $chime  2>&1  >/dev/null &);
