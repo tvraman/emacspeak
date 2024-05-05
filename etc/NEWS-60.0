@@ -1,0 +1,69 @@
+#    -*- mode: org -*-
+A Well-Designed User Interface Is One That One Does Not Notice (tvr)
+
+Emacspeak News --History Of User-Visible Changes
+
+Author: T. V. Raman <tv.raman.tv@gmail.com>
+
+* Emacspeak 60 --- Emacspeak 60 User Visible Changes
+
+This version requires Emacs-29.1 or later.
+
+* EMPV: Emacspeak And MPV
+
+Module ~emacspeak-empv~ now provides better ~MPV~ interaction and more
+Youtube functionality.
+
+* BBC Sounds
+
+More BBC Sounds integration via module ~emacspeak-bbc~.
+
+* Speech-Enable EBuku
+
+Package ~ebuku.el~ is speech-enabled by  module ~emacspeak-ebuku~ ---
+this is an Emacs front-end to the ~buku~ bookmark manager.
+
+* The HTML5 Audio/Video Tag In EWW
+
+Module ~emacspeak-eww~ adds support for the HTML5 ~audio~ and ~video~
+tags; press ";" in an EWW buffer to move to any audio/video tags in
+the page, and pess ";" again to play the content.
+
+* Piper: Neural-Net TTS
+
+Emacspeak now uses Piper TTS if available as one more source of
+augmentative   audio  feedback.
+
+* Speech-Enabled LLM Front-End
+
+Emacspeak speech-enables package ~ellama~ and ~gptel~ for interacting
+with both local and remote LLMs.
+
+* Pipewire Support
+
+Emacspeak now uses Pipewire if available.
+Pulse should be considered deprecated starting with this release.
+
+* Updated Keybindings
+
+Keybindings continue to be revised in the interest of ergonomics.
+
+* Mac Speech Server Using SwiftMac
+
+There is a new speech server  --- SwiftMac --- for the Mac. The older
+Python Mac server is now deprecated and unmaintained and will be
+declared obsolete with the next release.
+
+* Tree-Sitter Support
+
+Emacspeak  now leverages tree-sitter support if available when
+navigating in programming modes.
+
+* Smart Media Selector
+
+See the Emacspeak Blog for details on Emacspeak's [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selector]].
+
+* Smart EBook  Selector
+
+EPub and Bookshare books can also be selected using  a smart selector
+similar to the one for media.
