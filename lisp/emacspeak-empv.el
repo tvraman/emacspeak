@@ -358,8 +358,7 @@ If already playing, then read an empv key and invoke its command."
   "Speak title of currently selected item."
   (interactive)
   (emacspeak-icon 'select-object)
-  (dtk-speak (cdr (assq 'title (empv-youtube-results--current-item)))
-             ))
+  (dtk-speak (cdr (assq 'title (empv-youtube-results--current-item)))))
 
 (defadvice empv-youtube-results-copy-current (after emacspeak pre act comp)
   "speak."
