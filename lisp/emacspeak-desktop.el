@@ -48,7 +48,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 ;;; Interactive Command: Preserve buffer
-
+;;;###autoload
 (defun emacspeak-desktop-preserve (buffer)
   "Preserve: Dont kill this buffer when clearing desktop."
   (interactive
