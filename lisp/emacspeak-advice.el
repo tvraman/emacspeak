@@ -2192,6 +2192,15 @@ Produce an auditory icon if possible."
 (add-hook 'text-mode-hook #'emacspeak-speak-adjust-clause-boundaries)
 
 ;;;  setup minibuffer hooks:
+
+;; We temporarily silence the pronunciation of default-directory when
+;; in the minibuffer to speed up interaction. this is achieved by
+;; defining a minibuffer-dictionary var that holds  pronunciations
+;; local to the minibuffer. We add default-directory in the setup hook
+;; and remove it in the exit hook.
+;; We also use this to silence emacspeak-media-shortcuts, and may use
+;; it in the future for other relevant use-cases.
+
 (cl-declaim (special emacspeak-media-shortcuts))
 (defvar emacspeak-minibuffer-dictionary
   (let ((table (make-hash-table)))
@@ -2199,15 +2208,11 @@ Produce an auditory icon if possible."
     table)
   "Dictionary used in minibuffer.")
 
+
 (defun emacspeak-minibuffer-setup-hook ()
   "Actions to take when entering the minibuffer with emacspeak running."
-  (cl-declare (special
-               minibuffer-exit-hook minibuffer-default
-               emacspeak-pronounce-table emacspeak-minibuffer-dictionary))
   (dtk-stop 'all)
   (let ((inhibit-field-text-motion t))
-    (unless (memq 'emacspeak-minibuffer-exit-hook minibuffer-exit-hook)
-      (add-hook 'minibuffer-exit-hook #'emacspeak-minibuffer-exit-hook))
     (setq emacspeak-pronounce-table emacspeak-minibuffer-dictionary)
     (puthash  default-directory "" emacspeak-pronounce-table)
     (emacspeak-icon 'open-object)
