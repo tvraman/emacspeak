@@ -4,4 +4,4 @@
 l="$@"
 pidof -q `which emacs` &&\
     \
-emacsclient -n -e "(dtk-notify-speak  \"$l\")"   2>&1 > /dev/null
+emacsclient -n -e "(dtk-notify  \"$l\")"   2>&1 > /dev/null
