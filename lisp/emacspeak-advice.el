@@ -2196,7 +2196,6 @@ Produce an auditory icon if possible."
 (defvar emacspeak-minibuffer-dictionary
   (let ((table (make-hash-table)))
     (puthash emacspeak-media-shortcuts " " table)
-    (puthash emacspeak-directory "emacspeak:" table)
     table)
   "Dictionary used in minibuffer.")
 
