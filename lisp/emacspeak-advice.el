@@ -2209,7 +2209,7 @@ Produce an auditory icon if possible."
     (unless (memq 'emacspeak-minibuffer-exit-hook minibuffer-exit-hook)
       (add-hook 'minibuffer-exit-hook #'emacspeak-minibuffer-exit-hook))
     (setq emacspeak-pronounce-table emacspeak-minibuffer-dictionary)
-    (emacspeak-pronounce-add-local-entry default-directory "")
+    (puthash  default-directory "" emacspeak-pronounce-table)
     (emacspeak-icon 'open-object)
     (when minibuffer-default (emacspeak-icon 'help))
     (tts-with-punctuations
@@ -2224,6 +2224,7 @@ Produce an auditory icon if possible."
 (defun emacspeak-minibuffer-exit-hook ()
   "Actions performed when exiting the minibuffer with Emacspeak loaded."
   (dtk-stop 'all)
+  (remhash  default-directory  emacspeak-pronounce-table)
   (emacspeak-icon 'close-object))
 
 (add-hook 'minibuffer-exit-hook #'emacspeak-minibuffer-exit-hook)
