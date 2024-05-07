@@ -16,6 +16,7 @@ KEYS="\
 Shift_L=Control_L|s;\
 Shift_R=Control_L|r;\
 Super_L=Control_L|x;\
+Hyper_R=Control_L|e; \
 Alt_L=Control_L|c;\
 Alt_R=Control_L|c;\
 Control_R=Return;\
