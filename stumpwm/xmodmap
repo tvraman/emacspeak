@@ -5,10 +5,14 @@ keycode 9=grave asciitilde
  keycode 107 = Super_L Super_L Super_L Super_L
 
 !  Hyper_R on <Insert>
-!add mod3 = Hyper_R
-!keycode 118 = Hyper_R
+add mod3 = Hyper_R
+keycode 118 = Hyper_R
 
 ! RET as Ctrl_R
+! Return becomes Control_R
+! xcape then turns  it back to Return
+! Control_R becomes return
+
  remove Control = Control_R
  keycode 0x69 = Return
  keycode 0x24 = Control_R
