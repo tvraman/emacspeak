@@ -29,10 +29,6 @@ html
 js/node/auto
 js/node/node_modules
 scapes
-sounds/3d
-sounds/ogg-3d
-sounds/chimes
-sounds/clock
 tests
 tvr
 utils
