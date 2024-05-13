@@ -2,7 +2,9 @@
 
 #XCape ==xcape -- reassign modifier keys
 #Control by itself gives emacspeak modifier.
-# See forthcoming blog article for rationale.
+# Blog Articles:
+# https://emacspeak.blogspot.com/2023/09/return-to-controlright-using-xmodmap.html
+# https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html
 # Swapping C-x and C-c from what is described in the blog.
 
 # Start with  timeout  250, then tune it down (suggest 10% every few
@@ -16,7 +18,6 @@ KEYS="\
 Shift_L=Control_L|s;\
 Shift_R=Control_L|r;\
 Super_L=Control_L|x;\
-Hyper_R=Control_L|e;\
 Alt_L=Control_L|c;\
 Alt_R=Control_L|c;\
 Control_R=Return;\
