@@ -77,12 +77,10 @@
 
 (defun emacspeak-company-speak-this ()
   "Formatting rule for speaking company selection."
-  (ems-with-messages-silenced
-   (let ((metadata (funcall 'company-fetch-metadata)))
-     (when metadata
-       (propertize metadata 'personality 'voice-annotate))
-     (message
-      (concat (ems-company-current) " " metadata)))))
+  (let ((metadata (funcall 'company-fetch-metadata)))
+    (when metadata
+      (propertize metadata 'personality 'voice-annotate))
+    (message (concat (ems-company-current) " " metadata))))
 
 ;;;  Emacspeak Front-End For Company:
 
