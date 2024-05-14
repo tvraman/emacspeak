@@ -1,8 +1,8 @@
 ! swap escape and backquote
  keycode 49 = Escape asciitilde
  keycode 9=grave asciitilde
- ! Put backspace on shift-space
- keycode 65 = space BackSpace space
+ ! Get one more Emacs key on Shift-Space (experimental)
+ keycode 65 = space Menu space
 
 ! was <print>
  keycode 107 = Super_L Super_L Super_L Super_L
