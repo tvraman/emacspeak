@@ -1,4 +1,6 @@
 #!/bin/sh
+# Deprecated: The ZAM Plugins are not easy to build lately and there
+#  are better solutions for spatial audio.
 #  Zam Plugins from https://github.com/zamaudio/zam-plugins.git
 # Azimuth:   Clockwise: -90..270 --- 0 is North.
 # Elevation: -45 .. 90
