@@ -119,6 +119,7 @@ Use Custom to customize where possible. "
    #'(lambda (f) (put f 'disabled nil))
    '(list-threads narrow-to-page list-timers upcase-region
                   downcase-region  narrow-to-region eval-expression ))
+  (global-set-key (kbd "S-<cancel>") 'keyboard-quit) ; shift-return in xmodmap
   (global-set-key (kbd "M-z") 'execute-extended-command-for-buffer)
   (global-set-key (kbd "C-l") ctl-x-map)
   (global-set-key[remap dabbrev-expand] 'hippie-expand)

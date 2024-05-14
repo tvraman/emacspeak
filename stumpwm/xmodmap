@@ -17,6 +17,6 @@
 ! Control_R becomes return
 
  remove Control = Control_R
- keycode 0x69 = Return
+ keycode 0x69 = Return Cancel 
  keycode 0x24 = Control_R
  add Control = Control_R
