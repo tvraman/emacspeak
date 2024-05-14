@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 3, 2024.
+last updated on May 14, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -636,21 +636,20 @@ produces voice change effects by examining the value of text-property
    Think of a buffer of formatted text along with the text-property
 'personality appropriately set as a "aural display list".  Module
 voice-setup.el help applications like EWW produce audio-formatted output
-by calling function voice-acss-from-speech-style with a "speech-style"
--a structure as defined in this module and get back a symbol that they
-assign to the value of property 'personality.  Emacspeak's rendering
-engine then does the needful at the time speech is produced.  Function
-voice-acss-from-speech-style does the following: Takes as input a
-"speech style" (1) Computes a symbol that will be used to refer to this
-specific speech style.  (2) Examines emacspeak's internal voice table to
-see if this speech style has a voice already defined.  If so it returns
-immediately.  Otherwise, it does the additional work of defining a
--voice for future use.  See its use in this module to see how voices are
-defined independent of a given TTS engine.  How faces map to voices: TTS
-engine specific modules e.g., dectalk-voices.el and outloud-voices.el
-map ACSS dimensions to engine-specific codes.  Emacspeak modules use
-voice-setup-add-map when defining face->personality mappings.  For use
-from other modules.
+by calling function voice-from-acss with a "speech-style" -a structure
+as defined in this module and get back a symbol that they assign to the
+value of property 'personality.  Emacspeak's rendering engine then does
+the needful at the time speech is produced.  Function voice-from-acss
+does the following: Takes as input a "speech style" (1) Computes a
+symbol that will be used to refer to this specific speech style.  (2)
+Examines emacspeak's internal voice table to see if this speech style
+has a voice already defined.  If so it returns immediately.  Otherwise,
+it does the additional work of defining a -voice for future use.  See
+its use in this module to see how voices are defined independent of a
+given TTS engine.  How faces map to voices: TTS engine specific modules
+e.g., dectalk-voices.el and outloud-voices.el map ACSS dimensions to
+engine-specific codes.  Emacspeak modules use voice-setup-add-map when
+defining face->personality mappings.  For use from other modules.
 
 12.241.2 Voice-Setup Commands
 -----------------------------
@@ -2624,7 +2623,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e d SPC:                             dtk-speak.          (line  291)
 * C-e d t:                               Miscellaneous.      (line   79)
 * C-e d V:                               dtk-speak.          (line  340)
-* C-e d v:                               voice-setup.        (line   63)
+* C-e d v:                               voice-setup.        (line   62)
 * C-e d w:                               Controlling Echo.   (line   25)
 * C-e d w <1>:                           emacspeak-speak.    (line 1028)
 * C-e d z:                               Miscellaneous.      (line   90)
@@ -5722,12 +5721,12 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * tts-speak-version:                     Miscellaneous.      (line   84)
 * tts-speak-version <1>:                 dtk-speak.          (line  338)
 * tts-speak-version <2>:                 dtk-speak.          (line  341)
-* voice-lock-mode:                       voice-setup.        (line   61)
-* voice-lock-mode <1>:                   voice-setup.        (line   64)
-* voice-lock-mode--turn-on:              voice-setup.        (line   85)
-* voice-lock-mode--turn-on <1>:          voice-setup.        (line   86)
-* voice-setup-toggle-silence-personality: voice-setup.       (line   92)
-* voice-setup-toggle-silence-personality <1>: voice-setup.   (line   93)
+* voice-lock-mode:                       voice-setup.        (line   60)
+* voice-lock-mode <1>:                   voice-setup.        (line   63)
+* voice-lock-mode--turn-on:              voice-setup.        (line   84)
+* voice-lock-mode--turn-on <1>:          voice-setup.        (line   85)
+* voice-setup-toggle-silence-personality: voice-setup.       (line   91)
+* voice-setup-toggle-silence-personality <1>: voice-setup.   (line   92)
 * xbacklight-black:                      xbacklight.         (line   19)
 * xbacklight-black <1>:                  xbacklight.         (line   20)
 * xbacklight-decrement:                  xbacklight.         (line   26)
