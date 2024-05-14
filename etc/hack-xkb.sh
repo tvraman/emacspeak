@@ -1,6 +1,7 @@
 #!/bin/bash
 #beware: didn't work with xcape
 #keeping it here for the future.
+# Taken from http://www.emacs.dyerdwelling.family/emacs/20240309130457-emacs--kmonad-sway-kbd-map-locking/
 DST=$HOME/.config
 
 # Reset keyboard layout (to your preferred language) 
