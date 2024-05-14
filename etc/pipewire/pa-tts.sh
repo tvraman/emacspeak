@@ -1,5 +1,6 @@
 #!/bin/sh
-#Create our tts_mono_left and tts_mono_right and avoid .asoundrc
+#Create our tts_mono_left and tts_mono_right  for pulse
+# This is needed for TTS engines linked with Pulse, e.g. espeak, software-dtk
 
 # A tts_mono_right and tts_mono_left device
 # See https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Modules/#module-remap-sink
@@ -9,7 +10,7 @@ pactl load-module module-remap-sink sink_name=tts_mono_left  master=binaural cha
 
 # Above can likely be done with pw-link:
 #https://www.thegeekdiary.com/pw-link-command-examples-in-linux/
-# device: snoop -- to record and play
+# device: snoop -- to record and play (AsTeR)
 pactl load-module module-combine-sink sink_name=snoop  sink_properties=device.description="Record-and-Play"
 
 # to undo, use pactl unload-module <module name>
