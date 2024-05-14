@@ -263,9 +263,9 @@
             value)
     ""))
 
-;;;   outloud-define-voice-from-speech-style
+;;;   outloud-define-voice-from-acss
 
-(defun outloud-define-voice-from-speech-style (name style)
+(defun outloud-define-voice-from-acss (name style)
   "Define NAME  as  per   STYLE."
   (let* ((family(acss-family style))
          (command
@@ -287,7 +287,7 @@
   (fset 'tts-voice-defined-p 'outloud-voice-defined-p)
   (fset 'tts-get-voice-command 'outloud-get-voice-command)
   (fset
-   'tts-define-voice-from-speech-style 'outloud-define-voice-from-speech-style)
+   'tts-define-voice-from-acss 'outloud-define-voice-from-acss)
   (setq tts-default-voice 'paul)
   (setq tts-default-speech-rate outloud-default-speech-rate)
   (set-default 'tts-default-speech-rate outloud-default-speech-rate)

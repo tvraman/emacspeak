@@ -303,9 +303,9 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
-;;;   plain-define-voice-from-speech-style
+;;;   plain-define-voice-from-acss
 
-(defun plain-define-voice-from-speech-style (name style)
+(defun plain-define-voice-from-acss (name style)
   "Define NAME to be a Plain voice as specified by settings in STYLE."
   (let* ((family(acss-family style))
          (command
@@ -334,8 +334,8 @@ and TABLE gives the values along that dimension."
   (fset 'tts-voice-defined-p 'plain-voice-defined-p)
   (fset 'tts-get-voice-command 'plain-get-voice-command)
   (fset 'tts-voice-defined-p 'plain-voice-defined-p)
-  (fset 'tts-define-voice-from-speech-style
-        'plain-define-voice-from-speech-style)
+  (fset 'tts-define-voice-from-acss
+        'plain-define-voice-from-acss)
   (setq tts-default-speech-rate plain-default-speech-rate)
   (set-default 'tts-default-speech-rate plain-default-speech-rate))
 

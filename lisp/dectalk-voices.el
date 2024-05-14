@@ -326,9 +326,9 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
-;;;   dectalk-define-voice-from-speech-style
+;;;   dectalk-define-voice-from-acss
 
-(defun dectalk-define-voice-from-speech-style (name style)
+(defun dectalk-define-voice-from-acss (name style)
   "Define NAME to be a Dectalk voice as specified by settings in STYLE."
   (let* ((family(acss-family style))
          (command
@@ -360,7 +360,7 @@ and TABLE gives the values along that dimension."
   (fset 'tts-voice-defined-p 'dectalk-voice-defined-p)
   (fset 'tts-get-voice-command 'dectalk-get-voice-command)
   (fset
-   'tts-define-voice-from-speech-style 'dectalk-define-voice-from-speech-style)
+   'tts-define-voice-from-acss 'dectalk-define-voice-from-acss)
   (setq tts-default-speech-rate dectalk-default-speech-rate)
   (set-default 'tts-default-speech-rate dectalk-default-speech-rate)
   (setq dtk-speech-rate-step 50

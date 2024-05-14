@@ -266,9 +266,9 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
-;;;   swiftmac-define-voice-from-speech-style
+;;;   swiftmac-define-voice-from-acss
 
-(defun swiftmac-define-voice-from-speech-style (name style)
+(defun swiftmac-define-voice-from-acss (name style)
   "Define NAME to be a swiftmac voice as specified by settings in STYLE."
   (let* ((family(acss-family style))
          (command
@@ -289,7 +289,7 @@ and TABLE gives the values along that dimension."
   (setq tts-default-voice 'paul)
   (fset 'tts-voice-defined-p 'swiftmac-voice-defined-p)
   (fset 'tts-get-voice-command 'swiftmac-get-voice-command)
-  (fset 'tts-define-voice-from-speech-style 'swiftmac-define-voice-from-speech-style)
+  (fset 'tts-define-voice-from-acss 'swiftmac-define-voice-from-acss)
   (setq tts-default-speech-rate swiftmac-default-speech-rate)
   (set-default 'tts-default-speech-rate swiftmac-default-speech-rate)
   (dtk-unicode-update-untouched-charsets

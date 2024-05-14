@@ -70,12 +70,12 @@
 ;; Think of a buffer of formatted text along with the text-property
 ;; 'personality appropriately set as a "aural display list".  Module
 ;; voice-setup.el help applications like EWW produce audio-formatted
-;; output by calling function voice-acss-from-speech-style with
+;; output by calling function voice-from-acss with
 ;; a "speech-style" --a structure as defined in this module and get
 ;; back a symbol that they assign to the value of property
 ;; 'personality.  Emacspeak's rendering engine then does the needful
 ;; at the time speech is produced.  Function
-;; voice-acss-from-speech-style does the following: Takes as
+;; voice-from-acss does the following: Takes as
 ;; input a "speech style" (1) Computes a symbol that will be used to
 ;; refer to this specific speech style.  (2) Examines emacspeak's
 ;; internal voice table to see if this speech style has a voice
@@ -141,7 +141,7 @@
     (plain-configure-tts)))
   (ems--fastload "voice-defs"))
 
-(defun voice-acss-from-speech-style (style)
+(defun voice-from-acss (style)
   "Compute a  name for this STYLE.
 Define a voice for it if needed, then return the symbol."
   (let ((f (acss-family style))
@@ -159,7 +159,7 @@ Define a voice for it if needed, then return the symbol."
                    (if s (format "-s%s" s) "")
                    (if r (format "-r%s" r) ""))))
     (unless (tts-voice-defined-p name)
-      (tts-define-voice-from-speech-style name style))
+      (tts-define-voice-from-acss name style))
     name))
 
 ;;;  map faces to voices
@@ -189,7 +189,7 @@ Define a voice for it if needed, then return the symbol."
 (defun voice-setup-acss-from-style (style-list)
   "Define an ACSS-voice  from   speech style."
   (let ((voice
-         (voice-acss-from-speech-style
+         (voice-from-acss
           (make-acss
            :family (nth 0 style-list)
            :average-pitch (nth 1 style-list)

@@ -1405,7 +1405,7 @@ Set by \\[dtk-set-punctuations].")
 ;; These functions will be reset on a per TTS engine basis
 ;; via `voice-setup' called by `dtk-initialize'.
 (defalias 'tts-get-voice-command (lambda (&rest _) ""))
-(defalias 'tts-define-voice-from-speech-style #'ignore)
+(defalias 'tts-define-voice-from-acss #'ignore)
 (defalias 'tts-voice-defined-p (lambda (&rest _) t))
 
 (defun tts-voice-reset-code ()

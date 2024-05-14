@@ -248,9 +248,9 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
-;;;   espeak-define-voice-from-speech-style
+;;;   espeak-define-voice-from-acss
 
-(defun espeak-define-voice-from-speech-style (name style)
+(defun espeak-define-voice-from-acss (name style)
   "Define NAME to be a espeak voice as specified by settings in STYLE."
   (let* ((family(acss-family style))
          (command
@@ -290,7 +290,7 @@ and TABLE gives the values along that dimension."
   (fset 'tts-voice-defined-p 'espeak-voice-defined-p)
   (fset 'tts-get-voice-command 'espeak-get-voice-command)
   (fset
-   'tts-define-voice-from-speech-style 'espeak-define-voice-from-speech-style)
+   'tts-define-voice-from-acss 'espeak-define-voice-from-acss)
   (setq tts-default-voice nil)
   (setq tts-default-speech-rate espeak-default-speech-rate)
   (set-default 'tts-default-speech-rate espeak-default-speech-rate)

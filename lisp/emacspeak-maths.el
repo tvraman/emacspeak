@@ -192,7 +192,7 @@ Otherwise, Examine head of sexp, and applies associated handler to the tail."
 (defun emacspeak-maths-acss (acss-alist)
   "Return ACSS voice corresponding to acss-alist."
   (let-alist acss-alist
-    (voice-acss-from-speech-style
+    (voice-from-acss
      (make-acss
       :average-pitch  .average-pitch
       :pitch-range .pitch-range

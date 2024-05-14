@@ -267,9 +267,9 @@ and TABLE gives the values along that dimension."
             value)
     ""))
 
-;;;   mac-define-voice-from-speech-style
+;;;   mac-define-voice-from-acss
 
-(defun mac-define-voice-from-speech-style (name style)
+(defun mac-define-voice-from-acss (name style)
   "Define NAME to be a mac voice as specified by settings in STYLE."
   (let* ((family(acss-family style))
          (command
@@ -290,7 +290,7 @@ and TABLE gives the values along that dimension."
   (setq tts-default-voice 'systemDefault)
   (fset 'tts-voice-defined-p 'mac-voice-defined-p)
   (fset 'tts-get-voice-command 'mac-get-voice-command)
-  (fset 'tts-define-voice-from-speech-style 'mac-define-voice-from-speech-style)
+  (fset 'tts-define-voice-from-acss 'mac-define-voice-from-acss)
   (setq tts-default-speech-rate mac-default-speech-rate)
   (set-default 'tts-default-speech-rate mac-default-speech-rate)
   (dtk-unicode-update-untouched-charsets
