@@ -39,7 +39,7 @@
 
 
 ;;; Commentary:
-;; This module defines the various voices used in voice-lock mode by SwiftMac TTS.
+;; This module defines the various voices used in voice-lock mode by SwiftMac.
 
 ;;; Code:
 
