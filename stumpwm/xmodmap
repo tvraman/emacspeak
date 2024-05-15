@@ -14,7 +14,7 @@ keycode 118 = Hyper_R
 ! RET as Ctrl_R
 ! Return becomes Control_R
 ! xcape then turns  it back to Return
-! Control_R becomes return
+! Control_R (bottom row)becomes return
 
  remove Control = Control_R
  keycode 0x69 = Return Cancel 
