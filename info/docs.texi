@@ -19934,7 +19934,7 @@ Default Value:
 @node swiftmac-voices
 @section swiftmac-voices
 
-This module defines the various voices used in voice-lock mode by SwiftMac TTS.
+This module defines the various voices used in voice-lock mode by SwiftMac.
 
 @node tetris
 @section tetris

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 14, 2024.
+last updated on May 15, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -337,7 +337,7 @@ File: emacspeak.info,  Node: swiftmac-voices,  Next: tetris,  Prev: sox-gen,  Up
 ======================
 
 This module defines the various voices used in voice-lock mode by
-SwiftMac TTS.
+SwiftMac.
 
 
 File: emacspeak.info,  Node: tetris,  Next: voice-defs,  Prev: swiftmac-voices,  Up: Emacspeak Commands And Options
