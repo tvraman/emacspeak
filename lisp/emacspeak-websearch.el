@@ -8,29 +8,29 @@
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
 ;; A speech interface to Emacs |
-;; 
+;;
 ;;  $Revision: 4625 $ |
 ;; Location https://github.com/tvraman/emacspeak
-;; 
+;;
 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2024, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;; All Rights Reserved.
-;; 
+;;
 ;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
+;;
 ;; GNU Emacs is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2, or (at your option)
 ;; any later version.
-;; 
+;;
 ;; GNU Emacs is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-;; 
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
@@ -55,101 +55,48 @@
 (declare-function calendar-cursor-to-date "calendar" (&optional error event))
 (declare-function emacspeak-eww-autospeak "emacspeak-eww" nil)
 
-;;;  Forward Declarations:
-
 (declare-function gweb-google-autocomplete "gweb" (&optional prompt))
 (declare-function calendar-astro-date-string "cal-julian" (&optional date))
 
-;;;  searcher table
+(define-prefix-command 'emacspeak-websearch)
+(cl-declaim (special emacspeak-websearch))
 
-(defvar emacspeak-websearch-table (make-hash-table)
-  "Table to map  search engine names to appropriate searcher functions.")
-
-(defun emacspeak-websearch-set-searcher  (engine searcher)
-  (cl-declare (special emacspeak-websearch-table))
-  (setf (gethash engine emacspeak-websearch-table) searcher))
-
-(defsubst emacspeak-websearch-get-searcher (engine)
-  (cl-declare (special emacspeak-websearch-table))
-  (gethash engine emacspeak-websearch-table))
-
-;;;  Key table
-
-(defvar emacspeak-websearch-keytable (make-hash-table)
-  "Table holding mapping from keys to appropriate search engine names.")
-
-(defun emacspeak-websearch-set-key  (key engine)
-  (cl-declare (special emacspeak-websearch-keytable))
-  (setf (gethash key emacspeak-websearch-keytable) engine))
-
-(defsubst emacspeak-websearch-get-engine (key)
-  (cl-declare (special emacspeak-websearch-keytable))
-  (gethash key emacspeak-websearch-keytable))
-
-;;;  top-level dispatch
+(cl-loop
+ for b in
+ '(
+   ("C-a"       emacspeak-websearch-amazon-search)
+   ("C-b"       emacspeak-websearch-biblio-search)
+   ("SPC"       emacspeak-websearch-google-feeling-lucky)
+   ("?"         emacspeak-websearch-help)
+   ("G"         emacspeak-websearch-gutenberg)
+   ("a"         emacspeak-websearch-accessible-google)
+   ("f"         emacspeak-websearch-foldoc-search)
+   ("g"         emacspeak-websearch-google)
+   ("i"         emacspeak-websearch-google-with-toolbelt)
+   ("j"         emacspeak-websearch-ask-jeeves)
+   ("n"         emacspeak-websearch-google-news)
+   ("u"         emacspeak-websearch-web-filter-google)
+   ("w"         emacspeak-websearch-wikipedia-search)
+   ("y"         emacspeak-websearch-youtube-search))
+ do
+ (emacspeak-keymap-update emacspeak-websearch b ))
 
 (defun emacspeak-websearch-help ()
   "Displays key mapping used by Emacspeak Websearch."
   (interactive)
-  (let ((inhibit-read-only  t)
-        (map
-         (cl-loop
-          for key being the hash-keys of emacspeak-websearch-keytable
-          collect (cons key (gethash key emacspeak-websearch-keytable)))))
-    (setq map
-          (sort map #'(lambda (a b) (< (car a) (car b)))))
-    (with-current-buffer (help-buffer)
-      (erase-buffer)
-      (help-mode)
-      (cl-loop
-       for m in map do
-       (insert (format "%s:\t%s\n"
-                       (key-description (list (car m)))
-                       (emacspeak-websearch-get-searcher (cdr m)))))
-      (goto-char (point-min)))
-    (pop-to-buffer (help-buffer))
-    (emacspeak-speak-mode-line)
-    (emacspeak-icon 'help)))
-
-(emacspeak-websearch-set-searcher  'help
-                                   'emacspeak-websearch-help)
-
-(emacspeak-websearch-set-key ?? 'help)
-;;;###autoload
-(defun emacspeak-websearch-dispatch  ()
-  " Press `?' to list available search engines.
-   This interface attempts to speak the most relevant information
-   on the result page."
-  (interactive)
-  (let ((engine nil)
-        (searcher nil))
-    (while (null engine)
-      (setq engine
-            (emacspeak-websearch-get-engine
-             (read-char
-              (concat "Websearch? "
-                      (documentation this-command))))))
-    (setq searcher (emacspeak-websearch-get-searcher engine))
-    (if searcher
-        (call-interactively searcher)
-      (error "I do not know how to search using %s" engine))))
+  (funcall-interactively 'describe-bindings (kbd "C-e /") ))
 
 ;;;  helpers to read the query
 
 (defvar emacspeak-websearch-history nil
   "Holds history of search queries.")
 
-(defun emacspeak-websearch-read-query (prompt &optional
-                                              default
-                                              initial)
-  (let ((answer
-         (read-from-minibuffer
-          prompt
-          initial  nil nil
-          (car emacspeak-websearch-history)
-          (or default (word-at-point)))))
-    (cl-pushnew answer  emacspeak-websearch-history :test #'string=)
-    answer))
+(defsubst emacspeak-websearch-read-query (prompt &optional default initial)
+  (let ((q (read-from-minibuffer prompt initial  nil nil
+                                 (car emacspeak-websearch-history)
+                                 (or default (word-at-point)))))
+    (cl-pushnew q  emacspeak-websearch-history :test #'string=)
+    q))
 
 ;;; post-processor
 (defun emacspeak-websearch-post-process (locator speaker &rest args)
@@ -174,11 +121,6 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 ;;;  Computer Science Bibliography
 
-(emacspeak-websearch-set-searcher 'biblio
-                                  'emacspeak-websearch-biblio-search)
-
-(emacspeak-websearch-set-key 2 'biblio)
-
 (defvar emacspeak-websearch-biblio-uri
   (concat
    "http://liinwww.ira.uka.de/searchbib/index"
@@ -200,10 +142,6 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 ;;;  FolDoc
 
-(emacspeak-websearch-set-searcher 'foldoc
-                                  'emacspeak-websearch-foldoc-search)
-(emacspeak-websearch-set-key ?f 'foldoc)
-
 (defvar emacspeak-websearch-foldoc-uri
   "http://foldoc.org/"
   "URI for launching a FolDoc  search.")
@@ -222,11 +160,6 @@ ARGS specifies additional arguments to SPEAKER if any."
    'emacspeak-speak-line))
 
 ;;;  Gutenberg
-
-(emacspeak-websearch-set-searcher 'gutenberg
-                                  'emacspeak-websearch-gutenberg)
-
-(emacspeak-websearch-set-key ?G 'gutenberg)
 
 (defvar emacspeak-websearch-gutenberg-uri
   "http://digital.library.upenn.edu/webbin/book/search?"
@@ -250,25 +183,6 @@ ARGS specifies additional arguments to SPEAKER if any."
    'emacspeak-speak-line))
 
 ;;;  google
-(emacspeak-websearch-set-searcher 'google-lucky
-                                  'emacspeak-websearch-google-feeling-lucky)
-
-(emacspeak-websearch-set-key ?\  'google-lucky)
-
-(emacspeak-websearch-set-searcher 'agoogle
-                                  'emacspeak-websearch-accessible-google)
-
-(emacspeak-websearch-set-key ?a 'agoogle)
-
-(emacspeak-websearch-set-key ?i 'google-with-toolbelt)
-(emacspeak-websearch-set-key ?g 'google)
-(emacspeak-websearch-set-key ?u 'web-filter)
-
-(emacspeak-websearch-set-searcher 'google 'emacspeak-websearch-google)
-
-(emacspeak-websearch-set-searcher 'web-filter 'emacspeak-websearch-web-filter-google)
-(emacspeak-websearch-set-searcher 'google-with-toolbelt
-                                  'emacspeak-websearch-google-with-toolbelt)
 
 (defvar emacspeak-websearch-google-uri-template
   "www.google.com/search?q="
@@ -344,7 +258,7 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
            (dtk-stop)
            (emacspeak-eww-next-h)
            (emacspeak-speak-windowful))
-       'at-end)      
+       'at-end)
       (emacspeak-we-extract-by-id-list
        ems--websearch-google-filter
        search-url)))))
@@ -459,11 +373,6 @@ Optional prefix arg prompts for toolbelt options."
 
 ;;;  Google News
 
-(emacspeak-websearch-set-searcher 'google-news
-                                  'emacspeak-websearch-google-news)
-
-(emacspeak-websearch-set-key ?n 'google-news)
-
 (defun emacspeak-websearch-google-news ()
   "Invoke Google News url template."
   (interactive)
@@ -472,10 +381,6 @@ Optional prefix arg prompts for toolbelt options."
      (emacspeak-url-template-get name))))
 
 ;;;   Ask Jeeves
-
-(emacspeak-websearch-set-searcher 'jeeves
-                                  'emacspeak-websearch-ask-jeeves)
-(emacspeak-websearch-set-key ?j 'jeeves)
 
 (defvar emacspeak-websearch-jeeves-uri
   "http://www.ask.com/web?qsrc=0&o=0&ASKDSBHO=0&q="
@@ -493,11 +398,6 @@ Optional prefix arg prompts for toolbelt options."
 
 ;;;  wikipedia
 
-(emacspeak-websearch-set-searcher 'wikipedia
-                                  'emacspeak-websearch-wikipedia-search)
-
-(emacspeak-websearch-set-key ?w 'wikipedia)
-
 (defun emacspeak-websearch-wikipedia-search (query)
   "Search Wikipedia using Google.
 Use URL Template `wikipedia at point' to advantage in the results buffer."
@@ -508,11 +408,6 @@ Use URL Template `wikipedia at point' to advantage in the results buffer."
 
 ;;;  YouTube Search:
 
-(emacspeak-websearch-set-searcher 'youtube-search
-                                  'emacspeak-websearch-youtube-search)
-
-(emacspeak-websearch-set-key ?y 'youtube-search)
-
 (defun emacspeak-websearch-youtube-search (query)
   "YouTube search."
   (interactive (list (gweb-youtube-autocomplete)))
@@ -520,11 +415,6 @@ Use URL Template `wikipedia at point' to advantage in the results buffer."
    (url-hexify-string (format "site:youtube.com  %s"query))))
 
 ;;;  Shopping at Amazon
-
-(emacspeak-websearch-set-searcher 'amazon-search
-                                  'emacspeak-websearch-amazon-search)
-
-(emacspeak-websearch-set-key 1 'amazon-search)
 
 (defvar emacspeak-websearch-amazon-search-form
   "http://www.amazon.com/access"
@@ -538,4 +428,3 @@ Use URL Template `wikipedia at point' to advantage in the results buffer."
 
 (provide 'emacspeak-websearch)
 ;;;  end of file
-
