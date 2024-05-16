@@ -7716,17 +7716,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.210.1.4 emacspeak-websearch-biblio-search
-............................................
-
- -- Command: emacspeak-websearch-biblio-search (query)
-     ‘C-e / C-b’
-
-     Search Computer Science Bibliographies.
-
-     (fn QUERY)
-
-12.210.1.5 emacspeak-websearch-foldoc-search
+12.210.1.4 emacspeak-websearch-foldoc-search
 ............................................
 
  -- Command: emacspeak-websearch-foldoc-search (query)
@@ -7736,7 +7726,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.210.1.6 emacspeak-websearch-google
+12.210.1.5 emacspeak-websearch-google
 .....................................
 
  -- Command: emacspeak-websearch-google (query &optional flag)
@@ -7749,7 +7739,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY &optional FLAG)
 
-12.210.1.7 emacspeak-websearch-google-feeling-lucky
+12.210.1.6 emacspeak-websearch-google-feeling-lucky
 ...................................................
 
  -- Command: emacspeak-websearch-google-feeling-lucky (query)
@@ -7759,7 +7749,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.210.1.8 emacspeak-websearch-google-news
+12.210.1.7 emacspeak-websearch-google-news
 ..........................................
 
  -- Command: emacspeak-websearch-google-news
@@ -7767,15 +7757,15 @@ This module provides utility functions for searching the WWW
 
      Invoke Google News url template.
 
-12.210.1.9 emacspeak-websearch-google-search-in-date-range
+12.210.1.8 emacspeak-websearch-google-search-in-date-range
 ..........................................................
 
  -- Command: emacspeak-websearch-google-search-in-date-range
 
      Use this from inside the calendar to do Google date-range searches.
 
-12.210.1.10 emacspeak-websearch-google-with-toolbelt
-....................................................
+12.210.1.9 emacspeak-websearch-google-with-toolbelt
+...................................................
 
  -- Command: emacspeak-websearch-google-with-toolbelt (query)
      ‘C-e / i’
@@ -7784,7 +7774,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.210.1.11 emacspeak-websearch-gutenberg
+12.210.1.10 emacspeak-websearch-gutenberg
 .........................................
 
  -- Command: emacspeak-websearch-gutenberg (type query)
@@ -7794,7 +7784,7 @@ This module provides utility functions for searching the WWW
 
      (fn TYPE QUERY)
 
-12.210.1.12 emacspeak-websearch-help
+12.210.1.11 emacspeak-websearch-help
 ....................................
 
  -- Command: emacspeak-websearch-help
@@ -7802,7 +7792,7 @@ This module provides utility functions for searching the WWW
 
      Displays key mapping used by Emacspeak Websearch.
 
-12.210.1.13 emacspeak-websearch-web-filter-google
+12.210.1.12 emacspeak-websearch-web-filter-google
 .................................................
 
  -- Command: emacspeak-websearch-web-filter-google (query &optional
@@ -7814,7 +7804,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY &optional OPTIONS)
 
-12.210.1.14 emacspeak-websearch-wikipedia-search
+12.210.1.13 emacspeak-websearch-wikipedia-search
 ................................................
 
  -- Command: emacspeak-websearch-wikipedia-search (query)
@@ -7825,7 +7815,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.210.1.15 emacspeak-websearch-youtube-search
+12.210.1.14 emacspeak-websearch-youtube-search
 ..............................................
 
  -- Command: emacspeak-websearch-youtube-search (query)

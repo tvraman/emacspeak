@@ -65,7 +65,6 @@
  for b in
  '(
    ("C-a"       emacspeak-websearch-amazon-search)
-   ("C-b"       emacspeak-websearch-biblio-search)
    ("SPC"       emacspeak-websearch-google-feeling-lucky)
    ("?"         emacspeak-websearch-help)
    ("G"         emacspeak-websearch-gutenberg)
@@ -91,7 +90,7 @@
 (defvar ems--ws-history nil
   "Holds history of search queries.")
 
-(defsubst emacspeak-websearch-read-query (prompt)
+(defsubst emacspeak-websearch-read (prompt)
   "Read search query"
   (let ((q (read-from-minibuffer prompt nil  nil nil 'ems--ws-history )))
     (cl-pushnew q  ems--ws-history :test #'string=)
@@ -118,32 +117,16 @@ ARGS specifies additional arguments to SPEAKER if any."
              (error nil)))))
    'at-end))
 
-;;;  Computer Science Bibliography
-
-(defun emacspeak-websearch-biblio-search (query)
-  "Search Computer Science Bibliographies."
-  (interactive (list (emacspeak-websearch-read-query "CS Biblio: ")))
-  (let ((url (concat
-              "http://liinwww.ira.uka.de/searchbib/index"
-              "?partial=on&case=on&results=citation&maxnum=200&query=")))
-    (browse-url
-     (concat url (url-hexify-string query))))
-  (emacspeak-websearch-post
-   query
-   'emacspeak-speak-line))
-
 ;;;  FolDoc
 
 (defun emacspeak-websearch-foldoc-search (query)
   "Perform a FolDoc search. "
-  (interactive (list (emacspeak-websearch-read-query "Computing Dict: ")))
+  (interactive (list (emacspeak-websearch-read "Computing Dict: ")))
   (browse-url
    (concat
     "http://foldoc.org/"
     (url-hexify-string query)))
-  (emacspeak-websearch-post
-   query
-   'emacspeak-speak-line))
+  (emacspeak-websearch-post query 'emacspeak-speak-line))
 
 ;;;  Gutenberg
 
@@ -152,7 +135,7 @@ ARGS specifies additional arguments to SPEAKER if any."
   (interactive
    (list
     (read-char "Author a, Title t")
-    (emacspeak-websearch-read-query "Gutenberg query: ")))
+    (emacspeak-websearch-read "Gutenberg query: ")))
   (browse-url
    (concat
     "http://digital.library.upenn.edu/webbin/book/search?"
@@ -181,11 +164,6 @@ ARGS specifies additional arguments to SPEAKER if any."
 (defvar emacspeak-websearch-google-options nil
   "Additional options to pass to Google e.g. &xx=yy...")
 
-(defadvice gweb-google-autocomplete (after emacspeak pre act comp)
-  "Cache the query."
-  (cl-declare (special emacspeak-google-query))
-  (setq emacspeak-google-query ad-return-value))
-
 (defconst ems--google-filter
   '("main")
   "Ids of nodes we keep in Google results page.")
@@ -199,10 +177,8 @@ ARGS specifies additional arguments to SPEAKER if any."
 prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
   (interactive (list (gweb-google-autocomplete) current-prefix-arg))
   (cl-declare (special
-               emacspeak-google-query
-               emacspeak-google-toolbelt
-               ems--google-filter
-               emacspeak-websearch-google-options))
+               emacspeak-google-query emacspeak-google-toolbelt
+               ems--google-filter emacspeak-websearch-google-options))
   (setq emacspeak-google-toolbelt nil)
   (let ((toolbelt (emacspeak-google-toolbelt))
         (search-url nil)
@@ -214,8 +190,7 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
           (concat
            (emacspeak-websearch-google-uri)
            query
-           (format "&num=%s%s"          ; accumulate options
-                   25
+           (format "&num=25%s"          ; accumulate options
                    (or emacspeak-websearch-google-options ""))
            (when lucky
              (concat
@@ -240,7 +215,7 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
        ems--google-filter
        search-url)))))
 
-(defvar emacspeak-websearch-accessible-google-url
+(defvar emacspeak-websearch-google-lite
   "https://www.google.com/search?num=25&lite=90586&q=%s"
   "Using Google Lite.")
 
@@ -254,7 +229,7 @@ Optional prefix arg prompts for toolbelt options."
   (cl-declare (special
                emacspeak-eww-masquerade
                ems--google-filter
-               emacspeak-websearch-accessible-google-url
+               emacspeak-websearch-google-lite
                emacspeak-google-toolbelt))
   (setq emacspeak-google-toolbelt nil)
   (let ((emacspeak-eww-masquerade t)
@@ -275,9 +250,9 @@ Optional prefix arg prompts for toolbelt options."
            (emacspeak-speak-windowful)))
       (emacspeak-we-extract-by-id-list
        ems--google-filter
-       (format emacspeak-websearch-accessible-google-url query))))))
+       (format emacspeak-websearch-google-lite query))))))
 
-(defvar emacspeak-websearch-wf-google-url
+(defvar emacspeak-websearch-wf-google
   "https://www.google.com/search?num=25&lite=90586&udm=1&q=%s"
   "Using Google Lite with Web Filter turned on.")
 
@@ -289,7 +264,7 @@ Optional prefix arg prompts for toolbelt options."
   (cl-declare (special
                emacspeak-eww-masquerade
                ems--google-filter
-               emacspeak-websearch-wf-google-url
+               emacspeak-websearch-wf-google
                emacspeak-google-toolbelt))
   (setq emacspeak-google-toolbelt nil)
   (let ((emacspeak-eww-masquerade t)
@@ -310,7 +285,7 @@ Optional prefix arg prompts for toolbelt options."
            (emacspeak-speak-windowful)))
       (emacspeak-we-extract-by-id-list
        ems--google-filter
-       (format emacspeak-websearch-wf-google-url query))))))
+       (format emacspeak-websearch-wf-google query))))))
 
 (defun emacspeak-websearch-google-with-toolbelt (query)
   "Launch Google search with toolbelt."
@@ -328,7 +303,7 @@ Optional prefix arg prompts for toolbelt options."
   "Use this from inside the calendar to do Google date-range searches."
   (interactive)
   (cl-declare (special calendar-mark-ring))
-  (let ((query (emacspeak-websearch-read-query "Google for: "))
+  (let ((query (emacspeak-websearch-read "Google for: "))
         (from (read (calendar-astro-date-string (calendar-cursor-to-date t))))
         (to
          (read
@@ -353,18 +328,13 @@ Optional prefix arg prompts for toolbelt options."
   "Invoke Google News url template."
   (interactive)
   (let ((name "Google News Search"))
-    (emacspeak-url-template-open
-     (emacspeak-url-template-get name))))
+    (emacspeak-url-template-open (emacspeak-url-template-get name))))
 
 ;;;   Ask Jeeves
 
-(defvar emacspeak-websearch-jeeves-uri
-  "http://www.ask.com/web?qsrc=0&o=0&ASKDSBHO=0&q="
-  "URI for Ask Jeeves  search")
-
 (defun emacspeak-websearch-ask-jeeves (query)
   "Ask Jeeves for the answer."
-  (interactive (list (emacspeak-websearch-read-query "Ask Jeeves for: ")))
+  (interactive (list (emacspeak-websearch-read "Ask Jeeves for: ")))
   (browse-url
    (concat
     "http://www.ask.com/web?qsrc=0&o=0&ASKDSBHO=0&q="
@@ -377,7 +347,7 @@ Optional prefix arg prompts for toolbelt options."
   "Search Wikipedia using Google.
 Use URL Template `wikipedia at point' to advantage in the results buffer."
   (interactive
-   (list (emacspeak-websearch-read-query "Search Wikipedia: ")))
+   (list (emacspeak-websearch-read "Search Wikipedia: ")))
   (emacspeak-websearch-google
    (url-hexify-string (format "site:wikipedia.org %s"query))))
 
@@ -390,10 +360,6 @@ Use URL Template `wikipedia at point' to advantage in the results buffer."
    (url-hexify-string (format "site:youtube.com  %s"query))))
 
 ;;;  Shopping at Amazon
-
-(defvar emacspeak-websearch-amazon-search-form
-  "http://www.amazon.com/access"
-  "Form for Amazon store search.")
 
 (defun emacspeak-websearch-amazon-search ()
   "Amazon search."

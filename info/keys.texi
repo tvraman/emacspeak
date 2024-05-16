@@ -36,7 +36,6 @@
 @item )  emacspeak-sounds-select-theme
 @item ,  emacspeak-buffer-select
 @item .  emacspeak-buffer-select
-@item /  emacspeak-websearch
 @item 1  emacspeak-speak-this-window
 @item 2  emacspeak-speak-other-window
 @item 3  amixer-volume-adjust

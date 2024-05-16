@@ -148,9 +148,15 @@ Uses corpus found in gweb-completion-corpus"
 
 (defun gweb-google-autocomplete (&optional prompt)
   "Autocomplete using Google Search corpus."
+  (defadvice gweb-google-autocomplete (after emacspeak pre act comp)
+  "Cache the query."
+  
+  (cl-declare (special emacspeak-google-query)))
   (dtk-stop 'all)
   (let ((gweb-completion-corpus ""))
-    (gweb--autocomplete-helper (or prompt "Google: "))))
+    (setq
+     emacspeak-google-query
+     (gweb--autocomplete-helper (or prompt "Google: ")))))
 
 (defun gweb-youtube-autocomplete (&optional prompt)
   "Autocomplete using Youtube Search corpus."

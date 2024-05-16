@@ -2680,7 +2680,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘) emacspeak-sounds-select-theme’
 ‘, emacspeak-buffer-select’
 ‘. emacspeak-buffer-select’
-‘/ emacspeak-websearch’
 ‘1 emacspeak-speak-this-window’
 ‘2 emacspeak-speak-other-window’
 ‘3 amixer-volume-adjust’
@@ -3241,7 +3240,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1177 commands and 127 options.
+   This chapter documents a total of 1176 commands and 127 options.
 
 * Menu:
 

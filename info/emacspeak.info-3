@@ -2446,33 +2446,31 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e @:                                 emacspeak-speak.    (line  542)
 * C-e /:                                 Reading.            (line   91)
 * C-e / ?:                               emacspeak-websearch.
-                                                             (line  124)
+                                                             (line  114)
 * C-e / a:                               emacspeak-websearch.
                                                              (line   17)
 * C-e / C-a:                             emacspeak-websearch.
                                                              (line   28)
-* C-e / C-b:                             emacspeak-websearch.
-                                                             (line   46)
 * C-e / f:                               emacspeak-websearch.
-                                                             (line   56)
+                                                             (line   46)
 * C-e / g:                               emacspeak-websearch.
-                                                             (line   67)
+                                                             (line   57)
 * C-e / G:                               emacspeak-websearch.
-                                                             (line  114)
-* C-e / i:                               emacspeak-websearch.
                                                              (line  104)
+* C-e / i:                               emacspeak-websearch.
+                                                             (line   94)
 * C-e / j:                               emacspeak-websearch.
                                                              (line   36)
 * C-e / n:                               emacspeak-websearch.
-                                                             (line   89)
-* C-e / SPC:                             emacspeak-websearch.
                                                              (line   79)
+* C-e / SPC:                             emacspeak-websearch.
+                                                             (line   69)
 * C-e / u:                               emacspeak-websearch.
-                                                             (line  133)
+                                                             (line  123)
 * C-e / w:                               emacspeak-websearch.
-                                                             (line  144)
+                                                             (line  134)
 * C-e / y:                               emacspeak-websearch.
-                                                             (line  155)
+                                                             (line  145)
 * C-e \:                                 emacspeak-speak.    (line 1010)
 * C-e &:                                 emacspeak-wizards.  (line  802)
 * C-e # a:                               emacspeak-gridtext. (line   27)
@@ -2699,7 +2697,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e R:                                 emacspeak-speak.    (line  725)
 * C-e r <1>:                             emacspeak-speak.    (line  737)
 * C-e RET:                               emacspeak-websearch.
-                                                             (line   66)
+                                                             (line   56)
 * C-e <RIGHT>:                           Reading.            (line  113)
 * C-e s:                                 Miscellaneous.      (line   12)
 * C-e s <1>:                             dtk-speak.          (line  227)
@@ -5271,54 +5269,50 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
                                                              (line   34)
 * emacspeak-websearch-ask-jeeves <1>:    emacspeak-websearch.
                                                              (line   37)
-* emacspeak-websearch-biblio-search:     emacspeak-websearch.
-                                                             (line   44)
-* emacspeak-websearch-biblio-search <1>: emacspeak-websearch.
-                                                             (line   47)
 * emacspeak-websearch-foldoc-search:     emacspeak-websearch.
-                                                             (line   54)
+                                                             (line   44)
 * emacspeak-websearch-foldoc-search <1>: emacspeak-websearch.
-                                                             (line   57)
+                                                             (line   47)
 * emacspeak-websearch-google:            emacspeak-websearch.
-                                                             (line   64)
+                                                             (line   54)
 * emacspeak-websearch-google <1>:        emacspeak-websearch.
-                                                             (line   68)
+                                                             (line   58)
 * emacspeak-websearch-google-feeling-lucky: emacspeak-websearch.
-                                                             (line   77)
+                                                             (line   67)
 * emacspeak-websearch-google-feeling-lucky <1>: emacspeak-websearch.
-                                                             (line   80)
+                                                             (line   70)
 * emacspeak-websearch-google-news:       emacspeak-websearch.
-                                                             (line   87)
+                                                             (line   77)
 * emacspeak-websearch-google-news <1>:   emacspeak-websearch.
-                                                             (line   90)
+                                                             (line   80)
 * emacspeak-websearch-google-search-in-date-range: emacspeak-websearch.
-                                                             (line   95)
+                                                             (line   85)
 * emacspeak-websearch-google-search-in-date-range <1>: emacspeak-websearch.
-                                                             (line   96)
+                                                             (line   86)
 * emacspeak-websearch-google-with-toolbelt: emacspeak-websearch.
-                                                             (line  102)
+                                                             (line   92)
 * emacspeak-websearch-google-with-toolbelt <1>: emacspeak-websearch.
-                                                             (line  105)
+                                                             (line   95)
 * emacspeak-websearch-gutenberg:         emacspeak-websearch.
-                                                             (line  112)
+                                                             (line  102)
 * emacspeak-websearch-gutenberg <1>:     emacspeak-websearch.
-                                                             (line  115)
+                                                             (line  105)
 * emacspeak-websearch-help:              emacspeak-websearch.
-                                                             (line  122)
+                                                             (line  112)
 * emacspeak-websearch-help <1>:          emacspeak-websearch.
-                                                             (line  125)
+                                                             (line  115)
 * emacspeak-websearch-web-filter-google: emacspeak-websearch.
-                                                             (line  130)
+                                                             (line  120)
 * emacspeak-websearch-web-filter-google <1>: emacspeak-websearch.
-                                                             (line  134)
+                                                             (line  124)
 * emacspeak-websearch-wikipedia-search:  emacspeak-websearch.
-                                                             (line  142)
+                                                             (line  132)
 * emacspeak-websearch-wikipedia-search <1>: emacspeak-websearch.
-                                                             (line  145)
+                                                             (line  135)
 * emacspeak-websearch-youtube-search:    emacspeak-websearch.
-                                                             (line  153)
+                                                             (line  143)
 * emacspeak-websearch-youtube-search <1>: emacspeak-websearch.
-                                                             (line  156)
+                                                             (line  146)
 * emacspeak-webspace-feed-reader:        emacspeak-webspace. (line   14)
 * emacspeak-webspace-feed-reader <1>:    emacspeak-webspace. (line   18)
 * emacspeak-webspace-filter:             emacspeak-webspace. (line   26)

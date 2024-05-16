@@ -250,7 +250,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1177 commands and 127 options.
+This chapter documents a total of 1176 commands and 127 options.
 
 @node amixer
 @section amixer
@@ -16226,22 +16226,6 @@ Amazon search.
 
 @format
 Ask Jeeves for the answer.
-
-(fn QUERY)
-@end format
-@end deffn
-
-@subsubsection emacspeak-websearch-biblio-search
-@deffn {Command} emacspeak-websearch-biblio-search  (query)
-@table @kbd
-@item C-e / C-b
-@kindex C-e / C-b
-@end table
-
-@findex emacspeak-websearch-biblio-search
-
-@format
-Search Computer Science Bibliographies.
 
 (fn QUERY)
 @end format
