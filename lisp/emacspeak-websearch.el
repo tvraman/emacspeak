@@ -202,8 +202,7 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
                emacspeak-google-query
                emacspeak-google-toolbelt
                ems--google-filter
-               emacspeak-websearch-google-options
-               25))
+               emacspeak-websearch-google-options))
   (setq emacspeak-google-toolbelt nil)
   (let ((toolbelt (emacspeak-google-toolbelt))
         (search-url nil)
@@ -365,12 +364,11 @@ Optional prefix arg prompts for toolbelt options."
 
 (defun emacspeak-websearch-ask-jeeves (query)
   "Ask Jeeves for the answer."
-  (interactive
-   (list (emacspeak-websearch-read-query "Ask Jeeves for: ")))
-  (cl-declare (special emacspeak-websearch-jeeves-uri))
+  (interactive (list (emacspeak-websearch-read-query "Ask Jeeves for: ")))
   (browse-url
-   (concat emacspeak-websearch-jeeves-uri
-           (url-hexify-string query)))
+   (concat
+    "http://www.ask.com/web?qsrc=0&o=0&ASKDSBHO=0&q="
+    (url-hexify-string query)))
   (emacspeak-websearch-post query 'emacspeak-speak-line))
 
 ;;;  wikipedia
@@ -400,8 +398,7 @@ Use URL Template `wikipedia at point' to advantage in the results buffer."
 (defun emacspeak-websearch-amazon-search ()
   "Amazon search."
   (interactive)
-  (cl-declare (special emacspeak-websearch-amazon-search-form))
-  (browse-url emacspeak-websearch-amazon-search-form))
+  (browse-url "http://www.amazon.com/access"))
 
 (provide 'emacspeak-websearch)
 ;;;  end of file
