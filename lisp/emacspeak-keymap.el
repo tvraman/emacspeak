@@ -176,7 +176,7 @@
    (")" emacspeak-sounds-select-theme)
    ("," emacspeak-buffer-select)
    ("." emacspeak-buffer-select)
-   ("/" emacspeak-websearch-dispatch)
+   ("/" emacspeak-websearch)
    ("1" emacspeak-speak-this-window)
    ("2" emacspeak-speak-other-window)
    ("3" amixer-volume-adjust)
