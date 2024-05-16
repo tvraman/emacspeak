@@ -225,6 +225,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 (emacspeak-websearch-set-searcher 'gutenberg
                                   'emacspeak-websearch-gutenberg)
+
 (emacspeak-websearch-set-key ?G 'gutenberg)
 
 (defvar emacspeak-websearch-gutenberg-uri
@@ -261,8 +262,11 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 (emacspeak-websearch-set-key ?i 'google-with-toolbelt)
 (emacspeak-websearch-set-key ?g 'google)
+(emacspeak-websearch-set-key ?u 'web-filter)
 
 (emacspeak-websearch-set-searcher 'google 'emacspeak-websearch-google)
+
+(emacspeak-websearch-set-searcher 'web-filter 'emacspeak-websearch-web-filter-google)
 (emacspeak-websearch-set-searcher 'google-with-toolbelt
                                   'emacspeak-websearch-google-with-toolbelt)
 
@@ -270,7 +274,7 @@ ARGS specifies additional arguments to SPEAKER if any."
   "www.google.com/search?q="
   "URI for Google search")
 
-(defun emacspeak-websearch-google-uri ()
+(defsubst emacspeak-websearch-google-uri ()
   "Return URI end-point for Google search."
   (cl-declare (special emacspeak-google-use-https
                        emacspeak-websearch-google-uri-template))
@@ -289,8 +293,6 @@ ARGS specifies additional arguments to SPEAKER if any."
   (setq emacspeak-google-query ad-return-value))
 (defvar ems--websearch-google-filter
   '("main")
-                                        ;'("center_col" "nav"}
-                                        ;"rhs_block" ) ;;; legacy
   "Ids of nodes we keep in Google results page.")
 
 (defvar emacspeak-websearch-google-number-of-results 25
@@ -349,10 +351,10 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
 
 (defvar emacspeak-websearch-accessible-google-url
   "https://www.google.com/search?num=25&lite=90586&q=%s"
-  "Using experimental Google Lite.")
+  "Using Google Lite.")
 
 (defun emacspeak-websearch-accessible-google(query &optional options)
-  "Use Google Lite (Experimental).
+  "Use Google Lite.
 Optional prefix arg prompts for toolbelt options."
   (interactive
    (list
@@ -383,6 +385,41 @@ Optional prefix arg prompts for toolbelt options."
       (emacspeak-we-extract-by-id-list
        ems--websearch-google-filter
        (format emacspeak-websearch-accessible-google-url query))))))
+
+(defvar emacspeak-websearch-wf-google-url
+  "https://www.google.com/search?num=25&lite=90586&udm=1&q=%s"
+  "Using Google Lite with Web Filter turned on.")
+
+(defun emacspeak-websearch-web-filter-google (query &optional options)
+  "Use Google Lite with Web filter.
+Optional prefix arg prompts for toolbelt options."
+  (interactive
+   (list (gweb-google-autocomplete "WFGoogle: ") current-prefix-arg))
+  (cl-declare (special
+               emacspeak-eww-masquerade
+               ems--websearch-google-filter
+               emacspeak-websearch-wf-google-url
+               emacspeak-google-toolbelt))
+  (setq emacspeak-google-toolbelt nil)
+  (let ((emacspeak-eww-masquerade t)
+        (toolbelt (emacspeak-google-toolbelt)))
+    (emacspeak-google-cache-query query)
+    (emacspeak-google-cache-toolbelt toolbelt)
+    (cond
+     (options (emacspeak-google-toolbelt-change))
+     (t
+      (add-hook
+       'emacspeak-eww-post-hook
+       #'(lambda ()
+           (goto-char (point-min))
+           (emacspeak-eww-next-h) (search-forward "Search Tools" nil
+                                                  t)
+           (dtk-stop)
+           (emacspeak-eww-next-h)
+           (emacspeak-speak-windowful)))
+      (emacspeak-we-extract-by-id-list
+       ems--websearch-google-filter
+       (format emacspeak-websearch-wf-google-url query))))))
 
 ;;;###autoload
 (defun emacspeak-websearch-google-with-toolbelt (query)
