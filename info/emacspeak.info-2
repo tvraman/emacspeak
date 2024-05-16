@@ -7692,7 +7692,7 @@ This module provides utility functions for searching the WWW
  -- Command: emacspeak-websearch-accessible-google (query &optional
           options)
 
-     Use Google Lite (Experimental).
+     Use Google Lite.
      Optional prefix arg prompts for toolbelt options.
 
      (fn QUERY &optional OPTIONS)
@@ -7802,14 +7802,16 @@ This module provides utility functions for searching the WWW
 
      Displays key mapping used by Emacspeak Websearch.
 
-12.210.1.14 emacspeak-websearch-merriam-webster-search
-......................................................
+12.210.1.14 emacspeak-websearch-web-filter-google
+.................................................
 
- -- Command: emacspeak-websearch-merriam-webster-search (query)
+ -- Command: emacspeak-websearch-web-filter-google (query &optional
+          options)
 
-     Search the Merriam Webster Dictionary.
+     Use Google Lite with Web filter.
+     Optional prefix arg prompts for toolbelt options.
 
-     (fn QUERY)
+     (fn QUERY &optional OPTIONS)
 
 12.210.1.15 emacspeak-websearch-wikipedia-search
 ................................................

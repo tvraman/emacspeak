@@ -5288,18 +5288,18 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
                                                              (line  123)
 * emacspeak-websearch-help <1>:          emacspeak-websearch.
                                                              (line  124)
-* emacspeak-websearch-merriam-webster-search: emacspeak-websearch.
+* emacspeak-websearch-web-filter-google: emacspeak-websearch.
                                                              (line  130)
-* emacspeak-websearch-merriam-webster-search <1>: emacspeak-websearch.
-                                                             (line  131)
+* emacspeak-websearch-web-filter-google <1>: emacspeak-websearch.
+                                                             (line  132)
 * emacspeak-websearch-wikipedia-search:  emacspeak-websearch.
-                                                             (line  139)
+                                                             (line  141)
 * emacspeak-websearch-wikipedia-search <1>: emacspeak-websearch.
-                                                             (line  140)
+                                                             (line  142)
 * emacspeak-websearch-youtube-search:    emacspeak-websearch.
-                                                             (line  149)
+                                                             (line  151)
 * emacspeak-websearch-youtube-search <1>: emacspeak-websearch.
-                                                             (line  150)
+                                                             (line  152)
 * emacspeak-webspace-feed-reader:        emacspeak-webspace. (line   14)
 * emacspeak-webspace-feed-reader <1>:    emacspeak-webspace. (line   18)
 * emacspeak-webspace-filter:             emacspeak-webspace. (line   26)
