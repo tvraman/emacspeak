@@ -250,7 +250,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1178 commands and 127 options.
+This chapter documents a total of 1177 commands and 127 options.
 
 @node amixer
 @section amixer
@@ -8279,7 +8279,6 @@ Default Value:
  ("g" rg)
  ("l" eww-open-file)
  ("p" emacspeak-wizards-pdf-open)
- ("q" emacspeak-wizards-quotes)
  ("r" emacspeak-feeds-rss-display)
  ("s" emacspeak-wizards-tune-in-radio-search)
  ("t" emacspeak-wizards-tune-in-radio-browse)
@@ -8369,6 +8368,7 @@ Default Value:
  ("l" locate)
  ("m" notmuch-search)
  ("o" org-mode)
+ ("p" emacspeak-wizards-portfolio)
  ("y" emacspeak-google-yt-feed))
 
 @end verbatim
@@ -16186,6 +16186,11 @@ This module provides utility functions for searching the WWW
 
 @subsubsection emacspeak-websearch-accessible-google
 @deffn {Command} emacspeak-websearch-accessible-google  (query &optional options)
+@table @kbd
+@item C-e / a
+@kindex C-e / a
+@end table
+
 @findex emacspeak-websearch-accessible-google
 
 @format
@@ -16198,6 +16203,11 @@ Optional prefix arg prompts for toolbelt options.
 
 @subsubsection emacspeak-websearch-amazon-search
 @deffn {Command} emacspeak-websearch-amazon-search   
+@table @kbd
+@item C-e / C-a
+@kindex C-e / C-a
+@end table
+
 @findex emacspeak-websearch-amazon-search
 
 @format
@@ -16207,6 +16217,11 @@ Amazon search.
 
 @subsubsection emacspeak-websearch-ask-jeeves
 @deffn {Command} emacspeak-websearch-ask-jeeves  (query)
+@table @kbd
+@item C-e / j
+@kindex C-e / j
+@end table
+
 @findex emacspeak-websearch-ask-jeeves
 
 @format
@@ -16218,6 +16233,11 @@ Ask Jeeves for the answer.
 
 @subsubsection emacspeak-websearch-biblio-search
 @deffn {Command} emacspeak-websearch-biblio-search  (query)
+@table @kbd
+@item C-e / C-b
+@kindex C-e / C-b
+@end table
+
 @findex emacspeak-websearch-biblio-search
 
 @format
@@ -16227,26 +16247,13 @@ Search Computer Science Bibliographies.
 @end format
 @end deffn
 
-@subsubsection emacspeak-websearch-dispatch
-@deffn {Command} emacspeak-websearch-dispatch   
-@table @kbd
-@item C-e ?
-@kindex C-e ?
-@item C-e /
-@kindex C-e /
-@end table
-
-@findex emacspeak-websearch-dispatch
-
-@format
- Press ‘?’ to list available search engines.
-   This interface attempts to speak the most relevant information
-   on the result page.
-@end format
-@end deffn
-
 @subsubsection emacspeak-websearch-foldoc-search
 @deffn {Command} emacspeak-websearch-foldoc-search  (query)
+@table @kbd
+@item C-e / f
+@kindex C-e / f
+@end table
+
 @findex emacspeak-websearch-foldoc-search
 
 @format
@@ -16261,6 +16268,8 @@ Perform a FolDoc search.
 @table @kbd
 @item C-e RET
 @kindex C-e RET
+@item C-e / g
+@kindex C-e / g
 @end table
 
 @findex emacspeak-websearch-google
@@ -16276,6 +16285,11 @@ prefix arg is equivalent to hitting the I’m Feeling Lucky button on Google.
 
 @subsubsection emacspeak-websearch-google-feeling-lucky
 @deffn {Command} emacspeak-websearch-google-feeling-lucky  (query)
+@table @kbd
+@item C-e / SPC
+@kindex C-e / SPC
+@end table
+
 @findex emacspeak-websearch-google-feeling-lucky
 
 @format
@@ -16287,6 +16301,11 @@ Do a I’m Feeling Lucky Google search.
 
 @subsubsection emacspeak-websearch-google-news
 @deffn {Command} emacspeak-websearch-google-news   
+@table @kbd
+@item C-e / n
+@kindex C-e / n
+@end table
+
 @findex emacspeak-websearch-google-news
 
 @format
@@ -16305,6 +16324,11 @@ Use this from inside the calendar to do Google date-range searches.
 
 @subsubsection emacspeak-websearch-google-with-toolbelt
 @deffn {Command} emacspeak-websearch-google-with-toolbelt  (query)
+@table @kbd
+@item C-e / i
+@kindex C-e / i
+@end table
+
 @findex emacspeak-websearch-google-with-toolbelt
 
 @format
@@ -16316,6 +16340,11 @@ Launch Google search with toolbelt.
 
 @subsubsection emacspeak-websearch-gutenberg
 @deffn {Command} emacspeak-websearch-gutenberg  (type query)
+@table @kbd
+@item C-e / G
+@kindex C-e / G
+@end table
+
 @findex emacspeak-websearch-gutenberg
 
 @format
@@ -16327,6 +16356,11 @@ Perform an Gutenberg search
 
 @subsubsection emacspeak-websearch-help
 @deffn {Command} emacspeak-websearch-help   
+@table @kbd
+@item C-e / ?
+@kindex C-e / ?
+@end table
+
 @findex emacspeak-websearch-help
 
 @format
@@ -16336,6 +16370,11 @@ Displays key mapping used by Emacspeak Websearch.
 
 @subsubsection emacspeak-websearch-web-filter-google
 @deffn {Command} emacspeak-websearch-web-filter-google  (query &optional options)
+@table @kbd
+@item C-e / u
+@kindex C-e / u
+@end table
+
 @findex emacspeak-websearch-web-filter-google
 
 @format
@@ -16348,6 +16387,11 @@ Optional prefix arg prompts for toolbelt options.
 
 @subsubsection emacspeak-websearch-wikipedia-search
 @deffn {Command} emacspeak-websearch-wikipedia-search  (query)
+@table @kbd
+@item C-e / w
+@kindex C-e / w
+@end table
+
 @findex emacspeak-websearch-wikipedia-search
 
 @format
@@ -16360,6 +16404,11 @@ Use URL Template ‘wikipedia at point’ to advantage in the results buffer.
 
 @subsubsection emacspeak-websearch-youtube-search
 @deffn {Command} emacspeak-websearch-youtube-search  (query)
+@table @kbd
+@item C-e / y
+@kindex C-e / y
+@end table
+
 @findex emacspeak-websearch-youtube-search
 
 @format
@@ -17605,28 +17654,26 @@ Optional interactive prefix arg ask-pwd prompts for password.
 @end format
 @end deffn
 
+@subsubsection emacspeak-wizards-portfolio
+@deffn {Command} emacspeak-wizards-portfolio   
+@table @kbd
+@item C-' p
+@kindex C-' p
+@end table
+
+@findex emacspeak-wizards-portfolio
+
+@format
+View stock quotes
+@end format
+@end deffn
+
 @subsubsection emacspeak-wizards-previous-bullet
 @deffn {Command} emacspeak-wizards-previous-bullet   
 @findex emacspeak-wizards-previous-bullet
 
 @format
 Navigate to and speak previous ‘bullet’.
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-quotes
-@deffn {Command} emacspeak-wizards-quotes   
-@table @kbd
-@item C-, q
-@kindex C-, q
-@item C-x @@ a q
-@kindex C-x @@ a q
-@end table
-
-@findex emacspeak-wizards-quotes
-
-@format
-View stock quotes
 @end format
 @end deffn
 

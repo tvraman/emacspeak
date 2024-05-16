@@ -657,7 +657,6 @@
     ("C-l" ellama-chat)
     ("l" eww-open-file)
     ("p" emacspeak-wizards-pdf-open)
-    ("q" emacspeak-wizards-quotes)
     ("r" emacspeak-feeds-rss-display)
     ("s" emacspeak-wizards-tune-in-radio-search)
     ("t" emacspeak-wizards-tune-in-radio-browse)
@@ -697,6 +696,7 @@
     ("l" locate)
     ("o" org-mode)
     ("m" notmuch-search)
+    ("p" emacspeak-wizards-portfolio)
     ("y" emacspeak-google-yt-feed))
   "Multi key bindings. "
   :group 'emacspeak

@@ -88,18 +88,17 @@
 
 ;;;  helpers to read the query
 
-(defvar emacspeak-websearch-history nil
+(defvar ems--ws-history nil
   "Holds history of search queries.")
 
-(defsubst emacspeak-websearch-read-query (prompt &optional default initial)
-  (let ((q (read-from-minibuffer prompt initial  nil nil
-                                 (car emacspeak-websearch-history)
-                                 (or default (word-at-point)))))
-    (cl-pushnew q  emacspeak-websearch-history :test #'string=)
+(defsubst emacspeak-websearch-read-query (prompt)
+  "Read search query"
+  (let ((q (read-from-minibuffer prompt nil  nil nil 'ems--ws-history )))
+    (cl-pushnew q  ems--ws-history :test #'string=)
     q))
 
 ;;; post-processor
-(defun emacspeak-websearch-post-process (locator speaker &rest args)
+(defun emacspeak-websearch-post (locator speaker &rest args)
   "Set up post processing steps on a result page.
 LOCATOR is a string to search for in the results page.
 SPEAKER is a function to call to speak relevant information.
@@ -121,49 +120,32 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 ;;;  Computer Science Bibliography
 
-(defvar emacspeak-websearch-biblio-uri
-  (concat
-   "http://liinwww.ira.uka.de/searchbib/index"
-   "?partial=on&case=on&results=citation&maxnum=200&query=")
-  "URI to search the Computer Science Bibliographies.")
-
 (defun emacspeak-websearch-biblio-search (query)
   "Search Computer Science Bibliographies."
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "Search CS Bibliographies  for: ")))
-  (cl-declare (special emacspeak-websearch-biblio-uri))
-  (browse-url
-   (concat emacspeak-websearch-biblio-uri
-           (url-hexify-string query)))
-  (emacspeak-websearch-post-process
+  (interactive (list (emacspeak-websearch-read-query "CS Biblio: ")))
+  (let ((url (concat
+              "http://liinwww.ira.uka.de/searchbib/index"
+              "?partial=on&case=on&results=citation&maxnum=200&query=")))
+    (browse-url
+     (concat url (url-hexify-string query))))
+  (emacspeak-websearch-post
    query
    'emacspeak-speak-line))
 
 ;;;  FolDoc
 
-(defvar emacspeak-websearch-foldoc-uri
-  "http://foldoc.org/"
-  "URI for launching a FolDoc  search.")
-
 (defun emacspeak-websearch-foldoc-search (query)
   "Perform a FolDoc search. "
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "Computing Dictionary Query: ")))
-  (cl-declare (special emacspeak-websearch-foldoc-uri))
+  (interactive (list (emacspeak-websearch-read-query "Computing Dict: ")))
   (browse-url
-   (concat emacspeak-websearch-foldoc-uri
-           (url-hexify-string query)))
-  (emacspeak-websearch-post-process
+   (concat
+    "http://foldoc.org/"
+    (url-hexify-string query)))
+  (emacspeak-websearch-post
    query
    'emacspeak-speak-line))
 
 ;;;  Gutenberg
-
-(defvar emacspeak-websearch-gutenberg-uri
-  "http://digital.library.upenn.edu/webbin/book/search?"
-  "URI for Gutenberg search")
 
 (defun emacspeak-websearch-gutenberg (type query)
   "Perform an Gutenberg search"
@@ -171,16 +153,14 @@ ARGS specifies additional arguments to SPEAKER if any."
    (list
     (read-char "Author a, Title t")
     (emacspeak-websearch-read-query "Gutenberg query: ")))
-  (cl-declare (special emacspeak-websearch-gutenberg-uri))
   (browse-url
-   (concat emacspeak-websearch-gutenberg-uri
-           (cl-ecase type
-             (?a "author=")
-             (?t "title="))
-           (url-hexify-string query)))
-  (emacspeak-websearch-post-process
-   query
-   'emacspeak-speak-line))
+   (concat
+    "http://digital.library.upenn.edu/webbin/book/search?"
+    (cl-ecase type
+      (?a "author=")
+      (?t "title="))
+    (url-hexify-string query)))
+  (emacspeak-websearch-post query 'emacspeak-speak-line))
 
 ;;;  google
 
@@ -394,7 +374,7 @@ Optional prefix arg prompts for toolbelt options."
   (browse-url
    (concat emacspeak-websearch-jeeves-uri
            (url-hexify-string query)))
-  (emacspeak-websearch-post-process query 'emacspeak-speak-line))
+  (emacspeak-websearch-post query 'emacspeak-speak-line))
 
 ;;;  wikipedia
 

@@ -36,7 +36,7 @@
 @item )  emacspeak-sounds-select-theme
 @item ,  emacspeak-buffer-select
 @item .  emacspeak-buffer-select
-@item /  emacspeak-websearch-dispatch
+@item /  emacspeak-websearch
 @item 1  emacspeak-speak-this-window
 @item 2  emacspeak-speak-other-window
 @item 3  amixer-volume-adjust
@@ -207,7 +207,6 @@
 @item g  rg
 @item l  eww-open-file
 @item p  emacspeak-wizards-pdf-open
-@item q  emacspeak-wizards-quotes
 @item r  emacspeak-feeds-rss-display
 @item s  emacspeak-wizards-tune-in-radio-search
 @item t  emacspeak-wizards-tune-in-radio-browse
@@ -226,6 +225,7 @@
 @item l  locate
 @item m  notmuch-search
 @item o  org-mode
+@item p  emacspeak-wizards-portfolio
 @item y  emacspeak-google-yt-feed
 @end table
 

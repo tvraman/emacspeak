@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 15, 2024.
+last updated on May 16, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-extras,  Next: emacspeak-exwm,  Prev: emacspeak-eww,  Up: Emacspeak Commands And Options
@@ -1306,7 +1306,6 @@ found on laptops is denoted <fn>
       ("g" rg)
       ("l" eww-open-file)
       ("p" emacspeak-wizards-pdf-open)
-      ("q" emacspeak-wizards-quotes)
       ("r" emacspeak-feeds-rss-display)
       ("s" emacspeak-wizards-tune-in-radio-search)
       ("t" emacspeak-wizards-tune-in-radio-browse)
@@ -1378,6 +1377,7 @@ found on laptops is denoted <fn>
       ("l" locate)
       ("m" notmuch-search)
       ("o" org-mode)
+      ("p" emacspeak-wizards-portfolio)
       ("y" emacspeak-google-yt-feed))
      
 
@@ -7691,6 +7691,7 @@ This module provides utility functions for searching the WWW
 
  -- Command: emacspeak-websearch-accessible-google (query &optional
           options)
+     ‘C-e / a’
 
      Use Google Lite.
      Optional prefix arg prompts for toolbelt options.
@@ -7701,6 +7702,7 @@ This module provides utility functions for searching the WWW
 ............................................
 
  -- Command: emacspeak-websearch-amazon-search
+     ‘C-e / C-a’
 
      Amazon search.
 
@@ -7708,6 +7710,7 @@ This module provides utility functions for searching the WWW
 .........................................
 
  -- Command: emacspeak-websearch-ask-jeeves (query)
+     ‘C-e / j’
 
      Ask Jeeves for the answer.
 
@@ -7717,36 +7720,28 @@ This module provides utility functions for searching the WWW
 ............................................
 
  -- Command: emacspeak-websearch-biblio-search (query)
+     ‘C-e / C-b’
 
      Search Computer Science Bibliographies.
 
      (fn QUERY)
 
-12.210.1.5 emacspeak-websearch-dispatch
-.......................................
-
- -- Command: emacspeak-websearch-dispatch
-     ‘C-e ?’
-     ‘C-e /’
-
-      Press ‘?’ to list available search engines.
-        This interface attempts to speak the most relevant information
-        on the result page.
-
-12.210.1.6 emacspeak-websearch-foldoc-search
+12.210.1.5 emacspeak-websearch-foldoc-search
 ............................................
 
  -- Command: emacspeak-websearch-foldoc-search (query)
+     ‘C-e / f’
 
      Perform a FolDoc search.
 
      (fn QUERY)
 
-12.210.1.7 emacspeak-websearch-google
+12.210.1.6 emacspeak-websearch-google
 .....................................
 
  -- Command: emacspeak-websearch-google (query &optional flag)
      ‘C-e RET’
+     ‘C-e / g’
 
      Perform a Google search.  First optional interactive prefix arg
      ‘flag’ prompts for additional search options. Second interactive
@@ -7754,79 +7749,87 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY &optional FLAG)
 
-12.210.1.8 emacspeak-websearch-google-feeling-lucky
+12.210.1.7 emacspeak-websearch-google-feeling-lucky
 ...................................................
 
  -- Command: emacspeak-websearch-google-feeling-lucky (query)
+     ‘C-e / SPC’
 
      Do a I’m Feeling Lucky Google search.
 
      (fn QUERY)
 
-12.210.1.9 emacspeak-websearch-google-news
+12.210.1.8 emacspeak-websearch-google-news
 ..........................................
 
  -- Command: emacspeak-websearch-google-news
+     ‘C-e / n’
 
      Invoke Google News url template.
 
-12.210.1.10 emacspeak-websearch-google-search-in-date-range
-...........................................................
+12.210.1.9 emacspeak-websearch-google-search-in-date-range
+..........................................................
 
  -- Command: emacspeak-websearch-google-search-in-date-range
 
      Use this from inside the calendar to do Google date-range searches.
 
-12.210.1.11 emacspeak-websearch-google-with-toolbelt
+12.210.1.10 emacspeak-websearch-google-with-toolbelt
 ....................................................
 
  -- Command: emacspeak-websearch-google-with-toolbelt (query)
+     ‘C-e / i’
 
      Launch Google search with toolbelt.
 
      (fn QUERY)
 
-12.210.1.12 emacspeak-websearch-gutenberg
+12.210.1.11 emacspeak-websearch-gutenberg
 .........................................
 
  -- Command: emacspeak-websearch-gutenberg (type query)
+     ‘C-e / G’
 
      Perform an Gutenberg search
 
      (fn TYPE QUERY)
 
-12.210.1.13 emacspeak-websearch-help
+12.210.1.12 emacspeak-websearch-help
 ....................................
 
  -- Command: emacspeak-websearch-help
+     ‘C-e / ?’
 
      Displays key mapping used by Emacspeak Websearch.
 
-12.210.1.14 emacspeak-websearch-web-filter-google
+12.210.1.13 emacspeak-websearch-web-filter-google
 .................................................
 
  -- Command: emacspeak-websearch-web-filter-google (query &optional
           options)
+     ‘C-e / u’
 
      Use Google Lite with Web filter.
      Optional prefix arg prompts for toolbelt options.
 
      (fn QUERY &optional OPTIONS)
 
-12.210.1.15 emacspeak-websearch-wikipedia-search
+12.210.1.14 emacspeak-websearch-wikipedia-search
 ................................................
 
  -- Command: emacspeak-websearch-wikipedia-search (query)
+     ‘C-e / w’
 
      Search Wikipedia using Google.
      Use URL Template ‘wikipedia at point’ to advantage in the results buffer.
 
      (fn QUERY)
 
-12.210.1.16 emacspeak-websearch-youtube-search
+12.210.1.15 emacspeak-websearch-youtube-search
 ..............................................
 
  -- Command: emacspeak-websearch-youtube-search (query)
+     ‘C-e / y’
 
      YouTube search.
 
@@ -8744,21 +8747,20 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FILENAME &optional ASK-PWD)
 
-12.215.1.71 emacspeak-wizards-previous-bullet
+12.215.1.71 emacspeak-wizards-portfolio
+.......................................
+
+ -- Command: emacspeak-wizards-portfolio
+     ‘C-' p’
+
+     View stock quotes
+
+12.215.1.72 emacspeak-wizards-previous-bullet
 .............................................
 
  -- Command: emacspeak-wizards-previous-bullet
 
      Navigate to and speak previous ‘bullet’.
-
-12.215.1.72 emacspeak-wizards-quotes
-....................................
-
- -- Command: emacspeak-wizards-quotes
-     ‘C-, q’
-     ‘C-x @ a q’
-
-     View stock quotes
 
 12.215.1.73 emacspeak-wizards-remote-frame
 ..........................................

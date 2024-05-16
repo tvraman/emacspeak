@@ -2652,7 +2652,7 @@ Bug: First run fails to bind keys.   Works on subsequent runs."
 ;;; Portfolio:
 
 ;;;###autoload
-(defun emacspeak-wizards-quotes ()
+(defun emacspeak-wizards-portfolio ()
   "View stock quotes"
   (interactive )
   (emacspeak-url-template-open (emacspeak-url-template-get "CNBC Quotes")))
