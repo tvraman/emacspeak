@@ -491,27 +491,6 @@ Optional prefix arg prompts for toolbelt options."
            (url-hexify-string query)))
   (emacspeak-websearch-post-process query 'emacspeak-speak-line))
 
-;;;  Merriam Webster
-
-(emacspeak-websearch-set-searcher 'merriam-webster
-                                  'emacspeak-websearch-merriam-webster-search)
-(emacspeak-websearch-set-key ?d 'merriam-webster)
-
-(defvar emacspeak-websearch-merriam-webster-uri
-  "http://www.m-w.com/cgi-bin/dictionary?va="
-  "URI for searching the Merriam Webster dictionary.")
-
-(defun emacspeak-websearch-merriam-webster-search (query)
-  "Search the Merriam Webster Dictionary."
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "Lookup word in Webster:")))
-  (cl-declare (special emacspeak-websearch-merriam-webster-uri))
-  (add-hook 'emacspeak-eww-post-hook #'emacspeak-eww-next-h1 'at-end)
-  (browse-url
-   (concat emacspeak-websearch-merriam-webster-uri
-           (url-hexify-string query))))
-
 ;;;  wikipedia
 
 (emacspeak-websearch-set-searcher 'wikipedia
