@@ -164,19 +164,19 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 ;;;  google
 
-(defvar emacspeak-websearch-google-uri-template
+(defvar emacspeak-websearch-google-base
   "www.google.com/search?q="
-  "URI for Google search")
+  "Base of URI for Google search")
 
 (defsubst emacspeak-websearch-google-uri ()
   "Return URI end-point for Google search."
   (cl-declare (special emacspeak-google-use-https
-                       emacspeak-websearch-google-uri-template))
+                       emacspeak-websearch-google-base))
   (concat
    (if emacspeak-google-use-https
        "https://"
      "http://")
-   emacspeak-websearch-google-uri-template))
+   emacspeak-websearch-google-base))
 
 (defvar emacspeak-websearch-google-options nil
   "Additional options to pass to Google e.g. &xx=yy...")
@@ -185,12 +185,11 @@ ARGS specifies additional arguments to SPEAKER if any."
   "Cache the query."
   (cl-declare (special emacspeak-google-query))
   (setq emacspeak-google-query ad-return-value))
-(defvar ems--websearch-google-filter
+
+(defconst ems--google-filter
   '("main")
   "Ids of nodes we keep in Google results page.")
 
-(defvar emacspeak-websearch-google-number-of-results 25
-  "Number of Google search results.")
 (declare-function emacspeak-eww-next-h "emacspeak-eww" (&optional speak))
 (declare-function emacspeak-eww-next-h1 "emacspeak-eww" (&optional speak))
 
@@ -203,9 +202,9 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
   (cl-declare (special
                emacspeak-google-query
                emacspeak-google-toolbelt
-               ems--websearch-google-filter
+               ems--google-filter
                emacspeak-websearch-google-options
-               emacspeak-websearch-google-number-of-results))
+               25))
   (setq emacspeak-google-toolbelt nil)
   (let ((toolbelt (emacspeak-google-toolbelt))
         (search-url nil)
@@ -218,7 +217,7 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
            (emacspeak-websearch-google-uri)
            query
            (format "&num=%s%s"          ; accumulate options
-                   emacspeak-websearch-google-number-of-results
+                   25
                    (or emacspeak-websearch-google-options ""))
            (when lucky
              (concat
@@ -240,7 +239,7 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
            (emacspeak-speak-windowful))
        'at-end)
       (emacspeak-we-extract-by-id-list
-       ems--websearch-google-filter
+       ems--google-filter
        search-url)))))
 
 (defvar emacspeak-websearch-accessible-google-url
@@ -256,7 +255,7 @@ Optional prefix arg prompts for toolbelt options."
     current-prefix-arg))
   (cl-declare (special
                emacspeak-eww-masquerade
-               ems--websearch-google-filter
+               ems--google-filter
                emacspeak-websearch-accessible-google-url
                emacspeak-google-toolbelt))
   (setq emacspeak-google-toolbelt nil)
@@ -277,7 +276,7 @@ Optional prefix arg prompts for toolbelt options."
            (emacspeak-eww-next-h)
            (emacspeak-speak-windowful)))
       (emacspeak-we-extract-by-id-list
-       ems--websearch-google-filter
+       ems--google-filter
        (format emacspeak-websearch-accessible-google-url query))))))
 
 (defvar emacspeak-websearch-wf-google-url
@@ -291,7 +290,7 @@ Optional prefix arg prompts for toolbelt options."
    (list (gweb-google-autocomplete "WFGoogle: ") current-prefix-arg))
   (cl-declare (special
                emacspeak-eww-masquerade
-               ems--websearch-google-filter
+               ems--google-filter
                emacspeak-websearch-wf-google-url
                emacspeak-google-toolbelt))
   (setq emacspeak-google-toolbelt nil)
@@ -312,7 +311,7 @@ Optional prefix arg prompts for toolbelt options."
            (emacspeak-eww-next-h)
            (emacspeak-speak-windowful)))
       (emacspeak-we-extract-by-id-list
-       ems--websearch-google-filter
+       ems--google-filter
        (format emacspeak-websearch-wf-google-url query))))))
 
 ;;;###autoload
