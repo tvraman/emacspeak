@@ -421,6 +421,7 @@ This variable is buffer-local.")
 ;;;   google tools
 
 (declare-function eww-current-url "eww" nil)
+(declare-function emacspeak-websearch-google "emacspeak-websearch" (arg1 &optional arg2))
 
 (defun emacspeak-google-who-links-to-this-page ()
   "Perform a google search to locate documents that link to the

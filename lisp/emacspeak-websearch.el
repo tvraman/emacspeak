@@ -57,7 +57,7 @@
 
 (declare-function gweb-google-autocomplete "gweb" (&optional prompt))
 (declare-function calendar-astro-date-string "cal-julian" (&optional date))
-
+;;;###autoload
 (define-prefix-command 'emacspeak-websearch)
 (cl-declaim (special emacspeak-websearch))
 
@@ -193,7 +193,6 @@ ARGS specifies additional arguments to SPEAKER if any."
 (declare-function emacspeak-eww-next-h "emacspeak-eww" (&optional speak))
 (declare-function emacspeak-eww-next-h1 "emacspeak-eww" (&optional speak))
 
-;;;###autoload
 (defun emacspeak-websearch-google (query &optional flag)
   "Perform a Google search.  First optional interactive prefix arg
 `flag' prompts for additional search options. Second interactive
@@ -314,7 +313,6 @@ Optional prefix arg prompts for toolbelt options."
        ems--google-filter
        (format emacspeak-websearch-wf-google-url query))))))
 
-;;;###autoload
 (defun emacspeak-websearch-google-with-toolbelt (query)
   "Launch Google search with toolbelt."
   (interactive (list (gweb-google-autocomplete "IGoogle: ")))

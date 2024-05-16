@@ -459,7 +459,9 @@ commands and options."
   (when emacspeak-wpctl
     (add-to-list
      'minor-mode-alist
-     '(emacspeak-speak-show-volume (:eval (ems--show-current-volume)))))
+     '(emacspeak-speak-show-volume (:eval
+                                    (ems--show-current-volume)))))
+  (load-library "emacspeak-websearch")
   (message emacspeak-startup)
   (when   emacspeak-play-startup-icon
     (emacspeak-icon 'emacspeak)
