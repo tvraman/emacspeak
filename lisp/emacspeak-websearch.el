@@ -153,13 +153,8 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 (defsubst emacspeak-websearch-google-uri ()
   "Return URI end-point for Google search."
-  (cl-declare (special emacspeak-google-use-https
-                       emacspeak-websearch-google-base))
-  (concat
-   (if emacspeak-google-use-https
-       "https://"
-     "http://")
-   emacspeak-websearch-google-base))
+  (cl-declare (special emacspeak-websearch-google-base))
+  (concat "https://" emacspeak-websearch-google-base))
 
 (defvar emacspeak-websearch-google-options nil
   "Additional options to pass to Google e.g. &xx=yy...")

@@ -69,8 +69,7 @@
   value ; current setting
   type ;tbs/tbm
   )
-(defvar emacspeak-google-use-https t
-  "Specify whether we use secure connections for Google search.")
+
 
 (defvar emacspeak-google-query nil
   "Current Google Query.
@@ -386,17 +385,12 @@ This variable is buffer-local.")
 
 (defun emacspeak-google-canonicalize-result-url (url)
   "Strip out the actual result URL from the redirect wrapper."
-  (cl-declare (special emacspeak-google-use-https))
   (url-unhex-string
-   (substring url
-              (if emacspeak-google-use-https 29 28)
-              (string-match "&sa=" url))))
+   (substring url 29 (string-match "&sa=" url))))
 
 (defun emacspeak-google-result-url-prefix ()
   "Return prefix of result urls."
-  (cl-declare (special emacspeak-google-use-https))
-  (format "%s://www.google.com/url?q="
-          (if emacspeak-google-use-https "https" "http")))
+  "https://www.google.com/url?q=")
 
 ;;; Cache query, toolbelt
 
