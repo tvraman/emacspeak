@@ -213,15 +213,10 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
 (defun emacspeak-websearch-accessible-google(query &optional options)
   "Use Google Lite.
 Optional prefix arg prompts for toolbelt options."
-  (interactive
-   (list
-    (gweb-google-autocomplete "AGoogle: ")
-    current-prefix-arg))
-  (cl-declare (special
-               emacspeak-eww-masquerade
-               ems--google-filter
-               emacspeak-websearch-google-lite
-               emacspeak-google-toolbelt))
+  (interactive (list (gweb-google-autocomplete "Q: ") current-prefix-arg))
+  (cl-declare (special emacspeak-eww-masquerade ems--google-filter
+                         emacspeak-websearch-google-lite
+                         emacspeak-google-toolbelt))
   (setq emacspeak-google-toolbelt nil)
   (let ((emacspeak-eww-masquerade t)
         (toolbelt (emacspeak-google-toolbelt)))
@@ -234,8 +229,8 @@ Optional prefix arg prompts for toolbelt options."
        'emacspeak-eww-post-hook
        #'(lambda ()
            (goto-char (point-min))
-           (emacspeak-eww-next-h) (search-forward "Search Tools" nil
-                                                  t)
+           (emacspeak-eww-next-h)
+           (search-forward "Search Tools" nil t)
            (dtk-stop)
            (emacspeak-eww-next-h)
            (emacspeak-speak-windowful)))
