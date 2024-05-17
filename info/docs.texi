@@ -16184,23 +16184,6 @@ This module provides utility functions for searching the WWW
 
 @subsection Emacspeak-Websearch Commands
 
-@subsubsection emacspeak-websearch-accessible-google
-@deffn {Command} emacspeak-websearch-accessible-google  (query &optional options)
-@table @kbd
-@item C-e / a
-@kindex C-e / a
-@end table
-
-@findex emacspeak-websearch-accessible-google
-
-@format
-Use Google Lite.
-Optional prefix arg prompts for toolbelt options.
-
-(fn QUERY &optional OPTIONS)
-@end format
-@end deffn
-
 @subsubsection emacspeak-websearch-amazon-search
 @deffn {Command} emacspeak-websearch-amazon-search   
 @table @kbd
@@ -16280,6 +16263,23 @@ prefix arg is equivalent to hitting the I’m Feeling Lucky button on Google.
 Do a I’m Feeling Lucky Google search.
 
 (fn QUERY)
+@end format
+@end deffn
+
+@subsubsection emacspeak-websearch-google-lite
+@deffn {Command} emacspeak-websearch-google-lite  (query &optional options)
+@table @kbd
+@item C-e / a
+@kindex C-e / a
+@end table
+
+@findex emacspeak-websearch-google-lite
+
+@format
+Use Google Lite.
+Optional prefix arg prompts for toolbelt options.
+
+(fn QUERY &optional OPTIONS)
 @end format
 @end deffn
 

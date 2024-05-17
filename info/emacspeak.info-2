@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 16, 2024.
+last updated on May 17, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-extras,  Next: emacspeak-exwm,  Prev: emacspeak-eww,  Up: Emacspeak Commands And Options
@@ -7686,19 +7686,7 @@ This module provides utility functions for searching the WWW
 12.210.1 Emacspeak-Websearch Commands
 -------------------------------------
 
-12.210.1.1 emacspeak-websearch-accessible-google
-................................................
-
- -- Command: emacspeak-websearch-accessible-google (query &optional
-          options)
-     ‘C-e / a’
-
-     Use Google Lite.
-     Optional prefix arg prompts for toolbelt options.
-
-     (fn QUERY &optional OPTIONS)
-
-12.210.1.2 emacspeak-websearch-amazon-search
+12.210.1.1 emacspeak-websearch-amazon-search
 ............................................
 
  -- Command: emacspeak-websearch-amazon-search
@@ -7706,7 +7694,7 @@ This module provides utility functions for searching the WWW
 
      Amazon search.
 
-12.210.1.3 emacspeak-websearch-ask-jeeves
+12.210.1.2 emacspeak-websearch-ask-jeeves
 .........................................
 
  -- Command: emacspeak-websearch-ask-jeeves (query)
@@ -7716,7 +7704,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.210.1.4 emacspeak-websearch-foldoc-search
+12.210.1.3 emacspeak-websearch-foldoc-search
 ............................................
 
  -- Command: emacspeak-websearch-foldoc-search (query)
@@ -7726,7 +7714,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.210.1.5 emacspeak-websearch-google
+12.210.1.4 emacspeak-websearch-google
 .....................................
 
  -- Command: emacspeak-websearch-google (query &optional flag)
@@ -7739,7 +7727,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY &optional FLAG)
 
-12.210.1.6 emacspeak-websearch-google-feeling-lucky
+12.210.1.5 emacspeak-websearch-google-feeling-lucky
 ...................................................
 
  -- Command: emacspeak-websearch-google-feeling-lucky (query)
@@ -7748,6 +7736,17 @@ This module provides utility functions for searching the WWW
      Do a I’m Feeling Lucky Google search.
 
      (fn QUERY)
+
+12.210.1.6 emacspeak-websearch-google-lite
+..........................................
+
+ -- Command: emacspeak-websearch-google-lite (query &optional options)
+     ‘C-e / a’
+
+     Use Google Lite.
+     Optional prefix arg prompts for toolbelt options.
+
+     (fn QUERY &optional OPTIONS)
 
 12.210.1.7 emacspeak-websearch-google-news
 ..........................................
