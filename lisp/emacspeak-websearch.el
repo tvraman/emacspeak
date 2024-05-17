@@ -147,14 +147,11 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 ;;;  google
 
-(defvar emacspeak-websearch-google-base
-  "www.google.com/search?q="
-  "Base of URI for Google search")
+(defvar emacspeak-websearch-google-uri
+  "https://www.google.com/search?q="
+  "Base  URI for Google search")
 
-(defsubst emacspeak-websearch-google-uri ()
-  "Return URI end-point for Google search."
-  (cl-declare (special emacspeak-websearch-google-base))
-  (concat "https://" emacspeak-websearch-google-base))
+
 
 (defvar emacspeak-websearch-google-options nil
   "Additional options to pass to Google e.g. &xx=yy...")
@@ -183,8 +180,7 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
     (emacspeak-google-cache-toolbelt toolbelt)
     (setq search-url
           (concat
-           (emacspeak-websearch-google-uri)
-           query
+           emacspeak-websearch-google-uri query
            (format "&num=25%s"          ; accumulate options
                    (or emacspeak-websearch-google-options ""))
            (when lucky
