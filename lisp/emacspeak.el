@@ -451,6 +451,7 @@ commands and options."
   (emacspeak-sounds-select-theme)
   (emacspeak-pronounce-load-dictionaries)
   (make-thread #'(lambda nil  (ems--fastload "emacspeak-advice")))
+  (make-thread #'(lambda nil  (ems--fastload "emacspeak-websearch")))
   (emacspeak-setup-programming-modes)
   (make-thread #'emacspeak-prepare-emacs)
   (setq line-number-mode nil column-number-mode nil)
@@ -461,7 +462,6 @@ commands and options."
      'minor-mode-alist
      '(emacspeak-speak-show-volume (:eval
                                     (ems--show-current-volume)))))
-  (load-library "emacspeak-websearch")
   (message emacspeak-startup)
   (when   emacspeak-play-startup-icon
     (emacspeak-icon 'emacspeak)
