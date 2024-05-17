@@ -71,15 +71,14 @@
   )
 
 
-(defvar emacspeak-google-query nil
-  "Current Google Query.
-This variable is buffer-local.")
-(make-variable-buffer-local 'emacspeak-google-query)
+(defvar-local emacspeak-google-query nil
+  "Current Google Query. ")
 
-(defvar emacspeak-google-toolbelt nil
+
+(defvar-local emacspeak-google-toolbelt nil
   "List of tools on the toolbelt.")
 
-(make-variable-buffer-local 'emacspeak-google-toolbelt)
+
 
 (defun emacspeak-google-toolbelt-to-tbm (belt)
   "Return value for use in tbm parameter in search queries."
@@ -119,9 +118,9 @@ This variable is buffer-local.")
     (when settings
       (concat "&tbs="
               (mapconcat #'identity settings ",")))))
-(defvar emacspeak-google-toolbelt-names  nil
+(defvar-local emacspeak-google-toolbelt-names  nil
   "Cache of available toolbelt names.")
-(make-variable-buffer-local 'emacspeak-google-toolbelt-names)
+
 (defun emacspeak-google-toolbelt ()
   "Returns buffer-local toolbelt or a a newly initialized toolbelt."
   (cl-declare (special emacspeak-google-toolbelt))
