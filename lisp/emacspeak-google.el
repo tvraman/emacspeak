@@ -137,46 +137,6 @@ This variable is buffer-local.")
          :default 0
          :type 'tbm
          :value 0)
-        ;; Recent
-        (make-ems--g-tool
-         :name "recent"
-         :param "rcnt"
-         :range '(0 1)
-         :default 0
-         :value 0
-         :type 'tbs)
-        ;; Duration restrict for video
-        (make-ems--g-tool
-         :name "video-duration"
-         :param "dur"
-         :range '("m" "s" "l")
-         :default "m"
-         :value "m"
-         :type 'tbs)
-        ;; Recipes
-        (make-ems--g-tool
-         :name "recipes"
-         :param "rcp"
-         :range '(0 1)
-         :default 0
-         :value 0
-         :type 'tbm)
-        ;; places/local:
-        (make-ems--g-tool
-         :name "places"
-         :param "plcs"
-         :range '(0 1)
-         :default 0
-         :value 0
-         :type 'tbm)
-        ;; patents
-        (make-ems--g-tool
-         :name "patents"
-         :param "pts"
-         :range '(0 1)
-         :default 0
-         :value 0
-         :type 'tbm)
         ;; discussions/forums
         (make-ems--g-tool
          :name "group-discussions"
@@ -193,15 +153,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbs)
-
-        ;; Blog mode
-        (make-ems--g-tool
-         :name "blog"
-         :param "blg"
-         :range '(0 1)
-         :default 0
-         :value 0
-         :type 'tbm)
+        
         ;; Books mode
         (make-ems--g-tool
          :name "books"
@@ -282,14 +234,6 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbm)
-        ;; Structured Snippets
-        (make-ems--g-tool
-         :name "structured-snippets"
-         :param "sts"
-         :range '(0 1)
-         :default 0
-         :value 0
-         :type 'tbs)
         ;; sort by date
         (make-ems--g-tool
          :name "sort-by-date"
