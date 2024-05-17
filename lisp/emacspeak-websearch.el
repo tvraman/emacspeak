@@ -253,7 +253,7 @@ Optional prefix arg prompts for toolbelt options."
        (format emacspeak-websearch-google-lite query))))))
 
 (defvar emacspeak-websearch-wf-google
-  "https://www.google.com/search?num=25&lite=90586&udm=1&q=%s"
+  "https://www.google.com/search?num=25&lite=90586&udm=14&q=%s"
   "Using Google Lite with Web Filter turned on.")
 
 (defun emacspeak-websearch-web-filter-google (query &optional options)
