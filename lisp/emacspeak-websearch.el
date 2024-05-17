@@ -68,7 +68,7 @@
    ("SPC"       emacspeak-websearch-google-feeling-lucky)
    ("?"         emacspeak-websearch-help)
    ("G"         emacspeak-websearch-gutenberg)
-   ("a"         emacspeak-websearch-accessible-google)
+   ("a"         emacspeak-websearch-google-lite)
    ("f"         emacspeak-websearch-foldoc-search)
    ("g"         emacspeak-websearch-google)
    ("i"         emacspeak-websearch-google-with-toolbelt)
@@ -210,7 +210,7 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
   "https://www.google.com/search?num=25&lite=90586&q=%s"
   "Using Google Lite.")
 
-(defun emacspeak-websearch-accessible-google(query &optional options)
+(defun emacspeak-websearch-google-lite(query &optional options)
   "Use Google Lite.
 Optional prefix arg prompts for toolbelt options."
   (interactive (list (gweb-google-autocomplete "Q: ") current-prefix-arg))
@@ -276,7 +276,7 @@ Optional prefix arg prompts for toolbelt options."
 (defun emacspeak-websearch-google-with-toolbelt (query)
   "Launch Google search with toolbelt."
   (interactive (list (gweb-google-autocomplete "IGoogle: ")))
-  (emacspeak-websearch-accessible-google query 'use-toolbelt))
+  (emacspeak-websearch-google-lite query 'use-toolbelt))
 
 (defun emacspeak-websearch-google-feeling-lucky (query)
   "Do a I'm Feeling Lucky Google search."

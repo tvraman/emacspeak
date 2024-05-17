@@ -66,6 +66,8 @@
 (require 'emacspeak-we)
 (require 'emacspeak-xslt)
 ;;; Appease Emacs-30:
+(declare-function
+ emacspeak-websearch-google "emacspeak-websearch" (arg1 &optional arg2))
 
 (declare-function iimage-recenter "iimage" (&optional arg))
 
@@ -310,7 +312,7 @@ Press `y' on Episode links to play them with MPV."
 ;;; Google Emacspeak Site:
 
 (declare-function
- emacspeak-websearch-accessible-google
+ emacspeak-websearch-google-lite
  "emacspeak-websearch" (query &optional options))
 
 (emacspeak-url-template-define
@@ -319,7 +321,7 @@ Press `y' on Episode links to play them with MPV."
  (list "Search Emacspeak Site: ") nil
  "Search Emacspeak Site"
  #'(lambda (q)
-     (emacspeak-websearch-accessible-google
+     (emacspeak-websearch-google-lite
       (format
        "site:tvraman.github.io+%s" q))))
 
