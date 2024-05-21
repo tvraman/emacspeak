@@ -70,15 +70,11 @@
   type ;tbs/tbm
   )
 
-
 (defvar-local emacspeak-google-query nil
   "Current Google Query. ")
 
-
 (defvar-local emacspeak-google-toolbelt nil
   "List of tools on the toolbelt.")
-
-
 
 (defun emacspeak-google-toolbelt-to-tbm (belt)
   "Return value for use in tbm parameter in search queries."
@@ -152,7 +148,7 @@
          :default 0
          :value 0
          :type 'tbs)
-        
+
         ;; Books mode
         (make-ems--g-tool
          :name "books"
@@ -829,4 +825,3 @@ results, default is 1."
 
 (provide 'emacspeak-google)
 ;;;  end of file
-
