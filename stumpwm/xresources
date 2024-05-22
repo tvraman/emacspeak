@@ -1,11 +1,13 @@
 ! XResources 
+! For 4k displays:
+xft.dpi: 192
 ! see https://wiki.archlinux.org/index.php/Xterm
 Emacs.bitmapIcon:         off
 Emacs.menuBar:            off
 Emacs.verticalScrollBars: off
 Emacs.toolBar:            off
 Emacs.cursorBlink:        off
-Emacs.cursorColor:        red
+!Emacs.cursorColor:        red
 ! HarfBuzz with cairo in Emacs 28
 Emacs.FontBackend:	ftcrhb,x
 Emacs*font:	-adobe-helvetica-medium-r-normal--25-*-*-*-p-130-iso10646-1

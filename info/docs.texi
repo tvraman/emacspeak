@@ -19588,7 +19588,7 @@ Defaults specify alsa as the output and set master volume
 Default Value: 
 @verbatim
 
-("-m" "0.3")
+("-o" "pulse" "-m" "0.15")
 
 @end verbatim
 

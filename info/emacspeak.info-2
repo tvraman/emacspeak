@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 20, 2024.
+last updated on May 22, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-extras,  Next: emacspeak-exwm,  Prev: emacspeak-eww,  Up: Emacspeak Commands And Options
@@ -10312,6 +10312,6 @@ email, IM, ...  map to the same *mood*.
 
      Default Value:
      
-     ("-m" "0.3")
+     ("-o" "pulse" "-m" "0.15")
      
 
