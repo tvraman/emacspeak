@@ -129,12 +129,12 @@
                    (string :tag "Alsa Device Name"))
   :group 'soundscape)
 
-(defvar soundscape-volume 0.3
+(defvar soundscape-volume 0.15
   "Volume used for soundscape -- between 0 and 1")
 
 (defcustom soundscape-manager-options
   `(
-                                        ;"-o" "alsa"
+    "-o" "pulse"
     "-m" ,(format "%s" soundscape-volume))
   "User customizable options list passed to boodler.
 Defaults specify alsa as the output and set master volume"
