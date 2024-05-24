@@ -828,7 +828,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
     (insert (mapconcat #'car docs "\n"))
     (unless (equal docs emacspeak--last-docs)
       (emacspeak-icon 'doc))
-    (when interactive (dtk-speak (buffer-string))))
+    (when interactive (dtk-notify  (buffer-string))))
   (setq emacspeak--last-docs docs))
 
 (with-eval-after-load "eldoc"
