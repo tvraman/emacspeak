@@ -606,9 +606,11 @@ the sense of the filter. "
       (save-excursion
         (goto-char (cl-third  data))
         (dtk-speak
-         (buffer-substring (point)
-                           (max (cl-fourth data)
-                                (line-end-position))))))))
+         (buffer-substring
+          (if (save-excursion (forward-char) (eolp))
+              (line-beginning-position)
+            (point))
+          (max (cl-fourth data) (line-end-position))))))))
 
 ;;;   Speak units of text
 
