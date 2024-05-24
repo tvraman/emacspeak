@@ -600,14 +600,14 @@ the sense of the filter. "
 ;;; Match Parens:
 (defun emacspeak-speak-matching-paren ()
   "Speak matched paren with context."
-  (let ((data (show-paren--default)))
-    (when (and data (cl-fourth data))
-      (save-excursion
-        (goto-char (cl-fourth  data))
+  (when-let ((there (cl-fourth (show-paren--default))))
+    (save-excursion
+        (goto-char there)
         (dtk-speak
          (buffer-substring
-          (if (eolp) (line-beginning-position) (point))
-          (max (cl-fourth data) (line-end-position))))))))
+          (if (eolp) ; left or right context
+              (line-beginning-position) (point))
+          (max there (line-end-position)))))))
 
 ;;;   Speak units of text
 
