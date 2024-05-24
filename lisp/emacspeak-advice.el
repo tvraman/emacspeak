@@ -288,7 +288,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
            (and
             (= ?\) (char-syntax (following-char)))
             (sit-for 0.25))
-         (emacspeak-icon 'item)
+         (emacspeak-icon 'tick-tick)
          (save-excursion
            (forward-char 1)
            (emacspeak-speak-matching-paren)))))))
