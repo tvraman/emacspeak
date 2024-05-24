@@ -599,17 +599,15 @@ the sense of the filter. "
 
 ;;; Match Parens:
 (defun emacspeak-speak-matching-paren ()
-  "Show matched paren with context."
+  "Speak matched paren with context."
   (interactive)
   (let ((data (show-paren--default)))
-    (when (and data (cl-third data))
+    (when (and data (cl-fourth data))
       (save-excursion
-        (goto-char (cl-third  data))
+        (goto-char (cl-fourth  data))
         (dtk-speak
          (buffer-substring
-          (if (save-excursion (forward-char) (eolp))
-              (line-beginning-position)
-            (point))
+          (if (eolp) (line-beginning-position) (point))
           (max (cl-fourth data) (line-end-position))))))))
 
 ;;;   Speak units of text
