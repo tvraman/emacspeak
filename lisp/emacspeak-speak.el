@@ -600,7 +600,6 @@ the sense of the filter. "
 ;;; Match Parens:
 (defun emacspeak-speak-matching-paren ()
   "Speak matched paren with context."
-  (interactive)
   (let ((data (show-paren--default)))
     (when (and data (cl-fourth data))
       (save-excursion
