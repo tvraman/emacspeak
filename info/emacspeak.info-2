@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 22, 2024.
+last updated on May 23, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-extras,  Next: emacspeak-exwm,  Prev: emacspeak-eww,  Up: Emacspeak Commands And Options
@@ -5172,7 +5172,7 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-matching-paren
 
-     Show matched paren with context.
+     Speak matched paren with context.
 
 12.179.1.49 emacspeak-speak-message-again
 .........................................

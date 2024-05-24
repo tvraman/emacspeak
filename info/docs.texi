@@ -12890,7 +12890,7 @@ Load emacspeak filter settings.
 @findex emacspeak-speak-matching-paren
 
 @format
-Show matched paren with context.
+Speak matched paren with context.
 @end format
 @end deffn
 
