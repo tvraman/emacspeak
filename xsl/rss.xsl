@@ -29,8 +29,9 @@ Only supports RSS 1.0
         </title>
       </head>
       <body>
+        <ol>
           <xsl:apply-templates select="//item|//rss:item"/>
-        
+        </ol>
         <p>
           <xsl:apply-templates select="channel/description|rss:channel/rss:description"/>
         </p>
@@ -45,7 +46,7 @@ Only supports RSS 1.0
     </html>
   </xsl:template>
   <xsl:template match="rss:item|item">
-    
+    <li>
       <h2>
         <xsl:element name="a">
           <xsl:attribute name="href">
@@ -61,6 +62,7 @@ Only supports RSS 1.0
           select="enclosure|rss:enclosure|media:content"/>
       <br/><b><xsl:value-of select="substring(./pubDate/text(), 6,11)"/></b>
       </p>
+    </li>
   </xsl:template>
   <xsl:template match="rss:title|rss:description|title|description">
     <xsl:value-of select="." disable-output-escaping="yes"/>
