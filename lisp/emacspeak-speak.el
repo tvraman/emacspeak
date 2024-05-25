@@ -604,10 +604,9 @@ the sense of the filter. "
     (save-excursion
         (goto-char there)
         (dtk-speak
-         (buffer-substring
-          (if (eolp) ; left or right context
-              (line-beginning-position) (point))
-          (max there (line-end-position)))))))
+         (buffer-substring              ; left or right context
+          (if (eolp) (line-beginning-position) there)
+          (line-end-position))))))
 
 ;;;   Speak units of text
 
