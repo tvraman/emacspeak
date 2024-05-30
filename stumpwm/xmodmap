@@ -8,8 +8,8 @@
  keycode 107 = Super_L Super_L Super_L Super_L
 
 !  Hyper_R on <Insert>
-add mod5 = Hyper_R
-keycode 118 = Hyper_R
+!add mod5 = Hyper_R
+!keycode 118 = Hyper_R
 
 ! RET as Ctrl_R
 ! Return becomes Control_R
