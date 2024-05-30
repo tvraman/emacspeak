@@ -351,9 +351,12 @@ If already playing, then read an empv key and invoke its command."
      (emacspeak-icon 'open-object)
      (emacspeak-pronounce-refresh-pronunciations)
      (dtk-notify
-      (format "%s: %s results"
-              (cdr  (assoc 'title (cl-first empv--last-youtube-candidates)))
-              (length empv--last-youtube-candidates)))))
+      (format
+       "%s: %s results"
+       (cdr
+        (assoc 'title
+               (cl-first (empv--yt-search-results empv--last-youtube-search ))))
+       (length (empv--yt-search-results empv--last-youtube-search ))))))
 (defun emacspeak-empv-current-title ()
   "Speak title of currently selected item."
   (interactive)
@@ -372,9 +375,12 @@ If already playing, then read an empv key and invoke its command."
   (when (ems-interactive-p)
     (emacspeak-icon 'scroll)
     (dtk-notify
-     (format "%s: %s results"
-             (cdr  (assoc 'title (cl-first empv--last-youtube-candidates)))
-             (length empv--last-youtube-candidates)))))
+     (format
+      "%s: %s results"
+      (cdr
+       (assoc 'title
+              (cl-first (empv--yt-search-results empv--last-youtube-search ))))
+      (length (empv--yt-search-results empv--last-youtube-search ))))))
 
 (defun emacspeak-empv-setup ()
   "Emacspeak setup for empv."
