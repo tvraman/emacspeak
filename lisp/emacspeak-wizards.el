@@ -2231,6 +2231,7 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
                        gmaps-location-table))
   (let* ((buffer (get-buffer-create "*NOAA Weather*"))
          (inhibit-read-only t)
+         (emacspeak-speak-messages nil)
          (date nil)
          (fmt "%A  %H:%M %h %d")
          (start (point-min))
@@ -2249,6 +2250,7 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
       (org-mode)
       (setq header-line-format (format "NOAA Weather For %s" address))
       ;; produce Daily forecast
+      (set-fill-column 80)
       (let-alist (g-json-from-url url)
         (insert
          (format "* Forecast At %s For %s\n\n"
@@ -2261,13 +2263,13 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
             (format
              "* Forecast For %s: %s\n\n%s\n\n"
              .name .shortForecast .detailedForecast)))
-         (fill-region start (point)))
-        )
+         ))
       (let-alist ;;; Now produce hourly forecast
           (g-json-from-url (concat url "/hourly"))
         (insert
-         (format "\n* Hourly Forecast:Updated At %s \n"
-                 (ems--noaa-time fmt .properties.updated)))
+         (format
+          "\n* Hourly Forecast:Updated At %s \n"
+          (ems--noaa-time fmt .properties.updated)))
         (cl-loop
          for p across .properties.periods do
          (let-alist p
@@ -2282,7 +2284,8 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
              "  - %s %s %s:  Wind Speed: %s Wind Direction: %s\n"
              (ems--noaa-time "%R" .startTime)
              .shortForecast
-             .temperature .windSpeed .windDirection)))))
+             .temperature .windSpeed .windDirection))))
+        (fill-region (point-min) (point-max) 'full))
       (setq buffer-read-only t)
       (goto-char (point-min)))
     buffer))
