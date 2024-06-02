@@ -53,7 +53,9 @@
  'view-mode-hook
  #'(lambda ()
      (local-unset-key emacspeak-prefix)
-     (emacspeak-view-setup-keys))
+     (emacspeak-view-setup-keys)
+     (emacspeak-speak-load-directory-settings)
+     (outline-minor-mode 1))
  'at-end)
 
 ;;;  Advise additional interactive commands:
@@ -61,10 +63,8 @@
 (defadvice view-mode (after emacspeak pre act comp)
   "Announce what happened"
   (cl-declare (special view-mode-map))
-  (emacspeak-speak-load-directory-settings)
   (when (ems-interactive-p)
     (emacspeak-icon 'open-object)
-    (outline-minor-mode 1)
     (if view-mode
         (message "Entered view mode Press %s to exit"
                  (key-description
@@ -74,8 +74,7 @@
 (cl-loop
  for f in
  '(
-   View-exit-and-edit View-kill-and-leave view-eixt
-   View-quit-all View-quit)
+   View-exit-and-edit View-kill-and-leave View-quit-all View-quit)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
