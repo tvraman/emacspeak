@@ -1,35 +1,35 @@
 ;;; emacspeak-view.el --- Speech enable View mode - -*- lexical-binding: t; -*-
 ;;
-;; $Author: tv.raman.tv $ 
+;; $Author: tv.raman.tv $
 ;; DescriptionEmacspeak extensions for view
 ;; Keywords:emacspeak, audio interface to emacs, view-mode
-;;;   LCD Archive entry: 
+;;;   LCD Archive entry:
 
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
 ;; A speech interface to Emacs |
-;; 
-;;  $Revision: 4532 $ | 
+;;
+;;  $Revision: 4532 $ |
 ;; Location https://github.com/tvraman/emacspeak
-;; 
+;;
 
 ;;;   Copyright:
-;; Copyright (C) 1995 -- 2024, T. V. Raman 
-;; Copyright (c) 1996 by T. V. Raman 
-;; All Rights Reserved. 
-;; 
+;; Copyright (C) 1995 -- 2024, T. V. Raman
+;; Copyright (c) 1996 by T. V. Raman
+;; All Rights Reserved.
+;;
 ;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
+;;
 ;; GNU Emacs is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2, or (at your option)
 ;; any later version.
-;; 
+;;
 ;; GNU Emacs is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-;; 
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
@@ -53,17 +53,10 @@
  'view-mode-hook
  #'(lambda ()
      (local-unset-key emacspeak-prefix)
-     (emacspeak-view-setup-keys)))
-
+     (emacspeak-view-setup-keys))
+ 'at-end)
 
 ;;;  additional interactive commands
-
-(defun emacspeak-view-line-to-top ()
-  "Moves current line to top of window"
-  (interactive)
-  (recenter 0)
-  (emacspeak-speak-line)
-  (emacspeak-icon 'select-object))
 
 ;;;  Advise additional interactive commands:
 (defadvice view-file (after emacspeak pre act comp)
@@ -243,7 +236,7 @@
     (let ((buffer (current-buffer)))
       ad-do-it
       (cond
-       ((not (eq buffer (current-buffer))) ;we exited view mode 
+       ((not (eq buffer (current-buffer))) ;we exited view mode
         (emacspeak-icon 'close-object)
         (emacspeak-speak-mode-line))
        (t (emacspeak-icon 'scroll)
@@ -313,7 +306,7 @@
      ("j" next-line)
      ("k" previous-line)
      ) do
-       (emacspeak-keymap-update view-mode-map b))
+   (emacspeak-keymap-update view-mode-map b))
   (cl-loop for i from 0 to 9
            do
            (define-key view-mode-map
@@ -329,11 +322,9 @@
   (define-key view-mode-map "[" 'backward-page)
   (define-key view-mode-map "]" 'forward-page)
   (define-key view-mode-map "S" 'dtk-stop)
-  (define-key view-mode-map "t" 'emacspeak-view-line-to-top)
   (define-key view-mode-map "," 'emacspeak-speak-current-window)
   (define-key view-mode-map "\M-d" 'emacspeak-pronounce-dispatch)
   (define-key view-mode-map "c" 'emacspeak-speak-char)
   (define-key view-mode-map "w" 'emacspeak-speak-word))
 
 (provide  'emacspeak-view)
-
