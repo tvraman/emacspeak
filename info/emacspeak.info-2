@@ -7085,9 +7085,10 @@ Provide additional advice to view-mode
 12.204.1.1 emacspeak-view-line-to-top
 .....................................
 
- -- Command: emacspeak-view-line-to-top
+ -- Command: emacspeak-view-line-to-top [Arg list not available until
+          function definition is loaded.]
 
-     Moves current line to top of window
+     Move current line to top of window
 
 
 File: emacspeak.info,  Node: emacspeak-vm,  Next: emacspeak-vterm,  Prev: emacspeak-view,  Up: Emacspeak Commands And Options

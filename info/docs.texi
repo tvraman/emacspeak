@@ -15356,11 +15356,11 @@ Provide additional advice to view-mode
 @subsection Emacspeak-View Commands
 
 @subsubsection emacspeak-view-line-to-top
-@deffn {Command} emacspeak-view-line-to-top   
+@deffn {Command} emacspeak-view-line-to-top  [Arg list not available until function definition is loaded.]
 @findex emacspeak-view-line-to-top
 
 @format
-Moves current line to top of window
+Move current line to top of window
 @end format
 @end deffn
 

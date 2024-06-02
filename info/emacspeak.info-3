@@ -5163,7 +5163,7 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-view-emacspeak-tips:         emacspeak-wizards.  (line  287)
 * emacspeak-view-emacspeak-tips <1>:     emacspeak-wizards.  (line  290)
 * emacspeak-view-line-to-top:            emacspeak-view.     (line   14)
-* emacspeak-view-line-to-top <1>:        emacspeak-view.     (line   15)
+* emacspeak-view-line-to-top <1>:        emacspeak-view.     (line   16)
 * emacspeak-view-notifications:          emacspeak-speak.    (line 1029)
 * emacspeak-view-notifications <1>:      emacspeak-speak.    (line 1034)
 * emacspeak-view-register:               Status Information. (line   66)
