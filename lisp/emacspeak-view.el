@@ -54,7 +54,7 @@
  #'(lambda ()
      (local-unset-key emacspeak-prefix)
      (emacspeak-view-setup-keys)))
-;; Generate automatic advise:
+
 
 ;;;  additional interactive commands
 
@@ -301,45 +301,19 @@
     (dtk-speak (emacspeak-get-window-contents))))
 
 ;;;  bind convenience keys
-(defvar emacspeak-view-keys-optimized nil
-  "Records if we have already optimized Emacspeak
-keybindings for view mode")
-
-(defvar emacspeak-view-edit-commands
-  (list ''completion-separator-self-insert-autofilling
-        'completion-separator-self-insert-command
-        'delete-char
-        'completion-kill-region
-        )
-  "Editing commands that emacspeak should rebind in view mode")
-
-(defun emacspeak-view-optimize-view-keys()
-  "optimize keybindings for emacspeak in view mode"
-  (cl-declare (special emacspeak-view-edit-commands
-                       emacspeak-view-keys-optimized
-                       view-mode-map emacspeak-keymap))
-  (unless emacspeak-view-keys-optimized
-    (setq emacspeak-view-keys-optimized t)
-    (cl-loop
-     for edit-command in emacspeak-view-edit-commands
-     do
-     (let ((edit-keys (where-is-internal edit-command (list view-mode-map))))
-       (cl-loop for key in edit-keys 
-                do
-                (let ((command (lookup-key emacspeak-keymap key)))
-                  (when command
-                    (define-key view-mode-map key command))))))
-    (cl-loop for k in
-             '(
-               ("[" backward-paragraph)
-               ("]" forward-paragraph)
-               )
-             do
-             (define-key view-mode-map (cl-first k) (cl-second k)))))
 
 (defun emacspeak-view-setup-keys()
   "Setup emacspeak convenience keys"
   (cl-declare (special view-mode-map))
+  (cl-loop
+   for  b in
+   '(
+     ("h" left-char)
+     ("l" right-char)
+     ("j" next-line)
+     ("k" previous-line)
+     ) do
+       (emacspeak-keymap-update view-mode-map b))
   (cl-loop for i from 0 to 9
            do
            (define-key view-mode-map
@@ -359,8 +333,7 @@ keybindings for view mode")
   (define-key view-mode-map "," 'emacspeak-speak-current-window)
   (define-key view-mode-map "\M-d" 'emacspeak-pronounce-dispatch)
   (define-key view-mode-map "c" 'emacspeak-speak-char)
-  (define-key view-mode-map "w" 'emacspeak-speak-word)
-  (emacspeak-view-optimize-view-keys))
+  (define-key view-mode-map "w" 'emacspeak-speak-word))
 
 (provide  'emacspeak-view)
 
