@@ -56,20 +56,14 @@
      (emacspeak-view-setup-keys))
  'at-end)
 
-;;;  additional interactive commands
-
 ;;;  Advise additional interactive commands:
-(defadvice view-file (after emacspeak pre act comp)
-  "Load directory specific settings"
-  (emacspeak-speak-load-directory-settings)
-  (outline-minor-mode 1))
 
 (defadvice view-mode (after emacspeak pre act comp)
   "Announce what happened"
   (cl-declare (special view-mode-map))
+  (emacspeak-speak-load-directory-settings)
   (when (ems-interactive-p)
     (emacspeak-icon 'open-object)
-    (emacspeak-speak-load-directory-settings)
     (outline-minor-mode 1)
     (if view-mode
         (message "Entered view mode Press %s to exit"
@@ -80,7 +74,7 @@
 (cl-loop
  for f in
  '(
-   View-exit-and-edit View-kill-and-leave
+   View-exit-and-edit View-kill-and-leave view-eixt
    View-quit-all View-quit)
  do
  (eval
@@ -94,56 +88,29 @@
  for f in
  '(
    view-buffer view-buffer-other-frame view-buffer-other-window
-   view-emacs-FAQ
-   view-emacs-debugging ^ view-emacs-problems
+   view-emacs-FAQ view-emacs-debugging ^ view-emacs-problems
    view-emacs-todo view-external-packages
    view-file-other-frame view-file-other-window
    view-hello-file view-lossage ) do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Speech-enabled by Emacspeak."
+     "Speak"
      (when (ems-interactive-p)
        (emacspeak-icon 'open-object)
        (emacspeak-speak-mode-line)))))
 
-(defadvice View-exit (after emacspeak pre act comp)
-  "speak."
-  (when (ems-interactive-p)
-    (emacspeak-icon 'close-object)
-    (emacspeak-speak-mode-line)))
-
-(defadvice View-leave (after emacspeak pre act comp)
-  "speak."
-  (when (ems-interactive-p)
-    (emacspeak-speak-mode-line)))
-
-(defadvice View-search-regexp-forward (after emacspeak pre act comp)
-  "speak"
-  (when (ems-interactive-p)
-    (let ((emacspeak-show-point t))
-      (emacspeak-speak-line))
-    (emacspeak-icon 'search-hit)))
-
-(defadvice View-search-regexp-backward (after emacspeak pre act comp)
-  "speak"
-  (when (ems-interactive-p)
-    (let ((emacspeak-show-point t))
-      (emacspeak-speak-line))
-    (emacspeak-icon 'search-hit)))
-
-(defadvice View-search-last-regexp-forward (after emacspeak pre act comp)
-  "speak"
-  (when (ems-interactive-p)
-    (let ((emacspeak-show-point t))
-      (emacspeak-speak-line))
-    (emacspeak-icon 'search-hit)))
-
-(defadvice View-search-last-regexp-backward (after emacspeak pre act comp)
-  "speak"
-  (when (ems-interactive-p)
-    (let ((emacspeak-show-point t))
-      (emacspeak-speak-line))
-    (emacspeak-icon 'search-hit)))
+(cl-loop
+ for f in
+ '(View-search-regexp-forward View-search-regexp-backward
+                              View-search-last-regexp-backward View-search-last-regexp-forward
+                              ) do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+    "speak"
+    (when (ems-interactive-p)
+      (let ((emacspeak-show-point t))
+        (emacspeak-speak-line))
+      (emacspeak-icon 'search-hit)))))
 
 (defadvice view-exit (after emacspeak pre act comp)
   "speak"
