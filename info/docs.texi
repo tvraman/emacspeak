@@ -250,7 +250,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1176 commands and 127 options.
+This chapter documents a total of 1175 commands and 127 options.
 
 @node amixer
 @section amixer
@@ -12882,15 +12882,6 @@ directory.
 
 @format
 Load emacspeak filter settings.
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-matching-paren
-@deffn {Command} emacspeak-speak-matching-paren   
-@findex emacspeak-speak-matching-paren
-
-@format
-Speak matched paren with context.
 @end format
 @end deffn
 
