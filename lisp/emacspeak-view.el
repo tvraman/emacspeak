@@ -101,9 +101,10 @@
 
 (cl-loop
  for f in
- '(View-search-regexp-forward View-search-regexp-backward
-                              View-search-last-regexp-backward View-search-last-regexp-forward
-                              ) do
+ '(
+   View-search-regexp-forward View-search-regexp-backward
+   View-search-last-regexp-backward View-search-last-regexp-forward
+   ) do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "speak"
