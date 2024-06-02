@@ -115,12 +115,12 @@
 (cl-loop
  for f in
  '(
-   View-scroll-lines-forward-set-scroll-size View-scroll-lines-forward
-   View-scroll-one-more-line View-scroll-line-forward
-   View-scroll-half-page-forward View-scroll-page-backward-set-page-size
-   View-scroll-page-forward-set-page-size View-scroll-line-backward
-   View-scroll-half-page-backward View-scroll-page-backward
-   ) do
+   View-scroll-half-page-backward View-scroll-half-page-forward
+View-scroll-line-backward View-scroll-line-forward
+View-scroll-lines-forward-set-scroll-size View-scroll-one-more-line
+View-scroll-page-backward view-scroll-page-forward 
+View-scroll-page-backward-set-page-size View-scroll-page-forward-set-page-size
+) do
  `(eval
    (defadvice ,f (after emacspeak pre act comp)
      "speak"
