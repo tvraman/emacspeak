@@ -49,11 +49,11 @@
 
 ;; restore emacspeak keybindings:
 (cl-declaim (special emacspeak-prefix))
+(emacspeak-view-setup-keys)
 (add-hook
  'view-mode-hook
  #'(lambda ()
      (local-unset-key emacspeak-prefix)
-     (emacspeak-view-setup-keys)
      (emacspeak-speak-load-directory-settings)
      (outline-minor-mode 1))
  'at-end)
@@ -173,21 +173,18 @@ View-scroll-page-backward-set-page-size View-scroll-page-forward-set-page-size
      ("k" previous-line)
      ) do
    (emacspeak-keymap-update view-mode-map b))
-  (cl-loop for i from 0 to 9
-           do
-           (define-key view-mode-map
-                       (format "%s" i)
-                       'emacspeak-speak-predefined-window))
+  (cl-loop
+   for i from 0 to 9
+   do
+   (define-key view-mode-map (format "%s" i) 'dtk-set-predefined-rate))
   ;; convenience keys
   (define-key view-mode-map "\C-j" 'emacspeak-hide-speak-block-sans-prefix)
-  (define-key view-mode-map "\M- " 'emacspeak-outline-speak-this-heading)
   (define-key view-mode-map "\M-n" 'outline-next-visible-heading)
   (define-key view-mode-map "\M-p" 'outline-previous-visible-heading)
   (define-key view-mode-map " " 'scroll-up)
   (define-key view-mode-map "\d" 'scroll-down)
   (define-key view-mode-map "[" 'backward-page)
   (define-key view-mode-map "]" 'forward-page)
-  (define-key view-mode-map "S" 'dtk-stop)
   (define-key view-mode-map "," 'emacspeak-speak-current-window)
   (define-key view-mode-map "\M-d" 'emacspeak-pronounce-dispatch)
   (define-key view-mode-map "c" 'emacspeak-speak-char)
