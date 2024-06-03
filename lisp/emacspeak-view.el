@@ -167,6 +167,8 @@ View-scroll-page-backward-set-page-size View-scroll-page-forward-set-page-size
   (cl-loop
    for  b in
    '(
+     ("b" backward-word)
+     ("f" forward-word)
      ("h" left-char)
      ("l" right-char)
      ("j" next-line)
