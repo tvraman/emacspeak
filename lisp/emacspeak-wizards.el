@@ -2234,7 +2234,6 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
          (emacspeak-speak-messages nil)
          (date nil)
          (fmt "%A  %H:%M %h %d")
-         (start (point-min))
          (address
           (if (and ask (= 16 (car ask)))
               (completing-read

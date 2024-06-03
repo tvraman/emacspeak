@@ -159,6 +159,8 @@
 ;;; Speech-Enable Terminal Emulation:
 
 (defun emacspeak-eat-update-hook ()
+  "Eat update"
+  (cl-declaim (special eat-terminal))
   (let* ((emacspeak-show-point  t)
          (cursor (eat-term-display-cursor eat-terminal))
          (char (and cursor (char-before cursor))))

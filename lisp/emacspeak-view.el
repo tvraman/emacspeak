@@ -49,7 +49,7 @@
 
 ;; restore emacspeak keybindings:
 (cl-declaim (special emacspeak-prefix))
-(emacspeak-view-setup-keys)
+  
 (add-hook
  'view-mode-hook
  #'(lambda ()
@@ -191,5 +191,7 @@ View-scroll-page-backward-set-page-size View-scroll-page-forward-set-page-size
   (define-key view-mode-map "\M-d" 'emacspeak-pronounce-dispatch)
   (define-key view-mode-map "c" 'emacspeak-speak-char)
   (define-key view-mode-map "w" 'emacspeak-speak-word))
+
+(emacspeak-view-setup-keys)
 
 (provide  'emacspeak-view)
