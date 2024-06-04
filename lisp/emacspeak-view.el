@@ -167,30 +167,30 @@ View-scroll-page-backward-set-page-size View-scroll-page-forward-set-page-size
   (cl-loop
    for  b in
    '(
+     ("," 'emacspeak-speak-current-window)
+     ("C-j" 'emacspeak-hide-speak-block-sans-prefix)
+     ("M-d" 'emacspeak-pronounce-dispatch)
+     ("M-n" 'outline-next-visible-heading)
+     ("M-p" 'outline-previous-visible-heading)
+     ("SPC" 'scroll-up)
+     ("[" 'backward-page)
+     ("]" 'forward-page)
      ("b" backward-word)
+     ("c" 'emacspeak-speak-char)
+     ("d" 'scroll-down)
      ("f" forward-word)
      ("h" left-char)
-     ("l" right-char)
      ("j" next-line)
      ("k" previous-line)
-     ) do
+     ("l" right-char)
+     ("w" emacspeak-speak-word)
+     )
+   do
    (emacspeak-keymap-update view-mode-map b))
   (cl-loop
    for i from 0 to 9
    do
-   (define-key view-mode-map (format "%s" i) 'dtk-set-predefined-rate))
-  ;; convenience keys
-  (define-key view-mode-map "\C-j" 'emacspeak-hide-speak-block-sans-prefix)
-  (define-key view-mode-map "\M-n" 'outline-next-visible-heading)
-  (define-key view-mode-map "\M-p" 'outline-previous-visible-heading)
-  (define-key view-mode-map " " 'scroll-up)
-  (define-key view-mode-map "\d" 'scroll-down)
-  (define-key view-mode-map "[" 'backward-page)
-  (define-key view-mode-map "]" 'forward-page)
-  (define-key view-mode-map "," 'emacspeak-speak-current-window)
-  (define-key view-mode-map "\M-d" 'emacspeak-pronounce-dispatch)
-  (define-key view-mode-map "c" 'emacspeak-speak-char)
-  (define-key view-mode-map "w" 'emacspeak-speak-word))
+   (define-key view-mode-map (format "%s" i) 'dtk-set-predefined-rate)))
 
 (emacspeak-view-setup-keys)
 
