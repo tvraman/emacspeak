@@ -801,14 +801,15 @@ When on a close delimiter, speak matching delimiter after a small delay. "
               (not (string-match ems--message-filter-pattern m))
               (and
                (not (zerop echo-keystrokes))
-               (> ; last display  older  than throttle threshold
+               (>       ; last display  older  than throttle threshold
                 (float-time (time-subtract (current-time) ems--lazy-msg-time))
                 (/ echo-keystrokes 50))))
            (setq ems--lazy-msg-time (current-time)
-                 emacspeak-last-message  m)
+                 emacspeak-last-message m)
 ;;; so we really need to speak it
            (emacspeak-icon 'key)
-           (tts-with-punctuations 'all (dtk-notify m 'dont-log)))
+           (dtk-stop)
+(tts-with-punctuations 'all (dtk-notify m 'dont-log)))
          ad-return-value)))))
 
 (defadvice display-message-or-buffer (after emacspeak pre act comp)
