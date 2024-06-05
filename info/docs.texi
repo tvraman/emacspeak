@@ -12888,8 +12888,8 @@ Load emacspeak filter settings.
 @subsubsection emacspeak-speak-message-again
 @deffn {Command} emacspeak-speak-message-again  (&optional from-message-cache)
 @table @kbd
-@item C-e a
-@kindex C-e a
+@item C-e M-a
+@kindex C-e M-a
 @end table
 
 @findex emacspeak-speak-message-again

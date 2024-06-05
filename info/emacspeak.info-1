@@ -2704,7 +2704,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-keymap,  Next: E
 ‘] emacspeak-speak-page’
 ‘^ emacspeak-filtertext’
 ‘` emacspeak-speak-net-id’
-‘a emacspeak-speak-message-again’
+‘a beginning-of-line’
 ‘b emacspeak-speak-buffer’
 ‘c emacspeak-speak-char’
 ‘e move-end-of-line’

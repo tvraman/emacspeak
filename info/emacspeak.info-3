@@ -2497,7 +2497,6 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e 4:                                 amixer.             (line   51)
 * C-e a:                                 Status Information. (line    8)
 * C-e A:                                 emacspeak-calendar. (line   18)
-* C-e a <1>:                             emacspeak-speak.    (line  524)
 * C-e b:                                 Reading.            (line   76)
 * C-e b <1>:                             emacspeak-speak.    (line  245)
 * C-e B:                                 emacspeak-speak.    (line  271)
@@ -2669,6 +2668,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e m <1>:                             emacspeak-speak.    (line  577)
 * C-e M-;:                               emacspeak-eww.      (line  675)
 * C-e M-%:                               emacspeak-speak.    (line   95)
+* C-e M-a:                               emacspeak-speak.    (line  524)
 * C-e M-b:                               emacspeak-speak.    (line  605)
 * C-e M-c:                               emacspeak-wizards.  (line   30)
 * C-e M-d:                               emacspeak-pronounce.

@@ -5172,7 +5172,7 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-message-again (&optional
           from-message-cache)
-     ‘C-e a’
+     ‘C-e M-a’
 
      Speak the last message from Emacs once again.
      The message is also placed in the kill ring for convenient yanking
