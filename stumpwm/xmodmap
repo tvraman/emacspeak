@@ -2,7 +2,7 @@
  keycode 49 = Escape asciitilde
  keycode 9=grave asciitilde
  ! Get one more Emacs key on Shift-Space (experimental)
- keycode 65 = space Menu space
+ keycode 65 = space 
 
 ! was <print>
  keycode 107 = Super_L Super_L Super_L Super_L
