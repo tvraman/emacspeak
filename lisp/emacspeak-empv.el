@@ -345,18 +345,16 @@ If already playing, then read an empv key and invoke its command."
     (emacspeak-icon 'button)))
 
 ;;; Setup:
+;; empv-youtube-tabulated-new-entries-hook
 (add-hook
  'empv-youtube-results-mode-hook
  #'(lambda nil
      (emacspeak-icon 'open-object)
-     (emacspeak-pronounce-refresh-pronunciations)
-     (dtk-notify
-      (format
-       "%s: %s results"
-       (cdr
-        (assoc 'title
-               (cl-first (empv--yt-search-results empv--last-youtube-search ))))
-       (length (empv--yt-search-results empv--last-youtube-search ))))))
+     (emacspeak-pronounce-refresh-pronunciations)))
+
+(add-hook
+   'empv-youtube-tabulated-new-entries-hook
+   #'(lambda (e &rest _) (message (alist-get 'title (cl-first e)))))
 (defun emacspeak-empv-current-title ()
   "Speak title of currently selected item."
   (interactive)
