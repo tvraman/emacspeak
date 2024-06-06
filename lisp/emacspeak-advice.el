@@ -808,7 +808,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
                  emacspeak-last-message m)
 ;;; so we really need to speak it
            (emacspeak-icon 'key)
-           (dtk-stop)
+           (and dtk-stop-immediately  (dtk-stop))
 (tts-with-punctuations 'all (dtk-notify m 'dont-log)))
          ad-return-value)))))
 

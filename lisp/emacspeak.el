@@ -448,7 +448,9 @@ commands and options."
    #'(lambda nil (setq-default emacspeak-speak-messages nil))
    -10)
   (dtk-initialize)
-  (add-hook 'pre-command-hook 'dtk-stop)
+  (add-hook
+   'pre-command-hook
+   #'(lambda () (and dtk-stop-immediately  (dtk-stop))))
   (emacspeak-sounds-select-theme)
   (emacspeak-pronounce-load-dictionaries)
   (make-thread #'(lambda nil  (ems--fastload "emacspeak-advice")))
