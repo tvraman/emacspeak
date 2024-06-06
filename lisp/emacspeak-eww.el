@@ -953,6 +953,8 @@ Retain previously set punctuations  mode."
      "speak."
      (when (ems-interactive-p)
        (emacspeak-icon 'button)))))
+(defvar-local emacspeak-eww-a-speaker nil
+  "Specialized link speaker.")
 
 (cl-loop
  for f in
@@ -961,6 +963,7 @@ Retain previously set punctuations  mode."
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
+     (cl-declare (special emacspeak-eww-a-speaker))
      (when (ems-interactive-p)
        (let ((host
               (condition-case nil
@@ -975,9 +978,13 @@ Retain previously set punctuations  mode."
             (string-match "wikipedia" host))
            (emacspeak-icon 'item))
           (t (emacspeak-icon 'button))))
-       (emacspeak-speak-region
-        (point)
-        (next-single-property-change (point) 'help-echo nil (point-max)))))))
+       (cond
+        (emacspeak-eww-a-speaker (funcall emacspeak-eww-a-speaker))
+        (t 
+         (emacspeak-speak-region
+          (point)
+          (next-single-property-change
+           (point) 'help-echo nil (point-max)))))))))
 
 ;; Handle emacspeak-we-url-executor
 

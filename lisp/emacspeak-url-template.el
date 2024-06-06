@@ -485,6 +485,7 @@ c  (cl-declare
 
 (defun ems--ut-quotes-cleanup ()
   "Clean up stock quotes buffer."
+  (cl-declare (special emacspeak-eww-a-speaker))
   (let ((inhibit-read-only t))
     (mapc
      #'(lambda (s) (flush-lines s (point-min) (point-max)))
@@ -494,6 +495,14 @@ c  (cl-declare
     (forward-line 1)
     (emacspeak-icon 'open-object)
     (setq header-line-format "Portfolio")
+    (setq
+     emacspeak-eww-a-speaker
+     #'(lambda nil
+         (emacspeak-speak-region
+          (point)
+          (save-excursion
+            (forward-line 3)
+            (point)))))
     (rename-buffer "Portfolio" 'unique)
     (emacspeak-speak-line)))
 
