@@ -501,9 +501,10 @@ c  (cl-declare
          (emacspeak-speak-region
           (point)
           (save-excursion
-            (forward-line 3)
+            (forward-line 6)
             (point)))))
     (rename-buffer "Portfolio" 'unique)
+    (forward-line -1)
     (emacspeak-speak-line)))
 
 (emacspeak-url-template-define
