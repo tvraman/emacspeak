@@ -284,6 +284,7 @@
 @table @kbd
 @item E  emacspeak-epub-eww
 @item b  emacspeak-bookshare-eww
+@item d  empv-download-youtube
 @item l  emacspeak-empv-play-last
 @item p  empv-youtube-playlist
 @item r  emacspeak-empv-radio

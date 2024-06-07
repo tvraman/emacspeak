@@ -8493,6 +8493,7 @@ Default Value:
 
 (("E" emacspeak-epub-eww)
  ("b" emacspeak-bookshare-eww)
+ ("d" empv-download-youtube)
  ("l" emacspeak-empv-play-last)
  ("p" empv-youtube-playlist)
  ("r" emacspeak-empv-radio)
