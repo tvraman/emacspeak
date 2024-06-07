@@ -1692,6 +1692,7 @@ Optional second arg `set' sets the TZ environment variable as well."
   "Time in brief"
   (interactive)
   (cl-declare (special emacspeak-speak-time-brief-format))
+  (emacspeak-icon 'tick-tick)
   (emacspeak-pip (format-time-string emacspeak-speak-time-brief-format)))
 
 (defun emacspeak-speak-time (&optional world)

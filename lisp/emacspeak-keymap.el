@@ -111,7 +111,7 @@
 (global-set-key emacspeak-prefix 'emacspeak-keymap)
 
 ;;; Special keys:
-(global-set-key (kbd "<XF86WakeUp>")  'dtk-stop)
+(global-set-key (kbd "<XF86WakeUp>")  'emacspeak-speak-brief-time)
 (global-set-key (kbd "<XF86AudioPlay>")  'emacspeak-silence)
 (global-set-key (kbd "C-<f1>")  'amixer-volume-down)
 (global-set-key (kbd "C-<f2>")  'amixer-volume-up)
