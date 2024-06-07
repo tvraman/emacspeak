@@ -3851,7 +3851,6 @@ with tts.
 ..................
 
  -- Command: dtk-stop (&optional all)
-     ‘<fn>’
      ‘C-e s’
 
      Stop speech.  Optional arg ‘all’ or interactive call silences

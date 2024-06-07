@@ -768,8 +768,6 @@ current local  value to the result.
 @subsubsection dtk-stop
 @deffn {Command} dtk-stop  (&optional all)
 @table @kbd
-@item <fn>
-@kindex <fn>
 @item C-e s
 @kindex C-e s
 @end table
@@ -12473,6 +12471,8 @@ configure which media players get silenced or paused/resumed.
 @subsubsection emacspeak-speak-brief-time
 @deffn {Command} emacspeak-speak-brief-time   
 @table @kbd
+@item <fn>
+@kindex <fn>
 @item C-e <fn>
 @kindex C-e <fn>
 @end table

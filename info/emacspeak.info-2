@@ -4885,6 +4885,7 @@ of emacspeak from becoming dependent on the speech server modules
 ......................................
 
  -- Command: emacspeak-speak-brief-time
+     ‘<fn>’
      ‘C-e <fn>’
 
      Time in brief
