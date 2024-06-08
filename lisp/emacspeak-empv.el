@@ -242,9 +242,11 @@ If already playing, then read an empv key and invoke its command."
 (defun emacspeak-empv-radio ()
   "Play Internet stream"
   (interactive)
-  (emacspeak-empv-play-file
+  (funcall-interactively #'emacspeak-empv-play-file
    (let ((default-directory emacspeak-media-shortcuts))
      (emacspeak-media-read-resource))))
+
+
 (defun emacspeak-empv-accumulate-to-register ()
   "Accumulate media links to register u"
   (interactive)
