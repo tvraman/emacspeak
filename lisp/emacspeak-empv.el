@@ -292,14 +292,14 @@ If already playing, then read an empv key and invoke its command."
 
 (defun emacspeak-empv-backward-10-seconds (&optional count)
   "Move back  count  slices of 10 seconds."
-  (interactive "nCount:")
+  (interactive (list (read-number "Count: " 1)))
   (or count (setq count 1))
   (empv-seek (* count -10))
   (emacspeak-empv-post-nav))
 
 (defun emacspeak-empv-forward-10-seconds (&optional count)
   "Move forward count  chunks of 10 seconds."
-  (interactive "nCount:")
+  (interactive(list (read-number "Count: " 1)))
   (or count (setq count 1))
   (empv-seek (* count 10))
   (emacspeak-empv-post-nav))
