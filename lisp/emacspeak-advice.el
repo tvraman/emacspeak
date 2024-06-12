@@ -809,7 +809,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 ;;; so we really need to speak it
            (emacspeak-icon 'key)
            (and dtk-stop-immediately  (dtk-stop))
-(tts-with-punctuations 'all (dtk-notify m 'dont-log)))
+           (tts-with-punctuations 'all (dtk-notify m 'dont-log)))
          ad-return-value)))))
 
 (defadvice display-message-or-buffer (after emacspeak pre act comp)
