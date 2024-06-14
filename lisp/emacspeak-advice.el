@@ -788,8 +788,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
        (cond
         ((or                            ; messages never  speak
           inhibit-message
-          (null emacspeak-speak-messages)
-          (zerop echo-keystrokes))
+          (null emacspeak-speak-messages))
          ad-return-value)
         (t
          (setq m
