@@ -792,8 +792,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
          (setq m
                (or
                 (current-message)
-                (and  (bound-and-true-p minibuffer-message-overlay)
-                      (overlay-get minibuffer-message-overlay 'after-string))))
+                (overlay-get minibuffer-message-overlay 'after-string)))
          (when
              (and                       ;dup throttle
               (not (zerop (length m)))
