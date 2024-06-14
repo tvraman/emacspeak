@@ -777,9 +777,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
     message display-message-or-buffer) do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-     "Speak message.
-Depends on low non-0 value of `echo-keystrokes' to enable echoing of
-partial keystrokes.  I use 0.0001."
+     "Speak message."
      (cl-declare (special
                   emacspeak-last-message inhibit-message
                   ems--message-filter emacspeak-speak-messages
@@ -803,11 +801,7 @@ partial keystrokes.  I use 0.0001."
              (and                       ;dup throttle
               (not (zerop (length m)))
               (not (string= m emacspeak-last-message))
-              (not (string-match ems--message-filter m))
-              (>        ; last display  older  than throttle threshold
-               (float-time
-                (time-subtract (current-time) ems--lazy-msg-time))
-               echo-keystrokes))
+              (not (string-match ems--message-filter m)))
            (setq
             ems--lazy-msg-time (current-time)
             emacspeak-last-message  m)
