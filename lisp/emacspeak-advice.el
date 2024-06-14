@@ -782,8 +782,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
                   emacspeak-last-message inhibit-message
                   ems--message-filter emacspeak-speak-messages
                   ems--lazy-msg-time))
-     (let ((inhibit-read-only t)
-           (m nil))
+     (let ((m nil))
        ad-do-it
        (cond
         ((or                            ; messages never  speak
