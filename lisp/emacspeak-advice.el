@@ -788,29 +788,33 @@ I use 0.0001."
      (let ((inhibit-read-only t)
            (m nil))
        ad-do-it
-       (setq m
-             (or
-              (current-message)
-              (when (bound-and-true-p minibuffer-message-overlay)
-                (overlay-get minibuffer-message-overlay 'after-string))))
-       (when
-           (and
-            (null inhibit-message)
-            emacspeak-speak-messages    ; speaking messages?
-            (not (zerop echo-keystrokes))
-            m                           ; our message
-            (not (zerop (length m)))
-            (not (string= m emacspeak-last-message))
-            (not (string-match ems--message-filter m))
-            (>          ; last display  older  than throttle threshold
-             (float-time (time-subtract (current-time) ems--lazy-msg-time))
-             echo-keystrokes))
-         (setq ems--lazy-msg-time (current-time)
-               emacspeak-last-message  m)
+       (cond
+        ((or                            ; messages dont speak
+          inhibit-message
+          (null emacspeak-speak-messages)
+          (zerop echo-keystrokes)))
+        (t
+         (setq
+          m
+          (or
+           (current-message)
+           (when  (bound-and-true-p minibuffer-message-overlay)
+             (overlay-get minibuffer-message-overlay 'after-string))))
+         (when
+             (and ;dup throttle
+                    (not (zerop (length m)))
+                    (not (string= m emacspeak-last-message))
+                    (not (string-match ems--message-filter m))
+                    (>  ; last display  older  than throttle threshold
+                     (float-time (time-subtract (current-time) ems--lazy-msg-time))
+                     echo-keystrokes))
+                 (setq
+                  ems--lazy-msg-time (current-time)
+                  emacspeak-last-message  m)
 ;;; so we really need to speak it
-         (emacspeak-icon 'key)
-         (tts-with-punctuations 'all (dtk-notify m 'dont-log)))
-       ad-return-value))))
+                 (emacspeak-icon 'key)
+                 (tts-with-punctuations 'all (dtk-notify m 'dont-log))))
+       ad-return-value)))))
 
 (defadvice display-message-or-buffer (after emacspeak pre act comp)
   "Icon"
