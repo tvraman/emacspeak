@@ -783,7 +783,6 @@ Emacs option `echo-keystrokes' should be non-zero --- Emacs' default
      (cl-declare (special
                   emacspeak-last-message inhibit-message ems--message-filter
                   emacspeak-speak-messages ems--lazy-msg-time))
-     (when (process-live-p dtk-speaker-process)
        (let ((inhibit-read-only t)
              (m nil))
          ad-do-it
@@ -811,7 +810,7 @@ Emacs option `echo-keystrokes' should be non-zero --- Emacs' default
            (emacspeak-icon 'key)
            (and dtk-stop-immediately  (dtk-stop))
            (tts-with-punctuations 'all (dtk-notify m 'dont-log)))
-         ad-return-value)))))
+         ad-return-value))))
 
 (defadvice display-message-or-buffer (after emacspeak pre act comp)
   "Icon"
