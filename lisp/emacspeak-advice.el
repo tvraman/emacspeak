@@ -780,8 +780,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
      "Speak message."
      (cl-declare (special
                   emacspeak-last-message inhibit-message
-                  ems--message-filter emacspeak-speak-messages
-                  ems--lazy-msg-time))
+                  ems--message-filter emacspeak-speak-messages))
      (let ((m nil))
        ad-do-it
        (cond
@@ -789,7 +788,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
           inhibit-message
           (null emacspeak-speak-messages))
          ad-return-value)
-        (t
+        (t ; possibly peak it 
          (setq m
                (or
                 (current-message)
@@ -800,8 +799,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
               (not (zerop (length m)))
               (not (string= m emacspeak-last-message))
               (not (string-match ems--message-filter m)))
-           (setq
-            ems--lazy-msg-time (current-time)
+           (setq ; update state
             emacspeak-last-message  m)
 ;;; so we really need to speak it
            (emacspeak-icon 'key)
