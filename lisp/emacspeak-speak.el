@@ -2028,7 +2028,7 @@ was spoken.  Pressing SPC  continues to speak the buffer; any other
 
 ;;;   Speak the last message again:
 
-(defvar ems--message-filter-pattern nil
+(defvar ems--message-filter nil
   "Internal variable holding  pattern used to filter spoken messages.")
 
 (defun emacspeak-speak-message-again (&optional from-message-cache)

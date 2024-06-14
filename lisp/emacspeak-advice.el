@@ -747,7 +747,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   :set
   #'(lambda (sym val)
       (set-default sym val ) ; turn list into a pattern to use
-      (setq ems--message-filter-pattern (regexp-opt val)))
+      (setq ems--message-filter (regexp-opt val)))
   :group 'emacspeak-speak)
 
 (defadvice momentary-string-display (around emacspeak pre act comp)
@@ -780,10 +780,9 @@ When on a close delimiter, speak matching delimiter after a small delay. "
      "Speak message.
 Emacs option `echo-keystrokes' should be non-zero --- Emacs' default
  is 1.0. Setting it to a lower value (I use 0.01) makes things more responsive."
-     (cl-declare (special emacspeak-last-message inhibit-message
-                          ems--message-filter-pattern
-                          emacspeak-speak-messages
-                          ems--lazy-msg-time))
+     (cl-declare (special
+                  emacspeak-last-message inhibit-message ems--message-filter
+                  emacspeak-speak-messages ems--lazy-msg-time))
      (when (process-live-p dtk-speaker-process)
        (let ((inhibit-read-only t)
              (m nil))
@@ -800,7 +799,7 @@ Emacs option `echo-keystrokes' should be non-zero --- Emacs' default
               m                         ; our message
               (not (zerop (length m)))
               (not (string= m emacspeak-last-message))
-              (not (string-match ems--message-filter-pattern m))
+              (not (string-match ems--message-filter m))
               (and
                (not (zerop echo-keystrokes))
                (>       ; last display  older  than throttle threshold
