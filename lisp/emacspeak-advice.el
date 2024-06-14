@@ -778,9 +778,8 @@ When on a close delimiter, speak matching delimiter after a small delay. "
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
      "Speak message.
-Depends on low non-0 value of `echo-keystrokes' to  enable echoing of
- partial keystrokes.
-I use 0.0001."
+Depends on low non-0 value of `echo-keystrokes' to enable echoing of
+partial keystrokes.  I use 0.0001."
      (cl-declare (special
                   emacspeak-last-message inhibit-message
                   ems--message-filter emacspeak-speak-messages
@@ -789,32 +788,33 @@ I use 0.0001."
            (m nil))
        ad-do-it
        (cond
-        ((or                            ; messages dont speak
+        ((or                            ; messages never  speak
           inhibit-message
           (null emacspeak-speak-messages)
-          (zerop echo-keystrokes)))
+          (zerop echo-keystrokes))
+         ad-return-value)
         (t
-         (setq
-          m
-          (or
-           (current-message)
-           (when  (bound-and-true-p minibuffer-message-overlay)
-             (overlay-get minibuffer-message-overlay 'after-string))))
+         (setq m
+               (or
+                (current-message)
+                (and  (bound-and-true-p minibuffer-message-overlay)
+                      (overlay-get minibuffer-message-overlay 'after-string))))
          (when
-             (and ;dup throttle
-                    (not (zerop (length m)))
-                    (not (string= m emacspeak-last-message))
-                    (not (string-match ems--message-filter m))
-                    (>  ; last display  older  than throttle threshold
-                     (float-time (time-subtract (current-time) ems--lazy-msg-time))
-                     echo-keystrokes))
-                 (setq
-                  ems--lazy-msg-time (current-time)
-                  emacspeak-last-message  m)
+             (and                       ;dup throttle
+              (not (zerop (length m)))
+              (not (string= m emacspeak-last-message))
+              (not (string-match ems--message-filter m))
+              (>        ; last display  older  than throttle threshold
+               (float-time
+                (time-subtract (current-time) ems--lazy-msg-time))
+               echo-keystrokes))
+           (setq
+            ems--lazy-msg-time (current-time)
+            emacspeak-last-message  m)
 ;;; so we really need to speak it
-                 (emacspeak-icon 'key)
-                 (tts-with-punctuations 'all (dtk-notify m 'dont-log))))
-       ad-return-value)))))
+           (emacspeak-icon 'key)
+           (tts-with-punctuations 'all (dtk-notify m 'dont-log)))))
+       ad-return-value))))
 
 (defadvice display-message-or-buffer (after emacspeak pre act comp)
   "Icon"
