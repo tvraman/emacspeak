@@ -779,7 +779,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   `(defadvice ,f (around emacspeak pre act comp)
      "Speak message.
 Emacs option `echo-keystrokes' should be non-zero --- Emacs' default
- is 1.0. Setting it to a lower value (I use 0.001) makes things more responsive."
+ is 1.0. Setting it to a lower value (I use 0.01) makes things more responsive."
      (cl-declare (special emacspeak-last-message inhibit-message
                           ems--message-filter-pattern
                           emacspeak-speak-messages
