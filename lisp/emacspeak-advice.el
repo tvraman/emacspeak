@@ -777,7 +777,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
     message display-message-or-buffer) do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-     "Speak message."
+     "Speak message. Duplicates will not be spoken."
      (cl-declare (special
                   emacspeak-last-message inhibit-message
                   ems--message-filter emacspeak-speak-messages))
@@ -791,6 +791,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
                (or (current-message) (and   o (overlay-get o 'after-string))))
          (when
              (and                       ;dup throttle
+              m
               (not (zerop (length m)))
               (not (string= m emacspeak-last-message))
               (not (string-match ems--message-filter m)))
