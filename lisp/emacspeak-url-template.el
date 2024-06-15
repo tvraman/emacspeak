@@ -244,7 +244,7 @@ with duplicates removed when saving as a list of string."
  "BBC World Service  Schedule "
 "https://www.bbc.co.uk/sounds/schedules/bbc_world_service " 
  nil
- #'emacspeak-eww-next-h3
+ #'emacspeak-eww-next-h1
  "BBC World Service Schedule")
 
 (emacspeak-url-template-define
