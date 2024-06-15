@@ -788,8 +788,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
         ((or inhibit-message (null emacspeak-speak-messages)) ad-return-value)
         (t                              ; possibly peak it 
          (setq m
-               (or (current-message) (and   o (overlay-get o
-                                                           'after-string))))
+               (or (current-message) (and   o (overlay-get o 'after-string))))
          (when m (setq m (string-trim m)))
          (when
              (and                       ;dup throttle
