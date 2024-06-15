@@ -782,25 +782,19 @@ When on a close delimiter, speak matching delimiter after a small delay. "
                   emacspeak-last-message inhibit-message
                   ems--message-filter emacspeak-speak-messages))
      (let ((m nil)
-           (mo minibuffer-message-overlay))
+           (o minibuffer-message-overlay))
        ad-do-it
        (cond
-        ((or                            ; messages never  speak
-          inhibit-message
-          (null emacspeak-speak-messages))
-         ad-return-value)
+        ((or inhibit-message (null emacspeak-speak-messages)) ad-return-value)
         (t                              ; possibly peak it 
-
          (setq m
-               (or (current-message)
-                (and   mo (overlay-get mo 'after-string))))
+               (or (current-message) (and   o (overlay-get o 'after-string))))
          (when
              (and                       ;dup throttle
               (not (zerop (length m)))
               (not (string= m emacspeak-last-message))
               (not (string-match ems--message-filter m)))
-           (setq                        ; update state
-            emacspeak-last-message  m)
+           (setq emacspeak-last-message  m)
 ;;; so we really need to speak it
            (emacspeak-icon 'key)
            (tts-with-punctuations 'all (dtk-notify m 'dont-log)))))
