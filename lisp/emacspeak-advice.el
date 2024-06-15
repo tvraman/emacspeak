@@ -781,25 +781,25 @@ When on a close delimiter, speak matching delimiter after a small delay. "
      (cl-declare (special
                   emacspeak-last-message inhibit-message
                   ems--message-filter emacspeak-speak-messages))
-     (let ((m nil))
+     (let ((m nil)
+           (mo minibuffer-message-overlay))
        ad-do-it
        (cond
         ((or                            ; messages never  speak
           inhibit-message
           (null emacspeak-speak-messages))
          ad-return-value)
-        (t ; possibly peak it 
+        (t                              ; possibly peak it 
+
          (setq m
-               (or
-                (current-message)
-                (and  (bound-and-true-p minibuffer-message-overlay)
-                      (overlay-get minibuffer-message-overlay 'after-string))))
+               (or (current-message)
+                (and   mo (overlay-get mo 'after-string))))
          (when
              (and                       ;dup throttle
               (not (zerop (length m)))
               (not (string= m emacspeak-last-message))
               (not (string-match ems--message-filter m)))
-           (setq ; update state
+           (setq                        ; update state
             emacspeak-last-message  m)
 ;;; so we really need to speak it
            (emacspeak-icon 'key)
@@ -850,17 +850,20 @@ When on a close delimiter, speak matching delimiter after a small delay. "
   "Custom error handler"
   (emacspeak-icon 'warn-user)
   (message (propertize (error-message-string data) 'face 'error)))
+(defconst ems--error-limit 1.0
+  "Seconds used to rate-limit error messages.")
 
 (defun emacspeak-fancy-error-handler (data _ caller)
   "Custom error handler."
+  (cl-declare (special ems--error-limit))
   (cl-declare (special ems--last-error-msg
                        ems--lazy-error-time))
   (let ((m (error-message-string data))
         (fn (if caller (symbol-name caller) "")))
-    (when ; speak conditionally
+    (when                               ; speak conditionally
         (and
          (not (string= ems--last-error-msg m)) ; dont repeat
-         (< echo-keystrokes ; rate limit 
+         (< ems--error-limit               ; rate limit 
             (float-time (time-subtract (current-time) ems--lazy-msg-time))))
       (setq ems--last-error-msg m
             ems--lazy-error-time (current-time))
@@ -869,7 +872,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
        (concat
         (propertize
          (if (string-match "^ad-Advice" fn) (substring fn 10) fn)
-                    'personality voice-bolden)
+         'personality voice-bolden)
         m )))))
 
 ;; Silence messages from async handlers:
