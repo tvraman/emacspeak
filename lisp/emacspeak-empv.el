@@ -177,7 +177,8 @@
   (repeat-exit)
   (when (ems-interactive-p)
     (dtk-stop 'all)
-    (emacspeak-icon 'close-object)))
+    (emacspeak-icon 'close-object)
+    (emacspeak-speak-mode-line)))
 
 ;;; Additional Commands:
 
