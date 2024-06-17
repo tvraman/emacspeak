@@ -291,19 +291,15 @@ If already playing, then read an empv key and invoke its command."
   (empv-seek target '("absolute"))
   (emacspeak-empv-post-nav))
 
-(defun emacspeak-empv-backward-10-seconds (&optional count)
-  "Move back  count  slices of 10 seconds."
-  (interactive (list (read-number "Count: " 1)))
-  (or count (setq count 1))
-  (empv-seek (* count -10))
-  (emacspeak-empv-post-nav))
+(defun emacspeak-empv-backward-10-seconds ()
+  "Move back  10 seconds."
+  (interactive )
+  (empv-seek -10))
 
-(defun emacspeak-empv-forward-10-seconds (&optional count)
-  "Move forward count  chunks of 10 seconds."
-  (interactive(list (read-number "Count: " 1)))
-  (or count (setq count 1))
-  (empv-seek (* count 10))
-  (emacspeak-empv-post-nav))
+(defun emacspeak-empv-forward-10-seconds ()
+  "Move forward 10 seconds."
+  (interactive)
+  (empv-seek 10))
 
 ;; Generate other navigators:
 
