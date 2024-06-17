@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 14, 2024.
+last updated on June 16, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-extras,  Next: emacspeak-exwm,  Prev: emacspeak-eww,  Up: Emacspeak Commands And Options
@@ -5174,6 +5174,8 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-message-again (&optional
           from-message-cache)
+     ‘C-e <backspace>’
+     ‘C-e <delete>’
      ‘C-e M-a’
 
      Speak the last message from Emacs once again.
