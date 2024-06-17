@@ -6493,11 +6493,9 @@ select few for interactive use.
 12.61.4.4 emacspeak-empv-backward-10-seconds
 ............................................
 
- -- Command: emacspeak-empv-backward-10-seconds (&optional count)
+ -- Command: emacspeak-empv-backward-10-seconds
 
-     Move back  count  slices of 10 seconds.
-
-     (fn &optional COUNT)
+     Move back  10 seconds.
 
 12.61.4.5 emacspeak-empv-backward-30-minutes
 ............................................
@@ -6546,11 +6544,9 @@ select few for interactive use.
 12.61.4.11 emacspeak-empv-forward-10-seconds
 ............................................
 
- -- Command: emacspeak-empv-forward-10-seconds (&optional count)
+ -- Command: emacspeak-empv-forward-10-seconds
 
-     Move forward count  chunks of 10 seconds.
-
-     (fn &optional COUNT)
+     Move forward 10 seconds.
 
 12.61.4.12 emacspeak-empv-forward-30-minutes
 ............................................

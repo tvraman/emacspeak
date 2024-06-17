@@ -3856,13 +3856,11 @@ Move backward by 10 minutes
 @end deffn
 
 @subsubsection emacspeak-empv-backward-10-seconds
-@deffn {Command} emacspeak-empv-backward-10-seconds  (&optional count)
+@deffn {Command} emacspeak-empv-backward-10-seconds   
 @findex emacspeak-empv-backward-10-seconds
 
 @format
-Move back  count  slices of 10 seconds.
-
-(fn &optional COUNT)
+Move back  10 seconds.
 @end format
 @end deffn
 
@@ -3923,13 +3921,11 @@ Move forward by 10 minutes
 @end deffn
 
 @subsubsection emacspeak-empv-forward-10-seconds
-@deffn {Command} emacspeak-empv-forward-10-seconds  (&optional count)
+@deffn {Command} emacspeak-empv-forward-10-seconds   
 @findex emacspeak-empv-forward-10-seconds
 
 @format
-Move forward count  chunks of 10 seconds.
-
-(fn &optional COUNT)
+Move forward 10 seconds.
 @end format
 @end deffn
 
