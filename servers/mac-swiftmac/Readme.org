@@ -1,6 +1,7 @@
-* swiftmac
+* SwiftMac
+
 This is a server for Emacspeak for modern macs using
-swift 5.5+.
+swift 5.9+.
 
 Project: https://github.com/robertmeta/swiftmac
 

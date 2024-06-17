@@ -30,7 +30,9 @@ class Logger {
     }
 
     func log(_ m: String) {
-      let message = m + "\n"
+      // let message = m + "\n"
+      let ts = ""
+      let message = ts + m + "\n"
       backgroundQueue.async { [weak self] in
         guard let self = self else { return }
 
