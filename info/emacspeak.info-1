@@ -410,17 +410,17 @@ Speech servers are located in the ‘emacspeak/servers’ directory.
 
    • Dectalk: ‘servers/dtk-exp’.  This is a TCL script that does not
      depend on any native code.
-   • Software Dectalk: See
+   • Software Dectalk: ‘servers/dtk-soft’ See
      <https://github.com/tvraman/emacspeak/blob/master/servers/software-dtk/Readme.org>.
    • Outloud: ‘servers/outloud’ This is a TCL script that uses the
      library built in ‘servers/linux-outloud’.  Note that a checkout
      from GitHub gives you a prebuilt library -- however you will need
      to purchase the TTS engine from <http://voxin.oralux.net>.
 
-   • Mac: ‘servers/swiftmac’.  This is a server implemented in ‘swift’;
-     the older Python implementation is being deprecated but still
-     available as Python script ‘mac’.  The server binds to the native
-     Mac TTS.
+   • Mac: ‘servers/mac-swiftmac’.  This is a server implemented in
+     ‘swift’; the older Python implementation is being deprecated but
+     still available as Python script ‘mac’.  The server binds to the
+     native Mac TTS.
 
 5.3.1.1 Testing The Selected Server.
 ....................................
