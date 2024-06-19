@@ -6789,6 +6789,8 @@ Interactive prefix arg ‘reset’ prompts for the annotation
 buffer even if one is already set.
 Annotation is entered in a temporary buffer and the
 annotation is inserted into the working buffer when complete.
+
+(fn &optional RESET)
 @end format
 @end deffn
 
@@ -6805,6 +6807,8 @@ annotation is inserted into the working buffer when complete.
 Use file-based Emacspeak Clipboard ---
 dis a convenient way of sharing information between independent
 Emacspeak sessions running on  different machines. 
+
+(fn START END &optional PROMPT)
 @end format
 @end deffn
 
@@ -6814,6 +6818,8 @@ Emacspeak sessions running on  different machines.
 
 @format
 Yank contents of the Emacspeak clipboard at point. 
+
+(fn &optional PASTE-TABLE)
 @end format
 @end deffn
 
@@ -6823,6 +6829,8 @@ Yank contents of the Emacspeak clipboard at point.
 
 @format
 Grab URL using Curl, and preview it with a browser .
+
+(fn URL)
 @end format
 @end deffn
 
@@ -6833,6 +6841,8 @@ Grab URL using Curl, and preview it with a browser .
 @format
 Add autoload cookies to file f.
 Default is to add autoload cookies to current file.
+
+(fn &optional F)
 @end format
 @end deffn
 
@@ -6842,6 +6852,8 @@ Default is to add autoload cookies to current file.
 
 @format
 Load bindings from a specified file.
+
+(fn VARIABLE FILENAME)
 @end format
 @end deffn
 
@@ -6851,6 +6863,8 @@ Load bindings from a specified file.
 
 @format
 Persists mapping to org file.
+
+(fn VARIABLE FILENAME)
 @end format
 @end deffn
 
@@ -6860,6 +6874,8 @@ Persists mapping to org file.
 
 @format
 Create a virtual manpage in Emacs from the Perl Online Documentation.
+
+(fn FILENAME)
 @end format
 @end deffn
 
@@ -6870,6 +6886,8 @@ Create a virtual manpage in Emacs from the Perl Online Documentation.
 @format
 Run compile using find and grep.
 Interactive  arguments specify filename pattern and search pattern.
+
+(fn GLOB PATTERN)
 @end format
 @end deffn
 
@@ -6879,6 +6897,8 @@ Interactive  arguments specify filename pattern and search pattern.
 
 @format
 Nuke read-only property on text range.
+
+(fn START END)
 @end format
 @end deffn
 
@@ -6889,6 +6909,8 @@ Nuke read-only property on text range.
 @format
 Generate a buffer that shows a sample line in all the ACSS settings
 for the current voice family.
+
+(fn STEP)
 @end format
 @end deffn
 
@@ -6909,6 +6931,8 @@ for the current voice family.
 Show all defined voice-face mappings  in a help buffer.
 Sample text to use comes from variable
   ‘ems--wizards-sampler-text 
+
+(fn PATTERN)
 @end format
 @end deffn
 
@@ -6918,6 +6942,8 @@ Sample text to use comes from variable
 
 @format
 Play midi file using mscore from musescore package.
+
+(fn MIDI-FILE)
 @end format
 @end deffn
 
@@ -6936,6 +6962,8 @@ Display a buffer with sample text in the defined voices.
 
 @format
 Read a personality  and apply it to the current line.
+
+(fn PERSONALITY)
 @end format
 @end deffn
 
@@ -9863,6 +9891,8 @@ Move down in current Math expression. (auto-generated)
 @format
 Send a LaTeX expression to Maths server,
  guess  based on context. 
+
+(fn LATEX)
 @end format
 @end deffn
 
