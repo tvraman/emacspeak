@@ -269,6 +269,7 @@ Element 0 is ignored.")
     options))
 
 (defun tetris-get-tick-period ()
+  (cl-declare (special tetris-default-tick-period))
   (if (boundp 'tetris-update-speed-function)
       (let ((period (apply tetris-update-speed-function
                            tetris-n-shapes
