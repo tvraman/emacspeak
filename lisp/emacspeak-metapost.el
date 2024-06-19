@@ -9,39 +9,32 @@
 ;; LCD Archive Entry:
 ;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
 ;; A speech interface to Emacs |
-;; 
+;;
 ;;  $Revision: 4074 $ |
 ;; Location https://github.com/tvraman/emacspeak
-;; 
+;;
 
 ;;;   Copyright:
 
 ;; Copyright (C) 1995 -- 2024, T. V. Raman
 ;; All Rights Reserved.
-;; 
+;;
 ;; This file is not part of GNU Emacs, but the same permissions apply.
-;; 
+;;
 ;; GNU Emacs is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2, or (at your option)
 ;; any later version.
-;; 
+;;
 ;; GNU Emacs is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-;; 
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
-
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;;  required modules
-
-(cl-declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-preamble)
 
 ;;; Commentary:
 ;; Speech-enables metapost mode.
@@ -49,7 +42,13 @@
 ;; typically installed as mpost by modern TeX
 ;; installations.
 
-;;;   completion 
+;;; Code:
+;;  required modules
+
+(cl-declaim  (optimize  (safety 0) (speed 3)))
+(require 'emacspeak-preamble)
+
+;;;   completion
 
 (defadvice meta-complete-symbol (around emacspeak pre act comp)
   "Say what you completed."
@@ -60,7 +59,7 @@
     (when (> (point) prior)
       (setq dtk-stop-immediately nil)
       (tts-with-punctuations 'all
-                             (dtk-speak (buffer-substring prior (point)))))
+        (dtk-speak (buffer-substring prior (point)))))
     ad-return-value))
 
 ;;;  indentation
@@ -76,7 +75,7 @@
     (emacspeak-icon 'fill-object)
     (message "Filled current paragraph")))
 
-;;;   navigation 
+;;;   navigation
 (defadvice  meta-beginning-of-defun (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
@@ -154,4 +153,3 @@
 
 (provide 'emacspeak-metapost)
 ;;;  end of file
-

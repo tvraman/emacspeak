@@ -163,7 +163,7 @@
 ;; emacspeak-epub-open
 ;; @end table
 
-;;;Code:
+;;; Code:
 ;; Required Modules:
 
 (eval-when-compile (require 'cl-lib))

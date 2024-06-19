@@ -134,6 +134,7 @@
 * emacspeak-muse::Speech-enable Muse.
 * emacspeak-net-utils::net-utils.
 * emacspeak-newsticker::newsticker.
+* emacspeak-nm::NM using  D-Bus..
 * emacspeak-notmuch::Speech-enable NOTMUCH.
 * emacspeak-nov::Speech-enable NOV.
 * emacspeak-nxml::Speech enable nxml mode.
@@ -250,7 +251,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1175 commands and 127 options.
+This chapter documents a total of 1179 commands and 134 options.
 
 @node amixer
 @section amixer
@@ -4353,9 +4354,6 @@ emacspeak-epub-browse-files
 @item o
 emacspeak-epub-open
 @end table
-
-Code:
-Required Modules:
 
 @subsection Emacspeak-Epub Commands
 
@@ -10009,7 +10007,8 @@ metapost is a powerful drawing package
 typically installed as mpost by modern TeX
 installations.
 
-  completion
+;;; Code:
+ required modules
 
 @node emacspeak-midge
 @section emacspeak-midge
@@ -10430,7 +10429,6 @@ Speech enable Muse
 @section emacspeak-net-utils
 
 This module speech enables net-utils
- requires
 
 @node emacspeak-newsticker
 @section emacspeak-newsticker
@@ -10440,6 +10438,21 @@ RSS
 Provides functionality similar to amphetadesk --but in pure elisp
 
  required modules
+
+@node emacspeak-nm
+@section emacspeak-nm
+
+Author: Øyvind Stegard <oyvind.stegard@ifi.uio.no>
+License: Public domain, use at own risk, no warranties of any kind.
+Requires Emacs23 with D-Bus bindings and preferably a running NetworkManager
+instance.
+
+You will need to call the function `nm-enable' for things to start
+happening.  Functions you would like to run when network is
+connected: (add-hook 'nm-connected-hook 'ping-skynet)
+
+Functions you would like to run when network is disconnected:
+(add-hook 'nm-disconnected-hook (lambda() (message "Darnit, we are down.")))
 
 @node emacspeak-notmuch
 @section emacspeak-notmuch
@@ -15558,7 +15571,6 @@ Speak current playing state.
 @section emacspeak-wdired
 
 Speech-enable wdired to permit in-place renaming of groups of files.
- required modules
 
 @node emacspeak-we
 @section emacspeak-we
