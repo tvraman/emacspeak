@@ -305,7 +305,7 @@
 
 (defun self-document-module (self)
   "Generate documentation for commands and options in a module."
-  (message "Doc: " )
+  (message  "Doc: %s" (self-document-name self) )
   (let ((file-name-handler-alist nil))
     ;; Only generate in non-degenerate case
     (when (or (self-document-commentary self)
@@ -315,7 +315,7 @@
       (when (self-document-commands self) (self-document-module-commands self))
       (when (self-document-options self)(self-document-module-options
                                          self))))
-  (message "Done " ))
+  (message "Done: %s " (self-document-name self) ))
 
  
 ;;; Document Keybindings For Various Prefix Maps:
