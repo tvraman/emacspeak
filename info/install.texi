@@ -148,7 +148,7 @@ TTS engine from @url{http://voxin.oralux.net}.
 @item
 Mac: @code{servers/mac-swiftmac}.  This is a server implemented in
 @code{swift}; the older Python implementation is being deprecated but
-still available as Python script @code{mac}.  The server binds to the native
+still available as Python script @code{servers/mac}.  The server binds to the native
 Mac TTS.
 @end itemize
 
