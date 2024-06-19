@@ -77,14 +77,16 @@ make
 
 @item
 ViaVoice Outloud (AKA Eloquent).  You need to purchase this engine
-from the voxin site.  That purchase will give you install-ready
-packages for installing the speech engine as well as Emacspeak.  See
-@url{https://voxin.oralux.net/rss.xml} for the latest packages, and
-@url{https://voxin.oralux.net} for the main Voxin Web site.
+from the voxin site --- note that the Vocalizer voices available from
+that site are not supported.  That purchase will give you
+install-ready packages for installing the speech engine as well as
+Emacspeak.  See @url{https://voxin.oralux.net/rss.xml} for the latest
+packages, and @url{https://voxin.oralux.net} for the main Voxin Web
+site.
 
 @item
 On the Mac, you can use the builtin Mac TTS engine @MDash{} emacspeak
-comes with a speech server for that TTS engine written in Python.
+comes with a speech server for that TTS engine written in @code{swift}.
 @end itemize
 
 @item
@@ -135,17 +137,19 @@ in @code{servers/native-espeak/}.
 @item
 Dectalk: @code{servers/dtk-exp}.  This is a TCL script that does not
 depend on any native code.
-
+@item Software Dectalk: @code{servers/dtk-soft} See @url{https://github.com/tvraman/emacspeak/blob/master/servers/software-dtk/Readme.org}.
 @item
-Outloud: @code{servers/outloud} or @code{servers/32-outloud} (for
-64-bit machines).  This is a TCL script that uses the library built in
+Outloud: @code{servers/outloud} 
+  This is a TCL script that uses the library built in
 @code{servers/linux-outloud}.  Note that a checkout from GitHub gives
 you a prebuilt library @MDash{} however you will need to purchase the
 TTS engine from @url{http://voxin.oralux.net}.
 
 @item
-Mac: @code{servers/mac}.  This is a Python script that binds to the
-native Mac TTS.
+Mac: @code{servers/mac-swiftmac}.  This is a server implemented in
+@code{swift}; the older Python implementation is being deprecated but
+still available as Python script @code{mac}.  The server binds to the native
+Mac TTS.
 @end itemize
 
 @subsubsection Testing The Selected Server.

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 17, 2024.
+last updated on June 18, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -358,15 +358,16 @@ that package.
                make
 
         • ViaVoice Outloud (AKA Eloquent).  You need to purchase this
-          engine from the voxin site.  That purchase will give you
-          install-ready packages for installing the speech engine as
-          well as Emacspeak.  See <https://voxin.oralux.net/rss.xml> for
-          the latest packages, and <https://voxin.oralux.net> for the
-          main Voxin Web site.
+          engine from the voxin site -- note that the Vocalizer voices
+          available from that site are not supported.  That purchase
+          will give you install-ready packages for installing the speech
+          engine as well as Emacspeak.  See
+          <https://voxin.oralux.net/rss.xml> for the latest packages,
+          and <https://voxin.oralux.net> for the main Voxin Web site.
 
         • On the Mac, you can use the builtin Mac TTS engine --
           emacspeak comes with a speech server for that TTS engine
-          written in Python.
+          written in ‘swift’.
 
    • Having installed and configured the TTS engine of your choice, and
      having built the associated speech server, set Emacspeak up to use
@@ -409,15 +410,17 @@ Speech servers are located in the ‘emacspeak/servers’ directory.
 
    • Dectalk: ‘servers/dtk-exp’.  This is a TCL script that does not
      depend on any native code.
+   • Software Dectalk: See
+     <https://github.com/tvraman/emacspeak/blob/master/servers/software-dtk/Readme.org>.
+   • Outloud: ‘servers/outloud’ This is a TCL script that uses the
+     library built in ‘servers/linux-outloud’.  Note that a checkout
+     from GitHub gives you a prebuilt library -- however you will need
+     to purchase the TTS engine from <http://voxin.oralux.net>.
 
-   • Outloud: ‘servers/outloud’ or ‘servers/32-outloud’ (for 64-bit
-     machines).  This is a TCL script that uses the library built in
-     ‘servers/linux-outloud’.  Note that a checkout from GitHub gives
-     you a prebuilt library -- however you will need to purchase the TTS
-     engine from <http://voxin.oralux.net>.
-
-   • Mac: ‘servers/mac’.  This is a Python script that binds to the
-     native Mac TTS.
+   • Mac: ‘servers/swiftmac’.  This is a server implemented in ‘swift’;
+     the older Python implementation is being deprecated but still
+     available as Python script ‘mac’.  The server binds to the native
+     Mac TTS.
 
 5.3.1.1 Testing The Selected Server.
 ....................................
