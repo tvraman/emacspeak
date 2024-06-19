@@ -17,7 +17,7 @@ last updated on June 19, 2024.
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
 
-12.236 sox
+12.237 sox
 ==========
 
 This module defines a convenient speech-enabled interface for editing
@@ -34,10 +34,10 @@ ladspa.el.  To use ladspa effects with SoX, you need a relatively new
 build of Sox; The stock SoX that is package for Debian/Ubuntu does not
 always work.  This module can be used independent of Emacspeak.
 
-12.236.1 Sox Commands
+12.237.1 Sox Commands
 ---------------------
 
-12.236.1.1 sox-add-effect
+12.237.1.1 sox-add-effect
 .........................
 
  -- Command: sox-add-effect (name)
@@ -46,7 +46,7 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn NAME)
 
-12.236.1.2 sox-delete-effect-at-point
+12.237.1.2 sox-delete-effect-at-point
 .....................................
 
  -- Command: sox-delete-effect-at-point
@@ -57,14 +57,14 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn)
 
-12.236.1.3 sox-edit-effect-at-point
+12.237.1.3 sox-edit-effect-at-point
 ...................................
 
  -- Command: sox-edit-effect-at-point
 
      Edit effect at point.
 
-12.236.1.4 sox-mode
+12.237.1.4 sox-mode
 ...................
 
  -- Command: sox-mode
@@ -76,7 +76,7 @@ always work.  This module can be used independent of Emacspeak.
      penultimate step during initialization.
 
 
-12.236.1.5 sox-open-file
+12.237.1.5 sox-open-file
 ........................
 
  -- Command: sox-open-file (snd-file)
@@ -87,14 +87,14 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn SND-FILE)
 
-12.236.1.6 sox-play
+12.237.1.6 sox-play
 ...................
 
  -- Command: sox-play
 
      Play sound .
 
-12.236.1.7 sox-refresh
+12.237.1.7 sox-refresh
 ......................
 
  -- Command: sox-refresh
@@ -105,7 +105,7 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn)
 
-12.236.1.8 sox-save
+12.237.1.8 sox-save
 ...................
 
  -- Command: sox-save (save-file)
@@ -114,7 +114,7 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn SAVE-FILE)
 
-12.236.1.9 sox-set-effect
+12.237.1.9 sox-set-effect
 .........................
 
  -- Command: sox-set-effect (name)
@@ -123,14 +123,14 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn NAME)
 
-12.236.1.10 sox-show-timestamp
+12.237.1.10 sox-show-timestamp
 ..............................
 
  -- Command: sox-show-timestamp
 
      Show timestamp   in stream.
 
-12.236.1.11 sox-stop
+12.237.1.11 sox-stop
 ....................
 
  -- Command: sox-stop
@@ -140,13 +140,13 @@ always work.  This module can be used independent of Emacspeak.
 
 File: emacspeak.info,  Node: sox-gen,  Next: swiftmac-voices,  Prev: sox,  Up: Emacspeak Commands And Options
 
-12.237 sox-gen
+12.238 sox-gen
 ==============
 
 Provides binaural audio along with pre-defined themes.  This module can
 be used independent of Emacspeak.
 
-12.237.1 Binaural Beats Using SoX
+12.238.1 Binaural Beats Using SoX
 ---------------------------------
 
 A binaural beat is an auditory illusion perceived when two different
@@ -174,7 +174,7 @@ binaural beat sequences by customizing
  -- Variable: User Option sox-binaural-gain-offset to a positive value
    -- default is 0.
 
-12.237.1.1 High-Level Commands For Pre-Defined Binaural Beats
+12.238.1.1 High-Level Commands For Pre-Defined Binaural Beats
 .............................................................
 
 These commands can be called directly to play one of the predefined
@@ -209,10 +209,10 @@ binaural beats.
    • ‘sox-tone-slide-binaural’: Generate a tone that slides from one
      binaural beat to another.
 
-12.237.2 Sox-Gen Commands
+12.238.2 Sox-Gen Commands
 -------------------------
 
-12.237.2.1 sox-beats-binaural
+12.238.2.1 sox-beats-binaural
 .............................
 
  -- Command: sox-beats-binaural (length beat-spec-list gain)
@@ -222,7 +222,7 @@ binaural beats.
 
      (fn LENGTH BEAT-SPEC-LIST GAIN)
 
-12.237.2.2 sox-binaural
+12.238.2.2 sox-binaural
 .......................
 
  -- Command: sox-binaural (name duration)
@@ -233,7 +233,7 @@ binaural beats.
 
      (fn NAME DURATION)
 
-12.237.2.3 sox-chakras
+12.238.2.3 sox-chakras
 ......................
 
  -- Command: sox-chakras (theme duration)
@@ -243,7 +243,7 @@ binaural beats.
 
      (fn THEME DURATION)
 
-12.237.2.4 sox-relax
+12.238.2.4 sox-relax
 ....................
 
  -- Command: sox-relax (length)
@@ -252,7 +252,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.237.2.5 sox-rev-up
+12.238.2.5 sox-rev-up
 .....................
 
  -- Command: sox-rev-up (length)
@@ -261,7 +261,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.237.2.6 sox-slide-binaural
+12.238.2.6 sox-slide-binaural
 .............................
 
  -- Command: sox-slide-binaural (name-1 name-2 duration)
@@ -270,7 +270,7 @@ binaural beats.
 
      (fn NAME-1 NAME-2 DURATION)
 
-12.237.2.7 sox-tone-binaural
+12.238.2.7 sox-tone-binaural
 ............................
 
  -- Command: sox-tone-binaural (length freq beat gain)
@@ -280,7 +280,7 @@ binaural beats.
 
      (fn LENGTH FREQ BEAT GAIN)
 
-12.237.2.8 sox-tone-slide-binaural
+12.238.2.8 sox-tone-slide-binaural
 ..................................
 
  -- Command: sox-tone-slide-binaural (length freq beat-start beat-end
@@ -291,7 +291,7 @@ binaural beats.
 
      (fn LENGTH FREQ BEAT-START BEAT-END GAIN)
 
-12.237.2.9 sox-turn-down
+12.238.2.9 sox-turn-down
 ........................
 
  -- Command: sox-turn-down (length)
@@ -300,7 +300,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.237.2.10 sox-wind-down
+12.238.2.10 sox-wind-down
 .........................
 
  -- Command: sox-wind-down (length)
@@ -309,7 +309,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.237.3 sox-gen Options
+12.238.3 sox-gen Options
 ------------------------
 
  -- Variable: User Option sox-binaural-gain-offset
@@ -333,7 +333,7 @@ binaural beats.
 
 File: emacspeak.info,  Node: swiftmac-voices,  Next: tetris,  Prev: sox-gen,  Up: Emacspeak Commands And Options
 
-12.238 swiftmac-voices
+12.239 swiftmac-voices
 ======================
 
 This module defines the various voices used in voice-lock mode by
@@ -342,19 +342,19 @@ SwiftMac.
 
 File: emacspeak.info,  Node: tetris,  Next: voice-defs,  Prev: swiftmac-voices,  Up: Emacspeak Commands And Options
 
-12.239 tetris
+12.240 tetris
 =============
 
 
 File: emacspeak.info,  Node: voice-defs,  Next: voice-setup,  Prev: tetris,  Up: Emacspeak Commands And Options
 
-12.240 voice-defs
+12.241 voice-defs
 =================
 
 Contains just the voice definitions.  Voices are defined using the macro
 ‘defvoice’ from module voice-setup.
 
-12.240.1 An Overview Of Voice Design
+12.241.1 An Overview Of Voice Design
 ------------------------------------
 
 Aural CSS defines 4 primary device-independent dimensions.
@@ -366,7 +366,7 @@ possible settings.
 these dimensions to device-specific parameters and are responsible for
 generating the final device-specific codes.
 
-12.240.2 Creating Distinct Voices Via Aural CSS
+12.241.2 Creating Distinct Voices Via Aural CSS
 -----------------------------------------------
 
 Along each dimension, a setting of 5 is mapped to the default setting
@@ -383,7 +383,7 @@ there are 4 *overlay* voices, corresponding to the 4 dimensions; these
 each set one of the dimensions to ‘8’.  Thus, we have a total of 25
 unique voices defined in this module.
 
-12.240.3 Things to note
+12.241.3 Things to note
 -----------------------
 
    • These voices are designed to be distinctive when used in a given
@@ -394,7 +394,7 @@ unique voices defined in this module.
      content so that when used in context, one can easily pick-out
      distinct parts of the utterance.
 
-12.240.4 voice-defs Options
+12.241.4 voice-defs Options
 ---------------------------
 
  -- Variable: User Option voice-animate-extra-settings
@@ -600,7 +600,7 @@ unique voices defined in this module.
 
 File: emacspeak.info,  Node: voice-setup,  Next: xbacklight,  Prev: voice-defs,  Up: Emacspeak Commands And Options
 
-12.241 voice-setup
+12.242 voice-setup
 ==================
 
 A voice is to audio as a font is to a visual display.  A personality is
@@ -619,7 +619,7 @@ words will be spoken in 'voice-keyword-personality'.
 is on, the voices of the current line are updated with every insertion
 or deletion.
 
-12.241.1 Voice-Lock And Aural CSS
+12.242.1 Voice-Lock And Aural CSS
 ---------------------------------
 
 The CSS Speech Style Sheet specification defines a number of abstract
@@ -651,10 +651,10 @@ e.g., dectalk-voices.el and outloud-voices.el map ACSS dimensions to
 engine-specific codes.  Emacspeak modules use voice-setup-add-map when
 defining face->personality mappings.  For use from other modules.
 
-12.241.2 Voice-Setup Commands
+12.242.2 Voice-Setup Commands
 -----------------------------
 
-12.241.2.1 voice-lock-mode
+12.242.2.1 voice-lock-mode
 ..........................
 
  -- Command: voice-lock-mode (&optional arg)
@@ -678,21 +678,21 @@ defining face->personality mappings.  For use from other modules.
 
      (fn &optional ARG)
 
-12.241.2.2 voice-lock-mode-turn-on
+12.242.2.2 voice-lock-mode-turn-on
 ..................................
 
  -- Command: voice-lock-mode--turn-on
 
      Turn on Voice Lock mode .
 
-12.241.2.3 voice-setup-toggle-silence-personality
+12.242.2.3 voice-setup-toggle-silence-personality
 .................................................
 
  -- Command: voice-setup-toggle-silence-personality
 
      Toggle audibility of personality under point  .
 
-12.241.3 voice-setup Options
+12.242.3 voice-setup Options
 ----------------------------
 
  -- Variable: User Option voice-lock-mode-hook
@@ -708,7 +708,7 @@ defining face->personality mappings.  For use from other modules.
 
 File: emacspeak.info,  Node: xbacklight,  Next: URL Templates,  Prev: voice-setup,  Up: Emacspeak Commands And Options
 
-12.242 xbacklight
+12.243 xbacklight
 =================
 
 Provide an emacs front-end to xbacklight.  This is a tool that controls
@@ -718,38 +718,38 @@ xbacklight
    This module is most easily used in conjunction with hydra: M-x
 package-install hydra
 
-12.242.1 Xbacklight Commands
+12.243.1 Xbacklight Commands
 ----------------------------
 
-12.242.1.1 xbacklight-black
+12.243.1.1 xbacklight-black
 ...........................
 
  -- Command: xbacklight-black
 
      Black screen.
 
-12.242.1.2 xbacklight-decrement
+12.243.1.2 xbacklight-decrement
 ...............................
 
  -- Command: xbacklight-decrement
 
      Decrease brightness.
 
-12.242.1.3 xbacklight-get
+12.243.1.3 xbacklight-get
 .........................
 
  -- Command: xbacklight-get
 
      Get  brightness level.
 
-12.242.1.4 xbacklight-increment
+12.243.1.4 xbacklight-increment
 ...............................
 
  -- Command: xbacklight-increment
 
      Increase brightness.
 
-12.242.1.5 xbacklight-set
+12.243.1.5 xbacklight-set
 .........................
 
  -- Command: xbacklight-set (brightness)
@@ -758,7 +758,7 @@ package-install hydra
 
      (fn BRIGHTNESS)
 
-12.242.1.6 xbacklight-white
+12.243.1.6 xbacklight-white
 ...........................
 
  -- Command: xbacklight-white
@@ -768,7 +768,7 @@ package-install hydra
 
 File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Commands And Options
 
-12.243 URL Templates
+12.244 URL Templates
 ====================
 
 This section documents a total of 63 URL Templates.
@@ -963,6 +963,9 @@ following steps:
      Display tech news from CNET
   57. tinyurl
 
+     URL Shortener via tinyurl.  If on a URL, replace it with the
+     shortened version.  If on a link in EWW, use it.  Otherwise prompt
+     for a URL to shorten and insert the result at point.
   58. tunein radio
 
      Translate StreamId to playable stream.
@@ -2319,7 +2322,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * Menu:
 
 * <f1> ,:                                emacspeak-wizards.  (line  313)
-* <f1> ":                                emacspeak-extras.   (line  105)
+* <f1> ":                                emacspeak-extras.   (line  127)
 * <f1> \:                                emacspeak-wizards.  (line  323)
 * <f1> =:                                emacspeak-wizards.  (line  915)
 * <f1> C-e:                              emacspeak-wizards.  (line   53)
@@ -2331,7 +2334,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * <f1> TAB:                              emacspeak-info.     (line   38)
 * <fn>:                                  emacspeak-speak.    (line  237)
 * <help> ,:                              emacspeak-wizards.  (line  314)
-* <help> ":                              emacspeak-extras.   (line  106)
+* <help> ":                              emacspeak-extras.   (line  128)
 * <help> \:                              emacspeak-wizards.  (line  324)
 * <help> =:                              emacspeak-wizards.  (line  916)
 * <help> C-e:                            emacspeak-wizards.  (line   54)
@@ -2521,7 +2524,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e C-f:                               emacspeak-dired.    (line  165)
 * C-e C-j:                               emacspeak-hide.     (line   39)
 * C-e C-l:                               Status Information. (line   82)
-* C-e C-M-c:                             emacspeak-extras.   (line   28)
+* C-e C-M-c:                             emacspeak-extras.   (line   30)
 * C-e C-M-q:                             emacspeak-speak.    (line 1016)
 * C-e C-M-SPC:                           emacspeak-speak.    (line  807)
 * C-e C-n:                               Reading.            (line  138)
@@ -2675,7 +2678,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e M-c:                               emacspeak-wizards.  (line   30)
 * C-e M-d:                               emacspeak-pronounce.
                                                              (line   56)
-* C-e M-e:                               emacspeak-epub.     (line  145)
+* C-e M-e:                               emacspeak-epub.     (line  143)
 * C-e M-h:                               emacspeak-wizards.  (line  202)
 * C-e M-l:                               emacspeak-speak.    (line  627)
 * C-e M-m:                               emacspeak-speak.    (line  983)
@@ -2782,7 +2785,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e x w:                               emacspeak-wizards.  (line  689)
 * C-e y b:                               emacspeak-bookshare.
                                                              (line  191)
-* C-e y E:                               emacspeak-epub.     (line  319)
+* C-e y E:                               emacspeak-epub.     (line  317)
 * C-e y l:                               emacspeak-empv.     (line  194)
 * C-e y r:                               emacspeak-empv.     (line  212)
 * C-e y y:                               emacspeak-empv.     (line  202)
@@ -2790,7 +2793,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e z e:                               emacspeak-wizards.  (line  494)
 * C-e z l:                               emacspeak-m-player. (line  366)
 * C-h ,:                                 emacspeak-wizards.  (line  312)
-* C-h ":                                 emacspeak-extras.   (line  104)
+* C-h ":                                 emacspeak-extras.   (line  126)
 * C-h \:                                 emacspeak-wizards.  (line  322)
 * C-h =:                                 emacspeak-wizards.  (line  914)
 * C-h C-e:                               emacspeak-wizards.  (line   52)
@@ -3235,8 +3238,8 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-calendar-speak-date <1>:     emacspeak-calendar. (line   33)
 * emacspeak-calendar-sunrise-sunset:     emacspeak-calendar. (line   39)
 * emacspeak-calendar-sunrise-sunset <1>: emacspeak-calendar. (line   40)
-* emacspeak-calibre-mode:                emacspeak-epub.     (line  127)
-* emacspeak-calibre-mode <1>:            emacspeak-epub.     (line  128)
+* emacspeak-calibre-mode:                emacspeak-epub.     (line  125)
+* emacspeak-calibre-mode <1>:            emacspeak-epub.     (line  126)
 * emacspeak-calibredb-epub-eww:          emacspeak-calibredb.
                                                              (line   14)
 * emacspeak-calibredb-epub-eww <1>:      emacspeak-calibredb.
@@ -3295,10 +3298,10 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-chess-view-rank-or-file <1>: emacspeak-chess.    (line  261)
 * emacspeak-chess-west:                  emacspeak-chess.    (line  267)
 * emacspeak-chess-west <1>:              emacspeak-chess.    (line  268)
-* emacspeak-clipfile-copy:               emacspeak-extras.   (line   26)
-* emacspeak-clipfile-copy <1>:           emacspeak-extras.   (line   29)
-* emacspeak-clipfile-paste:              emacspeak-extras.   (line   36)
-* emacspeak-clipfile-paste <1>:          emacspeak-extras.   (line   37)
+* emacspeak-clipfile-copy:               emacspeak-extras.   (line   28)
+* emacspeak-clipfile-copy <1>:           emacspeak-extras.   (line   31)
+* emacspeak-clipfile-paste:              emacspeak-extras.   (line   40)
+* emacspeak-clipfile-paste <1>:          emacspeak-extras.   (line   41)
 * emacspeak-compilation-speak-error:     emacspeak-compile.  (line   14)
 * emacspeak-compilation-speak-error <1>: emacspeak-compile.  (line   15)
 * emacspeak-completions-move-to-completion-group: emacspeak-speak.
@@ -3307,8 +3310,8 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
                                                              (line   59)
 * emacspeak-copy-current-file:           emacspeak-wizards.  (line   28)
 * emacspeak-copy-current-file <1>:       emacspeak-wizards.  (line   31)
-* emacspeak-curl:                        emacspeak-extras.   (line   43)
-* emacspeak-curl <1>:                    emacspeak-extras.   (line   44)
+* emacspeak-curl:                        emacspeak-extras.   (line   49)
+* emacspeak-curl <1>:                    emacspeak-extras.   (line   50)
 * emacspeak-custom-goto-group:           emacspeak-custom.   (line   15)
 * emacspeak-custom-goto-group <1>:       emacspeak-custom.   (line   16)
 * emacspeak-custom-goto-toolbar:         emacspeak-custom.   (line   22)
@@ -3535,74 +3538,74 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
                                                              (line   43)
 * emacspeak-eperiodic-speak-current-element <1>: emacspeak-eperiodic.
                                                              (line   44)
-* emacspeak-epub:                        emacspeak-epub.     (line  143)
-* emacspeak-epub <1>:                    emacspeak-epub.     (line  146)
-* emacspeak-epub-bookshelf-add-directory: emacspeak-epub.    (line  153)
+* emacspeak-epub:                        emacspeak-epub.     (line  141)
+* emacspeak-epub <1>:                    emacspeak-epub.     (line  144)
+* emacspeak-epub-bookshelf-add-directory: emacspeak-epub.    (line  151)
 * emacspeak-epub-bookshelf-add-directory <1>: emacspeak-epub.
-                                                             (line  155)
-* emacspeak-epub-bookshelf-add-epub:     emacspeak-epub.     (line  164)
-* emacspeak-epub-bookshelf-add-epub <1>: emacspeak-epub.     (line  165)
-* emacspeak-epub-bookshelf-calibre-author: emacspeak-epub.   (line  173)
+                                                             (line  153)
+* emacspeak-epub-bookshelf-add-epub:     emacspeak-epub.     (line  162)
+* emacspeak-epub-bookshelf-add-epub <1>: emacspeak-epub.     (line  163)
+* emacspeak-epub-bookshelf-calibre-author: emacspeak-epub.   (line  171)
 * emacspeak-epub-bookshelf-calibre-author <1>: emacspeak-epub.
-                                                             (line  174)
-* emacspeak-epub-bookshelf-calibre-search: emacspeak-epub.   (line  182)
+                                                             (line  172)
+* emacspeak-epub-bookshelf-calibre-search: emacspeak-epub.   (line  180)
 * emacspeak-epub-bookshelf-calibre-search <1>: emacspeak-epub.
-                                                             (line  183)
-* emacspeak-epub-bookshelf-calibre-title: emacspeak-epub.    (line  191)
+                                                             (line  181)
+* emacspeak-epub-bookshelf-calibre-title: emacspeak-epub.    (line  189)
 * emacspeak-epub-bookshelf-calibre-title <1>: emacspeak-epub.
-                                                             (line  192)
-* emacspeak-epub-bookshelf-clear:        emacspeak-epub.     (line  200)
-* emacspeak-epub-bookshelf-clear <1>:    emacspeak-epub.     (line  201)
-* emacspeak-epub-bookshelf-load:         emacspeak-epub.     (line  207)
-* emacspeak-epub-bookshelf-load <1>:     emacspeak-epub.     (line  208)
-* emacspeak-epub-bookshelf-open:         emacspeak-epub.     (line  214)
-* emacspeak-epub-bookshelf-open <1>:     emacspeak-epub.     (line  215)
-* emacspeak-epub-bookshelf-open-epub:    emacspeak-epub.     (line  223)
-* emacspeak-epub-bookshelf-open-epub <1>: emacspeak-epub.    (line  224)
-* emacspeak-epub-bookshelf-redraw:       emacspeak-epub.     (line  232)
-* emacspeak-epub-bookshelf-redraw <1>:   emacspeak-epub.     (line  233)
-* emacspeak-epub-bookshelf-refresh:      emacspeak-epub.     (line  243)
-* emacspeak-epub-bookshelf-refresh <1>:  emacspeak-epub.     (line  244)
-* emacspeak-epub-bookshelf-remove-directory: emacspeak-epub. (line  250)
+                                                             (line  190)
+* emacspeak-epub-bookshelf-clear:        emacspeak-epub.     (line  198)
+* emacspeak-epub-bookshelf-clear <1>:    emacspeak-epub.     (line  199)
+* emacspeak-epub-bookshelf-load:         emacspeak-epub.     (line  205)
+* emacspeak-epub-bookshelf-load <1>:     emacspeak-epub.     (line  206)
+* emacspeak-epub-bookshelf-open:         emacspeak-epub.     (line  212)
+* emacspeak-epub-bookshelf-open <1>:     emacspeak-epub.     (line  213)
+* emacspeak-epub-bookshelf-open-epub:    emacspeak-epub.     (line  221)
+* emacspeak-epub-bookshelf-open-epub <1>: emacspeak-epub.    (line  222)
+* emacspeak-epub-bookshelf-redraw:       emacspeak-epub.     (line  230)
+* emacspeak-epub-bookshelf-redraw <1>:   emacspeak-epub.     (line  231)
+* emacspeak-epub-bookshelf-refresh:      emacspeak-epub.     (line  241)
+* emacspeak-epub-bookshelf-refresh <1>:  emacspeak-epub.     (line  242)
+* emacspeak-epub-bookshelf-remove-directory: emacspeak-epub. (line  248)
 * emacspeak-epub-bookshelf-remove-directory <1>: emacspeak-epub.
-                                                             (line  252)
-* emacspeak-epub-bookshelf-remove-this-book: emacspeak-epub. (line  261)
+                                                             (line  250)
+* emacspeak-epub-bookshelf-remove-this-book: emacspeak-epub. (line  259)
 * emacspeak-epub-bookshelf-remove-this-book <1>: emacspeak-epub.
-                                                             (line  262)
-* emacspeak-epub-bookshelf-rename:       emacspeak-epub.     (line  269)
-* emacspeak-epub-bookshelf-rename <1>:   emacspeak-epub.     (line  270)
-* emacspeak-epub-bookshelf-save:         emacspeak-epub.     (line  279)
-* emacspeak-epub-bookshelf-save <1>:     emacspeak-epub.     (line  280)
-* emacspeak-epub-browse-files:           emacspeak-epub.     (line  286)
-* emacspeak-epub-browse-files <1>:       emacspeak-epub.     (line  287)
-* emacspeak-epub-calibre-dired-at-point: emacspeak-epub.     (line  296)
-* emacspeak-epub-calibre-dired-at-point <1>: emacspeak-epub. (line  297)
-* emacspeak-epub-calibre-results:        emacspeak-epub.     (line  303)
-* emacspeak-epub-calibre-results <1>:    emacspeak-epub.     (line  304)
-* emacspeak-epub-delete:                 emacspeak-epub.     (line  310)
-* emacspeak-epub-delete <1>:             emacspeak-epub.     (line  311)
-* emacspeak-epub-eww:                    emacspeak-epub.     (line  317)
-* emacspeak-epub-eww <1>:                emacspeak-epub.     (line  320)
-* emacspeak-epub-google:                 emacspeak-epub.     (line  330)
-* emacspeak-epub-google <1>:             emacspeak-epub.     (line  331)
-* emacspeak-epub-gutenberg-catalog:      emacspeak-epub.     (line  339)
-* emacspeak-epub-gutenberg-catalog <1>:  emacspeak-epub.     (line  340)
-* emacspeak-epub-gutenberg-download:     emacspeak-epub.     (line  349)
-* emacspeak-epub-gutenberg-download <1>: emacspeak-epub.     (line  351)
-* emacspeak-epub-locate-epubs:           emacspeak-epub.     (line  361)
-* emacspeak-epub-locate-epubs <1>:       emacspeak-epub.     (line  362)
-* emacspeak-epub-mode:                   emacspeak-epub.     (line  370)
-* emacspeak-epub-mode <1>:               emacspeak-epub.     (line  371)
-* emacspeak-epub-next:                   emacspeak-epub.     (line  415)
-* emacspeak-epub-next <1>:               emacspeak-epub.     (line  416)
-* emacspeak-epub-open:                   emacspeak-epub.     (line  422)
-* emacspeak-epub-open <1>:               emacspeak-epub.     (line  423)
-* emacspeak-epub-open-with-nov:          emacspeak-epub.     (line  432)
-* emacspeak-epub-open-with-nov <1>:      emacspeak-epub.     (line  433)
-* emacspeak-epub-previous:               emacspeak-epub.     (line  439)
-* emacspeak-epub-previous <1>:           emacspeak-epub.     (line  440)
-* emacspeak-epub-url-executor:           emacspeak-epub.     (line  446)
-* emacspeak-epub-url-executor <1>:       emacspeak-epub.     (line  447)
+                                                             (line  260)
+* emacspeak-epub-bookshelf-rename:       emacspeak-epub.     (line  267)
+* emacspeak-epub-bookshelf-rename <1>:   emacspeak-epub.     (line  268)
+* emacspeak-epub-bookshelf-save:         emacspeak-epub.     (line  277)
+* emacspeak-epub-bookshelf-save <1>:     emacspeak-epub.     (line  278)
+* emacspeak-epub-browse-files:           emacspeak-epub.     (line  284)
+* emacspeak-epub-browse-files <1>:       emacspeak-epub.     (line  285)
+* emacspeak-epub-calibre-dired-at-point: emacspeak-epub.     (line  294)
+* emacspeak-epub-calibre-dired-at-point <1>: emacspeak-epub. (line  295)
+* emacspeak-epub-calibre-results:        emacspeak-epub.     (line  301)
+* emacspeak-epub-calibre-results <1>:    emacspeak-epub.     (line  302)
+* emacspeak-epub-delete:                 emacspeak-epub.     (line  308)
+* emacspeak-epub-delete <1>:             emacspeak-epub.     (line  309)
+* emacspeak-epub-eww:                    emacspeak-epub.     (line  315)
+* emacspeak-epub-eww <1>:                emacspeak-epub.     (line  318)
+* emacspeak-epub-google:                 emacspeak-epub.     (line  328)
+* emacspeak-epub-google <1>:             emacspeak-epub.     (line  329)
+* emacspeak-epub-gutenberg-catalog:      emacspeak-epub.     (line  337)
+* emacspeak-epub-gutenberg-catalog <1>:  emacspeak-epub.     (line  338)
+* emacspeak-epub-gutenberg-download:     emacspeak-epub.     (line  347)
+* emacspeak-epub-gutenberg-download <1>: emacspeak-epub.     (line  349)
+* emacspeak-epub-locate-epubs:           emacspeak-epub.     (line  359)
+* emacspeak-epub-locate-epubs <1>:       emacspeak-epub.     (line  360)
+* emacspeak-epub-mode:                   emacspeak-epub.     (line  368)
+* emacspeak-epub-mode <1>:               emacspeak-epub.     (line  369)
+* emacspeak-epub-next:                   emacspeak-epub.     (line  413)
+* emacspeak-epub-next <1>:               emacspeak-epub.     (line  414)
+* emacspeak-epub-open:                   emacspeak-epub.     (line  420)
+* emacspeak-epub-open <1>:               emacspeak-epub.     (line  421)
+* emacspeak-epub-open-with-nov:          emacspeak-epub.     (line  430)
+* emacspeak-epub-open-with-nov <1>:      emacspeak-epub.     (line  431)
+* emacspeak-epub-previous:               emacspeak-epub.     (line  437)
+* emacspeak-epub-previous <1>:           emacspeak-epub.     (line  438)
+* emacspeak-epub-url-executor:           emacspeak-epub.     (line  444)
+* emacspeak-epub-url-executor <1>:       emacspeak-epub.     (line  445)
 * emacspeak-erc-add-name-to-monitor:     emacspeak-erc.      (line   16)
 * emacspeak-erc-add-name-to-monitor <1>: emacspeak-erc.      (line   18)
 * emacspeak-erc-delete-name-from-monitor: emacspeak-erc.     (line   28)
@@ -4257,30 +4260,30 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-maths-down <1>:              emacspeak-maths.    (line   62)
 * emacspeak-maths-enter:                 emacspeak-maths.    (line   68)
 * emacspeak-maths-enter <1>:             emacspeak-maths.    (line   69)
-* emacspeak-maths-enter-guess:           emacspeak-maths.    (line   76)
-* emacspeak-maths-enter-guess <1>:       emacspeak-maths.    (line   77)
-* emacspeak-maths-flush-output:          emacspeak-maths.    (line   83)
-* emacspeak-maths-flush-output <1>:      emacspeak-maths.    (line   84)
-* emacspeak-maths-left:                  emacspeak-maths.    (line   90)
-* emacspeak-maths-left <1>:              emacspeak-maths.    (line   91)
-* emacspeak-maths-restart:               emacspeak-maths.    (line   97)
-* emacspeak-maths-restart <1>:           emacspeak-maths.    (line   98)
-* emacspeak-maths-right:                 emacspeak-maths.    (line  104)
-* emacspeak-maths-right <1>:             emacspeak-maths.    (line  105)
-* emacspeak-maths-root:                  emacspeak-maths.    (line  111)
-* emacspeak-maths-root <1>:              emacspeak-maths.    (line  112)
-* emacspeak-maths-shutdown:              emacspeak-maths.    (line  118)
-* emacspeak-maths-shutdown <1>:          emacspeak-maths.    (line  119)
-* emacspeak-maths-speak-alt:             emacspeak-maths.    (line  125)
-* emacspeak-maths-speak-alt <1>:         emacspeak-maths.    (line  126)
-* emacspeak-maths-spoken-mode:           emacspeak-maths.    (line  133)
-* emacspeak-maths-spoken-mode <1>:       emacspeak-maths.    (line  134)
-* emacspeak-maths-start:                 emacspeak-maths.    (line  159)
-* emacspeak-maths-start <1>:             emacspeak-maths.    (line  160)
-* emacspeak-maths-switch-to-output:      emacspeak-maths.    (line  166)
-* emacspeak-maths-switch-to-output <1>:  emacspeak-maths.    (line  167)
-* emacspeak-maths-up:                    emacspeak-maths.    (line  173)
-* emacspeak-maths-up <1>:                emacspeak-maths.    (line  174)
+* emacspeak-maths-enter-guess:           emacspeak-maths.    (line   78)
+* emacspeak-maths-enter-guess <1>:       emacspeak-maths.    (line   79)
+* emacspeak-maths-flush-output:          emacspeak-maths.    (line   85)
+* emacspeak-maths-flush-output <1>:      emacspeak-maths.    (line   86)
+* emacspeak-maths-left:                  emacspeak-maths.    (line   92)
+* emacspeak-maths-left <1>:              emacspeak-maths.    (line   93)
+* emacspeak-maths-restart:               emacspeak-maths.    (line   99)
+* emacspeak-maths-restart <1>:           emacspeak-maths.    (line  100)
+* emacspeak-maths-right:                 emacspeak-maths.    (line  106)
+* emacspeak-maths-right <1>:             emacspeak-maths.    (line  107)
+* emacspeak-maths-root:                  emacspeak-maths.    (line  113)
+* emacspeak-maths-root <1>:              emacspeak-maths.    (line  114)
+* emacspeak-maths-shutdown:              emacspeak-maths.    (line  120)
+* emacspeak-maths-shutdown <1>:          emacspeak-maths.    (line  121)
+* emacspeak-maths-speak-alt:             emacspeak-maths.    (line  127)
+* emacspeak-maths-speak-alt <1>:         emacspeak-maths.    (line  128)
+* emacspeak-maths-spoken-mode:           emacspeak-maths.    (line  135)
+* emacspeak-maths-spoken-mode <1>:       emacspeak-maths.    (line  136)
+* emacspeak-maths-start:                 emacspeak-maths.    (line  161)
+* emacspeak-maths-start <1>:             emacspeak-maths.    (line  162)
+* emacspeak-maths-switch-to-output:      emacspeak-maths.    (line  168)
+* emacspeak-maths-switch-to-output <1>:  emacspeak-maths.    (line  169)
+* emacspeak-maths-up:                    emacspeak-maths.    (line  175)
+* emacspeak-maths-up <1>:                emacspeak-maths.    (line  176)
 * emacspeak-mines-beginning-of-row:      emacspeak-mines.    (line   30)
 * emacspeak-mines-beginning-of-row <1>:  emacspeak-mines.    (line   31)
 * emacspeak-mines-end-of-row:            emacspeak-mines.    (line   37)
@@ -5346,15 +5349,15 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-widget-update-from-minibuffer: emacspeak-widget. (line   50)
 * emacspeak-widget-update-from-minibuffer <1>: emacspeak-widget.
                                                              (line   51)
-* emacspeak-wizards-add-autoload-cookies: emacspeak-extras.  (line   50)
+* emacspeak-wizards-add-autoload-cookies: emacspeak-extras.  (line   58)
 * emacspeak-wizards-add-autoload-cookies <1>: emacspeak-extras.
-                                                             (line   51)
+                                                             (line   59)
 * emacspeak-wizards-bbc-iplayer:         emacspeak-wizards.  (line  295)
 * emacspeak-wizards-bbc-iplayer <1>:     emacspeak-wizards.  (line  296)
-* emacspeak-wizards-bindings-from-org:   emacspeak-extras.   (line   58)
-* emacspeak-wizards-bindings-from-org <1>: emacspeak-extras. (line   59)
-* emacspeak-wizards-bindings-to-org:     emacspeak-extras.   (line   65)
-* emacspeak-wizards-bindings-to-org <1>: emacspeak-extras.   (line   66)
+* emacspeak-wizards-bindings-from-org:   emacspeak-extras.   (line   68)
+* emacspeak-wizards-bindings-from-org <1>: emacspeak-extras. (line   69)
+* emacspeak-wizards-bindings-to-org:     emacspeak-extras.   (line   77)
+* emacspeak-wizards-bindings-to-org <1>: emacspeak-extras.   (line   78)
 * emacspeak-wizards-cleanup-shell-path:  emacspeak-wizards.  (line  303)
 * emacspeak-wizards-cleanup-shell-path <1>: emacspeak-wizards.
                                                              (line  304)
@@ -5379,9 +5382,9 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-wizards-describe-voice:      emacspeak-wizards.  (line  393)
 * emacspeak-wizards-describe-voice <1>:  emacspeak-wizards.  (line  398)
 * emacspeak-wizards-display-pod-as-manpage: emacspeak-extras.
-                                                             (line   72)
+                                                             (line   86)
 * emacspeak-wizards-display-pod-as-manpage <1>: emacspeak-extras.
-                                                             (line   73)
+                                                             (line   87)
 * emacspeak-wizards-end-of-word:         emacspeak-wizards.  (line  407)
 * emacspeak-wizards-end-of-word <1>:     emacspeak-wizards.  (line  408)
 * emacspeak-wizards-enumerate-matching-commands: emacspeak-wizards.
@@ -5422,8 +5425,8 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-wizards-find-file-as-root:   emacspeak-wizards.  (line  516)
 * emacspeak-wizards-find-file-as-root <1>: emacspeak-wizards.
                                                              (line  520)
-* emacspeak-wizards-find-grep:           emacspeak-extras.   (line   79)
-* emacspeak-wizards-find-grep <1>:       emacspeak-extras.   (line   80)
+* emacspeak-wizards-find-grep:           emacspeak-extras.   (line   95)
+* emacspeak-wizards-find-grep <1>:       emacspeak-extras.   (line   96)
 * emacspeak-wizards-find-longest-line-in-region: emacspeak-wizards.
                                                              (line  528)
 * emacspeak-wizards-find-longest-line-in-region <1>: emacspeak-wizards.
@@ -5436,9 +5439,9 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
                                                              (line  548)
 * emacspeak-wizards-find-shortest-line-in-region <1>: emacspeak-wizards.
                                                              (line  549)
-* emacspeak-wizards-fix-read-only-text:  emacspeak-extras.   (line   87)
+* emacspeak-wizards-fix-read-only-text:  emacspeak-extras.   (line  105)
 * emacspeak-wizards-fix-read-only-text <1>: emacspeak-extras.
-                                                             (line   88)
+                                                             (line  106)
 * emacspeak-wizards-frame-colors:        emacspeak-wizards.  (line  558)
 * emacspeak-wizards-frame-colors <1>:    emacspeak-wizards.  (line  559)
 * emacspeak-wizards-free-geo-ip:         emacspeak-wizards.  (line  565)
@@ -5446,9 +5449,9 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-wizards-gen-fn-decl:         emacspeak-wizards.  (line  575)
 * emacspeak-wizards-gen-fn-decl <1>:     emacspeak-wizards.  (line  576)
 * emacspeak-wizards-generate-voice-sampler: emacspeak-extras.
-                                                             (line   94)
+                                                             (line  114)
 * emacspeak-wizards-generate-voice-sampler <1>: emacspeak-extras.
-                                                             (line   95)
+                                                             (line  115)
 * emacspeak-wizards-google-news:         emacspeak-wizards.  (line  586)
 * emacspeak-wizards-google-news <1>:     emacspeak-wizards.  (line  590)
 * emacspeak-wizards-how-many-matches:    emacspeak-wizards.  (line  595)
@@ -5456,13 +5459,13 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-wizards-lacheck-buffer-file: emacspeak-wizards.  (line  610)
 * emacspeak-wizards-lacheck-buffer-file <1>: emacspeak-wizards.
                                                              (line  611)
-* emacspeak-wizards-list-voices:         emacspeak-extras.   (line  102)
-* emacspeak-wizards-list-voices <1>:     emacspeak-extras.   (line  107)
+* emacspeak-wizards-list-voices:         emacspeak-extras.   (line  124)
+* emacspeak-wizards-list-voices <1>:     emacspeak-extras.   (line  129)
 * emacspeak-wizards-locate-content:      emacspeak-wizards.  (line  617)
 * emacspeak-wizards-locate-content <1>:  emacspeak-wizards.  (line  621)
-* emacspeak-wizards-midi-using-m-score:  emacspeak-extras.   (line  114)
+* emacspeak-wizards-midi-using-m-score:  emacspeak-extras.   (line  138)
 * emacspeak-wizards-midi-using-m-score <1>: emacspeak-extras.
-                                                             (line  115)
+                                                             (line  139)
 * emacspeak-wizards-mlb-standings:       emacspeak-wizards.  (line  629)
 * emacspeak-wizards-mlb-standings <1>:   emacspeak-wizards.  (line  630)
 * emacspeak-wizards-module-enumerate-uncovered-commands: emacspeak-wizards.
@@ -5519,8 +5522,8 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-wizards-show-memory-used <1>: emacspeak-wizards. (line  863)
 * emacspeak-wizards-show-theme:          emacspeak-wizards.  (line  869)
 * emacspeak-wizards-show-theme <1>:      emacspeak-wizards.  (line  870)
-* emacspeak-wizards-show-voices:         emacspeak-extras.   (line  121)
-* emacspeak-wizards-show-voices <1>:     emacspeak-extras.   (line  122)
+* emacspeak-wizards-show-voices:         emacspeak-extras.   (line  147)
+* emacspeak-wizards-show-voices <1>:     emacspeak-extras.   (line  148)
 * emacspeak-wizards-snarf-sexp:          emacspeak-wizards.  (line  881)
 * emacspeak-wizards-snarf-sexp <1>:      emacspeak-wizards.  (line  885)
 * emacspeak-wizards-speak-iso-datetime:  emacspeak-wizards.  (line  893)
@@ -5573,8 +5576,8 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
                                                              (line 1039)
 * emacspeak-wizards-view-buffers-filtered-by-this-mode <1>: emacspeak-wizards.
                                                              (line 1045)
-* emacspeak-wizards-voice-sampler:       emacspeak-extras.   (line  128)
-* emacspeak-wizards-voice-sampler <1>:   emacspeak-extras.   (line  129)
+* emacspeak-wizards-voice-sampler:       emacspeak-extras.   (line  154)
+* emacspeak-wizards-voice-sampler <1>:   emacspeak-extras.   (line  155)
 * emacspeak-xkcd-open-explanation-browser: emacspeak-xkcd.   (line   17)
 * emacspeak-xkcd-open-explanation-browser <1>: emacspeak-xkcd.
                                                              (line   18)

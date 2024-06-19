@@ -1,7 +1,7 @@
 ;;; emacspeak-nm.el --- NM using  D-Bus.  -*- lexical-binding: t; -*-
 ;; -*- coding: utf-8 -*-
 ;;; Commentary:
-;; Author: Øyvind Stegard <oyvind.stegard@ifi.uio.no>
+;; Author: Øyvind Stegard <oyvind.stegard@@ifi.uio.no>
 ;; License: Public domain, use at own risk, no warranties of any kind.
 ;; Requires Emacs23 with D-Bus bindings and preferably a running NetworkManager
 ;; instance.

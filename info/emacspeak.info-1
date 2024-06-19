@@ -3100,6 +3100,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-z-keymap,  Prev:
 * emacspeak-muse::Speech-enable Muse.
 * emacspeak-net-utils::net-utils.
 * emacspeak-newsticker::newsticker.
+* emacspeak-nm::NM using  D-Bus..
 * emacspeak-notmuch::Speech-enable NOTMUCH.
 * emacspeak-nov::Speech-enable NOV.
 * emacspeak-nxml::Speech enable nxml mode.
@@ -3244,7 +3245,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1175 commands and 127 options.
+   This chapter documents a total of 1179 commands and 134 options.
 
 * Menu:
 
@@ -3382,6 +3383,7 @@ thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 * emacspeak-muse::
 * emacspeak-net-utils::
 * emacspeak-newsticker::
+* emacspeak-nm::
 * emacspeak-notmuch::
 * emacspeak-nov::
 * emacspeak-nxml::
@@ -6917,8 +6919,6 @@ table of contents.
      emacspeak-epub-browse-files
 ‘o’
      emacspeak-epub-open
-
-   Code: Required Modules:
 
 12.67.6 Emacspeak-Epub Commands
 -------------------------------

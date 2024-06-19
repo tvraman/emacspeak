@@ -10472,7 +10472,7 @@ Provides functionality similar to amphetadesk --but in pure elisp
 @node emacspeak-nm
 @section emacspeak-nm
 
-Author: Øyvind Stegard <oyvind.stegard@ifi.uio.no>
+Author: Øyvind Stegard <oyvind.stegard@@ifi.uio.no>
 License: Public domain, use at own risk, no warranties of any kind.
 Requires Emacs23 with D-Bus bindings and preferably a running NetworkManager
 instance.
@@ -20614,23 +20614,32 @@ Each URL template carries out the following steps:
 
 @item @b{air traffic control}
 
-Find live streams for Air Traffic Control.@item @b{airport conditions}
+Find live streams for Air Traffic Control.
+@item @b{airport conditions}
 
-Display airport conditions from the FAA.@item @b{amazon product details by asin}
+Display airport conditions from the FAA.
+@item @b{amazon product details by asin}
 
-Retrieve product details from Amazon by either ISBN or ASIN.@item @b{aqi from wunderground}
+Retrieve product details from Amazon by either ISBN or ASIN.
+@item @b{aqi from wunderground}
 
-Air quality from Wunderground@item @b{archwiki search}
+Air quality from Wunderground
+@item @b{archwiki search}
 
-Search Linux ArchWiki@item @b{bbc 5-live  schedule }
+Search Linux ArchWiki
+@item @b{bbc 5-live  schedule }
 
-BBC Radio 5 Live  Schedule@item @b{bbc podcast directory}
+BBC Radio 5 Live  Schedule
+@item @b{bbc podcast directory}
 
-BBC PodCast Directory@item @b{bbc r4 extra schedule }
+BBC PodCast Directory
+@item @b{bbc r4 extra schedule }
 
-BBC Radio 4 Extra Schedule@item @b{bbc r4 schedule }
+BBC Radio 4 Extra Schedule
+@item @b{bbc r4 schedule }
 
-BBC R4 Schedule@item @b{bbc sounds}
+BBC R4 Schedule
+@item @b{bbc sounds}
 
 Search BBC Sounds.
 Result page is filtered down to two sections, Shows and Episodes.
@@ -20638,116 +20647,172 @@ Result page is filtered down to two sections, Shows and Episodes.
 Press [RET] on links in the Show section to open that show page.
 The page for that show contains playable links for Episodes.
 
-Press `y' on Episode links to play them with MPV.@item @b{bbc world service  schedule }
+Press `y' on Episode links to play them with MPV.
+@item @b{bbc world service  schedule }
 
-BBC World Service Schedule@item @b{bing news}
+BBC World Service Schedule
+@item @b{bing news}
 
-Bing News results as RSS feed.@item @b{business headlines from cnn}
+Bing News results as RSS feed.
+@item @b{business headlines from cnn}
 
-Money Headlines From CNN@item @b{cbs radio streams from streamtheworld}
+Money Headlines From CNN
+@item @b{cbs radio streams from streamtheworld}
 
 Play radio stream.
 Example: kcbsFM.
-Format is stationid+AM/FM.@item @b{cnbc quotes}
+Format is stationid+AM/FM.
+@item @b{cnbc quotes}
 
-Stock portfolio via CNBC@item @b{cnbc ticker}
+Stock portfolio via CNBC
+@item @b{cnbc ticker}
 
-Stock Quote via CNBC@item @b{cnn headlines}
+Stock Quote via CNBC
+@item @b{cnn headlines}
 
-News Headlines From CNN@item @b{cnn money}
+News Headlines From CNN
+@item @b{cnn money}
 
-CNN Money@item @b{cricinfo print}
+CNN Money
+@item @b{cricinfo print}
 
-Printer friendly   link on Cricinfo@item @b{dictionary lookup}
+Printer friendly   link on Cricinfo
+@item @b{dictionary lookup}
 
-Dictionary Lookup@item @b{emacspeak search via google}
+Dictionary Lookup
+@item @b{emacspeak search via google}
 
-Search Emacspeak Site@item @b{espn cricinfo search}
+Search Emacspeak Site
+@item @b{espn cricinfo search}
 
-Cricinfo Search Using Google@item @b{finance  google}
+Cricinfo Search Using Google
+@item @b{finance  google}
 
-Lookup ticker on Google Finance.@item @b{finance summary from google}
+Lookup ticker on Google Finance.
+@item @b{finance summary from google}
 
-Display top stocks  from Google Finance.@item @b{freesound}
+Display top stocks  from Google Finance.
+@item @b{freesound}
 
-Search FreeSound.@item @b{gita}
+Search FreeSound.
+@item @b{gita}
 
-Open specific chapter/verse in the Gita @item @b{global weather from google}
+Open specific chapter/verse in the Gita 
+@item @b{global weather from google}
 
-World Weather From Google@item @b{google news search}
+World Weather From Google
+@item @b{google news search}
 
-Search Google news.@item @b{google scholar}
+Search Google news.
+@item @b{google scholar}
 
-Google Scholar Search@item @b{google trends}
+Google Scholar Search
+@item @b{google trends}
 
-Google Trends@item @b{guardian rss feeds directory}
+Google Trends
+@item @b{guardian rss feeds directory}
 
-Guardian Feeds  Directory@item @b{hacker  news frontpage}
+Guardian Feeds  Directory
+@item @b{hacker  news frontpage}
 
-Display Hacker News Front Page@item @b{hacker  news search}
+Display Hacker News Front Page
+@item @b{hacker  news search}
 
-Display Hacker News Front Page@item @b{hoogle haskell api search}
+Display Hacker News Front Page
+@item @b{hoogle haskell api search}
 
-Haskell API Search against a local server.@item @b{html google news search}
+Haskell API Search against a local server.
+@item @b{html google news search}
 
-Search Google news.@item @b{local weather from google}
+Search Google news.
+@item @b{local weather from google}
 
-Light-weight Google weather. Displays weather for your current US-ZIP Code. @item @b{microsoft search}
+Light-weight Google weather. Displays weather for your current US-ZIP Code. 
+@item @b{microsoft search}
 
-Bing results as RSS feed.@item @b{nba  standings}
+Bing results as RSS feed.
+@item @b{nba  standings}
 
-Display NBA standings.@item @b{nls bard bookshelf}
+Display NBA standings.
+@item @b{nls bard bookshelf}
 
 NLS Bard Catalog: Most Popular. Login once before using this
-template.@item @b{nls bard popular}
+template.
+@item @b{nls bard popular}
 
 NLS Bard Catalog: Most Popular. Login once before using this
-template.@item @b{nls bard recent}
+template.
+@item @b{nls bard recent}
 
 NLS Bard Catalog: Recently Added. Login once before using this
-template.@item @b{nls bard search}
+template.
+@item @b{nls bard search}
 
-Search NLS Bard Catalog. Login once before using this template.@item @b{npr}
+Search NLS Bard Catalog. Login once before using this template.
+@item @b{npr}
 
-Open NPR home , then display the alternative links to access RSS feeds.@item @b{online radiotime browser}
+Open NPR home , then display the alternative links to access RSS feeds.
+@item @b{online radiotime browser}
 
-RadioTime Entry point.@item @b{online radiotime search}
+RadioTime Entry point.
+@item @b{online radiotime search}
 
-RadioTime Search@item @b{openlibrary}
+RadioTime Search
+@item @b{openlibrary}
 
-Open Library Search@item @b{player fm bbc rss feeds}
+Open Library Search
+@item @b{player fm bbc rss feeds}
 
-Player FM BBC RSS Feeds@item @b{radiotime categories}
+Player FM BBC RSS Feeds
+@item @b{radiotime categories}
 
-RadioTime Categories @item @b{reddit at point}
+RadioTime Categories 
+@item @b{reddit at point}
 
-Open RSS Feed for Reddit URL under point.@item @b{reddit by topic}
+Open RSS Feed for Reddit URL under point.
+@item @b{reddit by topic}
 
-Open RSS Feed for Reddit Topic.@item @b{reddit front page}
+Open RSS Feed for Reddit Topic.
+@item @b{reddit front page}
 
-Open  Feed for Reddit  Front Page.@item @b{reddit search}
+Open  Feed for Reddit  Front Page.
+@item @b{reddit search}
 
-Reddit Search Results Feed.@item @b{sourceforge browse mirrors}
+Reddit Search Results Feed.
+@item @b{sourceforge browse mirrors}
 
-Retrieve download page at Sourceforge for specified project.@item @b{sourceforge download}
+Retrieve download page at Sourceforge for specified project.
+@item @b{sourceforge download}
 
-Download specified file.@item @b{sourceforge project}
+Download specified file.
+@item @b{sourceforge project}
 
-Open specified project page at SourceForge.@item @b{tech news from cnet}
+Open specified project page at SourceForge.
+@item @b{tech news from cnet}
 
-Display tech news from CNET@item @b{tinyurl}
+Display tech news from CNET
+@item @b{tinyurl}
 
+URL Shortener via tinyurl.
+If on a URL, replace it with the shortened version. If on a link
+in EWW, use it. Otherwise prompt for a URL to shorten and insert
+the result at point.
 @item @b{tunein radio}
 
-Translate StreamId to playable stream.@item @b{washington post}
+Translate StreamId to playable stream.
+@item @b{washington post}
 
-Washington Post Contents@item @b{wiki data search}
+Washington Post Contents
+@item @b{wiki data search}
 
-Search WikiData.@item @b{wikipedia at point}
+Search WikiData.
+@item @b{wikipedia at point}
 
-Extract body content from Wikipedia link at point@item @b{wordnet search}
+Extract body content from Wikipedia link at point
+@item @b{wordnet search}
 
-Look up term in WordNet.@item @b{yahoo rssnews}
+Look up term in WordNet.
+@item @b{yahoo rssnews}
 
 News  From Yahoo As RSS.
 
