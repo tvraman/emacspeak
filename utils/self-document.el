@@ -74,10 +74,9 @@
 (load "voice-setup")
 (load "emacspeak-loaddefs")
 (defconst self-document-files
-  (append
+  
    (directory-files self-document-lisp-directory nil "\\.elc$")
-   (list "emacspeak-maths.el" "emacspeak-muggles.el"
-         "extra-muggles.el" "emacspeak-extras.el"))
+   
   "List of elisp modules  to document.")
 (defvar emacspeak-muggles-activate-p t)
 (defvar self-document-fn-key
@@ -306,7 +305,7 @@
 
 (defun self-document-module (self)
   "Generate documentation for commands and options in a module."
-  (message "Doc: %s" self)
+  (message "Doc: " )
   (let ((file-name-handler-alist nil))
     ;; Only generate in non-degenerate case
     (when (or (self-document-commentary self)
@@ -314,7 +313,9 @@
               (not  (zerop (length (self-document-options self)))))
       (self-document-module-preamble self)
       (when (self-document-commands self) (self-document-module-commands self))
-      (when (self-document-options self)(self-document-module-options self)))))
+      (when (self-document-options self)(self-document-module-options
+                                         self))))
+  (message "Done " ))
 
  
 ;;; Document Keybindings For Various Prefix Maps:
@@ -427,7 +428,8 @@ This chapter documents a total of %d commands and %d options.\n\n"
         (shell-command-on-region        ; squeeze blanks
          (point-min) (point-max)
          "cat -s" (current-buffer) 'replace)
-        (save-buffer)))))
+        (save-buffer))))
+  (message "Done!"))
 
  
 ;;;  Document all keybindings:
