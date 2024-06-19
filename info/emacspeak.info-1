@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 18, 2024.
+last updated on June 19, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -419,8 +419,8 @@ Speech servers are located in the ‘emacspeak/servers’ directory.
 
    • Mac: ‘servers/mac-swiftmac’.  This is a server implemented in
      ‘swift’; the older Python implementation is being deprecated but
-     still available as Python script ‘mac’.  The server binds to the
-     native Mac TTS.
+     still available as Python script ‘servers/mac’.  The server binds
+     to the native Mac TTS.
 
 5.3.1.1 Testing The Selected Server.
 ....................................
