@@ -109,7 +109,7 @@
      (unless (string-match "emacspeak-setup" f) ; avoid loading setup twice :
                                         (condition-case nil
        (load-library f)
-                                        (error (message  "check %s" f)))
+                                        (error (message  "Warn: check %s" f)))
        ))))
 
 (defconst self-document-patterns
@@ -158,7 +158,7 @@
       (setq file (file-name-sans-extension(file-name-nondirectory file )))
       (when (string-match "loaddefs" file) (setq file "emacspeak"))
       (setq entry  (gethash file self-document-map))
-      (unless entry (message "%s: Entry not found for file %s" f file))
+      (unless entry (message "Warn: %s: Entry not found for file %s" f file))
       (when entry (push f (self-document-commands  entry))))))
 
 (defun self-document-map-option (f)
@@ -200,7 +200,7 @@
          (f (if (string-match ".el$" lib) lib (substring lib 0 -1)))
          (lmc (lm-commentary f)))
     (unless (zerop (call-process "grep" f nil nil ";;; Code:"))
-      (message "%s missing Code: tag" f))
+      (message "Warn: %s missing Code: tag" f))
     (if lmc
         (setq lmc (sd-cleanup-commentary lmc)))))
 
