@@ -73,17 +73,25 @@
         <li>Dectalk: <code class="code">servers/dtk-exp</code>.
         This is a TCL script that does not depend on any native
         code.</li>
-        <li>Outloud: <code class="code">servers/outloud</code> or
-        <code class="code">servers/32-outloud</code> (for 64-bit
-        machines). This is a TCL script that uses the library built
-        in <code class="code">servers/linux-outloud</code>. Note
-        that a checkout from GitHub gives you a prebuilt library —
-        however you will need to purchase the TTS engine from
-        <a class="url" href=
-        "http://voxin.oralux.net">http://voxin.oralux.net</a>.
+        <li>Software Dectalk: <code class=
+        "code">servers/dtk-soft</code> See <a class="url" href=
+        "https://github.com/tvraman/emacspeak/blob/master/servers/software-dtk/Readme.org">
+          https://github.com/tvraman/emacspeak/blob/master/servers/software-dtk/Readme.org</a>.
         </li>
-        <li>Mac: <code class="code">servers/mac</code>. This is a
-        Python script that binds to the native Mac TTS.</li>
+        <li>Outloud: <code class="code">servers/outloud</code> This
+        is a TCL script that uses the library built in
+          <code class="code">servers/linux-outloud</code>. Note
+          that a checkout from GitHub gives you a prebuilt library
+          — however you will need to purchase the TTS engine from
+          <a class="url" href=
+          "http://voxin.oralux.net">http://voxin.oralux.net</a>.
+        </li>
+        <li>Mac: <code class="code">servers/mac-swiftmac</code>.
+        This is a server implemented in <code class=
+        "code">swift</code>; the older Python implementation is
+        being deprecated but still available as Python script
+        <code class="code">mac</code>. The server binds to the
+        native Mac TTS.</li>
       </ul>
       <ul class="mini-toc">
         <li>
@@ -117,6 +125,14 @@ d
         "kbd">C-d</kbd> (an end-of-file character).</p>
       </div>
     </div>
+  </div>
+  <hr />
+  <div class="nav-panel">
+    <p>Previous: <a href="Quick-Installation.html">Quick
+    Installation</a>, Up: <a href="Installation.html">Installation
+    Instructions</a> &nbsp; [<a href="index.html#SEC_Contents"
+    title="Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
   </div>
 </body>
 </html>
