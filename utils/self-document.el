@@ -118,7 +118,7 @@
              "dectalk" "dtk" "espeak" "mac-"
              "emacspeak" "xbacklight" "light" "extra-muggles"
              "g-"    "gm-" "gmap"  "gweb" "omaps"
-             "ladspa" "pip"  "soundscape" "outloud" "sox-"   "tts" "voice-")))
+             "ladspa" "pip-"  "soundscape" "outloud" "sox-"   "tts" "voice-")))
   "Patterns to match command names.")
 
 (defvar self-document-command-count 0

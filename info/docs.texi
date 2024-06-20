@@ -251,7 +251,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1179 commands and 134 options.
+This chapter documents a total of 1166 commands and 127 options.
 
 @node amixer
 @section amixer
