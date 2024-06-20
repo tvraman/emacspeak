@@ -305,7 +305,6 @@
 
 (defun self-document-module (self)
   "Generate documentation for commands and options in a module."
-  (message  "Doc: %s" (self-document-name self) )
   (let ((file-name-handler-alist nil))
     ;; Only generate in non-degenerate case
     (when (or (self-document-commentary self)
