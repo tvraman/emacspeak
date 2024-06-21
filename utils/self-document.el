@@ -50,7 +50,6 @@
 
 (require 'cl-lib)
 (require 'cl-extra)
-(require 'advice)
 (require 'lisp-mnt)
 (require 'subr-x)
 (require 'texnfo-upd)
