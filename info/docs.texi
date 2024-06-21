@@ -1154,101 +1154,6 @@ system.
 programming modes.
 @end itemize
 
-@subsection Emacspeak Commands
-
-@subsubsection emacspeak-pianobar
-@deffn {Command} emacspeak-pianobar   
-@table @kbd
-@item C-e C-'
-@kindex C-e C-'
-@item C-' '
-@kindex C-' '
-@end table
-
-@findex emacspeak-pianobar
-
-@format
-Start or control Emacspeak Pianobar player.
-@end format
-@end deffn
-
-@subsubsection emacspeak-pianobar-command
-@deffn {Command} emacspeak-pianobar-command  (key)
-@findex emacspeak-pianobar-command
-
-@format
-Invoke Pianobar  commands.
-
-(fn KEY)
-@end format
-@end deffn
-
-@subsubsection emacspeak-pianobar-electric-mode-toggle
-@deffn {Command} emacspeak-pianobar-electric-mode-toggle   
-@findex emacspeak-pianobar-electric-mode-toggle
-
-@format
-Toggle electric mode in pianobar buffer.
-If electric mode is on, keystrokes invoke pianobar commands directly.
-@end format
-@end deffn
-
-@subsubsection emacspeak-pianobar-next-preset
-@deffn {Command} emacspeak-pianobar-next-preset   
-@findex emacspeak-pianobar-next-preset
-
-@format
-Switch to next preset.
-@end format
-@end deffn
-
-@subsubsection emacspeak-pianobar-previous-preset
-@deffn {Command} emacspeak-pianobar-previous-preset   
-@findex emacspeak-pianobar-previous-preset
-
-@format
-Switch to previous preset.
-@end format
-@end deffn
-
-@subsubsection emacspeak-pianobar-send-raw
-@deffn {Command} emacspeak-pianobar-send-raw  (string)
-@findex emacspeak-pianobar-send-raw
-
-@format
-Send raw string with newline added to pianobar.
-
-(fn STRING)
-@end format
-@end deffn
-
-@subsubsection emacspeak-pianobar-switch-to-preset
-@deffn {Command} emacspeak-pianobar-switch-to-preset   
-@findex emacspeak-pianobar-switch-to-preset
-
-@format
-Switch to one of the  presets.
-@end format
-@end deffn
-
-@subsubsection emacspeak-pianobar-volume-down
-@deffn {Command} emacspeak-pianobar-volume-down   
-@findex emacspeak-pianobar-volume-down
-
-@format
-Decrease volume
-@end format
-@end deffn
-
-@subsubsection emacspeak-pianobar-volume-up
-@deffn {Command} emacspeak-pianobar-volume-up   
-@findex emacspeak-pianobar-volume-up
-
-@format
-Increase volume
-@end format
-@end deffn
-
 @subsection emacspeak Options
 
 @defvar {User Option} emacspeak-pip-enable
@@ -11404,6 +11309,101 @@ in  the @code{*pianobar*} buffer  buries the
 @code{*pianobar*}. From here on, Pianobar can be controlled
 by pressing the Pianobar prefix key (@code{C-e '}) followed by
 keys from @code{pianobar-key-map}.
+
+@subsection Emacspeak-Pianobar Commands
+
+@subsubsection emacspeak-pianobar
+@deffn {Command} emacspeak-pianobar   
+@table @kbd
+@item C-e C-'
+@kindex C-e C-'
+@item C-' '
+@kindex C-' '
+@end table
+
+@findex emacspeak-pianobar
+
+@format
+Start or control Emacspeak Pianobar player.
+@end format
+@end deffn
+
+@subsubsection emacspeak-pianobar-command
+@deffn {Command} emacspeak-pianobar-command  (key)
+@findex emacspeak-pianobar-command
+
+@format
+Invoke Pianobar  commands.
+
+(fn KEY)
+@end format
+@end deffn
+
+@subsubsection emacspeak-pianobar-electric-mode-toggle
+@deffn {Command} emacspeak-pianobar-electric-mode-toggle   
+@findex emacspeak-pianobar-electric-mode-toggle
+
+@format
+Toggle electric mode in pianobar buffer.
+If electric mode is on, keystrokes invoke pianobar commands directly.
+@end format
+@end deffn
+
+@subsubsection emacspeak-pianobar-next-preset
+@deffn {Command} emacspeak-pianobar-next-preset   
+@findex emacspeak-pianobar-next-preset
+
+@format
+Switch to next preset.
+@end format
+@end deffn
+
+@subsubsection emacspeak-pianobar-previous-preset
+@deffn {Command} emacspeak-pianobar-previous-preset   
+@findex emacspeak-pianobar-previous-preset
+
+@format
+Switch to previous preset.
+@end format
+@end deffn
+
+@subsubsection emacspeak-pianobar-send-raw
+@deffn {Command} emacspeak-pianobar-send-raw  (string)
+@findex emacspeak-pianobar-send-raw
+
+@format
+Send raw string with newline added to pianobar.
+
+(fn STRING)
+@end format
+@end deffn
+
+@subsubsection emacspeak-pianobar-switch-to-preset
+@deffn {Command} emacspeak-pianobar-switch-to-preset   
+@findex emacspeak-pianobar-switch-to-preset
+
+@format
+Switch to one of the  presets.
+@end format
+@end deffn
+
+@subsubsection emacspeak-pianobar-volume-down
+@deffn {Command} emacspeak-pianobar-volume-down   
+@findex emacspeak-pianobar-volume-down
+
+@format
+Decrease volume
+@end format
+@end deffn
+
+@subsubsection emacspeak-pianobar-volume-up
+@deffn {Command} emacspeak-pianobar-volume-up   
+@findex emacspeak-pianobar-volume-up
+
+@format
+Increase volume
+@end format
+@end deffn
 
 @node emacspeak-pipewire
 @section emacspeak-pipewire

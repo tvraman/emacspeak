@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 20, 2024.
+last updated on June 21, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-extras,  Next: emacspeak-exwm,  Prev: emacspeak-eww,  Up: Emacspeak Commands And Options
@@ -9533,15 +9533,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-outliner/body’.
 
-12.224.3.6 emacspeak-muggles-pianobar-key-map-cmd
-.................................................
-
- -- Command: emacspeak-muggles-pianobar-key-map-cmd
-     ‘s-'’
-
-     Temporarily use keymap pianobar-key-map
-
-12.224.3.7 emacspeak-muggles-smartparens/body
+12.224.3.6 emacspeak-muggles-smartparens/body
 .............................................
 
  -- Command: emacspeak-muggles-smartparens/body
@@ -9582,7 +9574,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
 
-12.224.3.8 emacspeak-muggles-view/body
+12.224.3.7 emacspeak-muggles-view/body
 ......................................
 
  -- Command: emacspeak-muggles-view/body
@@ -9642,7 +9634,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-view/body’.
 
-12.224.3.9 emacspeak-origami/body
+12.224.3.8 emacspeak-origami/body
 .................................
 
  -- Command: emacspeak-origami/body

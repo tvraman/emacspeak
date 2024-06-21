@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 20, 2024.
+last updated on June 21, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -2349,7 +2349,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * <XF86AudioLowerVolume>:                amixer.             (line   62)
 * <XF86AudioPlay>:                       emacspeak-speak.    (line  227)
 * <XF86AudioRaiseVolume>:                amixer.             (line   74)
-* C-, /:                                 extra-muggles.      (line  331)
+* C-, /:                                 extra-muggles.      (line  323)
 * C-, a:                                 emacspeak-feeds.    (line   34)
 * C-, b:                                 sox-gen.            (line   90)
 * C-, h:                                 emacspeak-muggles.  (line   74)
@@ -2386,14 +2386,14 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-. s:                                 soundscape.         (line   48)
 * C-. t:                                 soundscape.         (line  122)
 * C-. u:                                 soundscape.         (line  132)
-* C-. v:                                 extra-muggles.      (line  271)
+* C-. v:                                 extra-muggles.      (line  263)
 * C-' ':                                 emacspeak-pianobar. (line   45)
 * C-' p:                                 emacspeak-wizards.  (line  732)
 * C-' y:                                 emacspeak-google.   (line  161)
 * C-/:                                   emacspeak-muggles.  (line  203)
 * C-<f1>:                                amixer.             (line   63)
 * C-<f2>:                                amixer.             (line   75)
-* C-c ,:                                 extra-muggles.      (line  230)
+* C-c ,:                                 extra-muggles.      (line  222)
 * C-c (:                                 Running Terminal Based Applications.
                                                              (line   96)
 * C-c ):                                 Running Terminal Based Applications.
@@ -2804,7 +2804,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-h N:                                 emacspeak-speak.    (line 1034)
 * C-h TAB:                               emacspeak-info.     (line   37)
 * C-M-y:                                 emacspeak-muggles.  (line   96)
-* C-x @ a /:                             extra-muggles.      (line  332)
+* C-x @ a /:                             extra-muggles.      (line  324)
 * C-x @ a a:                             emacspeak-feeds.    (line   35)
 * C-x @ a b:                             sox-gen.            (line   91)
 * C-x @ a h:                             emacspeak-muggles.  (line   75)
@@ -2841,7 +2841,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-x @ s s:                             soundscape.         (line   49)
 * C-x @ s t:                             soundscape.         (line  123)
 * C-x @ s u:                             soundscape.         (line  133)
-* C-x @ s v:                             extra-muggles.      (line  272)
+* C-x @ s v:                             extra-muggles.      (line  264)
 * C-x r C-e:                             emacspeak-eww.      (line  414)
 * C-x r e:                               emacspeak-eww.      (line  664)
 * C-z b:                                 emacspeak-wizards.  (line 1041)
@@ -2858,7 +2858,6 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * M-ESC ::                               emacspeak-wizards.  (line  845)
 * s-;:                                   extra-muggles.      (line  113)
 * s-.:                                   emacspeak-muggles.  (line   48)
-* s-':                                   extra-muggles.      (line  222)
 * S-<down>:                              emacspeak-wizards.  (line  177)
 * S-<left>:                              emacspeak-wizards.  (line  186)
 * S-<right>:                             emacspeak-wizards.  (line  194)
@@ -4331,10 +4330,8 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-muggles-org-table/body <1>:  emacspeak-muggles.  (line  160)
 * emacspeak-muggles-outliner/body:       extra-muggles.      (line  188)
 * emacspeak-muggles-outliner/body <1>:   extra-muggles.      (line  192)
-* emacspeak-muggles-pianobar-key-map-cmd: extra-muggles.     (line  220)
-* emacspeak-muggles-pianobar-key-map-cmd <1>: extra-muggles. (line  223)
-* emacspeak-muggles-smartparens/body:    extra-muggles.      (line  228)
-* emacspeak-muggles-smartparens/body <1>: extra-muggles.     (line  231)
+* emacspeak-muggles-smartparens/body:    extra-muggles.      (line  220)
+* emacspeak-muggles-smartparens/body <1>: extra-muggles.     (line  223)
 * emacspeak-muggles-toggle-option/body:  emacspeak-muggles.  (line  181)
 * emacspeak-muggles-toggle-option/body <1>: emacspeak-muggles.
                                                              (line  184)
@@ -4342,8 +4339,8 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
                                                              (line  201)
 * emacspeak-muggles-undo-only/undo-redo/body <1>: emacspeak-muggles.
                                                              (line  204)
-* emacspeak-muggles-view/body:           extra-muggles.      (line  269)
-* emacspeak-muggles-view/body <1>:       extra-muggles.      (line  273)
+* emacspeak-muggles-view/body:           extra-muggles.      (line  261)
+* emacspeak-muggles-view/body <1>:       extra-muggles.      (line  265)
 * emacspeak-muggles-yank-pop/body:       emacspeak-muggles.  (line  217)
 * emacspeak-muggles-yank-pop/body <1>:   emacspeak-muggles.  (line  218)
 * emacspeak-multimedia:                  emacspeak-m-player. (line  784)
@@ -4426,8 +4423,8 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
                                                              (line  105)
 * emacspeak-org-table-speak-row-header-and-element <1>: emacspeak-org.
                                                              (line  106)
-* emacspeak-origami/body:                extra-muggles.      (line  329)
-* emacspeak-origami/body <1>:            extra-muggles.      (line  333)
+* emacspeak-origami/body:                extra-muggles.      (line  321)
+* emacspeak-origami/body <1>:            extra-muggles.      (line  325)
 * emacspeak-outline-speak-backward-heading: emacspeak-outline.
                                                              (line   14)
 * emacspeak-outline-speak-backward-heading <1>: emacspeak-outline.

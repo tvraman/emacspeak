@@ -12,7 +12,7 @@
 ;; Location https://github.com/tvraman/emacspeak
 ;;
 
- 
+
 ;;;   Copyright:
 ;;Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -34,7 +34,7 @@
 ;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
 
- 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;   introduction
@@ -45,7 +45,7 @@
 
 ;;; Code:
 
- 
+
 ;;;   Required modules
 
 (require 'cl-lib)
@@ -55,7 +55,7 @@
 (require 'texnfo-upd)
 (require 'regexp-opt)
 
- 
+
 ;;;  Load All Modules
 
 ;; Setup load-path
@@ -69,52 +69,49 @@
 (load "plain-voices")
 (load "voice-setup")
 (load "emacspeak-loaddefs")
+
 (defconst self-document-files
-  
-   (directory-files self-document-lisp-directory nil "\\.elc$")
-   
+  (directory-files self-document-lisp-directory nil "\\.elc$")
   "List of elisp modules  to document.")
+
 (defvar emacspeak-muggles-activate-p t)
 (defvar self-document-fn-key
   "<XF86WakeUp>"
   "Notation for Laptop <fn> key.")
-
 
 (defvar self-document-map
   (make-hash-table :test #'equal)
   "Maps modules to commands and options they define.")
 
 (cl-defstruct self-document name commentary commands options)
-(defvar emacspeak-play-emacspeak-startup-icon nil)
 
 (defun self-document-load-modules ()
-  "Load all modules"
+  "Load all Emacspeak modules"
   (cl-declare (special dtk-program self-document-files
                        emacspeak-use-auditory-icons))
   (let ((file-name-handler-alist nil)
         (load-source-file-function  nil)
         (dtk-program "log-null"))
     (package-initialize)              ; bootstrap emacs package system
-;; Bootstrap Emacspeak
+    ;; Silently Bootstrap Emacspeak 
     (load-library "emacspeak-setup")
     (setq-default emacspeak-use-auditory-icons nil)
-;; Load all Emacspeak modules:
+    ;; Load all Emacspeak modules:
     (cl-loop
      for f in  self-document-files do
      (unless (string-match "emacspeak-setup" f) ; avoid loading setup twice :
-                                        (condition-case nil
-       (load-library f)
-                                        (error (message  "Warn: check %s" f)))
-       ))))
+       (condition-case nil
+           (load-library f)
+         (error (message  "Warn: Did not load  %s" f)))))))
 
 (defconst self-document-patterns
   (concat "^"
           (regexp-opt
-           '("amixer" 
+           '("amixer"
              "dectalk" "dtk" "espeak" "mac-"
-             "emacspeak" "xbacklight" "light" "extra-muggles"
+             "emacspeak" "xbacklight-" "light-" "extra-muggles"
              "g-"    "gm-" "gmap"  "gweb" "omaps"
-             "ladspa" "pip-"  "soundscape" "outloud" "sox-"   "tts" "voice-")))
+             "ladspa" "pip-"  "soundscape" "outloud" "sox-"   "tts-" "voice-")))
   "Patterns to match command names.")
 
 (defvar self-document-command-count 0
@@ -144,11 +141,11 @@
     o))
 
 (defun self-document-map-command (f)
-  "Add   this command symbol to our map."
+  "Add   this command symbol to our sym->file map."
   (cl-declare (special self-document-map))
   (let ((file  (symbol-file f 'defun))
         (entry nil))
-    (unless file (setq file "emacspeak")) ; capture orphans if any 
+    (unless file (setq file "emacspeak")) ; capture orphans if any
     (when file
       (setq file (file-name-sans-extension(file-name-nondirectory file )))
       (when (string-match "loaddefs" file) (setq file "emacspeak"))
@@ -203,16 +200,16 @@
 (defun self-document-build-map()
   "Build a map of module names to commands and options."
   (let ((file-name-handler-alist nil))
-  (cl-loop
-   for f in self-document-files do
-   (let ((module (file-name-sans-extension f)))
-     (puthash module
-              (make-self-document :name module
-                                  :commentary (sd-get-commentary module))
-              self-document-map)))
-  (mapatoms #'self-document-map-symbol )))
+    (cl-loop
+     for f in self-document-files do
+     (let ((module (file-name-sans-extension f)))
+       (puthash module
+                (make-self-document :name module
+                                    :commentary (sd-get-commentary module))
+                self-document-map)))
+    (mapatoms #'self-document-map-symbol )))
 
- 
+
 ;;;  Document Commands In A Module
 
 (defun sd-texinfo-escape (string)
@@ -247,7 +244,7 @@
     (insert
      (format "\nDefault Value: \n@verbatim\n%s\n@end verbatim\n\n"
              (with-temp-buffer
-                 (cl-prettyprint value)
+               (cl-prettyprint value)
                (buffer-substring-no-properties (point-min) (point-max)))))
     (insert "\n@end defvar\n\n")))
 
@@ -269,12 +266,12 @@
         (keys nil))
     (insert
      (format "\n\n@subsubsection %s\n@deffn {Command} %s  %s\n"
-             c c 
+             c c
              (or (help-function-arglist c t) " ")))
     (when key
       (setq keys (mapcar #'sd-texinfo-escape (mapcar #'key-description key )))
       (insert "@table @kbd\n")
-      (cl-loop for k in keys do 
+      (cl-loop for k in keys do
                (insert (format "@item %s\n" k))
                (insert (format "@kindex %s\n" k)))
       (insert "@end table\n\n"))
@@ -312,7 +309,7 @@
                                          self))))
   (message "Done: %s " (self-document-name self) ))
 
- 
+
 ;;; Document Keybindings For Various Prefix Maps:
 
 (cl-declaim (special emacspeak-prefix))
@@ -341,7 +338,7 @@
      (insert "|}}\n")
      )))
 
- 
+
 ;;;  Iterate over all modules
 
 (declare-function emacspeak-url-template-generate-texinfo-documentation (buffer))
@@ -356,7 +353,6 @@
       (search-forward (format "%c" 8217) (point-max) 'no-error)
     (replace-match "''")))
 
-
 (defun self-document-fix-fn-key ()
   "Change <XF86WakeUp> to <fn>."
   (goto-char (point-min))
@@ -364,29 +360,28 @@
       (search-forward self-document-fn-key (point-max) 'no-error)
     (replace-match "<fn>")))
 
-
 (defun self-document-fix-bs ()
   "Change literal backspace to <DEL>"
   (goto-char (point-min))
   (while
-   (search-forward (format "%c" 127) (point-max) 'no-error)
+      (search-forward (format "%c" 127) (point-max) 'no-error)
     (replace-match "<DEL>")))
 
 (defun self-document-update-menu-entries ()
   "Locates master menu, and updates description for each node."
   (message "Adding descriptions to master menu entries.")
   (save-excursion
-   (goto-char  (point-min))
-   (goto-char (re-search-forward "^@menu"))
-   (forward-line 1)
-   (while (not (looking-at "^@end menu"))
-          (goto-char (line-beginning-position))
-          (forward-char 2)
-          (when-let* ((module (sexp-at-point))
-                      (summary (lm-summary (locate-library (format "%s.el" module)))))
-                     (goto-char (line-end-position))
-                     (insert (format "%s." summary)))
-          (forward-line 1))))
+    (goto-char  (point-min))
+    (goto-char (re-search-forward "^@menu"))
+    (forward-line 1)
+    (while (not (looking-at "^@end menu"))
+      (goto-char (line-beginning-position))
+      (forward-char 2)
+      (when-let* ((module (sexp-at-point))
+                  (summary (lm-summary (locate-library (format "%s.el" module)))))
+        (goto-char (line-end-position))
+        (insert (format "%s." summary)))
+      (forward-line 1))))
 (defun self-document-all-modules()
   "Generate documentation for all modules."
   (cl-declare (special self-document-map))
@@ -426,19 +421,19 @@ This chapter documents a total of %d commands and %d options.\n\n"
         (save-buffer))))
   (message "Done!"))
 
- 
+
 ;;;  Document all keybindings:
 
 (defun sd-sort-keymap (key-entries)
   "Safely sort and return keymap entries."
   (let ((temp (copy-sequence key-entries)))
-  (cl-sort
-   temp
-   #'(lambda (a b)
-       (cond
-        ((and (characterp (car a)) (characterp (car b)))
-         (< (car a) (car b)))
-        (t nil))))))
+    (cl-sort
+     temp
+     #'(lambda (a b)
+         (cond
+          ((and (characterp (car a)) (characterp (car b)))
+           (< (car a) (car b)))
+          (t nil))))))
 
 (defvar self-document-keymap-list
   '(
@@ -448,7 +443,7 @@ This chapter documents a total of %d commands and %d options.\n\n"
     emacspeak-v-keymap emacspeak-x-keymap
     emacspeak-y-keymap  emacspeak-z-keymap
     )
-"List of keymaps that we document.")
+  "List of keymaps that we document.")
 
 (defun self-document-keymap (keymap)
   "Output Texinfo documentation for bindings in keymap."
@@ -459,13 +454,12 @@ This chapter documents a total of %d commands and %d options.\n\n"
      for binding in entries
      when (and (characterp (car binding))
                (not (keymapp  (cdr binding))))
-     do 
+     do
      (insert
       (format "@item %s  %s\n"
               (sd-texinfo-escape (key-description (format "%c" (car binding))))
               (cdr binding))))
     (insert "@end table\n")))
-
 
 (defun self-document-all-keymaps()
   "Generate documentation for all Emacspeak keymaps."
@@ -486,7 +480,7 @@ This chapter documents a total of %d commands and %d options.\n\n"
        "cat -s" (current-buffer) 'replace)
       (save-buffer))))
 
- 
+
 ;;;  Tests:
 
 (defun self-document-load-test ()
@@ -544,12 +538,10 @@ This chapter documents a total of %d commands and %d options.\n\n"
        (self-document-module v))
       (save-buffer))))
 
- 
+
 (provide 'self-document)
 ;;;  end of file
 
 ;; local variables:
 ;; folded-file: t
 ;; end:
-
- 
