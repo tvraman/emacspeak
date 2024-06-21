@@ -61,13 +61,10 @@
 ;; Setup load-path
 (defconst self-document-lisp-directory
   (expand-file-name "../lisp" (file-name-directory load-file-name))
-  "Elisp directory")
+  "Emacspeak lisp directory")
 
 (add-to-list 'load-path self-document-lisp-directory)
-(add-to-list
- 'load-path
- (expand-file-name "../../site-lisp" (file-name-directory
-                                      load-file-name)))
+
 (load "emacspeak-preamble")
 (load "plain-voices")
 (load "voice-setup")
