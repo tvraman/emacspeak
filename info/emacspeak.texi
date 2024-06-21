@@ -22,7 +22,7 @@ Last Updated: @today{}
 
 @page
 @vskip 0pt plus 1filll
-Copyright @copyright{} 1994--2020 T. V. Raman. All Rights Reserved.
+Copyright @copyright{} 1994--2024 T. V. Raman. All Rights Reserved.
 
 Permission is granted to make and distribute verbatim copies of this
 manual without charge provided the copyright notice and this permission
