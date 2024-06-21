@@ -113,6 +113,19 @@
     (emacspeak-speak-mode-line)
     (emacspeak-icon 'close-object)))
 
+;;; Playlists
+(cl-loop for f in
+         '(emms-playlist-mode-go
+                        emms-playlist-mode-next
+                        emms-playlist-mode-previous
+                        )
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "speak."
+             (when (ems-interactive-p)
+               (emacspeak-speak-mode-line)))))
+
 ;;;  Module emms-streaming:
 (cl-declaim (special emms-stream-mode-map))
 (defadvice emms-stream-mode (after emacspeak pre act comp)
@@ -136,7 +149,6 @@
 (cl-loop for f in
          '(emms-streams emms-stream-quit
                         emms-stream-popup emms-stream-popup-revert
-                        emms-playlist-mode-go
                         )
          do
          (eval
