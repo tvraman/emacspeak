@@ -1,4 +1,4 @@
-;;; self-document.el --- Documentation Generator For Emacspeak  -*- lexical-binding: t; -*-
+;;; self-document.el --- Documentation Generator   -*- lexical-binding: t; -*-
 ;; $Author: tv.raman.tv $
 ;; Description:  Documentation Generator
 ;; Keywords: Emacspeak,  Audio Desktop self-document
@@ -32,7 +32,8 @@
 ;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs; see the file COPYING.  If not, write to
-;; the Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,MA 02110-1301, USA.
+;; the Free Software Foundation, 51 Franklin Street, Fifth Floor,
+;; Boston,MA 02110-1301, USA.
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -341,7 +342,9 @@
 
 ;;;  Iterate over all modules
 
-(declare-function emacspeak-url-template-generate-texinfo-documentation (buffer))
+(declare-function
+ emacspeak-url-template-generate-texinfo-documentation
+ (buffer))
 (defun self-document-fix-quotes ()
   "Fix UTF8 curved quotes since makeinfo doesn't handle them well."
   (goto-char (point-min))
@@ -378,7 +381,8 @@
       (goto-char (line-beginning-position))
       (forward-char 2)
       (when-let* ((module (sexp-at-point))
-                  (summary (lm-summary (locate-library (format "%s.el" module)))))
+                  (summary
+                   (lm-summary (locate-library (format "%s.el" module)))))
         (goto-char (line-end-position))
         (insert (format "%s." summary)))
       (forward-line 1))))
