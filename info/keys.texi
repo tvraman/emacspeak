@@ -76,7 +76,6 @@
 @item 4  amixer-volume-adjust
 @item ;  emacspeak-multimedia
 @item =  emacspeak-speak-current-column
-@item ?  emacspeak-websearch-dispatch
 @item @@  emacspeak-speak-message-at-time
 @item A  emacspeak-appt-repeat-announcement
 @item B  emacspeak-speak-buffer-interactively

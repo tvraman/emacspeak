@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 21, 2024.
+last updated on June 23, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-extras,  Next: emacspeak-exwm,  Prev: emacspeak-eww,  Up: Emacspeak Commands And Options
@@ -7735,6 +7735,7 @@ This module provides utility functions for searching the WWW
 ............................................
 
  -- Command: emacspeak-websearch-amazon-search
+     ‘C-e ? C-a’
      ‘C-e / C-a’
 
      Amazon search.
@@ -7743,6 +7744,7 @@ This module provides utility functions for searching the WWW
 .........................................
 
  -- Command: emacspeak-websearch-ask-jeeves (query)
+     ‘C-e ? j’
      ‘C-e / j’
 
      Ask Jeeves for the answer.
@@ -7753,6 +7755,7 @@ This module provides utility functions for searching the WWW
 ............................................
 
  -- Command: emacspeak-websearch-foldoc-search (query)
+     ‘C-e ? f’
      ‘C-e / f’
 
      Perform a FolDoc search.
@@ -7764,6 +7767,7 @@ This module provides utility functions for searching the WWW
 
  -- Command: emacspeak-websearch-google (query &optional flag)
      ‘C-e RET’
+     ‘C-e ? g’
      ‘C-e / g’
 
      Perform a Google search.  First optional interactive prefix arg
@@ -7776,6 +7780,7 @@ This module provides utility functions for searching the WWW
 ...................................................
 
  -- Command: emacspeak-websearch-google-feeling-lucky (query)
+     ‘C-e ? SPC’
      ‘C-e / SPC’
 
      Do a I’m Feeling Lucky Google search.
@@ -7786,6 +7791,7 @@ This module provides utility functions for searching the WWW
 ..........................................
 
  -- Command: emacspeak-websearch-google-lite (query &optional options)
+     ‘C-e ? a’
      ‘C-e / a’
 
      Use Google Lite.
@@ -7797,6 +7803,7 @@ This module provides utility functions for searching the WWW
 ..........................................
 
  -- Command: emacspeak-websearch-google-news
+     ‘C-e ? n’
      ‘C-e / n’
 
      Invoke Google News url template.
@@ -7812,6 +7819,7 @@ This module provides utility functions for searching the WWW
 ...................................................
 
  -- Command: emacspeak-websearch-google-with-toolbelt (query)
+     ‘C-e ? i’
      ‘C-e / i’
 
      Launch Google search with toolbelt.
@@ -7822,6 +7830,7 @@ This module provides utility functions for searching the WWW
 .........................................
 
  -- Command: emacspeak-websearch-gutenberg (type query)
+     ‘C-e ? G’
      ‘C-e / G’
 
      Perform an Gutenberg search
@@ -7832,6 +7841,7 @@ This module provides utility functions for searching the WWW
 ....................................
 
  -- Command: emacspeak-websearch-help
+     ‘C-e ? ?’
      ‘C-e / ?’
 
      Displays key mapping used by Emacspeak Websearch.
@@ -7841,6 +7851,7 @@ This module provides utility functions for searching the WWW
 
  -- Command: emacspeak-websearch-web-filter-google (query &optional
           options)
+     ‘C-e ? u’
      ‘C-e / u’
 
      Use Google Lite with Web filter.
@@ -7852,6 +7863,7 @@ This module provides utility functions for searching the WWW
 ................................................
 
  -- Command: emacspeak-websearch-wikipedia-search (query)
+     ‘C-e ? w’
      ‘C-e / w’
 
      Search Wikipedia using Google.
@@ -7863,6 +7875,7 @@ This module provides utility functions for searching the WWW
 ..............................................
 
  -- Command: emacspeak-websearch-youtube-search (query)
+     ‘C-e ? y’
      ‘C-e / y’
 
      YouTube search.

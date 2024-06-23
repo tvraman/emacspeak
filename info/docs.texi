@@ -16221,6 +16221,8 @@ This module provides utility functions for searching the WWW
 @subsubsection emacspeak-websearch-amazon-search
 @deffn {Command} emacspeak-websearch-amazon-search   
 @table @kbd
+@item C-e ? C-a
+@kindex C-e ? C-a
 @item C-e / C-a
 @kindex C-e / C-a
 @end table
@@ -16235,6 +16237,8 @@ Amazon search.
 @subsubsection emacspeak-websearch-ask-jeeves
 @deffn {Command} emacspeak-websearch-ask-jeeves  (query)
 @table @kbd
+@item C-e ? j
+@kindex C-e ? j
 @item C-e / j
 @kindex C-e / j
 @end table
@@ -16251,6 +16255,8 @@ Ask Jeeves for the answer.
 @subsubsection emacspeak-websearch-foldoc-search
 @deffn {Command} emacspeak-websearch-foldoc-search  (query)
 @table @kbd
+@item C-e ? f
+@kindex C-e ? f
 @item C-e / f
 @kindex C-e / f
 @end table
@@ -16269,6 +16275,8 @@ Perform a FolDoc search.
 @table @kbd
 @item C-e RET
 @kindex C-e RET
+@item C-e ? g
+@kindex C-e ? g
 @item C-e / g
 @kindex C-e / g
 @end table
@@ -16287,6 +16295,8 @@ prefix arg is equivalent to hitting the I’m Feeling Lucky button on Google.
 @subsubsection emacspeak-websearch-google-feeling-lucky
 @deffn {Command} emacspeak-websearch-google-feeling-lucky  (query)
 @table @kbd
+@item C-e ? SPC
+@kindex C-e ? SPC
 @item C-e / SPC
 @kindex C-e / SPC
 @end table
@@ -16303,6 +16313,8 @@ Do a I’m Feeling Lucky Google search.
 @subsubsection emacspeak-websearch-google-lite
 @deffn {Command} emacspeak-websearch-google-lite  (query &optional options)
 @table @kbd
+@item C-e ? a
+@kindex C-e ? a
 @item C-e / a
 @kindex C-e / a
 @end table
@@ -16320,6 +16332,8 @@ Optional prefix arg prompts for toolbelt options.
 @subsubsection emacspeak-websearch-google-news
 @deffn {Command} emacspeak-websearch-google-news   
 @table @kbd
+@item C-e ? n
+@kindex C-e ? n
 @item C-e / n
 @kindex C-e / n
 @end table
@@ -16343,6 +16357,8 @@ Use this from inside the calendar to do Google date-range searches.
 @subsubsection emacspeak-websearch-google-with-toolbelt
 @deffn {Command} emacspeak-websearch-google-with-toolbelt  (query)
 @table @kbd
+@item C-e ? i
+@kindex C-e ? i
 @item C-e / i
 @kindex C-e / i
 @end table
@@ -16359,6 +16375,8 @@ Launch Google search with toolbelt.
 @subsubsection emacspeak-websearch-gutenberg
 @deffn {Command} emacspeak-websearch-gutenberg  (type query)
 @table @kbd
+@item C-e ? G
+@kindex C-e ? G
 @item C-e / G
 @kindex C-e / G
 @end table
@@ -16375,6 +16393,8 @@ Perform an Gutenberg search
 @subsubsection emacspeak-websearch-help
 @deffn {Command} emacspeak-websearch-help   
 @table @kbd
+@item C-e ? ?
+@kindex C-e ? ?
 @item C-e / ?
 @kindex C-e / ?
 @end table
@@ -16389,6 +16409,8 @@ Displays key mapping used by Emacspeak Websearch.
 @subsubsection emacspeak-websearch-web-filter-google
 @deffn {Command} emacspeak-websearch-web-filter-google  (query &optional options)
 @table @kbd
+@item C-e ? u
+@kindex C-e ? u
 @item C-e / u
 @kindex C-e / u
 @end table
@@ -16406,6 +16428,8 @@ Optional prefix arg prompts for toolbelt options.
 @subsubsection emacspeak-websearch-wikipedia-search
 @deffn {Command} emacspeak-websearch-wikipedia-search  (query)
 @table @kbd
+@item C-e ? w
+@kindex C-e ? w
 @item C-e / w
 @kindex C-e / w
 @end table
@@ -16423,6 +16447,8 @@ Use URL Template ‘wikipedia at point’ to advantage in the results buffer.
 @subsubsection emacspeak-websearch-youtube-search
 @deffn {Command} emacspeak-websearch-youtube-search  (query)
 @table @kbd
+@item C-e ? y
+@kindex C-e ? y
 @item C-e / y
 @kindex C-e / y
 @end table
