@@ -194,7 +194,7 @@
    ("<right>" emacspeak-speak-this-buffer-next-display)
    ("<up>"  emacspeak-read-previous-line)
    ("=" emacspeak-speak-current-column)
-   ("?" emacspeak-websearch-dispatch)
+   ("?" emacspeak-websearch)
    ("@" emacspeak-speak-message-at-time)
    ("A" emacspeak-appt-repeat-announcement)
    ("B" emacspeak-speak-buffer-interactively)
