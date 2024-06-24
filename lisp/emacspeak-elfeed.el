@@ -43,13 +43,12 @@
 ;; Install from elpa
 ;; M-x package-install  elfeed
 
-
-;;; Code:
 ;;   Required modules:
+;;; Code:
+
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'emacspeak-we)
 (require 'elfeed "elfeed" 'no-match)
 
 ;;;  Map Faces to voices
@@ -73,7 +72,7 @@
    elfeed-search-update--force elfeed-search-update
    elfeed-search-untag-all-unread
    elfeed-search-untag-all elfeed-search-tag-all-unread elfeed-search-tag-all
-   elfeed-search-show-entry elfeed-load-opml elfeed-export-opml
+   elfeed-load-opml elfeed-export-opml
    elfeed-db-compact elfeed-add-feed
    )
  do
@@ -93,6 +92,19 @@
      "speak."
      (when (ems-interactive-p)
        (emacspeak-icon 'select-object)
+       (emacspeak-speak-line)))))
+
+(cl-loop
+ for f in
+ '(
+   elfeed-show-entry elfeed-ssearch-show-entry
+   )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-icon 'open-object)
        (emacspeak-speak-line)))))
 
 (defadvice elfeed (after emacspeak pre act  comp)
