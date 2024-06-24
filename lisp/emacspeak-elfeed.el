@@ -107,6 +107,18 @@
        (emacspeak-icon 'open-object)
        (emacspeak-speak-line)))))
 
+(cl-loop
+ for f in
+ '(
+   elfeed-show-add-enclosure-to-playlist elfeed-show-play-enclosure
+   )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak."
+     (when (ems-interactive-p)
+       (emacspeak-icon 'task-done)))))
+
 (defadvice elfeed (after emacspeak pre act  comp)
   "Emacspeak setup."
   (when (ems-interactive-p)
