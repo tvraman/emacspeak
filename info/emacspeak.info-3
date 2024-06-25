@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 23, 2024.
+last updated on June 24, 2024.
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -3475,18 +3475,18 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
                                                              (line   26)
 * emacspeak-ein-speak-current-cell:      emacspeak-ein.      (line   15)
 * emacspeak-ein-speak-current-cell <1>:  emacspeak-ein.      (line   16)
-* emacspeak-elfeed-eww-entry-at-point:   emacspeak-elfeed.   (line   15)
-* emacspeak-elfeed-eww-entry-at-point <1>: emacspeak-elfeed. (line   16)
-* emacspeak-elfeed-filter-entry-at-point: emacspeak-elfeed.  (line   22)
+* emacspeak-elfeed-eww-entry-at-point:   emacspeak-elfeed.   (line   17)
+* emacspeak-elfeed-eww-entry-at-point <1>: emacspeak-elfeed. (line   18)
+* emacspeak-elfeed-filter-entry-at-point: emacspeak-elfeed.  (line   24)
 * emacspeak-elfeed-filter-entry-at-point <1>: emacspeak-elfeed.
-                                                             (line   23)
-* emacspeak-elfeed-next-entry:           emacspeak-elfeed.   (line   29)
-* emacspeak-elfeed-next-entry <1>:       emacspeak-elfeed.   (line   30)
-* emacspeak-elfeed-previous-entry:       emacspeak-elfeed.   (line   36)
-* emacspeak-elfeed-previous-entry <1>:   emacspeak-elfeed.   (line   37)
-* emacspeak-elfeed-speak-entry-at-point: emacspeak-elfeed.   (line   43)
+                                                             (line   25)
+* emacspeak-elfeed-next-entry:           emacspeak-elfeed.   (line   31)
+* emacspeak-elfeed-next-entry <1>:       emacspeak-elfeed.   (line   32)
+* emacspeak-elfeed-previous-entry:       emacspeak-elfeed.   (line   38)
+* emacspeak-elfeed-previous-entry <1>:   emacspeak-elfeed.   (line   39)
+* emacspeak-elfeed-speak-entry-at-point: emacspeak-elfeed.   (line   45)
 * emacspeak-elfeed-speak-entry-at-point <1>: emacspeak-elfeed.
-                                                             (line   44)
+                                                             (line   46)
 * emacspeak-emms-speak-current-track:    emacspeak-emms.     (line   17)
 * emacspeak-emms-speak-current-track <1>: emacspeak-emms.    (line   18)
 * emacspeak-empv-absolute-seek:          emacspeak-empv.     (line   67)

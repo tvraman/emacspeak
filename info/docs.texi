@@ -3640,6 +3640,8 @@ ELFEED ==  Feed Reader for Emacs.
 Install from elpa
 M-x package-install  elfeed
 
+  Required modules:
+
 @subsection Emacspeak-Elfeed Commands
 
 @subsubsection emacspeak-elfeed-eww-entry-at-point

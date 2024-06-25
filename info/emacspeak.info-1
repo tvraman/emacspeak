@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 23, 2024.
+last updated on June 24, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -6304,6 +6304,8 @@ File: emacspeak.info,  Node: emacspeak-elfeed,  Next: emacspeak-elisp-refs,  Pre
 
 ELFEED == Feed Reader for Emacs.  Install from elpa M-x package-install
 elfeed
+
+   Required modules:
 
 12.54.1 Emacspeak-Elfeed Commands
 ---------------------------------
