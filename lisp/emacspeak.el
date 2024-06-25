@@ -451,7 +451,7 @@ commands and options."
   (emacspeak-sounds-select-theme)
   (emacspeak-pronounce-load-dictionaries)
   (make-thread #'(lambda nil  (ems--fastload "emacspeak-advice")))
-  (make-thread #'(lambda nil  (ems--fastload "emacspeak-websearch")))
+  (ems--fastload "emacspeak-websearch")
   (emacspeak-setup-programming-modes)
   (make-thread #'emacspeak-prepare-emacs)
   (setq line-number-mode nil column-number-mode nil)
