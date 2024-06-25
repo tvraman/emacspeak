@@ -77,7 +77,7 @@
 ;; with real work.
 (cl-loop for f in
          '(emms-start emms-stop emms-sort
-                      emms-shuffle emms-random)
+                      emms-shuffle emms-random emms-playlist-mode-play-smart)
          do
          (eval
           `(defadvice ,f (after emacspeak pre act comp)
@@ -118,6 +118,7 @@
          '(emms-playlist-mode-go
                         emms-playlist-mode-next
                         emms-playlist-mode-previous
+                        emms-playlist-mode-switch-buffer
                         )
          do
          (eval
@@ -125,6 +126,15 @@
              "speak."
              (when (ems-interactive-p)
                (emacspeak-speak-mode-line)))))
+
+(cl-loop for f in
+         '(emms-playlist-clear emms-playlist-mode-kill-track)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "speak."
+             (when (ems-interactive-p)
+               (emacspeak-icon 'task-done)))))
 
 ;;;  Module emms-streaming:
 (cl-declaim (special emms-stream-mode-map))
