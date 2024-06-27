@@ -436,8 +436,7 @@ If already playing, then read an empv key and invoke its command."
    empv-youtube-results-play-current
    empv-set-volume empv-display-current  empv-toggle
    emacspeak-empv-play-last emacspeak-empv-play-url
-   emacspeak-empv-yt-search
-   emacspeak-empv-radio emacspeak-empv-play-file emacspeak-empv-play-local
+   emacspeak-empv-play-file emacspeak-empv-play-local
    emacspeak-empv-backward-10-seconds emacspeak-empv-forward-10-seconds
    emacspeak-empv-forward-minute emacspeak-empv-backward-minute
    emacspeak-empv-forward-5-minutes emacspeak-empv-backward-5-minutes
