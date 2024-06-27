@@ -251,7 +251,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1165 commands and 127 options.
+This chapter documents a total of 1166 commands and 127 options.
 
 @node amixer
 @section amixer
@@ -4101,6 +4101,22 @@ Toggle output to being just on the left.
 
 @format
 Toggle output to being just on the right.
+@end format
+@end deffn
+
+@subsubsection emacspeak-empv-yt-search
+@deffn {Command} emacspeak-empv-yt-search  (query)
+@table @kbd
+@item C-e y s
+@kindex C-e y s
+@end table
+
+@findex emacspeak-empv-yt-search
+
+@format
+Tabulated results from Youtube search but with completion.
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -8521,6 +8537,7 @@ Default Value:
  ("l" emacspeak-empv-play-last)
  ("p" empv-youtube-playlist)
  ("r" emacspeak-empv-radio)
+ ("s" emacspeak-empv-yt-search)
  ("t" empv-youtube-tabulated)
  ("y" emacspeak-empv-play-url))
 

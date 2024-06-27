@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 25, 2024.
+last updated on June 27, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2942,6 +2942,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-y-keymap,  Next:
 ‘l emacspeak-empv-play-last’
 ‘p empv-youtube-playlist’
 ‘r emacspeak-empv-radio’
+‘s emacspeak-empv-yt-search’
 ‘t empv-youtube-tabulated’
 ‘y emacspeak-empv-play-url’
 
@@ -3244,7 +3245,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1165 commands and 127 options.
+   This chapter documents a total of 1166 commands and 127 options.
 
 * Menu:
 
@@ -6679,6 +6680,16 @@ select few for interactive use.
  -- Command: emacspeak-empv-toggle-right
 
      Toggle output to being just on the right.
+
+12.61.4.27 emacspeak-empv-yt-search
+...................................
+
+ -- Command: emacspeak-empv-yt-search (query)
+     ‘C-e y s’
+
+     Tabulated results from Youtube search but with completion.
+
+     (fn QUERY)
 
 12.61.5 emacspeak-empv Options
 ------------------------------
