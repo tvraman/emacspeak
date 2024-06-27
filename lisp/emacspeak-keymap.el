@@ -480,6 +480,7 @@
     ("l" emacspeak-empv-play-last)
     ("p" empv-youtube-playlist)
     ("r" emacspeak-empv-radio)
+    ("s" emacspeak-empv-yt-search)
     ("t" empv-youtube-tabulated)
     ("y" emacspeak-empv-play-url)
     )

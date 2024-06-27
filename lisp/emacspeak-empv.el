@@ -128,6 +128,7 @@
 (eval-when-compile (require 'cl-lib))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'gweb)
 (require 'empv nil t)
 (require 'iimage nil t)
 (declare-function emacspeak-google-canonicalize-result-url
@@ -240,12 +241,17 @@ If already playing, then read an empv key and invoke its command."
    (t (dtk-notify (file-name-base file))
       (empv-play file))))
 
+(defun emacspeak-empv-yt-search (query)
+  "Tabulated results from Youtube search but with completion."
+  (interactive (list (gweb-youtube-autocomplete)))
+  (funcall-interactively #'empv-youtube-tabulated query))
+
 (defun emacspeak-empv-radio ()
   "Play Internet stream"
   (interactive)
   (funcall-interactively #'emacspeak-empv-play-file
-   (let ((default-directory emacspeak-media-shortcuts))
-     (emacspeak-media-read-resource))))
+                         (let ((default-directory emacspeak-media-shortcuts))
+                           (emacspeak-media-read-resource))))
 
 
 (defun emacspeak-empv-accumulate-to-register ()
@@ -430,6 +436,7 @@ If already playing, then read an empv key and invoke its command."
    empv-youtube-results-play-current
    empv-set-volume empv-display-current  empv-toggle
    emacspeak-empv-play-last emacspeak-empv-play-url
+   emacspeak-empv-yt-search
    emacspeak-empv-radio emacspeak-empv-play-file emacspeak-empv-play-local
    emacspeak-empv-backward-10-seconds emacspeak-empv-forward-10-seconds
    emacspeak-empv-forward-minute emacspeak-empv-backward-minute
