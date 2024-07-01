@@ -419,6 +419,7 @@ If already playing, then read an empv key and invoke its command."
      ("M" emacspeak-empv-backward-minute)
      ("SPC" empv-toggle)
      ("b" emacspeak-empv-toggle-balance)
+     ("k" empv-exit)
      ("l" empv-lyrics-current)
      ("m" emacspeak-empv-forward-minute)
      ("r" emacspeak-empv-relative-seek)
