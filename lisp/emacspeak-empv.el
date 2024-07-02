@@ -236,7 +236,7 @@ If already playing, then read an empv key and invoke its command."
     (call-interactively
      (lookup-key  empv-map  (read-key-sequence "EMpv Key:"))))
    (t (dtk-notify (file-name-base file))
-      (cl-pushnew file emacspeak-media-history)
+      (cl-pushnew file emacspeak-media-history :test #'string=)
       (empv-play file))))
 
 (defun emacspeak-empv-yt-search (query)
