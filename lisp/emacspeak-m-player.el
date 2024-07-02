@@ -421,11 +421,13 @@ rather than completing over all subfiles."
        "Media: "
        (directory-files-recursively
         default-directory emacspeak-media-extensions))))))
+(defvar emacspeak-media-history nil
+  "Media history when prompting in minibuffer.")
 
 (defun emacspeak-media-read-resource (&optional prefix)
   "Read resource from minibuffer.
 If a dynamic playlist exists, just use it."
-  (cl-declare (special emacspeak-media-dynamic-playlist
+  (cl-declare (special emacspeak-media-dynamic-playlist emacspeak-media-history
                        emacspeak-m-player-hotkey-p))
   (cond
    (emacspeak-media-dynamic-playlist nil) ; do nothing if dynamic playlist
@@ -443,7 +445,9 @@ If a dynamic playlist exists, just use it."
              (if prefix
                  (ems--subdirs-recursively  dir) ;list dirs
                (directory-files-recursively dir emacspeak-media-extensions)))))
-      (or filename (completing-read "Media: "  collection))))))
+      (or filename
+          (completing-read "Media: "  collection
+                           nil nil nil 'emacspeak-media-history))))))
 
 (defun emacspeak-m-player-data-refresh ()
   "Populate metadata fields from current  stream."

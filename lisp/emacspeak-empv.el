@@ -59,9 +59,6 @@
 ;; @item
 ;; Command  @code{emacspeak-empv-play-file  to play  local media and} 
 ;; Internet streams.
-;; @item
-;; Command  @code{emacspeak-empv-radio to play from Emacspeak's library} 
-;; of Internet streams.
 ;; @end enumerate
 ;; 
 ;; @subsection Navigating In Time 
@@ -233,26 +230,19 @@ If already playing, then read an empv key and invoke its command."
     (unless (and empv--process (process-live-p empv--process))
       (emacspeak-media-read-resource current-prefix-arg))
     current-prefix-arg))
-  (cl-declare (special  empv--process))
+  (cl-declare (special  empv--process emacspeak-media-history))
   (cond
    ((null file)                         ; we're already playing
     (call-interactively
      (lookup-key  empv-map  (read-key-sequence "EMpv Key:"))))
    (t (dtk-notify (file-name-base file))
+      (cl-pushnew file emacspeak-media-history)
       (empv-play file))))
 
 (defun emacspeak-empv-yt-search (query)
   "Tabulated results from Youtube search but with completion."
   (interactive (list (gweb-youtube-autocomplete)))
   (funcall-interactively #'empv-youtube-tabulated query))
-
-(defun emacspeak-empv-radio ()
-  "Play Internet stream"
-  (interactive)
-  (funcall-interactively #'emacspeak-empv-play-file
-                         (let ((default-directory emacspeak-media-shortcuts))
-                           (emacspeak-media-read-resource))))
-
 
 (defun emacspeak-empv-accumulate-to-register ()
   "Accumulate media links to register u"
