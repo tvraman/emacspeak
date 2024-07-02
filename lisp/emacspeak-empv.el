@@ -230,13 +230,12 @@ If already playing, then read an empv key and invoke its command."
     (unless (and empv--process (process-live-p empv--process))
       (emacspeak-media-read-resource current-prefix-arg))
     current-prefix-arg))
-  (cl-declare (special  empv--process emacspeak-media-history))
+  (cl-declare (special  empv--process ))
   (cond
    ((null file)                         ; we're already playing
     (call-interactively
      (lookup-key  empv-map  (read-key-sequence "EMpv Key:"))))
    (t (dtk-notify (file-name-base file))
-      (cl-pushnew file emacspeak-media-history :test #'string=)
       (empv-play file))))
 
 (defun emacspeak-empv-yt-search (query)
