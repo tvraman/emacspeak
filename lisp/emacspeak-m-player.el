@@ -522,7 +522,7 @@ dynamic playlist. "
     current-prefix-arg))
   (cl-declare (special
                emacspeak-m-player-paused emacspeak-m-player-resource
-               emacspeak-media-dynamic-playlist
+               emacspeak-media-dynamic-playlist emacspeak-media-history
                emacspeak-m-player-hotkey-p
                emacspeak-m-player-directory
                emacspeak-media-directory-regexp
@@ -537,6 +537,7 @@ dynamic playlist. "
     (emacspeak-m-player-quit)
     (setq emacspeak-m-player-process nil))
   (dtk-notify (file-name-base resource))
+  (cl-pushnew resource emacspeak-media-history :test #'string=)
   (let ((buffer (get-buffer-create "*M-Player*"))
         (process-connection-type nil)
         (playlist-p
