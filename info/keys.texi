@@ -286,7 +286,6 @@
 @item d  empv-download-youtube
 @item l  emacspeak-empv-play-last
 @item p  empv-youtube-playlist
-@item r  emacspeak-empv-radio
 @item s  emacspeak-empv-yt-search
 @item t  empv-youtube-tabulated
 @item y  emacspeak-empv-play-url

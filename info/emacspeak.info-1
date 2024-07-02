@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 1, 2024.
+last updated on July 2, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2941,7 +2941,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-y-keymap,  Next:
 ‘d empv-download-youtube’
 ‘l emacspeak-empv-play-last’
 ‘p empv-youtube-playlist’
-‘r emacspeak-empv-radio’
 ‘s emacspeak-empv-yt-search’
 ‘t empv-youtube-tabulated’
 ‘y emacspeak-empv-play-url’
@@ -3245,7 +3244,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1166 commands and 127 options.
+   This chapter documents a total of 1165 commands and 127 options.
 
 * Menu:
 
@@ -6434,8 +6433,6 @@ package ‘empv’:
   3. Command empv-play-last-url to play from our ‘EMPV’ history.
   4. Command ‘emacspeak-empv-play-file to play local media and’ Internet
      streams.
-  5. Command ‘emacspeak-empv-radio to play from Emacspeak's library’ of
-     Internet streams.
 
 12.61.2 Navigating In Time
 --------------------------
@@ -6617,15 +6614,7 @@ select few for interactive use.
 
      (fn URL)
 
-12.61.4.19 emacspeak-empv-radio
-...............................
-
- -- Command: emacspeak-empv-radio
-     ‘C-e y r’
-
-     Play Internet stream
-
-12.61.4.20 emacspeak-empv-relative-seek
+12.61.4.19 emacspeak-empv-relative-seek
 .......................................
 
  -- Command: emacspeak-empv-relative-seek (target)
@@ -6634,14 +6623,14 @@ select few for interactive use.
 
      (fn TARGET)
 
-12.61.4.21 emacspeak-empv-time-pos
+12.61.4.20 emacspeak-empv-time-pos
 ..................................
 
  -- Command: emacspeak-empv-time-pos
 
      Speak time and percent position.
 
-12.61.4.22 emacspeak-empv-toggle-balance
+12.61.4.21 emacspeak-empv-toggle-balance
 ........................................
 
  -- Command: emacspeak-empv-toggle-balance (value)
@@ -6650,14 +6639,14 @@ select few for interactive use.
 
      (fn VALUE)
 
-12.61.4.23 emacspeak-empv-toggle-custom
+12.61.4.22 emacspeak-empv-toggle-custom
 .......................................
 
  -- Command: emacspeak-empv-toggle-custom
 
      Toggle our custom filters.
 
-12.61.4.24 emacspeak-empv-toggle-filter
+12.61.4.23 emacspeak-empv-toggle-filter
 .......................................
 
  -- Command: emacspeak-empv-toggle-filter (filter)
@@ -6667,21 +6656,21 @@ select few for interactive use.
 
      (fn FILTER)
 
-12.61.4.25 emacspeak-empv-toggle-left
+12.61.4.24 emacspeak-empv-toggle-left
 .....................................
 
  -- Command: emacspeak-empv-toggle-left
 
      Toggle output to being just on the left.
 
-12.61.4.26 emacspeak-empv-toggle-right
+12.61.4.25 emacspeak-empv-toggle-right
 ......................................
 
  -- Command: emacspeak-empv-toggle-right
 
      Toggle output to being just on the right.
 
-12.61.4.27 emacspeak-empv-yt-search
+12.61.4.26 emacspeak-empv-yt-search
 ...................................
 
  -- Command: emacspeak-empv-yt-search (query)

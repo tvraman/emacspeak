@@ -251,7 +251,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1166 commands and 127 options.
+This chapter documents a total of 1165 commands and 127 options.
 
 @node amixer
 @section amixer
@@ -3767,9 +3767,6 @@ Command empv-play-last-url to play from our @code{EMPV}  history.
 @item
 Command  @code{emacspeak-empv-play-file  to play  local media and}
 Internet streams.
-@item
-Command  @code{emacspeak-empv-radio to play from Emacspeak's library}
-of Internet streams.
 @end enumerate
 
 @subsection Navigating In Time
@@ -4017,20 +4014,6 @@ Play most recently played URL.
 Play URL using mpv. 
 
 (fn URL)
-@end format
-@end deffn
-
-@subsubsection emacspeak-empv-radio
-@deffn {Command} emacspeak-empv-radio   
-@table @kbd
-@item C-e y r
-@kindex C-e y r
-@end table
-
-@findex emacspeak-empv-radio
-
-@format
-Play Internet stream
 @end format
 @end deffn
 
@@ -8536,7 +8519,6 @@ Default Value:
  ("d" empv-download-youtube)
  ("l" emacspeak-empv-play-last)
  ("p" empv-youtube-playlist)
- ("r" emacspeak-empv-radio)
  ("s" emacspeak-empv-yt-search)
  ("t" empv-youtube-tabulated)
  ("y" emacspeak-empv-play-url))
