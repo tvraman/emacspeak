@@ -802,14 +802,14 @@ specifies the page to extract contents  from."
   "//p"
   "Caches most recently used xpath filter.")
 
-(defvar emacspeak-we-xpath-filter-history 
+(defvar emacspeak-we-xpath-history 
   (list
    emacspeak-we-recent-xpath-filter
    "//p|//div"
    "//p|//ol|//ul|//dl|//h1|//h2|//h3|//h4|//h5|//h6|//blockquote")
   "History list recording XPath filters we've used.")
 
-(put 'emacspeak-we-xpath-filter-history 'history-length 10)
+(put 'emacspeak-we-xpath-history 'history-length 10)
 
 (defvar emacspeak-we-xpath-filter nil
   "Buffer local variable specifying a XPath filter for following
@@ -830,7 +830,7 @@ used as well."
   (cl-declare (special
                emacspeak-we-xpath-filter
                emacspeak-we-recent-xpath-filter
-               emacspeak-we-xpath-filter-history
+               emacspeak-we-xpath-history
                emacspeak-we-url-rewrite-rule))
   (emacspeak-eww-browser-check)
   (let ((url (funcall emacspeak-eww-url-at-point))
@@ -848,21 +848,21 @@ used as well."
             (read-from-minibuffer
              "Specify XPath: "
              nil nil nil
-             'emacspeak-we-xpath-filter-history
+             'emacspeak-we-xpath-history
              emacspeak-we-recent-xpath-filter))
       (cl-pushnew
-       emacspeak-we-xpath-filter emacspeak-we-xpath-filter-history
+       emacspeak-we-xpath-filter emacspeak-we-xpath-history
        :test #'string=)
       (setq emacspeak-we-recent-xpath-filter emacspeak-we-xpath-filter))
     (emacspeak-we-xslt-filter emacspeak-we-xpath-filter
                               (or redirect url)
                               'speak)))
 
-(defvar emacspeak-we-class-filter-history 
+(defvar emacspeak-we-class-history 
   nil
   "History list recording Class filters we've used.")
 
-(put 'emacspeak-we-class-filter-history 'history-length 10)
+(put 'emacspeak-we-class-history 'history-length 10)
 
 (defvar emacspeak-we-class-filter nil
   "Buffer local variable specifying a Class filter for following
@@ -882,7 +882,7 @@ used as well."
   (cl-declare (special
                emacspeak-we-class-filter
                emacspeak-we-recent-class-filter
-               emacspeak-we-class-filter-history
+               emacspeak-we-class-history
                emacspeak-we-url-rewrite-rule))
   (emacspeak-eww-browser-check)
   (let ((url (funcall emacspeak-eww-url-at-point))
@@ -899,10 +899,10 @@ used as well."
             (read-from-minibuffer
              "Specify Class: "
              nil nil nil
-             'emacspeak-we-class-filter-history
+             'emacspeak-we-class-history
              emacspeak-we-recent-class-filter))
       (cl-pushnew
-       emacspeak-we-class-filter emacspeak-we-class-filter-history
+       emacspeak-we-class-filter emacspeak-we-class-history
        :test #'string=)
       (setq emacspeak-we-recent-class-filter
             emacspeak-we-class-filter))
