@@ -332,6 +332,18 @@ Press `y' on Episode links to play them with MPV."
 c  (cl-declare
    (special emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter))
   (setq emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter))
+;;; AcuWeather:
+(emacspeak-url-template-define
+ "ACU Weather"
+ "http://rss.accuweather.com/rss/liveweather_rss.asp?locCode=%s"
+ (list #'(lambda nil
+           (read-from-minibuffer "Location: "
+                             nil nil nil nil
+                             gmaps-my-zip)))
+ #'emacspeak-speak-buffer
+ "Weather Forecast"
+ #'emacspeak-feeds-rss-display)
+
 
 ;;; Basic Google:
 
