@@ -147,7 +147,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "speak."
      (when (ems-interactive-p)
-       (emacspeak-icon 'select-object)
+       (emacspeak-icon 'item)
        (emacspeak-org-speak-item)))))
 
 (cl-loop
@@ -464,11 +464,15 @@
   "Placed on org-mode-hook to do Emacspeak setup."
   (cl-declare (special org-mode-map org-multi-keymap ))
   (emacspeak-org-update-keys)
-  (define-key org-mode-map (kbd "C-o a") 'tvr-org-alphabetize)
-  (define-key org-mode-map (kbd "C-o e") 'tvr-org-enumerate)
-  (define-key org-mode-map (kbd "C-o i") 'tvr-org-itemize)
-  (define-key  org-mode-map (kbd "M-p") 'org-previous-item)
-  (define-key  org-mode-map (kbd "M-n") 'org-next-item)
+  (cl-loop
+   for b in  
+   '(("M-n" org-next-item)
+     ("M-p" org-previous-item)
+     ("C-o a" tvr-org-alphabetize)
+     ("C-o e" tvr-org-enumerate)
+     ("C-o i" tvr-org-itemize))
+   do
+   (emacspeak-keymap-update org-mode-map b))
   (define-prefix-command 'org-multi-keymap)
   (define-key org-mode-map (kbd "C-'") 'org-multi-keymap)
   (define-key org-multi-keymap "n" #'org-next-link)
