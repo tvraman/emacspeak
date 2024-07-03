@@ -20609,7 +20609,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 63 URL Templates.
+This section documents a total of 64 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -20625,6 +20625,9 @@ Each URL template carries out the following steps:
 @end itemize
 @enumerate 
 
+@item @b{acu weather}
+
+Weather Forecast from ACUWeather
 @item @b{air traffic control}
 
 Find live streams for Air Traffic Control.

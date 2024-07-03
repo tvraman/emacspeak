@@ -771,7 +771,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.244 URL Templates
 ====================
 
-This section documents a total of 63 URL Templates.
+This section documents a total of 64 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u’.  This command
@@ -782,34 +782,37 @@ following steps:
    • Fetch the resulting URL using an appropriate fetcher.
    • Set up the resulting resource with appropriate customizations.
 
-  1. air traffic control
+  1. acu weather
+
+     Weather Forecast from ACUWeather
+  2. air traffic control
 
      Find live streams for Air Traffic Control.
-  2. airport conditions
+  3. airport conditions
 
      Display airport conditions from the FAA.
-  3. amazon product details by asin
+  4. amazon product details by asin
 
      Retrieve product details from Amazon by either ISBN or ASIN.
-  4. aqi from wunderground
+  5. aqi from wunderground
 
      Air quality from Wunderground
-  5. archwiki search
+  6. archwiki search
 
      Search Linux ArchWiki
-  6. bbc 5-live schedule
+  7. bbc 5-live schedule
 
      BBC Radio 5 Live Schedule
-  7. bbc podcast directory
+  8. bbc podcast directory
 
      BBC PodCast Directory
-  8. bbc r4 extra schedule
+  9. bbc r4 extra schedule
 
      BBC Radio 4 Extra Schedule
-  9. bbc r4 schedule
+  10. bbc r4 schedule
 
      BBC R4 Schedule
-  10. bbc sounds
+  11. bbc sounds
 
      Search BBC Sounds.  Result page is filtered down to two sections,
      Shows and Episodes.
@@ -818,170 +821,170 @@ following steps:
      The page for that show contains playable links for Episodes.
 
      Press 'y' on Episode links to play them with MPV.
-  11. bbc world service schedule
+  12. bbc world service schedule
 
      BBC World Service Schedule
-  12. bing news
+  13. bing news
 
      Bing News results as RSS feed.
-  13. business headlines from cnn
+  14. business headlines from cnn
 
      Money Headlines From CNN
-  14. cbs radio streams from streamtheworld
+  15. cbs radio streams from streamtheworld
 
      Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  15. cnbc quotes
+  16. cnbc quotes
 
      Stock portfolio via CNBC
-  16. cnbc ticker
+  17. cnbc ticker
 
      Stock Quote via CNBC
-  17. cnn headlines
+  18. cnn headlines
 
      News Headlines From CNN
-  18. cnn money
+  19. cnn money
 
      CNN Money
-  19. cricinfo print
+  20. cricinfo print
 
      Printer friendly link on Cricinfo
-  20. dictionary lookup
+  21. dictionary lookup
 
      Dictionary Lookup
-  21. emacspeak search via google
+  22. emacspeak search via google
 
      Search Emacspeak Site
-  22. espn cricinfo search
+  23. espn cricinfo search
 
      Cricinfo Search Using Google
-  23. finance google
+  24. finance google
 
      Lookup ticker on Google Finance.
-  24. finance summary from google
+  25. finance summary from google
 
      Display top stocks from Google Finance.
-  25. freesound
+  26. freesound
 
      Search FreeSound.
-  26. gita
+  27. gita
 
      Open specific chapter/verse in the Gita
-  27. global weather from google
+  28. global weather from google
 
      World Weather From Google
-  28. google news search
+  29. google news search
 
      Search Google news.
-  29. google scholar
+  30. google scholar
 
      Google Scholar Search
-  30. google trends
+  31. google trends
 
      Google Trends
-  31. guardian rss feeds directory
+  32. guardian rss feeds directory
 
      Guardian Feeds Directory
-  32. hacker news frontpage
+  33. hacker news frontpage
 
      Display Hacker News Front Page
-  33. hacker news search
+  34. hacker news search
 
      Display Hacker News Front Page
-  34. hoogle haskell api search
+  35. hoogle haskell api search
 
      Haskell API Search against a local server.
-  35. html google news search
+  36. html google news search
 
      Search Google news.
-  36. local weather from google
+  37. local weather from google
 
      Light-weight Google weather.  Displays weather for your current
      US-ZIP Code.
-  37. microsoft search
+  38. microsoft search
 
      Bing results as RSS feed.
-  38. nba standings
+  39. nba standings
 
      Display NBA standings.
-  39. nls bard bookshelf
+  40. nls bard bookshelf
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  40. nls bard popular
+  41. nls bard popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  41. nls bard recent
+  42. nls bard recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  42. nls bard search
+  43. nls bard search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  43. npr
+  44. npr
 
      Open NPR home , then display the alternative links to access RSS
      feeds.
-  44. online radiotime browser
+  45. online radiotime browser
 
      RadioTime Entry point.
-  45. online radiotime search
+  46. online radiotime search
 
      RadioTime Search
-  46. openlibrary
+  47. openlibrary
 
      Open Library Search
-  47. player fm bbc rss feeds
+  48. player fm bbc rss feeds
 
      Player FM BBC RSS Feeds
-  48. radiotime categories
+  49. radiotime categories
 
      RadioTime Categories
-  49. reddit at point
+  50. reddit at point
 
      Open RSS Feed for Reddit URL under point.
-  50. reddit by topic
+  51. reddit by topic
 
      Open RSS Feed for Reddit Topic.
-  51. reddit front page
+  52. reddit front page
 
      Open Feed for Reddit Front Page.
-  52. reddit search
+  53. reddit search
 
      Reddit Search Results Feed.
-  53. sourceforge browse mirrors
+  54. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  54. sourceforge download
+  55. sourceforge download
 
      Download specified file.
-  55. sourceforge project
+  56. sourceforge project
 
      Open specified project page at SourceForge.
-  56. tech news from cnet
+  57. tech news from cnet
 
      Display tech news from CNET
-  57. tinyurl
+  58. tinyurl
 
      URL Shortener via tinyurl.  If on a URL, replace it with the
      shortened version.  If on a link in EWW, use it.  Otherwise prompt
      for a URL to shorten and insert the result at point.
-  58. tunein radio
+  59. tunein radio
 
      Translate StreamId to playable stream.
-  59. washington post
+  60. washington post
 
      Washington Post Contents
-  60. wiki data search
+  61. wiki data search
 
      Search WikiData.
-  61. wikipedia at point
+  62. wikipedia at point
 
      Extract body content from Wikipedia link at point
-  62. wordnet search
+  63. wordnet search
 
      Look up term in WordNet.
-  63. yahoo rssnews
+  64. yahoo rssnews
 
      News From Yahoo As RSS.
 
