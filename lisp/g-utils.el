@@ -58,7 +58,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'json)
-(unless emacspeak-curl (message "This module wont work without Curl."))
+(unless emacspeak-curl (message "This module will not work without Curl."))
 ;;;  Customizations:
 
 (defvar g-scratch-buffer" *g scratch*"
