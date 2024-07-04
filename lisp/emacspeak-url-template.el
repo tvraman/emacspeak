@@ -338,7 +338,7 @@ c  (cl-declare
  "http://rss.accuweather.com/rss/liveweather_rss.asp?locCode=%s"
  (list #'(lambda nil
            (read-from-minibuffer "Location: "
-                             nil nil nil nil gmaps-my-zip)))
+                             nil nil nil t gmaps-my-zip)))
  #'emacspeak-speak-buffer
  "Weather Forecast from ACUWeather"
  #'emacspeak-feeds-rss-display)
