@@ -400,6 +400,7 @@
                 'calendar-end-of-week)))
 
 (define-key calendar-mode-map (kbd "gy") 'emacspeak-empv-yt-after)
+(define-key calendar-mode-map (kbd "gY") 'emacspeak-empv-yt-before)
 ;;;   Appointments:
 
 ;;;  take over and speak the appointment

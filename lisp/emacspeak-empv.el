@@ -529,6 +529,19 @@ The default value is suitable for classical instrumental music."
      'empv-youtube-tabulated
      (concat (read-from-minibuffer "YT Search After") date))))
 
+(defun emacspeak-empv-yt-before ()
+  "Youtube Search  from calendar --- add before:today."
+  (interactive)
+  (cl-assert (eq major-mode 'calendar-mode) t "Not in calendar.")
+  (let ((date
+         (format " before:%d/%02d/%02d"
+                 (cl-third (calendar-cursor-to-date))
+                 (cl-first (calendar-cursor-to-date))
+                 (cl-second (calendar-cursor-to-date)))))
+    (funcall-interactively
+     'empv-youtube-tabulated
+     (concat (read-from-minibuffer "YT Search Before") date))))
+
 
 (provide 'emacspeak-empv)
 ;;;  end of file
