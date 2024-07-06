@@ -786,6 +786,8 @@ results, default is 1."
       (emacspeak-eww-autospeak)
       (browse-url-of-buffer))))
 ;;; Google from Calendar:
+(declare-function calendar-cursor-to-date "calendar" (&optional error event))
+
 ;;;###autoload
 (defun emacspeak-google-search-after ()
   "Google from calendar --- add after:today."
@@ -798,12 +800,12 @@ results, default is 1."
                  (cl-second (calendar-cursor-to-date)))
          ))
     (funcall-interactively
-          'emacspeak-websearch-google
-          (concat
-           (read-from-minibuffer "Search:")
-                  date))))
+     'emacspeak-websearch-google
+     (concat
+      (read-from-minibuffer "Search:")
+      date))))
 
-
+;;;###autoload
 (defun emacspeak-google-search-before ()
   "Google from calendar --- add before:today."
   (interactive)
