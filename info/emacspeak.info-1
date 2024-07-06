@@ -3244,7 +3244,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1168 commands and 127 options.
+   This chapter documents a total of 1169 commands and 127 options.
 
 * Menu:
 
@@ -6677,7 +6677,14 @@ select few for interactive use.
 
      Youtube Search  from calendar -- add after:today.
 
-12.61.4.27 emacspeak-empv-yt-search
+12.61.4.27 emacspeak-empv-yt-before
+...................................
+
+ -- Command: emacspeak-empv-yt-before
+
+     Youtube Search  from calendar -- add before:today.
+
+12.61.4.28 emacspeak-empv-yt-search
 ...................................
 
  -- Command: emacspeak-empv-yt-search (query)
