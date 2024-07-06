@@ -802,7 +802,7 @@ results, default is 1."
     (funcall-interactively
      'emacspeak-websearch-google
      (concat
-      (read-from-minibuffer "Search before date:")
+      (read-from-minibuffer "Date Search After")
       date))))
 
 ;;;###autoload
@@ -819,7 +819,7 @@ results, default is 1."
     (funcall-interactively
           'emacspeak-websearch-google
           (concat
-           (read-from-minibuffer "Search after date:")
+           (read-from-minibuffer "Date Search Before: ")
                   date))))
 
 ;;; youtube to rss:
