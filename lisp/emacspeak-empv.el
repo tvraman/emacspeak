@@ -512,6 +512,9 @@ The default value is suitable for classical instrumental music."
   (message "Toggled output right"))
 ;;; YT Date Search:
 
+(declare-function calendar-cursor-to-date "calendar" (&optional error event))
+
+
 ;;;###autoload
 (defun emacspeak-empv-yt-after ()
   "Youtube Search  from calendar --- add after:today."
@@ -524,8 +527,7 @@ The default value is suitable for classical instrumental music."
                  (cl-second (calendar-cursor-to-date)))))
     (funcall-interactively
      'empv-youtube-tabulated
-     (url-encode-url (concat (read-from-minibuffer "YT Search After")
-                             date)))))
+     (concat (read-from-minibuffer "YT Search After") date))))
 
 
 (provide 'emacspeak-empv)

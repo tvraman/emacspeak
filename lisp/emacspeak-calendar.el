@@ -399,6 +399,7 @@
     (define-key calendar-mode-map  "\C-ee"
                 'calendar-end-of-week)))
 
+(define-key calendar-mode-map (kbd "gy") 'emacspeak-empv-yt-after)
 ;;;   Appointments:
 
 ;;;  take over and speak the appointment
