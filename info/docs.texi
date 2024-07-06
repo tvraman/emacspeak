@@ -251,7 +251,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1165 commands and 127 options.
+This chapter documents a total of 1167 commands and 127 options.
 
 @node amixer
 @section amixer
@@ -7650,6 +7650,24 @@ Perform a google search restricted to the current WWW site.
 
 @format
 Open Google link under point.
+@end format
+@end deffn
+
+@subsubsection emacspeak-google-search-after
+@deffn {Command} emacspeak-google-search-after   
+@findex emacspeak-google-search-after
+
+@format
+Google from calendar --- add after:today.
+@end format
+@end deffn
+
+@subsubsection emacspeak-google-search-before
+@deffn {Command} emacspeak-google-search-before   
+@findex emacspeak-google-search-before
+
+@format
+Google from calendar --- add before:today.
 @end format
 @end deffn
 
@@ -20492,7 +20510,7 @@ mode if ARG is nil, omitted, or is a positive number.  Disable the mode
 if ARG is a negative number.
 
 To check whether the minor mode is enabled in the current buffer,
-evaluate ‘voice-lock-mode’.
+evaluate the variable ‘voice-lock-mode’.
 
 The mode’s hook is called both when the mode is enabled and when it is
 disabled.

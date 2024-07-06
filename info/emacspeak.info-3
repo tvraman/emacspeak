@@ -12,7 +12,175 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 3, 2024.
+last updated on July 5, 2024.
+
+
+File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options
+
+12.236 soundscape
+=================
+
+Soundscapes <https://en.wikipedia.org/wiki/Soundscape> define an
+acoustic environment.  Boodler at <http://boodler.org> is a Python-based
+SoundScape generator.  To use this module, first install boodler.  Then
+install the soundscape packages (*.boop) files available at
+<http://boodler.org/lib>.  Make sure boodler works and produces audio in
+your environment.  finally install the Boodler packages from
+emacspeak/scapes from the Emacspeak GitHub repository by running ‘cd
+emacspeak/scapes; make ’
+
+   When boodler is set up and all packages installed, copy file
+emacspeak/scapes/soundscapes to ~/.boodler/Collection.  The above file
+lists all installed SoundScapes.  Directory emacspeak/scapes also
+contains additional Boodler Agents and SoundScapes that I have created
+for use with Emacspeak.
+
+   Module soundscape.el defines Emacs conveniences for running
+Soundscapes.  Main Entry Points:
+
+   • M-x soundscape-toggle - Enables or disables automatic SoundScapes.
+   • M-x soundscape - runs a named SoundScape
+   • M-x soundscape-stop - Stops a specified running Soundscape.
+   • M-x soundscape-kill - Kills all running Soundscapes.
+
+   When automatic Soundscapes are enabled, SoundScapes are started and
+stopped based on the current major mode.  Active Soundscape are
+displayed as part of the minor-mode-alist.  Command
+emacspeak-speak-minor-mode-line can be used to have this spoken.
+
+   Thus, SoundScapes can be thought of as reflecting the *mood* of the
+current *mode*.  This package defines a single SOUNDSCAPE-DEFAULT-THEME
+that is loaded using ‘(soundscape-load soundscape-default-theme)’.
+Emacs modes that provide similar functionality e.g., communication ==
+email, IM, ...  map to the same *mood*.
+
+12.236.1 Soundscape Commands
+----------------------------
+
+12.236.1.1 soundscape
+.....................
+
+ -- Command: soundscape (scape)
+     ‘C-. s’
+     ‘C-x @ s s’
+
+     Play soundscape.
+
+     (fn SCAPE)
+
+12.236.1.2 soundscape-kill
+..........................
+
+ -- Command: soundscape-kill
+
+     Stop all running soundscapes.
+
+12.236.1.3 soundscape-listener
+..............................
+
+ -- Command: soundscape-listener (&optional restart)
+
+     Start  a Soundscape listener.
+     Listener is loaded with all Soundscapes defined in ‘soundscape-default-theme’ .
+     Optional interactive prefix arg restarts the listener.
+
+     (fn &optional RESTART)
+
+12.236.1.4 soundscape-listener-shutdown
+.......................................
+
+ -- Command: soundscape-listener-shutdown
+
+     Shutdown listener.
+
+12.236.1.5 soundscape-remote
+............................
+
+ -- Command: soundscape-remote (names)
+
+     Activate scapes named ‘names’ -- a list of strings.
+
+     (fn NAMES)
+
+12.236.1.6 soundscape-restart
+.............................
+
+ -- Command: soundscape-restart (&optional prompt)
+     ‘C-. r’
+     ‘C-x @ s r’
+
+     Restart Soundscape  environment.
+     With prefix arg ‘prompt’, prompt for a alsa/ladspa device and volume.
+     The  is then saved to soundscape-device for future use.
+
+     (fn &optional PROMPT)
+
+12.236.1.7 soundscape-stop
+..........................
+
+ -- Command: soundscape-stop (scape)
+
+     Stop running Soundscape.
+
+     (fn SCAPE)
+
+12.236.1.8 soundscape-theme
+...........................
+
+ -- Command: soundscape-theme
+
+     Shows default theme in a special buffer.
+
+12.236.1.9 soundscape-toggle
+............................
+
+ -- Command: soundscape-toggle
+     ‘C-. t’
+     ‘C-x @ s t’
+
+     Toggle automatic SoundScapes.
+     Run command M-x soundscape-theme to see the default mode->mood mapping.
+
+12.236.1.10 soundscape-update-mood
+..................................
+
+ -- Command: soundscape-update-mood (&optional prompt-mode)
+     ‘C-. u’
+     ‘C-x @ s u’
+
+     Update mood/scape mapping for current  mode.
+     The  updated mapping is not persisted.
+     Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
+
+     (fn &optional PROMPT-MODE)
+
+12.236.2 soundscape Options
+---------------------------
+
+ -- Variable: User Option soundscape-data
+     Soundscape data directory.
+
+     Default Value:
+     
+     "/home/raman/.boodler/Collection"
+     
+
+ -- Variable: User Option soundscape-device
+     Alsa sound device to use for soundscapes.
+
+     Default Value:
+     
+     "default"
+     
+
+ -- Variable: User Option soundscape-manager-options
+     User customizable options list passed to boodler.
+     Defaults specify alsa as the output and set master volume
+
+     Default Value:
+     
+     ("-o" "pulse" "-m" "0.15")
+     
 
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
@@ -671,7 +839,7 @@ defining face->personality mappings.  For use from other modules.
      if ARG is a negative number.
 
      To check whether the minor mode is enabled in the current buffer,
-     evaluate ‘voice-lock-mode’.
+     evaluate the variable ‘voice-lock-mode’.
 
      The mode’s hook is called both when the mode is enabled and when it is
      disabled.
@@ -2374,11 +2542,11 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-; w:                                 emacspeak-wizards.  (line  688)
 * C-. .:                                 emacspeak-wizards.  (line  813)
 * C-. d:                                 emacspeak-dired.    (line   25)
-* C-. g l:                               emacspeak-google.   (line   90)
-* C-. g n:                               emacspeak-google.   (line  102)
-* C-. g p:                               emacspeak-google.   (line  112)
-* C-. g r:                               emacspeak-google.   (line  122)
-* C-. g s:                               emacspeak-google.   (line  133)
+* C-. g l:                               emacspeak-google.   (line  104)
+* C-. g n:                               emacspeak-google.   (line  116)
+* C-. g p:                               emacspeak-google.   (line  126)
+* C-. g r:                               emacspeak-google.   (line  136)
+* C-. g s:                               emacspeak-google.   (line  147)
 * C-. h:                                 emacspeak-org.      (line   27)
 * C-. l:                                 emacspeak-wizards.  (line  619)
 * C-. m:                                 emacspeak-wizards.  (line 1042)
@@ -2392,7 +2560,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-. v:                                 extra-muggles.      (line  263)
 * C-' ':                                 emacspeak-pianobar. (line   45)
 * C-' p:                                 emacspeak-wizards.  (line  732)
-* C-' y:                                 emacspeak-google.   (line  161)
+* C-' y:                                 emacspeak-google.   (line  175)
 * C-/:                                   emacspeak-muggles.  (line  203)
 * C-<f1>:                                amixer.             (line   63)
 * C-<f2>:                                amixer.             (line   75)
@@ -2855,11 +3023,11 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-x @ h w:                             emacspeak-wizards.  (line  690)
 * C-x @ s .:                             emacspeak-wizards.  (line  815)
 * C-x @ s d:                             emacspeak-dired.    (line   26)
-* C-x @ s g l:                           emacspeak-google.   (line   91)
-* C-x @ s g n:                           emacspeak-google.   (line  103)
-* C-x @ s g p:                           emacspeak-google.   (line  113)
-* C-x @ s g r:                           emacspeak-google.   (line  123)
-* C-x @ s g s:                           emacspeak-google.   (line  134)
+* C-x @ s g l:                           emacspeak-google.   (line  105)
+* C-x @ s g n:                           emacspeak-google.   (line  117)
+* C-x @ s g p:                           emacspeak-google.   (line  127)
+* C-x @ s g r:                           emacspeak-google.   (line  137)
+* C-x @ s g s:                           emacspeak-google.   (line  148)
 * C-x @ s h:                             emacspeak-org.      (line   28)
 * C-x @ s l:                             emacspeak-wizards.  (line  620)
 * C-x @ s m:                             emacspeak-wizards.  (line 1044)
@@ -3991,34 +4159,38 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-google-on-this-site <1>:     emacspeak-google.   (line   38)
 * emacspeak-google-open-link:            emacspeak-google.   (line   44)
 * emacspeak-google-open-link <1>:        emacspeak-google.   (line   45)
-* emacspeak-google-show-toolbelt:        emacspeak-google.   (line   51)
-* emacspeak-google-show-toolbelt <1>:    emacspeak-google.   (line   52)
-* emacspeak-google-sign-in:              emacspeak-google.   (line   58)
-* emacspeak-google-sign-in <1>:          emacspeak-google.   (line   59)
-* emacspeak-google-sign-out:             emacspeak-google.   (line   65)
-* emacspeak-google-sign-out <1>:         emacspeak-google.   (line   66)
-* emacspeak-google-similar-to-this-page: emacspeak-google.   (line   72)
+* emacspeak-google-search-after:         emacspeak-google.   (line   51)
+* emacspeak-google-search-after <1>:     emacspeak-google.   (line   52)
+* emacspeak-google-search-before:        emacspeak-google.   (line   58)
+* emacspeak-google-search-before <1>:    emacspeak-google.   (line   59)
+* emacspeak-google-show-toolbelt:        emacspeak-google.   (line   65)
+* emacspeak-google-show-toolbelt <1>:    emacspeak-google.   (line   66)
+* emacspeak-google-sign-in:              emacspeak-google.   (line   72)
+* emacspeak-google-sign-in <1>:          emacspeak-google.   (line   73)
+* emacspeak-google-sign-out:             emacspeak-google.   (line   79)
+* emacspeak-google-sign-out <1>:         emacspeak-google.   (line   80)
+* emacspeak-google-similar-to-this-page: emacspeak-google.   (line   86)
 * emacspeak-google-similar-to-this-page <1>: emacspeak-google.
-                                                             (line   73)
-* emacspeak-google-toolbelt-change:      emacspeak-google.   (line   81)
-* emacspeak-google-toolbelt-change <1>:  emacspeak-google.   (line   82)
-* emacspeak-google-tts-line:             emacspeak-google.   (line   88)
-* emacspeak-google-tts-line <1>:         emacspeak-google.   (line   92)
-* emacspeak-google-tts-next-line:        emacspeak-google.   (line  100)
-* emacspeak-google-tts-next-line <1>:    emacspeak-google.   (line  104)
-* emacspeak-google-tts-previous-line:    emacspeak-google.   (line  110)
-* emacspeak-google-tts-previous-line <1>: emacspeak-google.  (line  114)
-* emacspeak-google-tts-region:           emacspeak-google.   (line  120)
-* emacspeak-google-tts-region <1>:       emacspeak-google.   (line  124)
-* emacspeak-google-tts-speak:            emacspeak-google.   (line  131)
-* emacspeak-google-tts-speak <1>:        emacspeak-google.   (line  135)
-* emacspeak-google-what-is-my-ip:        emacspeak-google.   (line  144)
-* emacspeak-google-what-is-my-ip <1>:    emacspeak-google.   (line  145)
-* emacspeak-google-who-links-to-this-page: emacspeak-google. (line  151)
+                                                             (line   87)
+* emacspeak-google-toolbelt-change:      emacspeak-google.   (line   95)
+* emacspeak-google-toolbelt-change <1>:  emacspeak-google.   (line   96)
+* emacspeak-google-tts-line:             emacspeak-google.   (line  102)
+* emacspeak-google-tts-line <1>:         emacspeak-google.   (line  106)
+* emacspeak-google-tts-next-line:        emacspeak-google.   (line  114)
+* emacspeak-google-tts-next-line <1>:    emacspeak-google.   (line  118)
+* emacspeak-google-tts-previous-line:    emacspeak-google.   (line  124)
+* emacspeak-google-tts-previous-line <1>: emacspeak-google.  (line  128)
+* emacspeak-google-tts-region:           emacspeak-google.   (line  134)
+* emacspeak-google-tts-region <1>:       emacspeak-google.   (line  138)
+* emacspeak-google-tts-speak:            emacspeak-google.   (line  145)
+* emacspeak-google-tts-speak <1>:        emacspeak-google.   (line  149)
+* emacspeak-google-what-is-my-ip:        emacspeak-google.   (line  158)
+* emacspeak-google-what-is-my-ip <1>:    emacspeak-google.   (line  159)
+* emacspeak-google-who-links-to-this-page: emacspeak-google. (line  165)
 * emacspeak-google-who-links-to-this-page <1>: emacspeak-google.
-                                                             (line  152)
-* emacspeak-google-yt-feed:              emacspeak-google.   (line  159)
-* emacspeak-google-yt-feed <1>:          emacspeak-google.   (line  162)
+                                                             (line  166)
+* emacspeak-google-yt-feed:              emacspeak-google.   (line  173)
+* emacspeak-google-yt-feed <1>:          emacspeak-google.   (line  176)
 * emacspeak-goto-percent:                emacspeak-speak.    (line   93)
 * emacspeak-goto-percent <1>:            emacspeak-speak.    (line   96)
 * emacspeak-gridtext-apply:              emacspeak-gridtext. (line   25)
