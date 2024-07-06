@@ -510,6 +510,23 @@ The default value is suitable for classical instrumental music."
   (empv--send-command (list "af" "toggle" "stereotools=mutel=true"))
   (emacspeak-icon 'button)
   (message "Toggled output right"))
+;;; YT Date Search:
+
+;;;###autoload
+(defun emacspeak-empv-yt-after ()
+  "Youtube Search  from calendar --- add after:today."
+  (interactive)
+  (cl-assert (eq major-mode 'calendar-mode) t "Not in calendar.")
+  (let ((date
+         (format " after: %d/%02d/%02d"
+                 (cl-third (calendar-cursor-to-date))
+                 (cl-first (calendar-cursor-to-date))
+                 (cl-second (calendar-cursor-to-date)))))
+    (funcall-interactively
+     'empv-youtube-tabulated
+     (url-encode-url (concat (read-from-minibuffer "YT Search After")
+                             date)))))
+
 
 (provide 'emacspeak-empv)
 ;;;  end of file
