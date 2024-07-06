@@ -12,7 +12,19 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 5, 2024.
+last updated on July 6, 2024.
+
+
+File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: pip,  Up: Emacspeak Commands And Options
+
+12.235 plain-voices
+===================
+
+This module defines the various voices used in voice-lock mode.  Module
+Plain is suitable for a device for which you haven't yet implemented
+appropriate voice-locking controls
+
+   required modules
 
 
 File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options
@@ -2984,7 +2996,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
                                                              (line  191)
 * C-e y E:                               emacspeak-epub.     (line  317)
 * C-e y l:                               emacspeak-empv.     (line  192)
-* C-e y s:                               emacspeak-empv.     (line  266)
+* C-e y s:                               emacspeak-empv.     (line  273)
 * C-e y y:                               emacspeak-empv.     (line  200)
 * C-e z b:                               emacspeak-wizards.  (line 1043)
 * C-e z e:                               emacspeak-wizards.  (line  494)
@@ -3710,8 +3722,10 @@ File: emacspeak.info,  Node: Function Index,  Next: Variable Index,  Prev: Key I
 * emacspeak-empv-toggle-left <1>:        emacspeak-empv.     (line  251)
 * emacspeak-empv-toggle-right:           emacspeak-empv.     (line  257)
 * emacspeak-empv-toggle-right <1>:       emacspeak-empv.     (line  258)
-* emacspeak-empv-yt-search:              emacspeak-empv.     (line  264)
-* emacspeak-empv-yt-search <1>:          emacspeak-empv.     (line  267)
+* emacspeak-empv-yt-after:               emacspeak-empv.     (line  264)
+* emacspeak-empv-yt-after <1>:           emacspeak-empv.     (line  265)
+* emacspeak-empv-yt-search:              emacspeak-empv.     (line  271)
+* emacspeak-empv-yt-search <1>:          emacspeak-empv.     (line  274)
 * emacspeak-enriched-voiceify-faces:     emacspeak-enriched. (line   14)
 * emacspeak-enriched-voiceify-faces <1>: emacspeak-enriched. (line   15)
 * emacspeak-eperiodic-goto-property-section: emacspeak-eperiodic.

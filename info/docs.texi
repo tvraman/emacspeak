@@ -251,7 +251,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1167 commands and 127 options.
+This chapter documents a total of 1168 commands and 127 options.
 
 @node amixer
 @section amixer
@@ -4084,6 +4084,15 @@ Toggle output to being just on the left.
 
 @format
 Toggle output to being just on the right.
+@end format
+@end deffn
+
+@subsubsection emacspeak-empv-yt-after
+@deffn {Command} emacspeak-empv-yt-after   
+@findex emacspeak-empv-yt-after
+
+@format
+Youtube Search  from calendar --- add after:today.
 @end format
 @end deffn
 
