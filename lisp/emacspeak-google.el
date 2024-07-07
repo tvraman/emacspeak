@@ -794,7 +794,7 @@ results, default is 1."
   (interactive)
   (cl-assert (eq major-mode 'calendar-mode) t "Not in calendar.")
   (let ((date
-         (format " after: %d/%02d/%02d"
+         (format " after:%d/%02d/%02d"
                  (cl-third (calendar-cursor-to-date))
                  (cl-first (calendar-cursor-to-date))
                  (cl-second (calendar-cursor-to-date)))
@@ -812,7 +812,7 @@ results, default is 1."
   (interactive)
   (cl-assert (eq major-mode 'calendar-mode) t "Not in calendar.")
   (let ((date
-         (format " before: %d/%02d/%02d"
+         (format " before:%d/%02d/%02d"
                  (cl-third (calendar-cursor-to-date))
                  (cl-first (calendar-cursor-to-date))
                  (cl-second (calendar-cursor-to-date)))
