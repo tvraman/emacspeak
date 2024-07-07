@@ -35,6 +35,7 @@
 * emacspeak-comint::Speech-enable COMINT.
 * emacspeak-company::Speech-enable COMPANY.
 * emacspeak-compile::Speech enable compile.
+* emacspeak-consult::Speech-enable CONSULT.
 * emacspeak-cperl::Speech enable CPerl.
 * emacspeak-custom::Speech enable custom.
 * emacspeak-dbus::DBus On Emacspeak.
@@ -2915,6 +2916,11 @@ This module makes compiling code from inside Emacs speech friendly.
 Speech feedback about the compilation error. 
 @end format
 @end deffn
+
+@node emacspeak-consult
+@section emacspeak-consult
+
+CONSULT ==  A modern completing-read
 
 @node emacspeak-cperl
 @section emacspeak-cperl
