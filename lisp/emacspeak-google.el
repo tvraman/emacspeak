@@ -253,14 +253,6 @@
          :range '("YYYY" "MM")
          :default ""
          :value "")
-        ;; Date Filter
-        (make-ems--g-tool
-         :name "date-filter"
-         :param "qdr"
-         :range '("d" "h" "n" "m" "w" "y")
-         :default ""
-         :type 'tbs
-         :value "")
         ;; Timeline High
         (make-ems--g-tool
          :name "timeline-high"
