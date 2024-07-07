@@ -351,10 +351,10 @@ c  (cl-declare
  "https://www.google.com/search?num=25&gbv=1&q=weather+%s"
  (list #'(lambda nil gmaps-my-zip))
  #'(lambda nil
+     (setq header-line-format "Local Weather")
      (search-forward "Search Tools")
      (forward-line 2)
      (emacspeak-icon 'open-object)
-     (setq header-line-format "")
      (tts-with-punctuations 'some
        (emacspeak-speak-region
         (point)
@@ -369,7 +369,7 @@ c  (cl-declare
      (search-forward "Search Tools")
      (forward-line 2)
      (emacspeak-icon 'open-object)
-     (setq header-line-format "")
+     (setq header-line-format "Global Weather")
      (tts-with-punctuations 'some
        (emacspeak-speak-region
         (save-excursion (forward-line -1) (line-beginning-position))
