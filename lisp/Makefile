@@ -105,6 +105,7 @@ emacspeak-combobulate.elc \
 emacspeak-comint.elc \
 emacspeak-company.elc \
 emacspeak-compile.elc \
+emacspeak-consult.elc \
 emacspeak-cperl.elc \
 emacspeak-custom.elc \
 emacspeak-dbus.elc \
