@@ -68,20 +68,12 @@
 ;;;  Interactive Commands:
 
 '(
-  
 consult-complex-command
-
-
 consult-flymake
 consult-focus-lines
-consult-git-grep
 consult-global-mark
 consult-goto-line
-
 consult-history
-consult-imenu
-consult-imenu-multi
-consult-info
 consult-isearch-backward
 consult-isearch-forward
 consult-isearch-history
@@ -89,16 +81,11 @@ consult-keep-lines
 consult-kmacro
 consult-line
 consult-line-multi
-consult-locate
-consult-man
 consult-mark
 consult-minor-mode-menu
 consult-mode-command
 consult-narrow
 consult-narrow-help
-consult-org-agenda
-consult-org-heading
-consult-outline
 consult-preview-at-point
 consult-preview-at-point-mode
 consult-project-buffer
@@ -106,7 +93,6 @@ consult-recent-file
 consult-register
 consult-register-load
 consult-register-store
-consult-ripgrep
 consult-theme
 consult-yank-from-kill-ring
 consult-yank-pop
