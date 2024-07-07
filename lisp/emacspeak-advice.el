@@ -2227,7 +2227,9 @@ Produce an auditory icon if possible."
   (emacspeak-icon 'close-object))
 
 (add-hook 'minibuffer-exit-hook #'emacspeak-minibuffer-exit-hook)
-
+(cl-declaim (special minibuffer-mode-map))
+(define-key minibuffer-mode-map (kbd "C-c a") 'emacspeak-filter-after)
+(define-key minibuffer-mode-map (kbd "C-c b") 'emacspeak-filter-before)
 ;;;  Advice occur
 
 (cl-loop

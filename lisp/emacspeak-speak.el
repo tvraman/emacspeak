@@ -297,6 +297,23 @@ message area.  You can use command
          'all (emacspeak-speak-windowful))))
      (t (emacspeak-speak-line)))))
 
+;;; Minibuffer Helpers:
+;;;###autoload
+(defun emacspeak-filter-after ()
+  "Add after:today filter"
+  (interactive)
+  (insert (format " after:%s" (format-time-string "%Y/%m/%d")))
+  (emacspeak-icon 'yank-object)
+  (emacspeak-speak-line))
+
+;;;###autoload
+(defun emacspeak-filter-before ()
+  "Add before:today filter"
+  (interactive)
+  (insert (format " before:%s" (format-time-string "%Y/%m/%d")))
+  (emacspeak-icon 'yank-object)
+  (emacspeak-speak-line))
+
 ;;;   Macros
 
 ;; Save read-only and modification state, perform some actions and

@@ -780,6 +780,8 @@ results, default is 1."
 ;;; Google from Calendar:
 (declare-function calendar-cursor-to-date "calendar" (&optional error event))
 
+
+
 ;;;###autoload
 (defun emacspeak-google-search-after ()
   "Google from calendar --- add after:date-at-point."
