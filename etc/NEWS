@@ -11,3 +11,12 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 * Emacspeak 61 --- Emacspeak 61 User Visible Changes
 
 This version requires Emacs-29.1 or later.
+
+** Search From Calendar
+
+You can perform before/after  Web and Youtube searches from within the
+Emacs Calendar. Keys: _gg_, _gG_, _gy_ and _gY_ in Calendar.
+
+** EMPV And Youtube
+
+More empv-aware commands.
