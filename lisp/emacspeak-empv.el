@@ -517,7 +517,7 @@ The default value is suitable for classical instrumental music."
 
 ;;;###autoload
 (defun emacspeak-empv-yt-after ()
-  "Youtube Search  from calendar --- add after:today."
+  "Youtube Search  from calendar --- add after:date-at-point.."
   (interactive)
   (cl-assert (eq major-mode 'calendar-mode) t "Not in calendar.")
   (let ((date
@@ -530,7 +530,7 @@ The default value is suitable for classical instrumental music."
      (concat (read-from-minibuffer "YT Search After") date))))
 
 (defun emacspeak-empv-yt-before ()
-  "Youtube Search  from calendar --- add before:today."
+  "Youtube Search  from calendar --- add before:date-at-point.."
   (interactive)
   (cl-assert (eq major-mode 'calendar-mode) t "Not in calendar.")
   (let ((date
