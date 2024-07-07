@@ -251,7 +251,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1169 commands and 127 options.
+This chapter documents a total of 1171 commands and 127 options.
 
 @node amixer
 @section amixer
@@ -4092,7 +4092,7 @@ Toggle output to being just on the right.
 @findex emacspeak-empv-yt-after
 
 @format
-Youtube Search  from calendar --- add after:today.
+Youtube Search  from calendar --- add after:date-at-point..
 @end format
 @end deffn
 
@@ -4101,7 +4101,7 @@ Youtube Search  from calendar --- add after:today.
 @findex emacspeak-empv-yt-before
 
 @format
-Youtube Search  from calendar --- add before:today.
+Youtube Search  from calendar --- add before:date-at-point..
 @end format
 @end deffn
 
@@ -7676,7 +7676,7 @@ Open Google link under point.
 @findex emacspeak-google-search-after
 
 @format
-Google from calendar --- add after:today.
+Google from calendar --- add after:date-at-point.
 @end format
 @end deffn
 
@@ -7685,7 +7685,7 @@ Google from calendar --- add after:today.
 @findex emacspeak-google-search-before
 
 @format
-Google from calendar --- add before:today.
+Google from calendar --- add before:date-at-point.
 @end format
 @end deffn
 
@@ -12327,6 +12327,24 @@ Use interactive prefix arg to get coordinate positions of the
 displayed buffers.
 
 (fn &optional DETAILS)
+@end format
+@end deffn
+
+@subsubsection emacspeak-filter-after
+@deffn {Command} emacspeak-filter-after   
+@findex emacspeak-filter-after
+
+@format
+Add after:today filter
+@end format
+@end deffn
+
+@subsubsection emacspeak-filter-before
+@deffn {Command} emacspeak-filter-before   
+@findex emacspeak-filter-before
+
+@format
+Add before:today filter
 @end format
 @end deffn
 

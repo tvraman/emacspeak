@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 6, 2024.
+last updated on July 7, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3244,7 +3244,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1169 commands and 127 options.
+   This chapter documents a total of 1171 commands and 127 options.
 
 * Menu:
 
@@ -6675,14 +6675,14 @@ select few for interactive use.
 
  -- Command: emacspeak-empv-yt-after
 
-     Youtube Search  from calendar -- add after:today.
+     Youtube Search  from calendar -- add after:date-at-point..
 
 12.61.4.27 emacspeak-empv-yt-before
 ...................................
 
  -- Command: emacspeak-empv-yt-before
 
-     Youtube Search  from calendar -- add before:today.
+     Youtube Search  from calendar -- add before:date-at-point..
 
 12.61.4.28 emacspeak-empv-yt-search
 ...................................
