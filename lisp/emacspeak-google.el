@@ -782,39 +782,32 @@ results, default is 1."
 
 ;;;###autoload
 (defun emacspeak-google-search-after ()
-  "Google from calendar --- add after:today."
+  "Google from calendar --- add after:date-at-point."
   (interactive)
   (cl-assert (eq major-mode 'calendar-mode) t "Not in calendar.")
   (let ((date
          (format " after:%d/%02d/%02d"
                  (cl-third (calendar-cursor-to-date))
                  (cl-first (calendar-cursor-to-date))
-                 (cl-second (calendar-cursor-to-date)))
-         ))
+                 (cl-second (calendar-cursor-to-date)))))
     (funcall-interactively
      'emacspeak-websearch-google
-     (url-encode-url
-      (concat
-       (read-from-minibuffer "Date Search After")
-       date)))))
+     (url-encode-url (concat (read-from-minibuffer "Search After") date)))))
 
 ;;;###autoload
 (defun emacspeak-google-search-before ()
-  "Google from calendar --- add before:today."
+  "Google from calendar --- add before:date-at-point."
   (interactive)
   (cl-assert (eq major-mode 'calendar-mode) t "Not in calendar.")
   (let ((date
          (format " before:%d/%02d/%02d"
                  (cl-third (calendar-cursor-to-date))
                  (cl-first (calendar-cursor-to-date))
-                 (cl-second (calendar-cursor-to-date)))
-         ))
+                 (cl-second (calendar-cursor-to-date)))))
     (funcall-interactively
      'emacspeak-websearch-google
      (url-encode-url
-      (concat
-       (read-from-minibuffer "Date Search Before: ")
-       date)))))
+      (concat (read-from-minibuffer "Date Search Before: ") date)))))
 
 ;;; youtube to rss:
 
