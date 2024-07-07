@@ -130,19 +130,16 @@ n == News.")
 (defun gweb--autocomplete-helper (&optional prompt)
   "Helper: Read user input using Google Suggest for auto-completion.
 Uses corpus found in gweb-completion-corpus"
-  (let (
-        (gweb-completion-flag t)
+  (let ((gweb-completion-flag t)
         (completion-ignore-case t)
-        (word (thing-at-point 'word))
         (query nil))
-    (setq gweb-history
-          (cl-remove-duplicates gweb-history :test #'string-equal))
+    (setq gweb-history (cl-remove-duplicates gweb-history :test #'string-equal))
     (setq query
           (completing-read
            (or prompt "Google: ")
            'gweb-suggest-completer      ; collection
            nil nil                      ; predicate required-match
-           word                         ; initial input
+           nil                         ; initial input
            'gweb-history))
     (g-url-encode query)))
 
