@@ -20,3 +20,8 @@ Emacs Calendar. Keys: _gg_, _gG_, _gy_ and _gY_ in Calendar.
 ** EMPV And Youtube
 
 More empv-aware commands.
+
+
+** Speech-enable Consult
+
+Module ~emacspeak-consult~ speech-enables the ~consult~ package.
