@@ -434,6 +434,7 @@ If a dynamic playlist exists, just use it."
    (emacspeak-m-player-hotkey-p (emacspeak-media-local-resource prefix))
    (t                               ; not hotkey, not dynamic playlist
     (let* ((completion-ignore-case t)
+           (minibuffer-completing-file-name t)
            (read-file-name-completion-ignore-case t)
            (filename
             (when (memq major-mode '(dired-mode locate-mode))
