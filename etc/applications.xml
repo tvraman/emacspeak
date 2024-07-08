@@ -66,6 +66,8 @@ type="text/xsl"?>
     <application name="elscreen">
       Speech-enables package ElScreen for managing Emacs window layouts.
     </application>
+    <application name="stumpwm">
+      Speech-enable StumpWM</application>
     <application name="sawfish">
       Speech-enables the Sawfish window-manager.
     </application>
