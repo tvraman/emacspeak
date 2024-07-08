@@ -305,7 +305,7 @@ _p_ emacspeak-muggles-lispy-or-sp:
 
 ;; Repeatable undo-only and undo-redo
 (global-set-key
- (kbd "C-/")
+ (kbd "s-/")
  (defhydra
   emacspeak-muggles-undo-only/undo-redo
   (:body-pre (emacspeak-hydra-body-pre "Undo Smartly")
