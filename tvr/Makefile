@@ -10,6 +10,7 @@ Q_TEST=-batch  --eval '(setq debug-on-error t)'
 #files we will load on startup:
 
 ALL= \
+consult-prepare.el \
 gnus-gmail-prepare.el \
 kbd-macros.el \
 laptop-local.el \
