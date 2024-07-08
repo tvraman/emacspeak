@@ -36,7 +36,7 @@
    ("u" consult-focus-lines)
    )
  do
- (define-key  emacspeak-consult-keymap (car b) (cadr b)))
+ (define-key  emacspeak-consult-keymap (kbd (car b))  (cadr b)))
 ;;;  Gnus Setup For GMail imap:  -*- lexical-binding: t; -*-
 ;; Read GMailusing gnus  with 2-factor (Oauth2) authentication.
 ;; Uses auth-source-xoauth2:
