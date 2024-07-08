@@ -25,6 +25,7 @@
    ("c" consult-locate)
    ("d" consult-find)
    ("e" consult-compile-error)
+   ("g" consult-grep)
    ("f" consult-fd)
    ("h" consult-org-heading)
    ("i" consult-imenu)

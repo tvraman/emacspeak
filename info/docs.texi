@@ -2921,6 +2921,14 @@ Speech feedback about the compilation error.
 @section emacspeak-consult
 
 CONSULT ==  A modern completing-read
+@section Consult
+@itemize
+@item Setup @code{consult-after-jump-hook} to speak  where we
+land.
+@item Advice needed interactive commands.
+@item Map faces.
+@item Setup: Put consult commands on @code{C-/}
+@end itemize
 
 @node emacspeak-cperl
 @section emacspeak-cperl
@@ -10452,8 +10460,8 @@ The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
 @subsubsection emacspeak-muggles-undo-only/undo-redo/body
 @deffn {Command} emacspeak-muggles-undo-only/undo-redo/body   
 @table @kbd
-@item C-/
-@kindex C-/
+@item s-/
+@kindex s-/
 @end table
 
 @findex emacspeak-muggles-undo-only/undo-redo/body
