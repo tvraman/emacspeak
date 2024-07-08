@@ -560,6 +560,10 @@ module emacspeak-vdiff.</application>
     Finds files within a project using cached list of files.</application>
     <application name="magit">
     Emacs front-end to GIT</application>
+    <application name="forge">
+      Work with Git forges, such as Github and Gitlab, from the comfort
+of Magit and the rest of Emacs.
+    </application>
     <application name="vc">
     Front-end to version control systems like SVN, GIT, HG, CVS and RCS.</application>
     <application name="pcl-cvs">
