@@ -603,6 +603,9 @@ module emacspeak-vdiff.</application>
     <application name="xref">
       Support for cross-references via package XRef in Emacs-25.
     </application>
+<application name="consult">
+      Completion with instant preview.
+    </application>
     <application name="company">
       Complete anything support.
       Supports all features of package Company via a custom speech-enabled front-end.
