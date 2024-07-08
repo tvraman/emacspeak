@@ -175,6 +175,10 @@ type="text/xsl"?>
       <application name="google">
         Support for Google search --- including the Google tool-belt for
       refining searches.</application>
+      <application name="ebuku">
+        Ebuku provides a basic interface to the
+[buku](https://github.com/jarun/buku) Web bookmark manager.
+      </application>
   </category>
   <category name="Google Client">
     <application name="gblogger">
