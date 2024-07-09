@@ -144,6 +144,7 @@ consult-compile-error)
 (define-prefix-command 'emacspeak-consult-keymap)
 
 (global-set-key (kbd "C-/") 'emacspeak-consult-keymap)
+consult-project-buffer
 
 (cl-loop
  for b in
@@ -155,6 +156,7 @@ consult-compile-error)
    (":" consult-complex-command)
    ("B" consult-bookmark)
    ("G" consult-goto-line)
+   ("H" consult-history)
    ("K" consult-keep-lines)
    ("L" consult-line-multi)
    ("M" consult-mark)
