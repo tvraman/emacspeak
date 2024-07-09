@@ -139,7 +139,7 @@ Uses corpus found in gweb-completion-corpus"
            (or prompt "Google: ")
            'gweb-suggest-completer      ; collection
            nil nil                      ; predicate required-match
-           nil                         ; initial input
+           (if mark-active (word-at-point))                         ; initial input
            'gweb-history))
     (g-url-encode query)))
 
