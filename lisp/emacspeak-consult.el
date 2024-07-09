@@ -108,11 +108,7 @@ consult-yank-replace
 
 
 
-(add-hook
- 'consult-after-jump-hook
- #'(lambda nil
-     (let ((emacspeak-show-point t))
-       (emacspeak-speak-line))))
+(add-hook 'consult-after-jump-hook #'emacspeak-speak-line)
 
 (cl-loop
  for f in 
