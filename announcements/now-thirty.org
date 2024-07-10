@@ -1,3 +1,23 @@
+
+* Introduction
+*  Using UNIX With Speech Output —  1994
+* Key Enabler — Emacs And Lisp Advice
+* Key Component —  Text To Speech (TTS)
+* Emacspeak And Software Development 
+* Emacspeak And Authoring Documents 
+* Emacspeak And The Early Days Of The Web
+* Audio Formatting —  Generalizing Aural CSS 
+* Conversational Gestures For The Audio Desktop 
+* Accessing Media Streams 
+* EBooks—   Ubiquitous Access To Books 
+* Leveraging Computational Tools —  From SQL And R To IPython Notebooks 
+* Social Web  — EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols 
+* The RESTful Web —  Web Wizards And URL Templates For Faster Access
+* Mashing It Up —  Leveraging Evolving Web APIs
+* Conclusion 
+* References 
+
+
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
 #+options: d:(not "LOGBOOK") date:t e:t email:nil expand-links:t f:t
