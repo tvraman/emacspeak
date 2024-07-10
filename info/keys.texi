@@ -154,7 +154,7 @@
 @item h  emacspeak-m-player-from-history
 @item i  ibuffer
 @item j  emacspeak-zoxide
-@item l  emacspeak-m-player-locate-media
+@item l  locate
 @item m  vm
 @item o  find-file
 @item r  emacspeak-wizards-find-file-as-root
@@ -220,7 +220,7 @@
 @item '  emacspeak-pianobar
 @item d  sdcv-search-input
 @item f  ffap
-@item l  locate
+@item l  emacspeak-m-player-locate-media
 @item m  notmuch-search
 @item o  org-mode
 @item p  emacspeak-wizards-portfolio

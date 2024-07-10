@@ -8412,7 +8412,7 @@ Default Value:
  ("h" emacspeak-m-player-from-history)
  ("i" ibuffer)
  ("j" emacspeak-zoxide)
- ("l" emacspeak-m-player-locate-media)
+ ("l" locate)
  ("m" vm)
  ("o" find-file)
  ("r" emacspeak-wizards-find-file-as-root)
@@ -8436,7 +8436,7 @@ Default Value:
 (("'" emacspeak-pianobar)
  ("d" sdcv-search-input)
  ("f" ffap)
- ("l" locate)
+ ("l" emacspeak-m-player-locate-media)
  ("m" notmuch-search)
  ("o" org-mode)
  ("p" emacspeak-wizards-portfolio)
@@ -9167,12 +9167,10 @@ Play both channels on left.
 @table @kbd
 @item C-z l
 @kindex C-z l
-@item C-; l
-@kindex C-; l
+@item C-' l
+@kindex C-' l
 @item C-e z l
 @kindex C-e z l
-@item C-x @@ h l
-@kindex C-x @@ h l
 @end table
 
 @findex emacspeak-m-player-locate-media

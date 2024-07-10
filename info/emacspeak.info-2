@@ -1398,7 +1398,7 @@ found on laptops is denoted <fn>
       ("h" emacspeak-m-player-from-history)
       ("i" ibuffer)
       ("j" emacspeak-zoxide)
-      ("l" emacspeak-m-player-locate-media)
+      ("l" locate)
       ("m" vm)
       ("o" find-file)
       ("r" emacspeak-wizards-find-file-as-root)
@@ -1416,7 +1416,7 @@ found on laptops is denoted <fn>
      (("'" emacspeak-pianobar)
       ("d" sdcv-search-input)
       ("f" ffap)
-      ("l" locate)
+      ("l" emacspeak-m-player-locate-media)
       ("m" notmuch-search)
       ("o" org-mode)
       ("p" emacspeak-wizards-portfolio)
@@ -2020,9 +2020,8 @@ you can achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-locate-media (pattern)
      ‘C-z l’
-     ‘C-; l’
+     ‘C-' l’
      ‘C-e z l’
-     ‘C-x @ h l’
 
      Locate media matching  pattern.  The results can be
      played as a play-list by pressing [RET] on the first line, see
