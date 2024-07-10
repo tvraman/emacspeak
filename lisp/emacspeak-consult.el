@@ -160,7 +160,6 @@ consult-project-buffer
    ("K" consult-keep-lines)
    ("L" consult-line-multi)
    ("M" consult-mark)
-   ("M-e" consult-isearch-history)
    ("M-x" consult-mode-command)
    ("M-y" consult-yank-pop)
    ("b" consult-buffer)
@@ -178,6 +177,7 @@ consult-project-buffer
    ("o" consult-outline)
    ("p" consult-project-buffer)
    ("r" consult-ripgrep)
+   ("s" consult-isearch-history)
    ("u" consult-focus-lines)
    )
  do
