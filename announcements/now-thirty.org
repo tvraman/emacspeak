@@ -105,6 +105,8 @@
      front-end in late 2022.
   8. See the various relevant blog articles on the Emacspeak Blog for
      further context.
+  9. Ergonomic keybindings under ~X~ using ~xcape~ to minimize
+     chording has been  a significant win in the last two years.
      
      
 * Emacspeak And Authoring Documents
@@ -126,10 +128,58 @@
 * Emacspeak  And The Web In 2024
 
 
-* Audio Formatting —  Generalizing Aural CSS 
-* Conversational Gestures For The Audio Desktop 
-* Accessing Media Streams 
-* EBooks—   Ubiquitous Access To Books 
+  1. Package ~shr~ and ~eww~ arrived around 2014. But in 2024, they
+    can be said to have *really* landed.
+  2. The welcome re-emergence of ~ATOM~ and ~RSS~ feeds is perhaps a
+     silent acknowledgement that bloated Web pages are  now unusable
+     even for users who can see.
+  3. Google Reader disappeared around 2012, but fortunately, ~elfeed~
+     emerged as  a powerful feed-manager for Emacs.
+  4. Emacspeak had already implemented ~RSS~ and ~ATOM~ support using
+     ~XSLT~; but those features now shine even more with mainstream
+     content sites reviving their support for content feeds.
+  5. Package ~url-template~ and ~emacspeak-websearch~ continue to give
+     in plenty, though they do require continuous updating.
+  6. Web APIs come and go, usually  last for a few years, so in some
+     sense that space is in steady state but contantly changing.
+  7. Emacspeak support for rich multimedia is now much  more robust,
+     see the next section.
+
+* Audio Formatting —  Generalizing Aural CSS
+  1. Audio formatting with Aural CSS support is stable, with
+    enhancements with respect to supporting more TTS engines.
+  2. Support for parallel streams of TTS using separate outputs to
+     left/right channels is a big win and enables more efficient interaction.
+  3. Support for various DSP filters makes Emacspeak a rich auditory environment.
+  4. Soundscapes implemented via package ~boodler~ makes for  a
+     pleasant and relaxing auditory environment.
+  5. Enabling virtual sound devices via Pipewire for 5.1  and 7.1
+     audio significantly enhances the environment.
+
+     
+* Conversational Gestures For The Audio Desktop
+
+  1.  Parallel streams of audio, combined with more ergonomic
+     keybindings are perhaps the only enhancement in this area.
+     
+* Accessing Media Streams
+
+  1. First ~mplayer~ and now ~mpv~ signifcantly expand the
+   multimedia streaming features of the Emacspeak desktop.
+  2. Emacs package ~empv~ along with module ~emacspeak-empv~ is a
+     powerful combination for locating, organizing  and playing local and remote
+     media streams.
+  3. This experience is augmented by a collection of /smart/ content
+     locators on the Emacspeak desktop, see the relevant blog article
+     on the Emacspeak Blog.
+     
+* EBooks—   Ubiquitous Access To Books
+
+  1. Module ~emacspeak-epub~ for Epub and ~emacspeak-bookshare~ for
+    Bookshare continue to provide good EBook integration.
+  2. There are  /smart/ book locators analogous to the locators for
+     media content.
+     
 * Leveraging Computational Tools —  From SQL And R To IPython Notebooks 
 * Social Web  — EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols 
 * The RESTful Web —  Web Wizards And URL Templates For Faster Access
