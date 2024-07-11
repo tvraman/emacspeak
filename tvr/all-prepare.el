@@ -1,44 +1,3 @@
-(defvar  emacspeak-consult-keymap nil "Emacspeak consult keymap")
-
-(define-prefix-command 'emacspeak-consult-keymap)
-
-(global-set-key (kbd "C-/") 'emacspeak-consult-keymap)
-
-(cl-loop
- for b in
- '(
-   ("#" consult-register-load)
-   ("'" consult-register-store)
-   ("4b" consult-buffer-other-window)
-   ("5b" consult-buffer-other-frame)
-   (":" consult-complex-command)
-   ("B" consult-bookmark)
-   ("G" consult-goto-line)
-   ("I" consult-info)
-   ("K" consult-keep-lines)
-   ("L" consult-line-multi)
-   ("M" consult-mark)
-   ("M-e" consult-isearch-history)
-   ("M-x" consult-mode-command)
-   ("M-y" consult-yank-pop)
-   ("b" consult-buffer)
-   ("c" consult-locate)
-   ("d" consult-find)
-   ("e" consult-compile-error)
-   ("g" consult-grep)
-   ("f" consult-fd)
-   ("h" consult-org-heading)
-   ("i" consult-imenu)
-   ("k" consult-global-mark)
-   ("l" consult-line)
-   ("m" consult-man)
-   ("o" consult-outline)
-   ("p" consult-project-buffer)
-   ("r" consult-ripgrep)
-   ("u" consult-focus-lines)
-   )
- do
- (define-key  emacspeak-consult-keymap (kbd (car b))  (cadr b)))
 ;;;  Gnus Setup For GMail imap:  -*- lexical-binding: t; -*-
 ;; Read GMailusing gnus  with 2-factor (Oauth2) authentication.
 ;; Uses auth-source-xoauth2:
@@ -187,7 +146,7 @@ Uses the go oauth tool found in the xoauth git repo."
   (kmacro "C-c 3 C-; d F u C-; d l l n"))
 (define-key emacspeak-y-keymap "3" 'tvr-km-emacs-log)
 (defalias 'tvr-km-morning
-  (kmacro "C-<tab> C-e M-e b h <tab> <return> n n e c"))
+  (kmacro "C-<tab> C-e M-e b hindu <tab> <return> n n e c"))
 (define-key emacspeak-y-keymap "0" 'tvr-km-morning)
 (setq
                                         ;pre-redisplay-function nil
