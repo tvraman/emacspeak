@@ -294,7 +294,7 @@ message area.  You can use command
         (dtk-chunk-on-white-space-and-punctuations)
         (next-completion 1)
         (tts-with-punctuations
-         'all (emacspeak-speak-windowful))))
+         'all (emacspeak-speak-line))))
      (t (emacspeak-speak-line)))))
 
 ;;; Minibuffer Helpers:
