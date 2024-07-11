@@ -97,7 +97,7 @@
   6. Note that developing in languages like Python (~elpy~), ~R~,
      ~Clojure~ (~cider~), ~Scheme~, ~Racket~,  ~Ruby~ and numerous
      other high-level languages continues to be very well supported in Emacs.
-  7. The re-arrival of Common Lisp in the last 20 years, thanks to
+  7. The re-emergence of Common Lisp in the last 20 years, thanks to
      ~asdf~ as a network-aware package management and build tool has
      once again made Lisp development using Emacs ~Slime~ a productive
      experience; as an example, I updated ~AsTeR~ --- my PhD project
