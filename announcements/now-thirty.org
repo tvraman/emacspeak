@@ -1,14 +1,14 @@
 * Introduction
 
   1. Emacspeak, started in September 1994, was released as Open
-   Source in April 1995.
-  2. Emacspeak at 20 was published in September 2014 to trace the
+   Source in [[https://tvraman.github.io/emacspeak//web/releases/release-3.0.html][April 1995]].
+  2. [[https://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At Twenty]]  was published in September 2014 to trace the
      evolution of the project.
   3. Now, this article gives a birds-eye overview of the last 10 years
      by following the logical structure of the Turning-Twenty paper.
   4. In the process, we identify the dreams that have come to pass as
      well as the expectations that have failed to  materialize because
-     of developments in the larger  Internet world we live in.
+     of developments in the larger  Internet eco-system we live in.
   5. But never fear, though some of the above might be superficially
      disappointing, they likely herald the nature of bigger and better
      things to come.
@@ -16,7 +16,7 @@
      that the world of Internet-centric computing and the accompanying
      information revolution has had on the state of information
      access.
-  7. Share And Enjoy --- The Best Is Yet To Come!
+  7. Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][The Best Is Yet To Come]]!
 
 
 ** How To Read This Document
