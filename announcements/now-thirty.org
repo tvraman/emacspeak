@@ -21,9 +21,61 @@
 
 ** How To Read This Document
 
-*  Using UNIX With Speech Output —  1994
+  1. I recommend reading the /Turning Twenty/ paper to get a full overview.
+  2. Then, read this paper a section at a time, while refering back to
+     the parallel section in the /Turning Twenty/ paper.
+  3. Make sure to skim or deep-dive into the references in both papers.
+  
+
+*  Using UNIX With Speech Output —  2024
+
+  1. In 2024, Unix equates mostly to various Linux distros, and from
+    the Emacspeak perspective, they are all made /mostly/ equal.
+  2. Variations do exist and  running bleeding-edge distros can come
+     with issues, e.g., unstable versions of the underlying audio framework.
+  3. Yes, 30 years and counting, Linux Audio is still a work in
+     progress though I hope Pipewire will be the last of these tidal shifts.
+  4. Linux is moving to Wayland from X and expect that transition to
+     be choppy.
+  5. As with other platforms, /native apps/ are mostly gone bar the
+     shouting; in that context, where the majority of users use most
+     things through a /mainstream/ Web browser, Emacspeak users access
+     /everything/ through Emacs.
+  6. The above when things are done right is hugely empowering and
+     enabling; when done badly, it's hugely disabling --- see later
+     sections of this paper on  the continuing evolution of the Web.
+     
 * Key Enabler — Emacs And Lisp Advice
+
+  1. Advice in Emacs is rock-solid.
+  2. There is a newer /nadvice/ that is part of Emacs; Emacspeak does
+     not use it.
+  3. There are no plans to migrate to nadvice since that is a lot of
+     busy work in my view and difficult to test any such migration.
+  4. The classic /advice/ package may be removed from Emacs at some
+     point in the future, but never fear; it'll be bundled with
+     Emacspeak. This is a feature of Free Software and is a great
+     example of what /Freedom/ means.
+     
 * Key Component —  Text To Speech (TTS)
+
+  1. Speech output --- especially unencumbered text-to-speech is just
+    as much a challenge as it was 30 years ago.
+  2. Things appear to be coming full circle, Emacspeak started with
+     the hardware Dectalk; now, the Software Dectalk is increasingly
+     becoming the primary choice on Linux.
+  3. Viavoice Outloud from Voxin is still supported (since 1999) but
+     you can no longer buy new licenses; if you have a licence, it'll
+     continue to work.
+  4. The  voices that Voxin now sells /do not/ work with Emacspeak.
+  5. The  other choice on Linux is ESpeak which will hopefully
+     continue to be free -- albeit of much lower quality.
+  6. The future as ever is unpredictable and new voices may well show
+     up --- especially those powered by on-device LLMs as that
+     technology progresses.
+  7. On non-free platforms, there is usable TTS on the Mac, now
+     supported by the new SwiftMac server for Emacspeak.
+     
 * Emacspeak And Software Development 
 * Emacspeak And Authoring Documents 
 * Emacspeak And The Early Days Of The Web
