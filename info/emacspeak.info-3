@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 9, 2024.
+last updated on July 10, 2024.
 
 
 File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: pip,  Up: Emacspeak Commands And Options
@@ -2993,7 +2993,7 @@ File: emacspeak.info,  Node: Key Index,  Next: Variable Index,  Prev: Concept In
 * C-e x w:                               emacspeak-wizards.  (line  689)
 * C-e y b:                               emacspeak-bookshare.
                                                              (line  191)
-* C-e y E:                               emacspeak-epub.     (line  317)
+* C-e y e:                               emacspeak-epub.     (line  317)
 * C-e y l:                               emacspeak-empv.     (line  192)
 * C-e y s:                               emacspeak-empv.     (line  280)
 * C-e y y:                               emacspeak-empv.     (line  200)

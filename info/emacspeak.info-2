@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 9, 2024.
+last updated on July 10, 2024.
 
 
 File: emacspeak.info,  Node: emacspeak-extras,  Next: emacspeak-exwm,  Prev: emacspeak-eww,  Up: Emacspeak Commands And Options
@@ -1514,9 +1514,9 @@ found on laptops is denoted <fn>
 
      Default Value:
      
-     (("E" emacspeak-epub-eww)
-      ("b" emacspeak-bookshare-eww)
+     (("b" emacspeak-bookshare-eww)
       ("d" empv-download-youtube)
+      ("e" emacspeak-epub-eww)
       ("l" emacspeak-empv-play-last)
       ("p" empv-youtube-playlist)
       ("s" emacspeak-empv-yt-search)

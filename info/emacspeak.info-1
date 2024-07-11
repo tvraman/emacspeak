@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 9, 2024.
+last updated on July 10, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2936,9 +2936,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-y-keymap,  Next:
 11.9 Emacspeak Keybindings On emacspeak-y-keymap
 ================================================
 
-‘E emacspeak-epub-eww’
 ‘b emacspeak-bookshare-eww’
 ‘d empv-download-youtube’
+‘e emacspeak-epub-eww’
 ‘l emacspeak-empv-play-last’
 ‘p empv-youtube-playlist’
 ‘s emacspeak-empv-yt-search’
@@ -7150,7 +7150,7 @@ table of contents.
 .............................
 
  -- Command: emacspeak-epub-eww (epub-file &optional use-ncx)
-     ‘C-e y E’
+     ‘C-e y e’
 
      Display entire book  using EWW from EPub.
      Use content listed in toc.ncx  if prefix-arg use-ncx is true.
