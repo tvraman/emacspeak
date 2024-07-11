@@ -107,8 +107,25 @@
      further context.
      
      
-* Emacspeak And Authoring Documents 
-* Emacspeak And The Early Days Of The Web
+* Emacspeak And Authoring Documents
+
+  1. Package ~org~ and ~org-mode~ are to authoring as ~magit~ is to
+    software development in terms of productivity gain.
+  2. ~Org~ has existed since approx 2006 in my Emacs setup; but it
+     continues to give and give plentifully.
+  3. Where I one authored technical papers in LaTeX using ~auctex~, ~nxml~ for
+     XML/HTML,  etc., I now mostly write everything in ~org-mode~ and export
+     to the relevant target format.
+  4. Integrating various search engines  in Emacs, with ~eww~
+     providing  a consistent Emacs experience makes authoring content
+      on the Emacspeak desktop extremely productive.
+  5. Integrated access to dictionaries, translation engines, and other
+     language tools rounds up the needed tools.
+     
+     
+* Emacspeak  And The Web In 2024
+
+
 * Audio Formatting —  Generalizing Aural CSS 
 * Conversational Gestures For The Audio Desktop 
 * Accessing Media Streams 
