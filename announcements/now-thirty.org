@@ -67,7 +67,7 @@
   3. Viavoice Outloud from Voxin is still supported (since 1999) but
      you can no longer buy new licenses; if you have a licence, it'll
      continue to work.
-  4. The  voices that Voxin now sells /do not/ work with Emacspeak.
+  4. The  Vocalizer voices that Voxin now sells /do not/ work with Emacspeak.
   5. The  other choice on Linux is ESpeak which will hopefully
      continue to be free -- albeit of much lower quality.
   6. The future as ever is unpredictable and new voices may well show
