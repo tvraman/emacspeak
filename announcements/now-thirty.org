@@ -12,11 +12,15 @@
   5. But never fear, though some of the above might be superficially
      disappointing, they likely herald the nature of bigger and better
      things to come.
-  6. As a proof-point, in 1994, I  could not have   imagined the
-     impact 
+  6. As a proof-point, in 1994, I could not have imagined the impact
      that the world of Internet-centric computing and the accompanying
-     information revolution  has had on the state of information access.
+     information revolution has had on the state of information
+     access.
   7. Share And Enjoy --- The Best Is Yet To Come!
+
+
+** How To Read This Document
+
 *  Using UNIX With Speech Output —  1994
 * Key Enabler — Emacs And Lisp Advice
 * Key Component —  Text To Speech (TTS)
