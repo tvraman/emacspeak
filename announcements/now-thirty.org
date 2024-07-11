@@ -1,4 +1,3 @@
-
 * Introduction
 *  Using UNIX With Speech Output —  1994
 * Key Enabler — Emacs And Lisp Advice
@@ -17,13 +16,12 @@
 * Conclusion 
 * References 
 
-
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
 #+options: d:(not "LOGBOOK") date:t e:t email:nil expand-links:t f:t
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
 #+options: tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
-Thirty Years On: Emacspeak --- An Emacs Speech Odyssey
+#+title: 30 Years On: Emacspeak --- A Speech Odyssey
 #+date: <2024-07-10 Wed>
 #+author: T.V Raman
 #+email: raman@google.com
