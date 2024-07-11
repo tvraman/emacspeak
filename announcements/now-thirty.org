@@ -1,4 +1,22 @@
 * Introduction
+
+  1. Emacspeak, started in September 1994, was released as Open
+   Source in April 1995.
+  2. Emacspeak at 20 was published in September 2014 to trace the
+     evolution of the project.
+  3. Now, this article gives a birds-eye overview of the last 10 years
+     by following the logical structure of the Turning-Twenty paper.
+  4. In the process, we identify the dreams that have come to pass as
+     well as the expectations that have failed to  materialize because
+     of developments in the larger  Internet world we live in.
+  5. But never fear, though some of the above might be superficially
+     disappointing, they likely herald the nature of bigger and better
+     things to come.
+  6. As a proof-point, in 1994, I  could not have   imagined the
+     impact 
+     that the world of Internet-centric computing and the accompanying
+     information revolution  has had on the state of information access.
+  7. Share And Enjoy --- The Best Is Yet To Come!
 *  Using UNIX With Speech Output —  1994
 * Key Enabler — Emacs And Lisp Advice
 * Key Component —  Text To Speech (TTS)
