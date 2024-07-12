@@ -65,7 +65,7 @@
     as much a challenge as it was 30 years ago.
   2. Things appear to be coming full circle, Emacspeak started with
      the hardware Dectalk; now, the [[https://github.com/dectalk/dectalk.git][Software Dectalk]] is increasingly
-     becoming the primary choice on Linux.
+     becoming the primary choice on Linux --- see [[https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org][for setup instructions]].
   3. Viavoice Outloud from Voxin is still supported (since 1999) but
      you can no longer buy new licenses; if you have a licence, it'll
      continue to work.
@@ -131,53 +131,57 @@
 
   1. Package ~shr~ and ~eww~ arrived around 2014. But in 2024, they
     can be said to have *really* landed.
-
-  2. The explicit take-over of stewardship of the Web from the W3C in
+  2. The explicit take-over of the stewardship of the Web from the W3C in
      the last decade by the browser vendors --- I say explicit because
      the W3C had already thrown in the towl in the preceeding decade.
   3. This  has led to a Web of content  created using the assembly
-     language of divs, spans and JS --- under the flag of HTML5.
-
+     language of divs, spans and JS --- under the flag of HTML5 ---
+     the result is a tangled web of spaghetti that everyone loves to hate. 
   4. For better or worse, the investment in XML and display-independent
      content is now a complete loss at least on the surface.
-  5. I say /on the surface/ above ---The welcome re-emergence of
+  5. So what next --- wait for the spaghetti monster to show up for
+     lunh? Humor aside that monster may well be called AI; though
+     whether  today's Web gives that monster life, indigestion,
+     constipation or dysentery is a story to be written in the next years.
+  6. In the meantime  I say /on the surface/ above ---The welcome re-emergence of
      ~ATOM~ and ~RSS~ feeds is perhaps a silent acknowledgement that
      bloated Web pages are now unusable even for users who can see.
-  6. On the Emacspeak desktop,  package  ~elfeed~
+  7. On the Emacspeak desktop,  package  ~elfeed~
      has emerged as  a powerful feed-manager for Emacs.
-  7. Emacspeak had already implemented ~RSS~ and ~ATOM~ support using
+  8. Emacspeak had already implemented ~RSS~ and ~ATOM~ support using
      ~XSLT~; but those features now shine even more with mainstream
      content sites reviving their support for content feeds.
-  8. Browsers like Mozilla now implement /content filters/ --- a
+  9. Browsers like Mozilla now implement /content filters/ --- a
      euphamism for removing visual eye-candy and related cruft to
      reveal the underlying content; recently these have now become
-     available as callable plugins, something that Emacspeak now
+     available as callable plugins, (see [[https://github.com/eafer/rdrview][RDRView]] for an example)  something that Emacspeak now
      leverages to make the Web more readable.
-  9. Package ~url-template~ and ~emacspeak-websearch~ continue to give
-     in plenty, though they do require continuous updating.
-  10. Web APIs come and go, usually  last for a few years, so in some
+  10. Package ~url-template~ and ~emacspeak-websearch~ continue to give
+      in plenty, though they do require continuous updating.
+  11. Web APIs come and go, usually  last for a few years, so in some
       sense that space is in steady state but contantly changing.
-  11. The state of WebApps is perhaps the most concerning from an
+  12. The state of WebApps is perhaps the most concerning from an
       Emacspeak perspective, and I dont see that changing in the
       short-term since there are no incentives for Web providers to
-      free their applications from the tangled Web they have woven
-      around themselves. But as with everything else in our industry,
+      free their applications from the tangled Web of spaghetti they have woven
+      around themselves.
+  13. But as with everything else in our industry,
       it is when something feels completely entrenched that users
       rebel and innovation occurs to move us to the next phase --- so
       fingers crossed.
-  12. Emacspeak support for rich multimedia is now much  more robust,
-      see the next section.
+  
 
 * Audio Formatting —  Generalizing Aural CSS
+
   1. Audio formatting with Aural CSS support is stable, with
-    enhancements with respect to supporting more TTS engines.
+new     enhancements  supporting more TTS engines.
   2. Support for parallel streams of TTS using separate outputs to
      left/right channels is a big win and enables more efficient interaction.
   3. Support for various DSP filters makes Emacspeak a rich auditory environment.
   4. Soundscapes implemented via package ~boodler~ makes for  a
      pleasant and relaxing auditory environment.
   5. Enabling virtual sound devices via Pipewire for 5.1  and 7.1
-     audio significantly enhances the environment.
+     binaural audio significantly enhances the environment.
 
      
 * Conversational Gestures For The Audio Desktop
@@ -187,16 +191,19 @@
      
 * Accessing Media Streams
 
-  1. First ~mplayer~ and now ~mpv~ signifcantly expand the
+
+  1. Emacspeak support for rich multimedia is now much  more robust.
+  2. First ~mplayer~ and now ~mpv~ signifcantly expand the
    multimedia streaming features of the Emacspeak desktop.
-  2. Emacs package ~empv~ along with module ~emacspeak-empv~ is a
+  3. Emacs package ~empv~ along with module ~emacspeak-empv~ is a
      powerful combination for locating, organizing  and playing local and remote
-     media streams.
-  3. This makes media streams from a large number of providers ranging
+     media streams ranging from music, audio books, radio stations and
+     Podcasts, all with a single unified interface.
+  4. This makes media streams from a large number of providers ranging
      from the BBC to Youtube available via a consistent keyboard interface.
-  4. This experience is augmented by a collection of /smart/ content
+  5. This experience is augmented by a collection of /smart/ content
      locators on the Emacspeak desktop, see the relevant blog article
-     on the Emacspeak Blog.
+     [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selectors]] on the Emacspeak Blog.
      
 * EBooks—   Ubiquitous Access To Books
 
@@ -205,7 +212,7 @@
   2. There are  /smart/ book locators analogous to the locators for
      media content.
   3. Speech-enabled ~Calibre~ integration for working with  local
-     Ebookse-books.
+     Ebooks.
      
      
 * Leveraging Computational Tools —  From SQL And R To IPython Notebooks
