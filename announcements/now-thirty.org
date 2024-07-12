@@ -2,21 +2,40 @@
 
   1. Emacspeak, started in September 1994, was released as Open
    Source in [[https://tvraman.github.io/emacspeak//web/releases/release-3.0.html][April 1995]].
-  2. [[https://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At Twenty]]  was published in September 2014 to trace the
+  2. The goal was to create a system for daily use that also doubled
+     as a research work-bench for developing an auditory interface
+     where speech output was treated as a first-class citizen.
+  3. The time felt right with respect to building such a system for
+     enabling equal access to the emerging Web of Internet content.
+     where 
+  4. [[https://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At Twenty]]  was published in September 2014 to trace the
      evolution of the project.
-  3. Now, this article gives a birds-eye overview of the last 10 years
+  5. Now, this article gives a birds-eye overview of the last 10 years
      by following the logical structure of the afore-mentioned Turning-Twenty paper.
-  4. In the process, we identify the dreams that have come to pass as
-     well as the expectations that have failed to  materialize because
-     of developments in the larger  Internet eco-system we live in.
-  5. But never fear, though in the short-term, some of the above might be superficially
+  6. In the process, we identify the dreams that have come to pass as
+     well as the expectations that have failed to materialize --- both
+     thanks to developments in the larger Internet eco-system.
+  7. But never fear, though in the short-term, some of the above might be superficially
      disappointing, they likely herald the nature of bigger and better
      things to come in the long-term.
-  6. As a proof-point, in 1994, I could not have imagined the impact
+  8. As a proof-point, in 1994, I could not have imagined the impact
      that the world of Internet-centric computing and the accompanying
      information revolution has had on the state of information
      access.
-  7. Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][The Best Is Yet To Come]]!
+  9. Conversely, I predicted (incorrectly) that the arrival of mobile
+     devices and mainstream speech interfaces would herald the move to
+     a Web of information where there would be a clean separation
+     between application back-ends and various client-specific
+     front-ends.
+  10. The above still makes sense from a software architecture point
+      of view; however the rapid growth of the Web economy has also
+      resulted in an even faster race to the bottom.
+  11. Case in point; today we have smart phones and smart speakers,
+      but both require targetted front-end services for each device
+      if one wishes to the bring the riches of the Internet to those
+      devices.
+      
+Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][The Best Is Yet To Come]]!
 
 
 ** How To Read This Document
@@ -27,6 +46,8 @@
      how things have evolved.
   3. Make sure to skim or deep-dive into the references in both papers.
   
+
+
 
 *  Using UNIX With Speech Output —  2024
 
