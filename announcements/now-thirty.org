@@ -180,10 +180,9 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
      the result is a tangled web of spaghetti that everyone loves to hate. 
   4. For better or worse, the investment in XML and display-independent
      content is now a complete loss at least on the surface.
-  5. So what next --- wait for the spaghetti monster to show up for
-     lunh? Humor aside that monster may well be called AI; though
+  5. So what next --- wait for the spaghetti monster to show up for lunch? Humor aside that monster may well be called AI; though
      whether  today's Web gives that monster life, indigestion,
-     constipation or dysentery is a story to be written in the coming years.
+     constipation,   dysentery or hallucinations  is a story to be written in the coming years.
   6. In the meantime  I say /on the surface/ above ---The welcome re-emergence of
      ~ATOM~ and ~RSS~ feeds is perhaps a silent acknowledgement that
      bloated Web pages are now unusable even for users who can see.
@@ -287,7 +286,10 @@ new     enhancements  supporting more TTS engines.
   9. This is an area that is again likely to get worse before it gets
      a chance to get better --- more the pity, since Internet Email
      is perhaps the single-most impactful technology with respect to
-     leveling the Internet playing field.
+     leveling the communications  playing field.
+  10. The disappearance of APIs mentioned above also means that today
+      the only usable chat services on an open platform like Emacspeak
+      is the venerable  Internet Relay Chat (IRC).
      
 * The RESTful Web —  Web Wizards And URL Templates For Faster Access
 
