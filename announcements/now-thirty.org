@@ -4,32 +4,36 @@
    Source in [[https://tvraman.github.io/emacspeak//web/releases/release-3.0.html][April 1995]].
   2. The goal was to create a system for daily use that also doubled
      as a research work-bench for developing an auditory interface
-     where speech output was treated as a first-class citizen.
+     where speech and non-spoken auditory output was treated as a
+     first-class citizen.
   3. The time felt right with respect to building such a system for
      enabling equal access to the emerging Web of Internet content.
-     where 
   4. [[https://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At Twenty]]  was published in September 2014 to trace the
      evolution of the project.
   5. Now, this article gives a birds-eye overview of the last 10 years
      by following the logical structure of the afore-mentioned Turning-Twenty paper.
   6. In the process, we identify the dreams that have come to pass as
-     well as the expectations that have failed to materialize --- both
+     well as the expectations that have failed to materialize --- *both*
      thanks to developments in the larger Internet eco-system.
-  7. But never fear, though in the short-term, some of the above might be superficially
-     disappointing, they likely herald the nature of bigger and better
+  7. But never fear, though  some of the above might
+     seem  superficially
+     disappointing in the short-term, they likely herald the nature of bigger and better
      things to come in the long-term.
   8. As a proof-point, in 1994, I could not have imagined the impact
      that the world of Internet-centric computing and the accompanying
      information revolution has had on the state of information
      access.
-  9. Conversely, I predicted (incorrectly) that the arrival of mobile
+  9. Conversely, I boldly predicted (incorrectly) that the arrival of mobile
      devices and mainstream speech interfaces would herald the move to
      a Web of information where there would be a clean separation
      between application back-ends and various client-specific
      front-ends.
   10. The above still makes sense from a software architecture point
       of view; however the rapid growth of the Web economy has also
-      resulted in an even faster race to the bottom.
+      resulted in an even faster race to the bottom where applications
+      continue to be built and re-built every few years for /the next
+      best thing/ --- welcome to the /write once, debug everywhere/
+      world all over again!
   11. Case in point; today we have smart phones and smart speakers,
       but both require targetted front-end services for each device
       if one wishes to the bring the riches of the Internet to those
@@ -84,20 +88,30 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
 
   1. Speech output --- especially unencumbered text-to-speech is just
     as much a challenge as it was 30 years ago.
-  2. Things appear to be coming full circle, Emacspeak started with
+  2. At the bigger picture level, early instances of using speech
+     output for mainstream solutions has driven the industry toward
+     /natural sounding/ voices.
+  3. The above sounds attractive on the surface, but a price we have
+     paid is the  loss of fine-grained control over voice parameters,
+     emotion, stress and other supra-linguistic features.
+  4. I continue to believe that the above are essential for delivering
+     good auditory interaction and  continue to remain optimistic that
+     these will indeed arrive in the next iteration of speech
+     interaction on mainstream devices.
+  5. Things appear to be coming full circle, Emacspeak started with
      the hardware Dectalk; now, the [[https://github.com/dectalk/dectalk.git][Software Dectalk]] is increasingly
      becoming the primary choice on Linux --- see [[https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org][for setup instructions]].
-  3. Viavoice Outloud from Voxin is still supported (since 1999) but
+  6. Viavoice Outloud from Voxin is still supported (since 1999) but
      you can no longer buy new licenses; if you have a licence, it'll
      continue to work.
-  4. The  Vocalizer voices that Voxin now sells /do not/ work with Emacspeak.
-  5. The  other choice on Linux is ESpeak which will hopefully
+  7. The  Vocalizer voices that Voxin now sells /do not/ work with Emacspeak.
+  8. The  other choice on Linux is ESpeak which will hopefully
      continue to be free -- albeit of much lower quality.
-  6. The future as ever is unpredictable and new voices may well show
+  9. The future as ever is unpredictable and new voices may well show
      up --- especially those powered by on-device LLMs as that
      technology progresses.
-  7. On non-free platforms, there is usable TTS on the Mac, now
-     supported by the new SwiftMac server for Emacspeak.
+  10. On non-free platforms, there is usable TTS on the Mac, now
+      supported by the new SwiftMac server for Emacspeak.
      
 * Emacspeak And Software Development
 
@@ -105,11 +119,16 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
    with respect to software development  on Emacs.
   2. New completion frameworks such as /company/ and /consult/ come a
      close second in enhancing productivity.
-  3. Packages like /transient/ that enable rapid keyboard access to
+  3. The ability to introspect code via packages like ~eglot~ and
+     ~lsp~ turn Emacs into a powerful and meaningful IDE; I say
+     meaningful because these bring the best features of an integrated
+     development environment while leaving behind the eye-candy that
+     has tended to bloat commercial IDEs.
+  4. Packages like /transient/ that enable rapid keyboard access to
      complex nested-menu driven interfaces.
-  4. Various plugin-in completion strategies such as /fuzzy/ and
+  5. Various plugin-in completion strategies such as /fuzzy/ and
      /flex/ for enhanced completion.
-  5. IPython notebooks and their generalization to /Julia/, /Python/
+  6. IPython notebooks and their generalization to /Julia/, /Python/
      and /R/. The news here isn't all good; IPython notebooks are
      well-designed with respect to not getting locked into any given
      implementation. However in practice, all such environments depend
@@ -117,31 +136,31 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
      many of Emacs' supporting environments for IPython Notebooks
      e.g., package ~ein~ are no longer maintained for this reason; hopefully there
      will be a new crop of packages to come in the future.
-  6. Note that developing in languages like Python (~elpy~), ~R~,
+  7. Note that developing in languages like Python (~elpy~), ~R~,
      ~Clojure~ (~cider~), ~Scheme~, ~Racket~,  ~Ruby~ and numerous
      other high-level languages continues to be very well supported in Emacs.
-  7. The re-emergence of Common Lisp in the last 20 years, thanks to
+  8. The re-emergence of Common Lisp in the last 20 years, thanks to
      ~asdf~ as a network-aware package management and build tool has
      once again made Lisp development using Emacs ~Slime~ a productive
      experience; as an example, I updated [[https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html][Audio System For Technical
      Readings (AsTeR)]]--- my PhD project from 1993 --- to run under ~SBCL~
      with a freshly implemented Emacs front-end in late 2022.
-  8. [[https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html][Ergonomic keybindings]] under ~X~ using ~xcape~ to minimize
+  9. [[https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html][Ergonomic keybindings]] under ~X~ using ~xcape~ to minimize
      chording has been  a significant win in the last two years.
      
      
 * Emacspeak And Authoring Documents
 
-  1. Package ~org~ are to authoring as ~magit~ is to
+  1. Package ~org~ is to authoring as ~magit~ is to
     software development with respect  to productivity gained.
-  2. ~Org~ has existed since approx 2006 in my Emacs setup; but it
+  2. ~Org~ has existed since circa 2006 in my Emacs setup; but it
      continues to give and give plentifully.
   3. Where I once authored technical papers in LaTeX using ~auctex~,
      used ~nxml~ for
      XML/HTML,  etc., I now mostly write everything in ~org-mode~ and export
      to the relevant target format.
   4. Integrating various search engines  in Emacs, with ~eww~
-     providing  a consistent Emacs experience makes authoring content
+     providing  a consistent Emacs experience, makes authoring content
       on the Emacspeak desktop extremely productive.
   5. Integrated access to dictionaries, translation engines, and other
      language tools combine for a powerful authoring work-bench.
@@ -152,9 +171,10 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
 
   1. Package ~shr~ and ~eww~ arrived around 2014. But in 2024, they
     can be said to have *really* landed.
-  2. The explicit take-over of the stewardship of the Web from the W3C in
-     the last decade by the browser vendors --- I say explicit because
-     the W3C had already thrown in the towl in the preceeding decade.
+  2. The explicit take-over of the stewardship of the HTML Web by the
+     browser vendors from the W3C in the last decade --- I say
+     explicit because the W3C had already thrown in the towl in the
+     preceeding decade with respect to stewardship of the Web.
   3. This  has led to a Web of content  created using the assembly
      language of divs, spans and JS --- under the flag of HTML5 ---
      the result is a tangled web of spaghetti that everyone loves to hate. 
@@ -163,7 +183,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
   5. So what next --- wait for the spaghetti monster to show up for
      lunh? Humor aside that monster may well be called AI; though
      whether  today's Web gives that monster life, indigestion,
-     constipation or dysentery is a story to be written in the next years.
+     constipation or dysentery is a story to be written in the coming years.
   6. In the meantime  I say /on the surface/ above ---The welcome re-emergence of
      ~ATOM~ and ~RSS~ feeds is perhaps a silent acknowledgement that
      bloated Web pages are now unusable even for users who can see.
