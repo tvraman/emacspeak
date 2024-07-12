@@ -2249,7 +2249,7 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
       (org-mode)
       (setq header-line-format (format "NOAA Weather For %s" address))
       ;; produce Daily forecast
-      (set-fill-column 80)
+      (setq fill-column 80)
       (let-alist (g-json-from-url url)
         (insert
          (format "* Forecast At %s For %s\n\n"
