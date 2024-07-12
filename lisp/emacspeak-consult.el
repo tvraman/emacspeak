@@ -151,6 +151,7 @@ consult-project-buffer
  '(
    ("#" consult-register-load)
    ("'" consult-register-store)
+   ("/" consult-history)
    ("4b" consult-buffer-other-window)
    ("5b" consult-buffer-other-frame)
    (":" consult-complex-command)
