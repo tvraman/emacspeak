@@ -38,6 +38,8 @@
       but both require targeted front-end services for each device
       if one wishes to the bring the riches of the Internet to those
       newer devices.
+  12. So the larger the Web gets, the fewer devices it becomes
+      available  on --- a classic downward spiral.
       
 Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][The Best Is Yet To Come]]!
 
