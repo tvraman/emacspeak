@@ -122,7 +122,7 @@
      providing  a consistent Emacs experience makes authoring content
       on the Emacspeak desktop extremely productive.
   5. Integrated access to dictionaries, translation engines, and other
-     language tools rounds up the needed tools.
+     language tools combine for a powerful tool-chain.
      
      
 * Emacspeak  And The Web In 2024
