@@ -300,7 +300,7 @@ new     enhancements  supporting more TTS engines.
 * Mashing It Up —  Leveraging Evolving Web APIs
 
   1.   This aspect of developing solutions by combining various
-     solutions on the Web has  all but shut-down unless one is willing
+     services on the Web has  all but shut-down unless one is willing
      to commit wholly to the JS-powered Web hosted in a Web browser,
      something I hope I never   have to accept. So for now, I'll keep
      well away and count my blessings.
