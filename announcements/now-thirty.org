@@ -11,7 +11,7 @@
   4. [[https://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At Twenty]]  was published in September 2014 to trace the
      evolution of the project.
   5. Now, this article gives a birds-eye overview of the last 10 years
-     by following the logical structure of the afore-mentioned Turning-Twenty paper.
+     by following the logical structure of the afore mentioned Turning-Twenty paper.
   6. In the process, we identify the dreams that have come to pass as
      well as the expectations that have failed to materialize --- *both*
      thanks to developments in the larger Internet eco-system.
@@ -20,7 +20,7 @@
      disappointing in the short-term, they likely herald the nature of bigger and better
      things to come in the long-term.
   8. As a proof-point, in 1994, I could not have imagined the impact
-     that the world of Internet-centric computing and the accompanying
+     that the world of Internet-enteric computing and the accompanying
      information revolution has had on the state of information
      access.
   9. Conversely, I boldly predicted (incorrectly) that the arrival of mobile
@@ -35,7 +35,7 @@
       best thing/ --- welcome to the /write once, debug everywhere/
       world all over again!
   11. Case in point; today we have smart phones and smart speakers,
-      but both require targetted front-end services for each device
+      but both require targeted front-end services for each device
       if one wishes to the bring the riches of the Internet to those
       devices.
       
@@ -45,7 +45,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
 ** How To Read This Document
 
   1. I recommend reading the /Turning Twenty/ paper to get a full overview.
-  2. Then, read this paper a section at a time, while refering back to
+  2. Then, read this paper a section at a time, while referring back to
      the parallel section in the /Turning Twenty/ paper to understand
      how things have evolved.
   3. Make sure to skim or deep-dive into the references in both papers.
@@ -55,9 +55,9 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
 
 *  Using UNIX With Speech Output —  2024
 
-  1. In 2024, Unix equates mostly to various Linux distros, and from
+  1. In 2024, Unix equates mostly to various Linux distributions, and from
     the Emacspeak perspective, they are all made /mostly/ equal.
-  2. Variations do exist and  running bleeding-edge distros can come
+  2. Variations do exist and  running bleeding-edge distributions can come
      with issues, e.g., unstable versions of the underlying audio infrastructure.
   3. Yes, 30 years and counting, Linux Audio is still a work in
      progress though I hope Pipewire will be the last of these tidal shifts.
@@ -102,7 +102,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
      the hardware Dectalk; now, the [[https://github.com/dectalk/dectalk.git][Software Dectalk]] is increasingly
      becoming the primary choice on Linux --- see [[https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org][for setup instructions]].
   6. Viavoice Outloud from Voxin is still supported (since 1999) but
-     you can no longer buy new licenses; if you have a licence, it'll
+     you can no longer buy new licenses; if you have a license, it'll
      continue to work.
   7. The  Vocalizer voices that Voxin now sells /do not/ work with Emacspeak.
   8. The  other choice on Linux is ESpeak which will hopefully
@@ -173,8 +173,8 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
     can be said to have *really* landed.
   2. The explicit take-over of the stewardship of the HTML Web by the
      browser vendors from the W3C in the last decade --- I say
-     explicit because the W3C had already thrown in the towl in the
-     preceeding decade with respect to stewardship of the Web.
+     explicit because the W3C had already thrown in the towel in the
+     preceding decade with respect to stewardship of the Web.
   3. This  has led to a Web of content  created using the assembly
      language of divs, spans and JS --- under the flag of HTML5 ---
      the result is a tangled web of spaghetti that everyone loves to hate. 
@@ -192,16 +192,16 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
      ~XSLT~; but those features now shine even more with mainstream
      content sites reviving their support for content feeds.
   9. Browsers like Mozilla now implement /content filters/ --- a
-     euphamism for removing visual eye-candy and related cruft to
+     euphemism for removing visual eye-candy and related cruft to
      reveal the underlying content; recently these have now become
      available as callable plugins, (see [[https://github.com/eafer/rdrview][RDRView]] for an example)  something that Emacspeak now
      leverages to make the Web more readable.
   10. Package ~url-template~ and ~emacspeak-websearch~ continue to give
       in plenty, though they do require continuous updating.
   11. Web APIs come and go, usually  last for a few years, so in some
-      sense that space is in steady state but contantly changing.
+      sense that space is in steady state but constantly changing.
   12. The state of WebApps is perhaps the most concerning from an
-      Emacspeak perspective, and I dont see that changing in the
+      Emacspeak perspective, and I do not  see that changing in the
       short-term since there are no incentives for Web providers to
       free their applications from the tangled Web of spaghetti they have woven
       around themselves.
