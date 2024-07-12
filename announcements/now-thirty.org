@@ -14,16 +14,16 @@
      by following the logical structure of the afore mentioned Turning-Twenty paper.
   6. In the process, we identify the dreams that have come to pass as
      well as the expectations that have failed to materialize --- *both*
-     thanks to developments in the larger Internet eco-system.
+     attributable  to developments in the larger Internet eco-system.
   7. But never fear, though  some of the above might
      seem  superficially
      disappointing in the short-term, they likely herald the nature of bigger and better
      things to come in the long-term.
   8. As a proof-point, in 1994, I could not have imagined the impact
-     that the world of Internet-enteric computing and the accompanying
-     information revolution has had on the state of information
+     that the world of Internet-centered  computing and the accompanying
+     information revolution would have  on the state of information
      access.
-  9. Conversely, I boldly predicted (incorrectly) that the arrival of mobile
+  9. Conversely, I boldly  (and incorrectly)predicted  that the arrival of mobile
      devices and mainstream speech interfaces would herald the move to
      a Web of information where there would be a clean separation
      between application back-ends and various client-specific
@@ -37,7 +37,7 @@
   11. Case in point; today we have smart phones and smart speakers,
       but both require targeted front-end services for each device
       if one wishes to the bring the riches of the Internet to those
-      devices.
+      newer devices.
       
 Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][The Best Is Yet To Come]]!
 
@@ -55,7 +55,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
 
 *  Using UNIX With Speech Output —  2024
 
-  1. In 2024, Unix equates mostly to various Linux distributions, and from
+  1. In 2024/UNIX/ equates mostly to various Linux distributions, and from
     the Emacspeak perspective, they are all made /mostly/ equal.
   2. Variations do exist and  running bleeding-edge distributions can come
      with issues, e.g., unstable versions of the underlying audio infrastructure.
