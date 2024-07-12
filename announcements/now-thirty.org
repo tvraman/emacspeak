@@ -169,7 +169,9 @@
   2. Emacs package ~empv~ along with module ~emacspeak-empv~ is a
      powerful combination for locating, organizing  and playing local and remote
      media streams.
-  3. This experience is augmented by a collection of /smart/ content
+  3. This makes media streams from a large number of providers ranging
+     from the BBC to Youtube available via a consistent keyboard interface.
+  4. This experience is augmented by a collection of /smart/ content
      locators on the Emacspeak desktop, see the relevant blog article
      on the Emacspeak Blog.
      
@@ -179,8 +181,21 @@
     Bookshare continue to provide good EBook integration.
   2. There are  /smart/ book locators analogous to the locators for
      media content.
+  3. Speech-enabled ~Calibre~ integration for working with  local
+     Ebookse-books.
      
-* Leveraging Computational Tools —  From SQL And R To IPython Notebooks 
+     
+* Leveraging Computational Tools —  From SQL And R To IPython Notebooks
+
+  1. This area continues to provide a rich collection of  packages.
+  2. Newer highlights include ~sage~ interaction for symbolic computation.
+  3. Integrates with packages like ~gptel~ and ~ellama~ for working
+     with local and network LLMs.
+  4. The afore-mentioned decline in IPython Notebooks presently limits
+     the level of interaction possible with ~Colab~ notebooks,
+     especially when working with remote LLMs that impose some type of
+     proprietary auth-flow.
+     
 * Social Web  — EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols 
 * The RESTful Web —  Web Wizards And URL Templates For Faster Access
 * Mashing It Up —  Leveraging Evolving Web APIs
