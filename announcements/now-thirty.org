@@ -84,8 +84,8 @@
      close second in enhancing productivity.
   3. Packages like /transient/ that enable rapid keyboard access to
      complex nested-menu driven interfaces.
-  4. Various plugin-in completion strategies such as /hotfuzz/ and
-     /fuzz/ for fuzzy completion.
+  4. Various plugin-in completion strategies such as /fuzzy/ and
+     /flex/ for enhanced completion.
   5. IPython notebooks and their generalization to /Julia/, /Python/
      and /R/. The news here isn't all good; IPython notebooks are
      well-designed with respect to not getting locked into any given
