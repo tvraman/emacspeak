@@ -284,9 +284,9 @@ new     enhancements  supporting more TTS engines.
      to setup and  host their email; witness the complexity in setting
      up the Emacspeak mailing list in 2023 vs 1993!
   9. This is an area that is again likely to get worse before it gets
-     a chance to get better --- more the pity, since Internet Email
-     is perhaps the single-most impactful technology with respect to
-     leveling the communications  playing field.
+     better --- more the pity, since Internet Email is perhaps the
+     single-most impactful technology with respect to leveling the
+     communications playing field.
   10. The disappearance of APIs mentioned above also means that today
       the only usable chat services on an open platform like Emacspeak
       is the venerable  Internet Relay Chat (IRC).
