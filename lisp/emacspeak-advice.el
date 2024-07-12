@@ -662,9 +662,7 @@ When on a close delimiter, speak matching delimiter after a small delay. "
 
 (voice-setup-set-voice-for-face 'minibuffer-prompt 'voice-bolden)
 
-(defadvice minibuffer-completion-help (after emacspeak pre act comp)
-  "Icon"
-  (emacspeak-icon 'help))
+
 
 (defadvice quoted-insert (after emacspeak pre act comp)
   "Speak inserted  character."
