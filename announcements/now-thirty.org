@@ -70,7 +70,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
      things through a /mainstream/ Web browser, Emacspeak users access
      /everything/ through Emacs.
   6. The above when  done right is hugely empowering; 
-      when done badly, it's hugely disabling --- see later
+      when done badly, it's hugely debilitating  --- see later
      sections of this paper on  the continuing evolution of the Web.
      
 * Key Enabler — Emacs And Lisp Advice
@@ -142,7 +142,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
      will be a new crop of packages to come in the future.
   7. Note that developing in languages like Python (~elpy~), ~R~,
 ~Haskell~,      ~Clojure~ (~cider~), Go, Rust,  ~Scheme~, ~Racket~,  ~Ruby~ and numerous
-     other high-level languages continues to be very well supported in Emacs.
+     other high-level languages continues to be very well supported in Emacspeak.
   8. The re-emergence of Common Lisp in the last 20 years, thanks to
      [[https://asdf.common-lisp.dev/asdf.html][asdf]]  as a network-aware package manager and build tool has
      once again made Lisp development using Emacs ~Slime~ a productive
