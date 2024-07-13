@@ -306,11 +306,18 @@ new     enhancements  supporting more TTS engines.
      
 * Mashing It Up —  Leveraging Evolving Web APIs
 
-  1.   This aspect of developing solutions by combining various
-     services on the Web has  all but shut-down unless one is willing
-     to commit wholly to the JS-powered Web hosted in a Web browser,
-     something I hope I never   have to accept. So for now, I'll keep
+  1. This aspect of developing solutions by combining various
+   services on the Web has  all but shut-down unless one is willing
+   to commit wholly to the JS-powered Web hosted in a Web browser,
+   something I hope I never   have to accept.
+  2. So for now, I'll keep
      well away and count my blessings.
+  3. The next chapter of the /mash-up story/ may well be based around
+     LLMs and AI; in effect, LLMs that process Web content essentially
+     define a /platform/ for generating content mash-ups --- the issue
+     at present is that they often produce meaningless /mush/ ---
+     something that will hopefully get better as the field gets a
+     handle on cleaning up data and evaluation metrics.
      
 * Conclusion 
 * References 
