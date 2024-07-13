@@ -263,7 +263,7 @@
    ("]" emacspeak-speak-page)
    ("^" emacspeak-filtertext)
    ("`"  emacspeak-speak-net-id)
-   ("a" beginning-of-line)
+   ("a" emacspeak-speak-message-again)
    ("b" emacspeak-speak-buffer)
    ("c" emacspeak-speak-char)
    ("e" move-end-of-line)
