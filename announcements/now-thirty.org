@@ -51,9 +51,6 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
      how things have evolved.
   3. Make sure to skim or deep-dive into the references in both papers.
   
-
-
-
 *  Using UNIX With Speech Output —  2024
 
   1. In 2024 /UNIX/ equates mostly to various Linux distributions, and from
@@ -129,7 +126,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
      has tended to bloat commercial IDEs.
   4. Packages like /transient/ that enable rapid keyboard access to
      complex nested-menu driven interfaces.
-  5. Various plugin-in completion strategies such as /prescient/, /fuzzy/ and
+  5. Various  completion strategies such as /prescient/, /fuzzy/ and
      /flex/ for enhanced completion.
   6. IPython notebooks and their generalization to /Julia/, /Python/
      and /R/. The news here isn't all good; IPython notebooks are
@@ -139,7 +136,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
      many of Emacs' supporting environments for IPython Notebooks
      e.g., package ~ein~ are no longer maintained for this reason; hopefully there
      will be a new crop of packages to come in the future.
-  7. Note that developing in languages like Python (~elpy~), ~R~,
+  7.  Developing in languages like Python (~elpy~), ~R~,
      ~Haskell~, ~Clojure~ (~cider~), Go, Rust, ~Scheme~, ~Racket~,
      ~Ruby~ and numerous other high-level languages continues to be
      very well supported in Emacspeak.
@@ -177,42 +174,46 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
 
 
   1. Package ~shr~ and ~eww~ arrived around 2014. But in 2024, they
-    can be said to have *really* landed.
+    can be said to have *truly* landed.
   2. The explicit take-over of the stewardship of the HTML Web by the
      browser vendors from the W3C in the last decade --- I say
      explicit ---  because the W3C had already thrown in the towel in the
-     preceding decade with respect to stewardship of the Web.
+     preceding decade.
   3. This  has led to a Web of content  created using the assembly
      language of divs, spans and JS --- under the flag of HTML5 ---
      the result is a tangled web of spaghetti that everyone loves to hate. 
   4. For better or worse, the investment in XML and display-independent
-     content is now a complete loss at least on the surface.
+     content is now a complete write-off at least on the surface.
   5. So what next --- wait for the spaghetti monster to show up for lunch? Humor aside that monster may well be called AI; though
      whether  today's Web gives that monster life, indigestion,
-     constipation,   dysentery or hallucinations  is a story to be written in the coming years.
-  6. In the meantime  I say /on the surface/ above ---The welcome re-emergence of
+     constipation,   dysentery or hallucinations  is a story to be
+     written in the coming years.
+
+  6. In this context, see [[http://idlewords.com/][Tag Soup, Scripts And Obfuscation: How The Web Was Broken]].
+     
+  7. In the meantime  I say /on the surface/ above ---The welcome re-emergence of
      ~ATOM~ and ~RSS~ feeds is perhaps a silent acknowledgement that
      bloated Web pages are now unusable even for users who can see.
-  7. On the Emacspeak desktop,  package  ~elfeed~
+  8. On the Emacspeak desktop,  package  ~elfeed~
      has emerged as  a powerful feed-manager for Emacs.
-  8. Emacspeak had already implemented ~RSS~ and ~ATOM~ support using
+  9. Emacspeak had already implemented ~RSS~ and ~ATOM~ support using
      ~XSLT~; but those features now shine brighter  with mainstream
      news  sites reviving their support for content feeds.
-  9. Browsers like Mozilla now implement /content filters/ --- a
-     euphemism for scraping off  visual eye-candy and related cruft to
-     reveal the underlying content; recently these have now become
-     available as callable plugins, (see [[https://github.com/eafer/rdrview][RDRView]] for an example)  something that Emacspeak now
-     leverages to make the Web more readable.
-  10. Package ~url-template~ and ~emacspeak-websearch~ continue to give
+  10. Browsers like Mozilla now implement /content filters/ --- a
+      euphemism for scraping off  visual eye-candy and related cruft to
+      reveal the underlying content; recently these have now become
+      available as callable plugins, (see [[https://github.com/eafer/rdrview][RDRView]] for an example)  something that Emacspeak now
+      leverages to make the Web more readable.
+  11. Package ~url-template~ and ~emacspeak-websearch~ continue to give
       in plenty, though they do require continuous updating.
-  11. Web APIs come and go, usually  last for a few years, so in some
+  12. Web APIs come and go, usually  last for a few years, so in some
       sense that space is in steady state but constantly changing.
-  12. The state of WebApps is perhaps the most concerning from an
+  13. The state of WebApps is perhaps the most concerning from an
       Emacspeak perspective, and I do not  see that changing in the
       short-term since there are no incentives for Web providers to
       free their applications from the tangled Web of spaghetti they have woven
       around themselves.
-  13. But as with everything else in our industry,
+  14. But as with everything else in our industry,
       it is when something feels completely entrenched that users
       rebel and innovations emerge  to move us to the next phase --- so
       fingers crossed.
