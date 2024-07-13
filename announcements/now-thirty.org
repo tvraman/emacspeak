@@ -168,6 +168,9 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
       on the Emacspeak desktop extremely productive.
   5. Integrated access to spell-checking (~flyspell~) dictionaries, translation engines, and other
      language tools combine for a powerful authoring work-bench.
+  6. Extending ~org-mode~ with custom link types enables /smart note
+     taking/ with hyperlinks to relevant portions of an audio stream
+     --- see article [[https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html][Learn Smarter By Taking Rich Hypertext Notes]].
      
      
 * Emacspeak  And The Web In 2024
