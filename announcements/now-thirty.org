@@ -57,7 +57,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
 
 *  Using UNIX With Speech Output —  2024
 
-  1. In 2024/UNIX/ equates mostly to various Linux distributions, and from
+  1. In 2024 /UNIX/ equates mostly to various Linux distributions, and from
     the Emacspeak perspective, they are all made /mostly/ equal.
   2. Variations do exist and  running bleeding-edge distributions can come
      with issues, e.g., unstable versions of the underlying audio infrastructure.
