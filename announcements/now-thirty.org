@@ -237,7 +237,7 @@ new     enhancements  supporting more TTS engines.
 
 
   1. Emacspeak support for rich multimedia is now much  more robust.
-  2. First ~mplayer~ and now ~mpv~ signifcantly expand the
+  2. First ~mplayer~ and now ~mpv~ significantly expand the
    multimedia streaming features of the Emacspeak desktop.
   3. Emacs package ~empv~ along with module ~emacspeak-empv~ is a
      powerful combination for locating, organizing  and playing local and remote
