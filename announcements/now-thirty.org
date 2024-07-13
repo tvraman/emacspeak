@@ -286,7 +286,7 @@ new     enhancements  supporting more TTS engines.
   6. Looking back,the only /social/ platform I use if Blogger for
      hosting my Emacspeak Blog, it has a somewhat usable API, albeit
      guarded by a difficult to use OAuth interface that requires one
-     to sign in via  a /mainstream/ browser powered by JS.
+     to sign in via  a /mainstream/ browser.
   7. IMap continues to survive as an open email protocol, though its
      days may well be numbered.
   8. The dye is already cast with respect to mere mortals being able
@@ -315,7 +315,7 @@ new     enhancements  supporting more TTS engines.
 
   1.  Developing solutions by combining various
    API-based services on the Web has  all but shut-down unless one is willing
-   to commit wholly to the JS-powered Web hosted in a Web browser,
+   to commit fully to the JS-powered Web hosted in a Web browser,
    something I hope I never   have to accept.
   2. So for now, I'll keep
      well away and count my blessings.
