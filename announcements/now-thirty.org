@@ -87,7 +87,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
 
   1. Speech output --- especially unencumbered text-to-speech is just
     as much a challenge as it was 30 years ago.
-  2. At the bigger picture level, early instances of using speech
+  2. In the bigger picture, early instances of using speech
      output for mainstream solutions has driven the industry toward
      /natural sounding/ voices.
   3. The above sounds attractive on the surface, but a price we have
