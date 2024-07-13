@@ -1210,6 +1210,15 @@ Note that the Web browser should reset this hook after using it.")
     (shr-generic dom)
     (put-text-property start (point) 'article 'shr-tag)))
 
+
+(defun emacspeak-eww-tag-iframe (dom)
+  "Iframe containing YT links"
+  (let ((start (point))
+        (src (dom-attr dom 'src)))
+    (insert
+     (format "<a href='%s'>IFrame Link</a>\n\n" src))
+    (put-text-property start (point) 'iframe 'shr-tag)))
+
 (defun emacspeak-eww-em-with-space  (dom)
   "render EM node but with space.."
   (insert " ")
@@ -1231,6 +1240,7 @@ Note that the Web browser should reset this hook after using it.")
 (defvar emacspeak-eww-shr-renderers
   '((article . emacspeak-eww-tag-article)
     (audio . emacspeak-eww-tag-audio)
+    (iframe . emacspeak-eww-tag-iframe)
     (title . eww-tag-title)
     (video . emacspeak-eww-tag-video)
     (form . eww-tag-form)

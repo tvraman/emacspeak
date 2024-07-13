@@ -4,7 +4,7 @@
    Source in [[https://tvraman.github.io/emacspeak//web/releases/release-3.0.html][April 1995]].
   2. The goal was to create a system for daily use that also doubled
      as a research work-bench for developing an auditory interface
-     where speech and non-spoken auditory output was treated as a
+     where speech and non-spoken auditory output were treated as a
      first-class citizen.
   3. The time felt right with respect to building such a system for
      enabling equal access to the emerging Web of Internet content.
