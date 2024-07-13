@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-07-12 Fri 12:50 -->
+<!-- 2024-07-12 Fri 19:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>30 Years On: Emacspeak &#x2014; A Speech Odyssey</title>
@@ -197,8 +197,8 @@
 <body>
 <div id="content" class="content">
 <h1 class="title">30 Years On: Emacspeak &#x2014; A Speech Odyssey</h1>
-<div id="outline-container-org5548e28" class="outline-2">
-<h2 id="org5548e28"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org9fba003" class="outline-2">
+<h2 id="org9fba003"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li>Emacspeak, started in September 1994, was released as Open
@@ -247,8 +247,8 @@ available  on &#x2014; a classic downward spiral.</li>
 Share And Enjoy &#x2014; <a href="https://tvraman.github.io/emacspeak/web/01-gemini.ogg%20">The Best Is Yet To Come</a>!
 </p>
 </div>
-<div id="outline-container-org9d370cd" class="outline-3">
-<h3 id="org9d370cd"><span class="section-number-3">1.1.</span> How To Read This Document</h3>
+<div id="outline-container-org4ee1b82" class="outline-3">
+<h3 id="org4ee1b82"><span class="section-number-3">1.1.</span> How To Read This Document</h3>
 <div class="outline-text-3" id="text-1-1">
 <ol class="org-ol">
 <li>I recommend reading the <i>Turning Twenty</i> paper to get a full overview.</li>
@@ -260,8 +260,8 @@ how things have evolved.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org7a98129" class="outline-2">
-<h2 id="org7a98129"><span class="section-number-2">2.</span> Using UNIX With Speech Output —  2024</h2>
+<div id="outline-container-orgf023a67" class="outline-2">
+<h2 id="orgf023a67"><span class="section-number-2">2.</span> Using UNIX With Speech Output —  2024</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li>In 2024/UNIX/ equates mostly to various Linux distributions, and from
@@ -272,24 +272,25 @@ with issues, e.g., unstable versions of the underlying audio infrastructure.</li
 progress though I hope Pipewire will be the last of these tidal shifts.</li>
 <li>Linux is moving to Wayland from X and expect that transition to
 be choppy.</li>
-<li>As with other platforms, <i>native apps</i> are mostly gone bar the
+<li>As with other platforms, native applications are mostly gone bar the
 shouting; in that context, where the majority of users use most
 things through a <i>mainstream</i> Web browser, Emacspeak users access
 <i>everything</i> through Emacs.</li>
-<li>The above when things are done right is hugely empowering and
-enabling; when done badly, it's hugely disabling &#x2014; see later
+<li>The above when  done right is hugely empowering; 
+ when done badly, it's hugely disabling &#x2014; see later
 sections of this paper on  the continuing evolution of the Web.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orga142cb4" class="outline-2">
-<h2 id="orga142cb4"><span class="section-number-2">3.</span> Key Enabler — Emacs And Lisp Advice</h2>
+<div id="outline-container-orgae84f71" class="outline-2">
+<h2 id="orgae84f71"><span class="section-number-2">3.</span> Key Enabler — Emacs And Lisp Advice</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li>Advice in Emacs as implemented in <code>advice.el</code> is rock-solid.</li>
-<li>There is a newer <i>nadvice</i> that is part of Emacs; Emacspeak does
-not use it.</li>
-<li>There are no plans to migrate to <i>nadvice</i> since that is a lot of
+<li>There is a newer <code>nadvice</code> that is part of Emacs that Emacspeak
+does not use.</li>
+
+<li>There are no plans to migrate to <code>nadvice</code> since that is a lot of
 busy work in my view and any such migration would be difficult
 to test for correctness.</li>
 <li>The classic <i>advice</i> package may be removed from Emacs at some
@@ -299,8 +300,8 @@ example of what that <i>Freedom</i> means.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org90ebf3a" class="outline-2">
-<h2 id="org90ebf3a"><span class="section-number-2">4.</span> Key Component —  Text To Speech (TTS)</h2>
+<div id="outline-container-org639daf1" class="outline-2">
+<h2 id="org639daf1"><span class="section-number-2">4.</span> Key Component —  Text To Speech (TTS)</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li>Speech output &#x2014; especially unencumbered text-to-speech is just
@@ -318,8 +319,9 @@ interaction on mainstream devices.</li>
 <li>Things appear to be coming full circle, Emacspeak started with
 the hardware Dectalk; now, the <a href="https://github.com/dectalk/dectalk.git">Software Dectalk</a> is increasingly
 becoming the primary choice on Linux &#x2014; see <a href="https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org">for setup instructions</a>.</li>
-<li>Viavoice Outloud from Voxin is still supported (since 1999) but
-you can no longer buy new licenses; if you have a license, it'll
+<li>Viavoice Outloud from Voxin is still supported; but
+you can no longer buy new licenses; if you have already purchased
+a license, it'll
 continue to work.</li>
 <li>The  Vocalizer voices that Voxin now sells <i>do not</i> work with Emacspeak.</li>
 <li>The  other choice on Linux is ESpeak which will hopefully
@@ -332,8 +334,8 @@ supported by the new SwiftMac server for Emacspeak.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org32a233c" class="outline-2">
-<h2 id="org32a233c"><span class="section-number-2">5.</span> Emacspeak And Software Development</h2>
+<div id="outline-container-org21ad074" class="outline-2">
+<h2 id="org21ad074"><span class="section-number-2">5.</span> Emacspeak And Software Development</h2>
 <div class="outline-text-2" id="text-5">
 <ol class="org-ol">
 <li><i>Magit</i>  as a Git porcelain is perhaps the biggest leap forward
@@ -347,7 +349,7 @@ development environment while leaving behind the eye-candy that
 has tended to bloat commercial IDEs.</li>
 <li>Packages like <i>transient</i> that enable rapid keyboard access to
 complex nested-menu driven interfaces.</li>
-<li>Various plugin-in completion strategies such as <i>fuzzy</i> and
+<li>Various plugin-in completion strategies such as <i>prescient</i>, <i>fuzzy</i> and
 <i>flex</i> for enhanced completion.</li>
 <li>IPython notebooks and their generalization to <i>Julia</i>, <i>Python</i>
 and <i>R</i>. The news here isn't all good; IPython notebooks are
@@ -357,22 +359,26 @@ on Javascript for interaction from within the browser. Today,
 many of Emacs' supporting environments for IPython Notebooks
 e.g., package <code>ein</code> are no longer maintained for this reason; hopefully there
 will be a new crop of packages to come in the future.</li>
-<li>Note that developing in languages like Python (<code>elpy</code>), <code>R</code>,
-<code>Clojure</code> (<code>cider</code>), <code>Scheme</code>, <code>Racket</code>,  <code>Ruby</code> and numerous
-other high-level languages continues to be very well supported in Emacs.</li>
+<li>Note that developing in languages like Python (<code>elpy</code>), <code>R</code>,</li>
+</ol>
+<p>
+<code>Haskell</code>,      <code>Clojure</code> (<code>cider</code>), Go, Rust,  <code>Scheme</code>, <code>Racket</code>,  <code>Ruby</code> and numerous
+     other high-level languages continues to be very well supported in Emacs.
+</p>
+<ol class="org-ol">
 <li>The re-emergence of Common Lisp in the last 20 years, thanks to
-<code>asdf</code> as a network-aware package management and build tool has
+<a href="https://asdf.common-lisp.dev/asdf.html">asdf</a>  as a network-aware package manager and build tool has
 once again made Lisp development using Emacs <code>Slime</code> a productive
-experience; as an example, I updated <a href="https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html">Audio System For Technical
+experience; as an example, in 2022, I updated <a href="https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html">Audio System For Technical
 Readings (AsTeR)</a>&#x2014; my PhD project from 1993 &#x2014; to run under <code>SBCL</code>
-with a freshly implemented Emacs front-end in late 2022.</li>
+with a freshly implemented Emacs front-end.</li>
 <li><a href="https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html">Ergonomic keybindings</a> under <code>X</code> using <code>xcape</code> to minimize
 chording has been  a significant win in the last two years.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org945a63d" class="outline-2">
-<h2 id="org945a63d"><span class="section-number-2">6.</span> Emacspeak And Authoring Documents</h2>
+<div id="outline-container-org998b557" class="outline-2">
+<h2 id="org998b557"><span class="section-number-2">6.</span> Emacspeak And Authoring Documents</h2>
 <div class="outline-text-2" id="text-6">
 <ol class="org-ol">
 <li>Package <code>org</code> is to authoring as <code>magit</code> is to
@@ -386,20 +392,20 @@ to the relevant target format.</li>
 <li>Integrating various search engines  in Emacs, with <code>eww</code>
 providing  a consistent Emacs experience, makes authoring content
  on the Emacspeak desktop extremely productive.</li>
-<li>Integrated access to dictionaries, translation engines, and other
+<li>Integrated access to spell-checking (<code>flyspell</code>) dictionaries, translation engines, and other
 language tools combine for a powerful authoring work-bench.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgeee44e6" class="outline-2">
-<h2 id="orgeee44e6"><span class="section-number-2">7.</span> Emacspeak  And The Web In 2024</h2>
+<div id="outline-container-org65aaf1a" class="outline-2">
+<h2 id="org65aaf1a"><span class="section-number-2">7.</span> Emacspeak  And The Web In 2024</h2>
 <div class="outline-text-2" id="text-7">
 <ol class="org-ol">
 <li>Package <code>shr</code> and <code>eww</code> arrived around 2014. But in 2024, they
 can be said to have <b>really</b> landed.</li>
 <li>The explicit take-over of the stewardship of the HTML Web by the
 browser vendors from the W3C in the last decade &#x2014; I say
-explicit because the W3C had already thrown in the towel in the
+explicit &#x2014;  because the W3C had already thrown in the towel in the
 preceding decade with respect to stewardship of the Web.</li>
 <li>This  has led to a Web of content  created using the assembly
 language of divs, spans and JS &#x2014; under the flag of HTML5 &#x2014;
@@ -415,8 +421,8 @@ bloated Web pages are now unusable even for users who can see.</li>
 <li>On the Emacspeak desktop,  package  <code>elfeed</code>
 has emerged as  a powerful feed-manager for Emacs.</li>
 <li>Emacspeak had already implemented <code>RSS</code> and <code>ATOM</code> support using
-<code>XSLT</code>; but those features now shine even more with mainstream
-content sites reviving their support for content feeds.</li>
+<code>XSLT</code>; but those features now shine brighter  with mainstream
+news  sites reviving their support for content feeds.</li>
 <li>Browsers like Mozilla now implement <i>content filters</i> &#x2014; a
 euphemism for removing visual eye-candy and related cruft to
 reveal the underlying content; recently these have now become
@@ -433,13 +439,13 @@ free their applications from the tangled Web of spaghetti they have woven
 around themselves.</li>
 <li>But as with everything else in our industry,
 it is when something feels completely entrenched that users
-rebel and innovation occurs to move us to the next phase &#x2014; so
+rebel and innovations emerge  to move us to the next phase &#x2014; so
 fingers crossed.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org037752b" class="outline-2">
-<h2 id="org037752b"><span class="section-number-2">8.</span> Audio Formatting —  Generalizing Aural CSS</h2>
+<div id="outline-container-org588eec3" class="outline-2">
+<h2 id="org588eec3"><span class="section-number-2">8.</span> Audio Formatting —  Generalizing Aural CSS</h2>
 <div class="outline-text-2" id="text-8">
 <ol class="org-ol">
 <li>Audio formatting with Aural CSS support is stable, with</li>
@@ -458,8 +464,8 @@ binaural audio significantly enhances the environment.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org27d1ba9" class="outline-2">
-<h2 id="org27d1ba9"><span class="section-number-2">9.</span> Conversational Gestures For The Audio Desktop</h2>
+<div id="outline-container-org0c35d11" class="outline-2">
+<h2 id="org0c35d11"><span class="section-number-2">9.</span> Conversational Gestures For The Audio Desktop</h2>
 <div class="outline-text-2" id="text-9">
 <ol class="org-ol">
 <li>Parallel streams of audio, combined with more ergonomic
@@ -467,8 +473,8 @@ keybindings are perhaps the only enhancement in this area.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org7a712ef" class="outline-2">
-<h2 id="org7a712ef"><span class="section-number-2">10.</span> Accessing Media Streams</h2>
+<div id="outline-container-org56bcfe5" class="outline-2">
+<h2 id="org56bcfe5"><span class="section-number-2">10.</span> Accessing Media Streams</h2>
 <div class="outline-text-2" id="text-10">
 <ol class="org-ol">
 <li>Emacspeak support for rich multimedia is now much  more robust.</li>
@@ -486,8 +492,8 @@ locators on the Emacspeak desktop, see the relevant blog article
 </ol>
 </div>
 </div>
-<div id="outline-container-org22ce44e" class="outline-2">
-<h2 id="org22ce44e"><span class="section-number-2">11.</span> EBooks—   Ubiquitous Access To Books</h2>
+<div id="outline-container-org779c046" class="outline-2">
+<h2 id="org779c046"><span class="section-number-2">11.</span> EBooks—   Ubiquitous Access To Books</h2>
 <div class="outline-text-2" id="text-11">
 <ol class="org-ol">
 <li>Module <code>emacspeak-epub</code> for Epub and <code>emacspeak-bookshare</code> for
@@ -499,8 +505,8 @@ Ebooks.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org8116c4c" class="outline-2">
-<h2 id="org8116c4c"><span class="section-number-2">12.</span> Leveraging Computational Tools —  From SQL And R To IPython Notebooks</h2>
+<div id="outline-container-orga3b5ec7" class="outline-2">
+<h2 id="orga3b5ec7"><span class="section-number-2">12.</span> Leveraging Computational Tools —  From SQL And R To IPython Notebooks</h2>
 <div class="outline-text-2" id="text-12">
 <ol class="org-ol">
 <li>This area continues to provide a rich collection of  packages.</li>
@@ -514,8 +520,8 @@ proprietary auth-flow.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgf6876e5" class="outline-2">
-<h2 id="orgf6876e5"><span class="section-number-2">13.</span> Social Web  — EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols</h2>
+<div id="outline-container-orgadf035d" class="outline-2">
+<h2 id="orgadf035d"><span class="section-number-2">13.</span> Social Web  — EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols</h2>
 <div class="outline-text-2" id="text-13">
 <ol class="org-ol">
 <li>This is a space that is definitely regressing.</li>
@@ -543,8 +549,8 @@ is the venerable  Internet Relay Chat (IRC).</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org4456af5" class="outline-2">
-<h2 id="org4456af5"><span class="section-number-2">14.</span> The RESTful Web —  Web Wizards And URL Templates For Faster Access</h2>
+<div id="outline-container-org5a3b122" class="outline-2">
+<h2 id="org5a3b122"><span class="section-number-2">14.</span> The RESTful Web —  Web Wizards And URL Templates For Faster Access</h2>
 <div class="outline-text-2" id="text-14">
 <ol class="org-ol">
 <li>This area continues to thrive &#x2014; either because of &#x2013; or
@@ -553,8 +559,8 @@ Web.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgc4e3b31" class="outline-2">
-<h2 id="orgc4e3b31"><span class="section-number-2">15.</span> Mashing It Up —  Leveraging Evolving Web APIs</h2>
+<div id="outline-container-org1aacf11" class="outline-2">
+<h2 id="org1aacf11"><span class="section-number-2">15.</span> Mashing It Up —  Leveraging Evolving Web APIs</h2>
 <div class="outline-text-2" id="text-15">
 <ol class="org-ol">
 <li>This aspect of developing solutions by combining various
@@ -565,11 +571,11 @@ well away and count my blessings.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org8c93cae" class="outline-2">
-<h2 id="org8c93cae"><span class="section-number-2">16.</span> Conclusion</h2>
+<div id="outline-container-org6ae11de" class="outline-2">
+<h2 id="org6ae11de"><span class="section-number-2">16.</span> Conclusion</h2>
 </div>
-<div id="outline-container-org74d0d8a" class="outline-2">
-<h2 id="org74d0d8a"><span class="section-number-2">17.</span> References</h2>
+<div id="outline-container-org560f88f" class="outline-2">
+<h2 id="org560f88f"><span class="section-number-2">17.</span> References</h2>
 <div class="outline-text-2" id="text-17">
 </div>
 </div>
@@ -577,7 +583,7 @@ well away and count my blessings.</li>
 <div id="postamble" class="status">
 <p class="date">Date: 2024-07-10 Wed 00:00</p>
 <p class="author">Author: T.V Raman</p>
-<p class="date">Created: 2024-07-12 Fri 12:50</p>
+<p class="date">Created: 2024-07-12 Fri 19:14</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
