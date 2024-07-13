@@ -4,8 +4,8 @@
    Source in [[https://tvraman.github.io/emacspeak//web/releases/release-3.0.html][April 1995]].
   2. The goal was to create a system for daily use that also doubled
      as a research work-bench for developing an auditory interface
-     where speech and non-spoken auditory output were treated as a
-     first-class citizen.
+     where speech and auditory output were treated as 
+     first-class citizens.
   3. The time felt right with respect to building such a system for
      enabling equal access to the emerging Web of Internet content.
   4. [[https://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At Twenty]]  was published in September 2014 to trace the
@@ -70,7 +70,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
      things through a /mainstream/ Web browser, Emacspeak users access
      /everything/ through Emacs.
   6. The above when  done right is hugely empowering; 
-      when done badly, it's hugely debilitating  --- see later
+      when done badly, it's extremely debilitating  --- see later
      sections of this paper on  the continuing evolution of the Web.
      
 * Key Enabler — Emacs And Lisp Advice
@@ -85,7 +85,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
   4. The classic /advice/ package may be removed from Emacs at some
      point in the future, but never fear; it'll be bundled with
      Emacspeak if that becomes necessary. This is a feature of Free Software and is a great
-     example of what that /Freedom/ means.
+     example of what that /Freedom/ entails.
      
 * Key Component —  Text To Speech (TTS)
 
@@ -150,7 +150,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
      experience; as an example, in 2022, I updated [[https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html][Audio System For Technical
      Readings (AsTeR)]]--- my PhD project from 1993 --- to run under ~SBCL~
      with a freshly implemented Emacs front-end.
-  9. [[https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html][Ergonomic keybindings]] under ~X~ using ~xcape~ to minimize
+  9. [[https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html][Ergonomic keybindings]] under ~X~ using [[https://github.com/alols/xcape][xcape]] to minimize
      chording has been  a significant win in the last two years.
      
      
@@ -200,7 +200,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
      ~XSLT~; but those features now shine brighter  with mainstream
      news  sites reviving their support for content feeds.
   9. Browsers like Mozilla now implement /content filters/ --- a
-     euphemism for removing visual eye-candy and related cruft to
+     euphemism for scraping off  visual eye-candy and related cruft to
      reveal the underlying content; recently these have now become
      available as callable plugins, (see [[https://github.com/eafer/rdrview][RDRView]] for an example)  something that Emacspeak now
      leverages to make the Web more readable.
@@ -229,7 +229,7 @@ new     enhancements  supporting more TTS engines.
   4. Soundscapes implemented via package ~boodler~ makes for  a
      pleasant and relaxing auditory environment.
   5. Enabling virtual sound devices via Pipewire for 5.1  and 7.1
-     binaural audio significantly enhances the environment.
+     binaural audio significantly enhances the auditory experience.
 
      
 * Conversational Gestures For The Audio Desktop
@@ -260,7 +260,7 @@ new     enhancements  supporting more TTS engines.
   2. There are  /smart/ book locators analogous to the locators for
      media content.
   3. Speech-enabled ~Calibre~ integration for working with  local
-     Ebooks.
+     Ebook libraries.
      
      
 * Leveraging Computational Tools —  From SQL And R To IPython Notebooks
@@ -301,9 +301,15 @@ new     enhancements  supporting more TTS engines.
      
 * The RESTful Web —  Web Wizards And URL Templates For Faster Access
 
-  1.  This area continues to thrive --- either because of -- or
-     despite -- the best and worst efforts of service providers on the
-     Web.
+  1. This area continues to thrive --- either because of -- or
+    despite -- the best and worst efforts of service providers on the
+    Web.
+  2. Twenty years on (this feature originally landed in 2000)
+     Emacspeak has a far richer collection of filters, pre-processors
+     and post-processors that  enables ever-more powerful Web
+     wizards. See the relevant
+     [[https://tvraman.github.io/emacspeak/manual/URL-Templates.html][chapter]] in the Emacspeak manual for the automatically updated list of *URL
+Templates*.
      
 * Mashing It Up —  Leveraging  AI And The Web 
 
