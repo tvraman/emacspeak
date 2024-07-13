@@ -319,7 +319,7 @@ new     enhancements  supporting more TTS engines.
 #+options: author:t broken-links:nil c:nil creator:nil
 #+options: d:(not "LOGBOOK") date:t e:t email:nil expand-links:t f:t
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
-#+options: tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
+#+options: tasks:t tex:t timestamp:t title:t toc:t todo:t |:t
 #+title: 30 Years On: Emacspeak --- A Speech Odyssey
 #+date: <2024-07-10 Wed>
 #+author: T.V Raman
