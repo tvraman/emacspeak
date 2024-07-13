@@ -306,10 +306,9 @@ new     enhancements  supporting more TTS engines.
     Web.
   2. Twenty years on (this feature originally landed in 2000)
      Emacspeak has a far richer collection of filters, pre-processors
-     and post-processors that  enables ever-more powerful Web
-     wizards. See the relevant
-     [[https://tvraman.github.io/emacspeak/manual/URL-Templates.html][chapter]] in the Emacspeak manual for the automatically updated list of *URL
-Templates*.
+     and post-processors that enables ever-more powerful Web
+     wizards. See the relevant [[https://tvraman.github.io/emacspeak/manual/URL-Templates.html][chapter]] in the Emacspeak manual for the
+     automatically updated list of *URL Templates*.
      
 * Mashing It Up —  Leveraging  AI And The Web 
 
