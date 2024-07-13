@@ -189,7 +189,8 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
      constipation,   dysentery or hallucinations  is a story to be
      written in the coming years.
 
-  6. In this context, see [[http://idlewords.com/][Tag Soup, Scripts And Obfuscation: How The Web Was Broken]].
+  6. In this context, see [[https://idlewords.com/talks/website_obesity.htm][Tag Soup, Scripts And Obfuscation: How The
+     Web Was Broken that gives a good overview of the HTML's obesity problem]].
      
   7. In the meantime  I say /on the surface/ above ---The welcome re-emergence of
      ~ATOM~ and ~RSS~ feeds is perhaps a silent acknowledgement that
