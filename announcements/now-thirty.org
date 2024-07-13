@@ -329,6 +329,21 @@ new     enhancements  supporting more TTS engines.
 * Conclusion 
 * References 
 
+  1. [[https://tvraman.github.io/emacspeak//web/releases/release-3.0.html][Announcing Emacspeak: April 1995]]
+  2. [[https://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At Twenty]]
+  3. [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][An Ode To Emacspeak: The Best Is Yet To Come]]
+  4. [[https://github.com/dectalk/dectalk.git][Software Dectalk on Github]]
+  5. [[https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org][Dectalk  setup instructions]]
+  6. [[https://asdf.common-lisp.dev/asdf.html][Common Lisp: asdf]]
+  7. [[https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html][Audio System For Technical Readings]]
+  8. [[https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html][Ergonomic keybindings]]
+  9. [[https://github.com/alols/xcape][Minimize chording with XCape]]
+  10. [[https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html][Learn Smarter By Taking Rich Hypertext Notes]]
+  11. [[https://idlewords.com/talks/website_obesity.htm][Tag Soup, Scripts And Obfuscation: How The Web Was Broken]]
+  12. [[https://github.com/eafer/rdrview][Readable Web Pages: RDRView]]
+  13. [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selectors]]
+  14. [[https://tvraman.github.io/emacspeak/manual/URL-Templates.html][Emacspeak Manual: URL Templates]]
+
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
 #+options: d:(not "LOGBOOK") date:t e:t email:nil expand-links:t f:t
