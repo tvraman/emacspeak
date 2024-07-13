@@ -304,10 +304,10 @@ new     enhancements  supporting more TTS engines.
      despite -- the best and worst efforts of service providers on the
      Web.
      
-* Mashing It Up —  Leveraging Evolving Web APIs
+* Mashing It Up —  Leveraging  AI And The Web 
 
-  1. This aspect of developing solutions by combining various
-   services on the Web has  all but shut-down unless one is willing
+  1.  Developing solutions by combining various
+   API-based services on the Web has  all but shut-down unless one is willing
    to commit wholly to the JS-powered Web hosted in a Web browser,
    something I hope I never   have to accept.
   2. So for now, I'll keep
