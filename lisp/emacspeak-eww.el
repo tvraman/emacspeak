@@ -1219,6 +1219,8 @@ Note that the Web browser should reset this hook after using it.")
      (format "<a href='%s'>IFrame Link</a>\n\n" src))
     (put-text-property start (point) 'iframe 'shr-tag)))
 
+(defalias 'shr-tag-iframe 'emacspeak-eww-tag-iframe)
+
 (defun emacspeak-eww-em-with-space  (dom)
   "render EM node but with space.."
   (insert " ")
