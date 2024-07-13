@@ -40,7 +40,7 @@
 @item ]  emacspeak-speak-page
 @item ^  emacspeak-filtertext
 @item `  emacspeak-speak-net-id
-@item a  beginning-of-line
+@item a  emacspeak-speak-message-again
 @item b  emacspeak-speak-buffer
 @item c  emacspeak-speak-char
 @item e  move-end-of-line

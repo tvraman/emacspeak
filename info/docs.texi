@@ -12995,6 +12995,8 @@ Load emacspeak filter settings.
 @subsubsection emacspeak-speak-message-again
 @deffn {Command} emacspeak-speak-message-again  (&optional from-message-cache)
 @table @kbd
+@item C-e a
+@kindex C-e a
 @item C-e <backspace>
 @kindex C-e <backspace>
 @item C-e <delete>
