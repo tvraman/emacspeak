@@ -1215,8 +1215,8 @@ Note that the Web browser should reset this hook after using it.")
   "Iframe containing YT links"
   (let ((start (point))
         (src (dom-attr dom 'src)))
-    (insert
-     (format "YT: %s>IFrame\n\n" src))
+(shr-generic dom)
+    (insert (format "\nIFrame: %s\n\n" src))
     (put-text-property start (point) 'iframe 'shr-tag)))
 
 (defalias 'shr-tag-iframe 'emacspeak-eww-tag-iframe)
