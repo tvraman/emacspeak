@@ -990,7 +990,7 @@ Moves to the shortest line when called interactively."
           (setq where para-start))
         (setq para-start (point))))
     (when (called-interactively-p 'interactive)
-      (message "Longest paragraph is %s characters" max)
+      (message "Longest paragraph is %s characters, starts at %s" max where)
       (goto-char where))
     max))
 
