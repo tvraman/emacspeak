@@ -3,8 +3,8 @@
   1. Emacspeak, started in September 1994, was released as Open
    Source in [[https://tvraman.github.io/emacspeak//web/releases/release-3.0.html][April 1995]].
   2. The goal was to create a system for daily use that also doubled
-     as a research work-bench for developing an auditory interface
-     where speech and auditory output were treated as 
+     as a research work-bench for developing an auditory interface.
+      Speech and auditory output would be  treated as 
      first-class citizens.
   3. The time felt right with respect to building such a system for
      enabling equal access to the emerging Web of Internet content.
