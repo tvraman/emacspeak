@@ -142,6 +142,11 @@ fly spell checking."
      (when (ems-interactive-p)
        (dtk-speak (car (flyspell-get-word nil)))))))
 
+(defadvice flyspell-goto-next-error (after emacspeak pre act comp)
+  "speak."
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)))
+
 (provide 'emacspeak-flyspell)
 ;;;  emacs local variables
 
