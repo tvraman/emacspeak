@@ -336,8 +336,9 @@ new     enhancements  supporting more TTS engines.
   3. Rapid, reliable task completion is the most important metric and
      trumps secondary items such as eye-candy --- the latter only
      leads to bloat as evinced by the HTML experience.
-  4. Having a clearly identified user problem when designing systems
-     wins --- /usability/ is important, but to  truly matter, the
+  4. Having a clearly identified user problem when designing a system
+     is paramount.
+  5. /Usability/ is important, but to  truly matter, the
      system needs to be /useful/ first.
 
 * References 

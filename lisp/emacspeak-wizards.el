@@ -994,6 +994,26 @@ Moves to the shortest line when called interactively."
       (goto-char where))
     max))
 
+
+(defun emacspeak-wizards-find-longest-sentence-in-region (start end)
+  "Find longest sentence in region, and move to it. "
+  (interactive "r")
+  (let ((max 0)
+        (where nil)
+        (sen-start start))
+    (save-excursion
+      (goto-char start)
+      (while (and (not (eobp))
+                  (< (point) end))
+        (forward-sentence)
+        (when (< max (- (point) sen-start))
+          (setq max (- (point) sen-start))
+          (setq where sen-start))
+        (setq sen-start (point))))
+    (when (called-interactively-p 'interactive)
+      (message "Longest sentence is %s characters, starts at %s" max where)
+      (goto-char where))
+    max))
 ;;;  face wizard
 ;;;###autoload
 (defun emacspeak-wizards-show-face (face)
