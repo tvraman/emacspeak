@@ -256,7 +256,7 @@ references, poor-man's xpath."
   (g-using-scratch
    (call-process shell-file-name nil t nil
                  shell-command-switch command)
-   ;(set-buffer-multibyte nil) ;return raw binary string
+   (set-buffer-multibyte nil) ;return raw binary string
    (buffer-string)))
 
 (defun g-json-get-result (command)
