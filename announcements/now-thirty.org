@@ -62,7 +62,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
   4. Linux is moving to Wayland from X and expect that transition to
      be choppy.
   5. As with other platforms, native applications are mostly gone bar the
-     shouting; in that context, where the majority of users use most
+     shouting. In that context, where the majority of users access 
      things through a /mainstream/ Web browser, Emacspeak users access
      /everything/ through Emacs.
   6. The above when  done right is hugely empowering; 
