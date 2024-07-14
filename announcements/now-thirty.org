@@ -321,13 +321,14 @@ new     enhancements  supporting more TTS engines.
   2. So for now, I'll keep
      well away and count my blessings.
   3. The next chapter of the /mash-up story/ may well be based around
-     LLMs and AI; in effect, LLMs that process Web content essentially
-     define a /platform/ for generating content mash-ups --- the issue
+     LLMs and Generative-AI. In effect, LLMs that process Web content 
+     define a /platform/ for generating content mash-ups.  The issue
      at present is that they often produce meaningless /mush/ ---
      something that will hopefully get better as the field gets a
      handle on cleaning up data and evaluation metrics.
      
-* Conclusion 
+* Conclusion
+
 * References 
 
   1. [[https://tvraman.github.io/emacspeak//web/releases/release-3.0.html][Announcing Emacspeak: April 1995]]
