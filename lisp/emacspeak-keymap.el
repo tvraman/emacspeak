@@ -435,6 +435,7 @@
     ("h" emacspeak-wizards-how-many-matches)
     ("i" ibuffer)
     ("k" emacspeak-desktop-preserve)
+    ("l" load-library)
     ("m" mspools-show)
     ("o" emacspeak-wizards-occur-header-lines)
     ("p" paradox-list-packages)

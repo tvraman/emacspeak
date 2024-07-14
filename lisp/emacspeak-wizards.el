@@ -977,45 +977,49 @@ Moves to the shortest line when called interactively."
 (defun emacspeak-wizards-find-longest-paragraph-in-region (start end)
   "Find longest paragraph in region, and move to it. "
   (interactive "r")
-  (let ((max 0)
-        (where nil)
-        (para-start start))
-    (save-excursion
-      (goto-char start)
-      (while (and (not (eobp))
-                  (< (point) end))
-        (forward-paragraph 1)
-        (when (< max (- (point) para-start))
-          (setq max (- (point) para-start))
-          (setq where para-start))
-        (setq para-start (point))))
-    (when (called-interactively-p 'interactive)
-      (message "Longest paragraph is %s characters, starts at %s" max where)
-      (goto-char where))
-    max))
+  (save-restriction
+    (narrow-to-region start end)
+    (let ((max 0)
+          (where nil)
+          (para-start start))
+      (save-excursion
+        (goto-char start)
+        (while (and (not (eobp))
+                    (< (point) end))
+          (forward-paragraph 1)
+          (when (< max (- (point) para-start))
+            (setq max (- (point) para-start))
+            (setq where para-start))
+          (setq para-start (point))))
+      (when (called-interactively-p 'interactive)
+        (message "Longest paragraph is %s characters, starts at %s" max where)
+        (goto-char where))
+      max)))
 
 
 (defun emacspeak-wizards-find-longest-sentence-in-region (start end)
   "Find longest sentence in region, and move to it. "
   (interactive "r")
-  (let ((max 0)
-        (where nil)
-        (sen-start start))
-    (save-excursion
-      (goto-char start)
-      (while (and (not (eobp))
-                  (< (point) end))
-        (forward-sentence)
-        (when (< max (- (point) sen-start))
-          (setq max (- (point) sen-start))
-          (setq where sen-start))
-        (setq sen-start (point))))
-    (when (called-interactively-p 'interactive)
-      (message "Longest sentence is %s words, %s characters, starts at
+  (save-restriction
+    (narrow-to-region start end)
+    (let ((max 0)
+          (where nil)
+          (sen-start start))
+      (save-excursion
+        (goto-char start)
+        (while (and (not (eobp))
+                    (< (point) end))
+          (forward-sentence)
+          (when (< max (- (point) sen-start))
+            (setq max (- (point) sen-start))
+            (setq where sen-start))
+          (setq sen-start (point))))
+      (when (called-interactively-p 'interactive)
+        (message "Longest sentence is %s words, %s characters, starts at
 %s"
-               (count-words-region where (point)) max where)
-      (goto-char where))
-    max))
+                 (count-words-region where (point)) max where)
+        (goto-char where))
+      max)))
 
 ;;;  face wizard
 ;;;###autoload
