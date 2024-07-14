@@ -423,6 +423,7 @@
     ("8" calc)
     ("=" emacspeak-wizards-find-longest-line-in-region)
     ("[" emacspeak-wizards-find-longest-paragraph-in-region)
+    ("]" emacspeak-wizards-find-longest-sentence-in-region)
     ("M-c" emacspeak-wizards-colors)
     (":" emacspeak-m-player-loop)
     (";" emacspeak-m-player-shuffle)

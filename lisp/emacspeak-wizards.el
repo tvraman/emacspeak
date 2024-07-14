@@ -1011,9 +1011,12 @@ Moves to the shortest line when called interactively."
           (setq where sen-start))
         (setq sen-start (point))))
     (when (called-interactively-p 'interactive)
-      (message "Longest sentence is %s characters, starts at %s" max where)
+      (message "Longest sentence is %s words, %s characters, starts at
+%s"
+               (count-words-region where (point)) max where)
       (goto-char where))
     max))
+
 ;;;  face wizard
 ;;;###autoload
 (defun emacspeak-wizards-show-face (face)
