@@ -11,7 +11,7 @@
   4. [[https://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At Twenty]]  was published in September 2014 to trace the
      evolution of the project.
   5. Now, this article gives a birds-eye overview of the last 10 years
-     by following the logical structure of the afore mentioned Turning-Twenty paper.
+     by following the logical structure of the  /Turning-Twenty/ paper.
   6. In the process, we identify the dreams that have come to pass as
      well as the expectations that have failed to materialize --- *both*
      attributable  to developments in the larger Internet eco-system.
