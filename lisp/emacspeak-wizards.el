@@ -985,14 +985,12 @@ Moves to the shortest line when called interactively."
       (while (and (not (eobp))
                   (< (point) end))
         (forward-paragraph 1)
-        (when
-            (< max (- (point) para-start))
+        (when (< max (- (point) para-start))
           (setq max (- (point) para-start))
           (setq where para-start))
         (setq para-start (point))))
     (when (called-interactively-p 'interactive)
-      (message "Longest paragraph is %s characters"
-               max)
+      (message "Longest paragraph is %s characters" max)
       (goto-char where))
     max))
 
