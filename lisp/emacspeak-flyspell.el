@@ -87,12 +87,14 @@ fly spell checking."
   (cond
    ((ems-interactive-p)
     (ems-with-messages-silenced
-     ad-do-it
-     (dtk-speak (car (flyspell-get-word nil)))
-     (when (sit-for 1)
-       (dtk-notify (cl-second flyspell-auto-correct-ring)))
-     (when (sit-for 1) (emacspeak-speak-message-again))
-     (emacspeak-icon 'select-object))) (t ad-do-it)) ad-return-value)
+      ad-do-it
+      (dtk-speak (car (flyspell-get-word nil)))
+      (when (sit-for 1)
+        (dtk-notify (cl-second flyspell-auto-correct-ring)))
+      (when (sit-for 1) (emacspeak-speak-message-again))
+      (emacspeak-icon 'select-object)))
+   (t ad-do-it))
+  ad-return-value)
 
 (defadvice flyspell-unhighlight-at (before emacspeak pre act comp)
   "handle highlight/unhighlight."
