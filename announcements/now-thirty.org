@@ -330,17 +330,31 @@ new     enhancements  supporting more TTS engines.
 * Conclusion
 
   1. Open systems are a key prerequisite for developing new access paradigms.
-  2. This is not mere idealism. The openness is a key enabler for
+  2. This is not mere idealism.  Openness is a key enabler for
      creating  new user journeys that were not  envisioned by the
      system's creators.
-  3. Rapid, reliable task completion is the most important metric and
+  3. Emacs is a great example of a system that permits maximal freedom
+      from the viewpoint of user extensibility and creativity.
+  4. Rapid, reliable task completion is the most important metric and
      trumps secondary items such as eye-candy --- the latter only
      leads to bloat as evinced by the HTML experience.
-  4. Having a clearly identified user problem when designing a system
+  5. Having a clearly identified user problem when designing a system
      is paramount.
-  5. /Usability/ is important, but to  truly matter, the
+  6. /Usability/ is important, but to  truly matter, the
      system needs to be /useful/ first.
+  7. /Ease of use/ in of itself is often /marketing/. Useful systems
+     are fun to learn and give more than what you put in with respet
+     to time and effort.
+     
+* The Final Word --- Donald E Knuth
 
+Easy things are often amusing and relaxing, but their value soon
+fades. Greater pleasure, deeper satisfaction, and higher wages are
+associated with genuine accomplishments, with the successful
+fulfillment of a challenging task.
+–Donald Knuth
+
+     
 * References 
 
   1. [[https://tvraman.github.io/emacspeak//web/releases/release-3.0.html][Announcing Emacspeak: April 1995]]
