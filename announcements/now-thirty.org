@@ -327,14 +327,14 @@ new     enhancements  supporting more TTS engines.
      something that will hopefully get better as the field gets a
      handle on cleaning up data and evaluation metrics.
      
-* Conclusion
+* Conclusion --- Key Take-Aways 
 
   1. Open systems are a key prerequisite for developing new access paradigms.
   2. This is not mere idealism.  Openness is a key enabler for
-     creating  new user journeys that were not  envisioned by the
-     system's creators.
-  3. Emacs is a great example of such a system that permits maximal freedom
-      from the viewpoint of user extensibility and creativity.
+     creating   user journeys that were not  envisioned by the
+     system's designers.
+  3. Emacs is a great example of such a system. It  permits maximal freedom
+      when seen from the viewpoint of user extensibility and creativity.
   4. Rapid, reliable task completion is the most important metric and
      trumps secondary items such as eye-candy --- the latter only
      leads to bloat as evinced by the HTML experience.
@@ -345,6 +345,10 @@ new     enhancements  supporting more TTS engines.
   7. /Ease of use/ in of itself is often /marketing/ hype.
   8. Useful systems are fun to learn and give back more than what you put
      in with respet to time and effort.
+  9. A steep learning curve in of itself is not to be feared --- it
+     can be fun to learn and  gets you further faster.
+  10. A good touchstone: Ensure that the user grows continuously.
+
      
 * The Final Word --- Donald E Knuth
 
