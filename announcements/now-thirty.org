@@ -31,7 +31,7 @@
   3. Speech and auditory output would be  treated as 
      first-class citizens.
   4. The time felt right with respect to building a  system 
-     that enabled  eyes-free access to the emerging Web of Internet content.
+     that enabled  eyes-free access to the emerging Web.
   5. [[https://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At Twenty]]  was published in September 2014 and  traced the
      evolution of the project.
   6. Now, this article gives a birds-eye overview of the last 10 years
@@ -52,13 +52,13 @@
       a Web of information where there would be a clean separation
       between application back-ends and various client-specific
       front-ends.
-  11. The above still makes sense from the view of  /scalable/ software architecture; however the rapid growth of the Web economy has also
+  11. The above still makes sense from the view of  /scalable/ software architecture. However the rapid growth of the Web economy has also
       resulted in an even faster race to the bottom where applications
       continue to be built and re-built every few years for /the next
       best thing/ --- welcome to the /write once, debug everywhere/
       world all over again!
   12. Case in point; today we have smart phones, smart watches  and smart speakers,
-      but each of these  require targeted front-end services for each device
+      but each of these  require targeted front-ends  
       if one wishes to  bring the riches of the Internet to them.
   13. So the larger the Web gets, the fewer devices it becomes
       available  on --- a classic downward spiral.
@@ -116,8 +116,8 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
   3. The above sounds attractive on the surface, but a price we have
      paid is the  loss of fine-grained control over voice parameters,
      emotion, stress and other supra-linguistic features.
-  4. I continue to believe that the above are essential for delivering
-     good auditory interaction and  continue to remain optimistic that
+  4. I  believe that the above are essential for delivering
+     good auditory interaction and   remain optimistic that
      these will indeed arrive in the next iteration of speech
      interaction on mainstream devices.
   5. Things appear to be coming full circle, Emacspeak started with
@@ -166,7 +166,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
     ~Ruby~ and numerous other high-level languages continues to be
     very well supported in Emacspeak.
   10. The re-emergence of Common Lisp in the last 20 years, thanks to
-      [[https://asdf.common-lisp.dev/asdf.html][asdf]]  as a network-aware package manager and build tool has
+      [[https://asdf.common-lisp.dev/asdf.html][asdf]]  as a network-aware package manager and build tool, has
       once again made Lisp development using Emacs ~Slime~ a productive
       experience.
   11. In 2022, I updated [[https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html][Audio System For Technical
@@ -228,7 +228,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
   10. Browsers like Mozilla now implement /content filters/ --- a
       euphemism for scraping off  visual eye-candy and related cruft to
       reveal the underlying content.  These are now 
-      available as  plugins, (see [[https://github.com/eafer/rdrview][RDRView]] for an example).  Emacspeak now
+      available as  plugins, (see [[https://github.com/eafer/rdrview][RDRView]] for an example).  Emacspeak 
       leverages this to make the Web more readable.
   11. Package ~url-template~ and ~emacspeak-websearch~ continue to give
       in plenty, though they do require continuous updating.
@@ -251,7 +251,8 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
 new     enhancements  supporting more TTS engines.
   2. Support for parallel streams of TTS using separate outputs to
      left/right channels is a big win and enables more efficient interaction.
-  3. Support for various DSP filters makes Emacspeak a rich auditory environment.
+  3. Support for various DSP filters enables   rich auditory effects
+     like  binaural audio, crossfeed and spatial audio.
   4. Soundscapes implemented via package ~boodler~ makes for  a
      pleasant and relaxing auditory environment.
   5. Enabling virtual sound devices via Pipewire for 5.1  and 7.1
@@ -310,8 +311,8 @@ new     enhancements  supporting more TTS engines.
      started disappearing.
   6. Looking back, the only /social/ platform I use if Blogger for
      hosting my Emacspeak Blog, it has a somewhat usable API, albeit
-     guarded by a difficult to use OAuth interface that requires one
-     to sign in via  a /mainstream/ browser.
+     guarded by a difficult to use OAuth interface that requires 
+     signing   in via  a /mainstream/ browser.
   7. IMap continues to survive as an open email protocol, though its
      days may well be numbered.
   8. The dye is already cast with respect to mere mortals being able
@@ -339,10 +340,10 @@ new     enhancements  supporting more TTS engines.
      
 * Mashing It Up —  Leveraging  AI And The Web 
 
-  1. Developing solutions by combining various
-  API-based services on the Web has  all but disappeared, unless one is willing
-  to commit fully to the Javascript-powered Web hosted in a Web browser,
-  something I hope I never   have to accept.
+  1. Developing solutions by combining various API-based services on
+     the Web has all but disappeared, unless one is willing to commit
+     fully to the Javascript-powered Web hosted in a Web browser,
+     something I hope I never have to accept.
   2. So for now, I'll keep
      well away and count my blessings.
   3. The next chapter of the /mash-up story/ may well be based around
@@ -352,20 +353,23 @@ new     enhancements  supporting more TTS engines.
      something that will hopefully get better as the field gets a
      handle on cleaning up messy Web content.
   4.  Notice that we are now back to the previously unsolved problem
-     of the bloated HTML Web.
+     of cleaning up the bloated HTML Web.
      
      
 * Conclusion: The Final Word --- Donald E Knuth
 
+  - The enjoyment of one's tools is an essential ingredient of
+    successful work.
   - Easy things are often amusing and relaxing, but their value soon
     fades. Greater pleasure, deeper satisfaction, and higher wages are
     associated with genuine accomplishments, with the successful
     fulfillment of a challenging task.
 
-  - The enjoyment of one's tools is an essential ingredient of
-    successful work.
+    In my own thirty years of experience, I can think of no better
+    example than Emacspeak to validate Don's insight.
 
-     
+    : ---T. V. Raman, 2024.
+    
 * References 
 
   1. [[https://tvraman.github.io/emacspeak//web/releases/release-3.0.html][Announcing Emacspeak: April 1995]]
