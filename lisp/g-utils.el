@@ -254,10 +254,9 @@ references, poor-man's xpath."
   "Run command and return its output."
   (cl-declare (special shell-file-name shell-command-switch))
   (g-using-scratch
-   (call-process shell-file-name nil t nil
-                 shell-command-switch command)
-   (set-buffer-multibyte nil) ;return raw binary string
-   (buffer-string)))
+      (set-buffer-multibyte nil)        ;return raw binary string
+    (call-process shell-file-name nil t nil shell-command-switch command)
+    (buffer-string)))
 
 (defun g-json-get-result (command)
   "Get command results and return json object read from string."
