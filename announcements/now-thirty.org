@@ -333,7 +333,7 @@ new     enhancements  supporting more TTS engines.
   2. This is not mere idealism.  Openness is a key enabler for
      creating  new user journeys that were not  envisioned by the
      system's creators.
-  3. Emacs is a great example of a system that permits maximal freedom
+  3. Emacs is a great example of such a system that permits maximal freedom
       from the viewpoint of user extensibility and creativity.
   4. Rapid, reliable task completion is the most important metric and
      trumps secondary items such as eye-candy --- the latter only
@@ -342,9 +342,9 @@ new     enhancements  supporting more TTS engines.
      is paramount.
   6. /Usability/ is important, but to  truly matter, the
      system needs to be /useful/ first.
-  7. /Ease of use/ in of itself is often /marketing/. Useful systems
-     are fun to learn and give more than what you put in with respet
-     to time and effort.
+  7. /Ease of use/ in of itself is often /marketing/ hype.
+  8. Useful systems are fun to learn and give back more than what you put
+     in with respet to time and effort.
      
 * The Final Word --- Donald E Knuth
 

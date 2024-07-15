@@ -82,6 +82,12 @@ fly spell checking."
 (when (fboundp 'emacspeak-self-insert-command)
   (push 'emacspeak-self-insert-command flyspell-delayed-commands))
 
+(defadvice flyspell-buffer (around emacspeak pre act comp)
+  "icon."
+  (let ((emacspeak-use-icons nil))
+    ad-do-it))
+
+
 (defadvice flyspell-auto-correct-word (around emacspeak pre act comp)
   "Speak the correction we inserted."
   (cond
