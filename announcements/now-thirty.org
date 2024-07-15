@@ -151,26 +151,29 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
      complex nested-menu driven interfaces.
   5. Various  completion strategies such as /prescient/, /fuzzy/ and
      /flex/ for enhanced completion.
-  6. IPython notebooks and their generalization to /Julia/, /Python/
+  6. [[https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html][Ergonomic keybindings]] under ~X~ using [[https://github.com/alols/xcape][xcape]] to minimize
+     chording has been  a significant win in the last two years.
+  7. IPython notebooks and their generalization to /Julia/, /Python/
      and /R/. The news here isn't all good; IPython notebooks are
      well-designed with respect to not getting locked into any given
-     implementation. However in practice, all such environments depend
-     on Javascript for browser-based interaction.
-  7. Consequently, many of Emacs  packages  for IPython
-     Notebooks /e.g./, package ~ein~ are no longer maintained. Hopefully there will be a new crop of packages to come in
+     implementation. However in practice, present implementations
+     depend on Javascript for browser-based interaction.
+  8. Consequently, many of the Emacs  packages  for IPython
+     Notebooks /e.g./, package ~ein~,  are no longer maintained. Hopefully there will be a new crop of packages to come in
      the future.
-  8. Developing in languages like Python (~elpy~), ~R~,
+  9. Developing in languages like Python (~elpy~), ~R~,
     ~Haskell~, ~Clojure~ (~cider~), ~Go~, ~Rust~, ~Scheme~, ~Racket~,
     ~Ruby~ and numerous other high-level languages continues to be
     very well supported in Emacspeak.
-  9. The re-emergence of Common Lisp in the last 20 years, thanks to
-     [[https://asdf.common-lisp.dev/asdf.html][asdf]]  as a network-aware package manager and build tool has
-     once again made Lisp development using Emacs ~Slime~ a productive
-     experience.  In 2022, I updated [[https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html][Audio System For Technical
-     Readings (AsTeR)]]--- my PhD project from 1993 --- to run under ~SBCL~
-     with a freshly implemented Emacs front-end.
-  10. [[https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html][Ergonomic keybindings]] under ~X~ using [[https://github.com/alols/xcape][xcape]] to minimize
-      chording has been  a significant win in the last two years.
+  10. The re-emergence of Common Lisp in the last 20 years, thanks to
+      [[https://asdf.common-lisp.dev/asdf.html][asdf]]  as a network-aware package manager and build tool has
+      once again made Lisp development using Emacs ~Slime~ a productive
+      experience.
+  11. In 2022, I updated [[https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html][Audio System For Technical
+      Readings (AsTeR)]]--- my PhD project from 1993 --- to run under ~SBCL~
+      with a freshly implemented Emacs front-end.
+  12. So now I can listen to Math content just as well as I could 30
+      years ago!
      
      
 * Emacspeak And Authoring Documents
@@ -183,8 +186,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
      used ~nxml~ for
      XML/XHTML,  etc., I now mostly write everything in ~org-mode~ and export
      to the relevant target format.
-  4. Integrating various search engines  in Emacs, with ~eww~
-     providing  a consistent Emacs experience, makes authoring content
+  4. Integrating various search engines  in Emacs makes authoring content
       on the Emacspeak desktop extremely productive.
   5. Integrated access to spell-checking (~flyspell~) dictionaries, translation engines, and other
      language tools combine for a powerful authoring work-bench.
