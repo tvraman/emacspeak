@@ -331,7 +331,7 @@ new     enhancements  supporting more TTS engines.
      
 * Conclusion --- Key Take-Aways 
 
-  1. Open systems are a key prerequisite for developing new access paradigms.
+  1. Open systems are a key prerequisite for developing new interface  paradigms.
   2. This is not mere idealism.  Openness is a key enabler for
      creating   user journeys that were not  envisioned by the
      system's designers.
@@ -348,7 +348,7 @@ new     enhancements  supporting more TTS engines.
   8. Useful systems are fun to learn and give back more than what you put
      in with respett to time and effort.
   9. A steep learning curve in of itself is not to be feared --- it
-     can be fun to learn and  gets you further faster.
+     can be fun to learn and  gets you farther faster.
   10. A good touchstone: Ensure that the user grows continuously.
 
      
