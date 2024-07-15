@@ -8,7 +8,7 @@
       when seen from the viewpoint of user extensibility and creativity.
   4. Rapid, reliable task completion is the most important metric and
      trumps secondary items such as eye-candy --- the latter only
-     leads to bloat as evinced by the HTML experience.
+     leads to bloat as evinced by the HTML Web.
   5. Having a clearly identified user problem when designing a system
      is paramount.
   6. /Usability/ is important, but to  truly matter, the
@@ -28,40 +28,40 @@
    Source in [[https://tvraman.github.io/emacspeak//web/releases/release-3.0.html][April 1995]].
   2. The goal was to create a system for daily use that  doubled
      as a research work-bench for developing an auditory interface.
-      Speech and auditory output would be  treated as 
+  3. Speech and auditory output would be  treated as 
      first-class citizens.
-  3. The time felt right with respect to building such a system for
-     enabling equal access to the emerging Web of Internet content.
-  4. [[https://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At Twenty]]  was published in September 2014 and  traced the
+  4. The time felt right with respect to building such a system 
+     enabled  equal access to the emerging Web of Internet content.
+  5. [[https://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At Twenty]]  was published in September 2014 and  traced the
      evolution of the project.
-  5. Now, this article gives a birds-eye overview of the last 10 years
+  6. Now, this article gives a birds-eye overview of the last 10 years
      by following the logical structure of the  /Turning Twenty/ paper.
-  6. In the process, we identify the dreams that have come to pass as
+  7. In the process, we identify the dreams that have come to pass as
      well as the expectations that have failed to materialize --- *both*
      attributable  to developments in the larger Internet eco-system.
-  7. But never fear, though  some of the above might
+  8. But never fear, though  some of the above might
      seem  superficially
      disappointing in the short-term, they likely herald the nature of bigger and better
      things to come!
-  8. As a proof-point, in 1994, I could not have imagined the impact
+  9. As a proof-point, in 1994, I could not have imagined the impact
      that the world of Internet-centered  computing and the accompanying
      information revolution would have  on the state of information
      access.
-  9. Conversely, I boldly  (and incorrectly)predicted  that the arrival of mobile
-     devices and mainstream speech interfaces would herald the move to
-     a Web of information where there would be a clean separation
-     between application back-ends and various client-specific
-     front-ends.
-  10. The above still makes sense from the view of  /scalable/ software architecture; however the rapid growth of the Web economy has also
+  10. Conversely, I boldly  (and incorrectly)predicted  that the arrival of mobile
+      devices and mainstream speech interfaces would herald the move to
+      a Web of information where there would be a clean separation
+      between application back-ends and various client-specific
+      front-ends.
+  11. The above still makes sense from the view of  /scalable/ software architecture; however the rapid growth of the Web economy has also
       resulted in an even faster race to the bottom where applications
       continue to be built and re-built every few years for /the next
       best thing/ --- welcome to the /write once, debug everywhere/
       world all over again!
-  11. Case in point; today we have smart phones and smart speakers,
+  12. Case in point; today we have smart phones, smart watches  and smart speakers,
       but both require targeted front-end services for each device
       if one wishes to the bring the riches of the Internet to those
       newer devices.
-  12. So the larger the Web gets, the fewer devices it becomes
+  13. So the larger the Web gets, the fewer devices it becomes
       available  on --- a classic downward spiral.
       
 Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][The Best Is Yet To Come]]!
@@ -80,7 +80,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
   1. In 2024 /UNIX/ equates mostly to various Linux distributions, and from
     the Emacspeak perspective, they are all made /mostly/ equal.
   2. Variations do exist and  running bleeding-edge distributions can come
-     with issues, e.g., unstable versions of the underlying audio infrastructure.
+     with issues, /e.g./, unstable versions of the underlying audio infrastructure.
   3. Yes, 30 years and counting, Linux Audio is still a work in
      progress though I hope Pipewire will be the last of these tidal shifts.
   4. Linux is moving to Wayland from X and expect that transition to
@@ -132,8 +132,8 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
   8. The  other choice on Linux is ESpeak which will hopefully
      continue to be free -- albeit of much lower quality.
   9. The future as ever is unpredictable and new voices may well show
-     up --- especially those powered by on-device LLMs as that
-     technology progresses.
+     up --- especially those powered by on-device LLMs.
+     
   10. On non-free platforms, there is usable TTS on the Mac, now
       supported by the new SwiftMac server for Emacspeak.
      
