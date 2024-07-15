@@ -314,18 +314,20 @@ new     enhancements  supporting more TTS engines.
      
 * Mashing It Up —  Leveraging  AI And The Web 
 
-  1.  Developing solutions by combining various
-   API-based services on the Web has  all but disappeared, unless one is willing
-   to commit fully to the Javascript-powered Web hosted in a Web browser,
-   something I hope I never   have to accept.
+  1. Developing solutions by combining various
+  API-based services on the Web has  all but disappeared, unless one is willing
+  to commit fully to the Javascript-powered Web hosted in a Web browser,
+  something I hope I never   have to accept.
   2. So for now, I'll keep
      well away and count my blessings.
   3. The next chapter of the /mash-up story/ may well be based around
-     LLMs and Generative-AI. In effect, LLMs that process Web content 
+      Generative-AI using LLMs. In effect, LLMs that process Web content 
      define a /platform/ for generating content mash-ups.  The issue
      at present is that they are equally likely  to produce meaningless /mush/ ---
      something that will hopefully get better as the field gets a
-     handle on cleaning up data and evaluation metrics.
+     handle on cleaning up messy Web content.
+  4.  Notice that we are now back to the previously unsolved problem
+     of the bloated HTML Web.
      
 * Conclusion --- Key Take-Aways 
 
