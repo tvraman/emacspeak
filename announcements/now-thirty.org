@@ -30,8 +30,8 @@
      as a research work-bench for developing an auditory interface.
   3. Speech and auditory output would be  treated as 
      first-class citizens.
-  4. The time felt right with respect to building such a system 
-     enabled  equal access to the emerging Web of Internet content.
+  4. The time felt right with respect to building a  system 
+     that enabled  eyes-free access to the emerging Web of Internet content.
   5. [[https://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At Twenty]]  was published in September 2014 and  traced the
      evolution of the project.
   6. Now, this article gives a birds-eye overview of the last 10 years
@@ -39,9 +39,9 @@
   7. In the process, we identify the dreams that have come to pass as
      well as the expectations that have failed to materialize --- *both*
      attributable  to developments in the larger Internet eco-system.
-  8. But never fear, though  some of the above might
-     seem  superficially
-     disappointing in the short-term, they likely herald the nature of bigger and better
+  8. But never fear, though  some of these
+     may be   superficially
+     disappointing, they likely herald the nature of bigger and better
      things to come!
   9. As a proof-point, in 1994, I could not have imagined the impact
      that the world of Internet-centered  computing and the accompanying
@@ -58,9 +58,8 @@
       best thing/ --- welcome to the /write once, debug everywhere/
       world all over again!
   12. Case in point; today we have smart phones, smart watches  and smart speakers,
-      but both require targeted front-end services for each device
-      if one wishes to the bring the riches of the Internet to those
-      newer devices.
+      but each of these  require targeted front-end services for each device
+      if one wishes to  bring the riches of the Internet to them.
   13. So the larger the Web gets, the fewer devices it becomes
       available  on --- a classic downward spiral.
       
@@ -86,7 +85,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
   4. Linux is moving to Wayland from X and expect that transition to
      be choppy.
   5. As with other platforms, native applications are mostly gone bar
-     the shouting. In that context, where most users access things
+     the shouting. In this context, where most users access things
      through a /mainstream/ Web browser, Emacspeak users access
      /everything/ through Emacs.
   6. The above when  done right is hugely empowering; 
@@ -123,7 +122,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
      interaction on mainstream devices.
   5. Things appear to be coming full circle, Emacspeak started with
      the hardware Dectalk; now, the [[https://github.com/dectalk/dectalk.git][Software Dectalk]] is increasingly
-     becoming the primary choice on Linux --- see [[https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org][for setup instructions]].
+     becoming the primary choice on Linux --- see this  [[https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org][Readme for setup instructions]].
   6. Viavoice Outloud from Voxin is still supported; but
      you can no longer buy new licenses; if you have already purchased
      a license, it'll
