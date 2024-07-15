@@ -199,8 +199,8 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
 
   1. Package ~shr~ and ~eww~ arrived around 2014. But in 2024, they
     can be said to have *truly* landed.
-  2. The explicit take-over of the stewardship of the HTML Web by the
-     browser vendors from the W3C in the last decade --- I say
+  2. 2014 also  marked the explicit take-over of the stewardship of the HTML Web by the
+     browser vendors from the W3C  --- I say
      explicit ---  because the W3C had already thrown in the towel in the
      preceding decade.
   3. This  has led to a Web of content  created using the assembly
@@ -356,11 +356,13 @@ new     enhancements  supporting more TTS engines.
      
 * Conclusion: The Final Word --- Donald E Knuth
 
-Easy things are often amusing and relaxing, but their value soon
-fades. Greater pleasure, deeper satisfaction, and higher wages are
-associated with genuine accomplishments, with the successful
-fulfillment of a challenging task.
-–Donald Knuth
+  - Easy things are often amusing and relaxing, but their value soon
+    fades. Greater pleasure, deeper satisfaction, and higher wages are
+    associated with genuine accomplishments, with the successful
+    fulfillment of a challenging task.
+
+  - The enjoyment of one's tools is an essential ingredient of
+    successful work.
 
      
 * References 
