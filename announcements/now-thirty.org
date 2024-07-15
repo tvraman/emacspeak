@@ -11,7 +11,7 @@
   4. [[https://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At Twenty]]  was published in September 2014 and  traced the
      evolution of the project.
   5. Now, this article gives a birds-eye overview of the last 10 years
-     by following the logical structure of the  /Turning-Twenty/ paper.
+     by following the logical structure of the  /Turning Twenty/ paper.
   6. In the process, we identify the dreams that have come to pass as
      well as the expectations that have failed to materialize --- *both*
      attributable  to developments in the larger Internet eco-system.
@@ -283,7 +283,7 @@ new     enhancements  supporting more TTS engines.
   4. Then they turned into wall-gardens in their own right.
   5. Finally, the Web APIs, other than the kind embedded in Javascript have
      started disappearing.
-  6. Looking back,the only /social/ platform I use if Blogger for
+  6. Looking back, the only /social/ platform I use if Blogger for
      hosting my Emacspeak Blog, it has a somewhat usable API, albeit
      guarded by a difficult to use OAuth interface that requires one
      to sign in via  a /mainstream/ browser.
@@ -321,7 +321,7 @@ new     enhancements  supporting more TTS engines.
   2. So for now, I'll keep
      well away and count my blessings.
   3. The next chapter of the /mash-up story/ may well be based around
-      Generative-AI using LLMs. In effect, LLMs that process Web content 
+      /Generative AI/ using LLMs. In effect, LLMs that process Web content 
      define a /platform/ for generating content mash-ups.  The issue
      at present is that they are equally likely  to produce meaningless /mush/ ---
      something that will hopefully get better as the field gets a
@@ -329,7 +329,7 @@ new     enhancements  supporting more TTS engines.
   4.  Notice that we are now back to the previously unsolved problem
      of the bloated HTML Web.
      
-* Conclusion --- Key Take-Aways 
+* Conclusion --- Key Take Aways 
 
   1. Open systems are a key prerequisite for developing new interface  paradigms.
   2. This is not mere idealism.  Openness is a key enabler for
