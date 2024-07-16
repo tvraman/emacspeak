@@ -4,7 +4,7 @@
   2. This is not mere idealism.  Openness is a key enabler for
      creating   user journeys that were not  envisioned by the
      system's designers.
-  3. Emacs and Emacspeak are good exemplars. They  permit maximal freedom
+  3. [[https://www.gnu.org/s/emacs/][Emacs]], [[https://en.wikipedia.org/wiki/TeX][TeX]]  and Emacspeak are good exemplars. They  permit maximal freedom
       when seen from the viewpoint of user extensibility and creativity.
   4. Rapid, reliable task completion is the most important metric and
      trumps secondary items such as eye-candy --- the latter only
@@ -387,25 +387,25 @@ experience of the sentiments he expresses.
 --T. V. Raman,  San Jose, CA, August 1, 2024.
     
 * References 
-
-  1. [[https://tvraman.github.io/emacspeak//web/releases/release-3.0.html][Announcing Emacspeak: April 1995]]
-  2. [[https://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At Twenty]]
-  3. [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][An Ode To Emacspeak: The Best Is Yet To Come]]
-  4. [[https://github.com/dectalk/dectalk.git][Software Dectalk on Github]]
-  5. [[https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org][Dectalk  setup instructions]]
-  6. [[https://asdf.common-lisp.dev/asdf.html][Common Lisp: asdf]]
-  7. [[https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html][Audio System For Technical Readings]]
-  8. [[https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html][Ergonomic keybindings]]
-  9. [[https://github.com/alols/xcape][Minimize chording with XCape]]
-  10. [[https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html][Learn Smarter By Taking Rich Hypertext Notes]]
-  11. [[https://idlewords.com/talks/website_obesity.htm][Tag Soup, Scripts And Obfuscation: How The Web Was Broken]]
-  12. [[https://github.com/eafer/rdrview][Readable Web Pages: RDRView]]
-  13. [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selectors]]
-  14. [[https://research.google/blog/beyond-web-20/?hl=in&m=1][Beyond Web 2.0, Communications
+  1. [[https://www.gnu.org/s/emacs/][GNU Emacs]]
+  2. [[https://tvraman.github.io/emacspeak//web/releases/release-3.0.html][Announcing Emacspeak: April 1995]]
+  3. [[https://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At Twenty]]
+  4. [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][An Ode To Emacspeak: The Best Is Yet To Come]]
+  5. [[https://github.com/dectalk/dectalk.git][Software Dectalk on Github]]
+  6. [[https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org][Dectalk  setup instructions]]
+  7. [[https://asdf.common-lisp.dev/asdf.html][Common Lisp: asdf]]
+  8. [[https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html][Audio System For Technical Readings]]
+  9. [[https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html][Ergonomic keybindings]]
+  10. [[https://github.com/alols/xcape][Minimize chording with XCape]]
+  11. [[https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html][Learn Smarter By Taking Rich Hypertext Notes]]
+  12. [[https://idlewords.com/talks/website_obesity.htm][Tag Soup, Scripts And Obfuscation: How The Web Was Broken]]
+  13. [[https://github.com/eafer/rdrview][Readable Web Pages: RDRView]]
+  14. [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selectors]]
+  15. [[https://research.google/blog/beyond-web-20/?hl=in&m=1][Beyond Web 2.0, Communications
     Of The ACM, 2008]].
-  15. [[https://tvraman.github.io/emacspeak/manual/URL-Templates.html][Emacspeak Manual: URL Templates]]
-  16. [[https://en.wikipedia.org/wiki/TeX][Knuth's TeX.]]
-  17. [[https://www-cs-faculty.stanford.edu/~knuth/taocp.html][The Art Of Computer Programming (TAOCP)]].
+  16. [[https://tvraman.github.io/emacspeak/manual/URL-Templates.html][Emacspeak Manual: URL Templates]]
+  17. [[https://en.wikipedia.org/wiki/TeX][Knuth's TeX.]]
+  18. [[https://www-cs-faculty.stanford.edu/~knuth/taocp.html][The Art Of Computer Programming (TAOCP)]].
   
 
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
