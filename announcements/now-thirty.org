@@ -389,7 +389,7 @@ experience of the sentiments he expresses.
     
 * References 
   1. [[https://www.gnu.org/s/emacs/][GNU Emacs]]
-  2. [[https://en.wikipedia.org/wiki/TeX][Knuth's TeX.]]
+  2. [[https://en.wikipedia.org/wiki/TeX][Knuth's TeX]]
   3. [[https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html][Audio System For Technical Readings]]
   4. [[https://tvraman.github.io/emacspeak//web/releases/release-3.0.html][Announcing Emacspeak: April 1995]]
   5. [[https://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At Twenty]]
@@ -404,9 +404,9 @@ experience of the sentiments he expresses.
   14. [[https://github.com/eafer/rdrview][Readable Web Pages: RDRView]]
   15. [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selectors]]
   16. [[https://research.google/blog/beyond-web-20/?hl=in&m=1][Beyond Web 2.0, Communications
-    Of The ACM, 2008]].
+    Of The ACM, 2008]]
   17. [[https://tvraman.github.io/emacspeak/manual/URL-Templates.html][Emacspeak Manual: URL Templates]]
-  18. [[https://www-cs-faculty.stanford.edu/~knuth/taocp.html][The Art Of Computer Programming (TAOCP)]].
+  18. [[https://www-cs-faculty.stanford.edu/~knuth/taocp.html][The Art Of Computer Programming (TAOCP)]]
   
 
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline

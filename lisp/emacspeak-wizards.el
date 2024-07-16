@@ -993,7 +993,7 @@ Moves to the shortest line when called interactively."
           (setq para-start (point))))
       (when (called-interactively-p 'interactive)
         (message "Longest paragraph is %s characters, starts at %s" max where)
-        (goto-char where))
+        (goto-char (1+ where)))
       max)))
 
 
@@ -1018,7 +1018,7 @@ Moves to the shortest line when called interactively."
         (message "Longest sentence is %s words, %s characters, starts at
 %s"
                  (count-words-region where (point)) max where)
-        (goto-char where))
+        (goto-char (1+ where)))
       max)))
 
 ;;;  face wizard
