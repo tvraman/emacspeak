@@ -250,7 +250,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      enhancements supporting more TTS engines.
   2. Support for parallel streams of TTS using separate outputs to
      left/right channels is a big win and enables more efficient interaction.
-  3. Support for various DSP filters enables   rich auditory effects
+  3. Support for various Digital Signal Processing (DSP)  filters enables   rich auditory effects
      like  binaural audio, crossfeed and spatial audio.
   4. Soundscapes implemented via package ~boodler~ makes for  a
      pleasant and relaxing auditory environment.
@@ -265,13 +265,13 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
   2. Parallel streams of speech, /e.g./, a separate notification
      stream on the left or right ear  help increase the band-width of communication.
   3. Notifications can thus be delivered without having to stop the
-     primary speeh output.
+     primary speech output.
      
 * Accessing Media Streams
 
 
   1. Emacspeak support for rich multimedia is now much  more robust.
-  2. First ~mplayer~ and now ~mpv~ significantly expandd the
+  2. First ~mplayer~ and now ~mpv~ significantly expand the
    multimedia streaming in Emacs.
   3. Emacs package ~empv~ along with module ~emacspeak-empv~ is a
      powerful combination for locating, organizing  and playing local and remote
