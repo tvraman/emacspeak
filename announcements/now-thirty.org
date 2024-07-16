@@ -186,8 +186,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
      used ~nxml~ for
      XML/XHTML,  etc., I now mostly write everything in ~org-mode~ and export
      to the relevant target format.
-  4. Integrating various search engines  in Emacs makes authoring content
-      on the Emacspeak desktop extremely productive.
+  4. Integrating various search engines  in Emacs makes authoring content extremely productive.
   5. Integrated access to spell-checking (~flyspell~) dictionaries, translation engines, and other
      language tools combine for a powerful authoring work-bench.
   6. Extending ~org-mode~ with custom link types enables /smart note
@@ -220,8 +219,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
   7. In the meantime  I say /on the surface/ above ---The welcome re-emergence of
      ~ATOM~ and ~RSS~ feeds is perhaps a silent acknowledgement that
      bloated Web pages are now unusable even for users who can see.
-  8. On the Emacspeak desktop,  package  ~elfeed~
-     has emerged as  a powerful feed-manager for Emacs.
+  8.   Package  ~elfeed~ has emerged as  a powerful feed-manager for Emacs.
   9. Emacspeak had already implemented ~RSS~ and ~ATOM~ support using
      ~XSLT~; but those features now shine brighter  with mainstream
      news  sites reviving their support for content feeds.
@@ -272,8 +270,8 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
 
 
   1. Emacspeak support for rich multimedia is now much  more robust.
-  2. First ~mplayer~ and now ~mpv~ significantly expand the
-   multimedia streaming features of the Emacspeak desktop.
+  2. First ~mplayer~ and now ~mpv~ significantly expandd the
+   multimedia streaming in Emacs.
   3. Emacs package ~empv~ along with module ~emacspeak-empv~ is a
      powerful combination for locating, organizing  and playing local and remote
      media streams ranging from music, audio books, radio stations and
