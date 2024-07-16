@@ -372,7 +372,7 @@ new     enhancements  supporting more TTS engines.
     In my own thirty years of experience, I can think of no better
     example than Emacspeak to validate Don's insight.
 
-    : ---T. V. Raman, 2024.
+--T. V. Raman,  San Jose, CA, August 1, 2024.
     
 * References 
 
