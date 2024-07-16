@@ -364,16 +364,25 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
      
      
 * Conclusion: The Final Word --- Donald E Knuth
-
+  - The best theory is inspired by practice. The best practice is
+    inspired by theory. (DEK)
   - The enjoyment of one's tools is an essential ingredient of
     successful work. (DEK).
   - Easy things are often amusing and relaxing, but their value soon
     fades. Greater pleasure, deeper satisfaction, and higher wages are
     associated with genuine accomplishments, with the successful
     fulfillment of a challenging task. (DEK).
+    
+The best example of the above is of course [[https://en.wikipedia.org/wiki/TeX][Knuth's TeX]] --- work that
+    was motivated  by his own dissatisfaction with the tools available
+    to him at the time for carrying out his primary work --- [[https://www-cs-faculty.stanford.edu/~knuth/taocp.html][The Art
+    Of Computer Programming (TAOCP)]].  It is something I've looked up
+    to ever since my time as a graduate student at Cornell.
 
-    In my own thirty years of experience, I can think of no better
-    example than Emacspeak to validate Don's insight.
+    
+The The Emacspeak Speech Odyssey outlined in this paper is, in some
+small measure, my own personal
+experience of the sentiments he expresses.
 
 --T. V. Raman,  San Jose, CA, August 1, 2024.
     
@@ -392,9 +401,12 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
   11. [[https://idlewords.com/talks/website_obesity.htm][Tag Soup, Scripts And Obfuscation: How The Web Was Broken]]
   12. [[https://github.com/eafer/rdrview][Readable Web Pages: RDRView]]
   13. [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selectors]]
-  14.  [[https://research.google/blog/beyond-web-20/?hl=in&m=1][Beyond Web 2.0, Communications
-     Of The ACM, 2008]].
+  14. [[https://research.google/blog/beyond-web-20/?hl=in&m=1][Beyond Web 2.0, Communications
+    Of The ACM, 2008]].
   15. [[https://tvraman.github.io/emacspeak/manual/URL-Templates.html][Emacspeak Manual: URL Templates]]
+  16. [[https://en.wikipedia.org/wiki/TeX][Knuth's TeX.]]
+  17. [[https://www-cs-faculty.stanford.edu/~knuth/taocp.html][The Art Of Computer Programming (TAOCP)]].
+  
 
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
