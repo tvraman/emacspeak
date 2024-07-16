@@ -916,6 +916,13 @@ Press `y' to play to next amark."
   (cond
    ((org--ems-yt-p url) (empv-play url))
    (t (emacspeak-eww-play-media-at-point url))))
+;;; org publish
+
+(add-hook
+ 'org-publish-after-publishing-hook
+ #'(lambda (_s _t)
+     (emacspeak-icon 'save-object)
+     (emacspeak-speak-message-again)))
 
 (provide 'emacspeak-org)
 ;;;  end of file
