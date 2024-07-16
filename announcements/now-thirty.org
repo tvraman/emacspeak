@@ -23,7 +23,7 @@
 
 
 
-* Introduction
+* Emacspeak --- The Complete Audio Desktop 
 
   1. Emacspeak, started in September 1994, was released as Open
    Source in [[https://tvraman.github.io/emacspeak//web/releases/release-3.0.html][April 1995]].
