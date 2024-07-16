@@ -64,7 +64,7 @@
   13. So the larger the Web gets, the fewer devices it becomes
       available  on --- a classic downward spiral.
       
-Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][The Best Is Yet To Come]]!
+Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The Best Is Yet To Come]]!
 
 
 ** How To Read This Document
@@ -393,7 +393,7 @@ experience of the sentiments he expresses.
   3. [[https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html][Audio System For Technical Readings]]
   4. [[https://tvraman.github.io/emacspeak//web/releases/release-3.0.html][Announcing Emacspeak: April 1995]]
   5. [[https://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At Twenty]]
-  6. [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][An Ode To Emacspeak: The Best Is Yet To Come]]
+  6. [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][An Ode To Emacspeak: The Best Is Yet To Come]]
   7. [[https://github.com/dectalk/dectalk.git][Software Dectalk on Github]]
   8. [[https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org][Dectalk  setup instructions]]
   9. [[https://asdf.common-lisp.dev/asdf.html][Common Lisp: asdf]]
