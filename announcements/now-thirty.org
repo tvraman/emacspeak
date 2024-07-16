@@ -4,7 +4,7 @@
   2. This is not mere idealism.  Openness is a key enabler for
      creating   user journeys that were not  envisioned by the
      system's designers.
-  3. Emacs is a great example of such a system. It  permits maximal freedom
+  3. Emacs and Emacspeak are good exemplars. They  permit maximal freedom
       when seen from the viewpoint of user extensibility and creativity.
   4. Rapid, reliable task completion is the most important metric and
      trumps secondary items such as eye-candy --- the latter only
@@ -35,7 +35,7 @@
   5. [[https://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At Twenty]]  was published in September 2014 and  traced the
      evolution of the project.
   6. Now, this article gives a birds-eye overview of the last 10 years
-     by following the logical structure of the  /Turning Twenty/ paper.
+     by loosely following the logical structure of the  /Turning Twenty/ paper.
   7. In the process, we identify the dreams that have come to pass as
      well as the expectations that have failed to materialize --- *both*
      attributable  to developments in the larger Internet eco-system.
@@ -89,7 +89,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
      through a /mainstream/ Web browser, Emacspeak users access
      /everything/ through Emacs.
   6. The above when  done right is hugely empowering; 
-      when done badly, it's extremely debilitating  --- see later
+      when done badly, it's extremely limiting  --- see later
      sections of this paper on  the continuing evolution of the Web.
      
 * Key Enabler — Emacs And Lisp Advice
@@ -116,8 +116,8 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
   3. The above sounds attractive on the surface, but a price we have
      paid is the  loss of fine-grained control over voice parameters,
      emotion, stress and other supra-linguistic features.
-  4. I  believe that the above are essential for delivering
-     good auditory interaction and   remain optimistic that
+  4. I  believe  these to be essential for delivering
+     good auditory interfaces and   remain optimistic that
      these will indeed arrive in the next iteration of speech
      interaction on mainstream devices.
   5. Things appear to be coming full circle, Emacspeak started with
@@ -149,8 +149,8 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
      has tended to bloat commercial IDEs.
   4. Packages like /transient/ that enable rapid keyboard access to
      complex nested-menu driven interfaces.
-  5. Various  completion strategies such as /prescient/, /fuzzy/ and
-     /flex/ for enhanced completion.
+  5.   Completion strategies such as /prescient/, /fuzzy/ and
+     /flex/ provide  enhanced completion.
   6. [[https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html][Ergonomic keybindings]] under ~X~ using [[https://github.com/alols/xcape][xcape]] to minimize
      chording has been  a significant win in the last two years.
   7. IPython notebooks and their generalization to /Julia/, /Python/
@@ -247,8 +247,8 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg ][Th
 
 * Audio Formatting —  Generalizing Aural CSS
 
-  1. Audio formatting with Aural CSS support is stable, with
-new     enhancements  supporting more TTS engines.
+  1. Audio formatting with Aural CSS support is stable, with new
+     enhancements supporting more TTS engines.
   2. Support for parallel streams of TTS using separate outputs to
      left/right channels is a big win and enables more efficient interaction.
   3. Support for various DSP filters enables   rich auditory effects
@@ -261,8 +261,12 @@ new     enhancements  supporting more TTS engines.
      
 * Conversational Gestures For The Audio Desktop
 
-  1.  Parallel streams of audio, combined with more ergonomic
-     keybindings are perhaps the only enhancement in this area.
+  1. Parallel streams of audio, combined with more ergonomic
+    keybindings are  the primary  enhancement in this area.
+  2. Parallel streams of speech, /e.g./, a separate notification
+     stream on the left or right ear  help increase the band-width of communication.
+  3. Notifications can thus be delivered without having to stop the
+     primary speeh output.
      
 * Accessing Media Streams
 
@@ -277,8 +281,9 @@ new     enhancements  supporting more TTS engines.
   4. This makes media streams from a large number of providers ranging
      from the BBC to Youtube available via a consistent keyboard interface.
   5. This experience is augmented by a collection of /smart/ content
-     locators on the Emacspeak desktop, see the relevant blog article
-     [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selectors]] on the Emacspeak Blog.
+     locators on the Emacspeak desktop, see the relevant blog
+     article titled 
+     [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selectors]].
      
 * EBooks—   Ubiquitous Access To Books
 
@@ -309,7 +314,7 @@ new     enhancements  supporting more TTS engines.
   4. Then they turned into wall-gardens in their own right.
   5. Finally, the Web APIs, other than the kind embedded in Javascript have
      started disappearing.
-  6. Looking back, the only /social/ platform I use if Blogger for
+  6. Looking back, the only /social/ platform I now use if Blogger for
      hosting my Emacspeak Blog, it has a somewhat usable API, albeit
      guarded by a difficult to use OAuth interface that requires 
      signing   in via  a /mainstream/ browser.
@@ -356,18 +361,18 @@ new     enhancements  supporting more TTS engines.
   4.  Notice that we are now back to the previously unsolved problem
      of cleaning up the  HTML Web --- with LLMs, we'll just
      have an order of magnitude more documents than the /2^W/ postulated
-      by the 2008 CACM article [[https://research.google/blog/beyond-web-20/?hl=in&m=1][Beyond Web 2.0, Communications
+      by  [[https://research.google/blog/beyond-web-20/?hl=in&m=1][Beyond Web 2.0, Communications
      Of The ACM, 2008]].
      
      
 * Conclusion: The Final Word --- Donald E Knuth
 
   - The enjoyment of one's tools is an essential ingredient of
-    successful work.
+    successful work. (DEK).
   - Easy things are often amusing and relaxing, but their value soon
     fades. Greater pleasure, deeper satisfaction, and higher wages are
     associated with genuine accomplishments, with the successful
-    fulfillment of a challenging task.
+    fulfillment of a challenging task. (DEK).
 
     In my own thirty years of experience, I can think of no better
     example than Emacspeak to validate Don's insight.
