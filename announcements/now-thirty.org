@@ -4,8 +4,9 @@
   2. This is not mere idealism.  Openness is a key enabler for
      creating   user journeys that were not  envisioned by the
      system's designers.
-  3. [[https://www.gnu.org/s/emacs/][Emacs]], [[https://en.wikipedia.org/wiki/TeX][TeX]]  and Emacspeak are good exemplars. They  permit maximal freedom
-      when seen from the viewpoint of user extensibility and creativity.
+  3. [[https://www.gnu.org/s/emacs/][Emacs]] and  [[https://en.wikipedia.org/wiki/TeX][TeX]]    are good exemplars. They  permit maximal freedom
+      when seen from the viewpoint of user extensibility and
+     creativity. TeX enabled [[https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html][Audio System For Technical Readings (AsTeR)]]; Emacs enabled [[https://emacspeak.sourceforge.net][Emacspeak]].
   4. Rapid, reliable task completion is the most important metric and
      trumps secondary items such as eye-candy --- the latter only
      leads to bloat as evinced by the HTML Web.
