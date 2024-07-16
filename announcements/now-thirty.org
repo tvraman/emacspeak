@@ -349,11 +349,15 @@ new     enhancements  supporting more TTS engines.
   3. The next chapter of the /mash-up story/ may well be based around
       /Generative AI/ using LLMs. In effect, LLMs that process Web content 
      define a /platform/ for generating content mash-ups.  The issue
-     at present is that they are equally likely  to produce meaningless /mush/ ---
-     something that will hopefully get better as the field gets a
-     handle on cleaning up messy Web content.
+     at present is that they are just as  likely  to produce
+     /meaningless mush/ ---
+     something that may  get better as the field gets a
+     handle on cleaning up  Web content.
   4.  Notice that we are now back to the previously unsolved problem
-     of cleaning up the bloated HTML Web.
+     of cleaning up the  HTML Web --- with LLMs, we'll just
+     have an order of magnitude more documents than the /2^W/ postulated
+      by the 2008 CACM article [[https://research.google/blog/beyond-web-20/?hl=in&m=1][Beyond Web 2.0, Communications
+     Of The ACM, 2008]].
      
      
 * Conclusion: The Final Word --- Donald E Knuth
@@ -385,7 +389,9 @@ new     enhancements  supporting more TTS engines.
   11. [[https://idlewords.com/talks/website_obesity.htm][Tag Soup, Scripts And Obfuscation: How The Web Was Broken]]
   12. [[https://github.com/eafer/rdrview][Readable Web Pages: RDRView]]
   13. [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selectors]]
-  14. [[https://tvraman.github.io/emacspeak/manual/URL-Templates.html][Emacspeak Manual: URL Templates]]
+  14.  [[https://research.google/blog/beyond-web-20/?hl=in&m=1][Beyond Web 2.0, Communications
+     Of The ACM, 2008]].
+  15. [[https://tvraman.github.io/emacspeak/manual/URL-Templates.html][Emacspeak Manual: URL Templates]]
 
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
