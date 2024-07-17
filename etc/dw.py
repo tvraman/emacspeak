@@ -5,4 +5,4 @@ with open(sys.argv[1], encoding='utf-8') as f:
 
 for i in range(0,len(words)-1):
         if  (words[i] == words[i+1]): 
-print(words[i])
+            print(words[i])
