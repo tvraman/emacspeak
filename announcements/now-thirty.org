@@ -1,4 +1,4 @@
-* Lessons Learned 
+* Key Insights 
 
   1. Open systems are a key prerequisite for developing new interface  paradigms.
   2. This is not mere idealism.  Openness is a key enabler for
