@@ -63,7 +63,7 @@ File: now-thirty.info,  Node: Key Insights,  Next: Emacspeak --- The Complete Au
      paramount.
   6. _Usability_ is important, but to truly matter, the system needs to
      be _useful_ first.
-  7. _Ease of use_ in of itself is often _marketing_ hype.
+  7. _Ease of use_ by itself is often _marketing_ hype.
   8. Useful systems are fun to learn and give back more than what you
      put in with respect to time and effort.
   9. A steep learning curve in and of itself is not to be feared -- it
@@ -197,8 +197,8 @@ File: now-thirty.info,  Node: Key Component — Text To Speech (TTS),  Next: Ema
      paid is the loss of fine-grained control over voice parameters,
      emotion, stress and other supra-linguistic features.
   4. I believe these to be essential for delivering good auditory
-     interfaces and remain optimistic that these will indeed arrive in
-     the next iteration of speech interaction on mainstream devices.
+     interfaces and remain optimistic that these will indeed arrive in a
+     future iteration of speech interaction.
   5. Things appear to be coming full circle, Emacspeak started with the
      hardware Dectalk; now, the Software Dectalk
      (https://github.com/dectalk/dectalk.git) is increasingly becoming
@@ -243,7 +243,7 @@ File: now-thirty.info,  Node: Emacspeak And Software Development,  Next: Emacspe
      under ‘X’ using xcape (https://github.com/alols/xcape) to minimize
      chording has been a significant win in the last two years.
   7. IPython notebooks and their generalization to _Julia_, _Python_ and
-     _R_. The news here isn't all good; IPython notebooks are
+     _R_ (Jupyter).  The news here isn't all good; IPython notebooks are
      well-designed with respect to not getting locked into any given
      implementation.  However in practice, present implementations
      depend on Javascript for browser-based interaction.
@@ -254,8 +254,8 @@ File: now-thirty.info,  Node: Emacspeak And Software Development,  Next: Emacspe
   10. The re-emergence of Common Lisp in the last 20 years, thanks to
      asdf (https://asdf.common-lisp.dev/asdf.html) and quicklisp
      (https://www.quicklisp.org/) as a network-aware package manager and
-     build tool, has once again made Lisp development using Emacs
-     ‘Slime’ a productive experience.
+     build tool has once again made Lisp development using Emacs ‘Slime’
+     a productive experience.
   11. In 2022, I updated Audio System For Technical Readings (AsTeR)
      (https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html)--
      my PhD project from 1993 -- to run under ‘SBCL’ with a freshly
@@ -299,8 +299,8 @@ File: now-thirty.info,  Node: Emacspeak And The Web In 2024,  Next: Audio Format
      because the W3C had already thrown in the towel in the preceding
      decade.
   3. This has led to a Web of content created using the assembly
-     language of divs, spans and Javascript -- under the flag of HTML5
-     -- the result is a tangled web of spaghetti that everyone loves to
+     language of divs, spans and Javascript under the flag of HTML5 --
+     the result is a tangled web of spaghetti that everyone loves to
      hate.
   4. In this context, see Scripts And Obfuscation: How The Web Was
      Broken for a good overview of HTML's obesity problem.
@@ -446,7 +446,7 @@ File: now-thirty.info,  Node: Social Web — Mail Instant Messaging And Blogging
      perhaps the single-most impactful technology with respect to
      leveling the communications playing field.
   10. The disappearance of APIs mentioned above also means that today
-     the only usable chat services on an open platform like Emacspeak is
+     the only usable chat service on an open platform like Emacspeak is
      the venerable Internet Relay Chat (IRC).
 
 
@@ -456,7 +456,7 @@ File: now-thirty.info,  Node: The RESTful Web — Web Wizards And URL Templates 
 ********************************************************************
 
   1. This area continues to thrive -- either because of - or despite -
-     the best and worst efforts of service providers on the Web.
+     the best and worst efforts of application providers on the Web.
   2. Twenty years on (this feature originally landed in 2000) Emacspeak
      has a far richer collection of filters, preprocessors and
      post-processors that enables ever-more powerful Web wizards.  See
@@ -563,24 +563,24 @@ File: now-thirty.info,  Node: References,  Prev: The Final Word --- Donald E Knu
 Tag Table:
 Node: Top198
 Node: Key Insights1673
-Node: Emacspeak --- The Complete Audio Desktop3208
-Node: How To Read This Document6154
-Node: Using UNIX With Speech Output — 20246647
-Node: Key Enabler — Emacs And Lisp Advice7852
-Node: Key Component — Text To Speech (TTS)8710
-Node: Emacspeak And Software Development10656
-Node: Emacspeak And Authoring Documents13136
-Node: Emacspeak And The Web In 202414385
-Node: Audio Formatting — Generalizing Aural CSS17309
-Node: Conversational Gestures For The Audio Desktop18229
-Node: Accessing Media Streams18872
-Node: Electronic Books— Ubiquitous Access To Books19777
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20360
-Node: Social Web — Mail Instant Messaging And Blogging21263
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22973
-Node: Mashing It Up — Leveraging AI And The Web23863
-Node: The Final Word --- Donald E Knuth (DEK)25108
-Node: References26389
+Node: Emacspeak --- The Complete Audio Desktop3205
+Node: How To Read This Document6151
+Node: Using UNIX With Speech Output — 20246644
+Node: Key Enabler — Emacs And Lisp Advice7849
+Node: Key Component — Text To Speech (TTS)8707
+Node: Emacspeak And Software Development10631
+Node: Emacspeak And Authoring Documents13121
+Node: Emacspeak And The Web In 202414370
+Node: Audio Formatting — Generalizing Aural CSS17291
+Node: Conversational Gestures For The Audio Desktop18211
+Node: Accessing Media Streams18854
+Node: Electronic Books— Ubiquitous Access To Books19759
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20342
+Node: Social Web — Mail Instant Messaging And Blogging21245
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22954
+Node: Mashing It Up — Leveraging AI And The Web23848
+Node: The Final Word --- Donald E Knuth (DEK)25093
+Node: References26374
 
 End Tag Table
 

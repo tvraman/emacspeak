@@ -15,7 +15,7 @@
      is paramount.
   6. /Usability/ is important, but to  truly matter, the
      system needs to be /useful/ first.
-  7. /Ease of use/ in of itself is often /marketing/ hype.
+  7. /Ease of use/ by   itself is often /marketing/ hype.
   8. Useful systems are fun to learn and give back more than what you put
      in with respect to time and effort.
   9. A steep learning curve in and of itself is not to be feared --- it
@@ -120,8 +120,8 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      emotion, stress and other supra-linguistic features.
   4. I  believe  these to be essential for delivering
      good auditory interfaces and   remain optimistic that
-     these will indeed arrive in the next iteration of speech
-     interaction on mainstream devices.
+     these will indeed arrive in a future iteration of speech
+     interaction.
   5. Things appear to be coming full circle, Emacspeak started with
      the hardware Dectalk; now, the [[https://github.com/dectalk/dectalk.git][Software Dectalk]] is increasingly
      becoming the primary choice on Linux --- see this  [[https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org][Readme for setup instructions]].
@@ -157,7 +157,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
   6. [[https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html][Ergonomic keybindings]] under ~X~ using [[https://github.com/alols/xcape][xcape]] to minimize
      chording has been  a significant win in the last two years.
   7. IPython notebooks and their generalization to /Julia/, /Python/
-     and /R/. The news here isn't all good; IPython notebooks are
+     and /R/ (Jupyter). The news here isn't all good; IPython notebooks are
      well-designed with respect to not getting locked into any given
      implementation. However in practice, present implementations
      depend on Javascript for browser-based interaction.
@@ -167,7 +167,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      supported in Emacspeak.
   10. The re-emergence of Common Lisp in the last 20 years, thanks to
       [[https://asdf.common-lisp.dev/asdf.html][asdf]] and [[https://www.quicklisp.org/][quicklisp]] as a network-aware package manager and build
-      tool, has once again made Lisp development using Emacs ~Slime~ a
+      tool has once again made Lisp development using Emacs ~Slime~ a
       productive experience.
   11. In 2022, I updated [[https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html][Audio System For Technical
       Readings (AsTeR)]]--- my PhD project from 1993 --- to run under ~SBCL~
@@ -204,7 +204,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      explicit ---  because the W3C had already thrown in the towel in the
      preceding decade.
   3. This  has led to a Web of content  created using the assembly
-     language of divs, spans and Javascript --- under the flag of HTML5 ---
+     language of divs, spans and Javascript  under the flag of HTML5 ---
      the result is a tangled web of spaghetti that everyone loves to hate. 
   4. In this context, see [[https://idlewords.com/talks/website_obesity.htm][Tag Soup, Scripts And Obfuscation: How The
      Web Was Broken]] for  a good overview of  HTML's obesity problem.
@@ -325,13 +325,13 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      single-most impactful technology with respect to leveling the
      communications playing field.
   10. The disappearance of APIs mentioned above also means that today
-      the only usable chat services on an open platform like Emacspeak
+      the only usable chat service on an open platform like Emacspeak
       is the venerable  Internet Relay Chat (IRC).
      
 * The RESTful Web —  Web Wizards And URL Templates For Faster Access
 
   1. This area continues to thrive --- either because of -- or
-    despite -- the best and worst efforts of service providers on the
+    despite -- the best and worst efforts of application providers on the
     Web.
   2. Twenty years on (this feature originally landed in 2000)
      Emacspeak has a far richer collection of filters, preprocessors
