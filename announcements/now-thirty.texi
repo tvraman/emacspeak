@@ -589,12 +589,12 @@ The best theory is inspired by practice. The best practice is
 inspired by theory. (DEK)
 @item
 The enjoyment of one's tools is an essential ingredient of
-successful work. (DEK).
+successful work. (DEK)
 @item
 Easy things are often amusing and relaxing, but their value soon
 fades. Greater pleasure, deeper satisfaction, and higher wages are
 associated with genuine accomplishments, with the successful
-fulfillment of a challenging task. (DEK).
+fulfillment of a challenging task. (DEK)
 @end itemize
 
 The best example of the above is of course @uref{https://en.wikipedia.org/wiki/TeX, Knuth's @TeX{}} --- work that

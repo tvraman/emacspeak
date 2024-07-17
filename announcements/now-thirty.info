@@ -504,11 +504,11 @@ File: now-thirty.info,  Node: Conclusion The Final Word --- Donald E Knuth,  Nex
    • The best theory is inspired by practice.  The best practice is
      inspired by theory.  (DEK)
    • The enjoyment of one's tools is an essential ingredient of
-     successful work.  (DEK).
+     successful work.  (DEK)
    • Easy things are often amusing and relaxing, but their value soon
      fades.  Greater pleasure, deeper satisfaction, and higher wages are
      associated with genuine accomplishments, with the successful
-     fulfillment of a challenging task.  (DEK).
+     fulfillment of a challenging task.  (DEK)
 
    The best example of the above is of course Knuth's TeX
 (https://en.wikipedia.org/wiki/TeX) -- work that was motivated by his
@@ -588,7 +588,7 @@ Node: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Pr
 Node: The RESTful Web — Web Wizards And URL Templates For Faster Access23524
 Node: Mashing It Up — Leveraging AI And The Web24446
 Node: Conclusion The Final Word --- Donald E Knuth25696
-Node: References27017
+Node: References27015
 
 End Tag Table
 
