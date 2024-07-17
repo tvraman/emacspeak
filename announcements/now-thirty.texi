@@ -131,7 +131,8 @@ Conversely, I boldly  (and incorrectly)predicted  that the arrival of mobile
 devices and mainstream speech interfaces would herald the move to
 a Web of information where there would be a clean separation
 between application back-ends and various client-specific
-front-ends.
+front-ends. See @uref{http://www.cs.washington.edu/htbin-post/mvis/mvis?ID=636, The Web, The Way You Want, Distinguished Lecture
+Series, UW Oct 2008} and @uref{https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/, Specialized Browsers}.
 @item
 The above still makes sense from the view of  @emph{scalable} software architecture. However the rapid growth of the Web economy has also
 resulted in an even faster race to the bottom where applications
@@ -623,6 +624,10 @@ experience of the sentiments he expresses.
 @uref{https://tvraman.github.io/emacspeak//web/releases/release-3.0.html, Announcing Emacspeak: April 1995}
 @item
 @uref{https://emacspeak.sourceforge.net/turning-twenty.html, Emacspeak At Twenty}
+@item
+@uref{http://www.cs.washington.edu/htbin-post/mvis/mvis?ID=636, The Web, The Way You Want, Distinguished Lecture Series, UW Oct 2008}
+@item
+@uref{https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/, Specialized Browsers}
 @item
 @uref{https://tvraman.github.io/emacspeak/web/01-gemini.ogg, An Ode To Emacspeak: The Best Is Yet To Come}
 @item

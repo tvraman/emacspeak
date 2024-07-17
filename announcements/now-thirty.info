@@ -107,7 +107,9 @@ File: now-thirty.info,  Node: Emacspeak --- The Complete Audio Desktop,  Next: U
      of mobile devices and mainstream speech interfaces would herald the
      move to a Web of information where there would be a clean
      separation between application back-ends and various
-     client-specific front-ends.
+     client-specific front-ends.  See The Way You Want, Distinguished
+     Lecture Series, UW Oct 2008 and Specialized Browsers
+     (https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/).
   11. The above still makes sense from the view of _scalable_ software
      architecture.  However the rapid growth of the Web economy has also
      resulted in an even faster race to the bottom where applications
@@ -536,28 +538,31 @@ File: now-thirty.info,  Node: References,  Prev: Conclusion The Final Word --- D
      (https://tvraman.github.io/emacspeak//web/releases/release-3.0.html)
   5. Emacspeak At Twenty
      (https://emacspeak.sourceforge.net/turning-twenty.html)
-  6. An Ode To Emacspeak: The Best Is Yet To Come
+  6. The Way You Want, Distinguished Lecture Series, UW Oct 2008
+  7. Specialized Browsers
+     (https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/)
+  8. An Ode To Emacspeak: The Best Is Yet To Come
      (https://tvraman.github.io/emacspeak/web/01-gemini.ogg)
-  7. Software Dectalk on Github (https://github.com/dectalk/dectalk.git)
-  8. Dectalk setup instructions
+  9. Software Dectalk on Github (https://github.com/dectalk/dectalk.git)
+  10. Dectalk setup instructions
      (https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org)
-  9. Common Lisp: asdf (https://asdf.common-lisp.dev/asdf.html)
-  10. Common Lisp: Quicklisp (https://www.quicklisp.org/)
-  11. Colab notebooks (https://colab.research.google.com/)
-  12. RESTful Web (https://en.wikipedia.org/wiki/REST)
-  13. Ergonomic keybindings
+  11. Common Lisp: asdf (https://asdf.common-lisp.dev/asdf.html)
+  12. Common Lisp: Quicklisp (https://www.quicklisp.org/)
+  13. Colab notebooks (https://colab.research.google.com/)
+  14. RESTful Web (https://en.wikipedia.org/wiki/REST)
+  15. Ergonomic keybindings
      (https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html)
-  14. Minimize chording with XCape (https://github.com/alols/xcape)
-  15. Learn Smarter By Taking Rich Hypertext Notes
+  16. Minimize chording with XCape (https://github.com/alols/xcape)
+  17. Learn Smarter By Taking Rich Hypertext Notes
      (https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html)
-  16. Scripts And Obfuscation: How The Web Was Broken
-  17. Readable Web Pages: RDRView (https://github.com/eafer/rdrview)
-  18. smart media selectors
+  18. Scripts And Obfuscation: How The Web Was Broken
+  19. Readable Web Pages: RDRView (https://github.com/eafer/rdrview)
+  20. smart media selectors
      (https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html)
-  19. Communications Of The ACM, 2008
-  20. Emacspeak Manual: URL Templates
+  21. Communications Of The ACM, 2008
+  22. Emacspeak Manual: URL Templates
      (https://tvraman.github.io/emacspeak/manual/URL-Templates.html)
-  21. The Art Of Computer Programming (TAOCP)
+  23. The Art Of Computer Programming (TAOCP)
      (https://www-cs-faculty.stanford.edu/~knuth/taocp.html)
 
    #Applications D
@@ -568,23 +573,23 @@ Tag Table:
 Node: Top198
 Node: Key Insights1722
 Node: Emacspeak --- The Complete Audio Desktop3266
-Node: How To Read This Document6033
-Node: Using UNIX With Speech Output — 20246526
-Node: Key Enabler — Emacs And Lisp Advice7731
-Node: Key Component — Text To Speech (TTS)8589
-Node: Emacspeak And Software Development10549
-Node: Emacspeak And Authoring Documents13204
-Node: Emacspeak And The Web In 202414454
-Node: Audio Formatting — Generalizing Aural CSS17401
-Node: Conversational Gestures For The Audio Desktop18337
-Node: Accessing Media Streams18980
-Node: EBooks— Ubiquitous Access To Books20030
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20614
-Node: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols21538
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access23341
-Node: Mashing It Up — Leveraging AI And The Web24263
-Node: Conclusion The Final Word --- Donald E Knuth25515
-Node: References26840
+Node: How To Read This Document6211
+Node: Using UNIX With Speech Output — 20246704
+Node: Key Enabler — Emacs And Lisp Advice7909
+Node: Key Component — Text To Speech (TTS)8767
+Node: Emacspeak And Software Development10727
+Node: Emacspeak And Authoring Documents13382
+Node: Emacspeak And The Web In 202414632
+Node: Audio Formatting — Generalizing Aural CSS17579
+Node: Conversational Gestures For The Audio Desktop18515
+Node: Accessing Media Streams19158
+Node: EBooks— Ubiquitous Access To Books20208
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20792
+Node: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols21716
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access23519
+Node: Mashing It Up — Leveraging AI And The Web24441
+Node: Conclusion The Final Word --- Donald E Knuth25693
+Node: References27018
 
 End Tag Table
 

@@ -1,0 +1,480 @@
+% Created 2024-07-16 Tue 20:32
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{T.V Raman}
+\date{\textit{<2024-07-10 Wed>}}
+\title{Emacspeak:  A Speech Odyssey}
+\hypersetup{
+ pdfauthor={T.V Raman},
+ pdftitle={Emacspeak:  A Speech Odyssey},
+ pdfkeywords={Emacspeak, Complete Audio Desktop},
+ pdfsubject={Emacspeak  --- A Speech Odyssey --- Emacspeak At Thirty},
+ pdfcreator={Emacs 31.0.50 (Org mode 9.7.6)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Key Insights}
+\label{sec:orgef58cea}
+
+\begin{enumerate}
+\item Open systems are a key prerequisite for developing new interface  paradigms.
+\item This is not mere idealism.  Openness is a key enabler for
+creating   user journeys that were not  envisioned by the
+system's designers.
+\item \href{https://www.gnu.org/s/emacs/}{Emacs} and  \href{https://en.wikipedia.org/wiki/TeX}{\TeX{}}    are good exemplars. They  permit maximal freedom
+ when seen from the viewpoint of user extensibility and
+creativity. \TeX{} enabled \href{https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio\_21.html}{Audio System For Technical Readings (AsTeR)}; Emacs enabled \href{https://emacspeak.sourceforge.net}{Emacspeak}.
+\item Rapid, reliable task completion is the most important metric and
+trumps secondary items such as eye-candy --- the latter only
+leads to bloat as evinced by the HTML Web.
+\item Having a clearly identified user problem when designing a system
+is paramount.
+\item \emph{Usability} is important, but to  truly matter, the
+system needs to be \emph{useful} first.
+\item \emph{Ease of use} in of itself is often \emph{marketing} hype.
+\item Useful systems are fun to learn and give back more than what you put
+in with respett to time and effort.
+\item A steep learning curve in of itself is not to be feared --- it
+can be fun to learn and  gets you farther faster.
+\item A good touchstone: Ensure that the user grows continuously.
+\end{enumerate}
+\section{Emacspeak --- The Complete Audio Desktop}
+\label{sec:orgbb0d051}
+
+\begin{enumerate}
+\item Emacspeak, started in September 1994, was released as Open
+Source in \href{https://tvraman.github.io/emacspeak//web/releases/release-3.0.html}{April 1995}.
+\item The goal was to create a system for daily use that  doubled
+as a research work-bench for developing an auditory interface.
+\item Speech and auditory output would be  treated as 
+first-class citizens.
+\item The time felt right with respect to building a  system 
+that enabled  eyes-free access to the emerging Web.
+\item \href{https://emacspeak.sourceforge.net/turning-twenty.html}{Emacspeak At Twenty}  was published in September 2014 and  traced the
+evolution of the project.
+\item Now, this article gives a birds-eye overview of the last 10 years
+by loosely following the logical structure of the  \emph{Turning Twenty} paper.
+\item In the process, we identify the dreams that have come to pass as
+well as the expectations that have failed to materialize --- \textbf{both}
+attributable  to developments in the larger Internet eco-system.
+\item But never fear, though  some of these
+may be   superficially
+disappointing, they likely herald the nature of bigger and better
+things to come!
+\item As a proof-point, in 1994, I could not have imagined the impact
+that the world of Internet-centered  computing and the accompanying
+information revolution would have  on the state of information
+access.
+\item Conversely, I boldly  (and incorrectly)predicted  that the arrival of mobile
+devices and mainstream speech interfaces would herald the move to
+a Web of information where there would be a clean separation
+between application back-ends and various client-specific
+front-ends. See \href{http://www.cs.washington.edu/htbin-post/mvis/mvis?ID=636}{The Web, The Way You Want, Distinguished Lecture
+Series, UW Oct 2008} and \href{https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/}{Specialized Browsers}.
+\item The above still makes sense from the view of  \emph{scalable} software architecture. However the rapid growth of the Web economy has also
+resulted in an even faster race to the bottom where applications
+continue to be built and re-built every few years for \emph{the next
+best thing} --- welcome to the \emph{write once, debug everywhere}
+world all over again!
+\item Case in point; today we have smart phones, smart watches  and smart speakers,
+but each of these  require targeted front-ends  
+if one wishes to  bring the riches of the Internet to them.
+\item So the larger the Web gets, the fewer devices it becomes
+available  on --- a classic downward spiral.
+\end{enumerate}
+
+Share And Enjoy --- \href{https://tvraman.github.io/emacspeak/web/01-gemini.ogg}{The Best Is Yet To Come}!
+\subsection{How To Read This Document}
+\label{sec:org03c7ae2}
+
+\begin{enumerate}
+\item I recommend reading the \emph{Turning Twenty} paper to get a full overview.
+\item Then, read this paper a section at a time, while referring back to
+the parallel section in the \emph{Turning Twenty} paper to understand
+how things have evolved.
+\item Make sure to skim or deep-dive into the references in both papers.
+\end{enumerate}
+\section{Using UNIX With Speech Output —  2024}
+\label{sec:orgb6629a3}
+
+\begin{enumerate}
+\item In 2024 \emph{UNIX} equates mostly to various Linux distributions, and from
+the Emacspeak perspective, they are all made \emph{mostly} equal.
+\item Variations do exist and  running bleeding-edge distributions can come
+with issues, \emph{e.g.}, unstable versions of the underlying audio infrastructure.
+\item Yes, 30 years and counting, Linux Audio is still a work in
+progress though I hope Pipewire will be the last of these tidal shifts.
+\item Linux is moving to Wayland from X and expect that transition to
+be choppy.
+\item As with other platforms, native applications are mostly gone bar
+the shouting. In this context, where most users access things
+through a \emph{mainstream} Web browser, Emacspeak users access
+\emph{everything} through Emacs.
+\item The above when  done right is hugely empowering; 
+ when done badly, it's extremely limiting  --- see later
+sections of this paper on  the continuing evolution of the Web.
+\end{enumerate}
+\section{Key Enabler — Emacs And Lisp Advice}
+\label{sec:org7ef5226}
+
+\begin{enumerate}
+\item Advice in Emacs as implemented in \texttt{advice} is rock-solid.
+\item There is a newer \texttt{nadvice} that is part of Emacs that Emacspeak
+does not use.
+
+\item There are no plans to migrate to \texttt{nadvice} since that is a lot of
+busy work in my view and any such migration would be difficult
+to test for correctness.
+\item The classic \emph{advice} package may be removed from Emacs at some
+point in the future, but never fear; it'll be bundled with
+Emacspeak if that becomes necessary. This is a feature of Free Software and is a great
+example of what that \emph{Freedom} entails.
+\end{enumerate}
+\section{Key Component —  Text To Speech (TTS)}
+\label{sec:orgeca5d44}
+
+\begin{enumerate}
+\item Speech output --- especially unencumbered text-to-speech --- is just
+as much a challenge as it was 30 years ago.
+\item In the bigger picture, early instances of using speech
+output for mainstream solutions has driven the industry toward
+\emph{natural sounding} voices.
+\item The above sounds attractive on the surface, but a price we have
+paid is the  loss of fine-grained control over voice parameters,
+emotion, stress and other supra-linguistic features.
+\item I  believe  these to be essential for delivering
+good auditory interfaces and   remain optimistic that
+these will indeed arrive in the next iteration of speech
+interaction on mainstream devices.
+\item Things appear to be coming full circle, Emacspeak started with
+the hardware Dectalk; now, the \href{https://github.com/dectalk/dectalk.git}{Software Dectalk} is increasingly
+becoming the primary choice on Linux --- see this  \href{https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org}{Readme for setup instructions}.
+\item Viavoice Outloud from Voxin is still supported.  However,
+you can no longer buy new licenses. If you have already purchased
+a license, it'll
+continue to work.
+\item The  Vocalizer voices that Voxin now sells \emph{do not} work with Emacspeak.
+\item The  other choice on Linux is ESpeak which will hopefully
+continue to be free -- albeit of much lower quality.
+\item The future as ever is unpredictable and new voices may well show
+up --- especially those powered by on-device Large Language
+Models (LLMs).
+
+\item On non-free platforms, there is usable TTS on the Mac, now
+supported by the new SwiftMac server for Emacspeak.
+\end{enumerate}
+\section{Emacspeak And Software Development}
+\label{sec:org980daea}
+
+\begin{enumerate}
+\item \emph{Magit}  as a Git porcelain is perhaps the biggest leap forward
+with respect to software development.
+\item New completion frameworks such as \emph{company} and \emph{consult} come a
+close second in enhancing productivity.
+\item Completion strategies such as \emph{prescient}, \emph{fuzzy} and
+\emph{flex} provide  enhanced completion.
+\item The ability to introspect code via packages like \texttt{eglot} and
+\texttt{lsp} turn Emacs into a powerful and meaningful IDE. I say
+meaningful because these bring the best features of an integrated
+development environment while leaving behind the eye-candy that
+tends to bloat commercial IDEs.
+\item Packages like \emph{transient}  enable discoverable, rapid keyboard access to
+complex nested-menu driven interfaces.
+\item \href{https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html}{Ergonomic keybindings} under \texttt{X} using \href{https://github.com/alols/xcape}{xcape} to minimize
+chording has been  a significant win in the last two years.
+\item IPython notebooks and their generalization to \emph{Julia}, \emph{Python}
+and \emph{R}. The news here isn't all good; IPython notebooks are
+well-designed with respect to not getting locked into any given
+implementation. However in practice, present implementations
+depend on Javascript for browser-based interaction.
+\item Consequently, many of the Emacs  packages  for IPython
+Notebooks \emph{e.g.}, package \texttt{ein},  are no longer maintained.
+\item Developing in languages like Python (\texttt{elpy}), \texttt{R},
+\texttt{Haskell}, \texttt{Clojure} (\texttt{cider}), \texttt{Go}, \texttt{Rust}, \texttt{Scheme}, \texttt{Racket},
+\texttt{Ruby} and numerous other high-level languages continues to be
+very well supported in Emacspeak.
+\item The re-emergence of Common Lisp in the last 20 years, thanks to
+\href{https://asdf.common-lisp.dev/asdf.html}{asdf}  and \href{https://www.quicklisp.org/}{quicklisp}as a network-aware package manager and build tool, has
+once again made Lisp development using Emacs \texttt{Slime} a productive
+experience.
+\item In 2022, I updated \href{https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio\_21.html}{Audio System For Technical
+Readings (AsTeR)}--- my PhD project from 1993 --- to run under \texttt{SBCL}
+with a freshly implemented Emacs front-end.
+\item So now I can listen to Math content just as well as I could 30
+years ago!
+\end{enumerate}
+\section{Emacspeak And Authoring Documents}
+\label{sec:orgb2bbd92}
+
+\begin{enumerate}
+\item Package \texttt{org} is to authoring as \texttt{magit} is to
+software development with respect  to productivity gains.
+\item \texttt{Org} has existed since circa 2006 in my Emacs setup; but it
+continues to give and give plentifully.
+\item Where I once authored technical papers in \LaTeX{} using \texttt{auctex},
+used \texttt{nxml} for
+XML/XHTML,  etc., I now mostly write everything in \texttt{org-mode} and export
+to the relevant target format.
+\item Integrating various search engines  in Emacs makes authoring content extremely productive.
+\item Integrated access to spell-checking (\texttt{flyspell}) dictionaries, translation engines, and other
+language tools combine for a powerful authoring work-bench.
+\item Extending \texttt{org-mode} with custom link types enables \emph{smart note
+taking} with hyperlinks to relevant portions of an audio stream
+--- see article \href{https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html}{Learn Smarter By Taking Rich Hypertext Notes}.
+\end{enumerate}
+\section{Emacspeak  And The Web In 2024}
+\label{sec:orgdfd587f}
+
+
+\begin{enumerate}
+\item Package \texttt{shr} and \texttt{eww} arrived around 2014. But in 2024, they
+can be said to have \textbf{truly} landed.
+\item 2014 also  marked the explicit take-over of the stewardship of the HTML Web by the
+browser vendors from the W3C  --- I say
+explicit ---  because the W3C had already thrown in the towel in the
+preceding decade.
+\item This  has led to a Web of content  created using the assembly
+language of divs, spans and Javascript --- under the flag of HTML5 ---
+the result is a tangled web of spaghetti that everyone loves to hate.
+\item In this context, see \href{https://idlewords.com/talks/website\_obesity.htm}{Tag Soup, Scripts And Obfuscation: How The
+Web Was Broken} for  a good overview of  HTML's obesity problem.
+\item For better or worse, the investment in XML and display-independent
+content is now a complete write-off at least on the surface.
+
+\item So what next --- wait for the spaghetti monster to show up for
+lunch? Humor aside that monster may well be called AI ---  though
+whether  today's Web gives that monster life, indigestion,
+constipation,   dysentery or hallucinations  is a story to be
+written in the coming years.
+
+\item In the meantime  I say \emph{on the surface} above ---The welcome re-emergence of
+\texttt{ATOM} and \texttt{RSS} feeds is perhaps a silent acknowledgement that
+bloated Web pages are now unusable even for users who can see.
+\item Package  \texttt{elfeed} has emerged as  a powerful feed-manager for Emacs.
+\item Emacspeak had already implemented \texttt{RSS} and \texttt{ATOM} support using
+\texttt{XSLT}; but those features now shine brighter  with mainstream
+news  sites reviving their support for content feeds.
+\item Browsers like Mozilla now implement \emph{content filters} --- a
+euphemism for scraping off  visual eye-candy and related cruft to
+reveal the underlying content.  These are now 
+available as  plugins, (see \href{https://github.com/eafer/rdrview}{RDRView} for an example).  Emacspeak 
+leverages this to make the Web more readable.
+\item Package \texttt{url-template} and \texttt{emacspeak-websearch} continue to give
+in plenty, though they do require continuous updating.
+\item Web APIs come and go, so 
+that space is in  a state of constant change.
+\item The state of WebApps is perhaps the most concerning from an
+Emacspeak perspective, and I do not  see that changing in the
+short-term.  There are no incentives for Web providers to
+free their applications from the tangled Web of spaghetti they have woven
+around themselves.
+\item But as with everything else in our industry,
+it is precisely when something feels completely entrenched that users
+rebel and innovations emerge  to move us to the next phase --- so
+fingers crossed.
+\end{enumerate}
+\section{Audio Formatting —  Generalizing Aural CSS}
+\label{sec:org722c4b4}
+
+\begin{enumerate}
+\item Audio formatting with Aural CSS support is stable, with new
+enhancements supporting more TTS engines.
+\item Support for parallel streams of TTS using separate outputs to
+left/right channels is a big win and enables more efficient interaction.
+\item Support for various Digital Signal Processing (DSP)  filters enables   rich auditory effects
+like  binaural audio, crossfeed and spatial audio.
+\item Soundscapes implemented via package \texttt{boodler} makes for  a
+pleasant and relaxing auditory environment.
+\item Enabling virtual sound devices via Pipewire for 5.1  and 7.1
+spatial audio significantly enhances the auditory experience.
+\end{enumerate}
+\section{Conversational Gestures For The Audio Desktop}
+\label{sec:orgd0f81d5}
+
+\begin{enumerate}
+\item Parallel streams of audio, combined with more ergonomic
+keybindings are  the primary  enhancement in this area.
+\item Parallel streams of speech, \emph{e.g.}, a separate notification
+stream on the left or right ear  help increase the band-width of communication.
+\item Notifications can thus be delivered without having to stop the
+primary speech output.
+\end{enumerate}
+\section{Accessing Media Streams}
+\label{sec:orgbf763dd}
+
+
+\begin{enumerate}
+\item Emacspeak support for rich multimedia is now much  more robust.
+\item First \texttt{mplayer} and now \texttt{mpv} significantly expand the
+multimedia streaming in Emacs.
+\item Emacs package \texttt{empv} along with module \texttt{emacspeak-empv} is a
+powerful combination for locating, organizing  and playing local and remote
+media streams ranging from music, audio books, radio stations and
+Podcasts.
+\item This makes media streams from a large number of providers ranging
+from the BBC to Youtube available via a consistent keyboard interface.
+\item This experience is augmented by a collection of \emph{smart} content
+locators on the Emacspeak desktop, see the relevant blog
+article titled 
+\href{https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html}{smart media selectors}.
+\end{enumerate}
+\section{EBooks—   Ubiquitous Access To Books}
+\label{sec:orga06b6db}
+
+\begin{enumerate}
+\item Module \texttt{emacspeak-epub} for Epub and \texttt{emacspeak-bookshare} for
+Bookshare continue to provide good EBook integration.
+\item There are  \emph{smart} book locators analogous to the locators for
+media content.
+\item Speech-enabled \texttt{Calibre} integration for working with  local
+Ebook libraries.
+\end{enumerate}
+\section{Leveraging Computational Tools —  From SQL And R To IPython Notebooks}
+\label{sec:orgb6da5f7}
+
+\begin{enumerate}
+\item This area continues to provide a rich collection of  packages.
+\item Newer highlights include \texttt{sage} interaction for symbolic computation.
+\item Integrates with packages like \texttt{gptel} and \texttt{ellama} for working
+with local and network LLMs.
+\item The decline in IPython Notebooks presently limits
+the level of interaction possible with \href{https://colab.research.google.com/}{Colab notebooks},
+especially when working with remote LLMs that impose some type of
+proprietary authorization-flow.
+\end{enumerate}
+\section{Social Web  — EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols}
+\label{sec:orga9f9c5b}
+
+\begin{enumerate}
+\item This is a space that is definitely regressing.
+\item The previous decade was marked by open APIs to many social Web platforms.
+\item Over time these first regressed with respect to privacy.
+\item Then they turned into wall-gardens in their own right.
+\item Finally, the Web APIs, other than the kind embedded in Javascript have
+started disappearing.
+\item Looking back, the only \emph{social} platform I now use if Blogger for
+hosting my Emacspeak Blog, it has a somewhat usable API, albeit
+guarded by a difficult to use OAuth interface that requires 
+signing   in via  a \emph{mainstream} browser.
+\item IMap continues to survive as an open email protocol, though its
+days may well be numbered.
+\item The dye is already cast with respect to mere mortals being able
+to setup and  host their email ---  witness the complexity in setting
+up the Emacspeak mailing list in 2023 vs 1993!
+\item This is an area that is  likely to get worse before it gets
+better,  thanks to the spammers  --- more the pity, since Internet Email is perhaps the
+single-most impactful technology with respect to leveling the
+communications playing field.
+\item The disappearance of APIs mentioned above also means that today
+the only usable chat services on an open platform like Emacspeak
+is the venerable  Internet Relay Chat (IRC).
+\end{enumerate}
+\section{The RESTful Web —  Web Wizards And URL Templates For Faster Access}
+\label{sec:org2333ab4}
+
+\begin{enumerate}
+\item This area continues to thrive --- either because of -- or
+despite -- the best and worst efforts of service providers on the
+Web.
+\item Twenty years on (this feature originally landed in 2000)
+Emacspeak has a far richer collection of filters, pre-processors
+and post-processors
+ that enables ever-more powerful Web
+wizards. See the relevant \href{https://tvraman.github.io/emacspeak/manual/URL-Templates.html}{chapter} in the Emacspeak manual for the
+automatically updated list of \textbf{URL Templates}.
+\end{enumerate}
+\section{Mashing It Up —  Leveraging  AI And The Web}
+\label{sec:org33bf115}
+
+\begin{enumerate}
+\item Developing solutions by combining various API-based services on
+the Web has all but disappeared, unless one is willing to commit
+fully to the Javascript-powered Web hosted in a Web browser,
+something I hope I never have to accept.
+\item So for now, I'll keep
+well away and count my blessings.
+\item The next chapter of the \emph{mash-up story} may well be based around
+ \emph{Generative AI} using LLMs. In effect, LLMs that process Web content 
+define a \emph{platform} for generating content mash-ups.  The issue
+at present is that they are just as  likely  to produce
+\emph{meaningless mush} ---
+something that may  get better as the field gets a
+handle on cleaning up  Web content.
+\item Notice that we are now back to the previously unsolved problem
+of cleaning up the  HTML Web --- with LLMs, we'll just
+have an order of magnitude more documents than the \emph{2\textsuperscript{W}} postulated
+ by  \href{https://research.google/blog/beyond-web-20/?hl=in\&m=1}{Beyond Web 2.0, Communications
+Of The ACM, 2008}.
+\end{enumerate}
+\section{Conclusion: The Final Word --- Donald E Knuth}
+\label{sec:org49d5de1}
+\begin{itemize}
+\item The best theory is inspired by practice. The best practice is
+inspired by theory. (DEK)
+\item The enjoyment of one's tools is an essential ingredient of
+successful work. (DEK).
+\item Easy things are often amusing and relaxing, but their value soon
+fades. Greater pleasure, deeper satisfaction, and higher wages are
+associated with genuine accomplishments, with the successful
+fulfillment of a challenging task. (DEK).
+\end{itemize}
+
+The best example of the above is of course \href{https://en.wikipedia.org/wiki/TeX}{Knuth's \TeX{}} --- work that
+    was motivated  by his own dissatisfaction with the tools available
+    to him at the time for carrying out his primary work --- \href{https://www-cs-faculty.stanford.edu/\~knuth/taocp.html}{The Art
+    Of Computer Programming (TAOCP)}.  It is something I've looked up
+    to ever since my time as a graduate student at Cornell.
+
+
+The The Emacspeak Speech Odyssey outlined in this paper is, in some
+small measure, my own personal
+experience of the sentiments he expresses.
+
+--T. V. Raman,  San Jose, CA, August 1, 2024.
+\section{References}
+\label{sec:org30f9d86}
+\begin{enumerate}
+\item \href{https://www.gnu.org/s/emacs/}{GNU Emacs}
+\item \href{https://en.wikipedia.org/wiki/TeX}{Knuth's \TeX{}}
+\item \href{https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio\_21.html}{Audio System For Technical Readings}
+\item \href{https://tvraman.github.io/emacspeak//web/releases/release-3.0.html}{Announcing Emacspeak: April 1995}
+\item \href{https://emacspeak.sourceforge.net/turning-twenty.html}{Emacspeak At Twenty}
+\item \href{http://www.cs.washington.edu/htbin-post/mvis/mvis?ID=636}{The Web, The Way You Want, Distinguished Lecture Series, UW Oct 2008}
+\item \href{https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/}{Specialized Browsers}
+\item \href{https://tvraman.github.io/emacspeak/web/01-gemini.ogg}{An Ode To Emacspeak: The Best Is Yet To Come}
+\item \href{https://github.com/dectalk/dectalk.git}{Software Dectalk on Github}
+\item \href{https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org}{Dectalk  setup instructions}
+\item \href{https://asdf.common-lisp.dev/asdf.html}{Common Lisp: asdf}
+\item \href{https://www.quicklisp.org/}{Common Lisp: Quicklisp}
+\item \href{https://colab.research.google.com/}{Colab notebooks}
+\item \href{https://en.wikipedia.org/wiki/REST}{RESTful Web}
+\item \href{https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html}{Ergonomic keybindings}
+\item \href{https://github.com/alols/xcape}{Minimize chording with XCape}
+\item \href{https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html}{Learn Smarter By Taking Rich Hypertext Notes}
+\item \href{https://idlewords.com/talks/website\_obesity.htm}{Tag Soup, Scripts And Obfuscation: How The Web Was Broken}
+\item \href{https://github.com/eafer/rdrview}{Readable Web Pages: RDRView}
+\item \href{https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html}{smart media selectors}
+\item \href{https://research.google/blog/beyond-web-20/?hl=in\&m=1}{Beyond Web 2.0, Communications
+Of The ACM, 2008}
+\item \href{https://tvraman.github.io/emacspeak/manual/URL-Templates.html}{Emacspeak Manual: URL Templates}
+\item \href{https://www-cs-faculty.stanford.edu/\~knuth/taocp.html}{The Art Of Computer Programming (TAOCP)}
+\end{enumerate}
+
+
+\#Applications
+D
+\end{document}
