@@ -1,6 +1,6 @@
 * Key Insights 
 
-  1. Open systems are a key prerequisite for developing new interface  paradigms.
+  1. Open systems are a  prerequisite for discovering new interface  paradigms.
   2. This is not mere idealism.  Openness is a key enabler for
      creating   user journeys that were not  envisioned by the
      system's designers.
@@ -112,9 +112,8 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
 
   1. Speech output --- especially unencumbered text-to-speech --- is just
     as much a challenge as it was 30 years ago.
-  2. In the bigger picture, early instances of using speech
-     output for mainstream solutions has driven the industry toward
-     /natural sounding/ voices.
+  2. In the bigger picture, early instances of using TTS for voice
+     assistants has driven the industry toward /natural sounding/ voices.
   3. The above sounds attractive on the surface, but a price we have
      paid is the  loss of fine-grained control over voice parameters,
      emotion, stress and other supra-linguistic features.
@@ -219,12 +218,12 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      constipation,   dysentery or hallucinations  is a story to be
      written in the coming years.
      
-  7. In the meantime  I say /on the surface/ above ---The welcome re-emergence of
+  7.  I say /on the surface/ above  because The welcome re-emergence of
      ~ATOM~ and ~RSS~ feeds is perhaps a silent acknowledgement that
      bloated Web pages are now unusable even for users who can see.
   8.   Package  ~elfeed~ has emerged as  a powerful feed-manager for Emacs.
-  9. Emacspeak had already implemented ~RSS~ and ~ATOM~ support using
-     ~XSLT~; but those features now shine brighter  with mainstream
+  9. Emacspeak implements  ~RSS~ and ~ATOM~ support using
+     ~XSLT~;  those features now shine brighter  with mainstream
      news  sites reviving their support for content feeds.
   10. Browsers like Mozilla now implement /content filters/ --- a
       euphemism for scraping off  visual eye-candy and related cruft to
@@ -307,7 +306,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      especially when working with remote LLMs that impose some type of
      proprietary authorization-flow.
      
-* Social Web  — EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols
+* Social Web  — EMail, Instant Messaging And Blogging  
 
   1. This is a space that is definitely regressing.
   2. The previous decade was marked by open APIs to many social Web platforms.
@@ -366,7 +365,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      Of The ACM, 2008]].
      
      
-* Conclusion: The Final Word --- Donald E Knuth
+*  The Final Word --- Donald E Knuth
   - The best theory is inspired by practice. The best practice is
     inspired by theory. (DEK)
   - The enjoyment of one's tools is an essential ingredient of
