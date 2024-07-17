@@ -132,7 +132,8 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
   8. The  other choice on Linux is ESpeak which will hopefully
      continue to be free -- albeit of much lower quality.
   9. The future as ever is unpredictable and new voices may well show
-     up --- especially those powered by on-device LLMs.
+     up --- especially those powered by on-device Large Language
+     Models (LLMs).
      
   10. On non-free platforms, there is usable TTS on the Mac, now
       supported by the new SwiftMac server for Emacspeak.
@@ -140,7 +141,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
 * Emacspeak And Software Development
 
   1. /Magit/  as a Git porcelain is perhaps the biggest leap forward
-   with respect to software development  on Emacs.
+   with respect to software development.
   2. New completion frameworks such as /company/ and /consult/ come a
      close second in enhancing productivity.
   3. Completion strategies such as /prescient/, /fuzzy/ and
@@ -150,7 +151,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      meaningful because these bring the best features of an integrated
      development environment while leaving behind the eye-candy that
      tends to bloat commercial IDEs.
-  5. Packages like /transient/ that enable rapid keyboard access to
+  5. Packages like /transient/  enable discoverable, rapid keyboard access to
      complex nested-menu driven interfaces.
   6. [[https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html][Ergonomic keybindings]] under ~X~ using [[https://github.com/alols/xcape][xcape]] to minimize
      chording has been  a significant win in the last two years.
@@ -160,8 +161,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      implementation. However in practice, present implementations
      depend on Javascript for browser-based interaction.
   8. Consequently, many of the Emacs  packages  for IPython
-     Notebooks /e.g./, package ~ein~,  are no longer maintained. Hopefully there will be a new crop of packages to come in
-     the future.
+     Notebooks /e.g./, package ~ein~,  are no longer maintained. 
   9. Developing in languages like Python (~elpy~), ~R~,
     ~Haskell~, ~Clojure~ (~cider~), ~Go~, ~Rust~, ~Scheme~, ~Racket~,
     ~Ruby~ and numerous other high-level languages continues to be
@@ -302,7 +302,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
   3. Integrates with packages like ~gptel~ and ~ellama~ for working
      with local and network LLMs.
   4. The decline in IPython Notebooks presently limits
-     the level of interaction possible with ~Colab~ notebooks,
+     the level of interaction possible with [[https://colab.research.google.com/][Colab notebooks]],
      especially when working with remote LLMs that impose some type of
      proprietary authorization-flow.
      
@@ -323,8 +323,8 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
   8. The dye is already cast with respect to mere mortals being able
      to setup and  host their email ---  witness the complexity in setting
      up the Emacspeak mailing list in 2023 vs 1993!
-  9. This is an area that is again likely to get worse before it gets
-     better --- more the pity, since Internet Email is perhaps the
+  9. This is an area that is  likely to get worse before it gets
+     better,  thanks to the spammers  --- more the pity, since Internet Email is perhaps the
      single-most impactful technology with respect to leveling the
      communications playing field.
   10. The disappearance of APIs mentioned above also means that today
@@ -399,16 +399,18 @@ experience of the sentiments he expresses.
   8. [[https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org][Dectalk  setup instructions]]
   9. [[https://asdf.common-lisp.dev/asdf.html][Common Lisp: asdf]]
   10. [[https://www.quicklisp.org/][Common Lisp: Quicklisp]]
-  11. [[https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html][Ergonomic keybindings]]
-  12. [[https://github.com/alols/xcape][Minimize chording with XCape]]
-  13. [[https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html][Learn Smarter By Taking Rich Hypertext Notes]]
-  14. [[https://idlewords.com/talks/website_obesity.htm][Tag Soup, Scripts And Obfuscation: How The Web Was Broken]]
-  15. [[https://github.com/eafer/rdrview][Readable Web Pages: RDRView]]
-  16. [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selectors]]
-  17. [[https://research.google/blog/beyond-web-20/?hl=in&m=1][Beyond Web 2.0, Communications
+  11. [[https://colab.research.google.com/][Colab notebooks]]
+  12. [[https://en.wikipedia.org/wiki/REST][RESTful Web]]
+  13. [[https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html][Ergonomic keybindings]]
+  14. [[https://github.com/alols/xcape][Minimize chording with XCape]]
+  15. [[https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html][Learn Smarter By Taking Rich Hypertext Notes]]
+  16. [[https://idlewords.com/talks/website_obesity.htm][Tag Soup, Scripts And Obfuscation: How The Web Was Broken]]
+  17. [[https://github.com/eafer/rdrview][Readable Web Pages: RDRView]]
+  18. [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selectors]]
+  19. [[https://research.google/blog/beyond-web-20/?hl=in&m=1][Beyond Web 2.0, Communications
     Of The ACM, 2008]]
-  18. [[https://tvraman.github.io/emacspeak/manual/URL-Templates.html][Emacspeak Manual: URL Templates]]
-  19. [[https://www-cs-faculty.stanford.edu/~knuth/taocp.html][The Art Of Computer Programming (TAOCP)]]
+  20. [[https://tvraman.github.io/emacspeak/manual/URL-Templates.html][Emacspeak Manual: URL Templates]]
+  21. [[https://www-cs-faculty.stanford.edu/~knuth/taocp.html][The Art Of Computer Programming (TAOCP)]]
   
 
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
