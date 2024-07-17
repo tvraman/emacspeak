@@ -299,9 +299,9 @@ Developing in higher-level languages continues to be very well
 supported in Emacspeak.
 @item
 The re-emergence of Common Lisp in the last 20 years, thanks to
-@uref{https://asdf.common-lisp.dev/asdf.html, asdf}  and @uref{https://www.quicklisp.org/, quicklisp}as a network-aware package manager and build tool, has
-once again made Lisp development using Emacs @code{Slime} a productive
-experience.
+@uref{https://asdf.common-lisp.dev/asdf.html, asdf} and @uref{https://www.quicklisp.org/, quicklisp} as a network-aware package manager and build
+tool, has once again made Lisp development using Emacs @code{Slime} a
+productive experience.
 @item
 In 2022, I updated @uref{https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html, Audio System For Technical
 Readings (AsTeR)}--- my PhD project from 1993 --- to run under @code{SBCL}

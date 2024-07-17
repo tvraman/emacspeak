@@ -253,7 +253,7 @@ File: now-thirty.info,  Node: Emacspeak And Software Development,  Next: Emacspe
      supported in Emacspeak.
   10. The re-emergence of Common Lisp in the last 20 years, thanks to
      asdf (https://asdf.common-lisp.dev/asdf.html) and quicklisp
-     (https://www.quicklisp.org/)as a network-aware package manager and
+     (https://www.quicklisp.org/) as a network-aware package manager and
      build tool, has once again made Lisp development using Emacs
      ‘Slime’ a productive experience.
   11. In 2022, I updated Audio System For Technical Readings (AsTeR)
@@ -569,18 +569,18 @@ Node: Using UNIX With Speech Output — 20246647
 Node: Key Enabler — Emacs And Lisp Advice7852
 Node: Key Component — Text To Speech (TTS)8710
 Node: Emacspeak And Software Development10656
-Node: Emacspeak And Authoring Documents13134
-Node: Emacspeak And The Web In 202414383
-Node: Audio Formatting — Generalizing Aural CSS17307
-Node: Conversational Gestures For The Audio Desktop18227
-Node: Accessing Media Streams18870
-Node: Electronic Books— Ubiquitous Access To Books19775
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20358
-Node: Social Web — Mail Instant Messaging And Blogging21261
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22971
-Node: Mashing It Up — Leveraging AI And The Web23861
-Node: The Final Word --- Donald E Knuth (DEK)25106
-Node: References26387
+Node: Emacspeak And Authoring Documents13135
+Node: Emacspeak And The Web In 202414384
+Node: Audio Formatting — Generalizing Aural CSS17308
+Node: Conversational Gestures For The Audio Desktop18228
+Node: Accessing Media Streams18871
+Node: Electronic Books— Ubiquitous Access To Books19776
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20359
+Node: Social Web — Mail Instant Messaging And Blogging21262
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22972
+Node: Mashing It Up — Leveraging AI And The Web23862
+Node: The Final Word --- Donald E Knuth (DEK)25107
+Node: References26388
 
 End Tag Table
 

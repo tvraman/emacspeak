@@ -166,9 +166,9 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
   9. Developing in higher-level languages continues to be very well
      supported in Emacspeak.
   10. The re-emergence of Common Lisp in the last 20 years, thanks to
-      [[https://asdf.common-lisp.dev/asdf.html][asdf]]  and [[https://www.quicklisp.org/][quicklisp]]as a network-aware package manager and build tool, has
-      once again made Lisp development using Emacs ~Slime~ a productive
-      experience.
+      [[https://asdf.common-lisp.dev/asdf.html][asdf]] and [[https://www.quicklisp.org/][quicklisp]] as a network-aware package manager and build
+      tool, has once again made Lisp development using Emacs ~Slime~ a
+      productive experience.
   11. In 2022, I updated [[https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html][Audio System For Technical
       Readings (AsTeR)]]--- my PhD project from 1993 --- to run under ~SBCL~
       with a freshly implemented Emacs front-end.
