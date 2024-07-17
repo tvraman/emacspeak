@@ -36,12 +36,12 @@
 * Audio Formatting —  Generalizing Aural CSS: Audio Formatting — Generalizing Aural CSS. 
 * Conversational Gestures For The Audio Desktop::
 * Accessing Media Streams::
-* EBooks—   Ubiquitous Access To Books: EBooks— Ubiquitous Access To Books. 
+* Electronic Books—   Ubiquitous Access To Books: Electronic Books— Ubiquitous Access To Books. 
 * Leveraging Computational Tools —  From SQL And R To IPython Notebooks: Leveraging Computational Tools — From SQL And R To IPython Notebooks. 
-* Social Web  — EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols. 
+* Social Web  — Mail, Instant Messaging And Blogging: Social Web — Mail Instant Messaging And Blogging. 
 * The RESTful Web —  Web Wizards And URL Templates For Faster Access: The RESTful Web — Web Wizards And URL Templates For Faster Access. 
 * Mashing It Up —  Leveraging  AI And The Web: Mashing It Up — Leveraging AI And The Web. 
-* Conclusion The Final Word --- Donald E Knuth::
+* The Final Word --- Donald E Knuth (DEK)::
 * References::
 
 @detailmenu
@@ -59,7 +59,8 @@ Emacspeak --- The Complete Audio Desktop
 
 @enumerate
 @item
-Open systems are a key prerequisite for developing new interface  paradigms.
+Open design is essential  for discovering new interaction
+paradigms.
 @item
 This is not mere idealism.  Openness is a key enabler for
 creating   user journeys that were not  envisioned by the
@@ -224,9 +225,8 @@ example of what that @emph{Freedom} entails.
 Speech output --- especially unencumbered text-to-speech --- is just
 as much a challenge as it was 30 years ago.
 @item
-In the bigger picture, early instances of using speech
-output for mainstream solutions has driven the industry toward
-@emph{natural sounding} voices.
+In the bigger picture, early instances of using TTS for voice
+assistants has driven the industry toward @emph{natural sounding} voices.
 @item
 The above sounds attractive on the surface, but a price we have
 paid is the  loss of fine-grained control over voice parameters,
@@ -295,10 +295,8 @@ depend on Javascript for browser-based interaction.
 Consequently, many of the Emacs  packages  for IPython
 Notebooks @emph{e.g.}, package @code{ein},  are no longer maintained. 
 @item
-Developing in languages like Python (@code{elpy}), @code{R},
-@code{Haskell}, @code{Clojure} (@code{cider}), @code{Go}, @code{Rust}, @code{Scheme}, @code{Racket},
-@code{Ruby} and numerous other high-level languages continues to be
-very well supported in Emacspeak.
+Developing in higher-level languages continues to be very well
+supported in Emacspeak.
 @item
 The re-emergence of Common Lisp in the last 20 years, thanks to
 @uref{https://asdf.common-lisp.dev/asdf.html, asdf}  and @uref{https://www.quicklisp.org/, quicklisp}as a network-aware package manager and build tool, has
@@ -324,9 +322,9 @@ software development with respect  to productivity gains.
 @code{Org} has existed since circa 2006 in my Emacs setup; but it
 continues to give and give plentifully.
 @item
-Where I once authored technical papers in @LaTeX{} using @code{auctex},
+Where I once authored technical papers in @emph{@LaTeX{}} using @code{auctex},
 used @code{nxml} for
-XML/XHTML,  etc., I now mostly write everything in @code{org-mode} and export
+HTML,  @emph{etc.}, I now mostly write everything in @code{org-mode} and export
 to the relevant target format.
 @item
 Integrating various search engines  in Emacs makes authoring content extremely productive.
@@ -370,14 +368,14 @@ constipation,   dysentery or hallucinations  is a story to be
 written in the coming years.
 
 @item
-In the meantime  I say @emph{on the surface} above ---The welcome re-emergence of
+I say @emph{on the surface} above  because The welcome re-emergence of
 @code{ATOM} and @code{RSS} feeds is perhaps a silent acknowledgement that
 bloated Web pages are now unusable even for users who can see.
 @item
 Package  @code{elfeed} has emerged as  a powerful feed-manager for Emacs.
 @item
-Emacspeak had already implemented @code{RSS} and @code{ATOM} support using
-@code{XSLT}; but those features now shine brighter  with mainstream
+Emacspeak implements  @code{RSS} and @code{ATOM} support using
+@code{XSLT};  those features now shine brighter  with mainstream
 news  sites reviving their support for content feeds.
 @item
 Browsers like Mozilla now implement @emph{content filters} --- a
@@ -392,7 +390,7 @@ in plenty, though they do require continuous updating.
 Web APIs come and go, so 
 that space is in  a state of constant change.
 @item
-The state of WebApps is perhaps the most concerning from an
+The state of web applications is perhaps the most concerning from an
 Emacspeak perspective, and I do not  see that changing in the
 short-term.  There are no incentives for Web providers to
 free their applications from the tangled Web of spaghetti they have woven
@@ -416,7 +414,7 @@ Support for parallel streams of TTS using separate outputs to
 left/right channels is a big win and enables more efficient interaction.
 @item
 Support for various Digital Signal Processing (DSP)  filters enables   rich auditory effects
-like  binaural audio, crossfeed and spatial audio.
+like  binaural audio and spatial audio.
 @item
 Soundscapes implemented via package @code{boodler} makes for  a
 pleasant and relaxing auditory environment.
@@ -447,11 +445,8 @@ primary speech output.
 @item
 Emacspeak support for rich multimedia is now much  more robust.
 @item
-First @code{mplayer} and now @code{mpv} significantly expand the
-multimedia streaming in Emacs.
-@item
-Emacs package @code{empv} along with module @code{emacspeak-empv} is a
-powerful combination for locating, organizing  and playing local and remote
+Emacs package   @code{empv}  is a
+powerful tool  for locating, organizing  and playing local and remote
 media streams ranging from music, audio books, radio stations and
 Podcasts.
 @item
@@ -464,19 +459,19 @@ article titled
 @uref{https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html, smart media selectors}.
 @end enumerate
 
-@node EBooks— Ubiquitous Access To Books
-@chapter EBooks—   Ubiquitous Access To Books
+@node Electronic Books— Ubiquitous Access To Books
+@chapter Electronic Books—   Ubiquitous Access To Books
 
 @enumerate
 @item
-Module @code{emacspeak-epub} for Epub and @code{emacspeak-bookshare} for
-Bookshare continue to provide good EBook integration.
+Emacspeak modules  for @emph{Epub} and 
+@emph{Bookshare} continue to provide good books  integration.
 @item
 There are  @emph{smart} book locators analogous to the locators for
 media content.
 @item
 Speech-enabled @code{Calibre} integration for working with  local
-Ebook libraries.
+electronic  libraries.
 @end enumerate
 
 @node Leveraging Computational Tools — From SQL And R To IPython Notebooks
@@ -497,8 +492,8 @@ especially when working with remote LLMs that impose some type of
 proprietary authorization-flow.
 @end enumerate
 
-@node Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols
-@chapter Social Web  — EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols
+@node Social Web — Mail Instant Messaging And Blogging
+@chapter Social Web  — Mail, Instant Messaging And Blogging
 
 @enumerate
 @item
@@ -515,7 +510,7 @@ started disappearing.
 @item
 Looking back, the only @emph{social} platform I now use is Blogger for
 hosting my Emacspeak Blog, it has a somewhat usable API, albeit
-guarded by a difficult to use OAuth interface that requires 
+guarded by a difficult to use @emph{OAuth} interface that requires 
 signing   in via  a @emph{mainstream} browser.
 @item
 IMap continues to survive as an open email protocol, though its
@@ -545,7 +540,7 @@ despite -- the best and worst efforts of service providers on the
 Web.
 @item
 Twenty years on (this feature originally landed in 2000)
-Emacspeak has a far richer collection of filters, pre-processors
+Emacspeak has a far richer collection of filters, preprocessors
 and post-processors
  that enables ever-more powerful Web
 wizards. See the relevant @uref{https://tvraman.github.io/emacspeak/manual/URL-Templates.html, chapter} in the Emacspeak manual for the
@@ -580,21 +575,21 @@ have an order of magnitude more documents than the @emph{2@math{^W}} postulated
 Of The ACM, 2008}.
 @end enumerate
 
-@node Conclusion The Final Word --- Donald E Knuth
-@chapter Conclusion: The Final Word --- Donald E Knuth
+@node The Final Word --- Donald E Knuth (DEK)
+@chapter The Final Word --- Donald E Knuth (DEK)
 
 @itemize
 @item
 The best theory is inspired by practice. The best practice is
-inspired by theory. (DEK)
+inspired by theory. 
 @item
 The enjoyment of one's tools is an essential ingredient of
-successful work. (DEK)
+successful work. 
 @item
 Easy things are often amusing and relaxing, but their value soon
 fades. Greater pleasure, deeper satisfaction, and higher wages are
 associated with genuine accomplishments, with the successful
-fulfillment of a challenging task. (DEK)
+fulfillment of a challenging task. 
 @end itemize
 
 The best example of the above is of course @uref{https://en.wikipedia.org/wiki/TeX, Knuth's @TeX{}} --- work that

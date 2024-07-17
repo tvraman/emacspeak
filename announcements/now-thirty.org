@@ -182,9 +182,9 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
     software development with respect  to productivity gains.
   2. ~Org~ has existed since circa 2006 in my Emacs setup; but it
      continues to give and give plentifully.
-  3. Where I once authored technical papers in LaTeX using ~auctex~,
+  3. Where I once authored technical papers in /LaTeX/ using ~auctex~,
      used ~nxml~ for
-     XHTML,  /etc./, I now mostly write everything in ~org-mode~ and export
+     HTML,  /etc./, I now mostly write everything in ~org-mode~ and export
      to the relevant target format.
   4. Integrating various search engines  in Emacs makes authoring content extremely productive.
   5. Integrated access to spell-checking (~flyspell~) dictionaries, translation engines, and other
@@ -233,7 +233,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
       in plenty, though they do require continuous updating.
   12. Web APIs come and go, so 
        that space is in  a state of constant change.
-  13. The state of WebApps is perhaps the most concerning from an
+  13. The state of web applications is perhaps the most concerning from an
       Emacspeak perspective, and I do not  see that changing in the
       short-term.  There are no incentives for Web providers to
       free their applications from the tangled Web of spaghetti they have woven
@@ -251,7 +251,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
   2. Support for parallel streams of TTS using separate outputs to
      left/right channels is a big win and enables more efficient interaction.
   3. Support for various Digital Signal Processing (DSP)  filters enables   rich auditory effects
-     like  binaural audio, crossfeed and spatial audio.
+     like  binaural audio and spatial audio.
   4. Soundscapes implemented via package ~boodler~ makes for  a
      pleasant and relaxing auditory environment.
   5. Enabling virtual sound devices via Pipewire for 5.1  and 7.1
@@ -282,14 +282,14 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      article titled 
      [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selectors]].
      
-* EBooks—   Ubiquitous Access To Books
+* Electronic Books—   Ubiquitous Access To Books
 
   1. Emacspeak modules  for /Epub/ and 
-    /Bookshare/ continue to provide good EBook integration.
+    /Bookshare/ continue to provide good books  integration.
   2. There are  /smart/ book locators analogous to the locators for
      media content.
   3. Speech-enabled ~Calibre~ integration for working with  local
-     Ebook libraries.
+     electronic  libraries.
      
      
 * Leveraging Computational Tools —  From SQL And R To IPython Notebooks
@@ -303,7 +303,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      especially when working with remote LLMs that impose some type of
      proprietary authorization-flow.
      
-* Social Web  — EMail, Instant Messaging And Blogging  
+* Social Web  — Mail, Instant Messaging And Blogging  
 
   1. This is a space that is definitely regressing.
   2. The previous decade was marked by open APIs to many social Web platforms.
@@ -313,7 +313,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      started disappearing.
   6. Looking back, the only /social/ platform I now use is Blogger for
      hosting my Emacspeak Blog, it has a somewhat usable API, albeit
-     guarded by a difficult to use OAuth interface that requires 
+     guarded by a difficult to use /OAuth/ interface that requires 
      signing   in via  a /mainstream/ browser.
   7. IMap continues to survive as an open email protocol, though its
      days may well be numbered.
@@ -334,7 +334,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
     despite -- the best and worst efforts of service providers on the
     Web.
   2. Twenty years on (this feature originally landed in 2000)
-     Emacspeak has a far richer collection of filters, pre-processors
+     Emacspeak has a far richer collection of filters, preprocessors
      and post-processors
       that enables ever-more powerful Web
      wizards. See the relevant [[https://tvraman.github.io/emacspeak/manual/URL-Templates.html][chapter]] in the Emacspeak manual for the
@@ -362,15 +362,15 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      Of The ACM, 2008]].
      
      
-*  The Final Word --- Donald E Knuth
+*  The Final Word --- Donald E Knuth (DEK)
   - The best theory is inspired by practice. The best practice is
-    inspired by theory. (DEK)
+    inspired by theory. 
   - The enjoyment of one's tools is an essential ingredient of
-    successful work. (DEK)
+    successful work. 
   - Easy things are often amusing and relaxing, but their value soon
     fades. Greater pleasure, deeper satisfaction, and higher wages are
     associated with genuine accomplishments, with the successful
-    fulfillment of a challenging task. (DEK)
+    fulfillment of a challenging task. 
     
 The best example of the above is of course [[https://en.wikipedia.org/wiki/TeX][Knuth's TeX]] --- work that
     was motivated  by his own dissatisfaction with the tools available
@@ -430,3 +430,5 @@ D
 #+exclude_tags: noexport
 #+creator: Emacs 31.0.50 (Org mode 9.7.6)
 #+cite_export:
+
+#  LocalWords:  Epub
