@@ -1,6 +1,7 @@
 * Key Insights 
 
-  1. Open systems are a  prerequisite for discovering new interface  paradigms.
+  1. Open design is essential  for discovering new interaction
+     paradigms.
   2. This is not mere idealism.  Openness is a key enabler for
      creating   user journeys that were not  envisioned by the
      system's designers.
@@ -162,10 +163,8 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      depend on Javascript for browser-based interaction.
   8. Consequently, many of the Emacs  packages  for IPython
      Notebooks /e.g./, package ~ein~,  are no longer maintained. 
-  9. Developing in languages like Python (~elpy~), ~R~,
-    ~Haskell~, ~Clojure~ (~cider~), ~Go~, ~Rust~, ~Scheme~, ~Racket~,
-    ~Ruby~ and numerous other high-level languages continues to be
-    very well supported in Emacspeak.
+  9. Developing in higher-level languages continues to be very well
+     supported in Emacspeak.
   10. The re-emergence of Common Lisp in the last 20 years, thanks to
       [[https://asdf.common-lisp.dev/asdf.html][asdf]]  and [[https://www.quicklisp.org/][quicklisp]]as a network-aware package manager and build tool, has
       once again made Lisp development using Emacs ~Slime~ a productive
@@ -185,7 +184,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      continues to give and give plentifully.
   3. Where I once authored technical papers in LaTeX using ~auctex~,
      used ~nxml~ for
-     XML/XHTML,  etc., I now mostly write everything in ~org-mode~ and export
+     XHTML,  /etc./, I now mostly write everything in ~org-mode~ and export
      to the relevant target format.
   4. Integrating various search engines  in Emacs makes authoring content extremely productive.
   5. Integrated access to spell-checking (~flyspell~) dictionaries, translation engines, and other
@@ -272,23 +271,21 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
 
 
   1. Emacspeak support for rich multimedia is now much  more robust.
-  2. First ~mplayer~ and now ~mpv~ significantly expand the
-   multimedia streaming in Emacs.
-  3. Emacs package ~empv~ along with module ~emacspeak-empv~ is a
-     powerful combination for locating, organizing  and playing local and remote
+  2. Emacs package   ~empv~  is a
+     powerful tool  for locating, organizing  and playing local and remote
      media streams ranging from music, audio books, radio stations and
      Podcasts.
-  4. This makes media streams from a large number of providers ranging
+  3. This makes media streams from a large number of providers ranging
      from the BBC to Youtube available via a consistent keyboard interface.
-  5. This experience is augmented by a collection of /smart/ content
+  4. This experience is augmented by a collection of /smart/ content
      locators on the Emacspeak desktop, see the relevant blog
      article titled 
      [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selectors]].
      
 * EBooks—   Ubiquitous Access To Books
 
-  1. Module ~emacspeak-epub~ for Epub and ~emacspeak-bookshare~ for
-    Bookshare continue to provide good EBook integration.
+  1. Emacspeak modules  for /Epub/ and 
+    /Bookshare/ continue to provide good EBook integration.
   2. There are  /smart/ book locators analogous to the locators for
      media content.
   3. Speech-enabled ~Calibre~ integration for working with  local
