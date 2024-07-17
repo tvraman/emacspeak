@@ -383,7 +383,7 @@ The best example of the above is of course [[https://en.wikipedia.org/wiki/TeX][
     to ever since my time as a graduate student at Cornell.
 
     
-The The Emacspeak Speech Odyssey outlined in this paper is, in some
+The  Emacspeak Speech Odyssey outlined in this paper is, in some
 small measure, my own personal
 experience of the sentiments he expresses.
 
