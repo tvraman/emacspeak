@@ -83,6 +83,10 @@ fly spell checking."
   "Silence icon."
   (let ((emacspeak-use-icons nil)) ad-do-it))
 
+(defadvice flyspell-region (around emacspeak pre act comp)
+  "Silence icon."
+  (let ((emacspeak-use-icons nil)) ad-do-it))
+
 (defadvice flyspell-auto-correct-word (around emacspeak pre act comp)
   "Speak the correction we inserted."
   (cond
