@@ -52,7 +52,7 @@
       devices and mainstream speech interfaces would herald the move to
       a Web of information where there would be a clean separation
       between application back-ends and various client-specific
-      front-ends. See [[http://www.cs.washington.edu/htbin-post/mvis/mvis?ID=636][The Web, The Way You Want, Distinguished Lecture
+      front-ends. See [[http://www.cs.washington.edu/htbin-post/mvis/mvis?ID=636][The Web, The Way You Want.  Distinguished Lecture
       Series, UW Oct 2008]] and [[https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/][Specialized Browsers]].
   11. The above still makes sense from the view of  /scalable/ software architecture. However the rapid growth of the Web economy has also
       resulted in an even faster race to the bottom where applications
@@ -395,7 +395,7 @@ experience of the sentiments he expresses.
   3. [[https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html][Audio System For Technical Readings]]
   4. [[https://tvraman.github.io/emacspeak//web/releases/release-3.0.html][Announcing Emacspeak: April 1995]]
   5. [[https://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At Twenty]]
-  6. [[http://www.cs.washington.edu/htbin-post/mvis/mvis?ID=636][The Web, The Way You Want, Distinguished Lecture Series, UW Oct 2008]]
+  6. [[http://www.cs.washington.edu/htbin-post/mvis/mvis?ID=636][The Web, The Way You Want.  Distinguished Lecture Series, UW Oct 2008]]
   7. [[https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/][Specialized Browsers]]
   8. [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][An Ode To Emacspeak: The Best Is Yet To Come]]
   9. [[https://github.com/dectalk/dectalk.git][Software Dectalk on Github]]
