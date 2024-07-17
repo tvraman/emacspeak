@@ -82,9 +82,9 @@ system needs to be @emph{useful} first.
 @emph{Ease of use} in of itself is often @emph{marketing} hype.
 @item
 Useful systems are fun to learn and give back more than what you put
-in with respett to time and effort.
+in with respect to time and effort.
 @item
-A steep learning curve in of itself is not to be feared --- it
+A steep learning curve in and of itself is not to be feared --- it
 can be fun to learn and  gets you farther faster.
 @item
 A good touchstone: Ensure that the user grows continuously.
