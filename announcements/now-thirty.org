@@ -148,7 +148,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
   3. Completion strategies such as /prescient/, /fuzzy/ and
    /flex/ provide  enhanced completion.
   4. The ability to introspect code via packages like ~eglot~ and
-     ~lsp~ turn Emacs into a powerful and meaningful IDE. I say
+     ~lsp~ turn Emacs into a powerful and meaningful IDE ---  I say
      meaningful because these bring the best features of an integrated
      development environment while leaving behind the eye-candy that
      tends to bloat commercial IDEs.

@@ -232,7 +232,7 @@ File: now-thirty.info,  Node: Emacspeak And Software Development,  Next: Emacspe
   3. Completion strategies such as _prescient_, _fuzzy_ and _flex_
      provide enhanced completion.
   4. The ability to introspect code via packages like ‘eglot’ and ‘lsp’
-     turn Emacs into a powerful and meaningful IDE.  I say meaningful
+     turn Emacs into a powerful and meaningful IDE -- I say meaningful
      because these bring the best features of an integrated development
      environment while leaving behind the eye-candy that tends to bloat
      commercial IDEs.
@@ -569,18 +569,18 @@ Node: Using UNIX With Speech Output — 20246647
 Node: Key Enabler — Emacs And Lisp Advice7852
 Node: Key Component — Text To Speech (TTS)8710
 Node: Emacspeak And Software Development10656
-Node: Emacspeak And Authoring Documents13135
-Node: Emacspeak And The Web In 202414384
-Node: Audio Formatting — Generalizing Aural CSS17308
-Node: Conversational Gestures For The Audio Desktop18228
-Node: Accessing Media Streams18871
-Node: Electronic Books— Ubiquitous Access To Books19776
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20359
-Node: Social Web — Mail Instant Messaging And Blogging21262
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22972
-Node: Mashing It Up — Leveraging AI And The Web23862
-Node: The Final Word --- Donald E Knuth (DEK)25107
-Node: References26388
+Node: Emacspeak And Authoring Documents13136
+Node: Emacspeak And The Web In 202414385
+Node: Audio Formatting — Generalizing Aural CSS17309
+Node: Conversational Gestures For The Audio Desktop18229
+Node: Accessing Media Streams18872
+Node: Electronic Books— Ubiquitous Access To Books19777
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20360
+Node: Social Web — Mail Instant Messaging And Blogging21263
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22973
+Node: Mashing It Up — Leveraging AI And The Web23863
+Node: The Final Word --- Donald E Knuth (DEK)25108
+Node: References26389
 
 End Tag Table
 
