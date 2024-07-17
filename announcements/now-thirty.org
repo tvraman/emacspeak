@@ -124,8 +124,8 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
   5. Things appear to be coming full circle, Emacspeak started with
      the hardware Dectalk; now, the [[https://github.com/dectalk/dectalk.git][Software Dectalk]] is increasingly
      becoming the primary choice on Linux --- see this  [[https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org][Readme for setup instructions]].
-  6. Viavoice Outloud from Voxin is still supported; but
-     you can no longer buy new licenses; if you have already purchased
+  6. Viavoice Outloud from Voxin is still supported.  However,
+     you can no longer buy new licenses. If you have already purchased
      a license, it'll
      continue to work.
   7. The  Vocalizer voices that Voxin now sells /do not/ work with Emacspeak.
@@ -144,7 +144,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
   2. New completion frameworks such as /company/ and /consult/ come a
      close second in enhancing productivity.
   3. The ability to introspect code via packages like ~eglot~ and
-     ~lsp~ turn Emacs into a powerful and meaningful IDE; I say
+     ~lsp~ turn Emacs into a powerful and meaningful IDE. I say
      meaningful because these bring the best features of an integrated
      development environment while leaving behind the eye-candy that
      has tended to bloat commercial IDEs.
@@ -212,7 +212,8 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
   5. For better or worse, the investment in XML and display-independent
      content is now a complete write-off at least on the surface.
 
-  6. So what next --- wait for the spaghetti monster to show up for lunch? Humor aside that monster may well be called AI; though
+  6. So what next --- wait for the spaghetti monster to show up for
+     lunch? Humor aside that monster may well be called AI ---  though
      whether  today's Web gives that monster life, indigestion,
      constipation,   dysentery or hallucinations  is a story to be
      written in the coming years.
@@ -320,7 +321,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
   7. IMap continues to survive as an open email protocol, though its
      days may well be numbered.
   8. The dye is already cast with respect to mere mortals being able
-     to setup and  host their email; witness the complexity in setting
+     to setup and  host their email ---  witness the complexity in setting
      up the Emacspeak mailing list in 2023 vs 1993!
   9. This is an area that is again likely to get worse before it gets
      better --- more the pity, since Internet Email is perhaps the
