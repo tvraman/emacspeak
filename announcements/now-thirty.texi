@@ -131,7 +131,7 @@ Conversely, I boldly  (and incorrectly)predicted  that the arrival of mobile
 devices and mainstream speech interfaces would herald the move to
 a Web of information where there would be a clean separation
 between application back-ends and various client-specific
-front-ends. See @uref{http://www.cs.washington.edu/htbin-post/mvis/mvis?ID=636, The Web, The Way You Want, Distinguished Lecture
+front-ends. See @uref{http://www.cs.washington.edu/htbin-post/mvis/mvis?ID=636, The Web, The Way You Want.  Distinguished Lecture
 Series, UW Oct 2008} and @uref{https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/, Specialized Browsers}.
 @item
 The above still makes sense from the view of  @emph{scalable} software architecture. However the rapid growth of the Web economy has also
@@ -566,7 +566,7 @@ So for now, I'll keep
 well away and count my blessings.
 @item
 The next chapter of the @emph{mash-up story} may well be based around
- @emph{Generative AI} using LLMs. In effect, LLMs that process Web content 
+ @emph{Generative AI} using LLMs. In effect, LLMs trained on   Web content 
 define a @emph{platform} for generating content mash-ups.  The issue
 at present is that they are just as  likely  to produce
 @emph{meaningless mush} ---
@@ -625,7 +625,7 @@ experience of the sentiments he expresses.
 @item
 @uref{https://emacspeak.sourceforge.net/turning-twenty.html, Emacspeak At Twenty}
 @item
-@uref{http://www.cs.washington.edu/htbin-post/mvis/mvis?ID=636, The Web, The Way You Want, Distinguished Lecture Series, UW Oct 2008}
+@uref{http://www.cs.washington.edu/htbin-post/mvis/mvis?ID=636, The Web, The Way You Want.  Distinguished Lecture Series, UW Oct 2008}
 @item
 @uref{https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/, Specialized Browsers}
 @item

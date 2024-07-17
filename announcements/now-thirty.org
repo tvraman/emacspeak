@@ -16,8 +16,8 @@
      system needs to be /useful/ first.
   7. /Ease of use/ in of itself is often /marketing/ hype.
   8. Useful systems are fun to learn and give back more than what you put
-     in with respett to time and effort.
-  9. A steep learning curve in of itself is not to be feared --- it
+     in with respect to time and effort.
+  9. A steep learning curve in and of itself is not to be feared --- it
      can be fun to learn and  gets you farther faster.
   10. A good touchstone: Ensure that the user grows continuously.
 
@@ -353,7 +353,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
   2. So for now, I'll keep
      well away and count my blessings.
   3. The next chapter of the /mash-up story/ may well be based around
-      /Generative AI/ using LLMs. In effect, LLMs that process Web content 
+      /Generative AI/ using LLMs. In effect, LLMs trained on   Web content 
      define a /platform/ for generating content mash-ups.  The issue
      at present is that they are just as  likely  to produce
      /meaningless mush/ ---
