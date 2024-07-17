@@ -414,7 +414,7 @@ experience of the sentiments he expresses.
 #+options: d:(not "LOGBOOK") date:t e:t email:nil expand-links:t f:t
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
 #+options: tasks:t tex:t timestamp:t title:t toc:t todo:t |:t
-#+title: Thirty Years On: Emacspeak --- A Speech Odyssey
+#+title:  Emacspeak:  A Speech Odyssey
 #+KEYWORDS: Emacspeak, Complete Audio Desktop, Speech-Enabled
 #Applications
 #+DESCRIPTION: Emacspeak  --- A Speech Odyssey --- Emacspeak At Thirty
