@@ -469,10 +469,9 @@ Emacspeak modules  for @emph{Epub} and
 @item
 There are  @emph{smart} book locators analogous to the locators for
 media content.
-@item
-Speech-enabled @code{Calibre} integration for working with  local
-electronic  libraries.
 @end enumerate
+3Emacspeak . speech-enables @code{Calibre} integration for working with  local
+   electronic  libraries.
 
 @node Leveraging Computational Tools — From SQL And R To IPython Notebooks
 @chapter Leveraging Computational Tools —  From SQL And R To IPython Notebooks

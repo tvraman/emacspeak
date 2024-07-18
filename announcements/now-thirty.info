@@ -399,8 +399,8 @@ File: now-thirty.info,  Node: Electronic Books— Ubiquitous Access To Books,  N
      good books integration.
   2. There are _smart_ book locators analogous to the locators for media
      content.
-  3. Speech-enabled ‘Calibre’ integration for working with local
-     electronic libraries.
+   3Emacspeak .  speech-enables ‘Calibre’ integration for working with
+local electronic libraries.
 
 
 File: now-thirty.info,  Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks,  Next: Social Web — Mail Instant Messaging And Blogging,  Prev: Electronic Books— Ubiquitous Access To Books,  Up: Top
@@ -575,12 +575,12 @@ Node: Audio Formatting — Generalizing Aural CSS17291
 Node: Conversational Gestures For The Audio Desktop18211
 Node: Accessing Media Streams18854
 Node: Electronic Books— Ubiquitous Access To Books19759
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20342
-Node: Social Web — Mail Instant Messaging And Blogging21245
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22954
-Node: Mashing It Up — Leveraging AI And The Web23848
-Node: The Final Word --- Donald E Knuth (DEK)25093
-Node: References26374
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20349
+Node: Social Web — Mail Instant Messaging And Blogging21252
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22961
+Node: Mashing It Up — Leveraging AI And The Web23855
+Node: The Final Word --- Donald E Knuth (DEK)25100
+Node: References26381
 
 End Tag Table
 

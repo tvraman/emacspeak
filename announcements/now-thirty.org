@@ -288,7 +288,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
     /Bookshare/ continue to provide good books  integration.
   2. There are  /smart/ book locators analogous to the locators for
      media content.
-  3. Speech-enabled ~Calibre~ integration for working with  local
+  3Emacspeak . speech-enables ~Calibre~ integration for working with  local
      electronic  libraries.
      
      
