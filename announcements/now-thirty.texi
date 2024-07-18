@@ -660,8 +660,4 @@ Of The ACM, 2008}
 @uref{https://www-cs-faculty.stanford.edu/~knuth/taocp.html, The Art Of Computer Programming (TAOCP)}
 @end enumerate
 
-
-#Applications
-D
-
 @bye
