@@ -258,6 +258,8 @@
 @item :  emacspeak-m-player-loop
 @item ;  emacspeak-m-player-shuffle
 @item =  emacspeak-wizards-find-longest-line-in-region
+@item [  emacspeak-wizards-find-longest-paragraph-in-region
+@item ]  emacspeak-wizards-find-longest-sentence-in-region
 @item b  battery
 @item d  emacspeak-speak-load-directory-settings
 @item e  emacspeak-we-xsl-map
@@ -265,6 +267,7 @@
 @item h  emacspeak-wizards-how-many-matches
 @item i  ibuffer
 @item k  emacspeak-desktop-preserve
+@item l  load-library
 @item m  mspools-show
 @item o  emacspeak-wizards-occur-header-lines
 @item p  paradox-list-packages

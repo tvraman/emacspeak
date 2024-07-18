@@ -252,7 +252,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1171 commands and 127 options.
+This chapter documents a total of 1172 commands and 127 options.
 
 @node amixer
 @section amixer
@@ -8534,6 +8534,8 @@ Default Value:
  ("=" emacspeak-wizards-find-longest-line-in-region)
  ("C-c" emacspeak-wizards-color-wheel)
  ("M-c" emacspeak-wizards-colors)
+ ("[" emacspeak-wizards-find-longest-paragraph-in-region)
+ ("]" emacspeak-wizards-find-longest-sentence-in-region)
  ("b" battery)
  ("d" emacspeak-speak-load-directory-settings)
  ("e" emacspeak-we-xsl-map)
@@ -8541,6 +8543,7 @@ Default Value:
  ("h" emacspeak-wizards-how-many-matches)
  ("i" ibuffer)
  ("k" emacspeak-desktop-preserve)
+ ("l" load-library)
  ("m" mspools-show)
  ("o" emacspeak-wizards-occur-header-lines)
  ("p" paradox-list-packages)
@@ -17514,10 +17517,31 @@ Find longest line in region and move to it.
 
 @subsubsection emacspeak-wizards-find-longest-paragraph-in-region
 @deffn {Command} emacspeak-wizards-find-longest-paragraph-in-region  (start end)
+@table @kbd
+@item C-e x [
+@kindex C-e x [
+@end table
+
 @findex emacspeak-wizards-find-longest-paragraph-in-region
 
 @format
 Find longest paragraph in region, and move to it. 
+
+(fn START END)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-find-longest-sentence-in-region
+@deffn {Command} emacspeak-wizards-find-longest-sentence-in-region  (start end)
+@table @kbd
+@item C-e x ]
+@kindex C-e x ]
+@end table
+
+@findex emacspeak-wizards-find-longest-sentence-in-region
+
+@format
+Find longest sentence in region, and move to it. 
 
 (fn START END)
 @end format

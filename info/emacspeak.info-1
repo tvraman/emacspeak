@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 13, 2024.
+last updated on July 18, 2024.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2912,6 +2912,8 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-x-keymap,  Next:
 ‘: emacspeak-m-player-loop’
 ‘; emacspeak-m-player-shuffle’
 ‘= emacspeak-wizards-find-longest-line-in-region’
+‘[ emacspeak-wizards-find-longest-paragraph-in-region’
+‘] emacspeak-wizards-find-longest-sentence-in-region’
 ‘b battery’
 ‘d emacspeak-speak-load-directory-settings’
 ‘e emacspeak-we-xsl-map’
@@ -2919,6 +2921,7 @@ File: emacspeak.info,  Node: Emacspeak Keybindings On emacspeak-x-keymap,  Next:
 ‘h emacspeak-wizards-how-many-matches’
 ‘i ibuffer’
 ‘k emacspeak-desktop-preserve’
+‘l load-library’
 ‘m mspools-show’
 ‘o emacspeak-wizards-occur-header-lines’
 ‘p paradox-list-packages’
@@ -3245,7 +3248,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the *Note
 (emacs)EWW:: documentation, then *Note emacspeak-eww::.
 
-   This chapter documents a total of 1171 commands and 127 options.
+   This chapter documents a total of 1172 commands and 127 options.
 
 * Menu:
 
