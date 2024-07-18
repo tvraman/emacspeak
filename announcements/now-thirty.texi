@@ -63,7 +63,7 @@ Open design is essential  for discovering new interaction
 paradigms.
 @item
 This is not mere idealism.  Openness is a key enabler for
-creating   user journeys that were not  envisioned by the
+creating   user journeys that were not  envisioned by a 
 system's designers.
 @item
 @uref{https://www.gnu.org/s/emacs/, Emacs} and  @uref{https://en.wikipedia.org/wiki/TeX, @TeX{}}    are good exemplars. They  permit maximal freedom

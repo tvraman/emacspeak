@@ -48,7 +48,7 @@ File: now-thirty.info,  Node: Key Insights,  Next: Emacspeak --- The Complete Au
 
   1. Open design is essential for discovering new interaction paradigms.
   2. This is not mere idealism.  Openness is a key enabler for creating
-     user journeys that were not envisioned by the system's designers.
+     user journeys that were not envisioned by a system's designers.
   3. Emacs (https://www.gnu.org/s/emacs/) and TeX
      (https://en.wikipedia.org/wiki/TeX) are good exemplars.  They
      permit maximal freedom when seen from the viewpoint of user
@@ -567,24 +567,24 @@ File: now-thirty.info,  Node: References,  Prev: The Final Word --- Donald E Knu
 Tag Table:
 Node: Top198
 Node: Key Insights1657
-Node: Emacspeak --- The Complete Audio Desktop3189
-Node: How To Read This Document6135
-Node: Using UNIX With Speech Output — 20246628
-Node: Key Enabler — Emacs And Lisp Advice7833
-Node: Key Component — Text To Speech (TTS)8691
-Node: Emacspeak And Software Development10615
-Node: Emacspeak And Authoring Documents13105
-Node: Emacspeak And The Web In 202414354
-Node: Audio Formatting — Generalizing Aural CSS17275
-Node: Conversational Gestures For The Audio Desktop18290
-Node: Accessing Media Streams18933
-Node: Electronic Books— Ubiquitous Access To Books19838
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20419
-Node: Social Web — Mail Messaging And Blogging21314
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22999
-Node: Mashing It Up — Leveraging AI And The Web23885
-Node: The Final Word --- Donald E Knuth (DEK)25130
-Node: References26411
+Node: Emacspeak --- The Complete Audio Desktop3187
+Node: How To Read This Document6133
+Node: Using UNIX With Speech Output — 20246626
+Node: Key Enabler — Emacs And Lisp Advice7831
+Node: Key Component — Text To Speech (TTS)8689
+Node: Emacspeak And Software Development10613
+Node: Emacspeak And Authoring Documents13103
+Node: Emacspeak And The Web In 202414352
+Node: Audio Formatting — Generalizing Aural CSS17273
+Node: Conversational Gestures For The Audio Desktop18288
+Node: Accessing Media Streams18931
+Node: Electronic Books— Ubiquitous Access To Books19836
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20417
+Node: Social Web — Mail Messaging And Blogging21312
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22997
+Node: Mashing It Up — Leveraging AI And The Web23883
+Node: The Final Word --- Donald E Knuth (DEK)25128
+Node: References26409
 
 End Tag Table
 
