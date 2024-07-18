@@ -132,6 +132,8 @@ fly spell checking."
 (when
     (and (bound-and-true-p flyspell-mode-map)
          (locate-library "flyspell-correct"))
+  (define-key flyspell-mode-map (kbd "s-b") 'flyspell-buffer)
+  (define-key flyspell-mode-map (kbd "s-r") 'flyspell-region)
   (define-key flyspell-mode-map (kbd "C-x .") 'flyspell-correct-at-point)
   (define-key flyspell-mode-map (kbd "C-'") 'flyspell-correct-previous)
   (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-wrapper)
