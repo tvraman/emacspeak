@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-08 Tue 19:28 -->
+<!-- 2024-07-17 Wed 18:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Using GMail Search Operators In GNUS</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="T.V Raman" />
+<meta name="generator" content="Org Mode" />
 <style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -40,22 +41,22 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
+    overflow: auto;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,61 +191,14 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2020 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Using GMail Search Operators In GNUS</h1>
-<div id="outline-container-org5987e04" class="outline-2">
-<h2 id="org5987e04"><span class="section-number-2">1</span> Executive Summary</h2>
+<div id="outline-container-orga13af44" class="outline-2">
+<h2 id="orga13af44"><span class="section-number-2">1.</span> Executive Summary</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 I have been using the following to search GMail from GNUS for over 8
@@ -258,31 +212,28 @@ above.
 </p>
 </div>
 </div>
-
-<div id="outline-container-org7e9c6e7" class="outline-2">
-<h2 id="org7e9c6e7"><span class="section-number-2">2</span> Background</h2>
+<div id="outline-container-orgd03f06e" class="outline-2">
+<h2 id="orgd03f06e"><span class="section-number-2">2.</span> Background</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 You can read email with GNUS, and many people read GMail with GNUS,
-however, the details of GMail setup with GNUS wont fit this margin.  For my own
-GMail setup using Ceasar's excellent <span class="underline">auth-xoauth2</span> package, see file
-<a href="https://github.com/tvraman/emacspeak/blob/master/tvr/gnus-gmail-prepare.el">gnus-gmail-prepare.el</a>.
+however, the details of GMail setup with GNUS won\'t fit this margin.
+For my own GMail setup using Ceasar's excellent <span class="underline">auth-xoauth2</span>
+package, see file <a href="https://github.com/tvraman/emacspeak/blob/master/tvr/gnus-gmail-prepare.el">gnus-gmail-prepare.el</a>.
 </p>
 </div>
 </div>
-
-<div id="outline-container-orgef39be7" class="outline-2">
-<h2 id="orgef39be7"><span class="section-number-2">3</span> Leveraging GNUS Back-end NNIR To Search GMail</h2>
+<div id="outline-container-orgf384a5e" class="outline-2">
+<h2 id="orgf384a5e"><span class="section-number-2">3.</span> Leveraging GNUS Back-end NNIR To Search EMail</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 GMail is accessed from GNUS using the imap protocol.  The <span class="underline">imap</span>
 specification defines a set of standard search operators; GMail itself
 defines a slightly different and arguably easier to use set of search
-operators. Module
-<a href="https://github.com/tvraman/emacspeak/blob/master/lisp/g-client/gm-nnir.el">gm-nnir</a>
-implements both the standard IMap search operator as well as GMail's
-search operators; in practice, I have mostly only used the GMail
-Search operators in the last 8 years since implementing this module.
+operators. Module <a href="https://github.com/tvraman/emacspeak/blob/master/lisp/g-client/gm-nnir.el">gm-nnir</a> implements both the standard IMap search
+operator as well as GMail's search operators; in practice, I have
+mostly only used the GMail Search operators in the last 8 years since
+implementing this module.
 </p>
 
 <p>
@@ -290,18 +241,18 @@ Without further ado, here is the  code to enable GMail Search:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(defun gm-nnir-group-make-gmail-group (query)
-  "Use GMail search syntax.
-See https://support.google.com/mail/answer/7190?hl=en for syntax. "
-  (interactive "sGMail Query: ")  
-  (let ((nnir-imap-default-search-key "imap")
-        (q (format "X-GM-RAW \"%s\"" query)))
-    (cond
-     ((gnus-group-group-name)           ; Search current group
+<pre class="src src-emacs-lisp">(<span style="color: #70a0ff; font-weight: bold;">defun</span> <span style="color: #7fce5f;">gm-nnir-group-make-gmail-group</span> (query)
+  <span style="color: #99bfcf; font-style: italic;">"Use GMail search syntax.</span>
+<span style="color: #99bfcf; font-style: italic;">See https://support.google.com/mail/answer/7190?hl=en for syntax. "</span>
+  (<span style="color: #70a0ff; font-weight: bold;">interactive</span> <span style="color: #65d5a8;">"sGMail Query: "</span>)  
+  (<span style="color: #70a0ff; font-weight: bold;">let</span> ((nnir-imap-default-search-key <span style="color: #65d5a8;">"imap"</span>)
+        (q (format <span style="color: #65d5a8;">"X-GM-RAW \"%s\""</span> query)))
+    (<span style="color: #70a0ff; font-weight: bold;">cond</span>
+     ((gnus-group-group-name)           <span style="color: #eaa4a4; font-style: italic;">; </span><span style="color: #eaa4a4; font-style: italic;">Search current group</span>
       (gnus-group-make-nnir-group
-       nil                              ; no extra params needed
+       nil                              <span style="color: #eaa4a4; font-style: italic;">; </span><span style="color: #eaa4a4; font-style: italic;">no extra params needed</span>
        `(nnir-specs (nnir-query-spec (query ,q)))))
-     (t (error "Not on a group.")))))
+     (t (<span style="color: #f0c060;">error</span> <span style="color: #65d5a8;">"Not on a group."</span>)))))
 </pre>
 </div>
 
@@ -309,17 +260,13 @@ See https://support.google.com/mail/answer/7190?hl=en for syntax. "
 I bind the above to <span class="underline">/</span> by using
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(define-key gnus-group-mode-map "/" 'gm-nnir-group-make-gmail-group)
+<pre class="src src-emacs-lisp">(define-key gnus-group-mode-map <span style="color: #65d5a8;">"/"</span> 'gm-nnir-group-make-gmail-group)
 </pre>
 </div>
 </div>
 </div>
-
-
-
-
-<div id="outline-container-orgf5c0f0a" class="outline-2">
-<h2 id="orgf5c0f0a"><span class="section-number-2">4</span> Example Of Use</h2>
+<div id="outline-container-org539bfda" class="outline-2">
+<h2 id="org539bfda"><span class="section-number-2">4.</span> Example Of Use</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 I am subscribed to list <span class="underline">emacs-devel@gnu.org</span> and email sent to that
@@ -360,8 +307,8 @@ anything else that you might ordinarily do within the GNUS interface.
 <div id="postamble" class="status">
 <p class="date">Date: 2020-09-08 Tue 00:00</p>
 <p class="author">Author: T.V Raman</p>
-<p class="date">Created: 2020-09-08 Tue 19:28</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2024-07-17 Wed 18:58</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
