@@ -252,7 +252,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      left/right channels is a big win and enables more efficient interaction.
   3. Support for various Digital Signal Processing (DSP)  filters enables   rich auditory effects
      like  binaural audio and spatial audio.
-  4. [[https://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html][ Soundscapes]] implemented via package ~boodler~ makes for  a
+  4. [[https://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html][Soundscapes]] implemented via package ~boodler~ makes for  a
      pleasant and relaxing auditory environment.
   5. Enabling virtual sound devices via Pipewire for 5.1  and 7.1
      spatial audio significantly enhances the auditory experience.

@@ -416,7 +416,7 @@ left/right channels is a big win and enables more efficient interaction.
 Support for various Digital Signal Processing (DSP)  filters enables   rich auditory effects
 like  binaural audio and spatial audio.
 @item
-@uref{https://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html,  Soundscapes} implemented via package @code{boodler} makes for  a
+@uref{https://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html, Soundscapes} implemented via package @code{boodler} makes for  a
 pleasant and relaxing auditory environment.
 @item
 Enabling virtual sound devices via Pipewire for 5.1  and 7.1
