@@ -303,7 +303,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      especially when working with remote LLMs that impose some type of
      proprietary authorization-flow.
      
-* Social Web  — Mail, Instant Messaging And Blogging  
+* Social Web  — Mail, Messaging And Blogging  
 
   1. This is a space that is definitely regressing.
   2. The previous decade was marked by open APIs to many social Web platforms.

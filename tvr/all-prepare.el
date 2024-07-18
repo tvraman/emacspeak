@@ -217,6 +217,9 @@ Uses the go oauth tool found in the xoauth git repo."
   (diminish 'lispy-mode "")
   (diminish 'lispy-other-mode "")
   (diminish 'lispy-goto-mode ""))
+(with-eval-after-load "python"
+  (when (locate-library "elpy")
+    (elpy-enable)))
 
 (with-eval-after-load "org"
 

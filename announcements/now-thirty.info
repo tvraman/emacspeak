@@ -27,7 +27,7 @@ Emacspeak: A Speech Odyssey
 * Accessing Media Streams::
 * Electronic Books—   Ubiquitous Access To Books: Electronic Books— Ubiquitous Access To Books.
 * Leveraging Computational Tools —  From SQL And R To IPython Notebooks: Leveraging Computational Tools — From SQL And R To IPython Notebooks.
-* Social Web  — Mail, Instant Messaging And Blogging: Social Web — Mail Instant Messaging And Blogging.
+* Social Web  — Mail, Messaging And Blogging: Social Web — Mail Messaging And Blogging.
 * The RESTful Web —  Web Wizards And URL Templates For Faster Access: The RESTful Web — Web Wizards And URL Templates For Faster Access.
 * Mashing It Up —  Leveraging  AI And The Web: Mashing It Up — Leveraging AI And The Web.
 * The Final Word --- Donald E Knuth (DEK)::
@@ -401,11 +401,11 @@ File: now-thirty.info,  Node: Electronic Books— Ubiquitous Access To Books,  N
      good books integration.
   2. There are _smart_ book locators analogous to the locators for media
      content.
-   3Emacspeak .  speech-enables ‘Calibre’ integration for working with
-local electronic libraries.
+  3. Emacspeak speech-enables ‘Calibre’ for working with local
+     electronic libraries.
 
 
-File: now-thirty.info,  Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks,  Next: Social Web — Mail Instant Messaging And Blogging,  Prev: Electronic Books— Ubiquitous Access To Books,  Up: Top
+File: now-thirty.info,  Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks,  Next: Social Web — Mail Messaging And Blogging,  Prev: Electronic Books— Ubiquitous Access To Books,  Up: Top
 
 13 Leveraging Computational Tools — From SQL And R To IPython Notebooks
 ***********************************************************************
@@ -422,10 +422,10 @@ File: now-thirty.info,  Node: Leveraging Computational Tools — From SQL And R 
      authorization-flow.
 
 
-File: now-thirty.info,  Node: Social Web — Mail Instant Messaging And Blogging,  Next: The RESTful Web — Web Wizards And URL Templates For Faster Access,  Prev: Leveraging Computational Tools — From SQL And R To IPython Notebooks,  Up: Top
+File: now-thirty.info,  Node: Social Web — Mail Messaging And Blogging,  Next: The RESTful Web — Web Wizards And URL Templates For Faster Access,  Prev: Leveraging Computational Tools — From SQL And R To IPython Notebooks,  Up: Top
 
-14 Social Web — Mail, Instant Messaging And Blogging
-****************************************************
+14 Social Web — Mail, Messaging And Blogging
+********************************************
 
   1. This is a space that is definitely regressing.
   2. The previous decade was marked by open APIs to many social Web
@@ -452,7 +452,7 @@ File: now-thirty.info,  Node: Social Web — Mail Instant Messaging And Blogging
      the venerable Internet Relay Chat (IRC).
 
 
-File: now-thirty.info,  Node: The RESTful Web — Web Wizards And URL Templates For Faster Access,  Next: Mashing It Up — Leveraging AI And The Web,  Prev: Social Web — Mail Instant Messaging And Blogging,  Up: Top
+File: now-thirty.info,  Node: The RESTful Web — Web Wizards And URL Templates For Faster Access,  Next: Mashing It Up — Leveraging AI And The Web,  Prev: Social Web — Mail Messaging And Blogging,  Up: Top
 
 15 The RESTful Web — Web Wizards And URL Templates For Faster Access
 ********************************************************************
@@ -566,25 +566,25 @@ File: now-thirty.info,  Node: References,  Prev: The Final Word --- Donald E Knu
 
 Tag Table:
 Node: Top198
-Node: Key Insights1673
-Node: Emacspeak --- The Complete Audio Desktop3205
-Node: How To Read This Document6151
-Node: Using UNIX With Speech Output — 20246644
-Node: Key Enabler — Emacs And Lisp Advice7849
-Node: Key Component — Text To Speech (TTS)8707
-Node: Emacspeak And Software Development10631
-Node: Emacspeak And Authoring Documents13121
-Node: Emacspeak And The Web In 202414370
-Node: Audio Formatting — Generalizing Aural CSS17291
-Node: Conversational Gestures For The Audio Desktop18306
-Node: Accessing Media Streams18949
-Node: Electronic Books— Ubiquitous Access To Books19854
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20444
-Node: Social Web — Mail Instant Messaging And Blogging21347
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access23056
-Node: Mashing It Up — Leveraging AI And The Web23950
-Node: The Final Word --- Donald E Knuth (DEK)25195
-Node: References26476
+Node: Key Insights1657
+Node: Emacspeak --- The Complete Audio Desktop3189
+Node: How To Read This Document6135
+Node: Using UNIX With Speech Output — 20246628
+Node: Key Enabler — Emacs And Lisp Advice7833
+Node: Key Component — Text To Speech (TTS)8691
+Node: Emacspeak And Software Development10615
+Node: Emacspeak And Authoring Documents13105
+Node: Emacspeak And The Web In 202414354
+Node: Audio Formatting — Generalizing Aural CSS17275
+Node: Conversational Gestures For The Audio Desktop18290
+Node: Accessing Media Streams18933
+Node: Electronic Books— Ubiquitous Access To Books19838
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20419
+Node: Social Web — Mail Messaging And Blogging21314
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22999
+Node: Mashing It Up — Leveraging AI And The Web23885
+Node: The Final Word --- Donald E Knuth (DEK)25130
+Node: References26411
 
 End Tag Table
 

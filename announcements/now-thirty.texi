@@ -38,7 +38,7 @@
 * Accessing Media Streams::
 * Electronic Books—   Ubiquitous Access To Books: Electronic Books— Ubiquitous Access To Books. 
 * Leveraging Computational Tools —  From SQL And R To IPython Notebooks: Leveraging Computational Tools — From SQL And R To IPython Notebooks. 
-* Social Web  — Mail, Instant Messaging And Blogging: Social Web — Mail Instant Messaging And Blogging. 
+* Social Web  — Mail, Messaging And Blogging: Social Web — Mail Messaging And Blogging. 
 * The RESTful Web —  Web Wizards And URL Templates For Faster Access: The RESTful Web — Web Wizards And URL Templates For Faster Access. 
 * Mashing It Up —  Leveraging  AI And The Web: Mashing It Up — Leveraging AI And The Web. 
 * The Final Word --- Donald E Knuth (DEK)::
@@ -469,9 +469,10 @@ Emacspeak modules  for @emph{Epub} and
 @item
 There are  @emph{smart} book locators analogous to the locators for
 media content.
+@item
+Emacspeak speech-enables @code{Calibre}  for working with
+local electronic libraries.
 @end enumerate
-3Emacspeak . speech-enables @code{Calibre} integration for working with  local
-   electronic  libraries.
 
 @node Leveraging Computational Tools — From SQL And R To IPython Notebooks
 @chapter Leveraging Computational Tools —  From SQL And R To IPython Notebooks
@@ -491,8 +492,8 @@ especially when working with remote LLMs that impose some type of
 proprietary authorization-flow.
 @end enumerate
 
-@node Social Web — Mail Instant Messaging And Blogging
-@chapter Social Web  — Mail, Instant Messaging And Blogging
+@node Social Web — Mail Messaging And Blogging
+@chapter Social Web  — Mail, Messaging And Blogging
 
 @enumerate
 @item
