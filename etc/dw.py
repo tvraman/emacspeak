@@ -10,4 +10,4 @@ for i in range(0, len(words) - 1):
         print(words[i])
         count = count + 1
 if count > 0:
-    print("%s duplicate words", count)
+    print(sys.argv[1], count)

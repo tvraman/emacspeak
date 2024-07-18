@@ -16,7 +16,7 @@ however, the details of GMail setup with GNUS won\'t fit this margin.
 For my own GMail setup using Ceasar's excellent _auth-xoauth2_
 package, see file [[https://github.com/tvraman/emacspeak/blob/master/tvr/gnus-gmail-prepare.el][gnus-gmail-prepare.el]].
 
-* Leveraging GNUS Back-end NNIR To Search GMail
+* Leveraging GNUS Back-end NNIR To Search EMail
 
 GMail is accessed from GNUS using the imap protocol.  The _imap_
 specification defines a set of standard search operators; GMail itself

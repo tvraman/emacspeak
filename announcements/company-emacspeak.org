@@ -48,7 +48,7 @@ actions:
   - Auditory icon _close-object_ indicates that completion has finished.
 
 
-** Insights From Speech-Enabling Company
+** Insights 
   
 
 Company uses a fluid visual interface to display completions

@@ -40,7 +40,7 @@ This article summarizes the present state of what I use at present.
 
 
   1. You can open Project Gutenberg EPubs via the Emacspeak Bookshelf
-     --- see  see
+     ---   see
      [[https://tvraman.github.io/emacspeak/manual/emacspeak_002depub.html][Emacspeak Epub]].
   2. You can download and open Bookshare books using module
     [[https://tvraman.github.io/emacspeak/manual/emacspeak_002dbookshare.html][Emacspeak Bookshare]].
