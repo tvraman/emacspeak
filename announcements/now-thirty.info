@@ -352,8 +352,10 @@ File: now-thirty.info,  Node: Audio Formatting — Generalizing Aural CSS,  Next
      interaction.
   3. Support for various Digital Signal Processing (DSP) filters enables
      rich auditory effects like binaural audio and spatial audio.
-  4. Soundscapes implemented via package ‘boodler’ makes for a pleasant
-     and relaxing auditory environment.
+  4. Soundscapes
+     (https://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html)
+     implemented via package ‘boodler’ makes for a pleasant and relaxing
+     auditory environment.
   5. Enabling virtual sound devices via Pipewire for 5.1 and 7.1 spatial
      audio significantly enhances the auditory experience.
 
@@ -539,21 +541,23 @@ File: now-thirty.info,  Node: References,  Prev: The Final Word --- Donald E Knu
      (https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org)
   11. Common Lisp: asdf (https://asdf.common-lisp.dev/asdf.html)
   12. Common Lisp: Quicklisp (https://www.quicklisp.org/)
-  13. Colab notebooks (https://colab.research.google.com/)
-  14. RESTful Web (https://en.wikipedia.org/wiki/REST)
-  15. Ergonomic keybindings
+  13. Soundscapes on the Emacspeak Audio Desktop
+     (https://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html)
+  14. Colab notebooks (https://colab.research.google.com/)
+  15. RESTful Web (https://en.wikipedia.org/wiki/REST)
+  16. Ergonomic keybindings
      (https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html)
-  16. Minimize chording with XCape (https://github.com/alols/xcape)
-  17. Learn Smarter By Taking Rich Hypertext Notes
+  17. Minimize chording with XCape (https://github.com/alols/xcape)
+  18. Learn Smarter By Taking Rich Hypertext Notes
      (https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html)
-  18. Scripts And Obfuscation: How The Web Was Broken
-  19. Readable Web Pages: RDRView (https://github.com/eafer/rdrview)
-  20. smart media selectors
+  19. Scripts And Obfuscation: How The Web Was Broken
+  20. Readable Web Pages: RDRView (https://github.com/eafer/rdrview)
+  21. smart media selectors
      (https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html)
-  21. Communications Of The ACM, 2008
-  22. Emacspeak Manual: URL Templates
+  22. Communications Of The ACM, 2008
+  23. Emacspeak Manual: URL Templates
      (https://tvraman.github.io/emacspeak/manual/URL-Templates.html)
-  23. The Art Of Computer Programming (TAOCP)
+  24. The Art Of Computer Programming (TAOCP)
      (https://www-cs-faculty.stanford.edu/~knuth/taocp.html)
 
    #Applications D
@@ -572,15 +576,15 @@ Node: Emacspeak And Software Development10631
 Node: Emacspeak And Authoring Documents13121
 Node: Emacspeak And The Web In 202414370
 Node: Audio Formatting — Generalizing Aural CSS17291
-Node: Conversational Gestures For The Audio Desktop18211
-Node: Accessing Media Streams18854
-Node: Electronic Books— Ubiquitous Access To Books19759
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20349
-Node: Social Web — Mail Instant Messaging And Blogging21252
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22961
-Node: Mashing It Up — Leveraging AI And The Web23855
-Node: The Final Word --- Donald E Knuth (DEK)25100
-Node: References26381
+Node: Conversational Gestures For The Audio Desktop18306
+Node: Accessing Media Streams18949
+Node: Electronic Books— Ubiquitous Access To Books19854
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20444
+Node: Social Web — Mail Instant Messaging And Blogging21347
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access23056
+Node: Mashing It Up — Leveraging AI And The Web23950
+Node: The Final Word --- Donald E Knuth (DEK)25195
+Node: References26476
 
 End Tag Table
 

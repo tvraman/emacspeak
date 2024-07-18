@@ -11,7 +11,7 @@
  ellama-provider
  (make-llm-gemini :key (auth-source-pass-get 'secret "ai.google" )))
 
-(setopt
+(setq
  ellama-providers
  '(("gemma" .
     (make-llm-ollama
