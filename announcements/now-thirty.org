@@ -412,7 +412,6 @@ experience of the sentiments he expresses.
   23. [[https://tvraman.github.io/emacspeak/manual/URL-Templates.html][Emacspeak Manual: URL Templates]]
   24. [[https://www-cs-faculty.stanford.edu/~knuth/taocp.html][The Art Of Computer Programming (TAOCP)]]
   
-
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
 #+options: d:(not "LOGBOOK") date:t e:t email:nil expand-links:t f:t
@@ -420,9 +419,7 @@ experience of the sentiments he expresses.
 #+options: tasks:t tex:t timestamp:t title:t toc:t todo:t |:t
 #+title:  Emacspeak:  A Speech Odyssey
 #+KEYWORDS: Emacspeak, Complete Audio Desktop
-#Applications
 #+DESCRIPTION: Emacspeak  --- A Speech Odyssey --- Emacspeak At Thirty
-D
 #+date: <2024-07-10 Wed>
 #+author: T.V Raman
 #+email: raman@google.com
@@ -431,5 +428,3 @@ D
 #+exclude_tags: noexport
 #+creator: Emacs 31.0.50 (Org mode 9.7.6)
 #+cite_export:
-
-#  LocalWords:  Epub
