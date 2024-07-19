@@ -414,7 +414,7 @@ experience of the sentiments he expresses.
   23. [[https://tvraman.github.io/emacspeak/manual/URL-Templates.html][Emacspeak Manual: URL Templates]]
   24. [[https://www-cs-faculty.stanford.edu/~knuth/taocp.html][The Art Of Computer Programming (TAOCP)]]
   
-#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: ':t *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
 #+options: d:(not "LOGBOOK") date:t e:t email:nil expand-links:t f:t
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
