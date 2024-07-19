@@ -154,12 +154,10 @@ File: now-thirty.info,  Node: Using UNIX With Speech Output — 2024,  Next: Key
      infrastructure.
   3. Yes, 30 years and counting, Linux Audio is still a work in progress
      though I hope Pipewire will be the last of these tidal shifts.
-  4. Linux is moving to Wayland from X and expect that transition to be
-     choppy.
-  5. As with other platforms, native applications are mostly gone bar
-     the shouting.  In this context, where most users access things
-     through a _mainstream_ Web browser, Emacspeak users access
-     _everything_ through Emacs.
+  4. Linux is moving to Wayland and expect that transition to be choppy.
+  5. Native applications are mostly gone bar the shouting.  In this
+     context, where most users access things through a _mainstream_ Web
+     browser, Emacspeak users access _everything_ through Emacs.
   6. The above when done right is hugely empowering; when done badly,
      it's extremely limiting -- see later sections of this paper on the
      continuing evolution of the Web.
@@ -229,24 +227,23 @@ File: now-thirty.info,  Node: Emacspeak And Software Development,  Next: Emacspe
      respect to software development.
   2. New completion frameworks such as _company_ and _consult_ come a
      close second in enhancing productivity.
-  3. Completion strategies such as _prescient_, _fuzzy_ and _flex_
-     provide enhanced completion.
-  4. The ability to introspect code via packages like ‘eglot’ and ‘lsp’
-     turn Emacs into a powerful and meaningful IDE -- I say meaningful
-     because these bring the best features of an integrated development
-     environment while leaving behind the eye-candy that tends to bloat
-     commercial IDEs.
+  3. Completion strategies such as _fuzzy_ and _flex_ provide enhanced
+     completion.
+  4. The ability to introspect code via ‘eglot’ turn Emacs into a
+     powerful and meaningful IDE -- I say meaningful because these bring
+     the best features of an integrated development environment while
+     leaving behind the eye-candy that tends to bloat commercial IDEs.
   5. Packages like _transient_ enable discoverable, rapid keyboard
      access to complex nested-menu driven interfaces.
   6. Ergonomic keybindings
      (https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html)
      under ‘X’ using xcape (https://github.com/alols/xcape) to minimize
      chording has been a significant win in the last two years.
-  7. IPython notebooks and their generalization to _Julia_, _Python_ and
-     _R_ (Jupyter).  The news here isn't all good; IPython notebooks are
-     well-designed with respect to not getting locked into any given
-     implementation.  However in practice, present implementations
-     depend on Javascript for browser-based interaction.
+  7. Jupyter is the generalization of IPython notebooks to _Julia_,
+     _Python_ and _R_. The news here isn't all good; IPython notebooks
+     are well-designed with respect to not getting locked into any given
+     implementation.  However in practice, front-ends depend on
+     Javascript in the browser.
   8. Consequently, many of the Emacs packages for IPython Notebooks
      _e.g._, package ‘ein’, are no longer maintained.
   9. Developing in higher-level languages continues to be very well
@@ -570,21 +567,21 @@ Node: Key Insights1657
 Node: Emacspeak --- The Complete Audio Desktop3187
 Node: How To Read This Document6133
 Node: Using UNIX With Speech Output — 20246626
-Node: Key Enabler — Emacs And Lisp Advice7831
-Node: Key Component — Text To Speech (TTS)8689
-Node: Emacspeak And Software Development10613
-Node: Emacspeak And Authoring Documents13103
-Node: Emacspeak And The Web In 202414352
-Node: Audio Formatting — Generalizing Aural CSS17273
-Node: Conversational Gestures For The Audio Desktop18288
-Node: Accessing Media Streams18931
-Node: Electronic Books— Ubiquitous Access To Books19836
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20417
-Node: Social Web — Mail Messaging And Blogging21312
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22997
-Node: Mashing It Up — Leveraging AI And The Web23883
-Node: The Final Word --- Donald E Knuth (DEK)25128
-Node: References26504
+Node: Key Enabler — Emacs And Lisp Advice7789
+Node: Key Component — Text To Speech (TTS)8647
+Node: Emacspeak And Software Development10571
+Node: Emacspeak And Authoring Documents12984
+Node: Emacspeak And The Web In 202414233
+Node: Audio Formatting — Generalizing Aural CSS17154
+Node: Conversational Gestures For The Audio Desktop18169
+Node: Accessing Media Streams18812
+Node: Electronic Books— Ubiquitous Access To Books19717
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20298
+Node: Social Web — Mail Messaging And Blogging21193
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22878
+Node: Mashing It Up — Leveraging AI And The Web23764
+Node: The Final Word --- Donald E Knuth (DEK)25009
+Node: References26385
 
 End Tag Table
 

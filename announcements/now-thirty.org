@@ -85,9 +85,9 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      with issues, /e.g./, unstable versions of the underlying audio infrastructure.
   3. Yes, 30 years and counting, Linux Audio is still a work in
      progress though I hope Pipewire will be the last of these tidal shifts.
-  4. Linux is moving to Wayland from X and expect that transition to
+  4. Linux is moving to Wayland  and expect that transition to
      be choppy.
-  5. As with other platforms, native applications are mostly gone bar
+  5.  Native applications are mostly gone bar
      the shouting. In this context, where most users access things
      through a /mainstream/ Web browser, Emacspeak users access
      /everything/ through Emacs.
@@ -145,10 +145,10 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
    with respect to software development.
   2. New completion frameworks such as /company/ and /consult/ come a
      close second in enhancing productivity.
-  3. Completion strategies such as /prescient/, /fuzzy/ and
+  3. Completion strategies such as  /fuzzy/ and
    /flex/ provide  enhanced completion.
-  4. The ability to introspect code via packages like ~eglot~ and
-     ~lsp~ turn Emacs into a powerful and meaningful IDE ---  I say
+  4. The ability to introspect code via  ~eglot~ 
+      turn Emacs into a powerful and meaningful IDE ---  I say
      meaningful because these bring the best features of an integrated
      development environment while leaving behind the eye-candy that
      tends to bloat commercial IDEs.
@@ -156,11 +156,11 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      complex nested-menu driven interfaces.
   6. [[https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html][Ergonomic keybindings]] under ~X~ using [[https://github.com/alols/xcape][xcape]] to minimize
      chording has been  a significant win in the last two years.
-  7. IPython notebooks and their generalization to /Julia/, /Python/
-     and /R/ (Jupyter). The news here isn't all good; IPython notebooks are
+  7. Jupyter is the   generalization of IPython notebooks to /Julia/, /Python/
+     and /R/. The news here isn't all good; IPython notebooks are
      well-designed with respect to not getting locked into any given
-     implementation. However in practice, present implementations
-     depend on Javascript for browser-based interaction.
+     implementation. However in practice,  front-ends
+     depend on Javascript in the  browser.
   8. Consequently, many of the Emacs  packages  for IPython
      Notebooks /e.g./, package ~ein~,  are no longer maintained. 
   9. Developing in higher-level languages continues to be very well
@@ -429,4 +429,5 @@ experience of the sentiments he expresses.
 #+select_tags: export
 #+exclude_tags: noexport
 #+creator: Emacs 31.0.50 (Org mode 9.7.6)
+#+latex_header: \usepackage[scaled]{helvet} \renewcommand\familydefault{\sfdefault} 
 #+cite_export:
