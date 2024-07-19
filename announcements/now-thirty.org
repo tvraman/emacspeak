@@ -363,6 +363,8 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      
      
 *  The Final Word --- Donald E Knuth (DEK)
+
+  - [[https://www.azquotes.com/author/8177-Donald_Knuth][Computer Programming Is An Art]].
   - The best theory is inspired by practice. The best practice is
     inspired by theory. 
   - The enjoyment of one's tools is an essential ingredient of

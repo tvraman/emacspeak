@@ -580,6 +580,8 @@ Of The ACM, 2008}.
 
 @itemize
 @item
+@uref{https://www.azquotes.com/author/8177-Donald_Knuth, Computer Programming Is An Art}.
+@item
 The best theory is inspired by practice. The best practice is
 inspired by theory. 
 @item
