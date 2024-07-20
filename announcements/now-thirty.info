@@ -410,13 +410,8 @@ File: now-thirty.info,  Node: Leveraging Computational Tools — From SQL And R 
   1. This area continues to provide a rich collection of packages.
   2. Newer highlights include ‘sage’ interaction for symbolic
      computation.
-  3. Integrates with packages like ‘gptel’ and ‘ellama’ for working with
-     local and network LLMs.
-  4. The decline in IPython Notebooks presently limits the level of
-     interaction possible with Colab notebooks
-     (https://colab.research.google.com/), especially when working with
-     remote LLMs that impose some type of proprietary
-     authorization-flow.
+  3. Emacspeak speech-enables packages ‘gptel’ and ‘ellama’ for working
+     with local and network LLMs.
 
 
 File: now-thirty.info,  Node: Social Web — Mail Messaging And Blogging,  Next: The RESTful Web — Web Wizards And URL Templates For Faster Access,  Prev: Leveraging Computational Tools — From SQL And R To IPython Notebooks,  Up: Top
@@ -577,11 +572,11 @@ Node: Conversational Gestures For The Audio Desktop18169
 Node: Accessing Media Streams18812
 Node: Electronic Books— Ubiquitous Access To Books19717
 Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20298
-Node: Social Web — Mail Messaging And Blogging21193
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22878
-Node: Mashing It Up — Leveraging AI And The Web23764
-Node: The Final Word --- Donald E Knuth (DEK)25009
-Node: References26384
+Node: Social Web — Mail Messaging And Blogging20931
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22616
+Node: Mashing It Up — Leveraging AI And The Web23502
+Node: The Final Word --- Donald E Knuth (DEK)24747
+Node: References26122
 
 End Tag Table
 

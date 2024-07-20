@@ -296,12 +296,9 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
 
   1. This area continues to provide a rich collection of  packages.
   2. Newer highlights include ~sage~ interaction for symbolic computation.
-  3. Integrates with packages like ~gptel~ and ~ellama~ for working
+  3. Emacspeak speech-enables  packages  ~gptel~ and ~ellama~ for working
      with local and network LLMs.
-  4. The decline in IPython Notebooks presently limits
-     the level of interaction possible with [[https://colab.research.google.com/][Colab notebooks]],
-     especially when working with remote LLMs that impose some type of
-     proprietary authorization-flow.
+
      
 * Social Web  — Mail, Messaging And Blogging  
 

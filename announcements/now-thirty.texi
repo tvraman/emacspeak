@@ -483,13 +483,8 @@ This area continues to provide a rich collection of  packages.
 @item
 Newer highlights include @code{sage} interaction for symbolic computation.
 @item
-Integrates with packages like @code{gptel} and @code{ellama} for working
+Emacspeak speech-enables  packages  @code{gptel} and @code{ellama} for working
 with local and network LLMs.
-@item
-The decline in IPython Notebooks presently limits
-the level of interaction possible with @uref{https://colab.research.google.com/, Colab notebooks},
-especially when working with remote LLMs that impose some type of
-proprietary authorization-flow.
 @end enumerate
 
 @node Social Web — Mail Messaging And Blogging
