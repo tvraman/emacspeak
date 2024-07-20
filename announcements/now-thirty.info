@@ -244,8 +244,8 @@ File: now-thirty.info,  Node: Emacspeak And Software Development,  Next: Emacspe
      are well-designed with respect to not getting locked into any given
      implementation.  However in practice, front-ends depend on
      Javascript in the browser.
-  8. Consequently, many of the Emacs packages for IPython Notebooks
-     _e.g._, package ‘ein’, are no longer maintained.
+  8. Consequently, Emacs packages for IPython Notebooks _e.g._, package
+     ‘ein’, are no longer maintained.
   9. Developing in higher-level languages continues to be very well
      supported in Emacspeak.
   10. The re-emergence of Common Lisp in the last 20 years, thanks to
@@ -548,7 +548,7 @@ File: now-thirty.info,  Node: References,  Prev: The Final Word --- Donald E Knu
   20. Readable Web Pages: RDRView (https://github.com/eafer/rdrview)
   21. smart media selectors
      (https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html)
-  22. Communications Of The ACM, 2008
+  22. Communications Of The ACM, 2009
   23. Emacspeak Manual: URL Templates
      (https://tvraman.github.io/emacspeak/manual/URL-Templates.html)
   24. The Art Of Computer Programming (TAOCP)
@@ -565,18 +565,18 @@ Node: Using UNIX With Speech Output — 20246626
 Node: Key Enabler — Emacs And Lisp Advice7789
 Node: Key Component — Text To Speech (TTS)8647
 Node: Emacspeak And Software Development10571
-Node: Emacspeak And Authoring Documents12984
-Node: Emacspeak And The Web In 202414233
-Node: Audio Formatting — Generalizing Aural CSS17154
-Node: Conversational Gestures For The Audio Desktop18169
-Node: Accessing Media Streams18812
-Node: Electronic Books— Ubiquitous Access To Books19717
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20298
-Node: Social Web — Mail Messaging And Blogging20931
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22616
-Node: Mashing It Up — Leveraging AI And The Web23502
-Node: The Final Word --- Donald E Knuth (DEK)24747
-Node: References26122
+Node: Emacspeak And Authoring Documents12972
+Node: Emacspeak And The Web In 202414221
+Node: Audio Formatting — Generalizing Aural CSS17142
+Node: Conversational Gestures For The Audio Desktop18157
+Node: Accessing Media Streams18800
+Node: Electronic Books— Ubiquitous Access To Books19705
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20286
+Node: Social Web — Mail Messaging And Blogging20919
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22604
+Node: Mashing It Up — Leveraging AI And The Web23490
+Node: The Final Word --- Donald E Knuth (DEK)24735
+Node: References26110
 
 End Tag Table
 

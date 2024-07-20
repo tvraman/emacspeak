@@ -160,7 +160,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      well-designed with respect to not getting locked into any given
      implementation. However in practice,  front-ends
      depend on Javascript in the  browser.
-  8. Consequently, many of the Emacs  packages  for IPython
+  8. Consequently,  Emacs  packages  for IPython
      Notebooks /e.g./, package ~ein~,  are no longer maintained. 
   9. Developing in higher-level languages continues to be very well
      supported in Emacspeak.
@@ -405,8 +405,7 @@ experience of the sentiments he expresses.
   19. [[https://idlewords.com/talks/website_obesity.htm][Tag Soup, Scripts And Obfuscation: How The Web Was Broken]]
   20. [[https://github.com/eafer/rdrview][Readable Web Pages: RDRView]]
   21. [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selectors]]
-  22. [[https://research.google/blog/beyond-web-20/?hl=in&m=1][Beyond Web 2.0, Communications
-    Of The ACM, 2008]]
+  22. [[https://research.google/blog/beyond-web-20/?hl=in&m=1][Beyond Web 2.0, Communications Of The ACM, 2009]]
   23. [[https://tvraman.github.io/emacspeak/manual/URL-Templates.html][Emacspeak Manual: URL Templates]]
   24. [[https://www-cs-faculty.stanford.edu/~knuth/taocp.html][The Art Of Computer Programming (TAOCP)]]
   

@@ -291,7 +291,7 @@ well-designed with respect to not getting locked into any given
 implementation. However in practice,  front-ends
 depend on Javascript in the  browser.
 @item
-Consequently, many of the Emacs  packages  for IPython
+Consequently,  Emacs  packages  for IPython
 Notebooks @emph{e.g.}, package @code{ein},  are no longer maintained. 
 @item
 Developing in higher-level languages continues to be very well
@@ -648,8 +648,7 @@ experience of the sentiments he expresses.
 @item
 @uref{https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html, smart media selectors}
 @item
-@uref{https://research.google/blog/beyond-web-20/?hl=in&m=1, Beyond Web 2.0, Communications
-Of The ACM, 2008}
+@uref{https://research.google/blog/beyond-web-20/?hl=in&m=1, Beyond Web 2.0, Communications Of The ACM, 2009}
 @item
 @uref{https://tvraman.github.io/emacspeak/manual/URL-Templates.html, Emacspeak Manual: URL Templates}
 @item
