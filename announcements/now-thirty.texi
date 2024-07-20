@@ -59,8 +59,7 @@ Emacspeak --- The Complete Audio Desktop
 
 @enumerate
 @item
-Open design is essential  for discovering new interaction
-paradigms.
+Open Source is essential  for discovering new interaction paradigms.
 @item
 This is not mere idealism.  Openness is a key enabler for
 creating   user journeys that were not  envisioned by a 
