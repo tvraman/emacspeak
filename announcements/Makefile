@@ -3,6 +3,6 @@ all: now-thirty.org
 	../etc/dw.py $<
 	tex-check $<
 	lacheck now-thirty.tex
-	pdflatex now-thirty.tex
-	grep -i overful now-thirty.log || echo
+	pdflatex now-thirty.tex 2>&1 > /dev/null
+	grep -i overful now-thirty.log || echo done
 
