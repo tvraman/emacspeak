@@ -376,7 +376,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
     
 The best example of the above is of course [[https://en.wikipedia.org/wiki/TeX][Knuth's TeX]] --- work that
     was motivated  by his own dissatisfaction with the tools available
-    to him at the time for creating   his magnum opus --- [[https://www-cs-faculty.stanford.edu/~knuth/taocp.html][The Art
+    to him at the time for typesetting    his magnum opus --- [[https://www-cs-faculty.stanford.edu/~knuth/taocp.html][The Art
     Of Computer Programming (TAOCP)]].  It is something I've looked up
     to ever since my time as a graduate student at Cornell.
 
