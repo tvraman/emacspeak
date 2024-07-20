@@ -107,7 +107,7 @@ File: now-thirty.info,  Node: Emacspeak --- The Complete Audio Desktop,  Next: U
      move to a Web of information where there would be a clean
      separation between application back-ends and various
      client-specific front-ends.  See The Way You Want.  Distinguished
-     Lecture Series, UW Oct 2008 and Specialized Browsers
+     Lecture Series, UW Oct 2009 and Specialized Browsers
      (https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/).
   11. The above still makes sense from the view of _scalable_ software
      architecture.  However the rapid growth of the Web economy has also
@@ -484,7 +484,7 @@ File: now-thirty.info,  Node: Mashing It Up — Leveraging AI And The Web,  Next
   4. Notice that we are now back to the previously unsolved problem of
      cleaning up the HTML Web -- with LLMs, we'll just have an order of
      magnitude more documents than the _2^W_ postulated by
-     Communications Of The ACM, 2008.
+     Communications Of The ACM, 2009.
 
 
 File: now-thirty.info,  Node: The Final Word --- Donald E Knuth (DEK),  Next: References,  Prev: Mashing It Up — Leveraging AI And The Web,  Up: Top

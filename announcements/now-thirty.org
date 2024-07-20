@@ -54,7 +54,7 @@
       a Web of information where there would be a clean separation
       between application back-ends and various client-specific
       front-ends. See [[http://www.cs.washington.edu/htbin-post/mvis/mvis?ID=636][The Web, The Way You Want.  Distinguished Lecture
-      Series, UW Oct 2008]] and [[https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/][Specialized Browsers]].
+      Series, UW Oct 2009]] and [[https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/][Specialized Browsers]].
   11. The above still makes sense from the view of  /scalable/ software architecture. However the rapid growth of the Web economy has also
       resulted in an even faster race to the bottom where applications
       continue to be built and re-built every few years for /the next
@@ -359,7 +359,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      of cleaning up the  HTML Web --- with LLMs, we'll just
      have an order of magnitude more documents than the /2^W/ postulated
       by  [[https://research.google/blog/beyond-web-20/?hl=in&m=1][Beyond Web 2.0, Communications
-     Of The ACM, 2008]].
+     Of The ACM, 2009]].
      
      
 *  The Final Word --- Donald E Knuth (DEK)
