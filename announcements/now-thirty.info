@@ -492,8 +492,6 @@ File: now-thirty.info,  Node: The Final Word --- Donald E Knuth (DEK),  Next: Re
 17 The Final Word -- Donald E Knuth (DEK)
 *****************************************
 
-   • Computer Programming Is An Art
-     (https://www.azquotes.com/author/8177-Donald_Knuth).
    • The best theory is inspired by practice.  The best practice is
      inspired by theory.
    • The enjoyment of one's tools is an essential ingredient of
@@ -502,6 +500,8 @@ File: now-thirty.info,  Node: The Final Word --- Donald E Knuth (DEK),  Next: Re
      fades.  Greater pleasure, deeper satisfaction, and higher wages are
      associated with genuine accomplishments, with the successful
      fulfillment of a challenging task.
+   • Computer Programming Is An Art
+     (https://www.azquotes.com/author/8177-Donald_Knuth).
 
    The best example of the above is of course Knuth's TeX
 (https://en.wikipedia.org/wiki/TeX) -- work that was motivated by his

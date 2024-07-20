@@ -580,8 +580,6 @@ Of The ACM, 2009}.
 
 @itemize
 @item
-@uref{https://www.azquotes.com/author/8177-Donald_Knuth, Computer Programming Is An Art}.
-@item
 The best theory is inspired by practice. The best practice is
 inspired by theory. 
 @item
@@ -592,6 +590,8 @@ Easy things are often amusing and relaxing, but their value soon
 fades. Greater pleasure, deeper satisfaction, and higher wages are
 associated with genuine accomplishments, with the successful
 fulfillment of a challenging task. 
+@item
+@uref{https://www.azquotes.com/author/8177-Donald_Knuth, Computer Programming Is An Art}.
 @end itemize
 
 The best example of the above is of course @uref{https://en.wikipedia.org/wiki/TeX, Knuth's @TeX{}} --- work that
