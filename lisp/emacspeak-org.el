@@ -924,6 +924,11 @@ Press `y' to play to next amark."
      (emacspeak-icon 'save-object)
      (emacspeak-speak-message-again)))
 
+(defadvice org-export-to-file (after emacspeak pre act comp)
+  "speak."
+  (emacspeak-icon 'save-object)
+  (dtk-notify (format "Wrote %s" (ad-get-arg 1))))
+
 (provide 'emacspeak-org)
 ;;;  end of file
 
