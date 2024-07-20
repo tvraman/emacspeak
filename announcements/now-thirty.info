@@ -537,21 +537,20 @@ File: now-thirty.info,  Node: References,  Prev: The Final Word --- Donald E Knu
   12. Common Lisp: Quicklisp (https://www.quicklisp.org/)
   13. Soundscapes on the Emacspeak Audio Desktop
      (https://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html)
-  14. Colab notebooks (https://colab.research.google.com/)
-  15. RESTful Web (https://en.wikipedia.org/wiki/REST)
-  16. Ergonomic keybindings
+  14. RESTful Web (https://en.wikipedia.org/wiki/REST)
+  15. Ergonomic keybindings
      (https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html)
-  17. Minimize chording with XCape (https://github.com/alols/xcape)
-  18. Learn Smarter By Taking Rich Hypertext Notes
+  16. Minimize chording with XCape (https://github.com/alols/xcape)
+  17. Learn Smarter By Taking Rich Hypertext Notes
      (https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html)
-  19. Scripts And Obfuscation: How The Web Was Broken
-  20. Readable Web Pages: RDRView (https://github.com/eafer/rdrview)
-  21. smart media selectors
+  18. Scripts And Obfuscation: How The Web Was Broken
+  19. Readable Web Pages: RDRView (https://github.com/eafer/rdrview)
+  20. smart media selectors
      (https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html)
-  22. Communications Of The ACM, 2009
-  23. Emacspeak Manual: URL Templates
+  21. Communications Of The ACM, 2009
+  22. Emacspeak Manual: URL Templates
      (https://tvraman.github.io/emacspeak/manual/URL-Templates.html)
-  24. The Art Of Computer Programming (TAOCP)
+  23. The Art Of Computer Programming (TAOCP)
      (https://www-cs-faculty.stanford.edu/~knuth/taocp.html)
 
 
