@@ -167,7 +167,7 @@ Use Custom to customize where possible. "
     (mapc
      #'(lambda (m) (diminish m ""))
      '(
-       outline-minor-mode reftex-mode voice-lock-mode company-mode hs-minor-mode
+       outline-minor-mode  voice-lock-mode company-mode hs-minor-mode
        org-cdlatex-mode yas-minor-mode  auto-fill-function
        abbrev-mode auto-correct-mode)))
   (setq  global-mode-string '("" display-time-string battery-mode-line-string))
