@@ -102,7 +102,7 @@ File: now-thirty.info,  Node: Emacspeak --- The Complete Audio Desktop,  Next: U
      that the world of Internet-centered computing and the accompanying
      information revolution would have on the state of information
      access.
-  10. Conversely, I boldly (and incorrectly)predicted that the arrival
+  10. Conversely, I boldly (and incorrectly) predicted that the arrival
      of mobile devices and mainstream speech interfaces would herald the
      move to a Web of information where there would be a clean
      separation between application back-ends and various
@@ -209,7 +209,7 @@ File: now-thirty.info,  Node: Key Component — Text To Speech (TTS),  Next: Ema
   7. The Vocalizer voices that Voxin now sells _do not_ work with
      Emacspeak.
   8. The other choice on Linux is ESpeak which will hopefully continue
-     to be free - albeit of much lower quality.
+     to be free -- albeit of much lower quality.
   9. The future as ever is unpredictable and new voices may well show up
      -- especially those powered by on-device Large Language Models
      (LLMs).
@@ -449,7 +449,7 @@ File: now-thirty.info,  Node: The RESTful Web — Web Wizards And URL Templates 
 15 The RESTful Web — Web Wizards And URL Templates For Faster Access
 ********************************************************************
 
-  1. This area continues to thrive -- either because of - or despite -
+  1. This area continues to thrive -- either because of -- or despite --
      the best and worst efforts of application providers on the Web.
   2. Twenty years on (this feature originally landed in 2000) Emacspeak
      has a far richer collection of filters, preprocessors and
@@ -559,23 +559,23 @@ Tag Table:
 Node: Top198
 Node: Key Insights1657
 Node: Emacspeak --- The Complete Audio Desktop3187
-Node: How To Read This Document6133
-Node: Using UNIX With Speech Output — 20246626
-Node: Key Enabler — Emacs And Lisp Advice7789
-Node: Key Component — Text To Speech (TTS)8647
-Node: Emacspeak And Software Development10571
-Node: Emacspeak And Authoring Documents12972
-Node: Emacspeak And The Web In 202414221
-Node: Audio Formatting — Generalizing Aural CSS17142
-Node: Conversational Gestures For The Audio Desktop18157
-Node: Accessing Media Streams18800
-Node: Electronic Books— Ubiquitous Access To Books19705
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20286
-Node: Social Web — Mail Messaging And Blogging20919
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22604
-Node: Mashing It Up — Leveraging AI And The Web23490
-Node: The Final Word --- Donald E Knuth (DEK)24735
-Node: References26110
+Node: How To Read This Document6134
+Node: Using UNIX With Speech Output — 20246627
+Node: Key Enabler — Emacs And Lisp Advice7790
+Node: Key Component — Text To Speech (TTS)8648
+Node: Emacspeak And Software Development10573
+Node: Emacspeak And Authoring Documents12974
+Node: Emacspeak And The Web In 202414223
+Node: Audio Formatting — Generalizing Aural CSS17144
+Node: Conversational Gestures For The Audio Desktop18159
+Node: Accessing Media Streams18802
+Node: Electronic Books— Ubiquitous Access To Books19707
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20288
+Node: Social Web — Mail Messaging And Blogging20921
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22606
+Node: Mashing It Up — Leveraging AI And The Web23494
+Node: The Final Word --- Donald E Knuth (DEK)24739
+Node: References26114
 
 End Tag Table
 

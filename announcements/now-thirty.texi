@@ -127,7 +127,7 @@ that the world of Internet-centered  computing and the accompanying
 information revolution would have  on the state of information
 access.
 @item
-Conversely, I boldly  (and incorrectly)predicted  that the arrival of mobile
+Conversely, I boldly  (and incorrectly) predicted  that the arrival of mobile
 devices and mainstream speech interfaces would herald the move to
 a Web of information where there would be a clean separation
 between application back-ends and various client-specific
@@ -248,7 +248,7 @@ continue to work.
 The  Vocalizer voices that Voxin now sells @emph{do not} work with Emacspeak.
 @item
 The  other choice on Linux is ESpeak which will hopefully
-continue to be free -- albeit of much lower quality.
+continue to be free --- albeit of much lower quality.
 @item
 The future as ever is unpredictable and new voices may well show
 up --- especially those powered by on-device Large Language
@@ -529,8 +529,8 @@ is the venerable  Internet Relay Chat (IRC).
 
 @enumerate
 @item
-This area continues to thrive --- either because of -- or
-despite -- the best and worst efforts of application providers on the
+This area continues to thrive --- either because of --- or
+despite --- the best and worst efforts of application providers on the
 Web.
 @item
 Twenty years on (this feature originally landed in 2000)

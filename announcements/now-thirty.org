@@ -48,7 +48,7 @@
      that the world of Internet-centered  computing and the accompanying
      information revolution would have  on the state of information
      access.
-  10. Conversely, I boldly  (and incorrectly)predicted  that the arrival of mobile
+  10. Conversely, I boldly  (and incorrectly) predicted  that the arrival of mobile
       devices and mainstream speech interfaces would herald the move to
       a Web of information where there would be a clean separation
       between application back-ends and various client-specific
@@ -130,7 +130,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      continue to work.
   7. The  Vocalizer voices that Voxin now sells /do not/ work with Emacspeak.
   8. The  other choice on Linux is ESpeak which will hopefully
-     continue to be free -- albeit of much lower quality.
+     continue to be free --- albeit of much lower quality.
   9. The future as ever is unpredictable and new voices may well show
      up --- especially those powered by on-device Large Language
      Models (LLMs).
@@ -326,8 +326,8 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      
 * The RESTful Web —  Web Wizards And URL Templates For Faster Access
 
-  1. This area continues to thrive --- either because of -- or
-    despite -- the best and worst efforts of application providers on the
+  1. This area continues to thrive --- either because of --- or
+    despite --- the best and worst efforts of application providers on the
     Web.
   2. Twenty years on (this feature originally landed in 2000)
      Emacspeak has a far richer collection of filters, preprocessors
