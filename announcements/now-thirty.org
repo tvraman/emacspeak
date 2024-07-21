@@ -416,7 +416,6 @@ experience of the sentiments he expresses.
 #+title:  Emacspeak:  A Speech Odyssey
 #+KEYWORDS: Emacspeak, Complete Audio Desktop
 #+DESCRIPTION: Emacspeak  --- A Speech Odyssey --- Emacspeak At Thirty
-#+date: <2024-07-10 Wed>
 #+author: T.V Raman
 #+email: raman@google.com
 #+language: en
