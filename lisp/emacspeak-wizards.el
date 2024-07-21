@@ -1009,7 +1009,7 @@ Moves to the shortest line when called interactively."
         (goto-char start)
         (while (and (not (eobp))
                     (< (point) end))
-          (forward-sentence)
+          (funcall forward-sentence-function)
           (when (< max (- (point) sen-start))
             (setq max (- (point) sen-start))
             (setq where sen-start))
