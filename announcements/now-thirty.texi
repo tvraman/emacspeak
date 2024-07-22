@@ -87,7 +87,7 @@ in with respect to time and effort.
 A steep learning curve in and of itself is not to be feared --- it
 can be fun to learn and  gets you farther faster.
 @item
-A good touchstone: Ensure that the user grows continuously.
+True empowerment: Ensure that the user grows continuously.
 @end enumerate
 
 @node Emacspeak --- The Complete Audio Desktop
