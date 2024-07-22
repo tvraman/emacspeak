@@ -106,9 +106,9 @@ File: now-thirty.info,  Node: Emacspeak --- The Complete Audio Desktop,  Next: U
      of mobile devices and mainstream speech interfaces would herald the
      move to a Web of information where there would be a clean
      separation between application back-ends and various
-     client-specific front-ends.  See The Way You Want.  Distinguished
-     Lecture Series, UW Oct 2009 and Specialized Browsers
-     (https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/).
+     client-specific front-ends.  See Specialized Browsers
+     (https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/)
+     and The Way You Want.  Distinguished Lecture Series, UW Oct 2009.
   11. The above still makes sense from the view of _scalable_ software
      architecture.  However the rapid growth of the Web economy has also
      resulted in an even faster race to the bottom where applications

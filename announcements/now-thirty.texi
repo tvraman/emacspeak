@@ -127,12 +127,13 @@ that the world of Internet-centered  computing and the accompanying
 information revolution would have  on the state of information
 access.
 @item
-Conversely, I boldly  (and incorrectly) predicted  that the arrival of mobile
-devices and mainstream speech interfaces would herald the move to
-a Web of information where there would be a clean separation
-between application back-ends and various client-specific
-front-ends. See @uref{http://www.cs.washington.edu/htbin-post/mvis/mvis?ID=636, The Web, The Way You Want.  Distinguished Lecture
-Series, UW Oct 2009} and @uref{https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/, Specialized Browsers}.
+Conversely, I boldly (and incorrectly) predicted that the
+arrival of mobile devices and mainstream speech interfaces would
+herald the move to a Web of information where there would be a
+clean separation between application back-ends and various
+client-specific front-ends. See @uref{https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/, Specialized Browsers} and @uref{http://www.cs.washington.edu/htbin-post/mvis/mvis?ID=636, The
+Web, The Way You Want.  Distinguished Lecture Series, UW Oct
+2009}.
 @item
 The above still makes sense from the view of  @emph{scalable} software architecture. However the rapid growth of the Web economy has also
 resulted in an even faster race to the bottom where applications
