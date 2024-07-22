@@ -61,10 +61,10 @@ File: now-thirty.info,  Node: Key Insights,  Next: Emacspeak --- The Complete Au
   5. Rapid, reliable task completion is the most important metric and
      trumps secondary items such as eye-candy -- the latter only leads
      to bloat as evinced by the HTML Web.
-  6. Having a clearly identified user problem when designing a system is
+  6. Having a well-identified problem when designing a system is
      paramount.
   7. _Usability_ is important, but to truly matter, the system needs to
-     be _useful_ first.
+     be _useful_.
   8. _Ease of use_ by itself is often _marketing_ hype.
   9. Useful systems are fun to learn and give back more than what you
      put in with respect to time and effort.
@@ -570,24 +570,24 @@ File: now-thirty.info,  Node: References,  Prev: The Final Word --- Donald E Knu
 Tag Table:
 Node: Top198
 Node: Key Insights1657
-Node: Emacspeak --- The Complete Audio Desktop3307
-Node: How To Read This Document6254
-Node: Using UNIX With Speech Output — 20246747
-Node: Key Enabler — Emacs And Lisp Advice7910
-Node: Key Component — Text To Speech (TTS)8768
-Node: Emacspeak And Software Development10693
-Node: Emacspeak And Authoring Documents13331
-Node: Emacspeak And The Web In 202414580
-Node: Audio Formatting — Generalizing Aural CSS17501
-Node: Conversational Gestures For The Audio Desktop18516
-Node: Accessing Media Streams19159
-Node: Electronic Books— Ubiquitous Access To Books20064
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20645
-Node: Social Web — Mail Messaging And Blogging21278
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22963
-Node: Mashing It Up — Leveraging AI And The Web23851
-Node: The Final Word --- Donald E Knuth (DEK)25096
-Node: References26471
+Node: Emacspeak --- The Complete Audio Desktop3293
+Node: How To Read This Document6240
+Node: Using UNIX With Speech Output — 20246733
+Node: Key Enabler — Emacs And Lisp Advice7896
+Node: Key Component — Text To Speech (TTS)8754
+Node: Emacspeak And Software Development10679
+Node: Emacspeak And Authoring Documents13317
+Node: Emacspeak And The Web In 202414566
+Node: Audio Formatting — Generalizing Aural CSS17487
+Node: Conversational Gestures For The Audio Desktop18502
+Node: Accessing Media Streams19145
+Node: Electronic Books— Ubiquitous Access To Books20050
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20631
+Node: Social Web — Mail Messaging And Blogging21264
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22949
+Node: Mashing It Up — Leveraging AI And The Web23837
+Node: The Final Word --- Donald E Knuth (DEK)25082
+Node: References26457
 
 End Tag Table
 

@@ -10,10 +10,10 @@
   5. Rapid, reliable task completion is the most important metric and
      trumps secondary items such as eye-candy --- the latter only
      leads to bloat as evinced by the HTML Web.
-  6. Having a clearly identified user problem when designing a system
+  6. Having a well-identified  problem when designing a system
      is paramount.
   7. /Usability/ is important, but to  truly matter, the
-     system needs to be /useful/ first.
+     system needs to be /useful/.
   8. /Ease of use/ by   itself is often /marketing/ hype.
   9. Useful systems are fun to learn and give back more than what you put
      in with respect to time and effort.
