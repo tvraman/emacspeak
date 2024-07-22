@@ -274,6 +274,10 @@ close second in enhancing productivity.
 Completion strategies such as  @emph{fuzzy} and
 @emph{flex} provide  enhanced completion.
 @item
+@uref{https://emacspeak.blogspot.com/2018/06/effective-suggest-and-complete-in-eyes.html, Effective Suggest And Complete In An Eyes-free Environment}
+explains the higher-level concept  involved in defining such strategies.
+
+@item
 The ability to introspect code via  @code{eglot} 
  turn Emacs into a powerful and meaningful IDE ---  I say
 meaningful because these bring the best features of an integrated
@@ -626,6 +630,8 @@ experience of the sentiments he expresses.
 @uref{https://github.com/dectalk/dectalk.git, Software Dectalk on Github}
 @item
 @uref{https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org, Dectalk  setup instructions}
+@item
+@uref{https://emacspeak.blogspot.com/2018/06/effective-suggest-and-complete-in-eyes.html, Effective Suggest And Complete In An Eyes-free Environment}
 @item
 @uref{https://asdf.common-lisp.dev/asdf.html, Common Lisp: asdf}
 @item

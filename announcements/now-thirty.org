@@ -147,32 +147,35 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      close second in enhancing productivity.
   3. Completion strategies such as  /fuzzy/ and
    /flex/ provide  enhanced completion.
-  4. The ability to introspect code via  ~eglot~ 
+  4. [[https://emacspeak.blogspot.com/2018/06/effective-suggest-and-complete-in-eyes.html][Effective Suggest And Complete In An Eyes-free Environment]]
+     explains the higher-level concept  involved in defining such strategies.
+  
+  5. The ability to introspect code via  ~eglot~ 
       turn Emacs into a powerful and meaningful IDE ---  I say
      meaningful because these bring the best features of an integrated
      development environment while leaving behind the eye-candy that
      tends to bloat commercial IDEs.
-  5. Packages like /transient/  enable discoverable, rapid keyboard access to
+  6. Packages like /transient/  enable discoverable, rapid keyboard access to
      complex nested-menu driven interfaces.
-  6. [[https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html][Ergonomic keybindings]] under ~X~ using [[https://github.com/alols/xcape][xcape]] to minimize
+  7. [[https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html][Ergonomic keybindings]] under ~X~ using [[https://github.com/alols/xcape][xcape]] to minimize
      chording has been  a significant win in the last two years.
-  7. Jupyter is the   generalization of IPython notebooks to /Julia/, /Python/
+  8. Jupyter is the   generalization of IPython notebooks to /Julia/, /Python/
      and /R/. The news here isn't all good; IPython notebooks are
      well-designed with respect to not getting locked into any given
      implementation. However in practice,  front-ends
      depend on Javascript in the  browser.
-  8. Consequently,  Emacs  packages  for IPython
+  9. Consequently,  Emacs  packages  for IPython
      Notebooks /e.g./, package ~ein~,  are no longer maintained. 
-  9. Developing in higher-level languages continues to be very well
-     supported in Emacspeak.
-  10. The re-emergence of Common Lisp in the last 20 years, thanks to
+  10. Developing in higher-level languages continues to be very well
+      supported in Emacspeak.
+  11. The re-emergence of Common Lisp in the last 20 years, thanks to
       [[https://asdf.common-lisp.dev/asdf.html][asdf]] and [[https://www.quicklisp.org/][quicklisp]] as a network-aware package manager and build
       tool has once again made Lisp development using Emacs ~Slime~ a
       productive experience.
-  11. In 2022, I updated [[https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html][Audio System For Technical
+  12. In 2022, I updated [[https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html][Audio System For Technical
       Readings (AsTeR)]]--- my PhD project from 1993 --- to run under ~SBCL~
       with a freshly implemented Emacs front-end.
-  12. So now I can listen to Math content just as well as I could 30
+  13. So now I can listen to Math content just as well as I could 30
       years ago!
      
      
@@ -395,19 +398,20 @@ experience of the sentiments he expresses.
   8. [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][An Ode To Emacspeak: The Best Is Yet To Come]]
   9. [[https://github.com/dectalk/dectalk.git][Software Dectalk on Github]]
   10. [[https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org][Dectalk  setup instructions]]
-  11. [[https://asdf.common-lisp.dev/asdf.html][Common Lisp: asdf]]
-  12. [[https://www.quicklisp.org/][Common Lisp: Quicklisp]]
-  13. [[https://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html][Soundscapes on the Emacspeak Audio Desktop]] 
-  14. [[https://en.wikipedia.org/wiki/REST][RESTful Web]]
-  15. [[https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html][Ergonomic keybindings]]
-  16. [[https://github.com/alols/xcape][Minimize chording with XCape]]
-  17. [[https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html][Learn Smarter By Taking Rich Hypertext Notes]]
-  18. [[https://idlewords.com/talks/website_obesity.htm][Tag Soup, Scripts And Obfuscation: How The Web Was Broken]]
-  19. [[https://github.com/eafer/rdrview][Readable Web Pages: RDRView]]
-  20. [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selectors]]
-  21. [[https://research.google/blog/beyond-web-20/?hl=in&m=1][Beyond Web 2.0, Communications Of The ACM, 2009]]
-  22. [[https://tvraman.github.io/emacspeak/manual/URL-Templates.html][Emacspeak Manual: URL Templates]]
-  23. [[https://www-cs-faculty.stanford.edu/~knuth/taocp.html][The Art Of Computer Programming (TAOCP)]]
+  11.  [[https://emacspeak.blogspot.com/2018/06/effective-suggest-and-complete-in-eyes.html][Effective Suggest And Complete In An Eyes-free Environment]]
+  12. [[https://asdf.common-lisp.dev/asdf.html][Common Lisp: asdf]]
+  13. [[https://www.quicklisp.org/][Common Lisp: Quicklisp]]
+  14. [[https://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html][Soundscapes on the Emacspeak Audio Desktop]] 
+  15. [[https://en.wikipedia.org/wiki/REST][RESTful Web]]
+  16. [[https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html][Ergonomic keybindings]]
+  17. [[https://github.com/alols/xcape][Minimize chording with XCape]]
+  18. [[https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html][Learn Smarter By Taking Rich Hypertext Notes]]
+  19. [[https://idlewords.com/talks/website_obesity.htm][Tag Soup, Scripts And Obfuscation: How The Web Was Broken]]
+  20. [[https://github.com/eafer/rdrview][Readable Web Pages: RDRView]]
+  21. [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selectors]]
+  22. [[https://research.google/blog/beyond-web-20/?hl=in&m=1][Beyond Web 2.0, Communications Of The ACM, 2009]]
+  23. [[https://tvraman.github.io/emacspeak/manual/URL-Templates.html][Emacspeak Manual: URL Templates]]
+  24. [[https://www-cs-faculty.stanford.edu/~knuth/taocp.html][The Art Of Computer Programming (TAOCP)]]
   
 #+options: ':t *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
@@ -423,6 +427,6 @@ experience of the sentiments he expresses.
 #+select_tags: export
 #+exclude_tags: noexport
 #+creator: Emacs 31.0.50 (Org mode 9.7.6)
-#+date: August 1, 2024
+#+date: Thursday, August 1, 2024
 #+latex_header: \usepackage[scaled]{helvet} \renewcommand\familydefault{\sfdefault} 
 #+cite_export:
