@@ -110,7 +110,7 @@ File: now-thirty.info,  Node: Emacspeak --- The Complete Audio Desktop,  Next: U
      separation between application back-ends and various
      client-specific front-ends.  See Specialized Browsers
      (https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/)
-     and The Way You Want.  Distinguished Lecture Series, UW Oct 2009.
+     and The Way You Want.  Distinguished Lecture Series, UW Oct 2007.
   11. The above still makes sense from the view of _scalable_ software
      architecture.  However the rapid growth of the Web economy has also
      resulted in an even faster race to the bottom where applications
@@ -534,7 +534,7 @@ File: now-thirty.info,  Node: References,  Prev: The Final Word --- Donald E Knu
      (https://tvraman.github.io/emacspeak//web/releases/release-3.0.html)
   6. Emacspeak At Twenty
      (https://emacspeak.sourceforge.net/turning-twenty.html)
-  7. The Way You Want.  Distinguished Lecture Series, UW Oct 2008
+  7. The Way You Want.  Distinguished Lecture Series, UW Oct 2007
   8. Specialized Browsers
      (https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/)
   9. An Ode To Emacspeak: The Best Is Yet To Come
