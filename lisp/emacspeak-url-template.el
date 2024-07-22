@@ -492,6 +492,13 @@ c  (cl-declare
  "News  From Yahoo As RSS."
  #'emacspeak-feeds-rss-display)
 
+(emacspeak-url-template-define
+ "Yahoo Finance"
+ "https://finance.yahoo.com/quote/%s/"
+ (list "Ticker:")
+  'emacspeak-eww-h2
+ "Yahoo Finance Stock News")
+
 ;;; CNBC Quotes
 
 (defun ems--ut-quotes-cleanup ()
