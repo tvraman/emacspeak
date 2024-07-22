@@ -237,7 +237,7 @@ File: now-thirty.info,  Node: Emacspeak And Software Development,  Next: Emacspe
      strategies.
 
   5. The ability to introspect code via ‘eglot’ turn Emacs into a
-     powerful and meaningful IDE -- I say meaningful because these bring
+     powerful and meaningful IDE -- I say meaningful because this bring
      the best features of an integrated development environment while
      leaving behind the eye-candy that tends to bloat commercial IDEs.
   6. Packages like _transient_ enable discoverable, rapid keyboard
@@ -576,18 +576,18 @@ Node: Using UNIX With Speech Output — 20246747
 Node: Key Enabler — Emacs And Lisp Advice7910
 Node: Key Component — Text To Speech (TTS)8768
 Node: Emacspeak And Software Development10693
-Node: Emacspeak And Authoring Documents13332
-Node: Emacspeak And The Web In 202414581
-Node: Audio Formatting — Generalizing Aural CSS17502
-Node: Conversational Gestures For The Audio Desktop18517
-Node: Accessing Media Streams19160
-Node: Electronic Books— Ubiquitous Access To Books20065
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20646
-Node: Social Web — Mail Messaging And Blogging21279
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22964
-Node: Mashing It Up — Leveraging AI And The Web23852
-Node: The Final Word --- Donald E Knuth (DEK)25097
-Node: References26472
+Node: Emacspeak And Authoring Documents13331
+Node: Emacspeak And The Web In 202414580
+Node: Audio Formatting — Generalizing Aural CSS17501
+Node: Conversational Gestures For The Audio Desktop18516
+Node: Accessing Media Streams19159
+Node: Electronic Books— Ubiquitous Access To Books20064
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20645
+Node: Social Web — Mail Messaging And Blogging21278
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22963
+Node: Mashing It Up — Leveraging AI And The Web23851
+Node: The Final Word --- Donald E Knuth (DEK)25096
+Node: References26471
 
 End Tag Table
 
