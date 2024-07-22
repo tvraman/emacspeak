@@ -46,29 +46,31 @@ File: now-thirty.info,  Node: Key Insights,  Next: Emacspeak --- The Complete Au
 1 Key Insights
 **************
 
-  1. Open Source is essential for discovering new interaction paradigms.
-  2. This is not mere idealism.  Openness is a key enabler for creating
+  1. User Interface is a means to an end
+     (https://www.drdobbs.com:443/user-interface-a-means-to-an-end/184410453).
+  2. Open Source is essential for discovering new interaction paradigms.
+  3. This is not mere idealism.  Openness is a key enabler for creating
      user journeys that were not envisioned by a system's designers.
-  3. Emacs (https://www.gnu.org/s/emacs/) and TeX
+  4. Emacs (https://www.gnu.org/s/emacs/) and TeX
      (https://en.wikipedia.org/wiki/TeX) are good exemplars.  They
      permit maximal freedom when seen from the viewpoint of user
      extensibility and creativity.  TeX enabled Audio System For
      Technical Readings (AsTeR)
      (https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html);
      Emacs enabled Emacspeak (https://emacspeak.sourceforge.net).
-  4. Rapid, reliable task completion is the most important metric and
+  5. Rapid, reliable task completion is the most important metric and
      trumps secondary items such as eye-candy -- the latter only leads
      to bloat as evinced by the HTML Web.
-  5. Having a clearly identified user problem when designing a system is
+  6. Having a clearly identified user problem when designing a system is
      paramount.
-  6. _Usability_ is important, but to truly matter, the system needs to
+  7. _Usability_ is important, but to truly matter, the system needs to
      be _useful_ first.
-  7. _Ease of use_ by itself is often _marketing_ hype.
-  8. Useful systems are fun to learn and give back more than what you
+  8. _Ease of use_ by itself is often _marketing_ hype.
+  9. Useful systems are fun to learn and give back more than what you
      put in with respect to time and effort.
-  9. A steep learning curve in and of itself is not to be feared -- it
+  10. A steep learning curve in and of itself is not to be feared -- it
      can be fun to learn and gets you farther faster.
-  10. True empowerment: Ensure that the user grows continuously.
+  11. True empowerment: Ensure that the user grows continuously.
 
 
 File: now-thirty.info,  Node: Emacspeak --- The Complete Audio Desktop,  Next: Using UNIX With Speech Output — 2024,  Prev: Key Insights,  Up: Top
@@ -522,42 +524,45 @@ File: now-thirty.info,  Node: References,  Prev: The Final Word --- Donald E Knu
 18 References
 *************
 
-  1. GNU Emacs (https://www.gnu.org/s/emacs/)
-  2. Knuth's TeX (https://en.wikipedia.org/wiki/TeX)
-  3. Audio System For Technical Readings
+  1. User Interface is a means to an end
+     (https://www.drdobbs.com:443/user-interface-a-means-to-an-end/184410453).
+  2. GNU Emacs (https://www.gnu.org/s/emacs/)
+  3. Knuth's TeX (https://en.wikipedia.org/wiki/TeX)
+  4. Audio System For Technical Readings
      (https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html)
-  4. Announcing Emacspeak: April 1995
+  5. Announcing Emacspeak: April 1995
      (https://tvraman.github.io/emacspeak//web/releases/release-3.0.html)
-  5. Emacspeak At Twenty
+  6. Emacspeak At Twenty
      (https://emacspeak.sourceforge.net/turning-twenty.html)
-  6. The Way You Want.  Distinguished Lecture Series, UW Oct 2008
-  7. Specialized Browsers
+  7. The Way You Want.  Distinguished Lecture Series, UW Oct 2008
+  8. Specialized Browsers
      (https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/)
-  8. An Ode To Emacspeak: The Best Is Yet To Come
+  9. An Ode To Emacspeak: The Best Is Yet To Come
      (https://tvraman.github.io/emacspeak/web/01-gemini.ogg)
-  9. Software Dectalk on Github (https://github.com/dectalk/dectalk.git)
-  10. Dectalk setup instructions
+  10. Software Dectalk on Github
+     (https://github.com/dectalk/dectalk.git)
+  11. Dectalk setup instructions
      (https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org)
-  11. Effective Suggest And Complete In An Eyes-free Environment
+  12. Effective Suggest And Complete In An Eyes-free Environment
      (https://emacspeak.blogspot.com/2018/06/effective-suggest-and-complete-in-eyes.html)
-  12. Common Lisp: asdf (https://asdf.common-lisp.dev/asdf.html)
-  13. Common Lisp: Quicklisp (https://www.quicklisp.org/)
-  14. Soundscapes on the Emacspeak Audio Desktop
+  13. Common Lisp: asdf (https://asdf.common-lisp.dev/asdf.html)
+  14. Common Lisp: Quicklisp (https://www.quicklisp.org/)
+  15. Soundscapes on the Emacspeak Audio Desktop
      (https://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html)
-  15. RESTful Web (https://en.wikipedia.org/wiki/REST)
-  16. Ergonomic keybindings
+  16. RESTful Web (https://en.wikipedia.org/wiki/REST)
+  17. Ergonomic keybindings
      (https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html)
-  17. Minimize chording with XCape (https://github.com/alols/xcape)
-  18. Learn Smarter By Taking Rich Hypertext Notes
+  18. Minimize chording with XCape (https://github.com/alols/xcape)
+  19. Learn Smarter By Taking Rich Hypertext Notes
      (https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html)
-  19. Scripts And Obfuscation: How The Web Was Broken
-  20. Readable Web Pages: RDRView (https://github.com/eafer/rdrview)
-  21. smart media selectors
+  20. Scripts And Obfuscation: How The Web Was Broken
+  21. Readable Web Pages: RDRView (https://github.com/eafer/rdrview)
+  22. smart media selectors
      (https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html)
-  22. Communications Of The ACM, 2009
-  23. Emacspeak Manual: URL Templates
+  23. Communications Of The ACM, 2009
+  24. Emacspeak Manual: URL Templates
      (https://tvraman.github.io/emacspeak/manual/URL-Templates.html)
-  24. The Art Of Computer Programming (TAOCP)
+  25. The Art Of Computer Programming (TAOCP)
      (https://www-cs-faculty.stanford.edu/~knuth/taocp.html)
 
 
@@ -565,24 +570,24 @@ File: now-thirty.info,  Node: References,  Prev: The Final Word --- Donald E Knu
 Tag Table:
 Node: Top198
 Node: Key Insights1657
-Node: Emacspeak --- The Complete Audio Desktop3186
-Node: How To Read This Document6133
-Node: Using UNIX With Speech Output — 20246626
-Node: Key Enabler — Emacs And Lisp Advice7789
-Node: Key Component — Text To Speech (TTS)8647
-Node: Emacspeak And Software Development10572
-Node: Emacspeak And Authoring Documents13211
-Node: Emacspeak And The Web In 202414460
-Node: Audio Formatting — Generalizing Aural CSS17381
-Node: Conversational Gestures For The Audio Desktop18396
-Node: Accessing Media Streams19039
-Node: Electronic Books— Ubiquitous Access To Books19944
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20525
-Node: Social Web — Mail Messaging And Blogging21158
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22843
-Node: Mashing It Up — Leveraging AI And The Web23731
-Node: The Final Word --- Donald E Knuth (DEK)24976
-Node: References26351
+Node: Emacspeak --- The Complete Audio Desktop3307
+Node: How To Read This Document6254
+Node: Using UNIX With Speech Output — 20246747
+Node: Key Enabler — Emacs And Lisp Advice7910
+Node: Key Component — Text To Speech (TTS)8768
+Node: Emacspeak And Software Development10693
+Node: Emacspeak And Authoring Documents13332
+Node: Emacspeak And The Web In 202414581
+Node: Audio Formatting — Generalizing Aural CSS17502
+Node: Conversational Gestures For The Audio Desktop18517
+Node: Accessing Media Streams19160
+Node: Electronic Books— Ubiquitous Access To Books20065
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20646
+Node: Social Web — Mail Messaging And Blogging21279
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22964
+Node: Mashing It Up — Leveraging AI And The Web23852
+Node: The Final Word --- Donald E Knuth (DEK)25097
+Node: References26472
 
 End Tag Table
 

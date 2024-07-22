@@ -59,6 +59,8 @@ Emacspeak --- The Complete Audio Desktop
 
 @enumerate
 @item
+@uref{https://www.drdobbs.com:443/user-interface-a-means-to-an-end/184410453, User Interface is a means to an end}.
+@item
 Open Source is essential  for discovering new interaction paradigms.
 @item
 This is not mere idealism.  Openness is a key enabler for
@@ -610,6 +612,8 @@ experience of the sentiments he expresses.
 @chapter References
 
 @enumerate
+@item
+@uref{https://www.drdobbs.com:443/user-interface-a-means-to-an-end/184410453, User Interface is a means to an end}.
 @item
 @uref{https://www.gnu.org/s/emacs/, GNU Emacs}
 @item
