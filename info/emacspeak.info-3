@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 18, 2024.
+last updated on July 22, 2024.
 
 
 File: emacspeak.info,  Node: pip,  Next: plain-voices,  Prev: outloud-voices,  Up: Emacspeak Commands And Options
@@ -1022,7 +1022,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.246 URL Templates
 ====================
 
-This section documents a total of 64 URL Templates.
+This section documents a total of 65 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u’.  This command
@@ -1235,7 +1235,10 @@ following steps:
   63. wordnet search
 
      Look up term in WordNet.
-  64. yahoo rssnews
+  64. yahoo finance
+
+     Yahoo Finance Stock News
+  65. yahoo rssnews
 
      News From Yahoo As RSS.
 

@@ -20701,7 +20701,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 64 URL Templates.
+This section documents a total of 65 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -20920,6 +20920,9 @@ Extract body content from Wikipedia link at point
 @item @b{wordnet search}
 
 Look up term in WordNet.
+@item @b{yahoo finance}
+
+Yahoo Finance Stock News
 @item @b{yahoo rssnews}
 
 News  From Yahoo As RSS.
