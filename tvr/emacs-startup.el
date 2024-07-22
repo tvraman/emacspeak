@@ -113,6 +113,7 @@ Use Custom to customize where possible. "
                                         
   (load-theme 'ef-maris-dark t)
   (load-library "aster")
+  (when (featurep 'tex-site) (require 'tex))
   ;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
   (mapc                                 ; not a novice:
