@@ -1,5 +1,5 @@
 * Key Insights 
-  1. [[https://www.drdobbs.com:443/user-interface-a-means-to-an-end/184410453][User Interface is a means to an end]].
+  1. [[https://www.drdobbs.com:443/user-interface-a-means-to-an-end/184410453][User interface is a means to an end]].
   2. Open Source is essential  for discovering new interaction paradigms.
   3. This is not mere idealism.  Openness is a key enabler for
      creating   user journeys that were not  envisioned by a 
