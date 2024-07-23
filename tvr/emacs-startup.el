@@ -110,7 +110,6 @@ Use Custom to customize where possible. "
                outline-mode-prefix-map emacspeak-directory))
   (setenv "PULSE_SINK" "effect_input.spatializer") ; for mplayer
   (unless (battery--upower-devices) (display-battery-mode -1)) ; turnoff
-                                        
   (load-theme 'ef-maris-dark t)
   (load-library "aster")
   (when (featurep 'tex-site) (require 'tex))
@@ -186,10 +185,12 @@ Use Custom to customize where possible. "
     (yas-global-mode 1)
     (diminish 'yas-minor-mode ""))
   (tvr-time-load
-   (tvr-customize)
-   (load "emacspeak-muggles"))
-  (emacspeak-wizards-project-shells-initialize))
-(declare-function battery--upower-devices "battery" nil)
+      (tvr-customize)
+    (load "emacspeak-muggles"))
+  (emacspeak-wizards-project-shells-initialize)
+  (when (featurep  'auctex-autoloads) (load-library "tex-site")))
+  
+  (declare-function battery--upower-devices "battery" nil)
 
 (declare-function
  emacspeak-pronounce-toggle-dictionaries
