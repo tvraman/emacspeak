@@ -12,8 +12,8 @@
      leads to bloat as evinced by the HTML Web.
   6. Having a well-identified  problem when designing a system
      is paramount.
-  7. /Usability/ is important, but to  truly matter, the
-     system needs to be /useful/.
+  7. /Usability/ is important, but to   matter, the
+     system needs to be /useful/ first.
   8. /Ease of use/ by   itself is often /marketing/ hype.
   9. Useful systems are fun to learn and give back more than what you put
      in with respect to time and effort.

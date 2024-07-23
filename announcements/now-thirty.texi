@@ -78,8 +78,8 @@ leads to bloat as evinced by the HTML Web.
 Having a well-identified  problem when designing a system
 is paramount.
 @item
-@emph{Usability} is important, but to  truly matter, the
-system needs to be @emph{useful}.
+@emph{Usability} is important, but to   matter, the
+system needs to be @emph{useful} first.
 @item
 @emph{Ease of use} by   itself is often @emph{marketing} hype.
 @item
