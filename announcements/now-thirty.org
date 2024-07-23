@@ -388,7 +388,7 @@ experience of the sentiments he expresses.
     
 * References
 
-  1. [[https://www.drdobbs.com:443/user-interface-a-means-to-an-end/184410453][User Interface is a means to an end]].
+  1. [[https://www.drdobbs.com:443/user-interface-a-means-to-an-end/184410453][User Interface is a means to an end, DDJ 1997]].
   2. [[https://www.gnu.org/s/emacs/][GNU Emacs]]
   3. [[https://en.wikipedia.org/wiki/TeX][Knuth's TeX]]
   4. [[https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html][Audio System For Technical Readings]]
