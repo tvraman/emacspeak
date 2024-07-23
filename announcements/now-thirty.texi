@@ -660,7 +660,7 @@ experience of the sentiments he expresses.
 @item
 @uref{https://tvraman.github.io/emacspeak/manual/URL-Templates.html, Emacspeak Manual: URL Templates}
 @item
-@uref{http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html, Beautiful Code}   An overview of the Emacspeak architecture.
+@uref{http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html, Beautiful Code}   An overview of the Emacspeak architecture, O'Reilly Media, 2007.
 @item
 @uref{https://www-cs-faculty.stanford.edu/~knuth/taocp.html, The Art Of Computer Programming (TAOCP)}
 @end enumerate
