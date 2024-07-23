@@ -412,7 +412,8 @@ experience of the sentiments he expresses.
   22. [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selectors]]
   23. [[https://research.google/blog/beyond-web-20/?hl=in&m=1][Beyond Web 2.0, Communications Of The ACM, 2009]]
   24. [[https://tvraman.github.io/emacspeak/manual/URL-Templates.html][Emacspeak Manual: URL Templates]]
-  25. [[https://www-cs-faculty.stanford.edu/~knuth/taocp.html][The Art Of Computer Programming (TAOCP)]]
+  25. [[http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html][Beautiful Code]]   An overview of the Emacspeak architecture.
+  26. [[https://www-cs-faculty.stanford.edu/~knuth/taocp.html][The Art Of Computer Programming (TAOCP)]]
   
 #+options: ':t *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
