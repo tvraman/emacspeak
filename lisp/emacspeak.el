@@ -458,7 +458,9 @@ commands and options."
   (setq line-number-mode nil column-number-mode nil)
   (global-visual-line-mode -1)
   (transient-mark-mode -1)
-  (info-initialize)
+  (unless (fboundp 'Info-initialize)
+    (require 'info)
+    (info-initialize))
   (cl-pushnew emacspeak-info-directory Info-directory-list)
   (when emacspeak-wpctl
     (add-to-list
