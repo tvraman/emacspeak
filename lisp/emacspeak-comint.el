@@ -113,7 +113,7 @@ buffer is not current or its window live.")
                        "Toggle  Emacspeak comint monitor.
 Interactive PREFIX arg means toggle the global default value. ")
 
-
+;;;###autoload
 (defun emacspeak-comint-speech-setup ()
   "Speech setup."
   (cl-declare (special
