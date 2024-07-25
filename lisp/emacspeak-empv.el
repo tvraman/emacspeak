@@ -183,7 +183,7 @@
 (defvar emacspeak-empv-history nil
   "Youtube history for EMpv.")
 
-(defvar emacspeak-empv-history-max 16
+(defvar emacspeak-empv-history-max 128
   "Max number of history to preserve.")
 
 ;;;###autoload
