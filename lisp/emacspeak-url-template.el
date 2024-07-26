@@ -544,6 +544,14 @@ c  (cl-declare
      (emacspeak-we-extract-by-id "MainContentContainer" u )))
 
 (flush-lines "^Price Quote Arrow Quote " (point-min) (point-max))
+;;; Seeking Alpha
+
+(emacspeak-url-template-define
+ "Seeking Alpha"
+ "https://seekingalpha.com/symbol/%s"
+ (list "Ticker: ")
+ #'emacspeak-eww-next-h
+ "Stock profile from Seeking Alpha ")
 
 ;;;  cnn
 
