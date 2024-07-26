@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 22, 2024.
+last updated on July 25, 2024.
 
 
 File: emacspeak.info,  Node: pip,  Next: plain-voices,  Prev: outloud-voices,  Up: Emacspeak Commands And Options
@@ -922,7 +922,7 @@ defining face->personality mappings.  For use from other modules.
      if ARG is a negative number.
 
      To check whether the minor mode is enabled in the current buffer,
-     evaluate the variable ‘voice-lock-mode’.
+     evaluate ‘voice-lock-mode’.
 
      The mode’s hook is called both when the mode is enabled and when it is
      disabled.
@@ -1022,7 +1022,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.246 URL Templates
 ====================
 
-This section documents a total of 65 URL Templates.
+This section documents a total of 66 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u’.  This command
@@ -1203,42 +1203,45 @@ following steps:
   53. reddit search
 
      Reddit Search Results Feed.
-  54. sourceforge browse mirrors
+  54. seeking alpha
+
+     Stock profile from Seeking Alpha
+  55. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  55. sourceforge download
+  56. sourceforge download
 
      Download specified file.
-  56. sourceforge project
+  57. sourceforge project
 
      Open specified project page at SourceForge.
-  57. tech news from cnet
+  58. tech news from cnet
 
      Display tech news from CNET
-  58. tinyurl
+  59. tinyurl
 
      URL Shortener via tinyurl.  If on a URL, replace it with the
      shortened version.  If on a link in EWW, use it.  Otherwise prompt
      for a URL to shorten and insert the result at point.
-  59. tunein radio
+  60. tunein radio
 
      Translate StreamId to playable stream.
-  60. washington post
+  61. washington post
 
      Washington Post Contents
-  61. wiki data search
+  62. wiki data search
 
      Search WikiData.
-  62. wikipedia at point
+  63. wikipedia at point
 
      Extract body content from Wikipedia link at point
-  63. wordnet search
+  64. wordnet search
 
      Look up term in WordNet.
-  64. yahoo finance
+  65. yahoo finance
 
      Yahoo Finance Stock News
-  65. yahoo rssnews
+  66. yahoo rssnews
 
      News From Yahoo As RSS.
 

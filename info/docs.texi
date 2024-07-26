@@ -20584,7 +20584,7 @@ mode if ARG is nil, omitted, or is a positive number.  Disable the mode
 if ARG is a negative number.
 
 To check whether the minor mode is enabled in the current buffer,
-evaluate the variable ‘voice-lock-mode’.
+evaluate ‘voice-lock-mode’.
 
 The mode’s hook is called both when the mode is enabled and when it is
 disabled.
@@ -20701,7 +20701,7 @@ White screen.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 65 URL Templates.
+This section documents a total of 66 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -20887,6 +20887,9 @@ Open  Feed for Reddit  Front Page.
 @item @b{reddit search}
 
 Reddit Search Results Feed.
+@item @b{seeking alpha}
+
+Stock profile from Seeking Alpha 
 @item @b{sourceforge browse mirrors}
 
 Retrieve download page at Sourceforge for specified project.
