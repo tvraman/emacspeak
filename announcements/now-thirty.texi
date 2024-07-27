@@ -17,8 +17,6 @@
 @author T.V Raman
 @end titlepage
 
-@contents
-
 @ifnottex
 @node Top
 @top Emacspeak:  A Speech Odyssey
