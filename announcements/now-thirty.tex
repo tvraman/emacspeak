@@ -1,4 +1,4 @@
-% Created 2024-07-26 Fri 19:12
+% Created 2024-07-26 Fri 20:19
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -13,9 +13,7 @@
 \usepackage{capt-of}
 \usepackage{hyperref}
 \usepackage[scaled]{helvet} \renewcommand\familydefault{\sfdefault}
-\newcommand{\aster}%
-{A\kern-.1667em\lower.5ex\hbox{S}%%
-\kern-.175em{T}\kern-.1667em\lower.5ex\hbox{E}\kern-.175em R}%
+\input{.aster.tex}
 \author{T.V Raman}
 \date{Thursday, August 1, 2024}
 \title{Emacspeak:  A Speech Odyssey}
@@ -32,7 +30,7 @@
 \tableofcontents
 
 \section{Key Insights}
-\label{sec:org8ea71f2}
+\label{sec:org81f327b}
 \begin{enumerate}
 \item \href{https://www.drdobbs.com:443/user-interface-a-means-to-an-end/184410453}{User interface is a means to an end}.
 \item Open Source is essential  for discovering new interaction paradigms.
@@ -41,7 +39,7 @@ creating   user journeys that were not  envisioned by a
 system's designers.
 \item \href{https://www.gnu.org/s/emacs/}{Emacs} and  \href{https://en.wikipedia.org/wiki/TeX}{\TeX{}}    are good exemplars. They  permit maximal freedom
  when seen from the viewpoint of user extensibility and
-creativity. \TeX{} enabled \href{https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio\_21.html}{Audio System For Technical Readings (\aster)}; Emacs enabled \href{https://emacspeak.sourceforge.net}{Emacspeak}.
+creativity. \TeX{} enabled \href{https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio\_21.html}{Audio System For Technical Readings (AsTeR)}; Emacs enabled \href{https://emacspeak.sourceforge.net}{Emacspeak}.
 \item Rapid, reliable task completion is the most important metric and
 trumps secondary items such as eye-candy --- the latter only
 leads to bloat as evinced by the HTML Web.
@@ -57,7 +55,7 @@ can be fun to learn and  gets you farther faster.
 \item True empowerment: Ensure that the user grows continuously.
 \end{enumerate}
 \section{Emacspeak --- The Complete Audio Desktop}
-\label{sec:orgbd1ef89}
+\label{sec:orge5e354a}
 
 \begin{enumerate}
 \item Emacspeak, started in September 1994, was released as Open
@@ -103,7 +101,7 @@ available  on --- a classic downward spiral.
 
 Share And Enjoy --- \href{https://tvraman.github.io/emacspeak/web/01-gemini.ogg}{The Best Is Yet To Come}!
 \subsection{How To Read This Document}
-\label{sec:org33094af}
+\label{sec:org2cefb9e}
 
 \begin{enumerate}
 \item I recommend reading the \emph{Turning Twenty} paper to get a full overview.
@@ -113,7 +111,7 @@ how things have evolved.
 \item Make sure to skim or deep-dive into the references in both papers.
 \end{enumerate}
 \section{Using UNIX With Speech Output —  2024}
-\label{sec:org3c31673}
+\label{sec:org5f6012e}
 
 \begin{enumerate}
 \item In 2024 \emph{UNIX} equates mostly to various Linux distributions, and from
@@ -133,7 +131,7 @@ through a \emph{mainstream} Web browser, Emacspeak users access
 sections of this paper on  the continuing evolution of the Web.
 \end{enumerate}
 \section{Key Enabler — Emacs And Lisp Advice}
-\label{sec:org2d2dd26}
+\label{sec:org9363e13}
 
 \begin{enumerate}
 \item Advice in Emacs as implemented in \texttt{advice} is rock-solid.
@@ -149,7 +147,7 @@ Emacspeak if that becomes necessary. This is a feature of Free Software and is a
 example of what that \emph{Freedom} entails.
 \end{enumerate}
 \section{Key Component —  Text To Speech (TTS)}
-\label{sec:org42d66f5}
+\label{sec:org8aca920}
 
 \begin{enumerate}
 \item Speech output --- especially unencumbered text-to-speech --- is just
@@ -181,7 +179,7 @@ Models (LLMs).
 supported by the new SwiftMac server for Emacspeak.
 \end{enumerate}
 \section{Emacspeak And Software Development}
-\label{sec:org3432c87}
+\label{sec:orgd73a8b6}
 
 \begin{enumerate}
 \item \emph{Magit}  as a Git porcelain is perhaps the biggest leap forward
@@ -216,13 +214,13 @@ supported in Emacspeak.
 tool has once again made Lisp development using Emacs \texttt{Slime} a
 productive experience.
 \item In 2022, I updated \href{https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio\_21.html}{Audio System For Technical
-Readings (\aster)}--- my PhD project from 1993 --- to run under \texttt{SBCL}
+Readings (AsTeR)}--- my PhD project from 1993 --- to run under \texttt{SBCL}
 with a freshly implemented Emacs front-end.
 \item So now I can listen to Math content just as well as I could 30
 years ago!
 \end{enumerate}
 \section{Emacspeak And Authoring Documents}
-\label{sec:org6373d04}
+\label{sec:orgc910156}
 
 \begin{enumerate}
 \item Package \texttt{org} is to authoring as \texttt{magit} is to
@@ -241,7 +239,7 @@ taking} with hyperlinks to relevant portions of an audio stream
 --- see article \href{https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html}{Learn Smarter By Taking Rich Hypertext Notes}.
 \end{enumerate}
 \section{Emacspeak  And The Web In 2024}
-\label{sec:org32d8705}
+\label{sec:org8608813}
 
 
 \begin{enumerate}
@@ -292,7 +290,7 @@ rebel and innovations emerge  to move us to the next phase --- so
 fingers crossed.
 \end{enumerate}
 \section{Audio Formatting —  Generalizing Aural CSS}
-\label{sec:org2db0713}
+\label{sec:orgbc1247b}
 
 \begin{enumerate}
 \item Audio formatting with Aural CSS support is stable, with new
@@ -307,7 +305,7 @@ pleasant and relaxing auditory environment.
 spatial audio significantly enhances the auditory experience.
 \end{enumerate}
 \section{Conversational Gestures For The Audio Desktop}
-\label{sec:orgf69a0e5}
+\label{sec:org95432b2}
 
 \begin{enumerate}
 \item Parallel streams of audio, combined with more ergonomic
@@ -318,7 +316,7 @@ stream on the left or right ear  help increase the band-width of communication.
 primary speech output.
 \end{enumerate}
 \section{Accessing Media Streams}
-\label{sec:orgf10058d}
+\label{sec:org2abf301}
 
 
 \begin{enumerate}
@@ -335,7 +333,7 @@ article titled
 \href{https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html}{smart media selectors}.
 \end{enumerate}
 \section{Electronic Books—   Ubiquitous Access To Books}
-\label{sec:org3fc585a}
+\label{sec:org2f32488}
 
 \begin{enumerate}
 \item Emacspeak modules  for \emph{Epub} and 
@@ -346,7 +344,7 @@ media content.
 local electronic libraries.
 \end{enumerate}
 \section{Leveraging Computational Tools —  From SQL And R To IPython Notebooks}
-\label{sec:orgda84847}
+\label{sec:org0353173}
 
 \begin{enumerate}
 \item This area continues to provide a rich collection of  packages.
@@ -355,7 +353,7 @@ local electronic libraries.
 with local and network LLMs.
 \end{enumerate}
 \section{Social Web  — Mail, Messaging And Blogging}
-\label{sec:org04ebc14}
+\label{sec:orgdc568b3}
 
 \begin{enumerate}
 \item This is a space that is definitely regressing.
@@ -382,7 +380,7 @@ the only usable chat service on an open platform like Emacspeak
 is the venerable  Internet Relay Chat (IRC).
 \end{enumerate}
 \section{The RESTful Web —  Web Wizards And URL Templates For Faster Access}
-\label{sec:orgb8ac664}
+\label{sec:orgaf444e5}
 
 \begin{enumerate}
 \item This area continues to thrive --- either because of --- or
@@ -396,7 +394,7 @@ wizards. See the relevant \href{https://tvraman.github.io/emacspeak/manual/URL-T
 automatically updated list of \textbf{URL Templates}.
 \end{enumerate}
 \section{Mashing It Up —  Leveraging  AI And The Web}
-\label{sec:org5215ef6}
+\label{sec:org32b1d32}
 
 \begin{enumerate}
 \item Developing solutions by combining various API-based services on
@@ -419,7 +417,7 @@ have an order of magnitude more documents than the \emph{2\textsuperscript{W}} p
 Of The ACM, 2009}.
 \end{enumerate}
 \section{The Final Word --- Donald E Knuth (DEK)}
-\label{sec:org9c590f4}
+\label{sec:org0514992}
 
 \begin{itemize}
 \item The best theory is inspired by practice. The best practice is
@@ -446,7 +444,7 @@ experience of the sentiments he expresses.
 
 --T. V. Raman,  San Jose, CA, August 1, 2024.
 \section{References}
-\label{sec:orgbdb8b2e}
+\label{sec:org40f39be}
 
 \begin{enumerate}
 \item \href{https://www.drdobbs.com:443/user-interface-a-means-to-an-end/184410453}{User Interface is a means to an end, DDJ 1997}.
