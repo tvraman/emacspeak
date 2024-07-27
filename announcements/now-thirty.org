@@ -431,5 +431,5 @@ experience of the sentiments he expresses.
 #+creator: Emacs 31.0.50 (Org mode 9.7.6)
 #+date: Thursday, August 1, 2024
 #+latex_header: \usepackage[scaled]{helvet} \renewcommand\familydefault{\sfdefault}
-#+latex_header: \input{.aster.tex}
-#+cite_export:
+#+latex_header: \input{.aster.tex}%
+
