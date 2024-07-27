@@ -237,7 +237,7 @@ File: now-thirty.info,  Node: Emacspeak And Software Development,  Next: Emacspe
      strategies.
 
   5. The ability to introspect code via ‘eglot’ turn Emacs into a
-     powerful and meaningful IDE -- I say meaningful because this bring
+     powerful and meaningful IDE -- I say meaningful because this brings
      the best features of an integrated development environment while
      leaving behind the eye-candy that tends to bloat commercial IDEs.
   6. Packages like _transient_ enable discoverable, rapid keyboard
@@ -443,7 +443,7 @@ File: now-thirty.info,  Node: Social Web — Mail Messaging And Blogging,  Next:
      setup and host their email -- witness the complexity in setting up
      the Emacspeak mailing list in 2023 vs 1993!
   9. This is an area that is likely to get worse before it gets better,
-     thanks to the spammers -- more the pity, since Internet Email is
+     thanks to the spammers -- more's the pity, since Internet Email is
      perhaps the single-most impactful technology with respect to
      leveling the communications playing field.
   10. The disappearance of APIs mentioned above also means that today
@@ -578,18 +578,18 @@ Node: Using UNIX With Speech Output — 20246733
 Node: Key Enabler — Emacs And Lisp Advice7896
 Node: Key Component — Text To Speech (TTS)8754
 Node: Emacspeak And Software Development10679
-Node: Emacspeak And Authoring Documents13317
-Node: Emacspeak And The Web In 202414566
-Node: Audio Formatting — Generalizing Aural CSS17487
-Node: Conversational Gestures For The Audio Desktop18502
-Node: Accessing Media Streams19145
-Node: Electronic Books— Ubiquitous Access To Books20050
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20631
-Node: Social Web — Mail Messaging And Blogging21264
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22949
-Node: Mashing It Up — Leveraging AI And The Web23837
-Node: The Final Word --- Donald E Knuth (DEK)25082
-Node: References26457
+Node: Emacspeak And Authoring Documents13318
+Node: Emacspeak And The Web In 202414567
+Node: Audio Formatting — Generalizing Aural CSS17488
+Node: Conversational Gestures For The Audio Desktop18503
+Node: Accessing Media Streams19146
+Node: Electronic Books— Ubiquitous Access To Books20051
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20632
+Node: Social Web — Mail Messaging And Blogging21265
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22952
+Node: Mashing It Up — Leveraging AI And The Web23840
+Node: The Final Word --- Donald E Knuth (DEK)25085
+Node: References26460
 
 End Tag Table
 

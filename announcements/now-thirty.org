@@ -151,7 +151,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
   
   5. The ability to introspect code via  ~eglot~ 
       turn Emacs into a powerful and meaningful IDE ---  I say
-     meaningful because this bring the best features of an integrated
+     meaningful because this brings the best features of an integrated
      development environment while leaving behind the eye-candy that
      tends to bloat commercial IDEs.
   6. Packages like /transient/  enable discoverable, rapid keyboard access to
@@ -320,7 +320,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      to setup and  host their email ---  witness the complexity in setting
      up the Emacspeak mailing list in 2023 vs 1993!
   9. This is an area that is  likely to get worse before it gets
-     better,  thanks to the spammers  --- more the pity, since Internet Email is perhaps the
+     better,  thanks to the spammers  --- more's  the pity, since Internet Email is perhaps the
      single-most impactful technology with respect to leveling the
      communications playing field.
   10. The disappearance of APIs mentioned above also means that today
