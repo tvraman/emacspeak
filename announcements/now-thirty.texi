@@ -25,6 +25,7 @@
 @end ifnottex
 
 @menu
+* Dedication To My Guiding Eyes::
 * Key Insights::
 * Emacspeak --- The Complete Audio Desktop::
 * Using UNIX With Speech Output —  2024: Using UNIX With Speech Output — 2024. 
@@ -53,6 +54,9 @@ Emacspeak --- The Complete Audio Desktop
 
 @end detailmenu
 @end menu
+
+@node Dedication To My Guiding Eyes
+@chapter Dedication: To My Guiding Eyes
 
 @node Key Insights
 @chapter Key Insights

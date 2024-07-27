@@ -7,13 +7,14 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: now-thirty.info,  Node: Top,  Next: Key Insights,  Up: (dir)
+File: now-thirty.info,  Node: Top,  Next: Dedication To My Guiding Eyes,  Up: (dir)
 
 Emacspeak: A Speech Odyssey
 ***************************
 
 * Menu:
 
+* Dedication To My Guiding Eyes::
 * Key Insights::
 * Emacspeak --- The Complete Audio Desktop::
 * Using UNIX With Speech Output —  2024: Using UNIX With Speech Output — 2024.
@@ -41,9 +42,15 @@ Emacspeak -- The Complete Audio Desktop
 
 
 
-File: now-thirty.info,  Node: Key Insights,  Next: Emacspeak --- The Complete Audio Desktop,  Prev: Top,  Up: Top
+File: now-thirty.info,  Node: Dedication To My Guiding Eyes,  Next: Key Insights,  Prev: Top,  Up: Top
 
-1 Key Insights
+1 Dedication: To My Guiding Eyes
+********************************
+
+
+File: now-thirty.info,  Node: Key Insights,  Next: Emacspeak --- The Complete Audio Desktop,  Prev: Dedication To My Guiding Eyes,  Up: Top
+
+2 Key Insights
 **************
 
   1. User interface is a means to an end
@@ -75,7 +82,7 @@ File: now-thirty.info,  Node: Key Insights,  Next: Emacspeak --- The Complete Au
 
 File: now-thirty.info,  Node: Emacspeak --- The Complete Audio Desktop,  Next: Using UNIX With Speech Output — 2024,  Prev: Key Insights,  Up: Top
 
-2 Emacspeak -- The Complete Audio Desktop
+3 Emacspeak -- The Complete Audio Desktop
 *****************************************
 
   1. Emacspeak, started in September 1994, was released as Open Source
@@ -133,7 +140,7 @@ File: now-thirty.info,  Node: Emacspeak --- The Complete Audio Desktop,  Next: U
 
 File: now-thirty.info,  Node: How To Read This Document,  Up: Emacspeak --- The Complete Audio Desktop
 
-2.1 How To Read This Document
+3.1 How To Read This Document
 =============================
 
   1. I recommend reading the _Turning Twenty_ paper to get a full
@@ -146,7 +153,7 @@ File: now-thirty.info,  Node: How To Read This Document,  Up: Emacspeak --- The 
 
 File: now-thirty.info,  Node: Using UNIX With Speech Output — 2024,  Next: Key Enabler — Emacs And Lisp Advice,  Prev: Emacspeak --- The Complete Audio Desktop,  Up: Top
 
-3 Using UNIX With Speech Output — 2024
+4 Using UNIX With Speech Output — 2024
 **************************************
 
   1. In 2024 _UNIX_ equates mostly to various Linux distributions, and
@@ -167,7 +174,7 @@ File: now-thirty.info,  Node: Using UNIX With Speech Output — 2024,  Next: Key
 
 File: now-thirty.info,  Node: Key Enabler — Emacs And Lisp Advice,  Next: Key Component — Text To Speech (TTS),  Prev: Using UNIX With Speech Output — 2024,  Up: Top
 
-4 Key Enabler — Emacs And Lisp Advice
+5 Key Enabler — Emacs And Lisp Advice
 *************************************
 
   1. Advice in Emacs as implemented in ‘advice’ is rock-solid.
@@ -185,7 +192,7 @@ File: now-thirty.info,  Node: Key Enabler — Emacs And Lisp Advice,  Next: Key 
 
 File: now-thirty.info,  Node: Key Component — Text To Speech (TTS),  Next: Emacspeak And Software Development,  Prev: Key Enabler — Emacs And Lisp Advice,  Up: Top
 
-5 Key Component — Text To Speech (TTS)
+6 Key Component — Text To Speech (TTS)
 **************************************
 
   1. Speech output -- especially unencumbered text-to-speech -- is just
@@ -222,7 +229,7 @@ File: now-thirty.info,  Node: Key Component — Text To Speech (TTS),  Next: Ema
 
 File: now-thirty.info,  Node: Emacspeak And Software Development,  Next: Emacspeak And Authoring Documents,  Prev: Key Component — Text To Speech (TTS),  Up: Top
 
-6 Emacspeak And Software Development
+7 Emacspeak And Software Development
 ************************************
 
   1. _Magit_ as a Git porcelain is perhaps the biggest leap forward with
@@ -270,7 +277,7 @@ File: now-thirty.info,  Node: Emacspeak And Software Development,  Next: Emacspe
 
 File: now-thirty.info,  Node: Emacspeak And Authoring Documents,  Next: Emacspeak And The Web In 2024,  Prev: Emacspeak And Software Development,  Up: Top
 
-7 Emacspeak And Authoring Documents
+8 Emacspeak And Authoring Documents
 ***********************************
 
   1. Package ‘org’ is to authoring as ‘magit’ is to software development
@@ -293,7 +300,7 @@ File: now-thirty.info,  Node: Emacspeak And Authoring Documents,  Next: Emacspea
 
 File: now-thirty.info,  Node: Emacspeak And The Web In 2024,  Next: Audio Formatting — Generalizing Aural CSS,  Prev: Emacspeak And Authoring Documents,  Up: Top
 
-8 Emacspeak And The Web In 2024
+9 Emacspeak And The Web In 2024
 *******************************
 
   1. Package ‘shr’ and ‘eww’ arrived around 2014.  But in 2024, they can
@@ -346,8 +353,8 @@ File: now-thirty.info,  Node: Emacspeak And The Web In 2024,  Next: Audio Format
 
 File: now-thirty.info,  Node: Audio Formatting — Generalizing Aural CSS,  Next: Conversational Gestures For The Audio Desktop,  Prev: Emacspeak And The Web In 2024,  Up: Top
 
-9 Audio Formatting — Generalizing Aural CSS
-*******************************************
+10 Audio Formatting — Generalizing Aural CSS
+********************************************
 
   1. Audio formatting with Aural CSS support is stable, with new
      enhancements supporting more TTS engines.
@@ -366,7 +373,7 @@ File: now-thirty.info,  Node: Audio Formatting — Generalizing Aural CSS,  Next
 
 File: now-thirty.info,  Node: Conversational Gestures For The Audio Desktop,  Next: Accessing Media Streams,  Prev: Audio Formatting — Generalizing Aural CSS,  Up: Top
 
-10 Conversational Gestures For The Audio Desktop
+11 Conversational Gestures For The Audio Desktop
 ************************************************
 
   1. Parallel streams of audio, combined with more ergonomic keybindings
@@ -380,7 +387,7 @@ File: now-thirty.info,  Node: Conversational Gestures For The Audio Desktop,  Ne
 
 File: now-thirty.info,  Node: Accessing Media Streams,  Next: Electronic Books— Ubiquitous Access To Books,  Prev: Conversational Gestures For The Audio Desktop,  Up: Top
 
-11 Accessing Media Streams
+12 Accessing Media Streams
 **************************
 
   1. Emacspeak support for rich multimedia is now much more robust.
@@ -398,7 +405,7 @@ File: now-thirty.info,  Node: Accessing Media Streams,  Next: Electronic Books�
 
 File: now-thirty.info,  Node: Electronic Books— Ubiquitous Access To Books,  Next: Leveraging Computational Tools — From SQL And R To IPython Notebooks,  Prev: Accessing Media Streams,  Up: Top
 
-12 Electronic Books— Ubiquitous Access To Books
+13 Electronic Books— Ubiquitous Access To Books
 ***********************************************
 
   1. Emacspeak modules for _Epub_ and _Bookshare_ continue to provide
@@ -411,7 +418,7 @@ File: now-thirty.info,  Node: Electronic Books— Ubiquitous Access To Books,  N
 
 File: now-thirty.info,  Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks,  Next: Social Web — Mail Messaging And Blogging,  Prev: Electronic Books— Ubiquitous Access To Books,  Up: Top
 
-13 Leveraging Computational Tools — From SQL And R To IPython Notebooks
+14 Leveraging Computational Tools — From SQL And R To IPython Notebooks
 ***********************************************************************
 
   1. This area continues to provide a rich collection of packages.
@@ -423,7 +430,7 @@ File: now-thirty.info,  Node: Leveraging Computational Tools — From SQL And R 
 
 File: now-thirty.info,  Node: Social Web — Mail Messaging And Blogging,  Next: The RESTful Web — Web Wizards And URL Templates For Faster Access,  Prev: Leveraging Computational Tools — From SQL And R To IPython Notebooks,  Up: Top
 
-14 Social Web — Mail, Messaging And Blogging
+15 Social Web — Mail, Messaging And Blogging
 ********************************************
 
   1. This is a space that is definitely regressing.
@@ -453,7 +460,7 @@ File: now-thirty.info,  Node: Social Web — Mail Messaging And Blogging,  Next:
 
 File: now-thirty.info,  Node: The RESTful Web — Web Wizards And URL Templates For Faster Access,  Next: Mashing It Up — Leveraging AI And The Web,  Prev: Social Web — Mail Messaging And Blogging,  Up: Top
 
-15 The RESTful Web — Web Wizards And URL Templates For Faster Access
+16 The RESTful Web — Web Wizards And URL Templates For Faster Access
 ********************************************************************
 
   1. This area continues to thrive -- either because of -- or despite --
@@ -469,7 +476,7 @@ File: now-thirty.info,  Node: The RESTful Web — Web Wizards And URL Templates 
 
 File: now-thirty.info,  Node: Mashing It Up — Leveraging AI And The Web,  Next: The Final Word --- Donald E Knuth (DEK),  Prev: The RESTful Web — Web Wizards And URL Templates For Faster Access,  Up: Top
 
-16 Mashing It Up — Leveraging AI And The Web
+17 Mashing It Up — Leveraging AI And The Web
 ********************************************
 
   1. Developing solutions by combining various API-based services on the
@@ -491,7 +498,7 @@ File: now-thirty.info,  Node: Mashing It Up — Leveraging AI And The Web,  Next
 
 File: now-thirty.info,  Node: The Final Word --- Donald E Knuth (DEK),  Next: References,  Prev: Mashing It Up — Leveraging AI And The Web,  Up: Top
 
-17 The Final Word -- Donald E Knuth (DEK)
+18 The Final Word -- Donald E Knuth (DEK)
 *****************************************
 
    • The best theory is inspired by practice.  The best practice is
@@ -521,7 +528,7 @@ measure, my own personal experience of the sentiments he expresses.
 
 File: now-thirty.info,  Node: References,  Prev: The Final Word --- Donald E Knuth (DEK),  Up: Top
 
-18 References
+19 References
 *************
 
   1. DDJ 1997.
@@ -571,25 +578,26 @@ File: now-thirty.info,  Node: References,  Prev: The Final Word --- Donald E Knu
 
 Tag Table:
 Node: Top198
-Node: Key Insights1657
-Node: Emacspeak --- The Complete Audio Desktop3293
-Node: How To Read This Document6240
-Node: Using UNIX With Speech Output — 20246733
-Node: Key Enabler — Emacs And Lisp Advice7896
-Node: Key Component — Text To Speech (TTS)8754
-Node: Emacspeak And Software Development10679
-Node: Emacspeak And Authoring Documents13318
-Node: Emacspeak And The Web In 202414567
-Node: Audio Formatting — Generalizing Aural CSS17488
-Node: Conversational Gestures For The Audio Desktop18503
-Node: Accessing Media Streams19146
-Node: Electronic Books— Ubiquitous Access To Books20051
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20632
-Node: Social Web — Mail Messaging And Blogging21265
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access22952
-Node: Mashing It Up — Leveraging AI And The Web23840
-Node: The Final Word --- Donald E Knuth (DEK)25085
-Node: References26460
+Node: Dedication To My Guiding Eyes1708
+Node: Key Insights1881
+Node: Emacspeak --- The Complete Audio Desktop3543
+Node: How To Read This Document6490
+Node: Using UNIX With Speech Output — 20246983
+Node: Key Enabler — Emacs And Lisp Advice8146
+Node: Key Component — Text To Speech (TTS)9004
+Node: Emacspeak And Software Development10929
+Node: Emacspeak And Authoring Documents13568
+Node: Emacspeak And The Web In 202414817
+Node: Audio Formatting — Generalizing Aural CSS17738
+Node: Conversational Gestures For The Audio Desktop18755
+Node: Accessing Media Streams19398
+Node: Electronic Books— Ubiquitous Access To Books20303
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20884
+Node: Social Web — Mail Messaging And Blogging21517
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access23204
+Node: Mashing It Up — Leveraging AI And The Web24092
+Node: The Final Word --- Donald E Knuth (DEK)25337
+Node: References26712
 
 End Tag Table
 
