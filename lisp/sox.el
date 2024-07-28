@@ -461,7 +461,7 @@ and return a suitable effect structure." name)
 (provide 'sox)
 ;;;  Add Emacspeak Support
 
-;; Code here can be factored out to emacspeak-sox.el
+
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 

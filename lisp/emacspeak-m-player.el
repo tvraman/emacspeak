@@ -1949,10 +1949,10 @@ our pre-defined filters if appropriate."
 (defun emacspeak-m-player-write-clip ()
   "Split selected range using SoX"
   (interactive)
-  (cl-declare (special emacspeak-sox emacspeak-m-player-clips
+  (cl-declare (special sox-sox emacspeak-m-player-clips
                        clip-end clip-start))
   (cl-assert
-   emacspeak-sox  nil "SoX needs to be installed to use this command.")
+   sox-sox  nil "SoX needs to be installed to use this command.")
   (cl-assert
    (eq major-mode 'emacspeak-m-player-mode) nil "Not in an MPlayer buffer.")
   (cl-assert (numberp clip-start) nil "Set start of clip with M-[")
@@ -1965,13 +1965,13 @@ our pre-defined filters if appropriate."
           ".wav")))
     (shell-command
      (format "%s '%s' %s  trim %s %s"
-             emacspeak-sox file tmp
+             sox-sox file tmp
              clip-start
              (- clip-end clip-start)))
     (shell-command
      (format
       "%s '%s' '%s/clip-%s-%s-%s'"
-      emacspeak-sox tmp
+      sox-sox tmp
       emacspeak-m-player-clips
       clip-start clip-end file))
     (delete-file tmp)
