@@ -23,7 +23,7 @@
 @end ifnottex
 
 @menu
-* Dedication To My Guiding Eyes::
+* Dedication To My Guiding Eyes Aster, Hubbell and Tilden: Dedication To My Guiding Eyes Aster Hubbell and Tilden. 
 * Key Insights::
 * Emacspeak --- The Complete Audio Desktop::
 * Using UNIX With Speech Output —  2024: Using UNIX With Speech Output — 2024. 
@@ -53,8 +53,8 @@ Emacspeak --- The Complete Audio Desktop
 @end detailmenu
 @end menu
 
-@node Dedication To My Guiding Eyes
-@chapter Dedication: To My Guiding Eyes
+@node Dedication To My Guiding Eyes Aster Hubbell and Tilden
+@chapter Dedication: To My Guiding Eyes Aster, Hubbell and Tilden
 
 @node Key Insights
 @chapter Key Insights

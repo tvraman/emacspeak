@@ -1,4 +1,4 @@
-* Dedication: To My Guiding Eyes
+* Dedication: To My Guiding Eyes Aster, Hubbell and Tilden
 
 #+BEGIN_EXPORT html
 <table>

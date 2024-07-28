@@ -7,14 +7,14 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: now-thirty.info,  Node: Top,  Next: Dedication To My Guiding Eyes,  Up: (dir)
+File: now-thirty.info,  Node: Top,  Next: Dedication To My Guiding Eyes Aster Hubbell and Tilden,  Up: (dir)
 
 Emacspeak: A Speech Odyssey
 ***************************
 
 * Menu:
 
-* Dedication To My Guiding Eyes::
+* Dedication To My Guiding Eyes Aster, Hubbell and Tilden: Dedication To My Guiding Eyes Aster Hubbell and Tilden.
 * Key Insights::
 * Emacspeak --- The Complete Audio Desktop::
 * Using UNIX With Speech Output —  2024: Using UNIX With Speech Output — 2024.
@@ -42,13 +42,13 @@ Emacspeak -- The Complete Audio Desktop
 
 
 
-File: now-thirty.info,  Node: Dedication To My Guiding Eyes,  Next: Key Insights,  Prev: Top,  Up: Top
+File: now-thirty.info,  Node: Dedication To My Guiding Eyes Aster Hubbell and Tilden,  Next: Key Insights,  Prev: Top,  Up: Top
 
-1 Dedication: To My Guiding Eyes
-********************************
+1 Dedication: To My Guiding Eyes Aster, Hubbell and Tilden
+**********************************************************
 
 
-File: now-thirty.info,  Node: Key Insights,  Next: Emacspeak --- The Complete Audio Desktop,  Prev: Dedication To My Guiding Eyes,  Up: Top
+File: now-thirty.info,  Node: Key Insights,  Next: Emacspeak --- The Complete Audio Desktop,  Prev: Dedication To My Guiding Eyes Aster Hubbell and Tilden,  Up: Top
 
 2 Key Insights
 **************
@@ -578,26 +578,26 @@ File: now-thirty.info,  Node: References,  Prev: The Final Word --- Donald E Knu
 
 Tag Table:
 Node: Top198
-Node: Dedication To My Guiding Eyes1708
-Node: Key Insights1881
-Node: Emacspeak --- The Complete Audio Desktop3543
-Node: How To Read This Document6490
-Node: Using UNIX With Speech Output — 20246983
-Node: Key Enabler — Emacs And Lisp Advice8146
-Node: Key Component — Text To Speech (TTS)9004
-Node: Emacspeak And Software Development10929
-Node: Emacspeak And Authoring Documents13568
-Node: Emacspeak And The Web In 202414817
-Node: Audio Formatting — Generalizing Aural CSS17738
-Node: Conversational Gestures For The Audio Desktop18755
-Node: Accessing Media Streams19398
-Node: Electronic Books— Ubiquitous Access To Books20303
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks20884
-Node: Social Web — Mail Messaging And Blogging21517
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access23204
-Node: Mashing It Up — Leveraging AI And The Web24092
-Node: The Final Word --- Donald E Knuth (DEK)25337
-Node: References26712
+Node: Dedication To My Guiding Eyes Aster Hubbell and Tilden1814
+Node: Key Insights2064
+Node: Emacspeak --- The Complete Audio Desktop3751
+Node: How To Read This Document6698
+Node: Using UNIX With Speech Output — 20247191
+Node: Key Enabler — Emacs And Lisp Advice8354
+Node: Key Component — Text To Speech (TTS)9212
+Node: Emacspeak And Software Development11137
+Node: Emacspeak And Authoring Documents13776
+Node: Emacspeak And The Web In 202415025
+Node: Audio Formatting — Generalizing Aural CSS17946
+Node: Conversational Gestures For The Audio Desktop18963
+Node: Accessing Media Streams19606
+Node: Electronic Books— Ubiquitous Access To Books20511
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks21092
+Node: Social Web — Mail Messaging And Blogging21725
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access23412
+Node: Mashing It Up — Leveraging AI And The Web24300
+Node: The Final Word --- Donald E Knuth (DEK)25545
+Node: References26920
 
 End Tag Table
 
