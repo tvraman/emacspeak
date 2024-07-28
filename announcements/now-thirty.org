@@ -75,7 +75,7 @@
       arrival of mobile devices and mainstream speech interfaces would
       herald the move to a Web of information where there would be a
       clean separation between application back-ends and various
-      client-specific front-ends. See [[https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/][Specialized Browsers]] and [[http://www.cs.washington.edu/htbin-post/mvis/mvis?ID=636][The
+      client-specific front-ends. See [[https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/][Specialized Browsers]] and [[https://youtube.com/watch?v=TZKwvBkS5cs][The
       Web, The Way You Want.  Distinguished Lecture Series, UW Oct 2007]].
   11. The above still makes sense from the view of  /scalable/ software architecture. However the rapid growth of the Web economy has also
       resulted in an even faster race to the bottom where applications
