@@ -380,7 +380,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
   4.  Notice that we are now back to the previously unsolved problem
      of cleaning up the  HTML Web --- with LLMs, we'll just
      have an order of magnitude more documents than the /2^W/ postulated
-      by  [[https://research.google/blog/beyond-web-20/?hl=in&m=1][Beyond Web 2.0, Communications
+      by  [[https://emacspeak.sourceforge.net/raman/publications/beyond-web20-cacm-2009/][Beyond Web 2.0, Communications
      Of The ACM, 2009]].
      
      
@@ -433,7 +433,7 @@ experience of the sentiments he expresses.
   20. [[https://idlewords.com/talks/website_obesity.htm][Tag Soup, Scripts And Obfuscation: How The Web Was Broken]]
   21. [[https://github.com/eafer/rdrview][Readable Web Pages: RDRView]]
   22. [[https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html][smart media selectors]]
-  23. [[https://research.google/blog/beyond-web-20/?hl=in&m=1][Beyond Web 2.0, Communications Of The ACM, 2009]]
+  23. [[https://emacspeak.sourceforge.net/raman/publications/beyond-web20-cacm-2009/][Beyond Web 2.0, Communications Of The ACM, 2009]]
   24. [[https://tvraman.github.io/emacspeak/manual/URL-Templates.html][Emacspeak Manual: URL Templates]]
   25. [[http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html][Beautiful Code]]   An overview of the Emacspeak architecture, O'Reilly Media, 2007.
   26. [[https://www-cs-faculty.stanford.edu/~knuth/taocp.html][The Art Of Computer Programming (TAOCP)]]

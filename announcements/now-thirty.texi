@@ -573,7 +573,7 @@ handle on cleaning up  Web content.
 Notice that we are now back to the previously unsolved problem
 of cleaning up the  HTML Web --- with LLMs, we'll just
 have an order of magnitude more documents than the @emph{2@math{^W}} postulated
- by  @uref{https://research.google/blog/beyond-web-20/?hl=in&m=1, Beyond Web 2.0, Communications
+ by  @uref{https://emacspeak.sourceforge.net/raman/publications/beyond-web20-cacm-2009/, Beyond Web 2.0, Communications
 Of The ACM, 2009}.
 @end enumerate
 
@@ -658,7 +658,7 @@ experience of the sentiments he expresses.
 @item
 @uref{https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html, smart media selectors}
 @item
-@uref{https://research.google/blog/beyond-web-20/?hl=in&m=1, Beyond Web 2.0, Communications Of The ACM, 2009}
+@uref{https://emacspeak.sourceforge.net/raman/publications/beyond-web20-cacm-2009/, Beyond Web 2.0, Communications Of The ACM, 2009}
 @item
 @uref{https://tvraman.github.io/emacspeak/manual/URL-Templates.html, Emacspeak Manual: URL Templates}
 @item
