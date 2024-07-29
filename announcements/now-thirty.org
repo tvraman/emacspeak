@@ -3,17 +3,17 @@
 #+BEGIN_EXPORT html
 <table>
         <tr>
-          <td><a href="https://emacspeak.sf.net/raman/aster-labrador/">
-	        <img src="https://emacspeak.sf.net/raman/aster-labrador/aster-geb-graduation.jpg"
+          <td><a href="https://emacspeak.sourceforge.net/raman/aster-labrador/">
+	        <img src="https://emacspeak.sourceforge.net/raman/aster-labrador/aster-geb-graduation.jpg"
 	             alt="Aster Labrador" width="150" height="216" /></a>
  <br/>(2/15/1987—12/05/1999)</td>
-            <td><a href="https://emacspeak.sf.net/raman/hubbell-labrador/">
+            <td><a href="https://emacspeak.sourceforge.net/raman/hubbell-labrador/">
 	          <img
-	              src="https://emacspeak.sf.net/raman/hubbell-labrador/hubbell-and-raman.jpg" width="150" height="216"
+	              src="https://emacspeak.sourceforge.net/raman/hubbell-labrador/hubbell-and-raman.jpg" width="150" height="216"
 	              alt=" Hubbell Labrador" /></a>
 <br/>(12/21/1997—4/11/2011)</td>
-              <td><a href="https://emacspeak.sf.net/raman/tilden-labrador/">
-	            <img src="https://emacspeak.sf.net/raman/tilden-labrador/raman-and-tilden-geb.jpg"
+              <td><a href="https://emacspeak.sourceforge.net/raman/tilden-labrador/">
+	            <img src="https://emacspeak.sourceforge.net/raman/tilden-labrador/raman-and-tilden-geb.jpg"
 	                 alt="Tilden Labrador" width="150"
                          height="216" /></a>
 <br/>(8/4/2009—9/3/2022)</td>
