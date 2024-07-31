@@ -173,7 +173,7 @@ Share And Enjoy --- [[https://tvraman.github.io/emacspeak/web/01-gemini.ogg][The
      explains the higher-level concept  involved in defining such strategies.
   
   5. The ability to introspect code via  ~eglot~ 
-      turn Emacs into a powerful and meaningful IDE ---  I say
+      turns Emacs into a powerful and meaningful IDE ---  I say
      meaningful because this brings the best features of an integrated
      development environment while leaving behind the eye-candy that
      tends to bloat commercial IDEs.

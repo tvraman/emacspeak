@@ -243,7 +243,7 @@ File: now-thirty.info,  Node: Emacspeak And Software Development,  Next: Emacspe
      explains the higher-level concept involved in defining such
      strategies.
 
-  5. The ability to introspect code via ‘eglot’ turn Emacs into a
+  5. The ability to introspect code via ‘eglot’ turns Emacs into a
      powerful and meaningful IDE -- I say meaningful because this brings
      the best features of an integrated development environment while
      leaving behind the eye-candy that tends to bloat commercial IDEs.
@@ -586,18 +586,18 @@ Node: Using UNIX With Speech Output — 20247191
 Node: Key Enabler — Emacs And Lisp Advice8354
 Node: Key Component — Text To Speech (TTS)9212
 Node: Emacspeak And Software Development11137
-Node: Emacspeak And Authoring Documents13776
-Node: Emacspeak And The Web In 202415025
-Node: Audio Formatting — Generalizing Aural CSS17946
-Node: Conversational Gestures For The Audio Desktop18963
-Node: Accessing Media Streams19606
-Node: Electronic Books— Ubiquitous Access To Books20511
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks21092
-Node: Social Web — Mail Messaging And Blogging21725
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access23412
-Node: Mashing It Up — Leveraging AI And The Web24300
-Node: The Final Word --- Donald E Knuth (DEK)25545
-Node: References26920
+Node: Emacspeak And Authoring Documents13777
+Node: Emacspeak And The Web In 202415026
+Node: Audio Formatting — Generalizing Aural CSS17947
+Node: Conversational Gestures For The Audio Desktop18964
+Node: Accessing Media Streams19607
+Node: Electronic Books— Ubiquitous Access To Books20512
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks21093
+Node: Social Web — Mail Messaging And Blogging21726
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access23413
+Node: Mashing It Up — Leveraging AI And The Web24301
+Node: The Final Word --- Donald E Knuth (DEK)25546
+Node: References26921
 
 End Tag Table
 
