@@ -35,6 +35,852 @@
   </openSearch:startIndex>
   <openSearch:itemsPerPage>1000
   </openSearch:itemsPerPage>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-4550726435355235575</id><published>
+      2024-07-31T13:25:00.000-07:00
+    </published>
+    <updated>2024-07-31T13:25:53.073-07:00</updated><title type='text'>
+      Emacspeak --- A Speech Odyssey
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;
+      class=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Emacspeak:  A Speech
+      Odyssey&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-org832b9d2&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org832b9d2&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1.&lt;/span&gt; Dedication: To
+      My Guiding Eyes Aster, Hubbell and Tilden&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;table&gt;
+      &lt;tr&gt;
+      &lt;td&gt;&lt;a
+      
+      href=&quot;https://emacspeak.sourceforge.net/raman/aster-labrador/&quot;&gt;
+      &lt;img
+      
+      src=&quot;https://emacspeak.sourceforge.net/raman/aster-labrador/aster-geb-graduation.jpg&quot;
+      alt=&quot;Aster Labrador&quot; width=&quot;150&quot;
+      height=&quot;216&quot; /&gt;&lt;/a&gt;
+      &lt;br/&gt;(2/15/1987—12/05/1999)&lt;/td&gt;
+      &lt;td&gt;&lt;a
+      
+      href=&quot;https://emacspeak.sourceforge.net/raman/hubbell-labrador/&quot;&gt;
+      &lt;img
+      
+      src=&quot;https://emacspeak.sourceforge.net/raman/hubbell-labrador/hubbell-and-raman.jpg&quot; width=&quot;150&quot; height=&quot;216&quot;
+      alt=&quot; Hubbell Labrador&quot; /&gt;&lt;/a&gt;
+      &lt;br/&gt;(12/21/1997—4/11/2011)&lt;/td&gt;
+      &lt;td&gt;&lt;a
+      
+      href=&quot;https://emacspeak.sourceforge.net/raman/tilden-labrador/&quot;&gt;
+      &lt;img
+      
+      src=&quot;https://emacspeak.sourceforge.net/raman/tilden-labrador/raman-and-tilden-geb.jpg&quot;
+      alt=&quot;Tilden Labrador&quot; width=&quot;150&quot;
+      height=&quot;216&quot; /&gt;&lt;/a&gt;
+      &lt;br/&gt;(8/4/2009—9/3/2022)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;/table&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-orga52fe1d&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orga52fe1d&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2.&lt;/span&gt; Key
+      Insights&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://www.drdobbs.com/user-interface-a-means-to-an-end/184410453&quot;&gt;User interface is a means to an end&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;Open Source is essential  for discovering new interaction
+      paradigms.&lt;/li&gt;
+      &lt;li&gt;This is not mere idealism.  Openness is a key enabler for
+      creating   user journeys that were not  envisioned by a 
+      system&amp;rsquo;s designers.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      href=&quot;https://www.gnu.org/s/emacs/&quot;&gt;Emacs&lt;/a&gt; and
+       &lt;a
+      href=&quot;https://en.wikipedia.org/wiki/TeX&quot;&gt;TeX&lt;/a&gt; 
+        are good exemplars. They  permit maximal freedom
+      when seen from the viewpoint of user extensibility and
+      creativity. TeX enabled &lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html&quot;&gt;Audio System For Technical Readings (AsTeR)&lt;/a&gt;; Emacs enabled &lt;a href=&quot;https://emacspeak.sourceforge.net&quot;&gt;Emacspeak&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;Rapid, reliable task completion is the most important
+      metric and
+      trumps secondary items such as eye-candy &amp;#x2014; the latter
+      onlyleads to bloat as evinced by the HTML Web.&lt;/li&gt;
+      &lt;li&gt;Having a well-identified  problem when designing a system
+      is paramount.&lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;Usability&lt;/i&gt; is important, but to  
+      matter, the
+      system needs to be &lt;i&gt;useful&lt;/i&gt; first.&lt;/li&gt;
+      &lt;li&gt;&lt;i&gt;Ease of use&lt;/i&gt; by   itself is often
+      &lt;i&gt;marketing&lt;/i&gt; hype.&lt;/li&gt;
+      &lt;li&gt;Useful systems are fun to learn and give back more than
+      what you put
+      in with respect to time and effort.&lt;/li&gt;
+      &lt;li&gt;A steep learning curve in and of itself is not to be
+      feared &amp;#x2014; it
+      can be fun to learn and  gets you farther faster.&lt;/li&gt;
+      &lt;li&gt;True empowerment: Ensure that the user grows
+      continuously.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-orgc34d282&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgc34d282&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3.&lt;/span&gt; Emacspeak
+      &amp;#x2014; The Complete Audio Desktop&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Emacspeak, started in September 1994, was released as Open
+      Source in &lt;a
+      
+      href=&quot;https://tvraman.github.io/emacspeak//web/releases/release-3.0.html&quot;&gt;April 1995&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;The goal was to create a system for daily use that 
+      doubledas a research work-bench for developing an auditory
+      interface.&lt;/li&gt;
+      &lt;li&gt;Speech and auditory output would be  treated as 
+      first-class citizens.&lt;/li&gt;
+      &lt;li&gt;The time felt right with respect to building a  system 
+      that enabled  eyes-free access to the emerging Web.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.sourceforge.net/turning-twenty.html&quot;&gt;Emacspeak At Twenty&lt;/a&gt;  was published in September 2014 and  traced the
+      evolution of the project.&lt;/li&gt;
+      &lt;li&gt;Now, this article gives a birds-eye overview of the last
+      10 years
+      by loosely following the logical structure of the  &lt;i&gt;Turning
+      Twenty&lt;/i&gt; paper.&lt;/li&gt;
+      &lt;li&gt;In the process, we identify the dreams that have come to
+      pass as
+      well as the expectations that have failed to materialize
+      &amp;#x2014; &lt;b&gt;both&lt;/b&gt;
+      attributable  to developments in the larger Internet
+      eco-system.&lt;/li&gt;
+      &lt;li&gt;But never fear, though  some of these
+      may be   superficially
+      disappointing, they likely herald the nature of bigger and better
+      things to come!&lt;/li&gt;
+      &lt;li&gt;As a proof-point, in 1994, I could not have imagined the
+      impact
+      that the world of Internet-centered  computing and the accompanying
+      information revolution would have  on the state of information
+      access.&lt;/li&gt;
+      &lt;li&gt;Conversely, I boldly (and incorrectly) predicted that the
+      arrival of mobile devices and mainstream speech interfaces would
+      herald the move to a Web of information where there would be a
+      clean separation between application back-ends and various
+      client-specific front-ends. See &lt;a
+      
+      href=&quot;https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/&quot;&gt;Specialized Browsers&lt;/a&gt; and &lt;a href=&quot;https://youtube.com/watch?v=TZKwvBkS5cs&quot;&gt;The
+      Web, The Way You Want.  Distinguished Lecture Series, UW Oct
+      2007&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;The above still makes sense from the view of 
+      &lt;i&gt;scalable&lt;/i&gt; software architecture. However the rapid
+      growth of the Web economy has also
+      resulted in an even faster race to the bottom where applications
+      continue to be built and re-built every few years for &lt;i&gt;the
+      next
+      best thing&lt;/i&gt; &amp;#x2014; welcome to the &lt;i&gt;write
+      once, debug everywhere&lt;/i&gt;
+      world all over again!&lt;/li&gt;
+      &lt;li&gt;Case in point; today we have smart phones, smart watches 
+      and smart speakers,
+      but each of these  require targeted front-ends  
+      if one wishes to  bring the riches of the Internet to
+      them.&lt;/li&gt;
+      &lt;li&gt;So the larger the Web gets, the fewer devices it becomes
+      available  on &amp;#x2014; a classic downward spiral.&lt;/li&gt;
+      &lt;/ol&gt;
+      
+      &lt;p&gt;
+      Share And Enjoy &amp;#x2014; &lt;a
+      
+      href=&quot;https://tvraman.github.io/emacspeak/web/01-gemini.ogg&quot;&gt;The Best Is Yet To Come&lt;/a&gt;!
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-orgb3e7c37&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;orgb3e7c37&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;3.1.&lt;/span&gt; How To Read
+      This Document&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-1&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;I recommend reading the &lt;i&gt;Turning Twenty&lt;/i&gt;
+      paper to get a full overview.&lt;/li&gt;
+      &lt;li&gt;Then, read this paper a section at a time, while referring
+      back to
+      the parallel section in the &lt;i&gt;Turning Twenty&lt;/i&gt; paper
+      to understand
+      how things have evolved.&lt;/li&gt;
+      &lt;li&gt;Make sure to skim or deep-dive into the references in both
+      papers.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-org930994c&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org930994c&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;4.&lt;/span&gt; Using UNIX
+      With Speech Output —  2024&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;In 2024 &lt;i&gt;UNIX&lt;/i&gt; equates mostly to various
+      Linux distributions, and from
+      the Emacspeak perspective, they are all made
+      &lt;i&gt;mostly&lt;/i&gt; equal.&lt;/li&gt;
+      &lt;li&gt;Variations do exist and  running bleeding-edge
+      distributions can come
+      with issues, &lt;i&gt;e.g.&lt;/i&gt;, unstable versions of the
+      underlying audio infrastructure.&lt;/li&gt;
+      &lt;li&gt;Yes, 30 years and counting, Linux Audio is still a work in
+      progress though I hope Pipewire will be the last of these tidal
+      shifts.&lt;/li&gt;
+      &lt;li&gt;Linux is moving to Wayland  and expect that transition to
+      be choppy.&lt;/li&gt;
+      &lt;li&gt;Native applications are mostly gone bar
+      the shouting. In this context, where most users access things
+      through a &lt;i&gt;mainstream&lt;/i&gt; Web browser, Emacspeak users
+      access
+      &lt;i&gt;everything&lt;/i&gt; through Emacs.&lt;/li&gt;
+      &lt;li&gt;The above when  done right is hugely empowering; 
+      when done badly, it&amp;rsquo;s extremely limiting  &amp;#x2014; see
+      later
+      sections of this paper on  the continuing evolution of the
+      Web.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-org8809b65&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org8809b65&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;5.&lt;/span&gt; Key Enabler
+      — Emacs And Lisp Advice&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-5&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Advice in Emacs as implemented in
+      &lt;code&gt;advice&lt;/code&gt; is rock-solid.&lt;/li&gt;
+      &lt;li&gt;There is a newer &lt;code&gt;nadvice&lt;/code&gt; that is
+      part of Emacs that Emacspeak
+      does not use.&lt;/li&gt;
+      
+      &lt;li&gt;There are no plans to migrate to
+      &lt;code&gt;nadvice&lt;/code&gt; since that is a lot of
+      busy work in my view and any such migration would be difficult
+      to test for correctness.&lt;/li&gt;
+      &lt;li&gt;The classic &lt;i&gt;advice&lt;/i&gt; package may be
+      removed from Emacs at some
+      point in the future, but never fear; it&amp;rsquo;ll be bundled with
+      Emacspeak if that becomes necessary. This is a feature of Free
+      Software and is a great
+      example of what that &lt;i&gt;Freedom&lt;/i&gt; entails.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-org505c905&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org505c905&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;6.&lt;/span&gt; Key Component
+      —  Text To Speech (TTS)&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-6&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Speech output &amp;#x2014; especially unencumbered
+      text-to-speech &amp;#x2014; is just
+      as much a challenge as it was 30 years ago.&lt;/li&gt;
+      &lt;li&gt;In the bigger picture, early instances of using TTS for
+      voice
+      assistants has driven the industry toward &lt;i&gt;natural
+      sounding&lt;/i&gt; voices.&lt;/li&gt;
+      &lt;li&gt;The above sounds attractive on the surface, but a price we
+      have
+      paid is the  loss of fine-grained control over voice parameters,
+      emotion, stress and other supra-linguistic features.&lt;/li&gt;
+      &lt;li&gt;I  believe  these to be essential for delivering
+      good auditory interfaces and   remain optimistic that
+      these will indeed arrive in a future iteration of speech
+      interaction.&lt;/li&gt;
+      &lt;li&gt;Things appear to be coming full circle, Emacspeak started
+      with
+      the hardware Dectalk; now, the &lt;a
+      href=&quot;https://github.com/dectalk/dectalk.git&quot;&gt;Software
+      Dectalk&lt;/a&gt; is increasingly
+      becoming the primary choice on Linux &amp;#x2014; see this  &lt;a
+      
+      href=&quot;https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org&quot;&gt;Readme for setup instructions&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;Viavoice Outloud from Voxin is still supported.  However,
+      you can no longer buy new licenses. If you have already purchased
+      a license, it&amp;rsquo;ll
+      continue to work.&lt;/li&gt;
+      &lt;li&gt;The  Vocalizer voices that Voxin now sells &lt;i&gt;do
+      not&lt;/i&gt; work with Emacspeak.&lt;/li&gt;
+      &lt;li&gt;The  other choice on Linux is ESpeak which will hopefully
+      continue to be free &amp;#x2014; albeit of much lower
+      quality.&lt;/li&gt;
+      &lt;li&gt;The future as ever is unpredictable and new voices may
+      well show
+      up &amp;#x2014; especially those powered by on-device Large Language
+      Models (LLMs).&lt;/li&gt;
+      
+      &lt;li&gt;On non-free platforms, there is usable TTS on the Mac, now
+      supported by the new SwiftMac server for Emacspeak.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-orgda9fd99&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgda9fd99&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;7.&lt;/span&gt; Emacspeak And
+      Software Development&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-7&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;&lt;i&gt;Magit&lt;/i&gt;  as a Git porcelain is perhaps
+      the biggest leap forward
+      with respect to software development.&lt;/li&gt;
+      &lt;li&gt;New completion frameworks such as
+      &lt;i&gt;company&lt;/i&gt; and &lt;i&gt;consult&lt;/i&gt; come a
+      close second in enhancing productivity.&lt;/li&gt;
+      &lt;li&gt;Completion strategies such as  &lt;i&gt;fuzzy&lt;/i&gt;
+      and&lt;i&gt;flex&lt;/i&gt; provide  enhanced completion.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2018/06/effective-suggest-and-complete-in-eyes.html&quot;&gt;Effective Suggest And Complete In An Eyes-free Environment&lt;/a&gt;
+      explains the higher-level concept  involved in defining such
+      strategies.&lt;/li&gt;
+      
+      &lt;li&gt;The ability to introspect code via 
+      &lt;code&gt;eglot&lt;/code&gt; 
+      turns Emacs into a powerful and meaningful IDE &amp;#x2014;  I say
+      meaningful because this brings the best features of an integrated
+      development environment while leaving behind the eye-candy that
+      tends to bloat commercial IDEs.&lt;/li&gt;
+      &lt;li&gt;Packages like &lt;i&gt;transient&lt;/i&gt;  enable
+      discoverable, rapid keyboard access to
+      complex nested-menu driven interfaces.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html&quot;&gt;Ergonomic keybindings&lt;/a&gt; under &lt;code&gt;X&lt;/code&gt; using &lt;a href=&quot;https://github.com/alols/xcape&quot;&gt;xcape&lt;/a&gt; to minimize
+      chording has been  a significant win in the last two
+      years.&lt;/li&gt;
+      &lt;li&gt;Jupyter is the   generalization of IPython notebooks to
+      &lt;i&gt;Julia&lt;/i&gt;, &lt;i&gt;Python&lt;/i&gt;
+      and &lt;i&gt;R&lt;/i&gt;. The news here isn&amp;rsquo;t all good;
+      IPython notebooks are
+      well-designed with respect to not getting locked into any given
+      implementation. However in practice,  front-ends
+      depend on Javascript in the  browser.&lt;/li&gt;
+      &lt;li&gt;Consequently,  Emacs  packages  for IPython
+      Notebooks &lt;i&gt;e.g.&lt;/i&gt;, package
+      &lt;code&gt;ein&lt;/code&gt;,  are no longer maintained.&lt;/li&gt;
+      &lt;li&gt;Developing in higher-level languages continues to be very
+      well
+      supported in Emacspeak.&lt;/li&gt;
+      &lt;li&gt;The re-emergence of Common Lisp in the last 20 years,
+      thanks to
+      &lt;a
+      
+      href=&quot;https://asdf.common-lisp.dev/asdf.html&quot;&gt;asdf&lt;/a&gt; and &lt;a href=&quot;https://www.quicklisp.org/&quot;&gt;quicklisp&lt;/a&gt; as a network-aware package manager and build
+      tool has once again made Lisp development using Emacs
+      &lt;code&gt;Slime&lt;/code&gt; a
+      productive experience.&lt;/li&gt;
+      &lt;li&gt;In 2022, I updated &lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html&quot;&gt;Audio System For Technical
+      Readings (AsTeR)&lt;/a&gt;&amp;#x2014; my PhD project from 1993
+      &amp;#x2014; to run under &lt;code&gt;SBCL&lt;/code&gt;
+      with a freshly implemented Emacs front-end.&lt;/li&gt;
+      &lt;li&gt;So now I can listen to Math content just as well as I
+      could 30
+      years ago!&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-orgafab421&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgafab421&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;8.&lt;/span&gt; Emacspeak And
+      Authoring Documents&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-8&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Package &lt;code&gt;org&lt;/code&gt; is to authoring as
+      &lt;code&gt;magit&lt;/code&gt; is to
+      software development with respect  to productivity gains.&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;Org&lt;/code&gt; has existed since circa 2006
+      in my Emacs setup; but it
+      continues to give and give plentifully.&lt;/li&gt;
+      &lt;li&gt;Where I once authored technical papers in
+      &lt;i&gt;LaTeX&lt;/i&gt; using &lt;code&gt;auctex&lt;/code&gt;,
+      used &lt;code&gt;nxml&lt;/code&gt; for
+      HTML,  &lt;i&gt;etc.&lt;/i&gt;, I now mostly write everything in
+      &lt;code&gt;org-mode&lt;/code&gt; and export
+      to the relevant target format.&lt;/li&gt;
+      &lt;li&gt;Integrating various search engines  in Emacs makes
+      authoring content extremely productive.&lt;/li&gt;
+      &lt;li&gt;Integrated access to spell-checking
+      (&lt;code&gt;flyspell&lt;/code&gt;) dictionaries, translation
+      engines, and other
+      language tools combine for a powerful authoring
+      work-bench.&lt;/li&gt;
+      &lt;li&gt;Extending &lt;code&gt;org-mode&lt;/code&gt; with custom
+      link types enables &lt;i&gt;smart note
+      taking&lt;/i&gt; with hyperlinks to relevant portions of an audio
+      stream
+      &amp;#x2014; see article &lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html&quot;&gt;Learn Smarter By Taking Rich Hypertext Notes&lt;/a&gt;.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-org641a308&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org641a308&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;9.&lt;/span&gt; Emacspeak  And
+      The Web In 2024&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-9&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Package &lt;code&gt;shr&lt;/code&gt; and
+      &lt;code&gt;eww&lt;/code&gt; arrived around 2014. But in 2024, they
+      can be said to have &lt;b&gt;truly&lt;/b&gt; landed.&lt;/li&gt;
+      &lt;li&gt;2014 also  marked the explicit take-over of the
+      stewardship of the HTML Web by the
+      browser vendors from the W3C  &amp;#x2014; I say
+      explicit &amp;#x2014;  because the W3C had already thrown in the
+      towel in the
+      preceding decade.&lt;/li&gt;
+      &lt;li&gt;This  has led to a Web of content  created using the
+      assembly
+      language of divs, spans and Javascript  under the flag of HTML5
+      &amp;#x2014;
+      the result is a tangled web of spaghetti that everyone loves to
+      hate.&lt;/li&gt;
+      &lt;li&gt;In this context, see &lt;a
+      
+      href=&quot;https://idlewords.com/talks/website_obesity.htm&quot;&gt;Tag Soup, Scripts And Obfuscation: How The
+      Web Was Broken&lt;/a&gt; for  a good overview of  HTML&amp;rsquo;s
+      obesity problem.&lt;/li&gt;
+      &lt;li&gt;For better or worse, the investment in XML and
+      display-independent
+      content is now a complete write-off at least on the
+      surface.&lt;/li&gt;
+      
+      &lt;li&gt;So what next &amp;#x2014; wait for the spaghetti monster
+      to show up for
+      lunch? Humor aside that monster may well be called AI &amp;#x2014; 
+      though
+      whether  today&amp;rsquo;s Web gives that monster life, indigestion,
+      constipation,   dysentery or hallucinations  is a story to be
+      written in the coming years.&lt;/li&gt;
+      
+      &lt;li&gt;I say &lt;i&gt;on the surface&lt;/i&gt; above  because The
+      welcome re-emergence of
+      &lt;code&gt;ATOM&lt;/code&gt; and &lt;code&gt;RSS&lt;/code&gt; feeds
+      is perhaps a silent acknowledgement that
+      bloated Web pages are now unusable even for users who can
+      see.&lt;/li&gt;
+      &lt;li&gt;Package  &lt;code&gt;elfeed&lt;/code&gt; has emerged as  a
+      powerful feed-manager for Emacs.&lt;/li&gt;
+      &lt;li&gt;Emacspeak implements  &lt;code&gt;RSS&lt;/code&gt; and
+      &lt;code&gt;ATOM&lt;/code&gt; support using
+      &lt;code&gt;XSLT&lt;/code&gt;;  those features now shine brighter 
+      with mainstream
+      news  sites reviving their support for content feeds.&lt;/li&gt;
+      &lt;li&gt;Browsers like Mozilla now implement &lt;i&gt;content
+      filters&lt;/i&gt; &amp;#x2014; a
+      euphemism for scraping off  visual eye-candy and related cruft to
+      reveal the underlying content.  These are now 
+      available as  plugins, (see &lt;a
+      
+      href=&quot;https://github.com/eafer/rdrview&quot;&gt;RDRView&lt;/a&gt; for an example).  Emacspeak 
+      leverages this to make the Web more readable.&lt;/li&gt;
+      &lt;li&gt;Package &lt;code&gt;url-template&lt;/code&gt; and
+      &lt;code&gt;emacspeak-websearch&lt;/code&gt; continue to give
+      in plenty, though they do require continuous updating.&lt;/li&gt;
+      &lt;li&gt;Web APIs come and go, so 
+      that space is in  a state of constant change.&lt;/li&gt;
+      &lt;li&gt;The state of web applications is perhaps the most
+      concerning from an
+      Emacspeak perspective, and I do not  see that changing in the
+      short-term.  There are no incentives for Web providers to
+      free their applications from the tangled Web of spaghetti they have
+      woven
+      around themselves.&lt;/li&gt;
+      &lt;li&gt;But as with everything else in our industry,
+      it is precisely when something feels completely entrenched that
+      usersrebel and innovations emerge  to move us to the next phase
+      &amp;#x2014; so
+      fingers crossed.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-org30c8559&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org30c8559&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;10.&lt;/span&gt; Audio
+      Formatting —  Generalizing Aural CSS&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-10&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Audio formatting with Aural CSS support is stable, with
+      newenhancements supporting more TTS engines.&lt;/li&gt;
+      &lt;li&gt;Support for parallel streams of TTS using separate outputs
+      to
+      left/right channels is a big win and enables more efficient
+      interaction.&lt;/li&gt;
+      &lt;li&gt;Support for various Digital Signal Processing (DSP) 
+      filters enables   rich auditory effects
+      like  binaural audio and spatial audio.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html&quot;&gt;Soundscapes&lt;/a&gt; implemented via package &lt;code&gt;boodler&lt;/code&gt; makes for  a
+      pleasant and relaxing auditory environment.&lt;/li&gt;
+      &lt;li&gt;Enabling virtual sound devices via Pipewire for 5.1  and
+      7.1
+      spatial audio significantly enhances the auditory
+      experience.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-org7018e6c&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org7018e6c&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;11.&lt;/span&gt;
+      Conversational Gestures For The Audio Desktop&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-11&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Parallel streams of audio, combined with more ergonomic
+      keybindings are  the primary  enhancement in this area.&lt;/li&gt;
+      &lt;li&gt;Parallel streams of speech, &lt;i&gt;e.g.&lt;/i&gt;, a
+      separate notification
+      stream on the left or right ear  help increase the band-width of
+      communication.&lt;/li&gt;
+      &lt;li&gt;Notifications can thus be delivered without having to stop
+      the
+      primary speech output.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-org397a48d&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org397a48d&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;12.&lt;/span&gt; Accessing
+      Media Streams&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-12&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Emacspeak support for rich multimedia is now much  more
+      robust.&lt;/li&gt;
+      &lt;li&gt;Emacs package   &lt;code&gt;empv&lt;/code&gt;  is a
+      powerful tool  for locating, organizing  and playing local and
+      remotemedia streams ranging from music, audio books, radio stations
+      and
+      Podcasts.&lt;/li&gt;
+      &lt;li&gt;This makes media streams from a large number of providers
+      ranging
+      from the BBC to Youtube available via a consistent keyboard
+      interface.&lt;/li&gt;
+      &lt;li&gt;This experience is augmented by a collection of
+      &lt;i&gt;smart&lt;/i&gt; content
+      locators on the Emacspeak desktop, see the relevant blog
+      article titled 
+      &lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html&quot;&gt;smart media selectors&lt;/a&gt;.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-orgd118f81&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgd118f81&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;13.&lt;/span&gt; Electronic
+      Books—   Ubiquitous Access To Books&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-13&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Emacspeak modules  for &lt;i&gt;Epub&lt;/i&gt; and 
+      &lt;i&gt;Bookshare&lt;/i&gt; continue to provide good books 
+      integration.&lt;/li&gt;
+      &lt;li&gt;There are  &lt;i&gt;smart&lt;/i&gt; book locators
+      analogous to the locators for
+      media content.&lt;/li&gt;
+      &lt;li&gt;Emacspeak speech-enables &lt;code&gt;Calibre&lt;/code&gt; 
+      for working with
+      local electronic libraries.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-org4aa5597&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org4aa5597&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;14.&lt;/span&gt; Leveraging
+      Computational Tools —  From SQL And R To IPython
+      Notebooks&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-14&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;This area continues to provide a rich collection of 
+      packages.&lt;/li&gt;
+      &lt;li&gt;Newer highlights include &lt;code&gt;sage&lt;/code&gt;
+      interaction for symbolic computation.&lt;/li&gt;
+      &lt;li&gt;Emacspeak speech-enables  packages 
+      &lt;code&gt;gptel&lt;/code&gt; and &lt;code&gt;ellama&lt;/code&gt;
+      for working
+      with local and network LLMs.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-org228b3ee&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org228b3ee&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;15.&lt;/span&gt; Social Web 
+      — Mail, Messaging And Blogging&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-15&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;This is a space that is definitely regressing.&lt;/li&gt;
+      &lt;li&gt;The previous decade was marked by open APIs to many social
+      Web platforms.&lt;/li&gt;
+      &lt;li&gt;Over time these first regressed with respect to
+      privacy.&lt;/li&gt;
+      &lt;li&gt;Then they turned into wall-gardens in their own
+      right.&lt;/li&gt;
+      &lt;li&gt;Finally, the Web APIs, other than the kind embedded in
+      Javascript have
+      started disappearing.&lt;/li&gt;
+      &lt;li&gt;Looking back, the only &lt;i&gt;social&lt;/i&gt; platform
+      I now use is Blogger for
+      hosting my Emacspeak Blog, it has a somewhat usable API, albeit
+      guarded by a difficult to use &lt;i&gt;OAuth&lt;/i&gt; interface
+      that requires 
+      signing   in via  a &lt;i&gt;mainstream&lt;/i&gt;
+      browser.&lt;/li&gt;&lt;li&gt;IMap continues to survive as an open
+      email protocol, though its
+      days may well be numbered.&lt;/li&gt;
+      &lt;li&gt;The dye is already cast with respect to mere mortals being
+      able
+      to setup and  host their email &amp;#x2014;  witness the complexity
+      in setting
+      up the Emacspeak mailing list in 2023 vs 1993!&lt;/li&gt;
+      &lt;li&gt;This is an area that is  likely to get worse before it
+      getsbetter,  thanks to the spammers  &amp;#x2014; more&amp;rsquo;s 
+      the pity, since Internet Email is perhaps the
+      single-most impactful technology with respect to leveling the
+      communications playing field.&lt;/li&gt;
+      &lt;li&gt;The disappearance of APIs mentioned above also means that
+      today
+      the only usable chat service on an open platform like Emacspeak
+      is the venerable  Internet Relay Chat (IRC).&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-orgcb64fc1&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgcb64fc1&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;16.&lt;/span&gt; The RESTful
+      Web —  Web Wizards And URL Templates For Faster Access&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-16&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;This area continues to thrive &amp;#x2014; either because
+      of &amp;#x2014; or
+      despite &amp;#x2014; the best and worst efforts of application
+      providers on the
+      Web.&lt;/li&gt;
+      &lt;li&gt;Twenty years on (this feature originally landed in 2000)
+      Emacspeak has a far richer collection of filters, preprocessors
+      and post-processors
+      that enables ever-more powerful Web
+      wizards. See the relevant &lt;a
+      
+      href=&quot;https://tvraman.github.io/emacspeak/manual/URL-Templates.html&quot;&gt;chapter&lt;/a&gt; in the Emacspeak manual for the
+      automatically updated list of &lt;b&gt;URL
+      Templates&lt;/b&gt;.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-org781fe07&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org781fe07&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;17.&lt;/span&gt; Mashing It Up
+      —  Leveraging  AI And The Web&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-17&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Developing solutions by combining various API-based
+      services on
+      the Web has all but disappeared, unless one is willing to commit
+      fully to the Javascript-powered Web hosted in a Web browser,
+      something I hope I never have to accept.&lt;/li&gt;
+      &lt;li&gt;So for now, I&amp;rsquo;ll keep
+      well away and count my blessings.&lt;/li&gt;
+      &lt;li&gt;The next chapter of the &lt;i&gt;mash-up story&lt;/i&gt;
+      may well be based around
+      &lt;i&gt;Generative AI&lt;/i&gt; using LLMs. In effect, LLMs trained
+      on   Web content 
+      define a &lt;i&gt;platform&lt;/i&gt; for generating content
+      mash-ups.  The issue
+      at present is that they are just as  likely  to produce
+      &lt;i&gt;meaningless mush&lt;/i&gt; &amp;#x2014;
+      something that may  get better as the field gets a
+      handle on cleaning up  Web content.&lt;/li&gt;
+      &lt;li&gt;Notice that we are now back to the previously unsolved
+      problem
+      of cleaning up the  HTML Web &amp;#x2014; with LLMs, we&amp;rsquo;ll
+      just
+      have an order of magnitude more documents than the
+      &lt;i&gt;2&lt;sup&gt;W&lt;/sup&gt;&lt;/i&gt; postulated
+      by  &lt;a
+      
+      href=&quot;https://emacspeak.sourceforge.net/raman/publications/beyond-web20-cacm-2009/&quot;&gt;Beyond Web 2.0, Communications
+      Of The ACM, 2009&lt;/a&gt;.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-orgfacc779&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgfacc779&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;18.&lt;/span&gt; The Final
+      Word &amp;#x2014; Donald E Knuth (DEK)&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-18&quot;&gt;
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;The best theory is inspired by practice. The best practice
+      is
+      inspired by theory.&lt;/li&gt;
+      &lt;li&gt;The enjoyment of one&amp;rsquo;s tools is an essential
+      ingredient of
+      successful work.&lt;/li&gt;
+      &lt;li&gt;Easy things are often amusing and relaxing, but their
+      value soon
+      fades. Greater pleasure, deeper satisfaction, and higher wages are
+      associated with genuine accomplishments, with the successful
+      fulfillment of a challenging task.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://www.azquotes.com/author/8177-Donald_Knuth&quot;&gt;Computer Programming Is An Art&lt;/a&gt;.&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      &lt;p&gt;
+      The best example of the above is of course &lt;a
+      
+      href=&quot;https://en.wikipedia.org/wiki/TeX&quot;&gt;Knuth&amp;rsquo;s TeX&lt;/a&gt; &amp;#x2014; work that
+      was motivated  by his own dissatisfaction with the tools available
+      to him at the time for typesetting    his magnum opus &amp;#x2014;
+      &lt;a
+      
+      href=&quot;https://www-cs-faculty.stanford.edu/~knuth/taocp.html&quot;&gt;The Art
+      Of Computer Programming (TAOCP)&lt;/a&gt;.  It is something
+      I&amp;rsquo;ve looked up
+      to ever since my time as a graduate student at Cornell.
+      &lt;/p&gt;
+      
+      
+      &lt;p&gt;
+      The  Emacspeak Speech Odyssey outlined in this paper is, in some
+      small measure, my own personal
+      experience of the sentiments he expresses.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      &amp;#x2013;T. V. Raman,  San Jose, CA, August 1, 2024.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;outline-container-orgbad3230&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgbad3230&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;19.&lt;/span&gt;
+      References&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-19&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://www.drdobbs.com/user-interface-a-means-to-an-end/184410453&quot;&gt;User Interface is a means to an end, DDJ 1997&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.gnu.org/s/emacs/&quot;&gt;GNU
+      Emacs&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://en.wikipedia.org/wiki/TeX&quot;&gt;Knuth&amp;rsquo;s TeX&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html&quot;&gt;Audio System For Technical Readings&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://tvraman.github.io/emacspeak//web/releases/release-3.0.html&quot;&gt;Announcing Emacspeak: April 1995&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.sourceforge.net/turning-twenty.html&quot;&gt;Emacspeak At Twenty&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;http://www.cs.washington.edu/htbin-post/mvis/mvis?ID=636&quot;&gt;The Web, The Way You Want.  Distinguished Lecture Series, UW Oct 2007&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/&quot;&gt;Specialized Browsers&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://tvraman.github.io/emacspeak/web/01-gemini.ogg&quot;&gt;An Ode To Emacspeak: The Best Is Yet To Come&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      href=&quot;https://github.com/dectalk/dectalk.git&quot;&gt;Software
+      Dectalk on Github&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org&quot;&gt;Dectalk  setup instructions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2018/06/effective-suggest-and-complete-in-eyes.html&quot;&gt;Effective Suggest And Complete In An Eyes-free Environment&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      href=&quot;https://asdf.common-lisp.dev/asdf.html&quot;&gt;Common
+      Lisp: asdf&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      href=&quot;https://www.quicklisp.org/&quot;&gt;Common Lisp:
+      Quicklisp&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html&quot;&gt;Soundscapes on the Emacspeak Audio Desktop&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      href=&quot;https://en.wikipedia.org/wiki/REST&quot;&gt;RESTful
+      Web&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html&quot;&gt;Ergonomic keybindings&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      href=&quot;https://github.com/alols/xcape&quot;&gt;Minimize chording
+      with XCape&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html&quot;&gt;Learn Smarter By Taking Rich Hypertext Notes&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://idlewords.com/talks/website_obesity.htm&quot;&gt;Tag Soup, Scripts And Obfuscation: How The Web Was Broken&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      href=&quot;https://github.com/eafer/rdrview&quot;&gt;Readable Web
+      Pages: RDRView&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html&quot;&gt;smart media selectors&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://emacspeak.sourceforge.net/raman/publications/beyond-web20-cacm-2009/&quot;&gt;Beyond Web 2.0, Communications Of The ACM, 2009&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://tvraman.github.io/emacspeak/manual/URL-Templates.html&quot;&gt;Emacspeak Manual: URL Templates&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html&quot;&gt;Beautiful Code&lt;/a&gt;   An overview of the Emacspeak architecture, O&amp;rsquo;Reilly Media, 2007.&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      
+      href=&quot;https://www-cs-faculty.stanford.edu/~knuth/taocp.html&quot;&gt;The Art Of Computer Programming (TAOCP)&lt;/a&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/4550726435355235575'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/4550726435355235575'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2024/07/emacspeak-speech-odyssey.html' title='Emacspeak --- A Speech Odyssey'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
 <entry>
     <id>tag:blogger.com,1999:blog-20280042.post-6553981495433781392</id><published>
       2024-05-03T11:39:00.000-07:00
