@@ -53,6 +53,7 @@ and  was last updated on @today{}.
 @include keyboard.texi
 @include tts-server.texi
 @include inc-turning-twenty.texi
+@include inc-now-thirty.texi
 @include acknowledge.texi
 @c trailer
 
