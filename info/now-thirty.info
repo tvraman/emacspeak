@@ -1,0 +1,607 @@
+This is now-thirty.info, produced by makeinfo version 7.1 from
+now-thirty.texi.
+
+INFO-DIR-SECTION Misc
+START-INFO-DIR-ENTRY
+* now-thirty.           Emacspeak:  A Speech Odyssey.
+END-INFO-DIR-ENTRY
+
+
+File: now-thirty.info,  Node: Top,  Next: Dedication To My Guiding Eyes Aster Hubbell and Tilden,  Up: (dir)
+
+Emacspeak: A Speech Odyssey
+***************************
+
+* Menu:
+
+* Dedication To My Guiding Eyes Aster, Hubbell and Tilden: Dedication To My Guiding Eyes Aster Hubbell and Tilden.
+* Key Insights::
+* Emacspeak --- The Complete Audio Desktop::
+* Using UNIX With Speech Output —  2024: Using UNIX With Speech Output — 2024.
+* Key Enabler — Emacs And Lisp Advice::
+* Key Component —  Text To Speech (TTS): Key Component — Text To Speech (TTS).
+* Emacspeak And Software Development::
+* Emacspeak And Authoring Documents::
+* Emacspeak  And The Web In 2024: Emacspeak And The Web In 2024.
+* Audio Formatting —  Generalizing Aural CSS: Audio Formatting — Generalizing Aural CSS.
+* Conversational Gestures For The Audio Desktop::
+* Accessing Media Streams::
+* Electronic Books—   Ubiquitous Access To Books: Electronic Books— Ubiquitous Access To Books.
+* Leveraging Computational Tools —  From SQL And R To IPython Notebooks: Leveraging Computational Tools — From SQL And R To IPython Notebooks.
+* Social Web  — Mail, Messaging And Blogging: Social Web — Mail Messaging And Blogging.
+* The RESTful Web —  Web Wizards And URL Templates For Faster Access: The RESTful Web — Web Wizards And URL Templates For Faster Access.
+* Mashing It Up —  Leveraging  AI And The Web: Mashing It Up — Leveraging AI And The Web.
+* The Final Word --- Donald E Knuth (DEK)::
+* References::
+
+-- The Detailed Node Listing --
+
+Emacspeak -- The Complete Audio Desktop
+
+* How To Read This Document::
+
+
+
+File: now-thirty.info,  Node: Dedication To My Guiding Eyes Aster Hubbell and Tilden,  Next: Key Insights,  Prev: Top,  Up: Top
+
+1 Dedication: To My Guiding Eyes Aster, Hubbell and Tilden
+**********************************************************
+
+
+File: now-thirty.info,  Node: Key Insights,  Next: Emacspeak --- The Complete Audio Desktop,  Prev: Dedication To My Guiding Eyes Aster Hubbell and Tilden,  Up: Top
+
+2 Key Insights
+**************
+
+  1. User interface is a means to an end
+     (https://www.drdobbs.com:443/user-interface-a-means-to-an-end/184410453).
+  2. Open Source is essential for discovering new interaction paradigms.
+  3. This is not mere idealism.  Openness is a key enabler for creating
+     user journeys that were not envisioned by a system's designers.
+  4. Emacs (https://www.gnu.org/s/emacs/) and TeX
+     (https://en.wikipedia.org/wiki/TeX) are good exemplars.  They
+     permit maximal freedom when seen from the viewpoint of user
+     extensibility and creativity.  TeX enabled Audio System For
+     Technical Readings (AsTeR)
+     (https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html);
+     Emacs enabled Emacspeak (https://emacspeak.sourceforge.net).
+  5. Rapid, reliable task completion is the most important metric and
+     trumps secondary items such as eye-candy -- the latter only leads
+     to bloat as evinced by the HTML Web.
+  6. Having a well-identified problem when designing a system is
+     paramount.
+  7. _Usability_ is important, but to matter, the system needs to be
+     _useful_ first.
+  8. _Ease of use_ by itself is often _marketing_ hype.
+  9. Useful systems are fun to learn and give back more than what you
+     put in with respect to time and effort.
+  10. A steep learning curve in and of itself is not to be feared -- it
+     can be fun to learn and gets you farther faster.
+  11. True empowerment: Ensure that the user grows continuously.
+
+
+File: now-thirty.info,  Node: Emacspeak --- The Complete Audio Desktop,  Next: Using UNIX With Speech Output — 2024,  Prev: Key Insights,  Up: Top
+
+3 Emacspeak -- The Complete Audio Desktop
+*****************************************
+
+  1. Emacspeak, started in September 1994, was released as Open Source
+     in April 1995
+     (https://tvraman.github.io/emacspeak//web/releases/release-3.0.html).
+  2. The goal was to create a system for daily use that doubled as a
+     research work-bench for developing an auditory interface.
+  3. Speech and auditory output would be treated as first-class
+     citizens.
+  4. The time felt right with respect to building a system that enabled
+     eyes-free access to the emerging Web.
+  5. Emacspeak At Twenty
+     (https://emacspeak.sourceforge.net/turning-twenty.html) was
+     published in September 2014 and traced the evolution of the
+     project.
+  6. Now, this article gives a birds-eye overview of the last 10 years
+     by loosely following the logical structure of the _Turning Twenty_
+     paper.
+  7. In the process, we identify the dreams that have come to pass as
+     well as the expectations that have failed to materialize -- *both*
+     attributable to developments in the larger Internet eco-system.
+  8. But never fear, though some of these may be superficially
+     disappointing, they likely herald the nature of bigger and better
+     things to come!
+  9. As a proof-point, in 1994, I could not have imagined the impact
+     that the world of Internet-centered computing and the accompanying
+     information revolution would have on the state of information
+     access.
+  10. Conversely, I boldly (and incorrectly) predicted that the arrival
+     of mobile devices and mainstream speech interfaces would herald the
+     move to a Web of information where there would be a clean
+     separation between application back-ends and various
+     client-specific front-ends.  See Specialized Browsers
+     (https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/)
+     and The Way You Want.  Distinguished Lecture Series, UW Oct 2007.
+  11. The above still makes sense from the view of _scalable_ software
+     architecture.  However the rapid growth of the Web economy has also
+     resulted in an even faster race to the bottom where applications
+     continue to be built and re-built every few years for _the next
+     best thing_ -- welcome to the _write once, debug everywhere_ world
+     all over again!
+  12. Case in point; today we have smart phones, smart watches and smart
+     speakers, but each of these require targeted front-ends if one
+     wishes to bring the riches of the Internet to them.
+  13. So the larger the Web gets, the fewer devices it becomes available
+     on -- a classic downward spiral.
+
+   Share And Enjoy -- The Best Is Yet To Come
+(https://tvraman.github.io/emacspeak/web/01-gemini.ogg)!
+
+* Menu:
+
+* How To Read This Document::
+
+
+File: now-thirty.info,  Node: How To Read This Document,  Up: Emacspeak --- The Complete Audio Desktop
+
+3.1 How To Read This Document
+=============================
+
+  1. I recommend reading the _Turning Twenty_ paper to get a full
+     overview.
+  2. Then, read this paper a section at a time, while referring back to
+     the parallel section in the _Turning Twenty_ paper to understand
+     how things have evolved.
+  3. Make sure to skim or deep-dive into the references in both papers.
+
+
+File: now-thirty.info,  Node: Using UNIX With Speech Output — 2024,  Next: Key Enabler — Emacs And Lisp Advice,  Prev: Emacspeak --- The Complete Audio Desktop,  Up: Top
+
+4 Using UNIX With Speech Output — 2024
+**************************************
+
+  1. In 2024 _UNIX_ equates mostly to various Linux distributions, and
+     from the Emacspeak perspective, they are all made _mostly_ equal.
+  2. Variations do exist and running bleeding-edge distributions can
+     come with issues, _e.g._, unstable versions of the underlying audio
+     infrastructure.
+  3. Yes, 30 years and counting, Linux Audio is still a work in progress
+     though I hope Pipewire will be the last of these tidal shifts.
+  4. Linux is moving to Wayland and expect that transition to be choppy.
+  5. Native applications are mostly gone bar the shouting.  In this
+     context, where most users access things through a _mainstream_ Web
+     browser, Emacspeak users access _everything_ through Emacs.
+  6. The above when done right is hugely empowering; when done badly,
+     it's extremely limiting -- see later sections of this paper on the
+     continuing evolution of the Web.
+
+
+File: now-thirty.info,  Node: Key Enabler — Emacs And Lisp Advice,  Next: Key Component — Text To Speech (TTS),  Prev: Using UNIX With Speech Output — 2024,  Up: Top
+
+5 Key Enabler — Emacs And Lisp Advice
+*************************************
+
+  1. Advice in Emacs as implemented in ‘advice’ is rock-solid.
+  2. There is a newer ‘nadvice’ that is part of Emacs that Emacspeak
+     does not use.
+
+  3. There are no plans to migrate to ‘nadvice’ since that is a lot of
+     busy work in my view and any such migration would be difficult to
+     test for correctness.
+  4. The classic _advice_ package may be removed from Emacs at some
+     point in the future, but never fear; it'll be bundled with
+     Emacspeak if that becomes necessary.  This is a feature of Free
+     Software and is a great example of what that _Freedom_ entails.
+
+
+File: now-thirty.info,  Node: Key Component — Text To Speech (TTS),  Next: Emacspeak And Software Development,  Prev: Key Enabler — Emacs And Lisp Advice,  Up: Top
+
+6 Key Component — Text To Speech (TTS)
+**************************************
+
+  1. Speech output -- especially unencumbered text-to-speech -- is just
+     as much a challenge as it was 30 years ago.
+  2. In the bigger picture, early instances of using TTS for voice
+     assistants has driven the industry toward _natural sounding_
+     voices.
+  3. The above sounds attractive on the surface, but a price we have
+     paid is the loss of fine-grained control over voice parameters,
+     emotion, stress and other supra-linguistic features.
+  4. I believe these to be essential for delivering good auditory
+     interfaces and remain optimistic that these will indeed arrive in a
+     future iteration of speech interaction.
+  5. Things appear to be coming full circle, Emacspeak started with the
+     hardware Dectalk; now, the Software Dectalk
+     (https://github.com/dectalk/dectalk.git) is increasingly becoming
+     the primary choice on Linux -- see this Readme for setup
+     instructions
+     (https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org).
+  6. Viavoice Outloud from Voxin is still supported.  However, you can
+     no longer buy new licenses.  If you have already purchased a
+     license, it'll continue to work.
+  7. The Vocalizer voices that Voxin now sells _do not_ work with
+     Emacspeak.
+  8. The other choice on Linux is ESpeak which will hopefully continue
+     to be free -- albeit of much lower quality.
+  9. The future as ever is unpredictable and new voices may well show up
+     -- especially those powered by on-device Large Language Models
+     (LLMs).
+
+  10. On non-free platforms, there is usable TTS on the Mac, now
+     supported by the new SwiftMac server for Emacspeak.
+
+
+File: now-thirty.info,  Node: Emacspeak And Software Development,  Next: Emacspeak And Authoring Documents,  Prev: Key Component — Text To Speech (TTS),  Up: Top
+
+7 Emacspeak And Software Development
+************************************
+
+  1. _Magit_ as a Git porcelain is perhaps the biggest leap forward with
+     respect to software development.
+  2. New completion frameworks such as _company_ and _consult_ come a
+     close second in enhancing productivity.
+  3. Completion strategies such as _fuzzy_ and _flex_ provide enhanced
+     completion.
+  4. Effective Suggest And Complete In An Eyes-free Environment
+     (https://emacspeak.blogspot.com/2018/06/effective-suggest-and-complete-in-eyes.html)
+     explains the higher-level concept involved in defining such
+     strategies.
+
+  5. The ability to introspect code via ‘eglot’ turns Emacs into a
+     powerful and meaningful IDE -- I say meaningful because this brings
+     the best features of an integrated development environment while
+     leaving behind the eye-candy that tends to bloat commercial IDEs.
+  6. Packages like _transient_ enable discoverable, rapid keyboard
+     access to complex nested-menu driven interfaces.
+  7. Ergonomic keybindings
+     (https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html)
+     under ‘X’ using xcape (https://github.com/alols/xcape) to minimize
+     chording has been a significant win in the last two years.
+  8. Jupyter is the generalization of IPython notebooks to _Julia_,
+     _Python_ and _R_. The news here isn't all good; IPython notebooks
+     are well-designed with respect to not getting locked into any given
+     implementation.  However in practice, front-ends depend on
+     Javascript in the browser.
+  9. Consequently, Emacs packages for IPython Notebooks _e.g._, package
+     ‘ein’, are no longer maintained.
+  10. Developing in higher-level languages continues to be very well
+     supported in Emacspeak.
+  11. The re-emergence of Common Lisp in the last 20 years, thanks to
+     asdf (https://asdf.common-lisp.dev/asdf.html) and quicklisp
+     (https://www.quicklisp.org/) as a network-aware package manager and
+     build tool has once again made Lisp development using Emacs ‘Slime’
+     a productive experience.
+  12. In 2022, I updated Audio System For Technical Readings (AsTeR)
+     (https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html)--
+     my PhD project from 1993 -- to run under ‘SBCL’ with a freshly
+     implemented Emacs front-end.
+  13. So now I can listen to Math content just as well as I could 30
+     years ago!
+
+
+File: now-thirty.info,  Node: Emacspeak And Authoring Documents,  Next: Emacspeak And The Web In 2024,  Prev: Emacspeak And Software Development,  Up: Top
+
+8 Emacspeak And Authoring Documents
+***********************************
+
+  1. Package ‘org’ is to authoring as ‘magit’ is to software development
+     with respect to productivity gains.
+  2. ‘Org’ has existed since circa 2006 in my Emacs setup; but it
+     continues to give and give plentifully.
+  3. Where I once authored technical papers in _LaTeX_ using ‘auctex’,
+     used ‘nxml’ for HTML, _etc._, I now mostly write everything in
+     ‘org-mode’ and export to the relevant target format.
+  4. Integrating various search engines in Emacs makes authoring content
+     extremely productive.
+  5. Integrated access to spell-checking (‘flyspell’) dictionaries,
+     translation engines, and other language tools combine for a
+     powerful authoring work-bench.
+  6. Extending ‘org-mode’ with custom link types enables _smart note
+     taking_ with hyperlinks to relevant portions of an audio stream --
+     see article Learn Smarter By Taking Rich Hypertext Notes
+     (https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html).
+
+
+File: now-thirty.info,  Node: Emacspeak And The Web In 2024,  Next: Audio Formatting — Generalizing Aural CSS,  Prev: Emacspeak And Authoring Documents,  Up: Top
+
+9 Emacspeak And The Web In 2024
+*******************************
+
+  1. Package ‘shr’ and ‘eww’ arrived around 2014.  But in 2024, they can
+     be said to have *truly* landed.
+  2. 2014 also marked the explicit take-over of the stewardship of the
+     HTML Web by the browser vendors from the W3C -- I say explicit --
+     because the W3C had already thrown in the towel in the preceding
+     decade.
+  3. This has led to a Web of content created using the assembly
+     language of divs, spans and Javascript under the flag of HTML5 --
+     the result is a tangled web of spaghetti that everyone loves to
+     hate.
+  4. In this context, see Scripts And Obfuscation: How The Web Was
+     Broken for a good overview of HTML's obesity problem.
+  5. For better or worse, the investment in XML and display-independent
+     content is now a complete write-off at least on the surface.
+
+  6. So what next -- wait for the spaghetti monster to show up for
+     lunch?  Humor aside that monster may well be called AI -- though
+     whether today's Web gives that monster life, indigestion,
+     constipation, dysentery or hallucinations is a story to be written
+     in the coming years.
+
+  7. I say _on the surface_ above because The welcome re-emergence of
+     ‘ATOM’ and ‘RSS’ feeds is perhaps a silent acknowledgement that
+     bloated Web pages are now unusable even for users who can see.
+  8. Package ‘elfeed’ has emerged as a powerful feed-manager for Emacs.
+  9. Emacspeak implements ‘RSS’ and ‘ATOM’ support using ‘XSLT’; those
+     features now shine brighter with mainstream news sites reviving
+     their support for content feeds.
+  10. Browsers like Mozilla now implement _content filters_ -- a
+     euphemism for scraping off visual eye-candy and related cruft to
+     reveal the underlying content.  These are now available as plugins,
+     (see RDRView (https://github.com/eafer/rdrview) for an example).
+     Emacspeak leverages this to make the Web more readable.
+  11. Package ‘url-template’ and ‘emacspeak-websearch’ continue to give
+     in plenty, though they do require continuous updating.
+  12. Web APIs come and go, so that space is in a state of constant
+     change.
+  13. The state of web applications is perhaps the most concerning from
+     an Emacspeak perspective, and I do not see that changing in the
+     short-term.  There are no incentives for Web providers to free
+     their applications from the tangled Web of spaghetti they have
+     woven around themselves.
+  14. But as with everything else in our industry, it is precisely when
+     something feels completely entrenched that users rebel and
+     innovations emerge to move us to the next phase -- so fingers
+     crossed.
+
+
+File: now-thirty.info,  Node: Audio Formatting — Generalizing Aural CSS,  Next: Conversational Gestures For The Audio Desktop,  Prev: Emacspeak And The Web In 2024,  Up: Top
+
+10 Audio Formatting — Generalizing Aural CSS
+********************************************
+
+  1. Audio formatting with Aural CSS support is stable, with new
+     enhancements supporting more TTS engines.
+  2. Support for parallel streams of TTS using separate outputs to
+     left/right channels is a big win and enables more efficient
+     interaction.
+  3. Support for various Digital Signal Processing (DSP) filters enables
+     rich auditory effects like binaural audio and spatial audio.
+  4. Soundscapes
+     (https://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html)
+     implemented via package ‘boodler’ makes for a pleasant and relaxing
+     auditory environment.
+  5. Enabling virtual sound devices via Pipewire for 5.1 and 7.1 spatial
+     audio significantly enhances the auditory experience.
+
+
+File: now-thirty.info,  Node: Conversational Gestures For The Audio Desktop,  Next: Accessing Media Streams,  Prev: Audio Formatting — Generalizing Aural CSS,  Up: Top
+
+11 Conversational Gestures For The Audio Desktop
+************************************************
+
+  1. Parallel streams of audio, combined with more ergonomic keybindings
+     are the primary enhancement in this area.
+  2. Parallel streams of speech, _e.g._, a separate notification stream
+     on the left or right ear help increase the band-width of
+     communication.
+  3. Notifications can thus be delivered without having to stop the
+     primary speech output.
+
+
+File: now-thirty.info,  Node: Accessing Media Streams,  Next: Electronic Books— Ubiquitous Access To Books,  Prev: Conversational Gestures For The Audio Desktop,  Up: Top
+
+12 Accessing Media Streams
+**************************
+
+  1. Emacspeak support for rich multimedia is now much more robust.
+  2. Emacs package ‘empv’ is a powerful tool for locating, organizing
+     and playing local and remote media streams ranging from music,
+     audio books, radio stations and Podcasts.
+  3. This makes media streams from a large number of providers ranging
+     from the BBC to Youtube available via a consistent keyboard
+     interface.
+  4. This experience is augmented by a collection of _smart_ content
+     locators on the Emacspeak desktop, see the relevant blog article
+     titled smart media selectors
+     (https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html).
+
+
+File: now-thirty.info,  Node: Electronic Books— Ubiquitous Access To Books,  Next: Leveraging Computational Tools — From SQL And R To IPython Notebooks,  Prev: Accessing Media Streams,  Up: Top
+
+13 Electronic Books— Ubiquitous Access To Books
+***********************************************
+
+  1. Emacspeak modules for _Epub_ and _Bookshare_ continue to provide
+     good books integration.
+  2. There are _smart_ book locators analogous to the locators for media
+     content.
+  3. Emacspeak speech-enables ‘Calibre’ for working with local
+     electronic libraries.
+
+
+File: now-thirty.info,  Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks,  Next: Social Web — Mail Messaging And Blogging,  Prev: Electronic Books— Ubiquitous Access To Books,  Up: Top
+
+14 Leveraging Computational Tools — From SQL And R To IPython Notebooks
+***********************************************************************
+
+  1. This area continues to provide a rich collection of packages.
+  2. Newer highlights include ‘sage’ interaction for symbolic
+     computation.
+  3. Emacspeak speech-enables packages ‘gptel’ and ‘ellama’ for working
+     with local and network LLMs.
+
+
+File: now-thirty.info,  Node: Social Web — Mail Messaging And Blogging,  Next: The RESTful Web — Web Wizards And URL Templates For Faster Access,  Prev: Leveraging Computational Tools — From SQL And R To IPython Notebooks,  Up: Top
+
+15 Social Web — Mail, Messaging And Blogging
+********************************************
+
+  1. This is a space that is definitely regressing.
+  2. The previous decade was marked by open APIs to many social Web
+     platforms.
+  3. Over time these first regressed with respect to privacy.
+  4. Then they turned into wall-gardens in their own right.
+  5. Finally, the Web APIs, other than the kind embedded in Javascript
+     have started disappearing.
+  6. Looking back, the only _social_ platform I now use is Blogger for
+     hosting my Emacspeak Blog, it has a somewhat usable API, albeit
+     guarded by a difficult to use _OAuth_ interface that requires
+     signing in via a _mainstream_ browser.
+  7. IMap continues to survive as an open email protocol, though its
+     days may well be numbered.
+  8. The dye is already cast with respect to mere mortals being able to
+     setup and host their email -- witness the complexity in setting up
+     the Emacspeak mailing list in 2023 vs 1993!
+  9. This is an area that is likely to get worse before it gets better,
+     thanks to the spammers -- more's the pity, since Internet Email is
+     perhaps the single-most impactful technology with respect to
+     leveling the communications playing field.
+  10. The disappearance of APIs mentioned above also means that today
+     the only usable chat service on an open platform like Emacspeak is
+     the venerable Internet Relay Chat (IRC).
+
+
+File: now-thirty.info,  Node: The RESTful Web — Web Wizards And URL Templates For Faster Access,  Next: Mashing It Up — Leveraging AI And The Web,  Prev: Social Web — Mail Messaging And Blogging,  Up: Top
+
+16 The RESTful Web — Web Wizards And URL Templates For Faster Access
+********************************************************************
+
+  1. This area continues to thrive -- either because of -- or despite --
+     the best and worst efforts of application providers on the Web.
+  2. Twenty years on (this feature originally landed in 2000) Emacspeak
+     has a far richer collection of filters, preprocessors and
+     post-processors that enables ever-more powerful Web wizards.  See
+     the relevant chapter
+     (https://tvraman.github.io/emacspeak/manual/URL-Templates.html) in
+     the Emacspeak manual for the automatically updated list of *URL
+     Templates*.
+
+
+File: now-thirty.info,  Node: Mashing It Up — Leveraging AI And The Web,  Next: The Final Word --- Donald E Knuth (DEK),  Prev: The RESTful Web — Web Wizards And URL Templates For Faster Access,  Up: Top
+
+17 Mashing It Up — Leveraging AI And The Web
+********************************************
+
+  1. Developing solutions by combining various API-based services on the
+     Web has all but disappeared, unless one is willing to commit fully
+     to the Javascript-powered Web hosted in a Web browser, something I
+     hope I never have to accept.
+  2. So for now, I'll keep well away and count my blessings.
+  3. The next chapter of the _mash-up story_ may well be based around
+     _Generative AI_ using LLMs.  In effect, LLMs trained on Web content
+     define a _platform_ for generating content mash-ups.  The issue at
+     present is that they are just as likely to produce _meaningless
+     mush_ -- something that may get better as the field gets a handle
+     on cleaning up Web content.
+  4. Notice that we are now back to the previously unsolved problem of
+     cleaning up the HTML Web -- with LLMs, we'll just have an order of
+     magnitude more documents than the _2^W_ postulated by
+     Communications Of The ACM, 2009.
+
+
+File: now-thirty.info,  Node: The Final Word --- Donald E Knuth (DEK),  Next: References,  Prev: Mashing It Up — Leveraging AI And The Web,  Up: Top
+
+18 The Final Word -- Donald E Knuth (DEK)
+*****************************************
+
+   • The best theory is inspired by practice.  The best practice is
+     inspired by theory.
+   • The enjoyment of one's tools is an essential ingredient of
+     successful work.
+   • Easy things are often amusing and relaxing, but their value soon
+     fades.  Greater pleasure, deeper satisfaction, and higher wages are
+     associated with genuine accomplishments, with the successful
+     fulfillment of a challenging task.
+   • Computer Programming Is An Art
+     (https://www.azquotes.com/author/8177-Donald_Knuth).
+
+   The best example of the above is of course Knuth's TeX
+(https://en.wikipedia.org/wiki/TeX) -- work that was motivated by his
+own dissatisfaction with the tools available to him at the time for
+typesetting his magnum opus -- The Art Of Computer Programming (TAOCP)
+(https://www-cs-faculty.stanford.edu/~knuth/taocp.html).  It is
+something I've looked up to ever since my time as a graduate student at
+Cornell.
+
+   The Emacspeak Speech Odyssey outlined in this paper is, in some small
+measure, my own personal experience of the sentiments he expresses.
+
+   -T.  V.  Raman, San Jose, CA, August 1, 2024.
+
+
+File: now-thirty.info,  Node: References,  Prev: The Final Word --- Donald E Knuth (DEK),  Up: Top
+
+19 References
+*************
+
+  1. DDJ 1997.
+  2. GNU Emacs (https://www.gnu.org/s/emacs/)
+  3. Knuth's TeX (https://en.wikipedia.org/wiki/TeX)
+  4. Audio System For Technical Readings
+     (https://emacspeak.blogspot.com/2022/12/aster-spoken-math-on-emacspeak-audio_21.html)
+  5. Announcing Emacspeak: April 1995
+     (https://tvraman.github.io/emacspeak//web/releases/release-3.0.html)
+  6. Emacspeak At Twenty
+     (https://emacspeak.sourceforge.net/turning-twenty.html)
+  7. The Way You Want.  Distinguished Lecture Series, UW Oct 2007
+  8. Specialized Browsers
+     (https://emacspeak.sourceforge.net/raman/publications/specialized-browsers/)
+  9. An Ode To Emacspeak: The Best Is Yet To Come
+     (https://tvraman.github.io/emacspeak/web/01-gemini.ogg)
+  10. Software Dectalk on Github
+     (https://github.com/dectalk/dectalk.git)
+  11. Dectalk setup instructions
+     (https://raw.githubusercontent.com/tvraman/emacspeak/master/servers/software-dtk/Readme.org)
+  12. Effective Suggest And Complete In An Eyes-free Environment
+     (https://emacspeak.blogspot.com/2018/06/effective-suggest-and-complete-in-eyes.html)
+  13. Common Lisp: asdf (https://asdf.common-lisp.dev/asdf.html)
+  14. Common Lisp: Quicklisp (https://www.quicklisp.org/)
+  15. Soundscapes on the Emacspeak Audio Desktop
+     (https://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html)
+  16. RESTful Web (https://en.wikipedia.org/wiki/REST)
+  17. Ergonomic keybindings
+     (https://emacspeak.blogspot.com/2023/09/emacs-ergonomics-dont-punish-your.html)
+  18. Minimize chording with XCape (https://github.com/alols/xcape)
+  19. Learn Smarter By Taking Rich Hypertext Notes
+     (https://emacspeak.blogspot.com/2022/10/learn-smarter-by-taking-rich-hypertext.html)
+  20. Scripts And Obfuscation: How The Web Was Broken
+  21. Readable Web Pages: RDRView (https://github.com/eafer/rdrview)
+  22. smart media selectors
+     (https://emacspeak.blogspot.com/2024/03/updated-smart-media-selector-for-audio.html)
+  23. Communications Of The ACM, 2009
+  24. Emacspeak Manual: URL Templates
+     (https://tvraman.github.io/emacspeak/manual/URL-Templates.html)
+  25. Beautiful Code
+     (http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html)
+     An overview of the Emacspeak architecture, O'Reilly Media, 2007.
+  26. The Art Of Computer Programming (TAOCP)
+     (https://www-cs-faculty.stanford.edu/~knuth/taocp.html)
+
+
+
+Tag Table:
+Node: Top198
+Node: Dedication To My Guiding Eyes Aster Hubbell and Tilden1814
+Node: Key Insights2064
+Node: Emacspeak --- The Complete Audio Desktop3751
+Node: How To Read This Document6698
+Node: Using UNIX With Speech Output — 20247191
+Node: Key Enabler — Emacs And Lisp Advice8354
+Node: Key Component — Text To Speech (TTS)9212
+Node: Emacspeak And Software Development11137
+Node: Emacspeak And Authoring Documents13777
+Node: Emacspeak And The Web In 202415026
+Node: Audio Formatting — Generalizing Aural CSS17947
+Node: Conversational Gestures For The Audio Desktop18964
+Node: Accessing Media Streams19607
+Node: Electronic Books— Ubiquitous Access To Books20512
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks21093
+Node: Social Web — Mail Messaging And Blogging21726
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access23413
+Node: Mashing It Up — Leveraging AI And The Web24301
+Node: The Final Word --- Donald E Knuth (DEK)25546
+Node: References26921
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:
