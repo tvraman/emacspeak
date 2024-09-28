@@ -1,4 +1,33 @@
-* Emacspeak --- The Complete Audio Desktop
+* Emacspeak
 
+** Emacspeak
+*Emacspeak* is a speech interface that helps visually impaired users work with the Emacs editor. Emacspeak turns Emacs into a complete audio desktop, giving audio feedback allowing full access to all of its features.
+
+** Some Key Features
+- Supports a wide range of Emacs functionalities with auditory feedback.
+- Works across different platforms, including Linux and macOS.
+- Integrates well with popular Emacs packages.
+- Provides keyboard navigation and voice annotations.
+
+** Installation
+
+*** Prerequisites
+- *Emacs*: Ensure that Emacs is installed on your system.
+- *TCL*: Emacspeak requires the TCL language and TCLX extensions.
+
+*** Steps
+1. Clone the repository:
+   #+BEGIN_SRC bash
+   git clone https://github.com/username/emacspeak.git
+   #+END_SRC
+2. Install dependencies per your system's requirements.
+3. Run the installation script:
+   #+BEGIN_SRC bash
+   cd emacspeak
+   sudo make install
+   #+END_SRC
+For usage instructions follow the [[https://tvraman.github.io/emacspeak/manual/][manual]]
+
+** Blog and Portfolio
   - [[https://emacspeak.blogspot.com][blog]]
   - [[https://tvraman.github.io][T. V. Raman]]
