@@ -1,4 +1,84 @@
-* Emacspeak --- The Complete Audio Desktop
+* Emacspeak
 
+* Table of Contents
+1. [[*Emacspeak][Emacspeak]]
+2. [[*Description][Description]]
+3. [[*Quick Installation Instructions][Quick Installation Instructions]]
+4. [[*Blog and Portfolio][Blog and Portfolio]]
+5. [[*Additional Info][Additional Info]]
+
+** Description
+*Emacspeak* is a speech interface that helps visually impaired users work with the Emacs editor. Emacspeak turns Emacs into a complete audio desktop, giving audio feedback allowing full access to all of its features.
+
+** Quick Installation Instructions
+
+For a more detailed installation guide, and further instructions on usage, use the [[https://tvraman.github.io/emacspeak/manual/#toc-Installation-Instructions][manual]]. For a quick installation guide, see below.
+
+1. Obtain the Source Code:
+   - Download the latest release tar.bz2 file or clone the repository:
+   #+BEGIN_SRC sh
+   git clone https://github.com/tvraman/emacspeak
+   #+END_SRC
+
+2. Change to the Emacspeak Directory:
+   #+BEGIN_SRC sh
+   cd emacspeak
+   #+END_SRC
+
+3. Configure the Sources:
+   #+BEGIN_SRC sh
+   make config
+   #+END_SRC
+
+4. Compile the Files:
+   #+BEGIN_SRC sh
+   make
+   #+END_SRC
+
+5. Install a Text-to-Speech Engine:
+   - Open Source ESpeak on Linux:
+     1. Install the ESpeak packages for your system.
+     2. Compile the Emacspeak ESpeak server:
+        #+BEGIN_SRC sh
+        cd servers/native-espeak
+        make
+        #+END_SRC
+   - ViaVoice Outloud (AKA Eloquent):
+     - Purchase this engine from the Voxin site. See [[https://voxin.oralux.net/rss.xml][Voxin Packages]] for the latest packages and [[https://voxin.oralux.net][Voxin Main Site]] for more information.
+   - Mac:
+     - You can may use the the built-in Mac TTS engine. Emacspeak includes a speech server for this purpose.
+
+6. Set Up the TTS Engine:
+   After installing TTS engine, set up Emacspeak by adding the following line to your shell's configuration file:
+   
+   - For Bash (default on Linux or macOS before Catalina):
+     Add the following line to your `.bash_profile`:
+     #+BEGIN_SRC sh
+     export DTK_PROGRAM=<engine-name>
+     #+END_SRC
+
+   - For Zsh (default on macOS Catalina and later):
+     Add the following line to your `.zshrc` file:
+     #+BEGIN_SRC sh
+     export DTK_PROGRAM=<engine-name>
+     #+END_SRC
+
+   For example, to use ESpeak, add:
+   #+BEGIN_SRC sh
+   export DTK_PROGRAM=espeak
+   #+END_SRC
+
+7. Load Emacspeak in Your Emacs Configuration:
+   Add the following line to the top of your .emacs file:
+   #+BEGIN_SRC elisp
+   (load-file "<emacspeak-dir>/lisp/emacspeak-setup.el")
+   #+END_SRC
+   Replace <emacspeak-dir> with the directory where you unpacked the sources.
+
+** Blog and Portfolio
   - [[https://emacspeak.blogspot.com][blog]]
   - [[https://tvraman.github.io][T. V. Raman]]
+
+** Additional Info
+
+For more detailed instructions, please refer to the [[https://tvraman.github.io/emacspeak/manual/#toc-Installation-Instructions][manual]].
