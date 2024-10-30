@@ -130,7 +130,7 @@
    ((string-match "swiftmac" dtk-program)
     (require 'swiftmac-voices)
     (swiftmac-configure-tts))
-   ((string-match "mac" dtk-program)
+   ((string-match "mac\\'" dtk-program)
     (require 'mac-voices)
     (mac-configure-tts))
    ((string-match "espeak\\'" dtk-program)
