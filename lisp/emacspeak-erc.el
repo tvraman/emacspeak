@@ -293,7 +293,7 @@ set the current local value to the result.")
            (keymapp erc-mode-map))
   (define-key erc-mode-map
               (kbd "C-c ") 'emacspeak-erc-toggle-speak-all-participants)
-  (define-key erc-mode-map (kbd "C-cm")
+  (define-key erc-mode-map (kbd "C-c m")
               'emacspeak-erc-toggle-my-monitor)
   (define-key erc-mode-map (kbd "C-c C-m") 'emacspeak-erc-toggle-room-monitor)
   (define-key erc-mode-map (kbd "C-c C-a")
